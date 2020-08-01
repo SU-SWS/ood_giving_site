@@ -13,6 +13,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-source-storyblok',
+      options: {
+        accessToken: '3yGRaYQBhyg4HrjiQjtHyQtt',
+        homeSlug: 'home',
+        version: process.env.NODE_ENV == 'production' ? 'published' : 'draft'
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
