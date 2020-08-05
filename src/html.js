@@ -11,10 +11,7 @@ export default class HTML extends React.Component {
           content="width=device-width, initial-scale=1.0"
         />
         {this.props.headComponents}
-        <link
-          rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
-        />
+
       </head>
       <body>
       <div

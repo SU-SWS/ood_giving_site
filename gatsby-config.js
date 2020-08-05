@@ -18,9 +18,11 @@ module.exports = {
       options: {
         accessToken: '3yGRaYQBhyg4HrjiQjtHyQtt',
         homeSlug: 'home',
-        version: process.env.NODE_ENV == 'production' ? 'published' : 'draft'
+        //version: process.env.NODE_ENV == 'production' ? 'published' : 'draft'
+        version: 'draft'
       }
     },
+    `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
