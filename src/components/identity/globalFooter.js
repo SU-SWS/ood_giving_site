@@ -4,7 +4,7 @@ import SbEditable from 'storyblok-react'
 
 const globalFooter = (props) => (
   <SbEditable content={props.blok}>
-    <section className={props.blok.globalFooterClassVariants ?  "su-global-footer " + props.blok.globalFooterClassVariants : "su-global-footer"}>
+    <div className={props.blok.globalFooterClassVariants ?  "su-global-footer " + props.blok.globalFooterClassVariants : "su-global-footer"}>
       <div className="su-global-footer__container">
         <div className="su-global-footer__brand">
           <a className="su-logo [ modifier_class ]" href="https://www.stanford.edu">
@@ -62,7 +62,7 @@ const globalFooter = (props) => (
           </div>
         </div>
       </div>
-    </section>
+    </div>
   </SbEditable>
 )
 

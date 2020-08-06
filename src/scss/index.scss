@@ -2,52 +2,51 @@
 
 // Vendors
 @import
-'./node_modules/bourbon/core/bourbon.scss',
-'./node_modules/decanter/core/src/scss/core/normalize'
+'bourbon/core/bourbon.scss',
+'decanter/core/src/scss/core/normalize'
 ;
 
 @import 'config';
 
 // Utilities
 @import
- './node_modules/decanter/core/src/scss/utilities/variables/core/index'
-, './node_modules/decanter/core/src/scss/utilities/variables/elements/index'
-, './node_modules/decanter/core/src/scss/utilities/variables/components/index'
-, './node_modules/decanter/core/src/scss/utilities/functions/index'
-, './node_modules/decanter/core/src/scss/utilities/mixins/index'
-, './node_modules/decanter/core/src/scss/utilities/placeholders/index'
+  'decanter/core/src/scss/utilities/variables/core/index'
+, 'decanter/core/src/scss/utilities/variables/elements/index'
+, 'decanter/core/src/scss/utilities/variables/components/index'
+, 'decanter/core/src/scss/utilities/functions/index'
+, 'decanter/core/src/scss/utilities/mixins/index'
+, 'decanter/core/src/scss/utilities/placeholders/index'
 ;
 
 // Core elements
 @import
- './node_modules/decanter/core/src/scss/core/base'
-, './node_modules/decanter/core/src/scss/core/fonts/fonts'
-, './node_modules/decanter/core/src/scss/elements/typography/index'
-, './node_modules/decanter/core/src/scss/core/helpers/sr-only-element'
-, './node_modules/decanter/core/src/scss/core/helpers/sr-only-text'
-, './node_modules/decanter/core/src/scss/elements/embed/index'
-, './node_modules/decanter/core/src/scss/elements/image/index'
-, './node_modules/decanter/core/src/scss/elements/input/input'
-, './node_modules/decanter/core/src/scss/elements/input/select'
-, './node_modules/decanter/core/src/scss/elements/list/index'
-, './node_modules/decanter/core/src/scss/elements/table/index'
+  'decanter/core/src/scss/core/base'
+, 'decanter/core/src/scss/core/fonts/fonts'
+, 'decanter/core/src/scss/elements/typography/index'
+, 'decanter/core/src/scss/core/helpers/sr-only-element'
+, 'decanter/core/src/scss/core/helpers/sr-only-text'
+, 'decanter/core/src/scss/elements/embed/index'
+, 'decanter/core/src/scss/elements/image/index'
+, 'decanter/core/src/scss/elements/input/input'
+, 'decanter/core/src/scss/elements/input/select'
+, 'decanter/core/src/scss/elements/list/index'
+, 'decanter/core/src/scss/elements/table/index'
 ;
 
 // Components
 @import
-  './node_modules/decanter/core/src/scss/components/link/link'
-, './node_modules/decanter/core/src/scss/components/link/link--more'
-, './node_modules/decanter/core/src/scss/components/global-footer/index'
-, './node_modules/decanter/core/src/scss/components/main-nav/index'
-, './node_modules/decanter/core/src/scss/components/site-search/index'
-, './node_modules/decanter/core/src/scss/components/skiplinks/index'
+  'decanter/core/src/scss/components/link/link'
+, 'decanter/core/src/scss/components/link/link--more'
+, 'decanter/core/src/scss/components/global-footer/index'
+, 'decanter/core/src/scss/components/main-nav/index'
+, 'decanter/core/src/scss/components/site-search/index'
+, 'decanter/core/src/scss/components/skiplinks/index'
 
   // Components with cherry picked variants
-, './node_modules/decanter/core/src/scss/components/lockup/lockup'
-, './node_modules/decanter/core/src/scss/components/lockup/lockup--option-d'
-, './node_modules/decanter/core/src/scss/components/lockup/lockup--option-n'
+, 'decanter/core/src/scss/components/lockup/lockup'
+, 'decanter/core/src/scss/components/lockup/lockup--option-d'
+, 'decanter/core/src/scss/components/lockup/lockup--option-n'
 ;
-
 
 @import 'styles.scss';
 

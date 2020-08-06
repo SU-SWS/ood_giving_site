@@ -24,7 +24,15 @@ module.exports = {
         version: 'draft'
       }
     },
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        includePaths: [path.resolve(__dirname, 'node_modules')],
+        cssLoaderOptions: {
+          camelCase: false,
+        },
+      },
+    },
     `gatsby-plugin-postcss`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
