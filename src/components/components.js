@@ -1,3 +1,4 @@
+import RichTextField from "./richTextField";
 import Page from './page'
 import Grid from './grid'
 import Teaser from './teaser'
@@ -9,7 +10,9 @@ import IntroText from './typography/introText'
 import ComponentNotFound from './component_not_found'
 // Stanford identity elements
 import GlobalFooter from './identity/globalFooter'
-import RichTextField from "./richTextField";
+import GlobalHeader from './identity/globalHeader'
+import Lockup from './identity/lockup'
+
 
 const ComponentList = {
   page: Page,
@@ -21,6 +24,8 @@ const ComponentList = {
   headline: Headline,
   introText: IntroText,
   globalFooter: GlobalFooter,
+  globalHeader: GlobalHeader,
+  lockup: Lockup,
   section: Section
 }
 

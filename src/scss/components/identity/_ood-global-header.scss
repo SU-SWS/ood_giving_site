@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+// The OOD global header which includes the logo lockup, main navigation, top navigation and skip link
+
+.ood-global-header {
+  @include modular-spacing('padding', 1 null);
+  @include box-shadow($depth: 'shallow', $stroke: 0);
+  display: block;
+  max-width: 100%;
+}
+

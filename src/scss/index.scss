@@ -48,6 +48,10 @@
 , 'decanter/core/src/scss/components/lockup/lockup--option-n'
 ;
 
-@import 'styles.scss';
+@import
+  'styles.scss'
+, 'decorators/index'
+, 'components/index'
+;
 
 

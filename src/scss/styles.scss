@@ -4,4 +4,17 @@
   background-color: $su-color-cool-grey;
   @include padding(0 null 3px);
   @include font-smoothing;
+  display: grid;
+  grid-template-areas: "col-1" "col-2";
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 36px;
+
+  > div:first-of-type {
+    grid-area: col-1;
+  }
+
+  > div:last-of-type {
+    grid-area: col-2;
+  }
+
 }
