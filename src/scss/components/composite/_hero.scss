@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+.ood-hero {
+  position: relative;
+  height: 600px;
+
+  .su-media {
+    height: 100%;
+
+    .su-media__wrapper {
+      height: 100%;
+    }
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  h1 {
+    @include serif;
+    @include modular-typography(9);
+    @include margin(null null 0);
+    max-width: 600px;
+    position: absolute;
+    bottom: 0.3em;
+    left: calc((100% - 1500px) / 2);
+    font-weight: $su-font-regular;
+    z-index: 100;
+    text-shadow: rgba(0,0,0,0.6) 0 0 26px;
+  }
+
+  &__link {
+    @include modular-typography(4);
+    position: absolute;
+    bottom: -100px;
+    right: calc((100% - 1500px) / 2);
+    max-width: 500px;
+    z-index: 90;
+    text-decoration: none;
+    font-weight: $su-font-regular;
+
+    > p {
+      @include modular-spacing('padding', 4 3);
+      @include margin(null null 0);
+
+      &::after {
+        @include margin(null null null 0.3em);
+        display: inline-block;
+        font-family: "Font Awesome 5 Free";
+        content: "\f105";
+        font-weight: 900;
+      }
+    }
+  }
+
+  @each $key, $breakpoint in $su-grid-media {
+    @if index($su-grid-media, ($key $breakpoint)) > 3 { // Breakpoint LG and larger
+      $_edge: map-get($su-screen-margins, $key);
+
+      &__link {
+        @include grid-media($key) {
+          right : $_edge;
+        }
+      }
+
+      h1 {
+        @include grid-media($key) {
+          left : $_edge;
+        }
+      }
+    }
+  }
+
+  // For browser width larger than 1700px (1500 max center container width + 2 X max screen edges 100px each)
+  @media only screen and (min-width: #{$su-screen-2xl + map_get($su-screen-margins, '2xl') * 2}) {
+    $_max_width_edge: calc((100% - #{$su-site-max-width}) / 2);
+
+    &__link {
+      right: $_max_width_edge;
+    }
+
+    h1 {
+      left: $_max_width_edge;
+    }
+  }
+
+}

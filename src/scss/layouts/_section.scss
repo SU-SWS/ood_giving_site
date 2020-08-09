@@ -2,9 +2,26 @@
 
 .section {
   &__title {
+    @include margin(null auto);
     @include modular-typography(4);
     font-family: $su-font-serif;
     font-weight: $su-font-regular;
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+
+    &::before,
+    &::after {
+      content: '';
+      border-top: 1px solid;
+      margin: 0 100px 0 0;
+      flex: 1 0 40px;
+    }
+  }
+
+  h2:after {
+    margin: 0 0 0 100px;
   }
 }
