@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.bg {
+  &-white{
+    background-color: $su-color-white;
+  }
+
+  &-fog {
+    background-color: #DAD7CB;
+  }
+
+  &-fog-light {
+    background-color: #F4F4F4;
+  }
+
+  &-bay-light {
+    background-color: #c7d1c5;
+  }
+}

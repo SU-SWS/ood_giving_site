@@ -1,10 +1,11 @@
-import RichTextField from "./richTextField";
+import RichTextField from "./richTextField"
 import Page from './page'
 import Grid from './grid'
 import Teaser from './teaser'
 import Feature from './feature'
 import EventTeaser from './eventTeaser'
 import Headline from './headline'
+import FeaturedImage from './featuredImage'
 import Section from './section'
 import IntroText from './typography/introText'
 import ComponentNotFound from './component_not_found'
@@ -26,7 +27,8 @@ const ComponentList = {
   globalFooter: GlobalFooter,
   globalHeader: GlobalHeader,
   lockup: Lockup,
-  section: Section
+  section: Section,
+  featuredImage: FeaturedImage
 }
 
 const Components = (type) => {

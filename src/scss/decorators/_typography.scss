@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.text {
+  &-black {
+    color: $su-color-black;
+
+    &-true {
+      color: #000000;
+    }
+  }
+  &-white {
+    color: $su-color-white;
+  }
+  &-palo-alto-dark {
+    color: #014240;
+  }
+}

@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.su-intro-text {
+  @include margin(null auto);
+}
+
 .su-yvonne {
   background-color: $su-color-cool-grey;
   @include padding(0 null 3px);

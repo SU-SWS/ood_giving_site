@@ -2,8 +2,9 @@
 
 // Vendors
 @import
-'bourbon/core/bourbon.scss',
-'decanter/core/src/scss/core/normalize'
+  'bourbon/core/bourbon.scss'
+, 'decanter/core/src/scss/core/normalize'
+, '@fortawesome/fontawesome-free/scss/fontawesome'
 ;
 
 @import 'config';
@@ -35,10 +36,13 @@
 
 // Components
 @import
-  'decanter/core/src/scss/components/link/link'
-, 'decanter/core/src/scss/components/link/link--more'
+  'decanter/core/src/scss/components/card/index'
+, 'decanter/core/src/scss/components/link/link'
 , 'decanter/core/src/scss/components/global-footer/index'
+, 'decanter/core/src/scss/components/signup-form/index'
+, 'decanter/core/src/scss/components/local-footer/index'
 , 'decanter/core/src/scss/components/main-nav/index'
+, 'decanter/core/src/scss/components/media/index'
 , 'decanter/core/src/scss/components/site-search/index'
 , 'decanter/core/src/scss/components/skiplinks/index'
 
@@ -51,6 +55,7 @@
 @import
   'styles.scss'
 , 'decorators/index'
+, 'layouts/index'
 , 'components/index'
 ;
 

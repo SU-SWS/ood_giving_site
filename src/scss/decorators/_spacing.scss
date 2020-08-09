@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+// Margins and paddings
+
+.padding {
+  &-v {
+    &-sm {
+      @include modular-spacing('padding', 3 null);
+    }
+
+    &-md {
+      @include modular-spacing('padding', 4 null);
+    }
+
+    &-lg {
+      @include modular-spacing('padding', 6 null);
+    }
+
+    &-xl {
+      @include modular-spacing('padding', 8 null);
+    }
+  }
+}
