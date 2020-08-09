@@ -1,13 +1,18 @@
 @charset "UTF-8";
 
+@import 'config';
+
 // Vendors
 @import
   'bourbon/core/bourbon.scss'
 , 'decanter/core/src/scss/core/normalize'
 , '@fortawesome/fontawesome-free/scss/fontawesome'
+, '@fortawesome/fontawesome-free/scss/solid'
+, '@fortawesome/fontawesome-free/scss/brands'
+, '@fortawesome/fontawesome-free/scss/regular'
 ;
 
-@import 'config';
+
 
 // Utilities
 @import
@@ -24,8 +29,7 @@
   'decanter/core/src/scss/core/base'
 , 'decanter/core/src/scss/core/fonts/fonts'
 , 'decanter/core/src/scss/elements/typography/index'
-, 'decanter/core/src/scss/core/helpers/sr-only-element'
-, 'decanter/core/src/scss/core/helpers/sr-only-text'
+, 'decanter/core/src/scss/core/helpers/index'
 , 'decanter/core/src/scss/elements/embed/index'
 , 'decanter/core/src/scss/elements/image/index'
 , 'decanter/core/src/scss/elements/input/input'

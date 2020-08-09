@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+.ood-card {
+  @include margin(null auto);
+  max-width: 500px;
+
+
+  .su-card__contents {
+    > h2 {
+      @include modular-typography(4);
+      font-weight: $su-font-regular;
+    }
+  }
+
+  &.has-image {
+    @include margin(100px null null);
+
+    .su-media {
+      @include margin(-100px null null);
+      @include modular-spacing('margin', null 2);
+    }
+  }
+
+  &.no-image {
+    .su-card__contents {
+      @include modular-spacing("padding", 4 null);
+    }
+
+    .su-media {
+      display: none;
+    }
+  }
+
+  .fas,
+  .far,
+  .fab {
+    font-size: 2em;
+  }
+}
+
+.text-white {
+  color: $su-color-white;
+
+  &.su-card--link {
+    > a,
+    > a:hover,
+    > a:focus {
+      color: $su-color-white;
+
+      h2 {
+        color: $su-color-white;
+      }
+    }
+  }
+}
+
+

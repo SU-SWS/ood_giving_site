@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body {
+  @include font-smoothing;
+}
+
 .su-intro-text {
   @include margin(null auto);
 }

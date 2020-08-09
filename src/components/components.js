@@ -3,6 +3,7 @@ import Page from './page'
 import Grid from './grid'
 import Teaser from './teaser'
 import Feature from './feature'
+import Card from './card'
 import EventTeaser from './eventTeaser'
 import Headline from './headline'
 import FeaturedImage from './featuredImage'
@@ -21,6 +22,7 @@ const ComponentList = {
   teaser: Teaser,
   eventTeaser: EventTeaser,
   feature: Feature,
+  card: Card,
   richTextField: RichTextField,
   headline: Headline,
   introText: IntroText,
