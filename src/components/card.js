@@ -12,10 +12,16 @@ const Card = (props) => (
           blok: blok
         }))}
         <section className="su-card__contents">
-          <i className={props.blok.icon.type + " " + props.blok.icon.icon}></i>
-          <span>{props.blok.superheadline}</span>
+          {props.blok.icon.type && (
+            <i className={props.blok.icon.type + " " + props.blok.icon.icon}></i>
+          )}
+          {props.blok.superheadline && (
+            <span>{props.blok.superheadline}</span>
+          )}
           <h2>{props.blok.headline}</h2>
-          <RichTextField data={ props.blok.bodyText ? props.blok.bodyText : "" }></RichTextField>
+          {props.blok.bodyText && (
+            <RichTextField data={ props.blok.bodyText }></RichTextField>
+          )}
         </section>
       </a>
     </article>

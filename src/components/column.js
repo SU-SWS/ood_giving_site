@@ -2,14 +2,14 @@ import React from 'react'
 import Components from './components.js';
 import SbEditable from 'storyblok-react'
 
-const Grid = (props) => (
+const Column = (props) => (
   <SbEditable content={props.blok}>
-    <div className="flex-container flex-container--row-gap">
-        {props.blok.columns.map((blok) =>
+      <div className={ "flex-md-" + props.blok.columnWidth }>
+        {props.blok.content.map((blok) =>
           React.createElement(Components(blok.component), {key: blok._uid, blok: blok})
         )}
-    </div>
+      </div>
   </SbEditable>
 )
 
-export default Grid
+export default Column

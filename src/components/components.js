@@ -4,6 +4,8 @@ import Grid from './grid'
 import Teaser from './teaser'
 import Feature from './feature'
 import Card from './card'
+import Column from './column'
+import Row from './row'
 import Hero from './hero'
 import EventTeaser from './eventTeaser'
 import Headline from './headline'
@@ -27,6 +29,8 @@ const ComponentList = {
   hero: Hero,
   richTextField: RichTextField,
   headline: Headline,
+  row: Row,
+  column: Column,
   introText: IntroText,
   globalFooter: GlobalFooter,
   globalHeader: GlobalHeader,

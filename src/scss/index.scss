@@ -12,9 +12,10 @@
 , '@fortawesome/fontawesome-free/scss/regular'
 ;
 
+// Fonts we use for this project
+@import 'fonts';
 
-
-// Utilities
+// Decanter Utilities
 @import
   'decanter/core/src/scss/utilities/variables/core/index'
 , 'decanter/core/src/scss/utilities/variables/elements/index'
@@ -24,21 +25,16 @@
 , 'decanter/core/src/scss/utilities/placeholders/index'
 ;
 
-// Core elements
+// Decanter Core Elements
 @import
   'decanter/core/src/scss/core/base'
-, 'decanter/core/src/scss/core/fonts/fonts'
-, 'decanter/core/src/scss/elements/typography/index'
+, 'decanter/core/src/scss/core/flex-grid/index'
+//, 'decanter/core/src/scss/core/fonts/fonts'
+, 'decanter/core/src/scss/elements/index'
 , 'decanter/core/src/scss/core/helpers/index'
-, 'decanter/core/src/scss/elements/embed/index'
-, 'decanter/core/src/scss/elements/image/index'
-, 'decanter/core/src/scss/elements/input/input'
-, 'decanter/core/src/scss/elements/input/select'
-, 'decanter/core/src/scss/elements/list/index'
-, 'decanter/core/src/scss/elements/table/index'
 ;
 
-// Components
+// Decanter Components
 @import
   'decanter/core/src/scss/components/card/index'
 , 'decanter/core/src/scss/components/link/link'
@@ -56,11 +52,10 @@
 , 'decanter/core/src/scss/components/lockup/lockup--option-n'
 ;
 
+// Styles for this project
 @import
-  'styles.scss'
-, 'decorators/index'
+  'base'
 , 'layouts/index'
 , 'components/index'
+, 'decorators/index'
 ;
-
-
