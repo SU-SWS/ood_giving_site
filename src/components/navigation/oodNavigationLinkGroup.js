@@ -6,8 +6,7 @@ import Components from "./components";
 const OodNavigationLinkGroup = (props) => (
     <SbEditable content={props.blok}>
         <div className="ood-navigation-link-group">
-            { props.blok.headingText }
-            { props.blok.headingStyle }
+            <h3 className="{ props.blok.headingStyle }">{ props.blok.headingText }</h3>
             {props.blok.links && props.blok.links.map((blok) => React.createElement(Components(blok.component), {
                 key: blok._uid,
                 blok: blok,
