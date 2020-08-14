@@ -16,6 +16,7 @@ import OodMegaMenu from './navigation/oodMegaMenu'
 import OodMegaMenuSection from './navigation/oodMegaMenuSection'
 import OodMegaMenuCard from './navigation/oodMegaMenuCard'
 import OodNavigationLink from './navigation/oodNavigationLink'
+import OodNavigationLinkGroup from './navigation/oodNavigationLinkGroup'
 import OodNavigationColumn from './navigation/oodNavigationColumn'
 import ComponentNotFound from './component_not_found'
 // Stanford identity elements
@@ -41,6 +42,7 @@ const ComponentList = {
   oodMegaMenuSection: OodMegaMenuSection,
   oodMegaMenuCard: OodMegaMenuCard,
   oodNavigationLink: OodNavigationLink,
+  oodNavigationLinkGroup: OodNavigationLinkGroup,
   oodNavigationColumn: OodNavigationColumn,
   globalFooter: GlobalFooter,
   globalHeader: GlobalHeader,
