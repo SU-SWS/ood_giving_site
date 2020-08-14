@@ -12,6 +12,11 @@ import Headline from './headline'
 import FeaturedImage from './featuredImage'
 import Section from './section'
 import IntroText from './typography/introText'
+import OodMegaMenu from './navigation/oodMegaMenu'
+import OodMegaMenuSection from './navigation/oodMegaMenuSection'
+import OodMegaMenuCard from './navigation/oodMegaMenuCard'
+import OodNavigationLink from './navigation/oodNavigationLink'
+import OodNavigationColumn from './navigation/oodNavigationColumn'
 import ComponentNotFound from './component_not_found'
 // Stanford identity elements
 import GlobalFooter from './identity/globalFooter'
@@ -32,6 +37,11 @@ const ComponentList = {
   row: Row,
   column: Column,
   introText: IntroText,
+  oodMegaMenu: OodMegaMenu,
+  oodMegaMenuSection: OodMegaMenuSection,
+  oodMegaMenuCard: OodMegaMenuCard,
+  oodNavigationLink: OodNavigationLink,
+  oodNavigationColumn: OodNavigationColumn,
   globalFooter: GlobalFooter,
   globalHeader: GlobalHeader,
   lockup: Lockup,
