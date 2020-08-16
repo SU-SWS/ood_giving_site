@@ -10,6 +10,10 @@
       @include modular-typography(4);
       font-weight: $su-font-regular;
     }
+
+    .ood-card__superhead {
+      @include margin(null null 1.4em);
+    }
   }
 
   &.has-image {
@@ -23,7 +27,7 @@
 
   &.no-image {
     .su-card__contents {
-      @include modular-spacing("padding", 4 null);
+      @include modular-spacing("padding", 4 3);
     }
 
     .su-media {
@@ -35,6 +39,10 @@
   .far,
   .fab {
     font-size: 2em;
+  }
+
+  &__superhead {
+    text-transform: uppercase;
   }
 }
 
