@@ -9,7 +9,7 @@ const Card = (props) => (
       <a href={props.blok.link} rel="nofollow noopener">
         {props.blok.image.filename && (
           <figure className="su-media">
-            <div className="su-media__wrapper su-aspect-ratio--3x2">
+            <div className="su-media__wrapper su-aspect-ratio su-aspect-ratio--3x2">
               <img src={props.blok.image.filename} alt=""></img>
             </div>
           </figure>

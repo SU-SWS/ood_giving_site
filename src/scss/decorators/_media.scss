@@ -1,0 +1,5 @@
+@charset "UTF-8";
+
+.su-aspect-ratio--3x2 {
+  @include aspect-ratio(3, 2);
+}
