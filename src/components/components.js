@@ -6,20 +6,23 @@ import Feature from './feature'
 import Card from './card'
 import OodQuoteCard from './oodQuoteCard'
 import OodQuoteSlider from './oodQuoteSlider'
-import Column from './column'
-import Row from './row'
+import Column from './layout/column'
+import Row from './layout/row'
 import Hero from './hero'
 import EventTeaser from './eventTeaser'
 import Headline from './headline'
 import FeaturedImage from './featuredImage'
 import TestImage from './testImage'
-import Section from './section'
+import Section from './layout/section'
 import IntroText from './typography/introText'
 import ComponentNotFound from './component_not_found'
 // Stanford identity elements
 import GlobalFooter from './identity/globalFooter'
 import GlobalHeader from './identity/globalHeader'
 import Lockup from './identity/lockup'
+// Navigation components
+import NavItem from './navigation/navItem'
+import OodEyebrowMenu from './navigation/oodEyebrowMenu'
 
 
 const ComponentList = {
@@ -42,7 +45,9 @@ const ComponentList = {
   lockup: Lockup,
   section: Section,
   featuredImage: FeaturedImage,
-  testImage: TestImage
+  testImage: TestImage,
+  navItem: NavItem,
+  oodEyebrowMenu: OodEyebrowMenu
 }
 
 const Components = (type) => {

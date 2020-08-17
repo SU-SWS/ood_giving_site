@@ -8,10 +8,43 @@ body {
   @include margin(null auto);
 }
 
+main {
+  h2 {
+    &:not(:first-child) {
+      @include margin(1.8em null null);
+    }
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    &:not(:first-child) {
+      @include margin(1.6em null null);
+    }
+  }
+
+  h1 + h2,
+  h2 + h3,
+  h3 + h4,
+  h4 + h5 {
+    &:not(:first-child) {
+      @include margin(1em null null);
+    }
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include margin(null null 0.6em);
+    clear: none;
+  }
+}
+
+// For testing
 .su-yvonne {
-  background-color: $su-color-cool-grey;
-  @include padding(0 null 3px);
-  @include font-smoothing;
   display: grid;
   grid-template-areas: "col-1" "col-2";
   grid-template-columns: 1fr 1fr;
@@ -24,5 +57,4 @@ body {
   > div:last-of-type {
     grid-area: col-2;
   }
-
 }

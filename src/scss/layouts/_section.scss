@@ -11,6 +11,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    letter-spacing: 0; // Don't need to tighten up spacing for serif titles
 
     &::before,
     &::after {
@@ -19,9 +20,45 @@
       margin: 0 100px 0 0;
       flex: 1 0 40px;
     }
+
+    &:after {
+      margin: 0 0 0 100px;
+    }
+  }
+}
+
+.centered-container-80 {
+  @include margin(0 auto);
+  max-width: calc((100% - 40px));
+  width: calc((100% - 40px));
+
+  @media only screen and (min-width: 576px) {
+    max-width: calc((100% - 60px));
+    width: calc((100% - 60px));
   }
 
-  h2:after {
-    margin: 0 0 0 100px;
+  @media only screen and (min-width: 768px) {
+    max-width: calc((100% - 100px));
+    width: calc((100% - 100px));
+  }
+
+  @media only screen and (min-width: 992px) {
+    max-width: calc((100% - 160px));
+    width: calc((100% - 160px));
+  }
+
+  @media only screen and (min-width: 1200px) {
+    max-width: calc((100% - 200px) * 0.8);
+    width: calc((100% - 200px) * 0.8);
+  }
+
+  @media only screen and (min-width: 1500px) {
+    max-width: calc((100% - 200px) * 0.8);
+    width: calc((100% - 200px) * 0.8);
+  }
+
+  @media only screen and (min-width: 1700px) {
+    max-width: calc(1500px * 0.8);
+    width: calc(1500px * 0.8);
   }
 }

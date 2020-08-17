@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.before-color-palo-verde-light {
+  &::before {
+    color: $su-color-palo-verde-light;
+  }
+}
+
+.before-color-lagunita {
+  &::before {
+    color: $su-color-lagunita;
+  }
+}
