@@ -1,5 +1,16 @@
 @charset "UTF-8";
 
-.ood-mega-menu--card--text-area {
-  //background: $su-color-cardinal-red;
+.ood-mega-menu--card {
+  max-width: 25%;
+
+  .ood-mega-menu--card--image {
+    img {
+      width: 100%;
+    }
+  }
+
+  .ood-mega-menu--card--text-area {
+    //background: $su-color-cardinal-red;
+    @include modular-spacing('padding', 3 3 3 3);
+  }
 }

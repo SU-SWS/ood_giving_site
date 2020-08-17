@@ -1,1 +1,6 @@
 @charset "UTF-8";
+
+.ood-mega-menu--section--column {
+  max-width: 25%;
+  @include modular-spacing('padding', 3 3 3 null);
+}
