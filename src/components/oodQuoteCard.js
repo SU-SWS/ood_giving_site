@@ -1,5 +1,4 @@
 import React from 'react'
-import Components from './components.js'
 import SbEditable from 'storyblok-react'
 import RichTextField from './richTextField'
 
@@ -14,7 +13,10 @@ const OodQuoteCard = (props) => (
       {props.blok.photo.filename && (
         <figure className="su-media ood-quote-card__figure">
           <div className="su-media__wrapper su-aspect-ratio--1x1">
-            <img className={`ood-quote-card__img + obj-position-${props.blok.visibleHorizontal}-${props.blok.visibleVertical}`} src={props.blok.photo.filename} alt={props.blok.photo.alt} />
+            <img className={`ood-quote-card__img + obj-position-${props.blok.visibleHorizontal}-${props.blok.visibleVertical}`}
+                 src={props.blok.photo.filename}
+                 alt={props.blok.photo.alt}
+            />
           </div>
         </figure>
       )}

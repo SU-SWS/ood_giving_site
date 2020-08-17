@@ -8,6 +8,7 @@ body {
   @include margin(null auto);
 }
 
+/* Disable vertical rhythm - save for later
 main {
   h2 {
     &:not(:first-child) {
@@ -42,19 +43,4 @@ main {
     clear: none;
   }
 }
-
-// For testing
-.su-yvonne {
-  display: grid;
-  grid-template-areas: "col-1" "col-2";
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 36px;
-
-  > div:first-of-type {
-    grid-area: col-1;
-  }
-
-  > div:last-of-type {
-    grid-area: col-2;
-  }
-}
+**/

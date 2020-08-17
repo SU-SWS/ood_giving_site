@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
 .ood-quote-card {
-  @include margin(null 100px null null);
+  @include margin(null 80px null null);
   position: relative;
   display: flex;
   flex-direction: row;
 
   &__content {
     @include modular-spacing('padding', 3);
-    width: calc(100% - 360px + 100px);
+    width: calc(100% - 360px + 80px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,7 +42,7 @@
 
   &__figure {
     position: absolute;
-    right: -100px;
+    right: -80px;
     width: 360px;
     max-width: 360px;
     align-self: center;
