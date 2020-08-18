@@ -55,9 +55,9 @@
 
 // Styles for this project
 @import
-  'variables'
+  'variables' // Variables go first
 , 'base'
 , 'layouts/index'
 , 'components/index'
-, 'decorators/index'
+, 'decorators/index' // Decorators go last
 ;

@@ -4,7 +4,6 @@
 
 .ood-card {
   @include margin(null auto);
-  max-width: 500px;
 
   .su-card__contents {
     > h2 {
