@@ -2,9 +2,9 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: `Yvonne's Test Gatsby-Storyblok Site`,
+    title: `Giving to Stanford`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    author: `@SU-SWS`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -18,10 +18,11 @@ module.exports = {
     {
       resolve: 'gatsby-source-storyblok',
       options: {
-        accessToken: '3yGRaYQBhyg4HrjiQjtHyQtt',
+        //accessToken: '3yGRaYQBhyg4HrjiQjtHyQtt', // Yvonne's my-test space
+        accessToken: '92ypKFm3burr70cKOiW3sQtt',  // ADAPT Digital space
         homeSlug: 'home',
-        //version: process.env.NODE_ENV == 'production' ? 'published' : 'draft'
-        version: 'draft'
+        // version: process.env.NODE_ENV == 'production' ? 'published' : 'draft'  // show only published on the front end site
+        // version: 'draft'  // would show any including drafts
       }
     },
     {
