@@ -2,7 +2,7 @@ import React from 'react'
 import SbEditable from 'storyblok-react'
 import Components from "../components"
 
-const GlobalHeader = (props) => (
+const OodHeader = (props) => (
   <SbEditable content={props.blok}>
     <div className={props.blok.topBarColor ? `ood-global-header border-top-5px border-color-${props.blok.topBarColor}` : "ood-global-header border-top-5px"}>
       <div className="centered-container">
@@ -18,4 +18,4 @@ const GlobalHeader = (props) => (
   </SbEditable>
 )
 
-export default GlobalHeader
+export default OodHeader

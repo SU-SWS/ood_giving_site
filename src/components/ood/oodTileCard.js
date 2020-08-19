@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from "gatsby"
-import Components from './components.js'
+import Components from '../components.js'
 import SbEditable from 'storyblok-react'
-import RichTextField from './richTextField'
+import RichTextField from '../richTextField'
 
-const TileCard = (props) => (
+const OodTileCard = (props) => (
   <SbEditable content={props.blok}>
     <article className={ `su-card ood-card su-card--link ${props.blok.backgroundColor} ${props.blok.showImage}` }>
       <a href={props.blok.link} rel="nofollow noopener">
@@ -29,4 +29,4 @@ const TileCard = (props) => (
   </SbEditable>
 )
 
-export default TileCard
+export default OodTileCard

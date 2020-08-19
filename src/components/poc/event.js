@@ -53,12 +53,12 @@ const Event = (props) => (
           }))}
         </article>
 
-        <div className="event-top-card">
+        /*<div className="event-top-card">
           {props.blok.cardTop && props.blok.cardTop.map((blok) => React.createElement(Components(blok.component), {
             key: blok._uid,
             blok: blok
           }))}
-        </div>
+        </div>**/
 
       </div>
 

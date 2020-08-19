@@ -1,8 +1,8 @@
 import React from 'react'
-import Components from './components.js'
+import Components from '../components.js'
 import SbEditable from 'storyblok-react'
 
-const Hero = (props) => (
+const OodHero = (props) => (
   <SbEditable content={props.blok}>
     <div className={ "ood-hero " + props.blok.backgroundColor }>
       {props.blok.image && props.blok.image.map((blok) => React.createElement(Components(blok.component), {
@@ -17,4 +17,4 @@ const Hero = (props) => (
   </SbEditable>
 )
 
-export default Hero
+export default OodHero

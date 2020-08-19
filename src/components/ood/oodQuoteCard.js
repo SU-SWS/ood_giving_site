@@ -1,6 +1,6 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import RichTextField from './richTextField'
+import RichTextField from '../richTextField'
 
 const OodQuoteCard = (props) => (
   <SbEditable content={props.blok}>

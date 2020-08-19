@@ -2,17 +2,18 @@ import RichTextField from "./richTextField"
 import Page from './page'
 import Grid from './grid'
 import Feature from './feature'
-import TileCard from './tileCard'
-import OodQuoteCard from './oodQuoteCard'
-import OodQuoteSlider from './oodQuoteSlider'
-import Hero from './hero'
 import FeaturedImage from './featuredImage' // Might remove
 import IntroText from './typography/introText' // Might remove
 import ComponentNotFound from './component_not_found'
 // Stanford identity elements
 import GlobalFooter from './identity/globalFooter'
-import GlobalHeader from './identity/globalHeader'
 import Lockup from './identity/lockup'
+// OOD specific components
+import OodHeader from './ood/oodHeader'
+import OodTileCard from './ood/oodTileCard'
+import OodQuoteCard from './ood/oodQuoteCard'
+import OodQuoteSlider from './ood/oodQuoteSlider'
+import OodHero from './ood/oodHero'
 // Navigation components
 import NavItem from './navigation/navItem'
 import OodEyebrowMenu from './navigation/oodEyebrowMenu'
@@ -44,10 +45,6 @@ const ComponentList = {
   button: Button,
   quote: Quote,
   pageBuilder: PageBuilder,
-  tileCard: TileCard,
-  oodQuoteCard: OodQuoteCard,
-  oodQuoteSlider: OodQuoteSlider,
-  hero: Hero,
   richTextField: RichTextField,
   column: Column,
   row: Row,
@@ -55,9 +52,9 @@ const ComponentList = {
   introText: IntroText,
   featuredImage: FeaturedImage,
   globalFooter: GlobalFooter,
-  globalHeader: GlobalHeader,
   lockup: Lockup,
   navItem: NavItem,
+  oodHeader: OodHeader,
   oodEyebrowMenu: OodEyebrowMenu,
   oodMegaMenu: OodMegaMenu,
   oodMegaMenuSection: OodMegaMenuSection,
@@ -65,6 +62,10 @@ const ComponentList = {
   oodNavigationLink: OodNavigationLink,
   oodNavigationLinkGroup: OodNavigationLinkGroup,
   oodNavigationColumn: OodNavigationColumn,
+  oodTileCard: OodTileCard,
+  oodQuoteCard: OodQuoteCard,
+  oodQuoteSlider: OodQuoteSlider,
+  oodHero: OodHero,
   card: Card,
   event: Event,
   eventSession: EventSession,
