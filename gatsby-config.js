@@ -18,10 +18,11 @@ module.exports = {
     {
       resolve: 'gatsby-source-storyblok',
       options: {
-        accessToken: '3yGRaYQBhyg4HrjiQjtHyQtt',
+        //accessToken: '3yGRaYQBhyg4HrjiQjtHyQtt', // Yvonne's my-test space
+        accessToken: '92ypKFm3burr70cKOiW3sQtt',  // ADAPT Digital space
         homeSlug: 'home',
-        //version: process.env.NODE_ENV == 'production' ? 'published' : 'draft'
-        version: 'draft'
+        // version: process.env.NODE_ENV == 'production' ? 'published' : 'draft'  // show only published on the front end site
+        // version: 'draft'  // would show any including drafts
       }
     },
     {
