@@ -9,9 +9,7 @@
     background-color: $su-color-black;
   }
 
-  &-brick {
-    background-color: #651C32;
-  }
+  // Grays
 
   &-fog {
     background-color: #DAD7CB;
@@ -21,6 +19,7 @@
     background-color: #F4F4F4;
   }
 
+  // Blues & Teals
   &-bay-light {
     background-color: #c7d1c5;
   }
@@ -37,6 +36,13 @@
     background-color: #2F2424;
   }
 
+  // Purples
+  &-brick {
+    background-color: #651C32;
+  }
+
+
+  // Reds
   &-bright-red {
     background-color: $su-color-bright-red;
   }
