@@ -19,8 +19,8 @@ const OodTileCard = (props) => (
           {props.blok.icon.icon && (
             <i className={props.blok.icon.type + " " + props.blok.icon.icon} />
           )}
-          {props.blok.superheadline && (
-            <span className="ood-card__superhead">{props.blok.superheadline}</span>
+          {props.blok.areaToSupport && (
+            <span className="ood-card__superhead">{props.blok.areaToSupport}</span>
           )}
           <h2 className="ood-card__headline">{props.blok.headline}</h2>
         </section>
