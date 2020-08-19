@@ -1,5 +1,5 @@
 import React from 'react'
-import Components from './components.js';
+import Components from '../components.js';
 import SbEditable from 'storyblok-react'
 
 const Row = (props) => (

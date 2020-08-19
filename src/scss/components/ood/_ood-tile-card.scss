@@ -1,29 +1,34 @@
 @charset "UTF-8";
 
+// Tile cards style
+
 .ood-card {
   @include margin(null auto);
-  max-width: 500px;
-
 
   .su-card__contents {
     > h2 {
-      @include modular-typography(4);
+      @include modular-typography(3);
       font-weight: $su-font-regular;
+    }
+
+    .ood-card__superhead {
+      @include margin(null null 1.4em);
+      letter-spacing: 0.1em;
     }
   }
 
   &.has-image {
-    @include margin(100px null null);
+    @include margin(80px null null); // The margin-top value is how much the image will stick out of the card
 
     .su-media {
-      @include margin(-100px null null);
+      @include margin(-80px null null);
       @include modular-spacing('margin', null 2);
     }
   }
 
   &.no-image {
     .su-card__contents {
-      @include modular-spacing("padding", 4 null);
+      @include modular-spacing("padding", 4 3);
     }
 
     .su-media {
@@ -35,6 +40,10 @@
   .far,
   .fab {
     font-size: 2em;
+  }
+
+  &__superhead {
+    text-transform: uppercase;
   }
 }
 
@@ -53,5 +62,3 @@
     }
   }
 }
-
-

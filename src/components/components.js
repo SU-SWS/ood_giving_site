@@ -1,54 +1,76 @@
 import RichTextField from "./richTextField"
 import Page from './page'
 import Grid from './grid'
-import Teaser from './teaser'
 import Feature from './feature'
-import Card from './card'
-import Column from './column'
-import Row from './row'
-import Hero from './hero'
-import EventTeaser from './eventTeaser'
-import Headline from './headline'
-import FeaturedImage from './featuredImage'
-import Section from './section'
-import IntroText from './typography/introText'
+import FeaturedImage from './featuredImage' // Might remove
+import IntroText from './typography/introText' // Might remove
+import ComponentNotFound from './component_not_found'
+// Stanford identity elements
+import GlobalFooter from './identity/globalFooter'
+import Lockup from './identity/lockup'
+// OOD specific components
+import OodHeader from './ood/oodHeader'
+import OodTileCard from './ood/oodTileCard'
+import OodQuoteCard from './ood/oodQuoteCard'
+import OodQuoteSlider from './ood/oodQuoteSlider'
+import OodHero from './ood/oodHero'
+// Navigation components
+import NavItem from './navigation/navItem'
+import OodEyebrowMenu from './navigation/oodEyebrowMenu'
 import OodMegaMenu from './navigation/oodMegaMenu'
 import OodMegaMenuSection from './navigation/oodMegaMenuSection'
 import OodMegaMenuCard from './navigation/oodMegaMenuCard'
 import OodNavigationLink from './navigation/oodNavigationLink'
 import OodNavigationLinkGroup from './navigation/oodNavigationLinkGroup'
 import OodNavigationColumn from './navigation/oodNavigationColumn'
-import ComponentNotFound from './component_not_found'
-// Stanford identity elements
-import GlobalFooter from './identity/globalFooter'
-import GlobalHeader from './identity/globalHeader'
-import Lockup from './identity/lockup'
-
+// Layout components
+import Column from './layout/column'
+import Row from './layout/row'
+import Section from './layout/section'
+// Simple components
+import Button from './simple/button'
+// ADAPT POC components created by Katria
+import Card from './poc/card'
+import Quote from './poc/quote'
+import PageBuilder from './poc/pageBuilder'
+import Event from './poc/event'
+import EventSession from './poc/eventSession'
+import Person from './poc/person'
+import Product from './poc/product'
 
 const ComponentList = {
   page: Page,
   grid: Grid,
-  teaser: Teaser,
-  eventTeaser: EventTeaser,
   feature: Feature,
-  card: Card,
-  hero: Hero,
+  button: Button,
+  quote: Quote,
+  pageBuilder: PageBuilder,
   richTextField: RichTextField,
-  headline: Headline,
-  row: Row,
   column: Column,
+  row: Row,
+  section: Section,
   introText: IntroText,
+  featuredImage: FeaturedImage,
+  globalFooter: GlobalFooter,
+  lockup: Lockup,
+  navItem: NavItem,
+  oodHeader: OodHeader,
+  oodEyebrowMenu: OodEyebrowMenu,
   oodMegaMenu: OodMegaMenu,
   oodMegaMenuSection: OodMegaMenuSection,
   oodMegaMenuCard: OodMegaMenuCard,
   oodNavigationLink: OodNavigationLink,
   oodNavigationLinkGroup: OodNavigationLinkGroup,
   oodNavigationColumn: OodNavigationColumn,
-  globalFooter: GlobalFooter,
-  globalHeader: GlobalHeader,
-  lockup: Lockup,
-  section: Section,
-  featuredImage: FeaturedImage
+  oodTileCard: OodTileCard,
+  oodQuoteCard: OodQuoteCard,
+  oodQuoteSlider: OodQuoteSlider,
+  oodHero: OodHero,
+  card: Card,
+  event: Event,
+  eventSession: EventSession,
+  person: Person,
+  product: Product,
 }
 
 const Components = (type) => {

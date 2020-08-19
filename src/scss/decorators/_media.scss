@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+// Image container aspect ratio
+.su-aspect-ratio--3x2 {
+  @include aspect-ratio(3, 2);
+}
+
+// Image object position options
+.obj-position {
+  &-h-left-v-top {
+    object-position: left top;
+  }
+
+  &-h-left-v-center {
+    object-position: left center;
+  }
+
+  &-h-left-v-bottom {
+    object-position: left bottom;
+  }
+
+  &-h-center-v-top {
+    object-position: center top;
+  }
+
+  &-h-center-v-center {
+    object-position: center center;
+  }
+
+  &-h-center-v-bottom {
+    object-position: center bottom;
+  }
+
+  &-h-right-v-top {
+    object-position: right top;
+  }
+
+  &-h-right-v-center {
+    object-position: right center;
+  }
+
+  &-h-right-v-bottom {
+    object-position: right bottom;
+  }
+}

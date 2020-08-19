@@ -36,8 +36,9 @@
 
 // Decanter Components
 @import
-  'decanter/core/src/scss/components/card/index'
-, 'decanter/core/src/scss/components/link/link'
+  'decanter/core/src/scss/components/button/index'
+, 'decanter/core/src/scss/components/card/index'
+, 'decanter/core/src/scss/components/link/index'
 , 'decanter/core/src/scss/components/global-footer/index'
 , 'decanter/core/src/scss/components/signup-form/index'
 , 'decanter/core/src/scss/components/local-footer/index'
@@ -54,8 +55,9 @@
 
 // Styles for this project
 @import
-  'base'
+  'variables' // Variables go first
+, 'base'
 , 'layouts/index'
 , 'components/index'
-, 'decorators/index'
+, 'decorators/index' // Decorators go last
 ;

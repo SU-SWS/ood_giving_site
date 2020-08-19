@@ -26,10 +26,6 @@ export default function Header() {
           <h1>{data.site.siteMetadata.title}</h1>
           <p>{data.site.siteMetadata.description}</p>
         </header>
-
-        <main>
-          {data.storyblokEntry.content}
-        </main>
         </>
       )}
     />
