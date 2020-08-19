@@ -5,6 +5,10 @@
     background-color: $su-color-white;
   }
 
+  &-black {
+    background-color: $su-color-black;
+  }
+
   &-brick {
     background-color: #651C32;
   }
@@ -31,5 +35,25 @@
 
   &-archway-dark {
     background-color: #2F2424;
+  }
+
+  &-bright-red {
+    background-color: $su-color-bright-red;
+  }
+
+  &-cardinal-red {
+    background-color: $su-color-cardinal-red;
+  }
+
+  &-palo-alto {
+    background-color: $su-color-palo-alto; // should be #175E54
+  }
+
+  &-teal {
+    background-color: #00505C;
+  }
+
+  &-bay {
+    background-color: #016895;
   }
 }

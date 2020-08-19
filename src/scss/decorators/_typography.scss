@@ -8,10 +8,20 @@
       color: #000000;
     }
   }
+
   &-white {
     color: $su-color-white;
   }
+
   &-palo-alto-dark {
     color: #014240;
+  }
+
+  &-bright-red {
+    color: $su-color-bright-red;
+  }
+
+  &-cardinal-red {
+    color: $su-color-cardinal-red;
   }
 }
