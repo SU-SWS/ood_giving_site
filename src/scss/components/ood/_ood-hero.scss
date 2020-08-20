@@ -78,7 +78,7 @@
     @include modular-typography(4);
     position: absolute;
     bottom: -100px;
-    right: calc((100% - 1500px) / 2);
+    //right: calc((100% - 1500px) / 2);
     max-width: 466px;
     z-index: 90;
     text-decoration: none;
@@ -120,7 +120,7 @@
   }
 
   @each $key, $breakpoint in $su-grid-media {
-    @if index($su-grid-media, ($key $breakpoint)) > 3 { // Breakpoint LG and larger
+    @if index($su-grid-media, ($key $breakpoint)) > 0 { // Breakpoint LG and larger
       $_edge: map-get($su-screen-margins, $key);
 
       &__link {

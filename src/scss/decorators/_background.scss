@@ -18,7 +18,7 @@
   }
 
   &-bay-dark {
-    background-color: #417865;
+    background-color: $su-color-bay-dark;
   }
 
   &-lagunita {
@@ -26,7 +26,11 @@
   }
 
   &-sky-dark {
-    background-color: #016895;
+    background-color: $su-color-sky-dark;
+  }
+
+  &-palo-alto {
+    background-color: $su-color-palo-alto;
   }
 
   &-archway-dark {

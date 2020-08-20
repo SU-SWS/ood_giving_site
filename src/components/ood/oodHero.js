@@ -9,10 +9,12 @@ const OodHero = (props) => (
         key: blok._uid,
         blok: blok
       }))}
+      <div className="centered-container">
       <h1 className="text-white text-focus-in">{props.blok.splashText}</h1>
       <a className="ood-hero__link" href={props.blok.link} rel="nofollow noopener">
         <p className={ "ood-hero__text " + props.blok.colorTheme }>{props.blok.callToActionText}</p>
       </a>
+      </div>
     </div>
   </SbEditable>
 )

@@ -25,10 +25,14 @@
       margin: 0 0 0 100px;
     }
   }
+
+  &__header {
+    @include modular-spacing('margin', null null 3);
+  }
 }
 
 .centered-container-80 {
-  @include margin(0 auto);
+  @include margin(null auto);
   max-width: calc((100% - 40px));
   width: calc((100% - 40px));
 

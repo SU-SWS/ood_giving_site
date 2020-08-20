@@ -8,6 +8,10 @@ body {
   @include margin(null auto);
 }
 
+.centered-container {
+  @include centered-column;
+}
+
 /* Disable vertical rhythm - save for later
 main {
   h2 {

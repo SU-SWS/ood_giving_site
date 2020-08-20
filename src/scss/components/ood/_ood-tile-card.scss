@@ -2,8 +2,11 @@
 
 // Tile cards style
 
-.ood-card {
+.tile-card {
   @include margin(null auto);
+  height: 100%;
+  background-color: transparent;
+  max-width: 900px;
 
   .su-card__contents {
     > h2 {
@@ -11,14 +14,14 @@
       font-weight: $su-font-regular;
     }
 
-    .ood-card__superhead {
+    .tile-card__superhead {
       @include margin(null null 1.4em);
       letter-spacing: 0.1em;
     }
   }
 
   &.has-image {
-    @include margin(80px null null); // The margin-top value is how much the image will stick out of the card
+    border-top: 80px solid transparent; // The transparent border compensate for the 80px image overhang
 
     .su-media {
       @include margin(-80px null null);
@@ -34,6 +37,10 @@
     .su-media {
       display: none;
     }
+  }
+
+  > a {
+    height: 100%;
   }
 
   .fas,
