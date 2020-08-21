@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.text {
+.su-text {
   &-black {
     color: $su-color-black;
 
@@ -8,10 +8,27 @@
       color: #000000;
     }
   }
+
   &-white {
     color: $su-color-white;
   }
+
   &-palo-alto-dark {
     color: #014240;
+  }
+
+  // Text Alignment
+  &-align {
+    &-left {
+      text-align: left;
+    }
+
+    &-center {
+      text-align: center;
+    }
+
+    &-right {
+      text-align: right;
+    }
   }
 }

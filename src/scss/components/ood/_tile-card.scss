@@ -8,15 +8,32 @@
   background-color: transparent;
   max-width: 900px;
 
+  &__media,
+  &__image {
+    @include grid-media-only('xs') {
+      display: block;
+    }
+  }
+
   .su-card__contents {
+    min-height: 300px;
+
     > h2 {
-      @include modular-typography(3);
+      @include modular-typography(2);
       font-weight: $su-font-regular;
+
+      @include grid-media('xl') {
+        @include modular-typography(3);
+      }
     }
 
     .tile-card__superhead {
-      @include margin(null null 1.4em);
-      letter-spacing: 0.1em;
+      @include margin(null null 1em);
+      font-weight: $su-font-semi-bold;
+
+      @include grid-media('lg') {
+        letter-spacing: 0.1em;
+      }
     }
   }
 

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-// Columns, rows, grids related
+// Columns, rows, grids, widths, alignment related
 
 .align {
   &-items {
@@ -18,6 +18,22 @@
 
     &-stretch {
       align-items: stretch;
+    }
+  }
+}
+
+.su-width {
+  @include grid-media('lg') {
+    &-100 {
+      width: 100%;
+    }
+
+    &-75 {
+      width: 75%;
+    }
+
+    &-60 {
+      width: 60%;
     }
   }
 }

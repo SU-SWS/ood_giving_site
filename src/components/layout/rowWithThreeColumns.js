@@ -4,7 +4,7 @@ import SbEditable from 'storyblok-react'
 
 const RowWithThreeColumns = (props) => (
   <SbEditable content={props.blok}>
-    <div className={`flex-container align-items-${props.blok.contentAlignment}`}>
+    <div className={`flex-container align-items-${props.blok.contentAlignment} su-mb-${props.blok.bottomSpacing}`}>
       <div className="flex-md-4-of-12">
         {props.blok.columnOneContent.map((blok) =>
           React.createElement(Components(blok.component), {key: blok._uid, blok: blok})
