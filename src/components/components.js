@@ -10,6 +10,7 @@ import GlobalFooter from './identity/globalFooter'
 import Lockup from './identity/lockup'
 // OOD specific components
 import OodHeader from './ood/oodHeader'
+import OodIconCard from './ood/oodIconCard'
 import OodTileCard from './ood/oodTileCard'
 import OodQuoteCard from './ood/oodQuoteCard'
 import OodQuoteSlider from './ood/oodQuoteSlider'
@@ -56,6 +57,7 @@ const ComponentList = {
   navItem: NavItem,
   oodHeader: OodHeader,
   oodEyebrowMenu: OodEyebrowMenu,
+  oodIconCard: OodIconCard,
   oodMegaMenu: OodMegaMenu,
   oodMegaMenuSection: OodMegaMenuSection,
   oodMegaMenuCard: OodMegaMenuCard,
