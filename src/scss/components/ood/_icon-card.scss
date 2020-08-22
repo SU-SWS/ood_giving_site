@@ -6,4 +6,41 @@
   &__icon {
     font-size: 3.2rem;
   }
+
+  @include margin(null auto);
+  height: 100%;
+  background-color: transparent;
+
+  .su-card__contents {
+    min-height: 240px;
+
+    > h2 {
+      @include modular-typography(2);
+      font-weight: $su-font-regular;
+
+      @include grid-media('xl') {
+        @include modular-typography(3);
+      }
+    }
+  }
+
+  > a {
+    height: 100%;
+  }
+}
+
+.su-text-white {
+  color: $su-color-white;
+
+  &.su-card--link {
+    > a,
+    > a:hover,
+    > a:focus {
+      color: $su-color-white;
+
+      h2 {
+        color: $su-color-white;
+      }
+    }
+  }
 }

@@ -2,7 +2,7 @@
 
 // The OOD global header which includes the logo lockup, main navigation, top navigation and skip link
 
-.ood-global-header {
+.ood-header {
   @include modular-spacing('padding', null null 1);
   @include box-shadow($depth: 'shallow', $stroke: 0);
   position: relative;

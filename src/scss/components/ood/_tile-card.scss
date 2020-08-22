@@ -2,7 +2,7 @@
 
 // Tile cards style
 
-.tile-card {
+.ood-tile-card {
   @include margin(null auto);
   height: 100%;
   background-color: transparent;
@@ -27,7 +27,7 @@
       }
     }
 
-    .tile-card__superhead {
+    .ood-tile-card__superhead {
       @include margin(null null 1em);
       font-weight: $su-font-semi-bold;
 
@@ -60,18 +60,12 @@
     height: 100%;
   }
 
-  .fas,
-  .far,
-  .fab {
-    font-size: 2em;
-  }
-
   &__superhead {
     text-transform: uppercase;
   }
 }
 
-.text-white {
+.su-text-white {
   color: $su-color-white;
 
   &.su-card--link {
