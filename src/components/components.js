@@ -17,7 +17,7 @@ import OodQuoteSlider from './ood/oodQuoteSlider'
 import OodHero from './ood/oodHero'
 // Navigation components
 import NavItem from './navigation/navItem'
-import OodEyebrowMenu from './navigation/oodEyebrowMenu'
+import OodSubMenu from './navigation/oodSubMenu'
 import OodMegaMenu from './navigation/oodMegaMenu'
 import OodMegaMenuSection from './navigation/oodMegaMenuSection'
 import OodMegaMenuCard from './navigation/oodMegaMenuCard'
@@ -56,7 +56,7 @@ const ComponentList = {
   lockup: Lockup,
   navItem: NavItem,
   oodHeader: OodHeader,
-  oodEyebrowMenu: OodEyebrowMenu,
+  oodSubMenu: OodSubMenu,
   oodIconCard: OodIconCard,
   oodMegaMenu: OodMegaMenu,
   oodMegaMenuSection: OodMegaMenuSection,

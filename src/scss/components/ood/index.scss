@@ -2,10 +2,8 @@
 
 // Roll up
 
-  @import
-  'ood-header'
-, 'ood-hero'
-, 'ood-quote-card'
-, 'icon-card'
-, 'tile-card'
-;
+@import 'icon-card';
+@import 'tile-card';
+@import 'header';
+@import 'hero';
+@import 'quote-card';

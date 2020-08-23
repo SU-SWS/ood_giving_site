@@ -3,9 +3,9 @@ import { Link } from "gatsby"
 import Components from '../components.js'
 import SbEditable from 'storyblok-react'
 
-const OodEyebrowMenu = (props) => (
+const OodSubMenu = (props) => (
   <SbEditable content={props.blok}>
-    <nav className="ood-eyebrow-menu" aria-label="Sub Menu">
+    <nav className="ood-submenu" aria-label="Sub Menu">
       <ul>
         {props.blok.menuLinkItems && props.blok.menuLinkItems.map((blok) => React.createElement(Components(blok.component), {
           key: blok._uid,
@@ -22,4 +22,4 @@ const OodEyebrowMenu = (props) => (
   </SbEditable>
 )
 
-export default OodEyebrowMenu
+export default OodSubMenu
