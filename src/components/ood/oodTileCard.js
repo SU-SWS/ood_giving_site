@@ -6,8 +6,11 @@ import RichTextField from '../richTextField'
 
 const OodTileCard = (props) => (
   <SbEditable content={props.blok}>
-    <article className={`su-card su-card--link ood-tile-card ${props.blok.showImage} ${props.blok.backgroundColor !== "white" ? "su-text-white" : ""}`}>
-      <a href={props.blok.link} rel="nofollow noopener" className={`ood-tile-card__link bg-${props.blok.backgroundColor}`}>
+    <article className={`su-card su-card--link ood-tile-card
+             ${(props.blok.image.filename && props.blok.showImage === "has-image") ? "has-image" : "no-image"}
+             ${props.blok.backgroundColor !== "white" ? "su-text-white" : ""}`
+    }>
+      <a href={props.blok.link} rel="nofollow noopener" className={`ood-tile-card__link su-bg-${props.blok.backgroundColor}`}>
         {props.blok.image.filename && (
           <figure className="su-media ood-tile-card__media">
             <div className="su-media__wrapper su-aspect-ratio su-aspect-ratio--3x2">
@@ -15,10 +18,7 @@ const OodTileCard = (props) => (
             </div>
           </figure>
         )}
-        <section className="su-card__contents">
-          {props.blok.icon.icon && (
-            <i className={`${props.blok.icon.type} ${props.blok.icon.icon}`} />
-          )}
+        <section className="su-card__contents ood-tile-card__contents">
           {props.blok.areaToSupport && (
             <span className="ood-tile-card__superhead">{props.blok.areaToSupport}</span>
           )}

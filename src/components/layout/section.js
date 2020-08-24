@@ -5,7 +5,7 @@ import RichTextField from '../richTextField'
 
 const Section = (props) => (
   <SbEditable content={props.blok}>
-    <div id={props.blok.id} className={`section bg-${props.blok.backgroundColor} ${props.blok.spacing}`}>
+    <div id={props.blok.id} className={`section su-bg-${props.blok.backgroundColor} ${props.blok.spacing}`}>
       {(props.blok.title || props.blok.introText) &&
       <div className={`centered-container section__header`}>
         {(props.blok.titleHeadingLevel === 'h2' && props.blok.titleHeadingLevel) &&

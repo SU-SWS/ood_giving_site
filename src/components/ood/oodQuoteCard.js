@@ -4,7 +4,7 @@ import RichTextField from '../richTextField'
 
 const OodQuoteCard = (props) => (
   <SbEditable content={props.blok}>
-    <article className={ `ood-quote-card bg-${props.blok.backgroundColor} ${props.blok.showImage}` }>
+    <article className={ `ood-quote-card su-bg-${props.blok.backgroundColor} ${props.blok.showImage}` }>
       <div className="ood-quote-card__content">
         <blockquote className={`ood-quote-card__quote ${props.blok.quotationMarkColor}`}>{props.blok.quoteText}</blockquote>
         <p className="ood-quote-card__name">{props.blok.personName}</p>

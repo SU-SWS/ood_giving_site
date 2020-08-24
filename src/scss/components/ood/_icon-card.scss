@@ -3,18 +3,20 @@
 // OOD Icon Card style
 
 .ood-icon-card {
-  &__icon {
-    font-size: 3.2rem;
-  }
-
   @include margin(null auto);
   height: 100%;
   background-color: transparent;
 
-  .su-card__contents {
-    min-height: 240px;
+  &__media {
+    @include modular-spacing('padding', 4 3 null);
+  }
 
-    > h2 {
+  &__icon {
+    font-size: 2em;
+  }
+
+  .su-card__contents {
+    > .ood-icon-card__headline {
       @include modular-typography(2);
       font-weight: $su-font-regular;
 
@@ -24,23 +26,15 @@
     }
   }
 
+  &__contents {
+    @include modular-spacing("padding", 4 3);
+
+    @include grid-media('md') {
+      min-height: 200px;
+    }
+  }
+
   > a {
     height: 100%;
-  }
-}
-
-.su-text-white {
-  color: $su-color-white;
-
-  &.su-card--link {
-    > a,
-    > a:hover,
-    > a:focus {
-      color: $su-color-white;
-
-      h2 {
-        color: $su-color-white;
-      }
-    }
   }
 }

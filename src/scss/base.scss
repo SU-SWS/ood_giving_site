@@ -48,6 +48,12 @@ body {
   }
 }
 
+p {
+  &:empty {
+    display: none;
+  }
+}
+
 /* Disable vertical rhythm - save for later
 main {
   h2 {

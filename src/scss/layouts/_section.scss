@@ -1,8 +1,12 @@
 @charset "UTF-8";
 
 .section {
+  &__header {
+    @include modular-spacing('margin', null null 4);
+  }
+
   &__title {
-    @include margin(null auto);
+    @include margin(-0.3em auto null);
     @include modular-typography(4);
     font-family: $su-font-serif;
     font-weight: $su-font-regular;
@@ -10,7 +14,6 @@
 
     &.su-has-line {
       display: flex;
-      //width: 60%;
       justify-content: center;
       align-items: center;
 
@@ -46,9 +49,5 @@
         }
       }
     }
-  }
-
-  &__header {
-    @include modular-spacing('margin', null null 4);
   }
 }

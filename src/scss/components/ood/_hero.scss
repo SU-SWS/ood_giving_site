@@ -87,7 +87,7 @@
         }
       }
 
-      h1,
+      &__splash-text,
       .su-media__caption {
         @include grid-media($key) {
           left : $_edge;

@@ -4,7 +4,6 @@
 
 .ood-tile-card {
   @include margin(null auto);
-  height: 100%;
   background-color: transparent;
   max-width: 900px;
 
@@ -16,9 +15,7 @@
   }
 
   .su-card__contents {
-    min-height: 300px;
-
-    > h2 {
+    > .ood-tile-card__headline {
       @include modular-typography(2);
       font-weight: $su-font-regular;
 
@@ -34,6 +31,18 @@
       @include grid-media('lg') {
         letter-spacing: 0.1em;
       }
+    }
+  }
+
+  &__contents {
+    @include grid-media('md') {
+      min-height: 330px;
+    }
+  }
+
+  &__link {
+    &:not(.su-bg-white) {
+      border-color: transparent; // Only white cards have the grey border
     }
   }
 
@@ -63,11 +72,13 @@
   &__superhead {
     text-transform: uppercase;
   }
+
+  .row--3-columns & {
+    height: 100%;
+  }
 }
 
 .su-text-white {
-  color: $su-color-white;
-
   &.su-card--link {
     > a,
     > a:hover,

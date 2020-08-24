@@ -25,7 +25,7 @@ import OodNavigationLink from './navigation/oodNavigationLink'
 import OodNavigationLinkGroup from './navigation/oodNavigationLinkGroup'
 import OodNavigationColumn from './navigation/oodNavigationColumn'
 // Layout components
-import Column from './layout/column'
+import ColumnGrid from './layout/columnGrid'
 import RowWithThreeColumns from './layout/rowWithThreeColumns'
 import Section from './layout/section'
 // Simple components
@@ -47,7 +47,7 @@ const ComponentList = {
   quote: Quote,
   pageBuilder: PageBuilder,
   richTextField: RichTextField,
-  column: Column,
+  columnGrid: ColumnGrid,
   rowWithThreeColumns: RowWithThreeColumns,
   section: Section,
   introText: IntroText,
