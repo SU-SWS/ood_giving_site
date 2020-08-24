@@ -1,18 +1,32 @@
 @charset "UTF-8";
 
 .ood-quote-card {
-  @include margin(null 80px null null);
   position: relative;
   display: flex;
   flex-direction: row;
 
+  &__media {
+    position: absolute;
+    right: -80px; // image overhang
+    width: 360px;
+    max-width: 360px;
+    align-self: center;
+  }
+
   &__content {
     @include modular-spacing('padding', 3);
-    width: calc(100% - 360px + 80px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: 460px;
+  }
+
+  &--has-image {
+    @include margin(null 80px null null);
+
+    .ood-quote-card__content {
+      width: calc(100% - 360px + 80px); // 100% minus the image width but add back the overhang amount
+    }
   }
 
   &__quote {
@@ -38,13 +52,5 @@
     @include margin(null null 0);
     @include modular-typography(1);
     color: $su-color-cool-grey-75;
-  }
-
-  &__figure {
-    position: absolute;
-    right: -80px;
-    width: 360px;
-    max-width: 360px;
-    align-self: center;
   }
 }
