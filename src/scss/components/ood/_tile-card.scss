@@ -36,7 +36,7 @@
 
   &__contents {
     @include grid-media('md') {
-      min-height: 330px;
+      min-height: 400px;
     }
   }
 
@@ -46,7 +46,7 @@
     }
   }
 
-  &.has-image {
+  &--has-image {
     border-top: 80px solid transparent; // The transparent border compensate for the 80px image overhang
 
     .su-media {
@@ -55,7 +55,7 @@
     }
   }
 
-  &.no-image {
+  &--no-image {
     .su-card__contents {
       @include modular-spacing("padding", 4 3);
     }
