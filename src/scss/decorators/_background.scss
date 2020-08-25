@@ -5,16 +5,20 @@
     background-color: $su-color-white;
   }
 
-  &-brick {
-    background-color: #651C32;
-  }
-
   &-fog {
     background-color: #DAD7CB;
+
+    &-light {
+      background-color: $su-color-fog-light;
+    }
   }
 
-  &-fog-light {
-    background-color: #F4F4F4;
+  &-black {
+    background-color: $su-color-black;
+  }
+
+  &-brick {
+    background-color: #651C32;
   }
 
   &-bay-dark {
@@ -31,6 +35,14 @@
 
   &-palo-alto {
     background-color: $su-color-palo-alto;
+
+    &-dark {
+      background-color: $su-color-palo-alto-dark;
+    }
+  }
+
+  &-digital-red {
+    background-color: $su-color-digital-red;
   }
 
   &-archway-dark {

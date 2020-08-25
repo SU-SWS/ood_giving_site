@@ -5,7 +5,7 @@ import SbEditable from 'storyblok-react'
 const OodIconCard = (props) => (
   <SbEditable content={props.blok}>
     <article className={`su-card su-card--link ood-icon-card
-             ${props.blok.backgroundColor !== "white" ? "su-text-white" : ""}
+             ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : ""}
              su-text-align-${props.blok.contentAlign}`
     }>
       <a href={props.blok.link} rel="nofollow noopener" className={`tile-card__link su-bg-${props.blok.backgroundColor}`}>

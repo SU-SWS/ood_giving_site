@@ -8,7 +8,7 @@ const OodTileCard = (props) => (
   <SbEditable content={props.blok}>
     <article className={`su-card su-card--link ood-tile-card
              ${(props.blok.image.filename && props.blok.showImage === "has-image") ? "ood-tile-card--has-image" : "ood-tile-card--no-image"}
-             ${props.blok.backgroundColor !== "white" ? "su-text-white" : ""}`
+             ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : ""}`
     }>
       <a href={props.blok.link} rel="nofollow noopener" className={`ood-tile-card__link su-bg-${props.blok.backgroundColor}`}>
         {(props.blok.image.filename && props.blok.showImage === "has-image") && (

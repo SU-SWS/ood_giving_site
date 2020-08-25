@@ -4,7 +4,7 @@ import SbEditable from 'storyblok-react'
 
 const OodHero = (props) => (
   <SbEditable content={props.blok}>
-    <div className={ `ood-hero su-${props.blok.backgroundColor}` }>
+    <div className={ `ood-hero su-bg-${props.blok.backgroundColor}` }>
       {props.blok.image && props.blok.image.map((blok) => React.createElement(Components(blok.component), {
         key: blok._uid,
         blok: blok
