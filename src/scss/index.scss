@@ -1,12 +1,13 @@
 @charset "UTF-8";
 
-@import 'config';
+// Asset paths
+@import 'utilities/variables/file-paths';
 
 // Vendors
 @import 'bourbon/core/bourbon.scss';
 @import 'decanter/core/src/scss/core/normalize';
 @import '@fortawesome/fontawesome-free/scss/fontawesome';
-@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/solid'; // Fontawesome Solid not included in Decanter
 @import '@fortawesome/fontawesome-free/scss/brands';
 @import '@fortawesome/fontawesome-free/scss/regular';
 
@@ -45,8 +46,9 @@
 @import 'decanter/core/src/scss/components/lockup/lockup--option-n';
 
 // Styles for this project
-@import 'utilities/index'; // Utilities go first
-@import 'base';
+@import 'utilities/variables/colors'; // Utilities go first
+@import 'core/base';
+@import 'elements/index';
 @import 'layouts/index';
 @import 'components/index';
 @import 'decorators/index'; // Decorators go last
