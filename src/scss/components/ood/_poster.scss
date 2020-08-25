@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+// Poster style
+
+.ood-poster {
+  border-bottom: 80px solid transparent;
+  position: relative;
+  height: 640px; // height of the image plus the transparent border bottom
+
+  &__media {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+
+    @include grid-media('lg') {
+      height: 560px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .centered-container {
+    position: relative;
+    z-index: 100;
+    height: 100%;
+  }
+
+  &__row {
+    height: 100%;
+  }
+
+  &__flex-cell {
+    height: 100%;
+  }
+
+  &__card1 {
+    height: 460px;
+    background-color: $su-color-white;
+    border: #000 solid 1px;
+    position: absolute;
+    bottom: -80px;
+    padding: 2em;
+  }
+}

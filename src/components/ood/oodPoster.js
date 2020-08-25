@@ -2,29 +2,48 @@ import React from 'react'
 import Link from 'gatsby-link'
 import SbEditable from 'storyblok-react'
 import RichTextField from '../richTextField'
+import Components from "../components";
 
 const OodPoster = (props) => (
   <SbEditable content={props.blok}>
-    <article className={ `ood-quote-card su-bg-${props.blok.backgroundColor}
-             ${(props.blok.photo.filename && props.blok.showImage === "has-image") ? "ood-quote-card--has-image" : "ood-quote-card--no-image"}
-             su-text-align-${props.blok.textAlign}`
+    <div className={`ood-poster su-bg-${props.blok.backgroundColor}`
     }>
-      <div className="ood-quote-card__content">
-        <blockquote className={`ood-quote-card__quote ${props.blok.quotationMarkColor}`}>{props.blok.quoteText}</blockquote>
-        <p className="ood-quote-card__name">{props.blok.personName}</p>
-        <p className="ood-quote-card__bio">{`${props.blok.personTitle}, ${props.blok.personClassYear}`}</p>
-      </div>
-      {(props.blok.photo.filename && props.blok.showImage === "has-image") && (
-        <figure className="su-media ood-quote-card__media">
-          <div className="su-media__wrapper su-aspect-ratio--1x1">
-            <img className={`ood-quote-card__img + obj-position-${props.blok.visibleHorizontal}-${props.blok.visibleVertical}`}
-                 src={props.blok.photo.filename}
-                 alt={props.blok.photo.alt}
-            />
-          </div>
+
+      {props.blok.image.filename && (
+        <figure className="su-hero__media ood-poster__media">
+          <img className="ood-poster__image" src={props.blok.image.filename} alt="" />
         </figure>
       )}
-    </article>
+
+      <div className="centered-container ood-poster__container">
+        <div className={`flex-container ood-poster__row`}>
+          <div className="flex-md-6-of-12 ood-poster__flex-cell">
+            <div className="ood-poster__card1">
+              {props.blok.headline1 && (
+                <h2>{props.blok.headline1}</h2>
+              )}
+              {props.blok.bodyText1 &&
+              <div className="ood-poster__text">
+                <RichTextField data={props.blok.bodyText1}/>
+              </div>
+              }
+              {props.blok.ctaLink1.linktype === "story" &&
+              <Link to={`/${props.blok.ctaLink1.cached_url}/`}>{props.blok.ctaText1}
+              </Link>}
+              {props.blok.ctaLink1.linktype === "url" &&
+              <a href={props.blok.ctaLink1.url} className="su-link--external">{props.blok.ctaText1}
+              </a>}
+            </div>
+          </div>
+          <div className="flex-md-6-of-12">
+            <div className="ood-poster__card2">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
   </SbEditable>
 )
 
