@@ -7,11 +7,11 @@
 @import 'bourbon/core/bourbon.scss';
 @import 'decanter/core/src/scss/core/normalize';
 @import '@fortawesome/fontawesome-free/scss/fontawesome';
-@import '@fortawesome/fontawesome-free/scss/solid'; // Fontawesome Solid not included in Decanter
+@import '@fortawesome/fontawesome-free/scss/solid'; // Fontawesome Solid not included in Decanter but we need for this project
 @import '@fortawesome/fontawesome-free/scss/brands';
 @import '@fortawesome/fontawesome-free/scss/regular';
 
-// Fonts we use for this project
+// Fonts we use for this project (exclude some from Decanter that we do not need)
 @import 'core/fonts';
 
 // Decanter Utilities
@@ -51,4 +51,4 @@
 @import 'elements/index';
 @import 'layouts/index';
 @import 'components/index';
-@import 'decorators/index'; // Decorators go last
+@import 'decorators/index'; // Decorators go last since they should override component default styles
