@@ -15,6 +15,7 @@ import OodTileCard from './ood/oodTileCard'
 import OodQuoteCard from './ood/oodQuoteCard'
 import OodQuoteSlider from './ood/oodQuoteSlider'
 import OodHero from './ood/oodHero'
+import OodPoster from './ood/oodPoster'
 // Navigation components
 import NavItem from './navigation/navItem'
 import OodSubMenu from './navigation/oodSubMenu'
@@ -58,6 +59,7 @@ const ComponentList = {
   oodHeader: OodHeader,
   oodSubMenu: OodSubMenu,
   oodIconCard: OodIconCard,
+  oodPoster: OodPoster,
   oodMegaMenu: OodMegaMenu,
   oodMegaMenuSection: OodMegaMenuSection,
   oodMegaMenuCard: OodMegaMenuCard,
