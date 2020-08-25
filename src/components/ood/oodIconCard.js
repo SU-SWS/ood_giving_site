@@ -16,7 +16,7 @@ const OodIconCard = (props) => (
                   ${props.blok.icon.type}
                   ${props.blok.icon.icon}
                   ${props.blok.iconStyle ? props.blok.iconStyle : ""}
-                   ${props.blok.backgroundColor !== "white" ? "su-text-white" : "su-text-digital-red"}
+                   ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : "su-text-digital-red"}
              `} />
           )}
         </div>

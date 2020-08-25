@@ -11,7 +11,7 @@
 @import '@fortawesome/fontawesome-free/scss/regular';
 
 // Fonts we use for this project
-@import 'fonts';
+@import 'core/fonts';
 
 // Decanter Utilities
 @import 'decanter/core/src/scss/utilities/variables/core/index';
@@ -24,7 +24,6 @@
 // Decanter Core Elements
 @import 'decanter/core/src/scss/core/base';
 @import 'decanter/core/src/scss/core/flex-grid/index';
-//@import 'decanter/core/src/scss/core/fonts/fonts';
 @import 'decanter/core/src/scss/elements/index';
 @import 'decanter/core/src/scss/core/helpers/index';
 
