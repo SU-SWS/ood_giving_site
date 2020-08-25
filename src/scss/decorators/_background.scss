@@ -13,24 +13,37 @@
     }
   }
 
+  &-archway {
+    &-dark {
+      background-color: #2F2424;
+    }
+  }
+
   &-black {
     background-color: $su-color-black;
   }
 
-  &-brick {
-    background-color: #651C32;
-  }
+  // Blues, Greens & Teals
+  &-bay {
+    background-color: #016895;
 
-  &-bay-dark {
-    background-color: $su-color-bay-dark;
+    &-light {
+      background-color: #c7d1c5;
+    }
+
+    &-dark {
+      background-color: $su-color-bay-dark;
+    }
   }
 
   &-lagunita {
     background-color: $su-color-lagunita;
   }
 
-  &-sky-dark {
-    background-color: $su-color-sky-dark;
+  &-sky {
+    &-dark {
+      background-color: $su-color-sky-dark;
+    }
   }
 
   &-palo-alto {
@@ -41,11 +54,16 @@
     }
   }
 
+  // Reds and Purples
+  &-cardinal-red {
+    background-color: $su-color-cardinal-red;
+  }
+
   &-digital-red {
     background-color: $su-color-digital-red;
   }
 
-  &-archway-dark {
-    background-color: #2F2424;
+  &-brick {
+    background-color: #651C32;
   }
 }
