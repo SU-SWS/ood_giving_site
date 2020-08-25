@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+// Column grid styles - for creating faux masonry grid
+
+.column-grid {
+  .ood-tile-card,
+  .ood-icon-card {
+    @include modular-spacing('margin', null null 3);
+    height: auto;
+  }
+
+  &__column {
+    > * {
+      &:last-child {
+        @include margin(null null 0);
+      }
+    }
+  }
+}

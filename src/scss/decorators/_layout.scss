@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+// Columns, rows, grids, widths, alignment related
+
+.align {
+  &-items {
+    &-start {
+      align-items: flex-start;
+    }
+
+    &-end {
+      align-items: flex-end;
+    }
+
+    &-center {
+      align-items: center;
+    }
+
+    &-stretch {
+      align-items: stretch;
+    }
+  }
+}
+
+.su-width {
+  @include grid-media('lg') {
+    &-100 {
+      width: 100%;
+    }
+
+    &-75 {
+      width: 75%;
+    }
+
+    &-60 {
+      width: 60%;
+    }
+  }
+}

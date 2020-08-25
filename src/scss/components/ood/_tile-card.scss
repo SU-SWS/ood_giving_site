@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+// Tile cards style
+
+.ood-tile-card {
+  @include margin(null auto);
+  background-color: transparent;
+  max-width: 900px;
+
+  &__media,
+  &__image {
+    @include grid-media-only('xs') {
+      display: block;
+    }
+  }
+
+  .su-card__contents {
+    > .ood-tile-card__headline {
+      @include modular-typography(2);
+      font-weight: $su-font-regular;
+
+      @include grid-media('xl') {
+        @include modular-typography(3);
+      }
+    }
+
+    .ood-tile-card__superhead {
+      @include margin(null null 1em);
+      font-weight: $su-font-semi-bold;
+
+      @include grid-media('lg') {
+        letter-spacing: 0.1em;
+      }
+    }
+  }
+
+  &__contents {
+    @include grid-media('md') {
+      min-height: 400px;
+    }
+  }
+
+  &__link {
+    &:not(.su-bg-white) {
+      border-color: transparent; // Only white cards have the grey border
+    }
+  }
+
+  &--has-image {
+    border-top: 80px solid transparent; // The transparent border compensate for the 80px image overhang
+
+    .su-media {
+      @include margin(-80px null null);
+      @include modular-spacing('margin', null 2);
+    }
+  }
+
+  &--no-image {
+    .su-card__contents {
+      @include modular-spacing("padding", 4 3);
+    }
+
+    .su-media {
+      display: none;
+    }
+  }
+
+  > a {
+    height: 100%;
+  }
+
+  &__superhead {
+    text-transform: uppercase;
+  }
+
+  .row--3-columns & {
+    height: 100%;
+  }
+}
+
+.su-text-white {
+  &.su-card--link {
+    > a,
+    > a:hover,
+    > a:focus {
+      color: $su-color-white;
+
+      h2 {
+        color: $su-color-white;
+      }
+    }
+  }
+}

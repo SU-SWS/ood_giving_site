@@ -1,35 +1,67 @@
 @charset "UTF-8";
 
-.bg {
+.su-bg {
   &-white{
     background-color: $su-color-white;
   }
 
-  &-brick {
-    background-color: #651C32;
-  }
-
   &-fog {
-    background-color: #DAD7CB;
+    &-light {
+      background-color: $su-color-fog-light;
+    }
   }
 
-  &-fog-light {
-    background-color: #F4F4F4;
+  &-archway {
+    &-dark {
+      background-color: $su-color-archway-dark;
+    }
   }
 
-  &-bay-light {
-    background-color: #c7d1c5;
+  &-black {
+    background-color: $su-color-black;
+  }
+
+  // Blues, Greens & Teals
+  &-bay {
+    background-color: $su-color-bay; // Might not need
+
+    &-light {
+      background-color: $su-color-bay-light; // Might not need
+    }
+
+    &-dark {
+      background-color: $su-color-bay-dark;
+    }
   }
 
   &-lagunita {
     background-color: $su-color-lagunita;
   }
 
-  &-sky-dark {
-    background-color: #016895;
+  &-sky {
+    &-dark {
+      background-color: $su-color-sky-dark;
+    }
   }
 
-  &-archway-dark {
-    background-color: #2F2424;
+  &-palo-alto {
+    background-color: $su-color-palo-alto;
+
+    &-dark {
+      background-color: $su-color-palo-alto-dark;
+    }
+  }
+
+  // Reds and Purples
+  &-cardinal-red {
+    background-color: $su-color-cardinal-red;
+  }
+
+  &-digital-red {
+    background-color: $su-color-digital-red;
+  }
+
+  &-brick {
+    background-color: $su-color-brick; // Might not need
   }
 }

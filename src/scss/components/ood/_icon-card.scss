@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+// OOD Icon Card style
+
+.ood-icon-card {
+  @include margin(null auto);
+  height: 100%;
+  background-color: transparent;
+
+  &__media {
+    @include modular-spacing('padding', 4 3 null);
+  }
+
+  &__icon {
+    font-size: 2em;
+  }
+
+  .su-card__contents {
+    > .ood-icon-card__headline {
+      @include modular-typography(2);
+      font-weight: $su-font-regular;
+
+      @include grid-media('xl') {
+        @include modular-typography(3);
+      }
+    }
+  }
+
+  &__contents {
+    @include modular-spacing("padding", 4 3);
+
+    @include grid-media('md') {
+      min-height: 200px;
+    }
+  }
+
+  > a {
+    height: 100%;
+  }
+}

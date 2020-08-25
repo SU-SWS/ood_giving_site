@@ -3,59 +3,50 @@
 @import 'config';
 
 // Vendors
-@import
-  'bourbon/core/bourbon.scss'
-, 'decanter/core/src/scss/core/normalize'
-, '@fortawesome/fontawesome-free/scss/fontawesome'
-, '@fortawesome/fontawesome-free/scss/solid'
-, '@fortawesome/fontawesome-free/scss/brands'
-, '@fortawesome/fontawesome-free/scss/regular'
-;
+@import 'bourbon/core/bourbon.scss';
+@import 'decanter/core/src/scss/core/normalize';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/brands';
+@import '@fortawesome/fontawesome-free/scss/regular';
 
 // Fonts we use for this project
-@import 'fonts';
+@import 'core/fonts';
 
 // Decanter Utilities
-@import
-  'decanter/core/src/scss/utilities/variables/core/index'
-, 'decanter/core/src/scss/utilities/variables/elements/index'
-, 'decanter/core/src/scss/utilities/variables/components/index'
-, 'decanter/core/src/scss/utilities/functions/index'
-, 'decanter/core/src/scss/utilities/mixins/index'
-, 'decanter/core/src/scss/utilities/placeholders/index'
-;
+@import 'decanter/core/src/scss/utilities/variables/core/index';
+@import 'decanter/core/src/scss/utilities/variables/elements/index';
+@import 'decanter/core/src/scss/utilities/variables/components/index';
+@import 'decanter/core/src/scss/utilities/functions/index';
+@import 'decanter/core/src/scss/utilities/mixins/index';
+@import 'decanter/core/src/scss/utilities/placeholders/index';
 
 // Decanter Core Elements
-@import
-  'decanter/core/src/scss/core/base'
-, 'decanter/core/src/scss/core/flex-grid/index'
-//, 'decanter/core/src/scss/core/fonts/fonts'
-, 'decanter/core/src/scss/elements/index'
-, 'decanter/core/src/scss/core/helpers/index'
-;
+@import 'decanter/core/src/scss/core/base';
+@import 'decanter/core/src/scss/core/flex-grid/index';
+@import 'decanter/core/src/scss/elements/index';
+@import 'decanter/core/src/scss/core/helpers/index';
 
 // Decanter Components
-@import
-  'decanter/core/src/scss/components/card/index'
-, 'decanter/core/src/scss/components/link/link'
-, 'decanter/core/src/scss/components/global-footer/index'
-, 'decanter/core/src/scss/components/signup-form/index'
-, 'decanter/core/src/scss/components/local-footer/index'
-, 'decanter/core/src/scss/components/main-nav/index'
-, 'decanter/core/src/scss/components/media/index'
-, 'decanter/core/src/scss/components/site-search/index'
-, 'decanter/core/src/scss/components/skiplinks/index'
+@import 'decanter/core/src/scss/components/button/index';
+@import 'decanter/core/src/scss/components/card/index';
+@import 'decanter/core/src/scss/components/link/index';
+@import 'decanter/core/src/scss/components/global-footer/index';
+@import 'decanter/core/src/scss/components/signup-form/index';
+@import 'decanter/core/src/scss/components/local-footer/index';
+@import 'decanter/core/src/scss/components/main-nav/index';
+@import 'decanter/core/src/scss/components/media/index';
+@import 'decanter/core/src/scss/components/site-search/index';
+@import 'decanter/core/src/scss/components/skiplinks/index';
 
-  // Components with cherry picked variants
-, 'decanter/core/src/scss/components/lockup/lockup'
-, 'decanter/core/src/scss/components/lockup/lockup--option-d'
-, 'decanter/core/src/scss/components/lockup/lockup--option-n'
-;
+// Components with cherry picked variants
+@import 'decanter/core/src/scss/components/lockup/lockup';
+@import 'decanter/core/src/scss/components/lockup/lockup--option-d';
+@import 'decanter/core/src/scss/components/lockup/lockup--option-n';
 
 // Styles for this project
-@import
-  'base'
-, 'layouts/index'
-, 'components/index'
-, 'decorators/index'
-;
+@import 'utilities/index'; // Utilities go first
+@import 'base';
+@import 'layouts/index';
+@import 'components/index';
+@import 'decorators/index'; // Decorators go last

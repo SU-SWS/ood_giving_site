@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+.ood-quote-card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+
+  &__media {
+    position: absolute;
+    right: -80px; // image overhang
+    width: 360px;
+    max-width: 360px;
+    align-self: center;
+  }
+
+  &__content {
+    @include modular-spacing('padding', 3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 460px;
+  }
+
+  &--has-image {
+    @include margin(null 80px null null);
+
+    .ood-quote-card__content {
+      width: calc(100% - 360px + 80px); // 100% minus the image width but add back the overhang amount
+    }
+  }
+
+  &__quote {
+    @include margin(0 0 1em);
+    @include padding(50px null null);
+    @include modular-typography(2);
+    @include serif;
+    line-height: $su-base-line-height;
+
+    &::before {
+      @include margin(null null null -2px);
+      font-size: 4em;
+      line-height: 0.3;
+      content: '\201C';
+      display: block;
+      color: $su-color-palo-verde-light;
+      font-weight: $su-font-bold;
+    }
+  }
+
+  &__name,
+  &__bio {
+    @include margin(null null 0);
+    @include modular-typography(1);
+    color: $su-color-cool-grey-75;
+  }
+}

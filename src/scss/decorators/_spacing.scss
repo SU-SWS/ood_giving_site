@@ -4,20 +4,24 @@
 
 .padding {
   &-v {
-    &-sm {
+    &-xs {
       @include modular-spacing('padding', 3 null);
     }
 
-    &-md {
+    &-sm {
       @include modular-spacing('padding', 4 null);
     }
 
-    &-lg {
+    &-md {
       @include modular-spacing('padding', 6 null);
     }
 
-    &-xl {
+    &-lg {
       @include modular-spacing('padding', 8 null);
+    }
+
+    &-xl {
+      @include modular-spacing('padding', 9 null);
     }
   }
 }

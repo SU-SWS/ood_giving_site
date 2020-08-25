@@ -8,21 +8,85 @@ body {
   @include margin(null auto);
 }
 
-.su-yvonne {
-  background-color: $su-color-cool-grey;
-  @include padding(0 null 3px);
-  @include font-smoothing;
-  display: grid;
-  grid-template-areas: "col-1" "col-2";
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 36px;
+.centered-container {
+  @include centered-column;
 
-  > div:first-of-type {
-    grid-area: col-1;
+  &-75 {
+    @include margin(null auto);
+    max-width: calc((100% - 40px));
+    width: calc((100% - 40px));
+
+    @media only screen and (min-width: 576px) {
+      max-width: calc((100% - 60px));
+      width: calc((100% - 60px));
+    }
+
+    @media only screen and (min-width: 768px) {
+      max-width: calc((100% - 100px));
+      width: calc((100% - 100px));
+    }
+
+    @media only screen and (min-width: 992px) {
+      max-width: calc((100% - 160px));
+      width: calc((100% - 160px));
+    }
+
+    @media only screen and (min-width: 1200px) {
+      max-width: calc((100% - 200px) * 0.75);
+      width: calc((100% - 200px) * 0.75);
+    }
+
+    @media only screen and (min-width: 1500px) {
+      max-width: calc((100% - 200px) * 0.75);
+      width: calc((100% - 200px) * 0.75);
+    }
+
+    @media only screen and (min-width: 1700px) {
+      max-width: calc(1500px * 0.75);
+      width: calc(1500px * 0.75);
+    }
   }
-
-  > div:last-of-type {
-    grid-area: col-2;
-  }
-
 }
+
+p {
+  &:empty {
+    display: none;
+  }
+}
+
+/* Disable vertical rhythm - save for later
+main {
+  h2 {
+    &:not(:first-child) {
+      @include margin(1.8em null null);
+    }
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    &:not(:first-child) {
+      @include margin(1.6em null null);
+    }
+  }
+
+  h1 + h2,
+  h2 + h3,
+  h3 + h4,
+  h4 + h5 {
+    &:not(:first-child) {
+      @include margin(1em null null);
+    }
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include margin(null null 0.6em);
+    clear: none;
+  }
+}
+**/

@@ -3,7 +3,7 @@ import SbEditable from 'storyblok-react'
 
 const globalFooter = (props) => (
   <SbEditable content={props.blok}>
-    <div className={props.blok.color ?  "su-global-footer " + props.blok.color : "su-global-footer"}>
+    <div className={props.blok.color ? "su-global-footer " + props.blok.color : "su-global-footer"}>
       <div className="su-global-footer__container">
         <div className="su-global-footer__brand">
           <a className="su-logo [ modifier_class ]" href="https://www.stanford.edu">

@@ -1,6 +1,10 @@
 {
   "name": "gatsby-starter-default",
   "private": true,
+  "browserslist": [
+    "IE 11",
+    "last 2 versions"
+  ],
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
@@ -19,12 +23,14 @@
     "gatsby-plugin-sharp": "^2.6.14",
     "gatsby-source-filesystem": "^2.3.14",
     "gatsby-source-storyblok": "^1.1.0",
+    "gatsby-storyblok-image": "^0.2.2",
     "gatsby-transformer-sharp": "^2.5.7",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
+    "rss-parser": "^3.9.0",
     "sanitize-html": "^1.23.0",
     "storyblok-react": "^0.1.1"
   },

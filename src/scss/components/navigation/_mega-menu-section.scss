@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.ood-mega-menu--section-top-link {
+  // will create mixins - temporary code here
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 131.99%;
+  color: $su-color-vivid-red;
+  border-bottom: 3px solid $su-color-vivid-red;
+  @include modular-typography(1);
+  @include modular-spacing('padding', 2 null 1 null);
+}
+
+.ood-mega-menu--section {
+  border: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  @include modular-spacing('padding-left', 3);
+
+
+  .ood-navigation-link {
+    // temporary, will convert to font mixins and modular typography
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 200%; // was 23px in figma, but it is wrong because they did extra lines or something between
+  }
+}
