@@ -16,7 +16,7 @@ const OodQuoteCard = (props) => (
       {(props.blok.photo.filename && props.blok.showImage === "has-image") && (
         <figure className="su-media ood-quote-card__media">
           <div className="su-media__wrapper su-aspect-ratio--1x1">
-            <img className={`ood-quote-card__img + obj-position-${props.blok.visibleHorizontal}-${props.blok.visibleVertical}`}
+            <img className={`ood-quote-card__img su-obj-position-${props.blok.visibleHorizontal}-${props.blok.visibleVertical}`}
                  src={props.blok.photo.filename}
                  alt={props.blok.photo.alt}
             />

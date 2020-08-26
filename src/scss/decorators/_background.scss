@@ -52,6 +52,12 @@
     }
   }
 
+  &-palo-verde {
+    &-dark {
+      background-color: $su-color-palo-verde-dark;
+    }
+  }
+
   // Reds and Purples
   &-cardinal-red {
     background-color: $su-color-cardinal-red;

@@ -10,8 +10,10 @@ const OodPoster = (props) => (
     }>
 
       {props.blok.image.filename && (
-        <figure className="su-hero__media ood-poster__media">
-          <img className="ood-poster__image" src={props.blok.image.filename} alt="" />
+        <figure className={`su-hero__media ood-poster__media ${props.blok.imageOverlay && (props.blok.imageOverlay)}`}>
+          <img src={props.blok.image.filename} alt=""
+               className={`ood-poster__image su-obj-position-h-center-v-${props.blok.visibleVertical}`}
+          />
         </figure>
       )}
 
