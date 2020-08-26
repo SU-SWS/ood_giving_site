@@ -10,12 +10,13 @@ import GlobalFooter from './identity/globalFooter'
 import Lockup from './identity/lockup'
 // OOD specific components
 import OodHeader from './ood/oodHeader'
+import OodHero from './ood/oodHero'
+import OodLocalFooter from './ood/oodLocalFooter'
 import OodIconCard from './ood/oodIconCard'
-import OodTileCard from './ood/oodTileCard'
+import OodPoster from './ood/oodPoster'
 import OodQuoteCard from './ood/oodQuoteCard'
 import OodQuoteSlider from './ood/oodQuoteSlider'
-import OodHero from './ood/oodHero'
-import OodPoster from './ood/oodPoster'
+import OodTileCard from './ood/oodTileCard'
 // Navigation components
 import NavItem from './navigation/navItem'
 import OodSubMenu from './navigation/oodSubMenu'
@@ -59,6 +60,7 @@ const ComponentList = {
   oodHeader: OodHeader,
   oodSubMenu: OodSubMenu,
   oodIconCard: OodIconCard,
+  oodLocalFooter: OodLocalFooter,
   oodPoster: OodPoster,
   oodMegaMenu: OodMegaMenu,
   oodMegaMenuSection: OodMegaMenuSection,

@@ -21,7 +21,7 @@ const OodPoster = (props) => (
         <div className={`flex-container ood-poster__row
              ${props.blok.cardPosition === "right" ? "su-flex-row-reverse" : ""}`
         }>
-          <div className="flex-md-6-of-12 ood-poster__flex-cell">
+          <div className="flex-md-8-of-12 flex-xl-6-of-12 ood-poster__flex-cell">
             <div className={`ood-poster__card1
                  ${`su-bg-${props.blok.cardBackgroundColor}`}
                  ${(props.blok.cardBackgroundColor !== "white" && props.blok.cardBackgroundColor !== "fog-light") ? "su-text-white" : ""}`
@@ -40,10 +40,6 @@ const OodPoster = (props) => (
               {props.blok.ctaLink1.linktype === "url" &&
               <a href={props.blok.ctaLink1.url} className="su-link--external">{props.blok.ctaText1}
               </a>}
-            </div>
-          </div>
-          <div className="flex-md-6-of-12">
-            <div className="ood-poster__card2">
             </div>
           </div>
         </div>

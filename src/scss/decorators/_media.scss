@@ -72,3 +72,23 @@
     }
   }
 }
+
+// Image object position options inside the Hero component - need the nesting to override Decanter default
+.su-hero__media {
+  .su {
+    &-obj-position {
+      &-h-center-v-top {
+        object-position: center top;
+      }
+
+      &-h-center-v-center {
+        object-position: center center;
+      }
+
+      &-h-center-v-bottom {
+        object-position: center bottom;
+      }
+    }
+  }
+}
+
