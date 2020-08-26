@@ -8,7 +8,7 @@ const OodNavigationLink = (props) => (
     <SbEditable content={props.blok}>
         <li className="nav-item active">
             {props.blok.link.linktype === "story" &&
-            <Link to={`/${props.blok.link.cached_url}/`} className={props.blok.linkClass ? "su-link " + props.blok.linkClass : "su-link "} activeClassName="active">
+            <Link to={'/' + (props.blok.url === 'home' ? '' : props.blok.link.cached_url)} className={props.blok.linkClass ? "su-link " + props.blok.linkClass : "su-link "} activeClassName="active">
                 {props.blok.linkTextLabel}
             </Link>}
             {props.blok.link.linktype === "url" &&
