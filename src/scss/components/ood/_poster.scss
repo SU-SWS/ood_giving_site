@@ -38,11 +38,19 @@
   }
 
   &__card1 {
+    @include modular-spacing('padding', 4);
     height: 460px;
-    background-color: $su-color-white;
-    border: #000 solid 1px;
     position: absolute;
     bottom: -80px;
     padding: 2em;
+  }
+
+  &__headline {
+    @include modular-typography(4);
+    font-weight: $su-font-regular;
+  }
+
+  &__text {
+    @include modular-typography(1);
   }
 }

@@ -16,11 +16,16 @@ const OodPoster = (props) => (
       )}
 
       <div className="centered-container ood-poster__container">
-        <div className={`flex-container ood-poster__row`}>
+        <div className={`flex-container ood-poster__row
+             ${props.blok.cardPosition === "right" ? "su-flex-row-reverse" : ""}`
+        }>
           <div className="flex-md-6-of-12 ood-poster__flex-cell">
-            <div className="ood-poster__card1">
+            <div className={`ood-poster__card1
+                 ${`su-bg-${props.blok.cardBackgroundColor}`}
+                 ${(props.blok.cardBackgroundColor !== "white" && props.blok.cardBackgroundColor !== "fog-light") ? "su-text-white" : ""}`
+            }>
               {props.blok.headline1 && (
-                <h2>{props.blok.headline1}</h2>
+                <h2 className="ood-poster__headline">{props.blok.headline1}</h2>
               )}
               {props.blok.bodyText1 &&
               <div className="ood-poster__text">
