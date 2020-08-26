@@ -9,6 +9,7 @@ import ComponentNotFound from './component_not_found'
 import GlobalFooter from './identity/globalFooter'
 import Lockup from './identity/lockup'
 // OOD specific components
+import OodCtaLink from "./ood/oodCtaLink";
 import OodHeader from './ood/oodHeader'
 import OodTileCard from './ood/oodTileCard'
 import OodQuoteCard from './ood/oodQuoteCard'
@@ -54,6 +55,7 @@ const ComponentList = {
   globalFooter: GlobalFooter,
   lockup: Lockup,
   navItem: NavItem,
+  oodCtaLink: OodCtaLink,
   oodHeader: OodHeader,
   oodEyebrowMenu: OodEyebrowMenu,
   oodMegaMenu: OodMegaMenu,

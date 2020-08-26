@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import SbEditable from 'storyblok-react'
 import Components from "../components";
 
-const OodNCtaLink = (props) => (
+const OodCtaLink = (props) => (
 
     <SbEditable content={props.blok}>
         <li className="nav-item active">
@@ -23,4 +23,4 @@ const OodNCtaLink = (props) => (
     </SbEditable>
 )
 
-export default OodNCtaLink
+export default OodCtaLink
