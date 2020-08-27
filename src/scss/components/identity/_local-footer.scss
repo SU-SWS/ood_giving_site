@@ -9,6 +9,17 @@
     @include modular-spacing('padding', null null 3);
   }
 
+  &__address {
+    span {
+      @include margin(null null 0.2em);
+      display: block;
+    }
+  }
+
+  &__content {
+    @include small-paragraph;
+  }
+
   &__list-heading {
     @include serif;
     font-size: 2rem;
