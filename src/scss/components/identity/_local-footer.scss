@@ -20,6 +20,30 @@
     @include small-paragraph;
   }
 
+  &__cell {
+    @include margin(null null 3em);
+
+    &:last-child {
+      @include margin(null null 0);
+    }
+
+    @include grid-media('md') {
+      &:nth-last-child(2) {
+        @include margin(null null 0);
+      }
+    }
+
+    @include grid-media('xl') {
+      @include margin(null null 0);
+    }
+
+    > * {
+      &:last-child {
+        @include margin(null null 0);
+      }
+    }
+  }
+
   &__list-heading {
     @include serif;
     font-size: 2rem;
@@ -30,7 +54,9 @@
     @include list-unstyled;
 
     > li {
-      @include margin(null null 0.4em);
+      &:not(:last-child) {
+        @include margin(null null 0.4em);
+      }
     }
 
     a {
