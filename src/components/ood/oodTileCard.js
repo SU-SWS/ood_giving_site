@@ -6,7 +6,7 @@ import RichTextField from '../richTextField'
 
 const OodTileCard = (props) => (
   <SbEditable content={props.blok}>
-    <article className={`su-card su-card--link ood-tile-card
+    <article data-support={props.blok.areaToSupport} className={`su-card su-card--link ood-tile-card
              ${(props.blok.image.filename && props.blok.showImage === true) ? "ood-tile-card--has-image" : "ood-tile-card--no-image"}
              ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : ""}`
     }>

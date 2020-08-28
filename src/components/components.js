@@ -30,6 +30,7 @@ import OodNavigationColumn from './navigation/oodNavigationColumn'
 import ColumnGrid from './layout/columnGrid'
 import RowWithThreeColumns from './layout/rowWithThreeColumns'
 import Section from './layout/section'
+import FilteringGrid from './filteringGrid'
 // Simple components
 import Button from './simple/button'
 // ADAPT POC components created by Katria
@@ -77,6 +78,7 @@ const ComponentList = {
   eventSession: EventSession,
   person: Person,
   product: Product,
+  filteringGrid: FilteringGrid
 }
 
 const Components = (type) => {
