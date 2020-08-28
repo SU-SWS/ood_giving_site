@@ -44,21 +44,10 @@ const OodLocalFooter = (props) => (
                 <h2 className="ood-local-footer__list-heading">{props.blok.headingGroupOod}</h2>
               )}
               <ul className="ood-local-footer__link-list">
-                <li>
-                  <a href="#">lorem ipsum dolor sit amit</a>
-                </li>
-                <li>
-                  <a href="#">Vestibellum ultices nueue</a>
-                </li>
-                <li>
-                  <a href="#">Blendius tellus</a>
-                </li>
-                <li>
-                  <a href="#">Arnen cowalls</a>
-                </li>
-                <li>
-                  <a href="#">Finibus</a>
-                </li>
+                {props.blok.linkGroupOod && props.blok.linkGroupOod.map((blok) => React.createElement(Components(blok.component), {
+                  key: blok._uid,
+                  blok: blok,
+                }))}
               </ul>
             </nav>
           </div>
@@ -74,21 +63,10 @@ const OodLocalFooter = (props) => (
                 <h2 className="ood-local-footer__list-heading">{props.blok.headingGroupInfo}</h2>
               )}
               <ul className="ood-local-footer__link-list">
-                <li>
-                  <a href="#">Finibus</a>
-                </li>
-                <li>
-                  <a href="#">lorem ipsum dolor sit amit</a>
-                </li>
-                <li>
-                  <a href="#">Vestibellum ultices nueue</a>
-                </li>
-                <li>
-                  <a href="#">Blendius tellus</a>
-                </li>
-                <li>
-                  <a href="#">Arnen cowalls</a>
-                </li>
+                {props.blok.linkGroupInfo && props.blok.linkGroupInfo.map((blok) => React.createElement(Components(blok.component), {
+                  key: blok._uid,
+                  blok: blok,
+                }))}
               </ul>
             </nav>
           </div>

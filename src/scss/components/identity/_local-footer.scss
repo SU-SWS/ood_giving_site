@@ -32,11 +32,19 @@
     > li {
       @include margin(null null 0.4em);
     }
+
+    a {
+      text-decoration: underline;
+    }
   }
 
   a {
     color: $su-color-digital-red;
     font-weight: $su-font-regular;
+
+    &::after {
+      background-color: $su-color-bright-red;
+    }
 
     &:hover,
     &:focus {
