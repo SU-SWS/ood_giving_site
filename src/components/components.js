@@ -19,6 +19,9 @@ import OodQuoteSlider from './ood/oodQuoteSlider'
 import OodTileCard from './ood/oodTileCard'
 // Navigation components
 import NavItem from './navigation/navItem'
+import ContentMenuParentItems from './navigation/contentMenuParentItem'
+import ContentNestedMenu from './navigation/contentNestedMenu'
+import OodContentMenu from './navigation/oodContentMenu'
 import OodSubMenu from './navigation/oodSubMenu'
 import OodMegaMenu from './navigation/oodMegaMenu'
 import OodMegaMenuSection from './navigation/oodMegaMenuSection'
@@ -69,6 +72,9 @@ const ComponentList = {
   oodNavigationLink: OodNavigationLink,
   oodNavigationLinkGroup: OodNavigationLinkGroup,
   oodNavigationColumn: OodNavigationColumn,
+  oodContentMenu: OodContentMenu,
+  contentMenuParentItem: ContentMenuParentItems,
+  contentNestedMenu: ContentNestedMenu,
   oodTileCard: OodTileCard,
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,
