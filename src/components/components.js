@@ -2,15 +2,13 @@ import RichTextField from "./richTextField"
 import Page from './page'
 import Grid from './grid'
 import Feature from './feature'
-import FeaturedImage from './featuredImage' // Might remove
-import IntroText from './typography/introText' // Might remove
 import ComponentNotFound from './component_not_found'
 // Stanford identity elements
 import GlobalFooter from './identity/globalFooter'
 import Lockup from './identity/lockup'
 // OOD specific components
 import OodHeader from './ood/oodHeader'
-import OodHero from './ood/oodHero'
+import OodHomepageHero from './ood/oodHomepageHero'
 import OodLocalFooter from './ood/oodLocalFooter'
 import OodIconCard from './ood/oodIconCard'
 import OodPoster from './ood/oodPoster'
@@ -57,8 +55,6 @@ const ComponentList = {
   columnGrid: ColumnGrid,
   rowWithThreeColumns: RowWithThreeColumns,
   section: Section,
-  introText: IntroText,
-  featuredImage: FeaturedImage,
   globalFooter: GlobalFooter,
   lockup: Lockup,
   navItem: NavItem,
@@ -80,7 +76,7 @@ const ComponentList = {
   oodTileCard: OodTileCard,
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,
-  oodHero: OodHero,
+  oodHomepageHero: OodHomepageHero,
   card: Card,
   event: Event,
   eventSession: EventSession,

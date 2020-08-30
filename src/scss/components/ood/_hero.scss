@@ -1,27 +1,26 @@
 @charset "UTF-8";
 
-.ood-hero {
+.ood-hero-home {
   position: relative;
   height: 700px;
   border-bottom: 100px solid transparent; // To compensate for the CTA box bottom offset
 
-  .su-media {
+  &__media {
     height: 100%;
+  }
 
-    .su-media__wrapper {
-      height: 100%;
-    }
+  &__media-wrapper {
+    height: 100%;
+  }
 
-    img {
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
+  &__image {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   &__splash-text {
     @include serif;
-    @include modular-typography(9);
     @include margin(null null 0);
     max-width: 600px;
     position: absolute;
@@ -33,9 +32,10 @@
   }
 
   &__link {
-    @include modular-typography(4);
+    @include modular-spacing('padding', 3);
     position: absolute;
     bottom: -100px;
+    color: $su-color-white;
     //right: calc((100% - 1500px) / 2);
     max-width: 466px;
     z-index: 90;
@@ -44,37 +44,39 @@
 
     &:hover,
     &:focus {
-      .bg-hover-digital-red {
-        transition: background-color 0.3s ease-out;
-        background-color: $su-color-cardinal-red;
-        text-decoration: underline;
+      color: $su-color-white;
+      transition: background-color 0.3s ease-out;
+      background-color: $su-color-archway-dark;
 
+      .ood-hero-home__cta-headline {
+        text-decoration: underline;
+      }
+
+      .ood-hero-home__cta-text {
         &::after {
-          position: relative;
-          transition: left 0.2s ease-in-out;
-          left: 0.1em;
+          background-color: $su-color-white;
         }
       }
     }
   }
 
+  &__cta-headline {
+    @include modular-typography(4);
+    @include margin(null null 0.6em);
+    font-weight: $su-font-regular;
+  }
+
   &__cta-text {
-    @include modular-spacing('padding', 4 3);
+    @include modular-typography(0);
     @include margin(null null 0);
 
     &::after {
-      @include margin(null null null 0.4em);
-      display: inline-block;
-      position: relative;
-      left: 0;
-      font-family: "Font Awesome 5 Free";
-      content: "\f105";
-      font-weight: 900;
+      background-color: $su-color-white;
     }
   }
 
   .su-media__caption {
-    position: relative;
+    //position: relative;
   }
 
   @each $key, $breakpoint in $su-grid-media {

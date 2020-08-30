@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+// Modular Typography
+// Some of the larger ones might need to be scale down manually for mobile breakpoints
+
+.su-mod-type {
+  &-9 {
+    @include modular-typography(9);
+  }
+
+  &-8 {
+    @include modular-typography(8);
+  }
+
+  &-7 {
+    @include modular-typography(7);
+  }
+}
