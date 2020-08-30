@@ -4,8 +4,76 @@
 
 .ood-content-nav {
   background-color: transparent;
+  max-width: 400px;
 
   &__menu {
     background-color: transparent;
+
+    &-lv1 {
+      @include padding(null null null 0);
+    }
+
+    &-lv3 {
+      .ood-content-nav__link {
+        @include padding(.8rem 4.8rem .8rem 2.4rem);
+      }
+    }
+  }
+
+  &__link {
+    color: $su-color-digital-red;
+
+    &::after {
+      background-color: $su-color-digital-red;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+      color: $su-color-black;
+
+      &::before {
+        background-color: $su-color-black;
+      }
+    }
+
+    &--active {
+      + ul {
+        display: block;
+      }
+
+      &::before {
+        visibility: visible;
+        content: "";
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        transform: scaleY(1);
+        width: 6px;
+        bottom: 0;
+        left: 0;
+        background-color: $su-color-digital-red;
+        transition: transform 0.3s ease-in, background-color 0.3s ease-in;
+      }
+
+      &:hover,
+      &:focus {
+        &::before {
+          left: 6px;
+          transition: left 0.1s ease-in;
+        }
+      }
+    }
+  }
+
+  // This is to override a property in Decanter
+  .ood-content-nav__menu {
+    .ood-content-nav__menu-lv3 {
+      .ood-content-nav__item {
+        .ood-content-nav__link {
+          padding-bottom: 0.8rem;
+        }
+      }
+    }
   }
 }
