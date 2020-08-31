@@ -5,7 +5,7 @@ import RichTextField from '../richTextField'
 import Components from "../components"
 import transformImage from '../../utilities/transformImage'
 
-const OodPoster = props => {
+const OodPoster = (props) => {
   let processedImg = "";
   if (props.blok.image.filename) {
     processedImg = transformImage(props.blok.image.filename, "/2000x0");

@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+// Homepage Hero
 .ood-hero-home {
   position: relative;
   height: 700px;
@@ -7,10 +8,10 @@
 
   &__media {
     height: 100%;
-  }
 
-  &__media-wrapper {
-    height: 100%;
+    &-wrapper {
+      height: 100%;
+    }
   }
 
   &__image {
@@ -19,25 +20,31 @@
     object-position: center;
   }
 
+  &__content {
+    position: relative;
+  }
+
   &__splash-text {
     @include serif;
     @include margin(null null 0);
-    max-width: 600px;
     position: absolute;
-    bottom: 0.3em;
-    left: calc((100% - 1500px) / 2);
+    bottom: 220px;
+    left: 0;
     font-weight: $su-font-regular;
     z-index: 100;
     text-shadow: rgba(0,0,0,0.6) 0 0 26px;
+
+    @include grid-media('lg') {
+      bottom: 80px;
+    }
   }
 
   &__link {
     @include modular-spacing('padding', 3);
     position: absolute;
     bottom: -100px;
+    right: 0;
     color: $su-color-white;
-    //right: calc((100% - 1500px) / 2);
-    max-width: 466px;
     z-index: 90;
     text-decoration: none;
     font-weight: $su-font-regular;
@@ -77,39 +84,6 @@
 
   .su-media__caption {
     //position: relative;
-  }
-
-  @each $key, $breakpoint in $su-grid-media {
-    @if index($su-grid-media, ($key $breakpoint)) > 0 { // Breakpoint LG and larger
-      $_edge: map-get($su-screen-margins, $key);
-
-      &__link {
-        @include grid-media($key) {
-          right : $_edge;
-        }
-      }
-
-      &__splash-text,
-      .su-media__caption {
-        @include grid-media($key) {
-          left : $_edge;
-        }
-      }
-    }
-  }
-
-  // For browser width larger than 1700px (1500 max center container width + 2 X max screen edges 100px each)
-  @media only screen and (min-width: #{$su-screen-2xl + map_get($su-screen-margins, '2xl') * 2}) {
-    $_max_width_edge: calc((100% - #{$su-site-max-width}) / 2);
-
-    &__link {
-      right: $_max_width_edge;
-    }
-
-    &__splash-text,
-    .su-media__caption {
-      left: $_max_width_edge;
-    }
   }
 
 }

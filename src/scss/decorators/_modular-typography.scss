@@ -10,6 +10,14 @@
 
   &-8 {
     @include modular-typography(8);
+
+    @include grid-media-only('md') {
+      font-size: 7.2rem;
+    }
+
+    @include grid-media-max('sm') {
+      font-size: 6rem;
+    }
   }
 
   &-7 {
