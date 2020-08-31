@@ -39,6 +39,7 @@
 
   &__card1 {
     @include modular-spacing('padding', 4);
+    width: 100%;
     height: 460px;
     position: absolute;
     bottom: -80px;
