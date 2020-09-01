@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+// Modular Typography
+// Some of the larger ones might need to be scale down manually for mobile breakpoints
+
+.su-mod-type {
+  &-9 {
+    @include modular-typography(9);
+  }
+
+  &-8 {
+    @include modular-typography(8);
+
+    @include grid-media-only('md') {
+      font-size: 7.2rem;
+    }
+
+    @include grid-media-max('sm') {
+      font-size: 6rem;
+    }
+  }
+
+  &-7 {
+    @include modular-typography(7);
+  }
+}

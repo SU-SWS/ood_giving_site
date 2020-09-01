@@ -2,15 +2,13 @@ import RichTextField from "./richTextField"
 import Page from './page'
 import Grid from './grid'
 import Feature from './feature'
-import FeaturedImage from './featuredImage' // Might remove
-import IntroText from './typography/introText' // Might remove
 import ComponentNotFound from './component_not_found'
 // Stanford identity elements
 import GlobalFooter from './identity/globalFooter'
 import Lockup from './identity/lockup'
 // OOD specific components
 import OodHeader from './ood/oodHeader'
-import OodHero from './ood/oodHero'
+import OodHomepageHero from './ood/oodHomepageHero'
 import OodLocalFooter from './ood/oodLocalFooter'
 import OodIconCard from './ood/oodIconCard'
 import OodPoster from './ood/oodPoster'
@@ -19,6 +17,10 @@ import OodQuoteSlider from './ood/oodQuoteSlider'
 import OodTileCard from './ood/oodTileCard'
 // Navigation components
 import NavItem from './navigation/navItem'
+import ContentNavItem from './navigation/contentNavItem'
+import ContentMenuParentItems from './navigation/contentMenuParentItem'
+import ContentNestedMenu from './navigation/contentNestedMenu'
+import OodContentMenu from './navigation/oodContentMenu'
 import OodSubMenu from './navigation/oodSubMenu'
 import OodMegaMenu from './navigation/oodMegaMenu'
 import OodMegaMenuSection from './navigation/oodMegaMenuSection'
@@ -30,6 +32,7 @@ import OodNavigationColumn from './navigation/oodNavigationColumn'
 import ColumnGrid from './layout/columnGrid'
 import RowWithThreeColumns from './layout/rowWithThreeColumns'
 import Section from './layout/section'
+import SingleColumnContent from './layout/singleColumnContent'
 import FilteringGrid from './filteringGrid'
 // Simple components
 import Button from './simple/button'
@@ -53,8 +56,7 @@ const ComponentList = {
   columnGrid: ColumnGrid,
   rowWithThreeColumns: RowWithThreeColumns,
   section: Section,
-  introText: IntroText,
-  featuredImage: FeaturedImage,
+  singleColumnContent: SingleColumnContent,
   globalFooter: GlobalFooter,
   lockup: Lockup,
   navItem: NavItem,
@@ -69,10 +71,14 @@ const ComponentList = {
   oodNavigationLink: OodNavigationLink,
   oodNavigationLinkGroup: OodNavigationLinkGroup,
   oodNavigationColumn: OodNavigationColumn,
+  oodContentMenu: OodContentMenu,
+  contentNavItem: ContentNavItem,
+  contentMenuParentItem: ContentMenuParentItems,
+  contentNestedMenu: ContentNestedMenu,
   oodTileCard: OodTileCard,
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,
-  oodHero: OodHero,
+  oodHomepageHero: OodHomepageHero,
   card: Card,
   event: Event,
   eventSession: EventSession,

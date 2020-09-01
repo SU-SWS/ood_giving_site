@@ -1,0 +1,14 @@
+// Process image using the Storyblok image service
+// See all the "param" options on the website
+// https://www.storyblok.com/docs/image-service
+
+const transformImage = (image, param = null) => {
+  const imageService = "//img2.storyblok.com";
+  const path = image.replace("https://a.storyblok.com", "");
+  if (param === null) {
+    return `https:${imageService}${path}`;
+  }
+  return `https:${imageService}${param}${path}`;
+}
+
+export default transformImage
