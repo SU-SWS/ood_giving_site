@@ -25,7 +25,11 @@
 // Decanter Core Elements
 @import 'decanter/core/src/scss/core/base';
 @import 'decanter/core/src/scss/core/flex-grid/index';
-@import 'decanter/core/src/scss/elements/index';
+@import 'decanter/core/src/scss/elements/embed/index';
+@import 'decanter/core/src/scss/elements/image/index';
+@import 'decanter/core/src/scss/elements/list/index';
+@import 'decanter/core/src/scss/elements/table/index';
+@import 'decanter/core/src/scss/elements/typography/index';
 @import 'decanter/core/src/scss/core/helpers/index';
 
 // Decanter Components
@@ -33,8 +37,7 @@
 @import 'decanter/core/src/scss/components/card/index';
 @import 'decanter/core/src/scss/components/link/index';
 @import 'decanter/core/src/scss/components/global-footer/index';
-@import 'decanter/core/src/scss/components/signup-form/index';
-@import 'decanter/core/src/scss/components/local-footer/index';
+@import 'decanter/core/src/scss/components/hero/index';
 @import 'decanter/core/src/scss/components/main-nav/index';
 @import 'decanter/core/src/scss/components/media/index';
 @import 'decanter/core/src/scss/components/site-search/index';

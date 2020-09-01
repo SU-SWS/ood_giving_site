@@ -1,45 +1,94 @@
 @charset "UTF-8";
 
-// Image container aspect ratio
-.su-aspect-ratio--3x2 {
-  @include aspect-ratio(3, 2);
+.su {
+  // Media container aspect ratio
+  &-aspect-ratio {
+    &--3x2 {
+      @include aspect-ratio(3, 2);
+    }
+  }
+
+  // Image object position options
+  &-obj-position {
+    &-h-left-v-top {
+      object-position: left top;
+    }
+
+    &-h-left-v-center {
+      object-position: left center;
+    }
+
+    &-h-left-v-bottom {
+      object-position: left bottom;
+    }
+
+    &-h-center-v-top {
+      object-position: center top;
+    }
+
+    &-h-center-v-center {
+      object-position: center center;
+    }
+
+    &-h-center-v-bottom {
+      object-position: center bottom;
+    }
+
+    &-h-right-v-top {
+      object-position: right top;
+    }
+
+    &-h-right-v-center {
+      object-position: right center;
+    }
+
+    &-h-right-v-bottom {
+      object-position: right bottom;
+    }
+  }
+
+  &-gradient-black-top,
+  &-gradient-black-bottom {
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-gradient-black-top {
+    &::before {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0) 80%);
+    }
+  }
+
+  &-gradient-black-bottom {
+    &::before {
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0) 80%);
+    }
+  }
 }
 
-// Image object position options
-.obj-position {
-  &-h-left-v-top {
-    object-position: left top;
-  }
+// Image object position options inside the Hero component - need the nesting to override Decanter default
+.su-hero__media {
+  .su {
+    &-obj-position {
+      &-h-center-v-top {
+        object-position: center top;
+      }
 
-  &-h-left-v-center {
-    object-position: left center;
-  }
+      &-h-center-v-center {
+        object-position: center center;
+      }
 
-  &-h-left-v-bottom {
-    object-position: left bottom;
-  }
-
-  &-h-center-v-top {
-    object-position: center top;
-  }
-
-  &-h-center-v-center {
-    object-position: center center;
-  }
-
-  &-h-center-v-bottom {
-    object-position: center bottom;
-  }
-
-  &-h-right-v-top {
-    object-position: right top;
-  }
-
-  &-h-right-v-center {
-    object-position: right center;
-  }
-
-  &-h-right-v-bottom {
-    object-position: right bottom;
+      &-h-center-v-bottom {
+        object-position: center bottom;
+      }
+    }
   }
 }
+

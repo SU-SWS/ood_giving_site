@@ -10,11 +10,13 @@ import GlobalFooter from './identity/globalFooter'
 import Lockup from './identity/lockup'
 // OOD specific components
 import OodHeader from './ood/oodHeader'
+import OodHero from './ood/oodHero'
+import OodLocalFooter from './ood/oodLocalFooter'
 import OodIconCard from './ood/oodIconCard'
-import OodTileCard from './ood/oodTileCard'
+import OodPoster from './ood/oodPoster'
 import OodQuoteCard from './ood/oodQuoteCard'
 import OodQuoteSlider from './ood/oodQuoteSlider'
-import OodHero from './ood/oodHero'
+import OodTileCard from './ood/oodTileCard'
 // Navigation components
 import NavItem from './navigation/navItem'
 import OodSubMenu from './navigation/oodSubMenu'
@@ -28,6 +30,7 @@ import OodNavigationColumn from './navigation/oodNavigationColumn'
 import ColumnGrid from './layout/columnGrid'
 import RowWithThreeColumns from './layout/rowWithThreeColumns'
 import Section from './layout/section'
+import FilteringGrid from './filteringGrid'
 // Simple components
 import Button from './simple/button'
 // ADAPT POC components created by Katria
@@ -58,6 +61,8 @@ const ComponentList = {
   oodHeader: OodHeader,
   oodSubMenu: OodSubMenu,
   oodIconCard: OodIconCard,
+  oodLocalFooter: OodLocalFooter,
+  oodPoster: OodPoster,
   oodMegaMenu: OodMegaMenu,
   oodMegaMenuSection: OodMegaMenuSection,
   oodMegaMenuCard: OodMegaMenuCard,
@@ -73,6 +78,7 @@ const ComponentList = {
   eventSession: EventSession,
   person: Person,
   product: Product,
+  filteringGrid: FilteringGrid
 }
 
 const Components = (type) => {

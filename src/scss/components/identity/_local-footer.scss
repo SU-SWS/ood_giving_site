@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+// Styles for OOD Local Footer (based on Stanford Local Footer in Decanter but with some different styles)
+
+.ood-local-footer {
+  @include modular-spacing('padding', 4 null 5);
+
+  &__header {
+    @include modular-spacing('padding', null null 3);
+  }
+
+  &__address {
+    span {
+      @include margin(null null 0.2em);
+      display: block;
+    }
+  }
+
+  &__content {
+    @include small-paragraph;
+  }
+
+  &__cell {
+    @include margin(null null 3em);
+
+    &:last-child {
+      @include margin(null null 0);
+    }
+
+    @include grid-media('md') {
+      &:nth-last-child(2) {
+        @include margin(null null 0);
+      }
+    }
+
+    @include grid-media('xl') {
+      @include margin(null null 0);
+    }
+
+    > * {
+      &:last-child {
+        @include margin(null null 0);
+      }
+    }
+  }
+
+  &__list-heading {
+    @include serif;
+    font-size: 2rem;
+    letter-spacing: 0;
+  }
+
+  &__link-list {
+    @include list-unstyled;
+
+    > li {
+      &:not(:last-child) {
+        @include margin(null null 0.4em);
+      }
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  a {
+    color: $su-color-digital-red;
+    font-weight: $su-font-regular;
+
+    &::after {
+      background-color: $su-color-bright-red;
+    }
+
+    &:hover,
+    &:focus {
+      color: $su-color-black;
+    }
+  }
+}
