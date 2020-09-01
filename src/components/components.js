@@ -32,6 +32,7 @@ import OodNavigationColumn from './navigation/oodNavigationColumn'
 import ColumnGrid from './layout/columnGrid'
 import RowWithThreeColumns from './layout/rowWithThreeColumns'
 import Section from './layout/section'
+import SingleColumnContent from './layout/singleColumnContent'
 import FilteringGrid from './filteringGrid'
 // Simple components
 import Button from './simple/button'
@@ -55,6 +56,7 @@ const ComponentList = {
   columnGrid: ColumnGrid,
   rowWithThreeColumns: RowWithThreeColumns,
   section: Section,
+  singleColumnContent: SingleColumnContent,
   globalFooter: GlobalFooter,
   lockup: Lockup,
   navItem: NavItem,

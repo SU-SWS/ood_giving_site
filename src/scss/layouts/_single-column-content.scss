@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+// Styles for Single Column WYSIWYG Content with different content width options
+
+.ood-single-column-content {
+  &__wrapper {
+    @include margin(null auto);
+    > div {
+      > * {
+        &:last-child {
+          @include margin(null null 0); // last item in the WYSIWYG
+        }
+      }
+    }
+  }
+}
