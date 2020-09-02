@@ -3,5 +3,68 @@
 // Story page type
 
 .ood-story {
+  &__content {
+    > div {
+      @include modular-spacing('padding', 4 null 5);
+    }
+
+    h2 {
+      &:not(:first-child) {
+        @include margin(1.8em null null);
+      }
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @include serif;
+      font-weight: $su-font-regular;
+      letter-spacing: 0;
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
+      &:not(:first-child) {
+        @include margin(1.6em null null);
+      }
+    }
+
+    h1 + h2,
+    h2 + h3,
+    h3 + h4,
+    h4 + h5 {
+      &:not(:first-child) {
+        @include margin(1em null null);
+      }
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @include margin(null null 0.6em);
+      clear: none;
+    }
+  }
+
+  &__footer {
+    &-wrapper {
+      @include margin(null auto);
+    }
+  }
+
+  &__metadata {
+    > p {
+      font-size: 1.6rem;
+      font-weight: $su-font-bold;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+  }
 
 }
