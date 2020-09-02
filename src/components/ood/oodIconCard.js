@@ -10,15 +10,12 @@ const OodIconCard = (props) => (
     }>
       <a href={props.blok.link} rel="nofollow noopener" className={`tile-card__link su-bg-${props.blok.backgroundColor}`}>
         <div className="ood-icon-card__media">
-          {props.blok.icon.icon && (
-            <span aria-hidden="true"
-                  className={`ood-icon-card__icon
-                  ${props.blok.icon.type}
-                  ${props.blok.icon.icon}
-                  ${props.blok.iconStyle ? props.blok.iconStyle : ""}
-                   ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : "su-text-digital-red"}
-             `} />
-          )}
+          <span aria-hidden="true"
+                className={`ood-icon-card__icon
+                ${props.blok.iconStyle ? props.blok.iconStyle : props.blok.icon.type}
+                ${props.blok.extraIcon ? props.blok.extraIcon : props.blok.icon.icon}
+                ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : "su-text-digital-red"}
+           `} />
         </div>
         <section className="su-card__contents ood-icon-card__contents">
           <h2 className="ood-icon-card__headline">{props.blok.headline}</h2>
