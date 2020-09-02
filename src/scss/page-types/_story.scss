@@ -3,12 +3,7 @@
 // Story page type
 
 .ood-story {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1 {
     @include serif;
     font-weight: $su-font-regular;
     letter-spacing: 0;
@@ -18,7 +13,7 @@
     background-color: $su-color-fog-light;
 
     &-content {
-      @include margin(-160px null null);
+      @include margin(-8em null null);
 
       &-wrapper {
         @include margin(null auto);
@@ -30,8 +25,20 @@
 
   &__media {
     width: 100%;
-    height: 640px;
     overflow: hidden;
+    height: 300px;
+
+    @include grid-media('md') {
+      height: 400px;
+    }
+
+    @include grid-media('xl') {
+      height: 500px;
+    }
+
+    @include grid-media('2xl') {
+      height: 640px;
+    }
   }
 
   &__image {
@@ -52,47 +59,8 @@
   }
 
   &__content {
-    @include grid-media('xl') {
-      p {
-        font-size: 2.1rem;
-      }
-    }
-
     > div {
       @include modular-spacing('padding', 4 null 5);
-    }
-
-    h2 {
-      &:not(:first-child) {
-        @include margin(1.8em null null);
-      }
-    }
-
-    h3,
-    h4,
-    h5,
-    h6 {
-      &:not(:first-child) {
-        @include margin(1.6em null null);
-      }
-    }
-
-    h1 + h2,
-    h2 + h3,
-    h3 + h4,
-    h4 + h5 {
-      &:not(:first-child) {
-        @include margin(1em null null);
-      }
-    }
-
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      @include margin(null null 0.7em);
-      clear: both;
     }
   }
 
@@ -112,5 +80,4 @@
       text-transform: uppercase;
     }
   }
-
 }

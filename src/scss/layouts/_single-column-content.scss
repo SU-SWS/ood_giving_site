@@ -13,4 +13,54 @@
       }
     }
   }
+
+  @include grid-media('xl') {
+    p {
+      font-size: 2.1rem;
+    }
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include serif;
+    font-weight: $su-font-regular;
+    letter-spacing: 0;
+  }
+
+  // Vertical rhythm
+  h2 {
+    &:not(:first-child) {
+      @include margin(1.8em null null);
+    }
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    &:not(:first-child) {
+      @include margin(1.6em null null);
+    }
+  }
+
+  h1 + h2,
+  h2 + h3,
+  h3 + h4,
+  h4 + h5 {
+    &:not(:first-child) {
+      @include margin(1em null null);
+    }
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include margin(null null 0.7em);
+    clear: both;
+  }
 }

@@ -5,6 +5,14 @@ html {
   scroll-behavior: smooth;
 }
 
+a {
+  color: $su-color-digital-red;
+}
+
+p {
+  @include margin(null null 1.6em);
+}
+
 .su-intro-text {
   @include margin(null auto);
 }
