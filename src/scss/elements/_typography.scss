@@ -3,3 +3,7 @@
 .su-intro-text {
   @include margin(null auto);
 }
+
+.ood-lede {
+  @include modular-typography(1);
+}
