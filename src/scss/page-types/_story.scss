@@ -60,7 +60,13 @@
 
   &__content {
     > div {
-      @include modular-spacing('padding', 4 null 5);
+      &:first-child {
+        @include modular-spacing('padding', 4 null null);
+      }
+
+      &:last-child {
+        @include modular-spacing('padding', null null 5);
+      }
     }
   }
 
@@ -80,44 +86,50 @@
       text-transform: uppercase;
     }
   }
+}
 
-  &-media {
-    &__wrapper {
-      @include margin(null auto);
+.ood-story-media {
+  @include modular-spacing('padding', 4 null);
+
+  &__figure {
+    @include margin(null auto);
+  }
+
+  // Edge-to-edge
+  &.su-w-full {
+    display: flex;
+
+    > div {
+      width: 100%;
     }
 
-    .su-w-full {
-      &.ood-story-media__wrapper {
-        width: 100%;
-
-        .ood-story-media__image {
-          width: 100%;
-          height: 30vw;
-          object-fit: cover;
-          object-position: center;
-        }
-      }
+    .ood-story-media__wrapper {
+      height: 30vw;
     }
 
-    .su-w-auto {
-      &.ood-story-media__wrapper {
-        width: auto;
-
-        .ood-story-media__image {
-          @include margin(null auto);
-          width: auto;
-        }
-      }
+    .ood-story-media__image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
     }
 
-    &__caption {
-      @include margin(0.6em null null);
+    .ood-story-media__caption {
+      text-align: center;
+    }
+  }
 
-      > div {
-        > * {
-          &:last-child {
-            @include margin(null null 0);
-          }
+  &.su-w-auto {
+
+  }
+
+  &__caption {
+    @include margin(0.8em null null);
+
+    > div {
+      > * {
+        &:last-child {
+          @include margin(null null 0);
         }
       }
     }
