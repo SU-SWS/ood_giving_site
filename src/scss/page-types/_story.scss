@@ -80,4 +80,46 @@
       text-transform: uppercase;
     }
   }
+
+  &-media {
+    &__wrapper {
+      @include margin(null auto);
+    }
+
+    .su-w-full {
+      &.ood-story-media__wrapper {
+        width: 100%;
+
+        .ood-story-media__image {
+          width: 100%;
+          height: 30vw;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+
+    .su-w-auto {
+      &.ood-story-media__wrapper {
+        width: auto;
+
+        .ood-story-media__image {
+          @include margin(null auto);
+          width: auto;
+        }
+      }
+    }
+
+    &__caption {
+      @include margin(0.6em null null);
+
+      > div {
+        > * {
+          &:last-child {
+            @include margin(null null 0);
+          }
+        }
+      }
+    }
+  }
 }

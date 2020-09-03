@@ -38,6 +38,7 @@ import FilteringGrid from './filteringGrid'
 import OodStory from './page-types/oodStory'
 // Simple components
 import Button from './simple/button'
+import StoryImage from './simple/storyImage'
 // ADAPT POC components created by Katria
 import Card from './poc/card'
 import Quote from './poc/quote'
@@ -52,6 +53,7 @@ const ComponentList = {
   grid: Grid,
   feature: Feature,
   button: Button,
+  storyImage: StoryImage,
   quote: Quote,
   pageBuilder: PageBuilder,
   richTextField: RichTextField,
