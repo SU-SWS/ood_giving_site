@@ -29,8 +29,11 @@ const OodStory = (props) => {
                 />
               </figure>
             )}
-            <div className="centered-container flex-container ood-story__header-content">
-              <div className="ood-story__header-content-wrapper flex-md-12-of-12 flex-lg-10-of-12 flex-2xl-9-of-12">
+            <div className={`centered-container flex-container ood-story__header-content`}>
+              <div className={`ood-story__header-content-wrapper flex-md-12-of-12 flex-lg-10-of-12 flex-2xl-9-of-12
+                   su-bg-${props.blok.headerBoxColor}
+                   ${(props.blok.headerBoxColor !== "white" && props.blok.headerBoxColor !== "fog-light")? "su-text-white" : ""}
+                   `}>
                 <h1 className="ood-story__title">{props.blok.title}</h1>
                 {props.blok.intro && (
                   <p className="su-intro-text ood-story__intro-text">{props.blok.intro}</p>

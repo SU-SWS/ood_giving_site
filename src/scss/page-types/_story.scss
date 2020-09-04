@@ -24,6 +24,7 @@
       &-wrapper {
         @include margin(null auto);
         @include modular-spacing('padding', 4);
+        box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
         background-color: $su-color-white;
       }
     }
