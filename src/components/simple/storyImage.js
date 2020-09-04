@@ -6,17 +6,19 @@ import RichTextField from '../richTextField'
 const StoryImage = (props) => {
   let processedImg = "";
 
-  if (props.blok.imageWidth === "su-w-full") {
-    processedImg = transformImage(props.blok.image.filename, "/2000x0");
-  }
-  else if (props.blok.imageWidth === "centered-container") {
-    processedImg = transformImage(props.blok.image.filename, "/1500x0");
-  }
-  else if (props.blok.imageWidth === "su-w-story") {
-    processedImg = transformImage(props.blok.image.filename, "/1000x0");
-  }
-  else {
-    processedImg = transformImage(props.blok.image.filename, "/800x0");
+  if (props.blok.image) {
+    if (props.blok.imageWidth === "su-w-full") {
+      processedImg = transformImage(props.blok.image.filename, "/2000x0");
+    }
+    else if (props.blok.imageWidth === "centered-container") {
+      processedImg = transformImage(props.blok.image.filename, "/1500x0");
+    }
+    else if (props.blok.imageWidth === "su-w-story") {
+      processedImg = transformImage(props.blok.image.filename, "/1000x0");
+    }
+    else {
+      processedImg = transformImage(props.blok.image.filename, "/800x0");
+    }
   }
 
   return (

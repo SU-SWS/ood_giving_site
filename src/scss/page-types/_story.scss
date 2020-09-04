@@ -3,22 +3,45 @@
 // Story page type
 
 .ood-story {
-  h1 {
+  background-color: $su-color-fog-light;
+
+  &__title {
     @include serif;
+    @include modular-typography(6);
+    @include margin(null null 0.4em);
     font-weight: $su-font-regular;
     letter-spacing: 0;
+
+    @include grid-media-max('sm') {
+      font-size: 4.8rem;
+    }
   }
 
   &__header {
     background-color: $su-color-fog-light;
 
     &-content {
-      @include margin(-8em null null);
-
       &-wrapper {
         @include margin(null auto);
         @include modular-spacing('padding', 4);
         background-color: $su-color-white;
+      }
+    }
+  }
+
+  &__header {
+    &--has-image {
+      .ood-story__header-content {
+        @include margin(-8em null null);
+      }
+    }
+
+    &--no-image {
+      border-top-style: solid;
+      border-top-width: 300px;
+
+      .ood-story__header-content-wrapper {
+        @include margin(-200px null null);
       }
     }
   }
@@ -48,11 +71,6 @@
     object-position: top;
   }
 
-  &__title {
-    @include modular-typography(6);
-    @include margin(null null 0.4em);
-  }
-
   &__intro-text {
     @include margin(null null 0);
     max-width: 100%;
@@ -80,10 +98,16 @@
 
   &__metadata {
     > p {
+      @include margin(null null 0.6em);
       font-size: 1.6rem;
       font-weight: $su-font-bold;
       letter-spacing: 0.14em;
       text-transform: uppercase;
+    }
+
+    > span {
+      @include margin(null null 1.6em);
+      display: block;
     }
   }
 }
@@ -93,6 +117,7 @@
 
   &__figure {
     @include margin(null auto);
+    width: 100%;
   }
 
   // Edge-to-edge

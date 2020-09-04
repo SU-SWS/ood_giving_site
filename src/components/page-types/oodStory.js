@@ -9,17 +9,20 @@ import { Helmet } from 'react-helmet';
 
 const OodStory = (props) => {
   let processedHeroImg = "";
-  if (props.blok.heroImage.filename) {
+  if (props.blok.heroImage && props.blok.heroImage.filename.startsWith('http')) {
     processedHeroImg = transformImage(props.blok.heroImage.filename, "/2000x0");
   }
 
   return (
     <>
-      <Helmet><title>{props.blok.title} | Giving to Stanford</title></Helmet>
+      <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
       <SbEditable content={props.blok}>
-        <article className="ood-story" id="main-content">
-          <header className="ood-story__header">
-            {props.blok.heroImage && (
+        <article className={`ood-story`} id="main-content">
+          <header className={`ood-story__header
+                  ${((props.blok.heroImage && props.blok.heroImage.filename.startsWith('http')) && props.blok.displayImage === "show-image") ?
+                  "ood-story__header--has-image" : `ood-story__header--no-image su-border-color-${props.blok.headerBackgroundColor}`}
+          `}>
+            {((props.blok.heroImage && props.blok.heroImage.filename.startsWith('http')) && props.blok.displayImage === "show-image") && (
               <figure className={`su-media ood-story__media`}>
                 <img src={processedHeroImg} alt={props.blok.heroImage.alt}
                      className={`ood-story__image su-obj-position-h-center-v-${props.blok.visibleVertical}`}
@@ -54,6 +57,10 @@ const OodStory = (props) => {
             </div>
           </footer>
         </article>
+        {props.blok.iconCardSection && props.blok.iconCardSection.map((blok) => React.createElement(Components(blok.component), {
+          key: blok._uid,
+          blok: blok
+        }))}
       </SbEditable>
     </>
   )
