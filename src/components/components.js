@@ -11,6 +11,7 @@ import OodHeader from './ood/oodHeader'
 import OodHomepageHero from './ood/oodHomepageHero'
 import OodLocalFooter from './ood/oodLocalFooter'
 import OodIconCard from './ood/oodIconCard'
+import OodSupportCard from './ood/oodSupportCard'
 import OodPoster from './ood/oodPoster'
 import OodQuoteCard from './ood/oodQuoteCard'
 import OodQuoteSlider from './ood/oodQuoteSlider'
@@ -67,6 +68,7 @@ const ComponentList = {
   oodHeader: OodHeader,
   oodSubMenu: OodSubMenu,
   oodIconCard: OodIconCard,
+  oodSupportCard: OodSupportCard,
   oodLocalFooter: OodLocalFooter,
   oodPoster: OodPoster,
   oodMegaMenu: OodMegaMenu,

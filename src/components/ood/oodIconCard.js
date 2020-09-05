@@ -13,7 +13,7 @@ const OodIconCard = (props) => (
           <span aria-hidden="true"
                 className={`ood-icon-card__icon
                 ${props.blok.iconStyle ? props.blok.iconStyle : props.blok.icon.type}
-                ${props.blok.extraIcon ? props.blok.extraIcon : props.blok.icon.icon}
+                ${props.blok.extraIcon ? `fa-${props.blok.extraIcon}` : props.blok.icon.icon}
                 ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : "su-text-digital-red"}
            `} />
         </div>
