@@ -32,6 +32,7 @@ import OodNavigationColumn from './navigation/oodNavigationColumn'
 // Layout components
 import ColumnGrid from './layout/columnGrid'
 import RowWithThreeColumns from './layout/rowWithThreeColumns'
+import GridThreeColumns from './layout/gridThreeColumns'
 import Section from './layout/section'
 import SingleColumnContent from './layout/singleColumnContent'
 import FilteringGrid from './filteringGrid'
@@ -91,7 +92,8 @@ const ComponentList = {
   eventSession: EventSession,
   person: Person,
   product: Product,
-  filteringGrid: FilteringGrid
+  filteringGrid: FilteringGrid,
+  gridThreeColumns: GridThreeColumns
 }
 
 const Components = (type) => {

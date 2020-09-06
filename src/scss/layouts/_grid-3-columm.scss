@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.grid-3-column {
+  @include responsive-grid-gap;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include grid-media('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include grid-media('xl') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

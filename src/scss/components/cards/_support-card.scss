@@ -3,7 +3,6 @@
 // Area to Support Cards
 
 .ood-support-card {
-  @include margin(null auto);
   height: 100%;
   background-color: transparent;
 
@@ -11,7 +10,7 @@
     position: relative;
 
     > .ood-support-card__headline {
-      @include modular-typography(2);
+      @include modular-typography(3);
       font-weight: $su-font-regular;
 
       @include grid-media('xl') {
@@ -26,6 +25,7 @@
 
   &__link {
     @include modular-spacing("padding", 4);
+    border-color: transparent;
     height: 100%;
     position: relative;
   }
