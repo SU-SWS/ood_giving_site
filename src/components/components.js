@@ -34,8 +34,11 @@ import RowWithThreeColumns from './layout/rowWithThreeColumns'
 import Section from './layout/section'
 import SingleColumnContent from './layout/singleColumnContent'
 import FilteringGrid from './filteringGrid'
+// Page Type Components
+import OodStory from './page-types/oodStory'
 // Simple components
 import Button from './simple/button'
+import StoryImage from './simple/storyImage'
 // ADAPT POC components created by Katria
 import Card from './poc/card'
 import Quote from './poc/quote'
@@ -50,6 +53,7 @@ const ComponentList = {
   grid: Grid,
   feature: Feature,
   button: Button,
+  storyImage: StoryImage,
   quote: Quote,
   pageBuilder: PageBuilder,
   richTextField: RichTextField,
@@ -79,6 +83,7 @@ const ComponentList = {
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,
   oodHomepageHero: OodHomepageHero,
+  oodStory: OodStory,
   card: Card,
   event: Event,
   eventSession: EventSession,

@@ -1,0 +1,163 @@
+@charset "UTF-8";
+
+// Story page type
+
+.ood-story {
+  background-color: $su-color-fog-light;
+
+  &__title {
+    @include serif;
+    @include modular-typography(6);
+    @include margin(null null 0.4em);
+    font-weight: $su-font-regular;
+    letter-spacing: 0;
+
+    @include grid-media-max('sm') {
+      font-size: 4.8rem;
+    }
+  }
+
+  &__header {
+    background-color: $su-color-fog-light;
+
+    &-content {
+      &-wrapper {
+        @include margin(null auto);
+        @include modular-spacing('padding', 4);
+        box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
+        background-color: $su-color-white;
+      }
+    }
+  }
+
+  &__header {
+    &--has-image {
+      .ood-story__header-content {
+        @include margin(-8em null null);
+      }
+    }
+
+    &--no-image {
+      border-top-style: solid;
+      border-top-width: 300px;
+
+      .ood-story__header-content-wrapper {
+        @include margin(-200px null null);
+      }
+    }
+  }
+
+  &__media {
+    width: 100%;
+    overflow: hidden;
+    height: 300px;
+
+    @include grid-media('md') {
+      height: 400px;
+    }
+
+    @include grid-media('xl') {
+      height: 500px;
+    }
+
+    @include grid-media('2xl') {
+      height: 640px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  &__intro-text {
+    @include margin(null null 0);
+    max-width: 100%;
+  }
+
+  &__content {
+    > div {
+      &:first-child {
+        @include modular-spacing('padding', 4 null null);
+      }
+
+      &:last-child {
+        @include modular-spacing('padding', null null 5);
+      }
+    }
+  }
+
+  &__footer {
+    background-color: $su-color-fog-light;
+
+    &-wrapper {
+      @include margin(null auto);
+    }
+  }
+
+  &__metadata {
+    > p {
+      @include margin(null null 0.6em);
+      font-size: 1.6rem;
+      font-weight: $su-font-bold;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    > span {
+      @include margin(null null 1.6em);
+      display: block;
+    }
+  }
+}
+
+.ood-story-media {
+  @include modular-spacing('padding', 4 null);
+
+  &__figure {
+    @include margin(null auto);
+    width: 100%;
+  }
+
+  // Edge-to-edge
+  &.su-w-full {
+    display: flex;
+
+    > div {
+      width: 100%;
+    }
+
+    .ood-story-media__wrapper {
+      height: 30vw;
+    }
+
+    .ood-story-media__image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .ood-story-media__caption {
+      text-align: center;
+    }
+  }
+
+  &.su-w-auto {
+
+  }
+
+  &__caption {
+    @include margin(0.8em null null);
+
+    > div {
+      > * {
+        &:last-child {
+          @include margin(null null 0);
+        }
+      }
+    }
+  }
+}
