@@ -38,6 +38,7 @@ import SingleColumnContent from './layout/singleColumnContent'
 import FilteringGrid from './filteringGrid'
 // Page Type Components
 import OodStory from './page-types/oodStory'
+import OodSupportPage from './page-types/oodSupportPage'
 // Simple components
 import Button from './simple/button'
 import StoryImage from './simple/storyImage'
@@ -87,6 +88,7 @@ const ComponentList = {
   oodQuoteSlider: OodQuoteSlider,
   oodHomepageHero: OodHomepageHero,
   oodStory: OodStory,
+  oodSupportPage: OodSupportPage,
   card: Card,
   event: Event,
   eventSession: EventSession,

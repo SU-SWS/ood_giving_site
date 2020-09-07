@@ -11,7 +11,7 @@
 
     > .ood-support-card__headline {
       @include modular-typography(3);
-      font-weight: $su-font-regular;
+      @include margin(null null 0);
 
       @include grid-media('xl') {
         @include modular-typography(4);
@@ -31,6 +31,8 @@
   }
 
   &__contents {
+    min-height: 200px;
+
     @include grid-media('md') {
       min-height: 280px;
     }
