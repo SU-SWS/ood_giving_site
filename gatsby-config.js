@@ -23,6 +23,8 @@ module.exports = {
         homeSlug: 'home',
         resolveRelations: [
           "oodQuoteSlider.quotes",
+          "globalFooterPicker.globalFooter",
+          "localFooterPicker.localFooter",
         ],
 
         // version: process.env.NODE_ENV == 'production' ? 'published' : 'draft'  // show only published on the front end site

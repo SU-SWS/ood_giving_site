@@ -65,7 +65,13 @@ class StoryblokEntry extends React.Component {
     sb.on('input', (payload) => {
       if (this.state.story && payload.story.id === this.state.story.id) {
         payload.story.content = sb.addComments(payload.story.content, payload.story.id)
-        sb.resolveRelations(payload.story, sbConfig.options.resolveRelations || ['oodQuoteSlider.quotes'], () => {
+        sb.resolveRelations(payload.story, sbConfig.options.resolveRelations ||
+          [
+            'oodQuoteSlider.quotes',
+            'globalFooterPicker.globalFooter',
+            'localFooterPicker.localFooter',
+          ],
+          () => {
           this.setState({story: payload.story})
         })
       }
