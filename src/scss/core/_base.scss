@@ -7,14 +7,15 @@ html {
 
 a {
   color: $su-color-digital-red;
+
+  &:hover,
+  &:focus {
+    color: $su-color-palo-verde-dark;
+  }
 }
 
 p {
   @include margin(null null 1.6em);
-}
-
-.su-intro-text {
-  @include margin(null auto);
 }
 
 .centered-container {

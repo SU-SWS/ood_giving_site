@@ -17,7 +17,8 @@ const OodStory = (props) => {
     <>
       <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
       <SbEditable content={props.blok}>
-        <article className={`ood-story`} id="main-content">
+        <main id="main-content">
+        <article className={`ood-story`}>
           <header className={`ood-story__header
                   ${((props.blok.heroImage && props.blok.heroImage.filename.startsWith('http')) && props.blok.displayImage === "show-image") ?
                   "ood-story__header--has-image" : `ood-story__header--no-image su-border-color-${props.blok.headerBackgroundColor}`}
@@ -60,7 +61,12 @@ const OodStory = (props) => {
             </div>
           </footer>
         </article>
+        </main>
         {props.blok.iconCardSection && props.blok.iconCardSection.map((blok) => React.createElement(Components(blok.component), {
+          key: blok._uid,
+          blok: blok
+        }))}
+        {props.blok.globalFooter && props.blok.globalFooter.map((blok) => React.createElement(Components(blok.component), {
           key: blok._uid,
           blok: blok
         }))}

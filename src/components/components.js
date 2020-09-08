@@ -5,6 +5,7 @@ import Feature from './feature'
 import ComponentNotFound from './component_not_found'
 // Stanford identity elements
 import GlobalFooter from './identity/globalFooter'
+import GlobalFooterPicker from './identity/globalFooterPicker'
 import Lockup from './identity/lockup'
 // OOD specific components
 import OodHeader from './ood/oodHeader'
@@ -65,6 +66,7 @@ const ComponentList = {
   section: Section,
   singleColumnContent: SingleColumnContent,
   globalFooter: GlobalFooter,
+  globalFooterPicker: GlobalFooterPicker,
   lockup: Lockup,
   navItem: NavItem,
   oodHeader: OodHeader,
