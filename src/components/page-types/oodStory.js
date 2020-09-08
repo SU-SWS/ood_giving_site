@@ -13,6 +13,9 @@ const OodStory = (props) => {
     processedHeroImg = transformImage(props.blok.heroImage.filename, "/2000x0");
   }
 
+  const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+  const formattedPublishedDate = new Date(props.blok.publishedDate).toLocaleDateString("en-US", options);
+
   return (
     <>
       <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
@@ -55,7 +58,7 @@ const OodStory = (props) => {
                   <p>Author</p>
                   <span>{props.blok.author}</span>
                   <p>Date</p>
-                  <span>{props.blok.publishedDate}</span>
+                  <span>{formattedPublishedDate}</span>
                 </div>
               </div>
             </div>
