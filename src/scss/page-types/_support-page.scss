@@ -48,11 +48,13 @@
 
   &__filter-container {
     .ood-support-card {
+      position: relative;
+      left: 0;
       visibility: visible;
       height: 100%;
       width: 100%;
       opacity: 1;
-      transition: height 0.6s ease-out, visibility 0.6s ease-out, opacity 0.6s ease-out;
+      transition: opacity 0.4s ease-out, left 0.8s ease-out;
     }
 
     input[type="radio"][id="undergraduate"]:checked ~ div article:not([data-area-of-support*="undergraduate"]),
@@ -65,7 +67,8 @@
       margin: 0;
       opacity: 0;
       visibility: hidden;
-      display: none;
+      position: absolute;
+      left: -200px;
     }
   }
 }

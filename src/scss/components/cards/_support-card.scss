@@ -23,9 +23,17 @@
     }
   }
 
+  > a {
+    border-color: transparent;
+
+    &:hover,
+    &:focus {
+      border-color: transparent;
+    }
+  }
+
   &__link {
     @include modular-spacing("padding", 4);
-    border-color: transparent;
     height: 100%;
     position: relative;
   }
