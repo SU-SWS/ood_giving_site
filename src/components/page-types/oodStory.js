@@ -69,6 +69,10 @@ const OodStory = (props) => {
           key: blok._uid,
           blok: blok
         }))}
+        {props.blok.localFooter && props.blok.localFooter.map((blok) => React.createElement(Components(blok.component), {
+          key: blok._uid,
+          blok: blok
+        }))}
         {props.blok.globalFooter && props.blok.globalFooter.map((blok) => React.createElement(Components(blok.component), {
           key: blok._uid,
           blok: blok

@@ -6,11 +6,12 @@ import ComponentNotFound from './component_not_found'
 // Stanford identity elements
 import GlobalFooter from './identity/globalFooter'
 import GlobalFooterPicker from './identity/globalFooterPicker'
+import OodLocalFooter from './identity/oodLocalFooter'
+import LocalFooterPicker from './identity/localFooterPicker'
 import Lockup from './identity/lockup'
 // OOD specific components
 import OodHeader from './ood/oodHeader'
 import OodHomepageHero from './ood/oodHomepageHero'
-import OodLocalFooter from './ood/oodLocalFooter'
 import OodIconCard from './ood/oodIconCard'
 import OodSupportCard from './ood/oodSupportCard'
 import OodPoster from './ood/oodPoster'
@@ -67,13 +68,14 @@ const ComponentList = {
   singleColumnContent: SingleColumnContent,
   globalFooter: GlobalFooter,
   globalFooterPicker: GlobalFooterPicker,
+  oodLocalFooter: OodLocalFooter,
+  localFooterPicker: LocalFooterPicker,
   lockup: Lockup,
   navItem: NavItem,
   oodHeader: OodHeader,
   oodSubMenu: OodSubMenu,
   oodIconCard: OodIconCard,
   oodSupportCard: OodSupportCard,
-  oodLocalFooter: OodLocalFooter,
   oodPoster: OodPoster,
   oodMegaMenu: OodMegaMenu,
   oodMegaMenuSection: OodMegaMenuSection,

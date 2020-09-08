@@ -69,6 +69,7 @@ class StoryblokEntry extends React.Component {
           [
             'oodQuoteSlider.quotes',
             'globalFooterPicker.globalFooter',
+            'localFooterPicker.localFooter',
           ],
           () => {
           this.setState({story: payload.story})
