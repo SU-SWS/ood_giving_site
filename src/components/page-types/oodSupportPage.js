@@ -15,12 +15,12 @@ const OodSupportPage = (props) => {
           <header className={`ood-support-page__header su-pt-7 su-bg-${props.blok.headerBackgroundColor}`}>
             <div className={`centered-container flex-container ood-support-page__header-content`}>
               <h1 className="ood-support-page__title flex-12-of-12 su-text-white su-text-align-center">{props.blok.title}</h1>
-              <div className={`ood-support-page__header-content-wrapper flex-12-of-12
-                   su-bg-white su-text-align-center`}>
-                {props.blok.intro && (
+              {props.blok.intro && (
+                <div className={`ood-support-page__header-content-wrapper flex-12-of-12
+                     su-bg-white su-text-align-center`}>
                   <p className="su-intro-text ood-support-page__intro">{props.blok.intro}</p>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </header>
           <section className="ood-support-page__body">
