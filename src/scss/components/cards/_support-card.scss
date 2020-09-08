@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+// Area to Support Cards
+
+.ood-support-card {
+  height: 100%;
+  background-color: transparent;
+
+  &__contents {
+    position: relative;
+
+    > .ood-support-card__headline {
+      @include modular-typography(3);
+      @include margin(null null 0);
+
+      @include grid-media('xl') {
+        @include modular-typography(4);
+      }
+    }
+
+    .ood-support-card__icon {
+      font-size: 3em;
+    }
+  }
+
+  > a {
+    border-color: transparent;
+
+    &:hover,
+    &:focus {
+      border-color: transparent;
+    }
+  }
+
+  &__link {
+    @include modular-spacing("padding", 4);
+    height: 100%;
+    position: relative;
+  }
+
+  &__contents {
+    min-height: 200px;
+
+    @include grid-media('md') {
+      min-height: 280px;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 4rem;
+    text-align: right;
+  }
+}

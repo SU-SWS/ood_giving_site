@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+// Areas of Support page with filtering
+
+.ood-support-page {
+  background-color: $su-color-fog-light;
+
+  &__title {
+    @include serif;
+    @include modular-typography(6);
+    @include margin(null auto 0.4em);
+    letter-spacing: 0;
+
+    @include grid-media-max('sm') {
+      font-size: 3.6rem;
+    }
+  }
+
+  &__intro {
+    @include margin(null null 0);
+    @include grid-media-max('sm') {
+      font-size: 1.25em;
+    }
+  }
+
+  &__header {
+    &-content {
+      &-wrapper {
+        @include margin(null auto);
+        @include modular-spacing('padding', 4);
+        box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
+        background-color: $su-color-white;
+
+        @include grid-media-max('sm') {
+          @include padding(3em 2em);
+        }
+      }
+    }
+  }
+
+  &__body {
+    &-header {
+      &-title {
+        @include modular-typography(4);
+      }
+    }
+  }
+
+  &__filter-container {
+    .ood-support-card {
+      position: relative;
+      left: 0;
+      visibility: visible;
+      height: 100%;
+      width: 100%;
+      opacity: 1;
+      transition: opacity 0.4s ease-out, left 0.8s ease-out;
+    }
+
+    input[type="radio"][id="undergraduate"]:checked ~ div article:not([data-area-of-support*="undergraduate"]),
+    input[type="radio"][id="grad"]:checked ~ div article:not([data-area-of-support*="grad-education"]),
+    input[type="radio"][id="arts"]:checked ~ div article:not([data-area-of-support*="arts"]),
+    input[type="radio"][id="athletics"]:checked ~ div article:not([data-area-of-support*="athletics"]) {
+      width: 0;
+      height: 0;
+      padding: 0;
+      margin: 0;
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      left: -200px;
+    }
+  }
+}

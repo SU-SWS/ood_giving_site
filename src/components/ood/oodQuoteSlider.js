@@ -4,11 +4,11 @@ import SbEditable from 'storyblok-react'
 
 const OodQuoteSlider = (props) => (
   <SbEditable content={props.blok}>
-    <div className="ood-quote-slider ">
+    <div className="ood-quote-slider">
       <h2>{props.blok.title}</h2>
-      {props.blok.quotes && props.blok.quotes.map((blok) => React.createElement(Components(blok.component), {
-        key: blok._uid,
-        blok: blok,
+      {props.blok.quotes && props.blok.quotes.map((story) => React.createElement(Components(story.content.component), {
+        key: story.content._uid,
+        blok: story.content,
       }))}
     </div>
   </SbEditable>

@@ -11,6 +11,7 @@ import OodHeader from './ood/oodHeader'
 import OodHomepageHero from './ood/oodHomepageHero'
 import OodLocalFooter from './ood/oodLocalFooter'
 import OodIconCard from './ood/oodIconCard'
+import OodSupportCard from './ood/oodSupportCard'
 import OodPoster from './ood/oodPoster'
 import OodQuoteCard from './ood/oodQuoteCard'
 import OodQuoteSlider from './ood/oodQuoteSlider'
@@ -31,11 +32,13 @@ import OodNavigationColumn from './navigation/oodNavigationColumn'
 // Layout components
 import ColumnGrid from './layout/columnGrid'
 import RowWithThreeColumns from './layout/rowWithThreeColumns'
+import GridThreeColumns from './layout/gridThreeColumns'
 import Section from './layout/section'
 import SingleColumnContent from './layout/singleColumnContent'
 import FilteringGrid from './filteringGrid'
 // Page Type Components
 import OodStory from './page-types/oodStory'
+import OodSupportPage from './page-types/oodSupportPage'
 // Simple components
 import Button from './simple/button'
 import StoryImage from './simple/storyImage'
@@ -67,6 +70,7 @@ const ComponentList = {
   oodHeader: OodHeader,
   oodSubMenu: OodSubMenu,
   oodIconCard: OodIconCard,
+  oodSupportCard: OodSupportCard,
   oodLocalFooter: OodLocalFooter,
   oodPoster: OodPoster,
   oodMegaMenu: OodMegaMenu,
@@ -84,12 +88,14 @@ const ComponentList = {
   oodQuoteSlider: OodQuoteSlider,
   oodHomepageHero: OodHomepageHero,
   oodStory: OodStory,
+  oodSupportPage: OodSupportPage,
   card: Card,
   event: Event,
   eventSession: EventSession,
   person: Person,
   product: Product,
-  filteringGrid: FilteringGrid
+  filteringGrid: FilteringGrid,
+  gridThreeColumns: GridThreeColumns
 }
 
 const Components = (type) => {
