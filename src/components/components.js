@@ -24,6 +24,7 @@ import ContentNavItem from './navigation/contentNavItem'
 import ContentMenuParentItems from './navigation/contentMenuParentItem'
 import ContentNestedMenu from './navigation/contentNestedMenu'
 import OodContentMenu from './navigation/oodContentMenu'
+import ContentMenuPicker from './navigation/contentMenuPicker'
 import OodSubMenu from './navigation/oodSubMenu'
 import OodMegaMenu from './navigation/oodMegaMenu'
 import OodMegaMenuSection from './navigation/oodMegaMenuSection'
@@ -84,6 +85,7 @@ const ComponentList = {
   oodNavigationLinkGroup: OodNavigationLinkGroup,
   oodNavigationColumn: OodNavigationColumn,
   oodContentMenu: OodContentMenu,
+  contentMenuPicker: ContentMenuPicker,
   contentNavItem: ContentNavItem,
   contentMenuParentItem: ContentMenuParentItems,
   contentNestedMenu: ContentNestedMenu,

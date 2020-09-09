@@ -38,7 +38,10 @@ const OodInteriorPage = (props) => {
               </header>
               <div class="centered-container flex-container">
                 <aside class="ood-interior-page__body-sidebar flex-lg-4-of-12 flex-xl-3-of-12">
-
+                  {props.blok.contentMenu && props.blok.contentMenu.map((blok) => React.createElement(Components(blok.component), {
+                    key: blok._uid,
+                    blok: blok
+                  }))}
                 </aside>
                 <div class="ood-interior-page__body-content flex-lg-8-of-12">
                   {props.blok.pageContent && props.blok.pageContent.map((blok) => React.createElement(Components(blok.component), {

@@ -71,6 +71,7 @@ class StoryblokEntry extends React.Component {
             'globalFooterPicker.globalFooter',
             'localFooterPicker.localFooter',
             'localHeaderPicker.localHeader',
+            'contentMenuPicker.contentMenu',
           ],
           () => {
           this.setState({story: payload.story})
