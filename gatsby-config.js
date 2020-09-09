@@ -26,6 +26,7 @@ module.exports = {
           "globalFooterPicker.globalFooter",
           "localFooterPicker.localFooter",
           "localHeaderPicker.localHeader",
+          "contentMenuPicker.contentMenu",
         ],
 
         // version: process.env.NODE_ENV == 'production' ? 'published' : 'draft'  // show only published on the front end site
