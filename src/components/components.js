@@ -1,5 +1,6 @@
 import RichTextField from "./richTextField"
 import Page from './page'
+import EmbedScript from './embedScript'
 import ComponentNotFound from './component_not_found'
 // Site identity elements
 import GlobalFooter from './identity/globalFooter'
@@ -54,6 +55,7 @@ import Product from './poc/product'
 
 const ComponentList = {
   page: Page,
+  embedScript: EmbedScript,
   button: Button,
   storyImage: StoryImage,
   quote: Quote,
