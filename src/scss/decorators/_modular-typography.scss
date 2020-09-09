@@ -23,4 +23,8 @@
   &-7 {
     @include modular-typography(7);
   }
+
+  &-6 {
+    @include modular-typography(6);
+  }
 }

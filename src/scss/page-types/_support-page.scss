@@ -3,17 +3,10 @@
 // Areas of Support page with filtering
 
 .ood-support-page {
-  background-color: $su-color-fog-light;
-
   &__title {
-    @include serif;
     @include modular-typography(6);
     @include margin(null auto 0.4em);
     letter-spacing: 0;
-
-    @include grid-media-max('sm') {
-      font-size: 3.6rem;
-    }
   }
 
   &__intro {

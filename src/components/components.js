@@ -39,6 +39,7 @@ import Section from './layout/section'
 import SingleColumnContent from './layout/singleColumnContent'
 import FilteringGrid from './filteringGrid'
 // Page Type Components
+import OodInteriorPage from './page-types/oodInteriorPage'
 import OodStory from './page-types/oodStory'
 import OodSupportPage from './page-types/oodSupportPage'
 // Simple components
@@ -91,6 +92,7 @@ const ComponentList = {
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,
   oodHomepageHero: OodHomepageHero,
+  oodInteriorPage: OodInteriorPage,
   oodStory: OodStory,
   oodSupportPage: OodSupportPage,
   card: Card,

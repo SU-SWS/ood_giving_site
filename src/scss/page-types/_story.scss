@@ -3,13 +3,9 @@
 // Story page type
 
 .ood-story {
-  background-color: $su-color-fog-light;
-
   &__title {
-    @include serif;
-    @include modular-typography(6);
     @include margin(null null 0.4em);
-    font-weight: $su-font-regular;
+    @include modular-typography(6);
     letter-spacing: 0;
 
     @include grid-media-max('sm') {

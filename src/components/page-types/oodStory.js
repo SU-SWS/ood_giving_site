@@ -21,7 +21,7 @@ const OodStory = (props) => {
       <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
       <SbEditable content={props.blok}>
         <main id="main-content">
-        <article className={`ood-story`}>
+        <article className={`ood-story su-bg-fog-light`}>
           <header className={`ood-story__header
                   ${((props.blok.heroImage && props.blok.heroImage.filename.startsWith('http')) && props.blok.displayImage === "show-image") ?
                   "ood-story__header--has-image" : `ood-story__header--no-image su-border-color-${props.blok.headerBackgroundColor}`}
@@ -38,7 +38,7 @@ const OodStory = (props) => {
                    su-bg-${props.blok.headerBoxColor}
                    ${(props.blok.headerBoxColor !== "white" && props.blok.headerBoxColor !== "fog-light")? "su-text-white" : ""}
                    `}>
-                <h1 className="ood-story__title">{props.blok.title}</h1>
+                <h1 className="ood-story__title su-serif">{props.blok.title}</h1>
                 {props.blok.intro && (
                   <p className="su-intro-text ood-story__intro-text">{props.blok.intro}</p>
                 )}

@@ -12,10 +12,10 @@ const OodSupportPage = (props) => {
       <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
       <SbEditable content={props.blok}>
         <main id="main-content">
-          <article className={`ood-support-page`}>
+          <article className={`ood-support-page su-bg-fog-light`}>
             <header className={`ood-support-page__header su-pt-7 su-bg-${props.blok.headerBackgroundColor}`}>
               <div className={`centered-container flex-container ood-support-page__header-content`}>
-                <h1 className="ood-support-page__title flex-12-of-12 su-text-white su-text-align-center">{props.blok.title}</h1>
+                <h1 className="ood-support-page__title flex-12-of-12 su-serif su-text-white su-text-align-center">{props.blok.title}</h1>
                 <div className={`ood-support-page__header-content-wrapper flex-12-of-12
                      su-bg-white su-text-align-center`}>
                   {props.blok.intro && (
