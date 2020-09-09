@@ -11,11 +11,17 @@ const OodInteriorPage = (props) => {
     <>
       <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
       <SbEditable content={props.blok}>
+        {props.blok.localHeader && props.blok.localHeader.map((blok) => React.createElement(Components(blok.component), {
+          key: blok._uid,
+          blok: blok
+        }))}
         <main id="main-content">
           <article className={`ood-interior-page su-bg-fog-light`}>
             <header className={`ood-interior-page__header`}>
               <div className={`ood-interior-page__header-title-wrapper su-pt-7 su-bg-${props.blok.headerBackgroundColor}`}>
-                <h1 className="ood-interior-page__title flex-xl-10-of-12 su-serif su-text-white su-text-align-center">{props.blok.title}</h1>
+                <div className={`centered-container`}>
+                  <h1 className="ood-interior-page__title flex-xl-10-of-12 su-serif su-text-white su-text-align-center">{props.blok.title}</h1>
+                </div>
               </div>
               <div className={`centered-container flex-container ood-interior-page__header-content`}>
                 <div className={`ood-interior-page__header-content-wrapper flex-12-of-12

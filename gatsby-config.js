@@ -25,6 +25,7 @@ module.exports = {
           "oodQuoteSlider.quotes",
           "globalFooterPicker.globalFooter",
           "localFooterPicker.localFooter",
+          "localHeaderPicker.localHeader",
         ],
 
         // version: process.env.NODE_ENV == 'production' ? 'published' : 'draft'  // show only published on the front end site
