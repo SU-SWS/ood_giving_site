@@ -6,10 +6,12 @@
   grid-template-columns: 1fr;
 
   @include grid-media('md') {
+    @include ie-autocolumn(2);
     grid-template-columns: 1fr 1fr;
   }
 
   @include grid-media('xl') {
+    @include ie-autocolumn(3);
     grid-template-columns: 1fr 1fr 1fr;
   }
 }

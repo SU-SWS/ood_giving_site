@@ -15,10 +15,6 @@
     list-style-type: none;
     font-size: 1.6rem;
 
-    @include grid-media-max('sm') {
-      display: none;
-    }
-
     > li {
       @include margin(null 2.4rem 0 null);
 

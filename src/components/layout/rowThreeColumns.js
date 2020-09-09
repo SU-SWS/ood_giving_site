@@ -2,7 +2,7 @@ import React from 'react'
 import Components from '../components.js';
 import SbEditable from 'storyblok-react'
 
-const RowWithThreeColumns = (props) => (
+const RowThreeColumns = (props) => (
   <SbEditable content={props.blok}>
     <div className={`flex-container row--3-columns align-items-${props.blok.contentAlignment} su-mb-${props.blok.bottomSpacing}`}>
       <div className="flex-md-4-of-12">
@@ -24,4 +24,4 @@ const RowWithThreeColumns = (props) => (
   </SbEditable>
 )
 
-export default RowWithThreeColumns
+export default RowThreeColumns

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+// Interior page content type
+
+.ood-interior-page {
+  &__title {
+    @include modular-typography(6);
+    @include margin(null auto 0);
+    letter-spacing: 0;
+  }
+
+  &__intro {
+    @include margin(null null 0);
+
+    @include grid-media('xl') {
+      max-width: calc(83.33333% - 8px);
+    }
+
+    @include grid-media-max('sm') {
+      font-size: 1.25em;
+    }
+  }
+
+  &__header {
+    &-title {
+      &-wrapper {
+        @include modular-spacing('padding', null null 9);
+      }
+    }
+
+    &-content {
+      &-wrapper {
+        @include margin(-6em auto null);
+        @include modular-spacing('padding', 4);
+        box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
+        background-color: $su-color-white;
+
+        @include grid-media-max('sm') {
+          @include padding(3em 2em);
+        }
+      }
+    }
+  }
+
+  &__body {
+    &-header {
+      @include modular-spacing('padding', 5 null);
+
+      &-title {
+        @include modular-typography(4);
+        @include margin(null null 0);
+      }
+    }
+
+    &-content {
+      color: $su-color-black-true;
+    }
+  }
+}

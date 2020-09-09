@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+// Common styles for more than 1 page types
+
+.ood {
+  &-interior-page,
+  &-story,
+  &-support-page {
+
+  }
+}

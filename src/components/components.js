@@ -1,16 +1,15 @@
 import RichTextField from "./richTextField"
 import Page from './page'
-import Grid from './grid'
-import Feature from './feature'
 import ComponentNotFound from './component_not_found'
-// Stanford identity elements
+// Site identity elements
 import GlobalFooter from './identity/globalFooter'
 import GlobalFooterPicker from './identity/globalFooterPicker'
+import OodLocalHeader from './identity/oodLocalHeader'
 import OodLocalFooter from './identity/oodLocalFooter'
 import LocalFooterPicker from './identity/localFooterPicker'
+import LocalHeaderPicker from './identity/localHeaderPicker'
 import Lockup from './identity/lockup'
 // OOD specific components
-import OodHeader from './ood/oodHeader'
 import OodHomepageHero from './ood/oodHomepageHero'
 import OodIconCard from './ood/oodIconCard'
 import OodSupportCard from './ood/oodSupportCard'
@@ -33,12 +32,12 @@ import OodNavigationLinkGroup from './navigation/oodNavigationLinkGroup'
 import OodNavigationColumn from './navigation/oodNavigationColumn'
 // Layout components
 import ColumnGrid from './layout/columnGrid'
-import RowWithThreeColumns from './layout/rowWithThreeColumns'
+import RowThreeColumns from './layout/rowThreeColumns'
 import GridThreeColumns from './layout/gridThreeColumns'
 import Section from './layout/section'
 import SingleColumnContent from './layout/singleColumnContent'
-import FilteringGrid from './filteringGrid'
 // Page Type Components
+import OodInteriorPage from './page-types/oodInteriorPage'
 import OodStory from './page-types/oodStory'
 import OodSupportPage from './page-types/oodSupportPage'
 // Simple components
@@ -55,15 +54,13 @@ import Product from './poc/product'
 
 const ComponentList = {
   page: Page,
-  grid: Grid,
-  feature: Feature,
   button: Button,
   storyImage: StoryImage,
   quote: Quote,
   pageBuilder: PageBuilder,
   richTextField: RichTextField,
   columnGrid: ColumnGrid,
-  rowWithThreeColumns: RowWithThreeColumns,
+  rowThreeColumns: RowThreeColumns,
   section: Section,
   singleColumnContent: SingleColumnContent,
   globalFooter: GlobalFooter,
@@ -72,7 +69,8 @@ const ComponentList = {
   localFooterPicker: LocalFooterPicker,
   lockup: Lockup,
   navItem: NavItem,
-  oodHeader: OodHeader,
+  oodLocalHeader: OodLocalHeader,
+  localHeaderPicker: LocalHeaderPicker,
   oodSubMenu: OodSubMenu,
   oodIconCard: OodIconCard,
   oodSupportCard: OodSupportCard,
@@ -91,6 +89,7 @@ const ComponentList = {
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,
   oodHomepageHero: OodHomepageHero,
+  oodInteriorPage: OodInteriorPage,
   oodStory: OodStory,
   oodSupportPage: OodSupportPage,
   card: Card,
@@ -98,7 +97,6 @@ const ComponentList = {
   eventSession: EventSession,
   person: Person,
   product: Product,
-  filteringGrid: FilteringGrid,
   gridThreeColumns: GridThreeColumns
 }
 
