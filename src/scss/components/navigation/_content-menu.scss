@@ -4,7 +4,23 @@
 
 .ood-content-nav {
   background-color: transparent;
-  max-width: 400px;
+
+  @include grid-media('lg') {
+    max-width: 400px;
+  }
+
+  &__menu-group {
+    @include modular-spacing('padding', 0 null 1);
+    border-top: 1px solid $su-color-black-40;
+  }
+
+  &__title {
+    @include modular-spacing('margin', null null 1);
+    font-size: 1.6rem;
+    font-weight: $su-font-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
 
   &__menu {
     background-color: transparent;
@@ -21,7 +37,9 @@
   }
 
   &__link {
+    @include padding(1.2rem null);
     color: $su-color-digital-red;
+    border-top: 0;
 
     &::after {
       background-color: $su-color-digital-red;
