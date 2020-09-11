@@ -40,6 +40,7 @@ import Section from './layout/section'
 import SingleColumnContent from './layout/singleColumnContent'
 // Page Type Components
 import OodInteriorPage from './page-types/oodInteriorPage'
+import OodLandingPage from './page-types/oodLandingPage'
 import OodStory from './page-types/oodStory'
 import OodSupportPage from './page-types/oodSupportPage'
 // Simple components
@@ -94,6 +95,7 @@ const ComponentList = {
   oodQuoteSlider: OodQuoteSlider,
   oodHomepageHero: OodHomepageHero,
   oodInteriorPage: OodInteriorPage,
+  oodLandingPage: OodLandingPage,
   oodStory: OodStory,
   oodSupportPage: OodSupportPage,
   card: Card,
