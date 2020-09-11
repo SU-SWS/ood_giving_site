@@ -33,6 +33,7 @@
 @import 'decanter/core/src/scss/core/helpers/index';
 
 // Decanter Components
+@import 'decanter/core/src/scss/components/alert/index';
 @import 'decanter/core/src/scss/components/button/index';
 @import 'decanter/core/src/scss/components/card/index';
 @import 'decanter/core/src/scss/components/link/index';
@@ -46,7 +47,6 @@
 
 // Components with cherry picked variants
 @import 'decanter/core/src/scss/components/lockup/lockup';
-@import 'decanter/core/src/scss/components/lockup/lockup--option-d';
 @import 'decanter/core/src/scss/components/lockup/lockup--option-n';
 
 // Styles for this project
