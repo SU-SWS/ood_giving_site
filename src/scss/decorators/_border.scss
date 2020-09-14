@@ -67,6 +67,10 @@
     &-palo-alto {
       border-color: $su-color-palo-alto;
 
+      &-light {
+        border-color: $su-color-palo-alto-light;
+      }
+
       &-dark {
         border-color: $su-color-palo-alto-dark;
       }

@@ -3,5 +3,16 @@
 // Accordion styles
 
 .ood-accordion {
+  &__title {
+    @include modular-typography(2);
+    letter-spacing: 0;
 
+    > .ood-accordion__button {
+      font-weight: $su-font-semi-bold;
+
+      &::after {
+        color: $su-color-black;
+      }
+    }
+  }
 }
