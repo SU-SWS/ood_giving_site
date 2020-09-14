@@ -2,7 +2,7 @@ import RichTextField from "./richTextField"
 import Page from './page'
 import EmbedScript from './embedScript'
 import ComponentNotFound from './component_not_found'
-// Site identity elements
+// Site Identity Elements
 import GlobalFooter from './identity/globalFooter'
 import GlobalFooterPicker from './identity/globalFooterPicker'
 import OodLocalHeader from './identity/oodLocalHeader'
@@ -10,7 +10,7 @@ import OodLocalFooter from './identity/oodLocalFooter'
 import LocalFooterPicker from './identity/localFooterPicker'
 import LocalHeaderPicker from './identity/localHeaderPicker'
 import Lockup from './identity/lockup'
-// OOD specific components
+// OOD Specific Components
 import OodHomepageHero from './ood/oodHomepageHero'
 import OodIconCard from './ood/oodIconCard'
 import OodSupportCard from './ood/oodSupportCard'
@@ -18,7 +18,7 @@ import OodPoster from './ood/oodPoster'
 import OodQuoteCard from './ood/oodQuoteCard'
 import OodQuoteSlider from './ood/oodQuoteSlider'
 import OodTileCard from './ood/oodTileCard'
-// Navigation components
+// Navigation Components
 import NavItem from './navigation/navItem'
 import ContentNavItem from './navigation/contentNavItem'
 import ContentMenuParentItems from './navigation/contentMenuParentItem'
@@ -32,7 +32,7 @@ import OodMegaMenuCard from './navigation/oodMegaMenuCard'
 import OodNavigationLink from './navigation/oodNavigationLink'
 import OodNavigationLinkGroup from './navigation/oodNavigationLinkGroup'
 import OodNavigationColumn from './navigation/oodNavigationColumn'
-// Layout components
+// Layout Components
 import ColumnGrid from './layout/columnGrid'
 import RowThreeColumns from './layout/rowThreeColumns'
 import GridThreeColumns from './layout/gridThreeColumns'
@@ -43,9 +43,13 @@ import OodInteriorPage from './page-types/oodInteriorPage'
 import OodLandingPage from './page-types/oodLandingPage'
 import OodStory from './page-types/oodStory'
 import OodSupportPage from './page-types/oodSupportPage'
-// Simple components
+// Simple Components
 import Button from './simple/button'
 import StoryImage from './simple/storyImage'
+// Composite Components
+import Accordion from './composite/accordion'
+import AccordionItem from './composite/accordionItem'
+
 // ADAPT POC components created by Katria
 import Card from './poc/card'
 import Quote from './poc/quote'
@@ -60,6 +64,8 @@ const ComponentList = {
   embedScript: EmbedScript,
   button: Button,
   storyImage: StoryImage,
+  accordionItem: AccordionItem,
+  accordion: Accordion,
   quote: Quote,
   pageBuilder: PageBuilder,
   richTextField: RichTextField,
