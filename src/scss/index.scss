@@ -52,6 +52,7 @@
 
 // Styles for this project
 @import 'utilities/variables/colors'; // Utilities go first
+@import 'utilities/mixins/index';
 @import 'core/base';
 @import 'elements/index';
 @import 'layouts/index';
