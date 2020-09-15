@@ -137,13 +137,14 @@ const OodInteriorPage = (props) => {
                 }
               </div>
             </section>
-            <section className="ood-interior-page__below-body">
-              {props.blok.belowContent && props.blok.belowContent.map((blok) => React.createElement(Components(blok.component), {
-                key: blok._uid,
-                blok: blok
-              }))}
-            </section>
-
+            {Object.keys(props.blok.belowContent).length > 0 && (
+              <section className="ood-interior-page__below-body">
+                {props.blok.belowContent && props.blok.belowContent.map((blok) => React.createElement(Components(blok.component), {
+                  key: blok._uid,
+                  blok: blok
+                }))}
+              </section>
+            )}
             {numIconCards > 0 && (
               <footer className="ood-interior-page__body-footer su-bg-fog-light su-py-6">
                 <div className={`centered-container flex-container ood-icon-card-section su-align-items-stretch su-flex-${numIconCards}-col`}>
