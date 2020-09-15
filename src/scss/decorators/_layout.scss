@@ -2,7 +2,7 @@
 
 // Columns, rows, grids, widths, alignment related
 
-.align {
+.su-align {
   &-items {
     &-start {
       align-items: flex-start;
@@ -41,5 +41,34 @@
 .su-flex {
   &-row-reverse {
     flex-direction: row-reverse;
+  }
+
+  &-2-col {
+    > * {
+      @include responsive-flex-column(6);
+    }
+  }
+
+  &-3-col {
+    > * {
+      @include responsive-flex-column(4);
+    }
+  }
+
+  &-1-col,
+  &-2-col,
+  &-3-col {
+    display: block;
+
+    @include grid-media('md') {
+      display: flex;
+    }
+
+    > * {
+      @include grid-media-max('sm') {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
   }
 }

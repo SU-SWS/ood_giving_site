@@ -3,8 +3,7 @@
 // OOD Icon Card style
 
 .ood-icon-card {
-  @include margin(null auto);
-  height: 100%;
+  width: 100%;
   background-color: transparent;
 
   &__media {
