@@ -21,7 +21,24 @@
     }
   }
 
-  &__header {
+  &__body {
+    &-header {
+      @include modular-spacing('padding', null null 5);
+
+      &-title {
+        @include modular-typography(4);
+        @include margin(null null 0);
+      }
+    }
+
+    &-content {
+      color: $su-color-black-true;
+    }
+  }
+}
+
+.ood-interior-page--no-image {
+  .ood-interior-page__header {
     &-title {
       &-wrapper {
         @include modular-spacing('padding', null null 9);
@@ -42,18 +59,64 @@
     }
   }
 
-  &__body {
-    &-header {
-      @include modular-spacing('padding', 5 null);
+  .ood-interior-page__body {
+    @include modular-spacing('padding', 6 null);
+  }
+}
 
-      &-title {
-        @include modular-typography(4);
-        @include margin(null null 0);
+.ood-interior-page--has-image {
+  .ood-interior-page__header {
+    &-title {
+      &-wrapper {
+        > .centered-container {
+          position: relative;
+        }
+
+        @include grid-media('lg') {
+          //min-height: 360px;
+          min-height: 26vw;
+        }
+
+        @include grid-media('xl') {
+          //min-height: 400px;
+          min-height: 30vw;
+        }
+
+        @include grid-media('2xl') {
+          min-height: 480px;
+        }
+        //@include modular-spacing('padding', null null 9);
       }
     }
 
     &-content {
-      color: $su-color-black-true;
+      &-wrapper {
+        @include margin(-6em auto null);
+        @include modular-spacing('padding', 4);
+        box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
+        background-color: $su-color-white;
+
+        @include grid-media-max('sm') {
+          @include padding(3em 2em);
+        }
+      }
     }
+  }
+
+  .ood-interior-page__title {
+    @include margin(null null null 0);
+  }
+
+  .ood-interior-page__body {
+    @include modular-spacing('padding', 6 null);
+  }
+}
+
+
+.ood-interior-page__header-media {
+  @include grid-media('lg') {
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 }
