@@ -10,7 +10,11 @@
   }
 
   &__intro {
-    @include margin(null null 0);
+    > div {
+      > *:last-child {
+        @include margin(null null 0);
+      }
+    }
 
     @include grid-media('xl') {
       max-width: calc(83.33333% - 8px);
@@ -101,10 +105,22 @@
         }
       }
     }
+
+    &-intro {
+      &-wrapper {
+        @include grid-media('lg') {
+          border-top: 4em solid transparent;
+        }
+      }
+    }
   }
 
   .ood-interior-page__title {
     @include margin(null null null 0);
+
+    @include grid-media-only('lg') {
+      @include modular-typography(5);
+    }
   }
 
   .ood-interior-page__body {

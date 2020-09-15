@@ -20,7 +20,11 @@ const HeaderWithImage = (props) => (
       </div>
       <div className={`ood-interior-page__header-intro-wrapper su-py-6 su-bg-white`}>
         <div className={`centered-container flex-container`}>
-          <p className="su-intro-text ood-interior-page__intro flex-xl-8-of-12">{props.blok.intro}</p>
+          {props.blok.intro && (
+            <div className="su-intro-text ood-interior-page__intro flex-xl-8-of-12">
+              <RichTextField data={props.blok.intro}/>
+            </div>
+          )}
         </div>
       </div>
     </header>
@@ -39,7 +43,9 @@ const HeaderNoImage = (props) => (
         <div className={`ood-interior-page__header-content-wrapper flex-12-of-12
                        su-bg-white su-text-align-center`}>
           {props.blok.intro && (
-            <p className="su-intro-text ood-interior-page__intro flex-xl-10-of-12">{props.blok.intro}</p>
+            <div className="su-intro-text ood-interior-page__intro flex-xl-10-of-12">
+              <RichTextField data={props.blok.intro}/>
+            </div>
           )}
         </div>
       </div>
@@ -54,6 +60,34 @@ const HeaderMinimal = (props) => (
         <h1 className="ood-interior-page__title su-serif su-text-align-left">{props.blok.title}</h1>
       </div>
     </header>
+  </SbEditable>
+)
+
+const BodyLeftSidebar = (props) => (
+  <SbEditable content={props.blok}>
+    <aside className="ood-interior-page__body-sidebar flex-lg-4-of-12 flex-xl-3-of-12">
+      {props.blok.contentMenu && props.blok.contentMenu.map((blok) => React.createElement(Components(blok.component), {
+        key: blok._uid,
+        blok: blok
+      }))}
+    </aside>
+    <div className="ood-interior-page__body-content flex-lg-8-of-12">
+      {props.blok.pageContent && props.blok.pageContent.map((blok) => React.createElement(Components(blok.component), {
+        key: blok._uid,
+        blok: blok
+      }))}
+    </div>
+  </SbEditable>
+)
+
+const BodyNoSidebar = (props) => (
+  <SbEditable content={props.blok}>
+    <div className="ood-interior-page__body-content flex-lg-8-of-12 flex-xl-7-of-12 flex-2xl-6-of-12 su-mx-auto">
+      {props.blok.pageContent && props.blok.pageContent.map((blok) => React.createElement(Components(blok.component), {
+        key: blok._uid,
+        blok: blok
+      }))}
+    </div>
   </SbEditable>
 )
 
@@ -86,18 +120,12 @@ const OodInteriorPage = (props) => {
                 </header>
               }
               <div class="centered-container flex-container">
-                <aside class="ood-interior-page__body-sidebar flex-lg-4-of-12 flex-xl-3-of-12">
-                  {props.blok.contentMenu && props.blok.contentMenu.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                </aside>
-                <div class="ood-interior-page__body-content flex-lg-8-of-12">
-                  {props.blok.pageContent && props.blok.pageContent.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                </div>
+                {props.blok.layout === "no-sidebar" &&
+                  <BodyNoSidebar {...props}/>
+                }
+                {props.blok.layout === "left-sidebar" &&
+                  <BodyLeftSidebar {...props}/>
+                }
               </div>
             </section>
 
@@ -117,14 +145,16 @@ const OodInteriorPage = (props) => {
           key: blok._uid,
           blok: blok
         }))}
-        {props.blok.localFooter && props.blok.localFooter.map((blok) => React.createElement(Components(blok.component), {
-          key: blok._uid,
-          blok: blok
-        }))}
-        {props.blok.globalFooter && props.blok.globalFooter.map((blok) => React.createElement(Components(blok.component), {
-          key: blok._uid,
-          blok: blok
-        }))}
+        <footer>
+          {props.blok.localFooter && props.blok.localFooter.map((blok) => React.createElement(Components(blok.component), {
+            key: blok._uid,
+            blok: blok
+          }))}
+          {props.blok.globalFooter && props.blok.globalFooter.map((blok) => React.createElement(Components(blok.component), {
+            key: blok._uid,
+            blok: blok
+          }))}
+        </footer>
       </SbEditable>
     </>
   )
