@@ -41,6 +41,12 @@
   }
 }
 
+.ood-interior-page--minimal {
+  .ood-interior-page__body {
+    @include modular-spacing('padding', null null 6);
+  }
+}
+
 .ood-interior-page--no-image {
   .ood-interior-page__header {
     &-title {
