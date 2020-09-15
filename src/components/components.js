@@ -46,6 +46,7 @@ import OodSupportPage from './page-types/oodSupportPage'
 // Simple Components
 import Button from './simple/button'
 import StoryImage from './simple/storyImage'
+import SimpleWysiwyg from './simple/simpleWysiwyg'
 // Composite Components
 import Accordion from './composite/accordion'
 import AccordionItem from './composite/accordionItem'
@@ -62,6 +63,7 @@ import Product from './poc/product'
 const ComponentList = {
   page: Page,
   embedScript: EmbedScript,
+  simpleWysiwyg: SimpleWysiwyg,
   button: Button,
   storyImage: StoryImage,
   accordionItem: AccordionItem,

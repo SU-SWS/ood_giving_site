@@ -3,6 +3,10 @@
 // Accordion styles
 
 .ood-accordion {
+  &__heading {
+    @include margin(-0.16em null null);
+  }
+
   &__title {
     @include modular-typography(2);
     letter-spacing: 0;

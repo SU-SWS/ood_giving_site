@@ -26,3 +26,7 @@
     }
   }
 }
+
+.su-mx-auto {
+  @include margin(null auto);
+}

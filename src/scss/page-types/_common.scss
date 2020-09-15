@@ -3,9 +3,20 @@
 // Common styles for more than 1 page types
 
 .ood {
-  &-interior-page,
-  &-story,
-  &-support-page {
+  &-icon-card-section {
+    @include grid-media-max('sm') {
+      > *:not(:last-child) {
+        @include margin(null null 2em);
+      }
+    }
 
+    &.su-flex-1-col {
+      @include responsive-flex-column(8);
+      @include margin(null auto);
+
+      @include grid-media-max('md') {
+        max-width: 100%;
+      }
+    }
   }
 }
