@@ -137,7 +137,7 @@ const OodInteriorPage = (props) => {
                 }
               </div>
             </section>
-            {Object.keys(props.blok.belowContent).length > 0 && (
+            {(props.blok.belowContent != null && Object.keys(props.blok.belowContent).length > 0) && (
               <section className="ood-interior-page__below-body">
                 {props.blok.belowContent && props.blok.belowContent.map((blok) => React.createElement(Components(blok.component), {
                   key: blok._uid,
