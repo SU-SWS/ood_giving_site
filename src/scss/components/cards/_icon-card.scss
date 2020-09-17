@@ -17,7 +17,6 @@
   .su-card__contents {
     > .ood-icon-card__headline {
       @include modular-typography(2);
-      font-weight: $su-font-regular;
 
       @include grid-media('xl') {
         @include modular-typography(3);

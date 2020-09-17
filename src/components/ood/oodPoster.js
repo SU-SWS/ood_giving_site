@@ -32,7 +32,7 @@ const OodPoster = (props) => {
                  ${(props.blok.cardBackgroundColor !== "white" && props.blok.cardBackgroundColor !== "fog-light") ? "su-text-white" : ""}`
               }>
                 {props.blok.headline1 && (
-                  <h2 className="ood-poster__headline">{props.blok.headline1}</h2>
+                  <h2 className="ood-poster__headline su-semibold">{props.blok.headline1}</h2>
                 )}
                 {props.blok.bodyText1 &&
                 <div className="ood-poster__text">

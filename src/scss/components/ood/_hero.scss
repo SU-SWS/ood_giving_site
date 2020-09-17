@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
-// Homepage Hero
+// Homepage/Landing Page Hero Section
+
 .ood-hero-home {
   position: relative;
   height: 700px;
@@ -30,7 +31,6 @@
     position: absolute;
     bottom: 220px;
     left: 0;
-    font-weight: $su-font-regular;
     z-index: 100;
     text-shadow: rgba(0,0,0,0.6) 0 0 26px;
 

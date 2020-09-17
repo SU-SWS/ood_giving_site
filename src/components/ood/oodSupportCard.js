@@ -13,7 +13,7 @@ const OodSupportCard = (props) => {
                data-areas-to-support={taxonomyString(props.blok.taxonomy)}>
         <a href={props.blok.link} rel="nofollow noopener" className={`ood-support-card__link su-bg-${props.blok.backgroundColor}`}>
           <section className="ood-support-card__contents">
-            <h2 className="ood-support-card__headline">{props.blok.headline}</h2>
+            <h2 className="ood-support-card__headline su-semibold">{props.blok.headline}</h2>
             <span aria-hidden="true"
                   className={`ood-support-card__icon su-text-white
               ${props.blok.iconStyle ? props.blok.iconStyle : props.blok.icon.type}

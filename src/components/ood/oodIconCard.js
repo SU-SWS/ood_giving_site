@@ -18,7 +18,7 @@ const OodIconCard = (props) => (
            `} />
         </div>
         <section className="su-card__contents ood-icon-card__contents">
-          <h2 className="ood-icon-card__headline">{props.blok.headline}</h2>
+          <h2 className="ood-icon-card__headline su-semibold">{props.blok.headline}</h2>
         </section>
       </a>
     </article>
