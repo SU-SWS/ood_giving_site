@@ -105,14 +105,12 @@
         }
 
         @include grid-media('xl') {
-          //min-height: 400px;
           min-height: 30vw;
         }
 
         @include grid-media('2xl') {
           min-height: 480px;
         }
-        //@include modular-spacing('padding', null null 9);
       }
     }
 
