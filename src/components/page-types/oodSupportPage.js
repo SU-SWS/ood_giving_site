@@ -6,6 +6,14 @@ import HeaderNoImage from '../partials/headerNoImage'
 import { Helmet } from 'react-helmet'
 
 const OodSupportPage = (props) => {
+  let numIconCards;
+
+  if (props.blok.iconCards == null) {
+    numIconCards = 0;
+  }
+  else {
+    numIconCards = Object.keys(props.blok.iconCards).length;
+  }
 
   return (
     <>
@@ -20,10 +28,12 @@ const OodSupportPage = (props) => {
         >
           <article className={`su-bg-fog-light`}>
             <HeaderNoImage {...props}/>
-            <section className="ood-support-page__body">
-              <header className="centered-container ood-support-page__body-header su-text-align-center">
-                <h2 className="ood-support-page__body-header-title su-serif">{props.blok.cardSectionTitle}</h2>
-              </header>
+            <section className="ood-interior-page__body ood-support-page__body">
+              {props.blok.bodyTitle &&
+                <header className="centered-container ood-interior-page__body-header su-text-align-center">
+                  <h2 className="ood-interior-page__body-header-title su-serif">{props.blok.bodyTitle}</h2>
+                </header>
+              }
               <div class="centered-container ood-support-page__filter-container">
                 <input type="radio" id="athletics" name="area"/>
                 <label htmlFor="athletics">Athletics</label>
@@ -53,15 +63,16 @@ const OodSupportPage = (props) => {
                 </div>
               </div>
             </section>
-            <footer className="ood-support-page__footer">
-              <div className="centered-container flex-container">
-                <div className="ood-support-page__footer-wrapper flex-md-10-of-12 flex-lg-8-of-12 flex-2xl-6-of-12">
-                  <div className="ood-support-page__metadata">
-
-                  </div>
+            {numIconCards > 0 && (
+              <footer className="ood-interior-page__body-footer su-bg-fog-light su-py-6">
+                <div className={`centered-container flex-container ood-icon-card-section su-align-items-stretch su-flex-${numIconCards}-col`}>
+                  {props.blok.iconCards && props.blok.iconCards.map((blok) => React.createElement(Components(blok.component), {
+                    key: blok._uid,
+                    blok: blok
+                  }))}
                 </div>
-              </div>
-            </footer>
+              </footer>
+            )}
           </article>
         </main>
         {props.blok.iconCardSection && props.blok.iconCardSection.map((blok) => React.createElement(Components(blok.component), {
