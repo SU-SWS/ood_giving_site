@@ -34,7 +34,7 @@ const OodSupportPage = (props) => {
                   <h2 className="ood-interior-page__body-header-title su-serif su-bold">{props.blok.bodyTitle}</h2>
                 </header>
               }
-              <div class="centered-container ood-support-page__filter-container">
+              <div className="centered-container ood-support-page__filter-container">
                 <input type="radio" id="undergraduate" name="areas-to-support"/>
                 <label htmlFor="undergraduate">Undergraduate Education</label>
                 <input type="radio" id="grad" name="areas-to-support"/>
