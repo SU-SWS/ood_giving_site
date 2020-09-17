@@ -6,6 +6,14 @@ import HeaderNoImage from '../partials/headerNoImage'
 import { Helmet } from 'react-helmet'
 
 const OodSupportPage = (props) => {
+  let numIconCards;
+
+  if (props.blok.iconCards == null) {
+    numIconCards = 0;
+  }
+  else {
+    numIconCards = Object.keys(props.blok.iconCards).length;
+  }
 
   return (
     <>
@@ -20,19 +28,33 @@ const OodSupportPage = (props) => {
         >
           <article className={`su-bg-fog-light`}>
             <HeaderNoImage {...props}/>
-            <section className="ood-support-page__body">
-              <header className="centered-container ood-support-page__body-header su-text-align-center">
-                <h2 className="ood-support-page__body-header-title su-serif">{props.blok.cardSectionTitle}</h2>
-              </header>
-              <div class="centered-container ood-support-page__filter-container">
-                <input type="radio" id="athletics" name="area"/>
-                <label htmlFor="athletics">Athletics</label>
-                <input type="radio" id="undergraduate" name="area"/>
+            <section className="ood-interior-page__body ood-support-page__body">
+              {props.blok.bodyTitle &&
+                <header className="centered-container ood-interior-page__body-header su-text-align-left">
+                  <h2 className="ood-interior-page__body-header-title su-serif su-bold">{props.blok.bodyTitle}</h2>
+                </header>
+              }
+              <div className="centered-container ood-support-page__filter-container">
+                <input type="radio" id="undergraduate" name="areas-to-support"/>
                 <label htmlFor="undergraduate">Undergraduate Education</label>
-                <input type="radio" id="grad" name="area"/>
+                <input type="radio" id="grad" name="areas-to-support"/>
                 <label htmlFor="grad">Graduate Education</label>
-                <input type="radio" id="arts" name="area"/>
-                <label htmlFor="arts">Arts</label>
+                <input type="radio" id="arts" name="areas-to-support"/>
+                <label htmlFor="arts">Arts + Humanities</label>
+                <input type="radio" id="athletics" name="areas-to-support"/>
+                <label htmlFor="athletics">Athletics</label>
+                <input type="radio" id="business" name="areas-to-support"/>
+                <label htmlFor="business">Business + Economics</label>
+                <input type="radio" id="culture" name="areas-to-support"/>
+                <label htmlFor="culture">Culture + Ethics</label>
+                <input type="radio" id="law" name="areas-to-support"/>
+                <label htmlFor="law">Law, Policy, + Government</label>
+                <input type="radio" id="medicine" name="areas-to-support"/>
+                <label htmlFor="medicine">Medicine + Healthcare</label>
+                <input type="radio" id="science" name="areas-to-support"/>
+                <label htmlFor="science">Science + Technology</label>
+                <input type="radio" id="sustainability" name="areas-to-support"/>
+                <label htmlFor="sustainability">Sustainability</label>
                 <div className={`grid-3-column su-my-7`}>
                   {props.blok.undergraduate && props.blok.undergraduate.map((blok) => React.createElement(Components(blok.component), {
                     key: blok._uid,
@@ -50,32 +72,55 @@ const OodSupportPage = (props) => {
                     key: blok._uid,
                     blok: blok
                   }))}
+                  {props.blok.business && props.blok.business.map((blok) => React.createElement(Components(blok.component), {
+                    key: blok._uid,
+                    blok: blok
+                  }))}
+                  {props.blok.culture && props.blok.culture.map((blok) => React.createElement(Components(blok.component), {
+                    key: blok._uid,
+                    blok: blok
+                  }))}
+                  {props.blok.law && props.blok.law.map((blok) => React.createElement(Components(blok.component), {
+                    key: blok._uid,
+                    blok: blok
+                  }))}
+                  {props.blok.medicine && props.blok.medicine.map((blok) => React.createElement(Components(blok.component), {
+                    key: blok._uid,
+                    blok: blok
+                  }))}
+                  {props.blok.science && props.blok.science.map((blok) => React.createElement(Components(blok.component), {
+                    key: blok._uid,
+                    blok: blok
+                  }))}
+                  {props.blok.sustainability && props.blok.sustainability.map((blok) => React.createElement(Components(blok.component), {
+                    key: blok._uid,
+                    blok: blok
+                  }))}
                 </div>
               </div>
             </section>
-            <footer className="ood-support-page__footer">
-              <div className="centered-container flex-container">
-                <div className="ood-support-page__footer-wrapper flex-md-10-of-12 flex-lg-8-of-12 flex-2xl-6-of-12">
-                  <div className="ood-support-page__metadata">
-
-                  </div>
+            {numIconCards > 0 && (
+              <footer className="ood-interior-page__body-footer su-bg-fog-light su-py-6">
+                <div className={`centered-container flex-container ood-icon-card-section su-align-items-stretch su-flex-${numIconCards}-col`}>
+                  {props.blok.iconCards && props.blok.iconCards.map((blok) => React.createElement(Components(blok.component), {
+                    key: blok._uid,
+                    blok: blok
+                  }))}
                 </div>
-              </div>
-            </footer>
+              </footer>
+            )}
           </article>
         </main>
-        {props.blok.iconCardSection && props.blok.iconCardSection.map((blok) => React.createElement(Components(blok.component), {
-          key: blok._uid,
-          blok: blok
-        }))}
-        {props.blok.localFooter && props.blok.localFooter.map((blok) => React.createElement(Components(blok.component), {
-          key: blok._uid,
-          blok: blok
-        }))}
-        {props.blok.globalFooter && props.blok.globalFooter.map((blok) => React.createElement(Components(blok.component), {
-          key: blok._uid,
-          blok: blok
-        }))}
+        <footer>
+          {props.blok.localFooter && props.blok.localFooter.map((blok) => React.createElement(Components(blok.component), {
+            key: blok._uid,
+            blok: blok
+          }))}
+          {props.blok.globalFooter && props.blok.globalFooter.map((blok) => React.createElement(Components(blok.component), {
+            key: blok._uid,
+            blok: blok
+          }))}
+        </footer>
       </SbEditable>
     </>
   )

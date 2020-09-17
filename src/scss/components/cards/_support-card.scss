@@ -12,15 +12,15 @@
     > .ood-support-card__headline {
       @include modular-typography(3);
       @include margin(null null 0);
-
-      @include grid-media('xl') {
-        @include modular-typography(4);
-      }
     }
 
     .ood-support-card__icon {
       font-size: 3em;
     }
+  }
+
+  &__headline {
+    font-weight: $su-font-semi-bold;
   }
 
   > a {
@@ -33,16 +33,20 @@
   }
 
   &__link {
-    @include modular-spacing("padding", 4);
+    @include modular-spacing("padding", 3);
     height: 100%;
     position: relative;
+
+    @include grid-media('2xl') {
+      @include padding(6.1rem);
+    }
   }
 
   &__contents {
     min-height: 200px;
 
     @include grid-media('md') {
-      min-height: 280px;
+      min-height: 260px;
     }
   }
 

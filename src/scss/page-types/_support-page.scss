@@ -1,44 +1,9 @@
 @charset "UTF-8";
 
 // Areas of Support page with filtering
+// Shares some common styles with Interior Page component
 
 .ood-support-page {
-  &__title {
-    @include modular-typography(6);
-    @include margin(null auto 0.4em);
-    letter-spacing: 0;
-  }
-
-  &__intro {
-    @include margin(null null 0);
-    @include grid-media-max('sm') {
-      font-size: 1.25em;
-    }
-  }
-
-  &__header {
-    &-content {
-      &-wrapper {
-        @include margin(null auto);
-        @include modular-spacing('padding', 4);
-        box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
-        background-color: $su-color-white;
-
-        @include grid-media-max('sm') {
-          @include padding(3em 2em);
-        }
-      }
-    }
-  }
-
-  &__body {
-    &-header {
-      &-title {
-        @include modular-typography(4);
-      }
-    }
-  }
-
   &__filter-container {
     .ood-support-card {
       position: relative;
@@ -50,18 +15,96 @@
       transition: opacity 0.4s ease-out, left 0.8s ease-out;
     }
 
-    input[type="radio"][id="undergraduate"]:checked ~ div article:not([data-area-of-support*="undergraduate"]),
-    input[type="radio"][id="grad"]:checked ~ div article:not([data-area-of-support*="grad-education"]),
-    input[type="radio"][id="arts"]:checked ~ div article:not([data-area-of-support*="arts"]),
-    input[type="radio"][id="athletics"]:checked ~ div article:not([data-area-of-support*="athletics"]) {
-      width: 0;
-      height: 0;
-      padding: 0;
-      margin: 0;
+    label {
+      @include padding(0.7em 0.2em);
+      @include margin(null null 1em);
+      font-size: 0.9em;
+      display: inline-block;
+      border: 1px solid $su-color-palo-alto-dark;
+      color: $su-color-palo-alto-dark;
+      text-align: center;
+      cursor: pointer;
+      transition: color 0.25s ease-out, background-color 0.25s ease-out;
+
+      &:hover,
+      &:focus {
+        background-color: $su-color-white;
+        text-decoration: underline;
+      }
+
+      &:active {
+        background-color: $su-color-palo-alto;
+        color: $su-color-white;
+      }
+
+      @include grid-media-max('sm') {
+        @include margin(null 2% null null);
+        width: 49%;
+
+        &:nth-of-type(2n) {
+          @include margin(null 0 null null);
+        }
+      }
+
+      @include grid-media-only('md') {
+        @include margin(null 2% null null);
+        width: 32%;
+
+        &:nth-of-type(3n) {
+          @include margin(null 0 null null);
+        }
+      }
+
+      @include grid-media-between('lg', 'xl') {
+        @include margin(null 1.33% null null);
+        width: 24%;
+
+        &:nth-of-type(4n) {
+          @include margin(null 0 null null);
+        }
+      }
+
+      @include grid-media-only('2xl') {
+        @include margin(null 1.25% null null);
+        font-size: 1em;
+        width: 19%;
+
+        &:nth-of-type(5n) {
+          @include margin(null 0 null null);
+        }
+      }
+    }
+
+    input[type="radio"] {
       opacity: 0;
-      visibility: hidden;
       position: absolute;
-      left: -200px;
+
+      &:checked {
+        + label {
+          color: $su-color-white;
+          background-color: $su-color-palo-alto-dark;
+        }
+      }
+
+      &[id="undergraduate"]:checked ~ div article:not([data-areas-to-support*="undergraduate"]),
+      &[id="grad"]:checked ~ div article:not([data-areas-to-support*="grad-education"]),
+      &[id="arts"]:checked ~ div article:not([data-areas-to-support*="arts"]),
+      &[id="athletics"]:checked ~ div article:not([data-areas-to-support*="athletics"]),
+      &[id="business"]:checked ~ div article:not([data-areas-to-support*="business"]),
+      &[id="culture"]:checked ~ div article:not([data-areas-to-support*="culture"]),
+      &[id="law"]:checked ~ div article:not([data-areas-to-support*="law"]),
+      &[id="medicine"]:checked ~ div article:not([data-areas-to-support*="medicine"]),
+      &[id="science"]:checked ~ div article:not([data-areas-to-support*="science"]),
+      &[id="sustainability"]:checked ~ div article:not([data-areas-to-support*="sustainability"]) {
+        width: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        left: -200px;
+      }
     }
   }
 }

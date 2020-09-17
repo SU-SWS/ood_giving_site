@@ -40,3 +40,13 @@
     }
   }
 }
+
+.su {
+  &-bold {
+    font-weight: $su-font-bold;
+  }
+
+  &-semibold {
+    font-weight: $su-font-semi-bold;
+  }
+}
