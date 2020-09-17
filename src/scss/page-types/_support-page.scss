@@ -50,18 +50,42 @@
       transition: opacity 0.4s ease-out, left 0.8s ease-out;
     }
 
-    input[type="radio"][id="undergraduate"]:checked ~ div article:not([data-area-of-support*="undergraduate"]),
-    input[type="radio"][id="grad"]:checked ~ div article:not([data-area-of-support*="grad-education"]),
-    input[type="radio"][id="arts"]:checked ~ div article:not([data-area-of-support*="arts"]),
-    input[type="radio"][id="athletics"]:checked ~ div article:not([data-area-of-support*="athletics"]) {
-      width: 0;
-      height: 0;
-      padding: 0;
-      margin: 0;
+    label {
+      text-align: center;
+
+      @include grid-media('xl') {
+        @include padding(0.6em 0.4em);
+        @include margin(null null 0.6em);
+        display: inline-block;
+        width: 18%;
+        border: 1px solid $su-color-palo-alto-dark;
+        color: $su-color-palo-alto-dark;
+      }
+    }
+
+    input[type="radio"] {
       opacity: 0;
-      visibility: hidden;
       position: absolute;
-      left: -200px;
+
+      &[id="undergraduate"]:checked ~ div article:not([data-areas-to-support*="undergraduate"]),
+      &[id="grad"]:checked ~ div article:not([data-areas-to-support*="grad-education"]),
+      &[id="arts"]:checked ~ div article:not([data-areas-to-support*="arts"]),
+      &[id="athletics"]:checked ~ div article:not([data-areas-to-support*="athletics"]),
+      &[id="business"]:checked ~ div article:not([data-areas-to-support*="business"]),
+      &[id="culture"]:checked ~ div article:not([data-areas-to-support*="culture"]),
+      &[id="law"]:checked ~ div article:not([data-areas-to-support*="law"]),
+      &[id="medicine"]:checked ~ div article:not([data-areas-to-support*="medicine"]),
+      &[id="science"]:checked ~ div article:not([data-areas-to-support*="science"]),
+      &[id="sustainability"]:checked ~ div article:not([data-areas-to-support*="sustainability"]) {
+        width: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        left: -200px;
+      }
     }
   }
 }
