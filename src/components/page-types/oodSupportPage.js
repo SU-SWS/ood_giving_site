@@ -30,8 +30,8 @@ const OodSupportPage = (props) => {
             <HeaderNoImage {...props}/>
             <section className="ood-interior-page__body ood-support-page__body">
               {props.blok.bodyTitle &&
-                <header className="centered-container ood-interior-page__body-header su-text-align-center">
-                  <h2 className="ood-interior-page__body-header-title su-serif">{props.blok.bodyTitle}</h2>
+                <header className="centered-container ood-interior-page__body-header su-text-align-left">
+                  <h2 className="ood-interior-page__body-header-title su-serif su-bold">{props.blok.bodyTitle}</h2>
                 </header>
               }
               <div class="centered-container ood-support-page__filter-container">

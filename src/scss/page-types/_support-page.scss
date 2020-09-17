@@ -1,44 +1,9 @@
 @charset "UTF-8";
 
 // Areas of Support page with filtering
+// Shares some common styles with Interior Page component
 
 .ood-support-page {
-  &__title {
-    @include modular-typography(6);
-    @include margin(null auto 0.4em);
-    letter-spacing: 0;
-  }
-
-  &__intro {
-    @include margin(null null 0);
-    @include grid-media-max('sm') {
-      font-size: 1.25em;
-    }
-  }
-
-  &__header {
-    &-content {
-      &-wrapper {
-        @include margin(null auto);
-        @include modular-spacing('padding', 4);
-        box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
-        background-color: $su-color-white;
-
-        @include grid-media-max('sm') {
-          @include padding(3em 2em);
-        }
-      }
-    }
-  }
-
-  &__body {
-    &-header {
-      &-title {
-        @include modular-typography(4);
-      }
-    }
-  }
-
   &__filter-container {
     .ood-support-card {
       position: relative;
@@ -59,11 +24,17 @@
       color: $su-color-palo-alto-dark;
       text-align: center;
       cursor: pointer;
+      transition: color 0.25s ease-out, background-color 0.25s ease-out;
 
       &:hover,
       &:focus {
         background-color: $su-color-white;
         text-decoration: underline;
+      }
+
+      &:active {
+        background-color: $su-color-palo-alto;
+        color: $su-color-white;
       }
 
       @include grid-media-max('sm') {
