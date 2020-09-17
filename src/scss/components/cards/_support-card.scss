@@ -19,6 +19,10 @@
     }
   }
 
+  &__headline {
+    font-weight: $su-font-semi-bold;
+  }
+
   > a {
     border-color: transparent;
 
@@ -29,9 +33,13 @@
   }
 
   &__link {
-    @include modular-spacing("padding", 4);
+    @include modular-spacing("padding", 3);
     height: 100%;
     position: relative;
+
+    @include grid-media('2xl') {
+      @include padding(6.1rem);
+    }
   }
 
   &__contents {

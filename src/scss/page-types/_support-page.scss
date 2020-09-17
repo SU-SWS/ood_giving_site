@@ -51,6 +51,12 @@
     }
 
     label {
+      @include padding(0.7em 0.2em);
+      @include margin(null null 1em);
+      font-size: 0.9em;
+      display: inline-block;
+      border: 1px solid $su-color-palo-alto-dark;
+      color: $su-color-palo-alto-dark;
       text-align: center;
       cursor: pointer;
 
@@ -60,13 +66,41 @@
         text-decoration: underline;
       }
 
-      @include grid-media('xl') {
-        @include padding(0.7em 0.4em);
-        @include margin(null null 0.6em);
-        display: inline-block;
-        width: 18%;
-        border: 1px solid $su-color-palo-alto-dark;
-        color: $su-color-palo-alto-dark;
+      @include grid-media-max('sm') {
+        @include margin(null 2% null null);
+        width: 49%;
+
+        &:nth-of-type(2n) {
+          @include margin(null 0 null null);
+        }
+      }
+
+      @include grid-media-only('md') {
+        @include margin(null 2% null null);
+        width: 32%;
+
+        &:nth-of-type(3n) {
+          @include margin(null 0 null null);
+        }
+      }
+
+      @include grid-media-between('lg', 'xl') {
+        @include margin(null 1.33% null null);
+        width: 24%;
+
+        &:nth-of-type(4n) {
+          @include margin(null 0 null null);
+        }
+      }
+
+      @include grid-media-only('2xl') {
+        @include margin(null 1.25% null null);
+        font-size: 1em;
+        width: 19%;
+
+        &:nth-of-type(5n) {
+          @include margin(null 0 null null);
+        }
       }
     }
 
