@@ -31,8 +31,18 @@
     position: absolute;
     bottom: 220px;
     left: 0;
+    line-height: 1.1;
     z-index: 100;
     text-shadow: rgba(0,0,0,0.6) 0 0 26px;
+
+    &::after {
+      @include margin(0.12em null null);
+      display: block;
+      content: "";
+      height: 10px;
+      width: 128px;
+      background-color: $su-color-digital-red;
+    }
 
     @include grid-media('lg') {
       bottom: 80px;
@@ -52,8 +62,6 @@
     &:hover,
     &:focus {
       color: $su-color-white;
-      transition: background-color 0.3s ease-out;
-      background-color: $su-color-archway-dark;
 
       .ood-hero-home__cta-headline {
         text-decoration: underline;
