@@ -1,9 +1,9 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import SbEditable from 'storyblok-react'
 import RichTextField from '../richTextField'
 import Components from "../components"
-import { Helmet } from 'react-helmet';
+import HeaderNoImage from '../partials/headerNoImage'
+import { Helmet } from 'react-helmet'
 
 const OodSupportPage = (props) => {
 
@@ -15,19 +15,11 @@ const OodSupportPage = (props) => {
           key: blok._uid,
           blok: blok
         }))}
-        <main id="main-content">
-          <article className={`ood-support-page su-bg-fog-light`}>
-            <header className={`ood-support-page__header su-pt-7 su-bg-${props.blok.headerBackgroundColor}`}>
-              <div className={`centered-container flex-container ood-support-page__header-content`}>
-                <h1 className="ood-support-page__title flex-12-of-12 su-serif su-text-white su-text-align-center">{props.blok.title}</h1>
-                <div className={`ood-support-page__header-content-wrapper flex-12-of-12
-                     su-bg-white su-text-align-center`}>
-                  {props.blok.intro && (
-                    <p className="su-intro-text ood-support-page__intro">{props.blok.intro}</p>
-                  )}
-                </div>
-              </div>
-            </header>
+        <main id="main-content"
+              className="ood-interior-page--no-image ood-support-page"
+        >
+          <article className={`su-bg-fog-light`}>
+            <HeaderNoImage {...props}/>
             <section className="ood-support-page__body">
               <header className="centered-container ood-support-page__body-header su-text-align-center">
                 <h2 className="ood-support-page__body-header-title su-serif">{props.blok.cardSectionTitle}</h2>
