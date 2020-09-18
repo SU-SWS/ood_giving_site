@@ -3,6 +3,7 @@ import SbEditable from 'storyblok-react'
 import RichTextField from '../richTextField'
 import transformImage from '../../utilities/transformImage'
 import Components from "../components"
+import IconCardSection from '../partials/iconCardSection'
 import { Helmet } from 'react-helmet';
 
 const OodStory = (props) => {
@@ -13,14 +14,6 @@ const OodStory = (props) => {
 
   const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
   const formattedPublishedDate = new Date(props.blok.publishedDate).toLocaleDateString("en-US", options);
-
-  let numIconCards;
-  if (props.blok.iconCards == null) {
-    numIconCards = 0;
-  }
-  else {
-    numIconCards = Object.keys(props.blok.iconCards).length;
-  }
 
   return (
     <>
@@ -72,16 +65,7 @@ const OodStory = (props) => {
                 </div>
               </div>
             </div>
-            {numIconCards > 0 && (
-              <div className="ood-interior-page__body-footer su-bg-fog-light su-py-6">
-                <div className={`centered-container flex-container ood-icon-card-section su-align-items-stretch su-flex-${numIconCards}-col`}>
-                  {props.blok.iconCards && props.blok.iconCards.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                </div>
-              </div>
-            )}
+            <IconCardSection {...props}/>
           </footer>
         </article>
         </main>

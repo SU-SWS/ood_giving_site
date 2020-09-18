@@ -3,10 +3,10 @@ import Link from 'gatsby-link'
 import SbEditable from 'storyblok-react'
 import RichTextField from '../richTextField'
 import Components from "../components"
+import IconCardSection from '../partials/iconCardSection'
 import { Helmet } from 'react-helmet';
 
 const OodLandingPage = (props) => {
-
   return (
     <>
       <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
@@ -31,10 +31,7 @@ const OodLandingPage = (props) => {
                 blok: blok
               }))}
             </article>
-            {props.blok.iconCardSection && props.blok.iconCardSection.map((blok) => React.createElement(Components(blok.component), {
-              key: blok._uid,
-              blok: blok
-            }))}
+            <IconCardSection {...props}/>
           </main>
           <footer>
             {props.blok.localFooter && props.blok.localFooter.map((blok) => React.createElement(Components(blok.component), {

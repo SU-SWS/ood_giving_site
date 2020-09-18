@@ -3,18 +3,10 @@ import SbEditable from 'storyblok-react'
 import RichTextField from '../richTextField'
 import Components from "../components"
 import HeaderNoImage from '../partials/headerNoImage'
+import IconCardSection from '../partials/iconCardSection'
 import { Helmet } from 'react-helmet'
 
 const OodSupportPage = (props) => {
-  let numIconCards;
-
-  if (props.blok.iconCards == null) {
-    numIconCards = 0;
-  }
-  else {
-    numIconCards = Object.keys(props.blok.iconCards).length;
-  }
-
   return (
     <>
       <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
@@ -99,16 +91,7 @@ const OodSupportPage = (props) => {
                 </div>
               </div>
             </section>
-            {numIconCards > 0 && (
-              <footer className="ood-interior-page__body-footer su-bg-fog-light su-py-6">
-                <div className={`centered-container flex-container ood-icon-card-section su-align-items-stretch su-flex-${numIconCards}-col`}>
-                  {props.blok.iconCards && props.blok.iconCards.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                </div>
-              </footer>
-            )}
+            <IconCardSection {...props}/>
           </article>
         </main>
         <footer>
