@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 .ood-mega-menu {
-  &--section {
+  &__section {
     @include modular-spacing('padding', null null null 3);
     display: flex;
     justify-content: space-between;
     border: 1px solid $su-color-fog-light;
 
-    &--column {
+    &-column {
       @include modular-spacing('padding', 3 3 3 null);
       max-width: 25%;
     }
@@ -17,24 +17,24 @@
       font-size: 1.8rem;
       color: $su-color-digital-red;
     }
-
-    .ood-navigation-link {
-      font-weight: $su-font-semi-bold;
-      font-size: 1.8rem;
-      line-height: 2;
-    }
   }
 
-  &--card {
+  &__link {
+    font-weight: $su-font-semi-bold;
+    font-size: 1.8rem;
+    line-height: 2;
+  }
+
+  &__card {
     max-width: 25%;
 
-    &--image {
+    &-image {
       img {
         width: 100%;
       }
     }
 
-    &--text-area {
+    &__content {
       @include modular-spacing('padding', 3);
     }
   }
