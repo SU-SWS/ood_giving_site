@@ -1,6 +1,6 @@
 import React from 'react'
-import Components from '../components.js'
 import SbEditable from 'storyblok-react'
+import Components from '../components.js'
 import RichTextField from '../richTextField'
 
 const Section = (props) => {
@@ -9,33 +9,76 @@ const Section = (props) => {
     return titleStyleArray.toString().replace(/,/g, " ");
   };
 
-  return (
-  <SbEditable content={props.blok}>
-    <div id={props.blok.id} className={`section su-bg-${props.blok.backgroundColor} ${props.blok.spacing}`}>
-      {(props.blok.title || props.blok.introText) && (
-        <div className={`centered-container section__header`}>
-          {props.blok.title &&
-            <Heading
-              className={`section__title su-serif su-bold su-text-align-left
-                        ${titleStyleClassList(props.blok.titleStyle)}`}>
-              {props.blok.title}
-            </Heading>
-          }
-          {props.blok.introText &&
-            <div className="su-intro-text section__intro">
-              <RichTextField data={props.blok.introText}/>
-            </div>
-          }
-        </div>
-      )}
-      <div className={props.blok.contentWidth}>
+  const EdgeToEdgeContainer = (props) => (
+    <SbEditable content={props.blok}>
+      <div>
+        {props.blok.content && props.blok.content.map((blok) => React.createElement(Components(blok.component), {
+          key: blok._uid,
+          blok: blok
+        }))}
+      </div>
+    </SbEditable>
+  );
+
+  const CenteredContainer = (props) => (
+    <SbEditable content={props.blok}>
+      <div className="centered-container">
+        {props.blok.content && props.blok.content.map((blok) => React.createElement(Components(blok.component), {
+          key: blok._uid,
+          blok: blok
+        }))}
+      </div>
+    </SbEditable>
+  );
+
+  const FlexContainer = (props) => (
+    <SbEditable content={props.blok}>
+      <div className="centered-container flex-container">
+        <div className={`su-mx-auto ${props.blok.contentWidth}`}>
           {props.blok.content && props.blok.content.map((blok) => React.createElement(Components(blok.component), {
             key: blok._uid,
             blok: blok
           }))}
+        </div>
       </div>
-    </div>
-  </SbEditable>
-)}
+    </SbEditable>
+  );
+
+  return (
+    <SbEditable content={props.blok}>
+      <div className={`section su-bg-${props.blok.backgroundColor}
+                     ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
+                     ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}`}
+           id={props.blok.id}
+      >
+        {(props.blok.title || props.blok.introText) && (
+          <div className={`centered-container section__header`}>
+            {props.blok.title &&
+              <Heading
+                className={`section__title su-serif su-bold su-text-align-left
+                          ${titleStyleClassList(props.blok.titleStyle)}`}>
+                {props.blok.title}
+              </Heading>
+            }
+            {props.blok.introText &&
+              <div className="su-intro-text section__intro">
+                <RichTextField data={props.blok.introText}/>
+              </div>
+            }
+          </div>
+        )}
+        {props.blok.contentWidth === "edge-to-edge" &&
+          <EdgeToEdgeContainer {...props}/>
+        }
+        {props.blok.contentWidth === "centered-container" &&
+          <CenteredContainer {...props}/>
+        }
+        {(props.blok.contentWidth !== "edge-to-edge" && props.blok.contentWidth !== "centered-container") &&
+          <FlexContainer {...props}/>
+        }
+      </div>
+    </SbEditable>
+  )
+};
 
 export default Section

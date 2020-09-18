@@ -29,7 +29,7 @@ const HeaderWithImage = (props) => (
       </div>
     </header>
   </SbEditable>
-)
+);
 
 const HeaderMinimal = (props) => (
   <SbEditable content={props.blok}>
@@ -39,7 +39,7 @@ const HeaderMinimal = (props) => (
       </div>
     </header>
   </SbEditable>
-)
+);
 
 const BodyLeftSidebar = (props) => (
   <SbEditable content={props.blok}>
@@ -56,7 +56,7 @@ const BodyLeftSidebar = (props) => (
       }))}
     </div>
   </SbEditable>
-)
+);
 
 const BodyNoSidebar = (props) => (
   <SbEditable content={props.blok}>
@@ -106,7 +106,7 @@ const OodInteriorPage = (props) => {
                   <h2 className="ood-interior-page__body-header-title su-serif su-bold ood-has-tab-before">{props.blok.bodyTitle}</h2>
                 </header>
               }
-              <div class="centered-container flex-container">
+              <div className="centered-container flex-container">
                 {props.blok.layout === "no-sidebar" &&
                   <BodyNoSidebar {...props}/>
                 }
@@ -148,6 +148,6 @@ const OodInteriorPage = (props) => {
       </SbEditable>
     </>
   )
-}
+};
 
 export default OodInteriorPage

@@ -52,13 +52,9 @@ import Accordion from './composite/accordion'
 import AccordionItem from './composite/accordionItem'
 
 // ADAPT POC components created by Katria
-import Card from './poc/card'
-import Quote from './poc/quote'
-import PageBuilder from './poc/pageBuilder'
 import Event from './poc/event'
 import EventSession from './poc/eventSession'
 import Person from './poc/person'
-import Product from './poc/product'
 
 const ComponentList = {
   page: Page,
@@ -68,8 +64,6 @@ const ComponentList = {
   storyImage: StoryImage,
   accordionItem: AccordionItem,
   accordion: Accordion,
-  quote: Quote,
-  pageBuilder: PageBuilder,
   richTextField: RichTextField,
   columnGrid: ColumnGrid,
   rowThreeColumns: RowThreeColumns,
@@ -106,11 +100,9 @@ const ComponentList = {
   oodLandingPage: OodLandingPage,
   oodStory: OodStory,
   oodSupportPage: OodSupportPage,
-  card: Card,
   event: Event,
   eventSession: EventSession,
   person: Person,
-  product: Product,
   gridThreeColumns: GridThreeColumns
 }
 
