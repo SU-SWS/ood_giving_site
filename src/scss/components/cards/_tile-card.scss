@@ -5,7 +5,7 @@
 .ood-tile-card {
   @include margin(null auto);
   background-color: transparent;
-  max-width: 900px;
+  max-width: 800px;
 
   &__media,
   &__image {
@@ -17,7 +17,6 @@
   .su-card__contents {
     > .ood-tile-card__headline {
       @include modular-typography(2);
-      font-weight: $su-font-regular;
 
       @include grid-media('xl') {
         @include modular-typography(3);
@@ -26,10 +25,9 @@
 
     .ood-tile-card__superhead {
       @include margin(null null 1em);
-      font-weight: $su-font-semi-bold;
 
       @include grid-media('lg') {
-        letter-spacing: 0.1em;
+        letter-spacing: 0.06em;
       }
     }
   }
@@ -67,10 +65,6 @@
 
   > a {
     height: 100%;
-  }
-
-  &__superhead {
-    text-transform: uppercase;
   }
 
   .row--3-columns & {

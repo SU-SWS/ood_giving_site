@@ -10,4 +10,8 @@
     @include modular-typography(4);
     letter-spacing: 0; // Don't need to tighten up spacing for serif titles
   }
+
+  &__intro {
+    @include margin(null null null 0);
+  }
 }

@@ -29,10 +29,10 @@ const Section = (props) => {
         </div>
       )}
       <div className={props.blok.contentWidth}>
-          {props.blok.content && props.blok.content.map((blok) => React.createElement(Components(blok.component), {
-            key: blok._uid,
-            blok: blok
-          }))}
+        {props.blok.content && props.blok.content.map((blok) => React.createElement(Components(blok.component), {
+          key: blok._uid,
+          blok: blok
+        }))}
       </div>
     </div>
   </SbEditable>
