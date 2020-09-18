@@ -61,7 +61,7 @@ const Section = (props) => {
               </Heading>
             }
             {props.blok.introText &&
-              <div className="su-intro-text section__intro">
+              <div className="su-intro-text section__intro su-ml-none">
                 <RichTextField data={props.blok.introText}/>
               </div>
             }

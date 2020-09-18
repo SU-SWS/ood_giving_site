@@ -23,13 +23,19 @@ const StoryImage = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <div className={`ood-story-media su-bg-${props.blok.backgroundColor} ${(props.blok.imageWidth === "su-w-full") ? props.blok.imageWidth : ""}`}>
+      <div className={`ood-story-media su-bg-${props.blok.backgroundColor} ${(props.blok.imageWidth === "su-w-full") ? props.blok.imageWidth : ""}
+                     ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
+                     ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}
+      `}>
         <div className={`${(props.blok.imageWidth !== "su-w-full")? "centered-container flex-container" : ""}`}>
           <figure className={`su-media su-media--image ood-story-media__figure
-                  ${(props.blok.imageWidth === "su-w-story") ? "flex-md-10-of-12 flex-lg-8-of-12 flex-2xl-6-of-12" : ""}
-                  ${(props.blok.imageWidth === "su-w-inset") ? "flex-sm-10-of-12 flex-md-8-of-12 flex-lg-6-of-12 flex-2xl-4-of-12" : ""}`}>
+                  ${(props.blok.imageWidth === "su-w-story") ? "flex-md-10-of-12 flex-lg-8-of-12 flex-2xl-7-of-12" : ""}
+                  ${(props.blok.imageWidth === "su-w-inset") ? "flex-sm-10-of-12 flex-md-8-of-12 flex-lg-6-of-12 flex-xl-5-of-12 flex-2xl-4-of-12" : ""}`}>
             <div className={`su-media__wrapper ood-story-media__wrapper`}>
-              <img className="ood-story-media__image" src={processedImg} alt={props.blok.image.alt} />
+              <img className={`ood-story-media__image
+                   ${(props.blok.imageWidth === "su-w-full") ? `su-obj-position-h-center-v-${props.blok.visibleVertical}`: ""}`}
+                   src={processedImg} alt={props.blok.image.alt}
+              />
             </div>
             <figcaption className={`su-media__caption ood-story-media__caption
                         ${props.blok.imageWidth === "su-w-full" ? "centered-container" : ""}`}>

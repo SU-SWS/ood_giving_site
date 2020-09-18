@@ -4,7 +4,7 @@ import Components from "../components"
 
 const OodLocalHeader = (props) => (
   <SbEditable content={props.blok}>
-    <div className={props.blok.topBarColor ? `ood-header su-bg-white border-top-10px border-color-${props.blok.topBarColor}` : "ood-global-header su-bg-white border-top-5px"}>
+    <div className={props.blok.topBarColor ? `ood-header su-bg-white su-border-top-10px su-border-color-${props.blok.topBarColor}` : "ood-global-header su-bg-white su-border-top-5px"}>
       <a href="#main-content" className="su-skiplinks ">Skip to main content</a>
       <div className="centered-container">
         {props.blok.subMenu && props.blok.subMenu.map((blok) => React.createElement(Components(blok.component), {
