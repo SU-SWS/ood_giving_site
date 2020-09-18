@@ -124,8 +124,6 @@
 // Story Image Component
 
 .ood-story-media {
-  @include modular-spacing('padding', 4 null);
-
   &__figure {
     @include margin(null auto);
     width: 100%;
