@@ -1,6 +1,19 @@
 @charset "UTF-8";
 
 // To style ::before and ::after elements
+// Add decorative colored tab as ::before element
+.ood {
+  &-has-tab-before {
+    &::before {
+      @include margin(null null 0.3em);
+      display: block;
+      content: "";
+      height: 10px;
+      width: 80px;
+      background-color: $su-color-cardinal-red;
+    }
+  }
+}
 
 .su-before {
   &-color {
@@ -19,6 +32,118 @@
     &-cardinal-red {
       &::before {
         color: $su-color-cardinal-red;
+      }
+    }
+  }
+}
+
+.su-before {
+  &-bg {
+    &-white {
+      &::before {
+        background-color: $su-color-white;
+      }
+    }
+
+    &-fog-light {
+      &::before {
+        background-color: $su-color-fog-light;
+      }
+    }
+
+    &-bay-light {
+      &::before {
+        background-color: $su-color-bay-light;
+      }
+    }
+
+    &-bay-dark {
+      &::before {
+        background-color: $su-color-bay-dark;
+      }
+    }
+
+    &-palo-alto {
+      &::before {
+        background-color: $su-color-palo-alto;
+      }
+    }
+
+    &-palo-alto-light {
+      &::before {
+        background-color: $su-color-palo-alto-light;
+      }
+    }
+
+    &-palo-alto-dark {
+      &::before {
+        background-color: $su-color-palo-alto-dark;
+      }
+    }
+
+    &-palo-verde-light {
+      &::before {
+        background-color: $su-color-palo-verde-light;
+      }
+    }
+
+    &-palo-verde-dark {
+      &::before {
+        background-color: $su-color-palo-verde-dark;
+      }
+    }
+
+    &-lagunita {
+      &::before {
+        background-color: $su-color-lagunita;
+      }
+    }
+
+    &-lagunita-light {
+      &::before {
+        background-color: $su-color-lagunita-light;
+      }
+    }
+
+    &-sky-light {
+      &::before {
+        background-color: $su-color-sky-light;
+      }
+    }
+
+    &-sky-dark {
+      &::before {
+        background-color: $su-color-sky-dark;
+      }
+    }
+
+    &-cardinal-red {
+      &::before {
+        background-color: $su-color-cardinal-red;
+      }
+    }
+
+    &-digital-red {
+      &::before {
+        background-color: $su-color-digital-red;
+      }
+    }
+
+    &-brick {
+      &::before {
+        background-color: $su-color-brick;
+      }
+    }
+
+    &-archway-dark {
+      &::before {
+        background-color: $su-color-archway-dark;
+      }
+    }
+
+    &-black {
+      &::before {
+        background-color: $su-color-black;
       }
     }
   }
@@ -51,7 +176,7 @@
     }
 
     &-palo-alto-dark {
-      &::before {
+      &::after {
         background-color: $su-color-palo-alto-dark;
       }
     }
@@ -102,20 +227,6 @@
       &::after {
         background-color: $su-color-black;
       }
-    }
-  }
-}
-
-// Add decorative colored tab as ::before element
-.ood {
-  &-has-tab-before {
-    &::before {
-      @include margin(null null 0.3em);
-      display: block;
-      content: "";
-      height: 10px;
-      width: 80px;
-      background-color: $su-color-cardinal-red;
     }
   }
 }

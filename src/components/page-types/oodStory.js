@@ -48,7 +48,7 @@ const OodStory = (props) => {
                    su-bg-${props.blok.headerBoxColor}
                    ${(props.blok.headerBoxColor !== "white" && props.blok.headerBoxColor !== "fog-light")? "su-text-white" : ""}
                    `}>
-                <h1 className="ood-story__title su-semibold ood-has-tab-before">{props.blok.title}</h1>
+                <h1 className={`ood-story__title su-semibold ood-has-tab-before su-before-bg-${props.blok.tabColor}`}>{props.blok.title}</h1>
                 {props.blok.intro && (
                   <p className="su-intro-text ood-story__intro-text">{props.blok.intro}</p>
                 )}
