@@ -10,6 +10,16 @@
     @include grid-media-max('sm') {
       font-size: 3.6rem;
     }
+
+    &.ood-has-tab-before {
+      &::before {
+        @include modular-spacing('margin', null null 3);
+
+        @include grid-media-max('sm') {
+          @include margin(null null 1em);
+        }
+      }
+    }
   }
 
   &__intro-text {
@@ -22,12 +32,11 @@
     &-content {
       &-wrapper {
         @include margin(null auto);
-        @include modular-spacing('padding', 4);
+        @include modular-spacing('padding', null 4 4);
         box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
-        background-color: $su-color-white;
 
         @include grid-media-max('sm') {
-          @include padding(3em 2em);
+          @include padding(null 2em 3em);
         }
       }
     }
@@ -111,6 +120,8 @@
     }
   }
 }
+
+// Story Image Component
 
 .ood-story-media {
   @include modular-spacing('padding', 4 null);
