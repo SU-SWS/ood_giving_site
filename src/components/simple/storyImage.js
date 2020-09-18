@@ -23,7 +23,10 @@ const StoryImage = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <div className={`ood-story-media su-bg-${props.blok.backgroundColor} ${(props.blok.imageWidth === "su-w-full") ? props.blok.imageWidth : ""}`}>
+      <div className={`ood-story-media su-bg-${props.blok.backgroundColor} ${(props.blok.imageWidth === "su-w-full") ? props.blok.imageWidth : ""}
+                     ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
+                     ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}
+      `}>
         <div className={`${(props.blok.imageWidth !== "su-w-full")? "centered-container flex-container" : ""}`}>
           <figure className={`su-media su-media--image ood-story-media__figure
                   ${(props.blok.imageWidth === "su-w-story") ? "flex-md-10-of-12 flex-lg-8-of-12 flex-2xl-7-of-12" : ""}
