@@ -82,6 +82,6 @@ const OodStory = (props) => {
       </SbEditable>
     </>
   )
-}
+};
 
 export default OodStory

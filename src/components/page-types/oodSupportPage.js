@@ -109,6 +109,6 @@ const OodSupportPage = (props) => {
       </SbEditable>
     </>
   )
-}
+};
 
 export default OodSupportPage

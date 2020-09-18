@@ -12,12 +12,10 @@ const OodLandingPage = (props) => {
       <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
       <SbEditable content={props.blok}>
         <div className={`ood-landing-page su-bg-fog-light`}>
-          <header className={`ood-landing-page__header`}>
-            {props.blok.localHeader && props.blok.localHeader.map((blok) => React.createElement(Components(blok.component), {
-              key: blok._uid,
-              blok: blok
-            }))}
-          </header>
+          {props.blok.localHeader && props.blok.localHeader.map((blok) => React.createElement(Components(blok.component), {
+            key: blok._uid,
+            blok: blok
+          }))}
           <main id="main-content" className={`ood-landing-page__main`}>
             <article className={`su-bg-fog-light`}>
               <header className={`ood-landing-page__main-header`}>
