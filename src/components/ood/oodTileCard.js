@@ -20,7 +20,7 @@ const OodTileCard = (props) => (
           {props.blok.superheadline && (
             <span className="ood-tile-card__superhead">{props.blok.superheadline}</span>
           )}
-          <h2 className="ood-tile-card__headline">{props.blok.headline}</h2>
+          <h2 className="ood-tile-card__headline su-semibold">{props.blok.headline}</h2>
         </section>
       </a>
     </article>

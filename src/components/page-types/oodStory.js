@@ -16,6 +16,15 @@ const OodStory = (props) => {
   const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
   const formattedPublishedDate = new Date(props.blok.publishedDate).toLocaleDateString("en-US", options);
 
+  let numIconCards;
+
+  if (props.blok.iconCards == null) {
+    numIconCards = 0;
+  }
+  else {
+    numIconCards = Object.keys(props.blok.iconCards).length;
+  }
+
   return (
     <>
       <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
@@ -25,10 +34,10 @@ const OodStory = (props) => {
           blok: blok
         }))}
         <main id="main-content">
-        <article className={`ood-story su-bg-fog-light`}>
+        <article className={`ood-story su-bg-white`}>
           <header className={`ood-story__header
                   ${((props.blok.heroImage && props.blok.heroImage.filename.startsWith('http')) && props.blok.displayImage === "show-image") ?
-                  "ood-story__header--has-image" : `ood-story__header--no-image su-border-color-${props.blok.headerBackgroundColor}`}
+                  "ood-story__header--has-image su-bg-white" : `ood-story__header--no-image su-bg-white su-border-color-${props.blok.headerBackgroundColor}`}
           `}>
             {((props.blok.heroImage && props.blok.heroImage.filename.startsWith('http')) && props.blok.displayImage === "show-image") && (
               <figure className={`su-media ood-story__media`}>
@@ -42,7 +51,7 @@ const OodStory = (props) => {
                    su-bg-${props.blok.headerBoxColor}
                    ${(props.blok.headerBoxColor !== "white" && props.blok.headerBoxColor !== "fog-light")? "su-text-white" : ""}
                    `}>
-                <h1 className="ood-story__title su-serif">{props.blok.title}</h1>
+                <h1 className="ood-story__title su-semibold">{props.blok.title}</h1>
                 {props.blok.intro && (
                   <p className="su-intro-text ood-story__intro-text">{props.blok.intro}</p>
                 )}
@@ -55,7 +64,7 @@ const OodStory = (props) => {
               blok: blok
             }))}
           </div>
-          <footer className="ood-story__footer">
+          <footer className="ood-story__footer su-bg-white">
             <div className="centered-container flex-container">
               <div className="ood-story__footer-wrapper flex-md-10-of-12 flex-lg-8-of-12 flex-2xl-6-of-12">
                 <div className="ood-story__metadata">
@@ -66,13 +75,19 @@ const OodStory = (props) => {
                 </div>
               </div>
             </div>
+            {numIconCards > 0 && (
+              <div className="ood-interior-page__body-footer su-bg-fog-light su-py-6">
+                <div className={`centered-container flex-container ood-icon-card-section su-align-items-stretch su-flex-${numIconCards}-col`}>
+                  {props.blok.iconCards && props.blok.iconCards.map((blok) => React.createElement(Components(blok.component), {
+                    key: blok._uid,
+                    blok: blok
+                  }))}
+                </div>
+              </div>
+            )}
           </footer>
         </article>
         </main>
-        {props.blok.iconCardSection && props.blok.iconCardSection.map((blok) => React.createElement(Components(blok.component), {
-          key: blok._uid,
-          blok: blok
-        }))}
         {props.blok.localFooter && props.blok.localFooter.map((blok) => React.createElement(Components(blok.component), {
           key: blok._uid,
           blok: blok

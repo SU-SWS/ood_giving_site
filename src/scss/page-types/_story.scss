@@ -6,7 +6,6 @@
   &__title {
     @include margin(null null 0.4em);
     @include modular-typography(6);
-    letter-spacing: 0;
 
     @include grid-media-max('sm') {
       font-size: 3.6rem;
@@ -20,8 +19,6 @@
   }
 
   &__header {
-    background-color: $su-color-fog-light;
-
     &-content {
       &-wrapper {
         @include margin(null auto);
@@ -96,8 +93,6 @@
   }
 
   &__footer {
-    background-color: $su-color-fog-light;
-
     &-wrapper {
       @include margin(null auto);
     }

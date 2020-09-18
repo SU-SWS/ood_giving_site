@@ -35,7 +35,7 @@ const HeaderMinimal = (props) => (
   <SbEditable content={props.blok}>
     <header className={`ood-interior-page__header ood-interior-page__header--minimal su-bg-fog-light su-py-7`}>
       <div className={`centered-container`}>
-        <h1 className="ood-interior-page__title su-serif su-text-align-left">{props.blok.title}</h1>
+        <h1 className="ood-interior-page__title su-serif su-text-align-center">{props.blok.title}</h1>
       </div>
     </header>
   </SbEditable>
@@ -103,7 +103,7 @@ const OodInteriorPage = (props) => {
             <section className="ood-interior-page__body">
               {props.blok.bodyTitle &&
                 <header className="centered-container ood-interior-page__body-header su-text-align-left">
-                  <h2 className="ood-interior-page__body-header-title su-serif su-bold">{props.blok.bodyTitle}</h2>
+                  <h2 className="ood-interior-page__body-header-title su-serif su-bold ood-has-tab-before">{props.blok.bodyTitle}</h2>
                 </header>
               }
               <div class="centered-container flex-container">

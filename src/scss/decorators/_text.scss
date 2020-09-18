@@ -49,4 +49,12 @@
   &-semibold {
     font-weight: $su-font-semi-bold;
   }
+
+  &-italic {
+    font-style: italic;
+  }
+
+  &-uppercase {
+    text-transform: uppercase;
+  }
 }
