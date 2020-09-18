@@ -31,7 +31,6 @@ import OodMegaMenuSection from './navigation/oodMegaMenuSection'
 import OodMegaMenuCard from './navigation/oodMegaMenuCard'
 import OodMegaMenuNavItem from './navigation/oodMegaMenuNavItem'
 import OodMegaMenuLinkGroup from './navigation/oodMegaMenuLinkGroup'
-import OodNavigationColumn from './navigation/oodNavigationColumn'
 // Layout Components
 import ColumnGrid from './layout/columnGrid'
 import RowThreeColumns from './layout/rowThreeColumns'
@@ -87,7 +86,6 @@ const ComponentList = {
   oodMegaMenuCard: OodMegaMenuCard,
   oodMegaMenuNavItem: OodMegaMenuNavItem,
   oodMegaMenuLinkGroup: OodMegaMenuLinkGroup,
-  oodNavigationColumn: OodNavigationColumn,
   oodContentMenu: OodContentMenu,
   contentMenuPicker: ContentMenuPicker,
   contentNavItem: ContentNavItem,

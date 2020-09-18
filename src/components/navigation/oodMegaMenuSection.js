@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import SbEditable from 'storyblok-react'
 import Components from "../components";
 
