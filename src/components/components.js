@@ -47,10 +47,10 @@ import OodSupportPage from './page-types/oodSupportPage'
 import Button from './simple/button'
 import StoryImage from './simple/storyImage'
 import SimpleWysiwyg from './simple/simpleWysiwyg'
+import OodCtaLink from './ood/oodCtaLink'
 // Composite Components
 import Accordion from './composite/accordion'
 import AccordionItem from './composite/accordionItem'
-
 // ADAPT POC components created by Katria
 import Event from './poc/event'
 import EventSession from './poc/eventSession'
@@ -62,6 +62,7 @@ const ComponentList = {
   simpleWysiwyg: SimpleWysiwyg,
   button: Button,
   storyImage: StoryImage,
+  oodCtaLink: OodCtaLink,
   accordionItem: AccordionItem,
   accordion: Accordion,
   richTextField: RichTextField,
