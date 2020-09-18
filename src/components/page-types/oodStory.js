@@ -1,11 +1,9 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import SbEditable from 'storyblok-react'
 import RichTextField from '../richTextField'
 import transformImage from '../../utilities/transformImage'
 import Components from "../components"
 import { Helmet } from 'react-helmet';
-
 
 const OodStory = (props) => {
   let processedHeroImg = "";
@@ -17,7 +15,6 @@ const OodStory = (props) => {
   const formattedPublishedDate = new Date(props.blok.publishedDate).toLocaleDateString("en-US", options);
 
   let numIconCards;
-
   if (props.blok.iconCards == null) {
     numIconCards = 0;
   }
@@ -66,12 +63,12 @@ const OodStory = (props) => {
           </div>
           <footer className="ood-story__footer su-bg-white">
             <div className="centered-container flex-container">
-              <div className="ood-story__footer-wrapper flex-md-10-of-12 flex-lg-8-of-12 flex-2xl-6-of-12">
-                <div className="ood-story__metadata">
-                  <p>Author</p>
-                  <span>{props.blok.author}</span>
-                  <p>Date</p>
-                  <span>{formattedPublishedDate}</span>
+              <div className="ood-story__footer-wrapper flex-md-10-of-12 flex-lg-8-of-12 flex-2xl-7-of-12">
+                <div className="ood-story__metadata su-pb-5">
+                  <p className="ood-story__metadata-title su-bold su-uppercase">Author</p>
+                  <span className="ood-story__metadata-data">{props.blok.author}</span>
+                  <p className="ood-story__metadata-title su-bold su-uppercase">Date</p>
+                  <span className="ood-story__metadata-data su-mb-none">{formattedPublishedDate}</span>
                 </div>
               </div>
             </div>
@@ -88,14 +85,16 @@ const OodStory = (props) => {
           </footer>
         </article>
         </main>
-        {props.blok.localFooter && props.blok.localFooter.map((blok) => React.createElement(Components(blok.component), {
-          key: blok._uid,
-          blok: blok
-        }))}
-        {props.blok.globalFooter && props.blok.globalFooter.map((blok) => React.createElement(Components(blok.component), {
-          key: blok._uid,
-          blok: blok
-        }))}
+        <footer>
+          {props.blok.localFooter && props.blok.localFooter.map((blok) => React.createElement(Components(blok.component), {
+            key: blok._uid,
+            blok: blok
+          }))}
+          {props.blok.globalFooter && props.blok.globalFooter.map((blok) => React.createElement(Components(blok.component), {
+            key: blok._uid,
+            blok: blok
+          }))}
+        </footer>
       </SbEditable>
     </>
   )

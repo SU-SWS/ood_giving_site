@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-// Story page type
+// Story page type and Story Image component
 
 .ood-story {
   &__title {
@@ -99,15 +99,13 @@
   }
 
   &__metadata {
-    > p {
+    &-title {
       @include margin(null null 0.6em);
       font-size: 1.6rem;
-      font-weight: $su-font-bold;
       letter-spacing: 0.14em;
-      text-transform: uppercase;
     }
 
-    > span {
+    &-data {
       @include margin(null null 1.6em);
       display: block;
     }
@@ -144,10 +142,6 @@
     .ood-story-media__caption {
       text-align: center;
     }
-  }
-
-  &.su-w-auto {
-
   }
 
   &__caption {
