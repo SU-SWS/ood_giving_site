@@ -47,7 +47,7 @@ import OodSupportPage from './page-types/oodSupportPage'
 import Button from './simple/button'
 import StoryImage from './simple/storyImage'
 import SimpleWysiwyg from './simple/simpleWysiwyg'
-import OodCtaLink from './ood/oodCtaLink'
+import CtaLink from './simple/ctaLink'
 // Composite Components
 import Accordion from './composite/accordion'
 import AccordionItem from './composite/accordionItem'
@@ -62,7 +62,7 @@ const ComponentList = {
   simpleWysiwyg: SimpleWysiwyg,
   button: Button,
   storyImage: StoryImage,
-  oodCtaLink: OodCtaLink,
+  ctaLink: CtaLink,
   accordionItem: AccordionItem,
   accordion: Accordion,
   richTextField: RichTextField,

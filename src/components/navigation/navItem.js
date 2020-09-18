@@ -6,7 +6,7 @@ const NavItem = (props) => (
   <SbEditable content={props.blok}>
     <li>
       {props.blok.link.linktype === "story" &&
-      <Link to={`/${props.blok.link.cached_url}/`} activeClassName="active">{props.blok.linkTextLabel}
+      <Link to={props.blok.link === 'home' ? "/" : `/${props.blok.link.cached_url}/`} activeClassName="active">{props.blok.linkTextLabel}
       </Link>}
       {props.blok.link.linktype === "url" &&
       <a href={props.blok.link.url} className="su-link--external">{props.blok.linkTextLabel}
