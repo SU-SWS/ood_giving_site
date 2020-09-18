@@ -8,46 +8,6 @@
   &__title {
     @include margin(-0.3em auto null);
     @include modular-typography(4);
-    font-family: $su-font-serif;
-    font-weight: $su-font-regular;
     letter-spacing: 0; // Don't need to tighten up spacing for serif titles
-
-    &.su-has-line {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &.su-text-align-center {
-        &::before,
-        &::after {
-          content: '';
-          border-top: 1px solid;
-          margin: 0 100px 0 0;
-          flex: 1 0 40px;
-        }
-
-        &:after {
-          margin: 0 0 0 100px;
-        }
-      }
-
-      &.su-text-align-left {
-        &::after {
-          content: '';
-          border-top: 1px solid;
-          margin: 0 0 0 100px;
-          flex: 1 0 40px;
-        }
-      }
-
-      &.su-text-align-right {
-        &::before {
-          content: '';
-          border-top: 1px solid;
-          margin: 0 100px 0 0;
-          flex: 1 0 40px;
-        }
-      }
-    }
   }
 }

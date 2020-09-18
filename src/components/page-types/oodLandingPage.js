@@ -17,27 +17,14 @@ const OodLandingPage = (props) => {
               key: blok._uid,
               blok: blok
             }))}
-            {props.blok.heroSection && props.blok.heroSection.map((blok) => React.createElement(Components(blok.component), {
-              key: blok._uid,
-              blok: blok
-            }))}
           </header>
           <main id="main-content" className={`ood-landing-page__main`}>
             <article className={`su-bg-fog-light`}>
               <header className={`ood-landing-page__main-header`}>
-                <div className={`ood-landing-page__header-title-wrapper su-pt-7 su-bg-${props.blok.headerBackgroundColor}`}>
-                  <div className={`centered-container`}>
-                    <h1 className="ood-landing-page__title flex-xl-10-of-12 su-serif su-text-white su-text-align-center">{props.blok.title}</h1>
-                  </div>
-                </div>
-                <div className={`centered-container flex-container ood-landing-page__main-header-content`}>
-                  <div className={`ood-landing-page__main-header-content-wrapper flex-12-of-12
-                       su-bg-white su-text-align-center`}>
-                    {props.blok.intro && (
-                      <p className="su-intro-text ood-landing-page__intro flex-xl-10-of-12">{props.blok.intro}</p>
-                    )}
-                  </div>
-                </div>
+                {props.blok.heroSection && props.blok.heroSection.map((blok) => React.createElement(Components(blok.component), {
+                  key: blok._uid,
+                  blok: blok
+                }))}
               </header>
               {props.blok.sections && props.blok.sections.map((blok) => React.createElement(Components(blok.component), {
                 key: blok._uid,

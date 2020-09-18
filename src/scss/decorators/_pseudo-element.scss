@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+// To style ::before and ::after elements
+
+.su-before {
+  &-color {
+    &-palo-verde-light {
+      &::before {
+        color: $su-color-palo-verde-light;
+      }
+    }
+
+    &-lagunita {
+      &::before {
+        color: $su-color-lagunita;
+      }
+    }
+
+    &-cardinal-red {
+      &::before {
+        color: $su-color-cardinal-red;
+      }
+    }
+  }
+}
+
+.su-after {
+  &-bg {
+    &-white {
+      &::after {
+        background-color: $su-color-white;
+      }
+    }
+
+    &-fog-light {
+      &::after {
+        background-color: $su-color-fog-light;
+      }
+    }
+
+    &-bay-dark {
+      &::after {
+        background-color: $su-color-bay-dark;
+      }
+    }
+
+    &-palo-alto {
+      &::after {
+        background-color: $su-color-palo-alto;
+      }
+    }
+
+    &-palo-alto-dark {
+      &::before {
+        background-color: $su-color-palo-alto-dark;
+      }
+    }
+
+    &-palo-verde-dark {
+      &::after {
+        background-color: $su-color-palo-verde-dark;
+      }
+    }
+
+    &-lagunita {
+      &::after {
+        background-color: $su-color-lagunita;
+      }
+    }
+
+    &-sky-dark {
+      &::after {
+        background-color: $su-color-sky-dark;
+      }
+    }
+
+    &-cardinal-red {
+      &::after {
+        background-color: $su-color-cardinal-red;
+      }
+    }
+
+    &-digital-red {
+      &::after {
+        background-color: $su-color-digital-red;
+      }
+    }
+
+    &-brick {
+      &::after {
+        background-color: $su-color-brick;
+      }
+    }
+
+    &-archway-dark {
+      &::after {
+        background-color: $su-color-archway-dark;
+      }
+    }
+
+    &-black {
+      &::after {
+        background-color: $su-color-black;
+      }
+    }
+  }
+}
+
+// Add decorative colored tab as ::before element
+.ood {
+  &-has-tab-before {
+    &::before {
+      @include margin(null null 0.3em);
+      display: block;
+      content: "";
+      height: 10px;
+      width: 80px;
+      background-color: $su-color-cardinal-red;
+    }
+  }
+}

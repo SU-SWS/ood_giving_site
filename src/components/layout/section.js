@@ -5,6 +5,9 @@ import RichTextField from '../richTextField'
 
 const Section = (props) => {
   const Heading = props.blok.titleHeadingLevel;
+  const titleStyleClassList = (titleStyleArray) => {
+    return titleStyleArray.toString().replace(/,/g, " ");
+  };
 
   return (
   <SbEditable content={props.blok}>
@@ -13,7 +16,8 @@ const Section = (props) => {
         <div className={`centered-container section__header`}>
           {props.blok.title &&
             <Heading
-              className={`section__title su-width-${props.blok.titleWidth} su-text-align-${props.blok.titleAlign} su-${props.blok.titleStyle} su-text-${props.blok.titleColor}`}>
+              className={`section__title su-serif su-bold su-text-align-left
+                        ${titleStyleClassList(props.blok.titleStyle)}`}>
               {props.blok.title}
             </Heading>
           }

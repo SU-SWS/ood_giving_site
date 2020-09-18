@@ -32,15 +32,6 @@
       &-title {
         @include modular-typography(4);
         @include margin(null null 0);
-
-        &::before {
-          @include margin(null null 0.3em);
-          display: block;
-          content: "";
-          height: 10px;
-          width: 80px;
-          background-color: $su-color-cardinal-red;
-        }
       }
     }
 

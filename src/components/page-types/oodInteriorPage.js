@@ -103,7 +103,7 @@ const OodInteriorPage = (props) => {
             <section className="ood-interior-page__body">
               {props.blok.bodyTitle &&
                 <header className="centered-container ood-interior-page__body-header su-text-align-left">
-                  <h2 className="ood-interior-page__body-header-title su-serif su-bold">{props.blok.bodyTitle}</h2>
+                  <h2 className="ood-interior-page__body-header-title su-serif su-bold ood-has-tab-before">{props.blok.bodyTitle}</h2>
                 </header>
               }
               <div class="centered-container flex-container">

@@ -31,7 +31,7 @@ const OodSupportPage = (props) => {
             <section className="ood-interior-page__body ood-support-page__body">
               {props.blok.bodyTitle &&
                 <header className="centered-container ood-interior-page__body-header su-text-align-left">
-                  <h2 className="ood-interior-page__body-header-title su-serif su-bold">{props.blok.bodyTitle}</h2>
+                  <h2 className="ood-interior-page__body-header-title su-serif su-bold ood-has-tab-before">{props.blok.bodyTitle}</h2>
                 </header>
               }
               <div className="centered-container ood-support-page__filter-container">
