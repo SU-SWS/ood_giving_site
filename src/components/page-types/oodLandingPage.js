@@ -26,12 +26,16 @@ const OodLandingPage = (props) => {
                   blok: blok
                 }))}
               </header>
-              {props.blok.sections && props.blok.sections.map((blok) => React.createElement(Components(blok.component), {
-                key: blok._uid,
-                blok: blok
-              }))}
+              <section className="ood-landing-page__main-body">
+                {props.blok.sections && props.blok.sections.map((blok) => React.createElement(Components(blok.component), {
+                  key: blok._uid,
+                  blok: blok
+                }))}
+              </section>
             </article>
-            <IconCardSection {...props}/>
+            <footer className="ood-landing-page__main-footer">
+              <IconCardSection {...props}/>
+            </footer>
           </main>
           <footer>
             {props.blok.localFooter && props.blok.localFooter.map((blok) => React.createElement(Components(blok.component), {
@@ -47,6 +51,6 @@ const OodLandingPage = (props) => {
       </SbEditable>
     </>
   )
-}
+};
 
 export default OodLandingPage

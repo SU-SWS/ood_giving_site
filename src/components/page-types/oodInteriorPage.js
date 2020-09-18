@@ -115,7 +115,9 @@ const OodInteriorPage = (props) => {
                 }))}
               </section>
             )}
-            <IconCardSection {...props}/>
+            <footer className="ood-interior-page__main-footer">
+              <IconCardSection {...props}/>
+            </footer>
           </article>
         </main>
         <footer>

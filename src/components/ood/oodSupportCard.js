@@ -24,6 +24,6 @@ const OodSupportCard = (props) => {
       </article>
     </SbEditable>
   )
-}
+};
 
 export default OodSupportCard

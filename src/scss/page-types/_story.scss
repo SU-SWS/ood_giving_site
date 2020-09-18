@@ -101,12 +101,6 @@
     }
   }
 
-  &__footer {
-    &-wrapper {
-      @include margin(null auto);
-    }
-  }
-
   &__metadata {
     &-title {
       @include margin(null null 0.6em);

@@ -91,7 +91,9 @@ const OodSupportPage = (props) => {
                 </div>
               </div>
             </section>
-            <IconCardSection {...props}/>
+            <footer className="ood-support-page__main-footer">
+              <IconCardSection {...props}/>
+            </footer>
           </article>
         </main>
         <footer>
