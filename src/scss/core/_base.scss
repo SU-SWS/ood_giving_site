@@ -16,50 +16,12 @@ a {
 
 p {
   @include margin(null null 1.6em);
+
+  &:empty {
+    display: none;
+  }
 }
 
 .centered-container {
   @include centered-column;
-
-  &-75 {
-    @include margin(null auto);
-    max-width: calc((100% - 40px));
-    width: calc((100% - 40px));
-
-    @media only screen and (min-width: 576px) {
-      max-width: calc((100% - 60px));
-      width: calc((100% - 60px));
-    }
-
-    @media only screen and (min-width: 768px) {
-      max-width: calc((100% - 100px));
-      width: calc((100% - 100px));
-    }
-
-    @media only screen and (min-width: 992px) {
-      max-width: calc((100% - 160px));
-      width: calc((100% - 160px));
-    }
-
-    @media only screen and (min-width: 1200px) {
-      max-width: calc((100% - 200px) * 0.75);
-      width: calc((100% - 200px) * 0.75);
-    }
-
-    @media only screen and (min-width: 1500px) {
-      max-width: calc((100% - 200px) * 0.75);
-      width: calc((100% - 200px) * 0.75);
-    }
-
-    @media only screen and (min-width: 1700px) {
-      max-width: calc(1500px * 0.75);
-      width: calc(1500px * 0.75);
-    }
-  }
-}
-
-p {
-  &:empty {
-    display: none;
-  }
 }
