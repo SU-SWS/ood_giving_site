@@ -1,25 +1,11 @@
 @charset "UTF-8";
 
-.border-top-10px {
-  border-top-width: 10px;
-  border-top-style: solid;
-}
-
-.border-color {
-  &-cardinal-red {
-    border-color: $su-color-cardinal-red;
-  }
-
-  &-bright-red {
-    border-color: $su-color-bright-red;
-  }
-
-  &-dark {
-    border-color: $su-color-black;
-  }
-}
-
 .su-border {
+  &-top-10px {
+    border-top-width: 10px;
+    border-top-style: solid;
+  }
+
   &-color {
     &-white{
       border-color: $su-color-white;

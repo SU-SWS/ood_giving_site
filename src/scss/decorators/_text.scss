@@ -1,47 +1,51 @@
 @charset "UTF-8";
 
-.su-text {
-  &-black {
-    color: $su-color-black;
-
-    &-true {
-      color: #000000;
-    }
-  }
-
-  &-white {
-    color: $su-color-white;
-  }
-
-  &-palo-alto-dark {
-    color: #014240;
-  }
-
-  &-digital-red {
-    color: $su-color-digital-red;
-  }
-
-  &-cardinal-red {
-    color: $su-color-cardinal-red;
-  }
-
-  // Text Alignment
-  &-align {
-    &-left {
-      text-align: left;
-    }
-
-    &-center {
-      text-align: center;
-    }
-
-    &-right {
-      text-align: right;
-    }
-  }
-}
-
 .su {
+  &-text {
+    &-black {
+      color: $su-color-black;
+
+      &-true {
+        color: $su-color-black-true;
+      }
+    }
+
+    &-white {
+      color: $su-color-white;
+    }
+
+    &-palo-alto-dark {
+      color: $su-color-palo-alto-dark;
+    }
+
+    &-digital-red {
+      color: $su-color-digital-red;
+    }
+
+    &-cardinal-red {
+      color: $su-color-cardinal-red;
+    }
+
+    // Text Alignment
+    &-align {
+      &-left {
+        text-align: left;
+      }
+
+      &-center {
+        text-align: center;
+      }
+
+      &-right {
+        text-align: right;
+      }
+    }
+  }
+
+  &-regular {
+    font-weight: $su-font-regular;
+  }
+
   &-bold {
     font-weight: $su-font-bold;
   }
