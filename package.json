@@ -37,9 +37,9 @@
     "prettier": "2.0.5"
   },
   "keywords": [
-    "gatsby"
+    "Stanford"
   ],
-  "license": "0BSD",
+  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -51,9 +51,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/SU-SWS/ood_giving_site"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/SU-SWS/ood_giving_site/issues"
   }
 }
