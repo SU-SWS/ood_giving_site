@@ -20,4 +20,4 @@ const RichTextField = ({ data }) => {
   return <div dangerouslySetInnerHTML={createMarkup(data)} />;
 };
 
-export default RichTextField;
+export default RichTextField

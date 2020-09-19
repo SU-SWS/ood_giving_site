@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import SbEditable from 'storyblok-react'
-import RichTextField from '../richTextField'
+import RichTextField from '../../utilities/richTextField'
 import Components from "../components"
 import transformImage from '../../utilities/transformImage'
 

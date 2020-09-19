@@ -29,7 +29,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
-    "rss-parser": "^3.9.0",
     "sanitize-html": "^1.27.4",
     "storyblok-react": "^0.1.1"
   },
