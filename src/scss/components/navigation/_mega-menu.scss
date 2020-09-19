@@ -34,8 +34,8 @@
       }
     }
 
-    &__content {
-      @include modular-spacing('padding', 3);
+    &-content {
+      @include modular-spacing('padding', 1);
     }
   }
 }
