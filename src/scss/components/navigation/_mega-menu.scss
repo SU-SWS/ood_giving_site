@@ -85,7 +85,7 @@
     position: absolute;
     left: 0;
     width: 100%;
-    //display: none;
+    display: none;
 
     @include grid-media('lg') {
       top: 155px;
@@ -191,6 +191,33 @@
 
     @include grid-media('lg') {
       display: none;
+    }
+  }
+
+  // When js is disabled, submenus is visible when parent trigger is hovered
+  &.no-js {
+    //Expand everything on mobile
+    @include grid-media-max('md') {
+      .su-main-nav__toggle[aria-expanded="false"] + .su-main-nav__menu-lv1 {
+        display: flex;
+      }
+
+      li > ul {
+        display: flex;
+      }
+    }
+
+    // On desktop, if mouse user hovers over a parent menu item,
+    // submenu is expanded
+    @include grid-media('lg') {
+      .ood-mega-nav__item--parent {
+        &:hover,
+        &:focus-within {
+          > section {
+            display: flex;
+          }
+        }
+      }
     }
   }
 }
