@@ -81,15 +81,16 @@
   }
 
   &__section {
-    display: none;
+    @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 2.6%);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    //display: none;
 
     @include grid-media('lg') {
-     @include box-shadow('medium', none);
-     position: absolute;
-     left: 0;
-     top: 182px;
-     width: 100%;
-     z-index: 11111; // When menu wrap to 2nd line make sure dropdown covers up top level links
+      top: 155px;
+      z-index: 11111; // When menu wrap to 2nd line make sure dropdown covers up top level links
+      box-shadow: rgba(0, 0, 0, 0.12) 0 34px 30px;
     }
   }
 
@@ -104,6 +105,92 @@
   &__card {
     &-content {
       @include modular-spacing('padding', 1);
+    }
+  }
+
+  &__toggle {
+    border: 0;
+    cursor: pointer;
+
+    @include grid-media-max('md') {
+      @include fancy-hover(color(h-border--hover, $su-nav-colors), color(h-border--active, $su-nav-colors));
+      @include padding(0 0 2rem);
+      @include margin(0);
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      outline: none;
+      width: 40px;
+      background-color: transparent;
+      color: color(h-link, $su-nav-colors);
+      font-size: 1.6rem;
+      line-height: 0.7;
+
+      &::after {
+        @include margin(0 auto);
+        display: inline-block;
+        width: 30px;
+        height: 26px;
+        background: url("#{$su-image-path}/hamburger-black.svg") no-repeat 3px 0;
+        content: "";
+      }
+
+      &[aria-expanded="true"] {
+        &::before {
+          visibility: visible;
+          transform: scaleX(1);
+          background-color: color(h-border--expanded, $su-nav-colors);
+        }
+
+        &::after {
+          width: 22px;
+          background: url("#{$su-image-path}/close-black.svg") no-repeat 3px 0;
+          background-size: 16px 16px;
+        }
+
+        &:hover::before {
+          background-color: color(h-border--hover, $su-nav-colors);
+        }
+
+        &:active::before {
+          background-color: color(h-border--active, $su-nav-colors);
+        }
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: transparent;
+        color: color(h-link, $su-nav-colors);
+        box-shadow: none;
+      }
+
+      &[aria-expanded="false"] + .su-main-nav__menu-lv1 {
+        display: none;
+      }
+
+      &[aria-expanded="true"] + .su-main-nav__menu-lv1 {
+        position: absolute;
+      }
+
+      // Toggle button variants
+      &--center {
+        @include margin(null auto);
+      }
+
+      &--right {
+        @include margin(null 0 null auto);
+      }
+    }
+
+    @include grid-media-only('md') {
+      &[aria-expanded="true"]  + .ood-mega-nav__menu-lv1 {
+        max-width: 100%;
+      }
+    }
+
+    @include grid-media('lg') {
+      display: none;
     }
   }
 }
