@@ -15,6 +15,10 @@ const OodLocalHeader = (props) => (
           key: blok._uid,
           blok: blok
         }))}
+        {props.blok.megaMenu && props.blok.megaMenu.map((blok) => React.createElement(Components(blok.component), {
+          key: blok._uid,
+          blok: blok
+        }))}
       </div>
     </header>
   </SbEditable>

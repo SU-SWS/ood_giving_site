@@ -4,7 +4,6 @@
 
 .ood-mega-nav {
   display: block;
-  position: relative;
   z-index: 9999;
 
   &__trigger {
@@ -14,6 +13,13 @@
     line-height: 1.4;
     background-color: transparent;
     border: 0;
+  }
+
+  &__link {
+    font-size: 1.8rem;
+    font-weight: $su-font-semi-bold;
+    color: $su-color-black;
+    text-decoration: none;
   }
 
   &__menu {
@@ -76,20 +82,15 @@
 
   &__section {
     display: none;
-    border: 1px solid $su-color-fog-light;
 
-    &-top-link {
-      font-weight: $su-font-semi-bold;
-      font-size: 1.8rem;
-      color: $su-color-digital-red;
+    @include grid-media('lg') {
+     @include box-shadow('medium', none);
+     position: absolute;
+     left: 0;
+     top: 182px;
+     width: 100%;
+     z-index: 11111; // When menu wrap to 2nd line make sure dropdown covers up top level links
     }
-  }
-
-  &__link {
-    font-weight: $su-font-semi-bold;
-    font-size: 1.8rem;
-    color: $su-color-black;
-    text-decoration: none;
   }
 
   &__link-group {
