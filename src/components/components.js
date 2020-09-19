@@ -50,10 +50,7 @@ import CtaLink from './simple/ctaLink'
 // Composite Components
 import Accordion from './composite/accordion'
 import AccordionItem from './composite/accordionItem'
-// ADAPT POC components created by Katria
-import Event from './poc/event'
-import EventSession from './poc/eventSession'
-import Person from './poc/person'
+
 
 const ComponentList = {
   page: Page,
@@ -99,9 +96,6 @@ const ComponentList = {
   oodLandingPage: OodLandingPage,
   oodStory: OodStory,
   oodSupportPage: OodSupportPage,
-  event: Event,
-  eventSession: EventSession,
-  person: Person,
   gridThreeColumns: GridThreeColumns
 }
 
