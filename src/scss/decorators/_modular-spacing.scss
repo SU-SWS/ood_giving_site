@@ -72,40 +72,6 @@
   @include modular-spacing('padding', 0 0 0 0);
 }
 
-// negative values for the modular spacing multiplier are for smaller amounts (NOT negative padding)
-
-@for $i from -4 through -1 {
-  .su-pt-small#{$i} {  // top
-    @include modular-spacing('padding', $i null null null);
-  }
-  .su-pr-small#{$i} {  // right
-    @include modular-spacing('padding', null $i null null);
-
-  }
-  .su-pb-small#{$i} {  // bottom
-    @include modular-spacing('padding', null null $i null);
-
-  }
-  .su-pl-small#{$i} {  // left
-    @include modular-spacing('padding', null null null $i);
-  }
-
-  // horizontal padding
-  .su-px-small#{$i} {
-    @include modular-spacing('padding', null $i null $i);
-  }
-
-  // vertical padding
-  .su-py-small#{$i} {
-    @include modular-spacing('padding', $i null $i null);
-  }
-  // auto-generate for all sides padding
-  .su-p-small#{$i} {
-    @include modular-spacing('padding', $i $i $i $i);
-  }
-}
-
-
 /* ---------- modular spacing - margin ------------ */
 
 // The purpose of this file is to override default tailwind margin & margin values with Decanter modular spacing values.
@@ -177,39 +143,3 @@
 .su-m-default {
   @include modular-spacing('margin', 0 0 0 0);
 }
-
-// negative values for the modular spacing multiplier are for smaller amounts (NOT negative margin)
-
-@for $i from -4 through -1 {
-  .su-mt-small#{$i} {  // top
-    @include modular-spacing('margin', $i null null null);
-  }
-  .su-mr-small#{$i} {  // right
-    @include modular-spacing('margin', null $i null null);
-
-  }
-  .su-mb-small#{$i} {  // bottom
-    @include modular-spacing('margin', null null $i null);
-
-  }
-  .su-ml-small#{$i} {  // left
-    @include modular-spacing('margin', null null null $i);
-  }
-
-  // horizontal margin
-  .su-mx-small#{$i} {
-    @include modular-spacing('margin', null $i null $i);
-
-  }
-
-  // vertical margin
-  .su-my-small#{$i} {
-    @include modular-spacing('margin', $i null $i null);
-  }
-  // auto-generate for all sides margin
-  .su-m-small#{$i} {
-    @include modular-spacing('margin', $i $i $i $i);
-  }
-}
-
-

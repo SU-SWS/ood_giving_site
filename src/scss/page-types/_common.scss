@@ -3,7 +3,7 @@
 // Common styles for more than 1 page types
 
 .ood {
-  &-icon-card-section {
+  &-icon-card-section__container {
     @include grid-media-max('sm') {
       > *:not(:last-child) {
         @include margin(null null 2em);

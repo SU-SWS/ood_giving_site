@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.su-button {
+  &,
+  &.su-link {
+    @include button-primary;
+  }
+}
+
+.su-button--secondary {
+  @include button-secondary;
+}
+
+.su-button--big {
+  &,
+  &.su-link {
+    @include button-big;
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import RichTextField from '../richTextField'
+import RichTextField from '../../utilities/richTextField'
 import Components from "../components"
 import HeaderNoImage from '../partials/headerNoImage'
 import IconCardSection from '../partials/iconCardSection'

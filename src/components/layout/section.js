@@ -1,7 +1,7 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
 import Components from '../components.js'
-import RichTextField from '../richTextField'
+import RichTextField from '../../utilities/richTextField'
 
 const Section = (props) => {
   const Heading = props.blok.titleHeadingLevel;

@@ -1,6 +1,6 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import RichTextField from '../richTextField'
+import RichTextField from '../../utilities/richTextField'
 
 const SimpleWysiwyg = (props) => (
   <SbEditable content={props.blok}>

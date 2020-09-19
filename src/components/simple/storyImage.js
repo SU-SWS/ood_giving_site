@@ -1,7 +1,7 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
 import transformImage from '../../utilities/transformImage'
-import RichTextField from '../richTextField'
+import RichTextField from '../../utilities/richTextField'
 
 const StoryImage = (props) => {
   let processedImg = "";

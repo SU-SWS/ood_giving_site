@@ -1,6 +1,5 @@
-import RichTextField from "./richTextField"
 import Page from './page'
-import EmbedScript from './embedScript'
+import RichTextField from "../utilities/richTextField"
 import ComponentNotFound from './component_not_found'
 // Site Identity Elements
 import GlobalFooter from './identity/globalFooter'
@@ -11,13 +10,13 @@ import LocalFooterPicker from './identity/localFooterPicker'
 import LocalHeaderPicker from './identity/localHeaderPicker'
 import Lockup from './identity/lockup'
 // OOD Specific Components
-import OodHomepageHero from './ood/oodHomepageHero'
-import OodIconCard from './ood/oodIconCard'
-import OodSupportCard from './ood/oodSupportCard'
-import OodPoster from './ood/oodPoster'
-import OodQuoteCard from './ood/oodQuoteCard'
-import OodQuoteSlider from './ood/oodQuoteSlider'
-import OodTileCard from './ood/oodTileCard'
+import OodHomepageHero from './composite/oodHomepageHero'
+import OodIconCard from './cards/oodIconCard'
+import OodSupportCard from './cards/oodSupportCard'
+import OodPoster from './composite/oodPoster'
+import OodQuoteCard from './cards/oodQuoteCard'
+import OodQuoteSlider from './composite/oodQuoteSlider'
+import OodTileCard from './cards/oodTileCard'
 // Navigation Components
 import NavItem from './navigation/navItem'
 import ContentNavItem from './navigation/contentNavItem'
@@ -43,10 +42,10 @@ import OodLandingPage from './page-types/oodLandingPage'
 import OodStory from './page-types/oodStory'
 import OodSupportPage from './page-types/oodSupportPage'
 // Simple Components
-import Button from './simple/button'
+import CtaLink from './simple/ctaLink'
+import EmbedScript from './simple/embedScript'
 import StoryImage from './simple/storyImage'
 import SimpleWysiwyg from './simple/simpleWysiwyg'
-import CtaLink from './simple/ctaLink'
 // Composite Components
 import Accordion from './composite/accordion'
 import AccordionItem from './composite/accordionItem'
@@ -56,7 +55,6 @@ const ComponentList = {
   page: Page,
   embedScript: EmbedScript,
   simpleWysiwyg: SimpleWysiwyg,
-  button: Button,
   storyImage: StoryImage,
   ctaLink: CtaLink,
   accordionItem: AccordionItem,

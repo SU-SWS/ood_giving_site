@@ -1,5 +1,5 @@
 import React from 'react'
-import RichTextField from '../richTextField'
+import RichTextField from '../../utilities/richTextField'
 import SbEditable from 'storyblok-react'
 import Components from "../components";
 
