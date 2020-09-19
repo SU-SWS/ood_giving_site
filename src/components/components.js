@@ -29,9 +29,8 @@ import OodSubMenu from './navigation/oodSubMenu'
 import OodMegaMenu from './navigation/oodMegaMenu'
 import OodMegaMenuSection from './navigation/oodMegaMenuSection'
 import OodMegaMenuCard from './navigation/oodMegaMenuCard'
-import OodNavigationLink from './navigation/oodNavigationLink'
-import OodNavigationLinkGroup from './navigation/oodNavigationLinkGroup'
-import OodNavigationColumn from './navigation/oodNavigationColumn'
+import OodMegaMenuNavItem from './navigation/oodMegaMenuNavItem'
+import OodMegaMenuLinkGroup from './navigation/oodMegaMenuLinkGroup'
 // Layout Components
 import ColumnGrid from './layout/columnGrid'
 import RowThreeColumns from './layout/rowThreeColumns'
@@ -47,14 +46,11 @@ import OodSupportPage from './page-types/oodSupportPage'
 import Button from './simple/button'
 import StoryImage from './simple/storyImage'
 import SimpleWysiwyg from './simple/simpleWysiwyg'
+import CtaLink from './simple/ctaLink'
 // Composite Components
 import Accordion from './composite/accordion'
 import AccordionItem from './composite/accordionItem'
 
-// ADAPT POC components created by Katria
-import Event from './poc/event'
-import EventSession from './poc/eventSession'
-import Person from './poc/person'
 
 const ComponentList = {
   page: Page,
@@ -62,6 +58,7 @@ const ComponentList = {
   simpleWysiwyg: SimpleWysiwyg,
   button: Button,
   storyImage: StoryImage,
+  ctaLink: CtaLink,
   accordionItem: AccordionItem,
   accordion: Accordion,
   richTextField: RichTextField,
@@ -84,9 +81,8 @@ const ComponentList = {
   oodMegaMenu: OodMegaMenu,
   oodMegaMenuSection: OodMegaMenuSection,
   oodMegaMenuCard: OodMegaMenuCard,
-  oodNavigationLink: OodNavigationLink,
-  oodNavigationLinkGroup: OodNavigationLinkGroup,
-  oodNavigationColumn: OodNavigationColumn,
+  oodMegaMenuNavItem: OodMegaMenuNavItem,
+  oodMegaMenuLinkGroup: OodMegaMenuLinkGroup,
   oodContentMenu: OodContentMenu,
   contentMenuPicker: ContentMenuPicker,
   contentNavItem: ContentNavItem,
@@ -100,9 +96,6 @@ const ComponentList = {
   oodLandingPage: OodLandingPage,
   oodStory: OodStory,
   oodSupportPage: OodSupportPage,
-  event: Event,
-  eventSession: EventSession,
-  person: Person,
   gridThreeColumns: GridThreeColumns
 }
 
