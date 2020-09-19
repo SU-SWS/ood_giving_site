@@ -21,7 +21,7 @@ const Lockup = (props) => {
     <SbEditable content={props.blok}>
       <div className="su-lockup su-lockup--option-n">
         {props.blok.link.linktype === "story" &&
-          <Link to={props.blok.link.cached_url === 'home' ? "/" : `/${props.blok.link.cached_url}/`}>
+          <Link to={props.blok.link.cached_url === "home" ? "/" : `/${props.blok.link.cached_url}${props.blok.link.cached_url.endsWith("/") ? "" : "/"}`}>
             <LockupContent {...props}/>
           </Link>
         }
