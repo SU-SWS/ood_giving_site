@@ -79,6 +79,13 @@
       opacity: 0;
       position: absolute;
 
+      &:focus {
+        + label {
+          background-color: $su-color-white;
+          text-decoration: underline;
+        }
+      }
+
       &:checked {
         + label {
           color: $su-color-white;

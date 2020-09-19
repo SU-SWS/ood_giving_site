@@ -163,6 +163,12 @@
       }
     }
 
+    &-bay-light {
+      &::after {
+        background-color: $su-color-bay-light;
+      }
+    }
+
     &-bay-dark {
       &::after {
         background-color: $su-color-bay-dark;
@@ -175,9 +181,21 @@
       }
     }
 
+    &-palo-alto-light {
+      &::after {
+        background-color: $su-color-palo-alto-light;
+      }
+    }
+
     &-palo-alto-dark {
       &::after {
         background-color: $su-color-palo-alto-dark;
+      }
+    }
+
+    &-palo-verde-light {
+      &::after {
+        background-color: $su-color-palo-verde-light;
       }
     }
 
@@ -190,6 +208,18 @@
     &-lagunita {
       &::after {
         background-color: $su-color-lagunita;
+      }
+    }
+
+    &-lagunita-light {
+      &::after {
+        background-color: $su-color-lagunita-light;
+      }
+    }
+
+    &-sky-light {
+      &::after {
+        background-color: $su-color-sky-light;
       }
     }
 

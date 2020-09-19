@@ -6,6 +6,7 @@
   display: block;
   z-index: 9999;
 
+  // Top level trigger button to open each dropdown panel
   &__trigger {
     display: inline-block;
     cursor: pointer;
@@ -14,6 +15,7 @@
     background-color: transparent;
     border: 0;
 
+    // The caret indicator
     &::after {
       @include grid-media('lg') {
         @include margin(null null 1px 6px);
@@ -54,8 +56,8 @@
         > li {
           > a,
           > button {
-            @include fancy-hover($su-color-digital-red, $su-color-black, 'bottom', '6px');
-            @include padding (0.8em 0 null);
+            @include fancy-hover($su-color-digital-red, $su-color-black, 'bottom', '10px');
+            @include padding (1.6rem 0 null);
             @include margin(0 4rem 0 0);
             display: inline-block;
             color: $su-color-black;
@@ -67,7 +69,16 @@
               color: $su-color-digital-red;
             }
           }
+
+          > .ood-mega-nav__link--active {
+            &::before {
+              transform: scaleX(1);
+              background-color: $su-color-black-40;
+              visibility: visible;
+            }
+          }
         }
+
       }
     }
 
@@ -97,6 +108,7 @@
   }
 
   &__section {
+    // Fake the drop shadow at the top of the drop down panels
     @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 2.6%);
     position: absolute;
     left: 0;
@@ -104,9 +116,13 @@
     display: none;
 
     @include grid-media('lg') {
-      top: 155px;
+      top: 153px;
       z-index: 11111; // When menu wrap to 2nd line make sure dropdown covers up top level links
       box-shadow: rgba(0, 0, 0, 0.12) 0 34px 30px;
+    }
+
+    @include grid-media('2xl') {
+      top: 154px;
     }
   }
 
@@ -129,7 +145,7 @@
     cursor: pointer;
 
     @include grid-media-max('md') {
-      @include fancy-hover(color(h-border--hover, $su-nav-colors), color(h-border--active, $su-nav-colors));
+      @include fancy-hover($su-color-digital-red, $su-color-black, bottom, 10px);
       @include padding(0 0 2rem);
       @include margin(0);
       display: flex;
