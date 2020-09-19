@@ -3,14 +3,55 @@
 // Mega Menu styles - including styles of the child components, e.g, Mega Menu Card
 
 .ood-mega-nav {
+  display: block;
+  position: relative;
+  z-index: 9999;
+
+  &__trigger {
+    display: inline-block;
+    cursor: pointer;
+    font-weight: $su-font-semi-bold;
+    line-height: 1.4;
+    background-color: transparent;
+    border: 0;
+  }
+
   &__menu {
     &-lv1 {
-      .ood-mega-nav__link {
-        font-size: 2.1rem;
+      @include margin(0 null);
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      // Top level desktop menu items
+      @include grid-media('lg') {
+        @include padding(null null null 0);
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        > li {
+          > a,
+          > button {
+            @include fancy-hover($su-color-digital-red, $su-color-black, 'bottom', '6px');
+            @include padding (0.8em 0 null);
+            @include margin(0 4rem 0 0);
+            display: inline-block;
+            color: $su-color-black;
+            transition: color 0.3s ease-out;
+            font-size: 2.1rem;
+
+            &:hover,
+            &:focus {
+              color: $su-color-digital-red;
+            }
+          }
+        }
       }
     }
 
     &-lv2 {
+      @include margin(null null 0);
+
       .ood-mega-nav__item {
         @include margin(null null 1em);
       }
@@ -34,6 +75,7 @@
   }
 
   &__section {
+    display: none;
     border: 1px solid $su-color-fog-light;
 
     &-top-link {
@@ -46,7 +88,6 @@
   &__link {
     font-weight: $su-font-semi-bold;
     font-size: 1.8rem;
-    line-height: 2;
     color: $su-color-black;
     text-decoration: none;
   }
