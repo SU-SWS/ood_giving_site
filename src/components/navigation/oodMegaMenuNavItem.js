@@ -6,7 +6,7 @@ const OodMegaMenuNavItem = (props) => (
   <SbEditable content={props.blok}>
     <li className="ood-mega-nav__item">
       {props.blok.link.linktype === "story" &&
-        <Link to={props.blok.link === 'home' ? "/" : `/${props.blok.link.cached_url}/`}
+        <Link to={props.blok.link.cached_url === "home" ? "/" : `/${props.blok.link.cached_url}${props.blok.link.cached_url.endsWith("/") ? "" : "/"}`}
               className="ood-mega-nav__link" activeClassName="ood-mega-nav__link--active">
           {props.blok.linkText}
         </Link>
