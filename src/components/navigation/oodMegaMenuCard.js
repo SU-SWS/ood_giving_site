@@ -4,7 +4,7 @@ import SbEditable from 'storyblok-react'
 
 const OodMegaMenuCard = (props) => (
   <SbEditable content={props.blok}>
-    <div className="ood-mega-nav__card">
+    <div className="ood-mega-nav__card flex-lg-3-of-12">
       {props.blok.image.filename && (
         <figure className="su-media ood-mega-nav__card-media">
           <div className="su-media__wrapper su-aspect-ratio su-aspect-ratio--3x2">

@@ -12,12 +12,13 @@
 
     &-lv2 {
       .ood-mega-nav__item {
-        @include margin(null null 0.5em);
+        @include margin(null null 1em);
       }
 
       .ood-mega-nav__link {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
         font-weight: $su-font-regular;
+        line-height: 1.2;
 
         &:hover,
         &:focus {
@@ -33,15 +34,7 @@
   }
 
   &__section {
-    @include modular-spacing('padding', null null null 3);
-    display: flex;
-    justify-content: space-between;
     border: 1px solid $su-color-fog-light;
-
-    &-column {
-      @include modular-spacing('padding', 3 3 3 null);
-      max-width: 25%;
-    }
 
     &-top-link {
       font-weight: $su-font-semi-bold;
@@ -67,12 +60,6 @@
   }
 
   &__card {
-    max-width: 25%;
-
-    &-image {
-      width: 100%;
-    }
-
     &-content {
       @include modular-spacing('padding', 1);
     }
