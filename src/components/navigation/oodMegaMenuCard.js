@@ -4,18 +4,18 @@ import SbEditable from 'storyblok-react'
 
 const OodMegaMenuCard = (props) => (
   <SbEditable content={props.blok}>
-    <div className="ood-mega-menu__card">
+    <div className="ood-mega-nav__card">
       {props.blok.image.filename && (
-        <figure className="su-media ood-mega-menu__card-media">
+        <figure className="su-media ood-mega-nav__card-media">
           <div className="su-media__wrapper su-aspect-ratio su-aspect-ratio--3x2">
-            <img className="ood-mega-menu__card-image" src={props.blok.image.filename} alt="" />
+            <img className="ood-mega-nav__card-image" src={props.blok.image.filename} alt="" />
           </div>
         </figure>
       )}
       <div
-        className={props.blok.backgroundColor ? "ood-mega-menu__card-content su-text-white su-bg-" + props.blok.backgroundColor : "ood-mega-menu--card--text-area su-bg-bright-red"}>
-        <h3 className="ood-mega-menu__card-heading su-semibold">{props.blok.heading}</h3>
-        <div className="ood-mega-menu--card-cta">{props.blok.ctaText}</div>
+        className={props.blok.backgroundColor ? "ood-mega-nav__card-content su-text-white su-bg-" + props.blok.backgroundColor : "ood-mega-nav--card--text-area su-bg-bright-red"}>
+        <h3 className="ood-mega-nav__card-heading su-semibold">{props.blok.heading}</h3>
+        <div className="ood-mega-nav--card-cta">{props.blok.ctaText}</div>
       </div>
     </div>
   </SbEditable>
