@@ -5,7 +5,7 @@
 .ood-tile-card {
   @include margin(null auto);
   background-color: transparent;
-  max-width: 800px;
+  max-width: 80rem;
 
   &__media,
   &__image {
@@ -34,7 +34,7 @@
 
   &__contents {
     @include grid-media('md') {
-      min-height: 400px;
+      min-height: 40rem;
     }
   }
 
@@ -45,10 +45,10 @@
   }
 
   &--has-image {
-    border-top: 80px solid transparent; // The transparent border compensate for the 80px image overhang
+    border-top: 8rem solid transparent; // The transparent border compensate for the 80px image overhang
 
     .su-media {
-      @include margin(-80px null null);
+      @include margin(-8rem null null);
       @include modular-spacing('margin', null 2);
     }
   }
@@ -72,6 +72,7 @@
   }
 }
 
+// All cards with dark background + white text will have these link
 .su-text-white {
   &.su-card--link {
     > a,
@@ -85,3 +86,18 @@
     }
   }
 }
+
+.su-card--link {
+  &:not(.su-text-white) {
+    > a,
+    > a:hover,
+    > a:focus {
+      color: $su-color-black;
+
+      h2 {
+        color: $su-color-black;
+      }
+    }
+  }
+}
+
