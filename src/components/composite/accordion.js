@@ -13,8 +13,8 @@ const Accordion = (props) => {
         {props.blok.title &&
           <h2 className={`ood-accordion__heading su-serif`}>{props.blok.title}</h2>
         }
-        <button className="su-accordion__collapse-all ood-cta-button--secondary">Collapse all -</button>
-        <button className="su-accordion__expand-all ood-cta-button--secondary">Expand all +</button>
+        <button className="su-accordion__collapse-all su-button ood-cta__button--secondary">Collapse all -</button>
+        <button className="su-accordion__expand-all su-button ood-cta__button--secondary">Expand all +</button>
         <ul className="su-accordion__list ood-accordion__list su-border-color-palo-alto-light">
           {props.blok.accordionItems && props.blok.accordionItems.map((blok) => React.createElement(Components(blok.component), {
             key: blok._uid,
