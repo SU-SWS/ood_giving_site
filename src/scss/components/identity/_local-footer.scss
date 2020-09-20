@@ -79,8 +79,11 @@
     }
   }
 
-  .ood-cta__button {
-    @include padding(null 3rem);
+  .ood-cta {
     @include modular-spacing('margin', 3 null null);
+
+    &__button {
+      @include padding(null 2.8rem null 3.2rem);
+    }
   }
 }

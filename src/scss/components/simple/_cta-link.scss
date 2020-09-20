@@ -26,7 +26,7 @@
   font-size: 2rem;
 
   &__button {
-    @include padding(1.1rem 2rem 1.2rem);
+    @include padding(1.1rem 3rem 1.2rem);
     @include sans;
     display: inline-block;
     width: auto;
@@ -41,8 +41,18 @@
     }
 
     &--small {
-      @include padding(1rem 2rem);
+      @include padding(1rem 3rem);
       font-size: 1.6rem;
+    }
+
+    &--medium {
+      @include padding(1.8rem 3.4rem);
+      font-size: 2.4rem;
+    }
+
+    &--large {
+      @include padding(2rem 3.6rem);
+      font-size: 2.8rem;
     }
 
     // OOD Primary Button
@@ -52,7 +62,7 @@
 
       &:hover,
       &:focus {
-        background-color: $su-color-palo-alto-dark;
+        background-color: $su-color-palo-alto;
         color: $su-color-white;
 
         &::after {
@@ -64,14 +74,14 @@
     // OOD Secondary Button
     &--secondary {
       background-color: $su-color-white;
-      color: $su-color-palo-alto-dark;
-      box-shadow: inset 0 0 0 2px $su-color-palo-alto-dark;
+      color: $su-color-bay-dark;
+      box-shadow: inset 0 0 0 1px $su-color-bay-dark;
 
       &:hover,
       &:focus {
         background-color: $su-color-white;
-        color: $su-color-palo-alto-dark;
-        box-shadow: inset 0 0 0 2px $su-color-black;
+        color: $su-color-bay-dark;
+        box-shadow: inset 0 0 0 1px $su-color-black;
       }
     }
 

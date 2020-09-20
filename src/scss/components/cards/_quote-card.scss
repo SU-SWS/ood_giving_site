@@ -33,7 +33,6 @@
     @include margin(0 0 1em);
     @include padding(50px null null);
     @include modular-typography(2);
-    @include serif;
     line-height: $su-base-line-height;
 
     &::before {
