@@ -13,11 +13,14 @@ const OodSubMenu = (props) => (
         }))}
       </ul>
       {props.blok.buttonLink.linktype === "story" &&
-      <Link to={`/${props.blok.buttonLink.cached_url}/`} className="su-link su-button" activeClassName="active">{props.blok.buttonText}
-      </Link>}
+        <Link to={props.blok.link.cached_url === "home" ? "/" : `/${props.blok.link.cached_url}${props.blok.link.cached_url.endsWith("/") ? "" : "/"}`}
+              className="su-button" activeClassName="active">{props.blok.buttonText}
+        </Link>
+      }
       {props.blok.buttonLink.linktype === "url" &&
-      <a href={props.blok.buttonLink.url} className="su-link su-button">{props.blok.buttonText}
-      </a>}
+        <a href={props.blok.buttonLink.url} className="su-button">{props.blok.buttonText}
+        </a>
+      }
     </nav>
   </SbEditable>
 )

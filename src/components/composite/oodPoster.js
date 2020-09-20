@@ -27,26 +27,22 @@ const OodPoster = (props) => {
              ${props.blok.cardPosition === "right" ? "su-flex-row-reverse" : ""}`
           }>
             <div className="flex-md-8-of-12 flex-xl-6-of-12 ood-poster__flex-cell">
-              <div className={`ood-poster__card1
+              <div className={`ood-poster__card
                  ${`su-bg-${props.blok.cardBackgroundColor}`}
                  ${(props.blok.cardBackgroundColor !== "white" && props.blok.cardBackgroundColor !== "fog-light") ? "su-text-white" : ""}`
               }>
-                {props.blok.headline1 && (
-                  <h2 className="ood-poster__headline su-semibold">{props.blok.headline1}</h2>
+                {props.blok.headline && (
+                  <h2 className="ood-poster__headline su-semibold">{props.blok.headline}</h2>
                 )}
-                {props.blok.bodyText1 &&
-                <div className="ood-poster__text">
-                  <RichTextField data={props.blok.bodyText1}/>
-                </div>
+                {props.blok.bodyText &&
+                  <div className="ood-poster__text">
+                    <RichTextField data={props.blok.bodyText}/>
+                  </div>
                 }
-                {props.blok.ctaLink1.linktype === "story" &&
-                <Link to={`/${props.blok.ctaLink1.cached_url}/`}>{props.blok.ctaText1}
-                </Link>
-                }
-                {props.blok.ctaLink1.linktype === "url" &&
-                <a href={props.blok.ctaLink1.url} className="su-link--external">{props.blok.ctaText1}
-                </a>
-                }
+                {props.blok.ctaLink && props.blok.ctaLink.map((blok) => React.createElement(Components(blok.component), {
+                  key: blok._uid,
+                  blok: blok
+                }))}
               </div>
             </div>
           </div>

@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.su {
+  &-inline {
+    display: inline;
+  }
+
+  &-inline-block {
+    display: inline-block;
+  }
+  &-block {
+    display: block;
+  }
+}
