@@ -70,34 +70,33 @@
   .row--3-columns & {
     height: 100%;
   }
-}
 
-// All cards with dark background + white text will have these link
-.su-text-white {
+  // Overriding Decanter .su-card--link
   &.su-card--link {
-    > a,
-    > a:hover,
-    > a:focus {
-      color: $su-color-white;
-
-      h2 {
+    // All cards with dark background + white text will have white hover/focus text colors
+    &.su-text-white {
+      > a,
+      > a:hover,
+      > a:focus {
         color: $su-color-white;
+
+        h2 {
+          color: $su-color-white;
+        }
       }
     }
-  }
-}
 
-.su-card--link {
-  &:not(.su-text-white) {
-    > a,
-    > a:hover,
-    > a:focus {
-      color: $su-color-black;
-
-      h2 {
+    // All cards with light background + black text will have black hover/focus text colors
+    &:not(.su-text-white) {
+      > a,
+      > a:hover,
+      > a:focus {
         color: $su-color-black;
+
+        h2 {
+          color: $su-color-black;
+        }
       }
     }
   }
 }
-
