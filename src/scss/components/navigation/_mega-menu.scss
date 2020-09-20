@@ -228,14 +228,20 @@
 
   // When js is disabled, submenus is visible when parent trigger is hovered
   &.no-js {
-    //Expand everything on mobile
     @include grid-media-max('md') {
-      .su-main-nav__toggle[aria-expanded="false"] + .su-main-nav__menu-lv1 {
-        display: flex;
+      .ood-mega-nav__menu-lv1 {
+        @include margin(null null null -30px);
+        position: absolute;
+        display: none;
+        background-color: $su-color-white;
+        width: 100vw;
       }
 
-      li > ul {
-        display: flex;
+      &:hover,
+      &:focus-within {
+        .ood-mega-nav__menu-lv1 {
+          display: flex;
+        }
       }
     }
 

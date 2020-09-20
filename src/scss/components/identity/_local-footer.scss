@@ -64,16 +64,26 @@
   }
 
   a {
-    color: $su-color-digital-red;
-    font-weight: $su-font-regular;
+    &:not(.ood-cta__button) {
+      color: $su-color-digital-red;
+      font-weight: $su-font-regular;
 
-    &::after {
-      background-color: $su-color-bright-red;
+      &::after {
+        background-color: $su-color-bright-red;
+      }
+
+      &:hover,
+      &:focus {
+        color: $su-color-black;
+      }
     }
+  }
 
-    &:hover,
-    &:focus {
-      color: $su-color-black;
+  .ood-cta {
+    @include modular-spacing('margin', 3 null null);
+
+    &__button {
+      @include padding(null 2.8rem null 3.2rem);
     }
   }
 }

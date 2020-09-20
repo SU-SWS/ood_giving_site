@@ -9,9 +9,9 @@ const OodQuoteCard = (props) => (
              su-text-align-${props.blok.textAlign}`
     }>
       <div className="ood-quote-card__content">
-        <blockquote className={`ood-quote-card__quote su-before-color-${props.blok.quotationMarkColor}`}>{props.blok.quoteText}</blockquote>
+        <blockquote className={`ood-quote-card__quote su-serif su-before-color-${props.blok.quotationMarkColor}`}>{props.blok.quoteText}</blockquote>
         {props.blok.personName && (
-          <p className="ood-quote-card__name">{props.blok.personName}</p>
+          <p className="ood-quote-card__name su-semibold su-text-black">{props.blok.personName}</p>
         )}
         {(props.blok.personClassYear || props.blok.personTitle) && (
           <p className="ood-quote-card__bio">

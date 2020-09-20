@@ -31,9 +31,13 @@ const OodLocalFooter = (props) => (
                 <span>{props.blok.phone}</span>
               }
               {props.blok.email &&
-              <a href={`mailto:${props.blok.email}`}>{props.blok.email}</a>
+                <a href={`mailto:${props.blok.email}`}>{props.blok.email}</a>
               }
             </address>
+            {props.blok.cta && props.blok.cta.map((blok) => React.createElement(Components(blok.component), {
+              key: blok._uid,
+              blok: blok,
+            }))}
           </div>
 
           <div className="flex-md-6-of-12 flex-xl-3-of-12 ood-local-footer__cell">

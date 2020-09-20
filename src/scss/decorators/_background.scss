@@ -1,6 +1,10 @@
 @charset "UTF-8";
 
 .su-bg {
+  &-transparent {
+    background-color: transparent;
+  }
+
   &-white{
     background-color: $su-color-white;
   }

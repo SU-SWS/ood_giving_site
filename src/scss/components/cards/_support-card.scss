@@ -53,4 +53,20 @@
     font-size: 4rem;
     text-align: right;
   }
+
+  // Overriding Decanter .su-card--link
+  &.su-card--link {
+    // All cards with dark background + white text will have white hover/focus text colors
+    &.su-text-white {
+      > a,
+      > a:hover,
+      > a:focus {
+        color: $su-color-white;
+
+        h2 {
+          color: $su-color-white;
+        }
+      }
+    }
+  }
 }

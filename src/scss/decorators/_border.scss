@@ -1,6 +1,11 @@
 @charset "UTF-8";
 
 .su-border {
+  &-1px {
+    border-width: 1px;
+    border-style: solid;
+  }
+
   &-top-10px {
     border-top-width: 10px;
     border-top-style: solid;

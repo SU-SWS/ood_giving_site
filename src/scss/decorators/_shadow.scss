@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+.su-shadow {
+  &-shallow {
+    @include box-shadow('shallow', 0);
+  }
+}
