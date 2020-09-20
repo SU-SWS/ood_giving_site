@@ -64,16 +64,23 @@
   }
 
   a {
-    color: $su-color-digital-red;
-    font-weight: $su-font-regular;
+    &:not(.ood-cta__button) {
+      color: $su-color-digital-red;
+      font-weight: $su-font-regular;
 
-    &::after {
-      background-color: $su-color-bright-red;
-    }
+      &::after {
+        background-color: $su-color-bright-red;
+      }
 
-    &:hover,
-    &:focus {
-      color: $su-color-black;
+      &:hover,
+      &:focus {
+        color: $su-color-black;
+      }
     }
+  }
+
+  .ood-cta__button {
+    @include padding(null 3rem);
+    @include modular-spacing('margin', 3 null null);
   }
 }

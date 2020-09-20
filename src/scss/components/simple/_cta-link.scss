@@ -40,6 +40,11 @@
       text-decoration: underline;
     }
 
+    &--small {
+      @include padding(1rem 2rem);
+      font-size: 1.6rem;
+    }
+
     // OOD Primary Button
     &--primary {
       background-color: $su-color-bay-dark;
@@ -49,6 +54,10 @@
       &:focus {
         background-color: $su-color-palo-alto-dark;
         color: $su-color-white;
+
+        &::after {
+          background-color: $su-color-white;
+        }
       }
     }
 
