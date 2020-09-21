@@ -1,16 +1,16 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import SbEditable from 'storyblok-react'
-import RichTextField from '../../utilities/richTextField'
 import Components from "../components"
-import IconCardSection from '../partials/iconCardSection'
 import { Helmet } from 'react-helmet';
+import Footer from "../partials/footer";
+import IconCardSection from '../partials/iconCardSection'
+
 
 const OodLandingPage = (props) => {
   return (
     <>
-      <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
       <SbEditable content={props.blok}>
+        <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
         <div className={`ood-landing-page su-bg-fog-light`}>
           {props.blok.localHeader && props.blok.localHeader.map((blok) => React.createElement(Components(blok.component), {
             key: blok._uid,
@@ -35,16 +35,7 @@ const OodLandingPage = (props) => {
               <IconCardSection {...props}/>
             </footer>
           </main>
-          <footer>
-            {props.blok.localFooter && props.blok.localFooter.map((blok) => React.createElement(Components(blok.component), {
-              key: blok._uid,
-              blok: blok
-            }))}
-            {props.blok.globalFooter && props.blok.globalFooter.map((blok) => React.createElement(Components(blok.component), {
-              key: blok._uid,
-              blok: blok
-            }))}
-          </footer>
+          <Footer {...props}/>
         </div>
       </SbEditable>
     </>

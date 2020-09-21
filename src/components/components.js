@@ -50,7 +50,6 @@ import SimpleWysiwyg from './simple/simpleWysiwyg'
 import Accordion from './composite/accordion'
 import AccordionItem from './composite/accordionItem'
 
-
 const ComponentList = {
   page: Page,
   embedScript: EmbedScript,
@@ -94,7 +93,7 @@ const ComponentList = {
   oodLandingPage: OodLandingPage,
   oodStory: OodStory,
   oodSupportPage: OodSupportPage,
-  gridThreeColumns: GridThreeColumns
+  gridThreeColumns: GridThreeColumns,
 }
 
 const Components = (type) => {
