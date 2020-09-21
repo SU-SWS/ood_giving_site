@@ -4,7 +4,9 @@ import RichTextField from '../../utilities/richTextField'
 import transformImage from '../../utilities/transformImage'
 import Components from "../components"
 import IconCardSection from '../partials/iconCardSection'
+import Footer from "../partials/footer";
 import { Helmet } from 'react-helmet';
+
 
 const OodStory = (props) => {
   let processedHeroImg = "";
@@ -69,16 +71,7 @@ const OodStory = (props) => {
             </footer>
           </article>
         </main>
-        <footer>
-          {props.blok.localFooter && props.blok.localFooter.map((blok) => React.createElement(Components(blok.component), {
-            key: blok._uid,
-            blok: blok
-          }))}
-          {props.blok.globalFooter && props.blok.globalFooter.map((blok) => React.createElement(Components(blok.component), {
-            key: blok._uid,
-            blok: blok
-          }))}
-        </footer>
+        <Footer {...props}/>
       </SbEditable>
     </>
   )

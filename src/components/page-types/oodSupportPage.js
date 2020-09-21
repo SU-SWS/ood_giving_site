@@ -3,14 +3,15 @@ import SbEditable from 'storyblok-react'
 import RichTextField from '../../utilities/richTextField'
 import Components from "../components"
 import HeaderNoImage from '../partials/headerNoImage'
+import Footer from "../partials/footer"
 import IconCardSection from '../partials/iconCardSection'
 import { Helmet } from 'react-helmet'
 
 const OodSupportPage = (props) => {
   return (
     <>
-      <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
       <SbEditable content={props.blok}>
+        <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
         {props.blok.localHeader && props.blok.localHeader.map((blok) => React.createElement(Components(blok.component), {
           key: blok._uid,
           blok: blok
@@ -96,16 +97,7 @@ const OodSupportPage = (props) => {
             </footer>
           </article>
         </main>
-        <footer>
-          {props.blok.localFooter && props.blok.localFooter.map((blok) => React.createElement(Components(blok.component), {
-            key: blok._uid,
-            blok: blok
-          }))}
-          {props.blok.globalFooter && props.blok.globalFooter.map((blok) => React.createElement(Components(blok.component), {
-            key: blok._uid,
-            blok: blok
-          }))}
-        </footer>
+        <Footer {...props}/>
       </SbEditable>
     </>
   )

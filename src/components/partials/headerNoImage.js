@@ -21,6 +21,6 @@ const HeaderNoImage = (props) => (
       </div>
     </header>
   </SbEditable>
-)
+);
 
 export default HeaderNoImage

@@ -10,7 +10,7 @@ const CtaLink = (props) => (
           <Link to={props.blok.link.cached_url === "home" ? "/" : `/${props.blok.link.cached_url}${props.blok.link.cached_url.endsWith("/") ? "" : "/"}`}
                 className={props.blok.isButton === true ?
                   `ood-cta__button ${props.blok.linkButtonStyle} ood-cta__button--${props.blok.linkButtonSize} ${props.blok.linkIcon}` : `ood-cta__link ${props.blok.linkIcon}`}
-                {... props.blok.rel ? {rel : props.blok.rel} : {}}
+                {...props.blok.rel ? {rel : props.blok.rel} : {}}
           >
             {props.blok.linkText}
           </Link>
@@ -19,7 +19,7 @@ const CtaLink = (props) => (
           <a href={props.blok.link.url}
              className={props.blok.isButton === true ?
                `ood-cta__button ${props.blok.linkButtonStyle} ood-cta__button--${props.blok.linkButtonSize} ${props.blok.linkIcon}` : `ood-cta__link ${props.blok.linkIcon}`}
-             {... props.blok.rel ? {rel : props.blok.rel} : {}}
+             {...props.blok.rel ? {rel : props.blok.rel} : {}}
           >
            {props.blok.linkText}
           </a>
