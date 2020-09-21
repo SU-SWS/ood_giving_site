@@ -1,77 +1,13 @@
 @charset "UTF-8";
 
 .su-bg {
+  @each $key, $color in $ood-colors {
+    &-#{$key} {
+      background-color: $color;
+    }
+  }
+
   &-transparent {
     background-color: transparent;
-  }
-
-  &-white{
-    background-color: $su-color-white;
-  }
-
-  &-fog {
-    &-light {
-      background-color: $su-color-fog-light;
-    }
-  }
-
-  &-archway {
-    &-dark {
-      background-color: $su-color-archway-dark;
-    }
-  }
-
-  &-black {
-    background-color: $su-color-black;
-  }
-
-  // Blues, Greens & Teals
-  &-bay {
-    background-color: $su-color-bay; // Might not need
-
-    &-light {
-      background-color: $su-color-bay-light; // Might not need
-    }
-
-    &-dark {
-      background-color: $su-color-bay-dark;
-    }
-  }
-
-  &-lagunita {
-    background-color: $su-color-lagunita;
-  }
-
-  &-sky {
-    &-dark {
-      background-color: $su-color-sky-dark;
-    }
-  }
-
-  &-palo-alto {
-    background-color: $su-color-palo-alto;
-
-    &-dark {
-      background-color: $su-color-palo-alto-dark;
-    }
-  }
-
-  &-palo-verde {
-    &-dark {
-      background-color: $su-color-palo-verde-dark;
-    }
-  }
-
-  // Reds and Purples
-  &-cardinal-red {
-    background-color: $su-color-cardinal-red;
-  }
-
-  &-digital-red {
-    background-color: $su-color-digital-red;
-  }
-
-  &-brick {
-    background-color: $su-color-brick; // Might not need
   }
 }

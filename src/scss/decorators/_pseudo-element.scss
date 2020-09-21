@@ -39,111 +39,11 @@
 
 .su-before {
   &-bg {
-    &-white {
-      &::before {
-        background-color: $su-color-white;
-      }
-    }
-
-    &-fog-light {
-      &::before {
-        background-color: $su-color-fog-light;
-      }
-    }
-
-    &-bay-light {
-      &::before {
-        background-color: $su-color-bay-light;
-      }
-    }
-
-    &-bay-dark {
-      &::before {
-        background-color: $su-color-bay-dark;
-      }
-    }
-
-    &-palo-alto {
-      &::before {
-        background-color: $su-color-palo-alto;
-      }
-    }
-
-    &-palo-alto-light {
-      &::before {
-        background-color: $su-color-palo-alto-light;
-      }
-    }
-
-    &-palo-alto-dark {
-      &::before {
-        background-color: $su-color-palo-alto-dark;
-      }
-    }
-
-    &-palo-verde-light {
-      &::before {
-        background-color: $su-color-palo-verde-light;
-      }
-    }
-
-    &-palo-verde-dark {
-      &::before {
-        background-color: $su-color-palo-verde-dark;
-      }
-    }
-
-    &-lagunita {
-      &::before {
-        background-color: $su-color-lagunita;
-      }
-    }
-
-    &-lagunita-light {
-      &::before {
-        background-color: $su-color-lagunita-light;
-      }
-    }
-
-    &-sky-light {
-      &::before {
-        background-color: $su-color-sky-light;
-      }
-    }
-
-    &-sky-dark {
-      &::before {
-        background-color: $su-color-sky-dark;
-      }
-    }
-
-    &-cardinal-red {
-      &::before {
-        background-color: $su-color-cardinal-red;
-      }
-    }
-
-    &-digital-red {
-      &::before {
-        background-color: $su-color-digital-red;
-      }
-    }
-
-    &-brick {
-      &::before {
-        background-color: $su-color-brick;
-      }
-    }
-
-    &-archway-dark {
-      &::before {
-        background-color: $su-color-archway-dark;
-      }
-    }
-
-    &-black {
-      &::before {
-        background-color: $su-color-black;
+    @each $key, $color in $ood-colors {
+      &-#{$key} {
+        &::before {
+          background-color: $color;
+        }
       }
     }
   }
@@ -151,111 +51,11 @@
 
 .su-after {
   &-bg {
-    &-white {
-      &::after {
-        background-color: $su-color-white;
-      }
-    }
-
-    &-fog-light {
-      &::after {
-        background-color: $su-color-fog-light;
-      }
-    }
-
-    &-bay-light {
-      &::after {
-        background-color: $su-color-bay-light;
-      }
-    }
-
-    &-bay-dark {
-      &::after {
-        background-color: $su-color-bay-dark;
-      }
-    }
-
-    &-palo-alto {
-      &::after {
-        background-color: $su-color-palo-alto;
-      }
-    }
-
-    &-palo-alto-light {
-      &::after {
-        background-color: $su-color-palo-alto-light;
-      }
-    }
-
-    &-palo-alto-dark {
-      &::after {
-        background-color: $su-color-palo-alto-dark;
-      }
-    }
-
-    &-palo-verde-light {
-      &::after {
-        background-color: $su-color-palo-verde-light;
-      }
-    }
-
-    &-palo-verde-dark {
-      &::after {
-        background-color: $su-color-palo-verde-dark;
-      }
-    }
-
-    &-lagunita {
-      &::after {
-        background-color: $su-color-lagunita;
-      }
-    }
-
-    &-lagunita-light {
-      &::after {
-        background-color: $su-color-lagunita-light;
-      }
-    }
-
-    &-sky-light {
-      &::after {
-        background-color: $su-color-sky-light;
-      }
-    }
-
-    &-sky-dark {
-      &::after {
-        background-color: $su-color-sky-dark;
-      }
-    }
-
-    &-cardinal-red {
-      &::after {
-        background-color: $su-color-cardinal-red;
-      }
-    }
-
-    &-digital-red {
-      &::after {
-        background-color: $su-color-digital-red;
-      }
-    }
-
-    &-brick {
-      &::after {
-        background-color: $su-color-brick;
-      }
-    }
-
-    &-archway-dark {
-      &::after {
-        background-color: $su-color-archway-dark;
-      }
-    }
-
-    &-black {
-      &::after {
-        background-color: $su-color-black;
+    @each $key, $color in $ood-colors {
+      &-#{$key} {
+        &::after {
+          background-color: $color;
+        }
       }
     }
   }

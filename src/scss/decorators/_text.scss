@@ -2,32 +2,11 @@
 
 .su {
   &-text {
-    &-black {
-      color: $su-color-black;
-
-      &-true {
-        color: $su-color-black-true;
+    // Text Color
+    @each $key, $color in $ood-text-colors {
+      &-#{$key} {
+        color: $color;
       }
-    }
-
-    &-white {
-      color: $su-color-white;
-    }
-
-    &-palo-alto {
-      color: $su-color-palo-alto;
-    }
-
-    &-palo-alto-dark {
-      color: $su-color-palo-alto-dark;
-    }
-
-    &-digital-red {
-      color: $su-color-digital-red;
-    }
-
-    &-cardinal-red {
-      color: $su-color-cardinal-red;
     }
 
     // Text Alignment

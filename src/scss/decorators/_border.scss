@@ -12,78 +12,10 @@
   }
 
   &-color {
-    &-white{
-      border-color: $su-color-white;
-    }
-
-    &-fog {
-      &-light {
-        border-color: $su-color-fog-light;
+    @each $key, $color in $ood-colors {
+      &-#{$key} {
+        border-color: $color;
       }
-    }
-
-    &-archway {
-      &-dark {
-        border-color: $su-color-archway-dark;
-      }
-    }
-
-    &-black {
-      border-color: $su-color-black;
-    }
-
-    // Blues, Greens & Teals
-    &-bay {
-      border-color: $su-color-bay; // Might not need
-
-      &-light {
-        border-color: $su-color-bay-light; // Might not need
-      }
-
-      &-dark {
-        border-color: $su-color-bay-dark;
-      }
-    }
-
-    &-lagunita {
-      border-color: $su-color-lagunita;
-    }
-
-    &-sky {
-      &-dark {
-        border-color: $su-color-sky-dark;
-      }
-    }
-
-    &-palo-alto {
-      border-color: $su-color-palo-alto;
-
-      &-light {
-        border-color: $su-color-palo-alto-light;
-      }
-
-      &-dark {
-        border-color: $su-color-palo-alto-dark;
-      }
-    }
-
-    &-palo-verde {
-      &-dark {
-        border-color: $su-color-palo-verde-dark;
-      }
-    }
-
-    // Reds and Purples
-    &-cardinal-red {
-      border-color: $su-color-cardinal-red;
-    }
-
-    &-digital-red {
-      border-color: $su-color-digital-red;
-    }
-
-    &-brick {
-      border-color: $su-color-brick; // Might not need
     }
   }
 }
