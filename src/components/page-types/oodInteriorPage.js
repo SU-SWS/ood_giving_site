@@ -33,23 +33,25 @@ const OodInteriorPage = (props) => {
             {props.blok.headerStyle === "minimal" &&
               <HeaderMinimal {...props}/>
             }
-            <section className="ood-interior-page__body">
-              {props.blok.bodyTitle &&
-                <header className="centered-container ood-interior-page__body-header su-text-align-left">
-                  <h2 className="ood-interior-page__body-header-title su-serif su-bold ood-has-tab-before">{props.blok.bodyTitle}</h2>
-                </header>
-              }
-              <div className="centered-container flex-container">
-                {props.blok.layout === "no-sidebar" &&
-                  <BodyNoSidebar {...props}/>
+            {(props.blok.bodyTitle || (props.blok.pageContent != null && Object.keys(props.blok.pageContent).length > 0)) && (
+              <section className="ood-interior-page__body">
+                {props.blok.bodyTitle &&
+                  <header className="centered-container ood-interior-page__body-header su-text-align-left">
+                    <h2 className="ood-interior-page__body-header-title su-serif su-bold ood-has-tab-before">{props.blok.bodyTitle}</h2>
+                  </header>
                 }
-                {props.blok.layout === "left-sidebar" &&
-                  <BodyLeftSidebar {...props}/>
-                }
-              </div>
-            </section>
+                <div className="centered-container flex-container">
+                  {props.blok.layout === "no-sidebar" &&
+                    <BodyNoSidebar {...props}/>
+                  }
+                  {props.blok.layout === "left-sidebar" &&
+                    <BodyLeftSidebar {...props}/>
+                  }
+                </div>
+              </section>
+            )}
             {(props.blok.belowContent != null && Object.keys(props.blok.belowContent).length > 0) && (
-              <section className="ood-interior-page__below-body">
+              <section className="ood-interior-page__below-body su-pt-6">
                 {props.blok.belowContent && props.blok.belowContent.map((blok) => React.createElement(Components(blok.component), {
                   key: blok._uid,
                   blok: blok

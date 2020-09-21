@@ -19,8 +19,8 @@ const OodStory = (props) => {
 
   return (
     <>
-      <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
       <SbEditable content={props.blok}>
+        <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
         {props.blok.localHeader && props.blok.localHeader.map((blok) => React.createElement(Components(blok.component), {
           key: blok._uid,
           blok: blok
