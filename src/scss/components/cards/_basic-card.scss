@@ -3,10 +3,37 @@
 // Basic Card styles including horizontal and vertical options
 
 .ood-basic-card {
+  @include box-shadow(shallow, 0);
+  display: block;
+
+  @include grid-media-only('xs') {
+    &__media {
+      display: none;
+    }
+  }
+
+  &__contents {
+    @include modular-spacing('padding', 2);
+
+    p,
+    ul,
+    ol {
+      @include small-paragraph;
+      @include margin(null null 1em);
+    }
+  }
+
+  &__superhead {
+    @include margin(null null 0.6rem);
+    display: block;
+    font-size: 0.9em;
+    letter-spacing: 0.06em;
+  }
+
   &__headline {
     @include margin(null null 0.6em);
   }
-  
+
   .ood-cta {
     @include modular-spacing('margin', 1 null null);
 
