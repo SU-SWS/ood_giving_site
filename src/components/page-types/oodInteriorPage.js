@@ -33,6 +33,14 @@ const OodInteriorPage = (props) => {
             {props.blok.headerStyle === "minimal" &&
               <HeaderMinimal {...props}/>
             }
+            {(props.blok.aboveContent != null && Object.keys(props.blok.aboveContent).length > 0) && (
+              <section className="ood-interior-page__above-body su-mt-6">
+                {props.blok.aboveContent && props.blok.aboveContent.map((blok) => React.createElement(Components(blok.component), {
+                  key: blok._uid,
+                  blok: blok
+                }))}
+              </section>
+            )}
             {(props.blok.bodyTitle || (props.blok.pageContent != null && Object.keys(props.blok.pageContent).length > 0)) && (
               <section className="ood-interior-page__body">
                 {props.blok.bodyTitle &&
