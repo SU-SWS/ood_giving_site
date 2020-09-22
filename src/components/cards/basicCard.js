@@ -5,7 +5,7 @@ import RichTextField from '../../utilities/richTextField'
 
 const BasicCard = (props) => (
   <SbEditable content={props.blok}>
-    <article className={`su-card su-bg-${props.blok.backgroundColor}
+    <article className={`su-card su-bg-${props.blok.backgroundColor} su-card--${props.blok.orientation}
              ${(props.blok.image.filename && props.blok.showImage === true) ? "ood-basic-card--has-image" : "ood-basic-card--no-image"}
              ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : ""}`
     }>
@@ -22,10 +22,14 @@ const BasicCard = (props) => (
         )}
         <h2 className="ood-basic-card__headline su-serif">{props.blok.headline}</h2>
         {props.blok.content &&
-        <div className="su-intro-text section__intro su-ml-none">
-          <RichTextField data={props.blok.content}/>
-        </div>
+          <div className="ood-basic-card__body">
+            <RichTextField data={props.blok.content}/>
+          </div>
         }
+        {props.blok.ctaLink && props.blok.ctaLink.map((blok) => React.createElement(Components(blok.component), {
+          key: blok._uid,
+          blok: blok
+        }))}
       </section>
     </article>
   </SbEditable>
