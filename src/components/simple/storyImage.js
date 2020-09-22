@@ -37,9 +37,11 @@ const StoryImage = (props) => {
                    src={processedImg} alt={props.blok.image.alt}
               />
             </div>
+            {props.blok.caption && (
             <figcaption className={`su-media__caption ood-story-media__caption
                         ${props.blok.imageWidth === "su-w-full" ? "centered-container" : ""}`}>
               <RichTextField data={props.blok.caption}/></figcaption>
+            )}
           </figure>
         </div>
       </div>

@@ -5,6 +5,7 @@
 .ood-basic-card {
   @include box-shadow(shallow, 0);
   display: block;
+  //height: 100%;
 
   @include grid-media-only('xs') {
     &__media {

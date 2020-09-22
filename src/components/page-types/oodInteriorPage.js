@@ -34,7 +34,7 @@ const OodInteriorPage = (props) => {
               <HeaderMinimal {...props}/>
             }
             {(props.blok.aboveContent != null && Object.keys(props.blok.aboveContent).length > 0) && (
-              <section className="ood-interior-page__above-body su-mt-6">
+              <section className="ood-interior-page__above-body">
                 {props.blok.aboveContent && props.blok.aboveContent.map((blok) => React.createElement(Components(blok.component), {
                   key: blok._uid,
                   blok: blok

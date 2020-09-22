@@ -9,6 +9,17 @@
       }
     }
 
+    &-hocus {
+      @each $key, $color in $ood-text-colors {
+        &-#{$key} {
+          &:hover,
+          &:focus {
+            color: $color;
+          }
+        }
+      }
+    }
+
     // Text Alignment
     &-align {
       &-left {
