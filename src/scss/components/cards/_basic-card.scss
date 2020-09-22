@@ -13,8 +13,6 @@
   }
 
   &__contents {
-    @include modular-spacing('padding', 2);
-
     p,
     ul,
     ol {
@@ -32,6 +30,7 @@
 
   &__headline {
     @include margin(null null 0.6em);
+    letter-spacing: 0;
   }
 
   .ood-cta {
