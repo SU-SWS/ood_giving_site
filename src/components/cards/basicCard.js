@@ -5,7 +5,7 @@ import RichTextField from '../../utilities/richTextField'
 
 const BasicCard = (props) => (
   <SbEditable content={props.blok}>
-    <article className={`su-card su-bg-${props.blok.backgroundColor} su-card--${props.blok.orientation}
+    <article className={`su-card ood-basic-card su-bg-${props.blok.backgroundColor} ${props.blok.orientation? "su-card--horizontal" : ""}
              ${(props.blok.image.filename && props.blok.showImage === true) ? "ood-basic-card--has-image" : "ood-basic-card--no-image"}
              ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : ""}`
     }>

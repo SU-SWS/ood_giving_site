@@ -3,5 +3,15 @@
 // Basic Card styles including horizontal and vertical options
 
 .ood-basic-card {
+  &__headline {
+    @include margin(null null 0.6em);
+  }
+  
+  .ood-cta {
+    @include modular-spacing('margin', 1 null null);
 
+    &__button {
+      @include margin(null null 0.6rem);
+    }
+  }
 }
