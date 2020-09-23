@@ -9,14 +9,16 @@ import OodLocalFooter from './identity/oodLocalFooter'
 import LocalFooterPicker from './identity/localFooterPicker'
 import LocalHeaderPicker from './identity/localHeaderPicker'
 import Lockup from './identity/lockup'
-// OOD Specific Components
-import OodHomepageHero from './composite/oodHomepageHero'
+// Cards
+import BasicCard from './cards/basicCard'
 import OodIconCard from './cards/oodIconCard'
 import OodSupportCard from './cards/oodSupportCard'
-import OodPoster from './composite/oodPoster'
 import OodQuoteCard from './cards/oodQuoteCard'
-import OodQuoteSlider from './composite/oodQuoteSlider'
 import OodTileCard from './cards/oodTileCard'
+// OOD Specific Components
+import OodHomepageHero from './composite/oodHomepageHero'
+import OodPoster from './composite/oodPoster'
+import OodQuoteSlider from './composite/oodQuoteSlider'
 // Navigation Components
 import NavItem from './navigation/navItem'
 import ContentNavItem from './navigation/contentNavItem'
@@ -85,6 +87,7 @@ const ComponentList = {
   contentNavItem: ContentNavItem,
   contentMenuParentItem: ContentMenuParentItems,
   contentNestedMenu: ContentNestedMenu,
+  basicCard: BasicCard,
   oodTileCard: OodTileCard,
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,

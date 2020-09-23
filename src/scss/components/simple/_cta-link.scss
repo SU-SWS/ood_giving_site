@@ -14,6 +14,8 @@
 
 // Finetuning link icon styles from Decanter
 .su-link {
+  color: $su-color-palo-alto-light;
+
   &--action {
     &::after {
       @include margin(null 0 null null);

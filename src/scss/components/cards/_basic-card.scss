@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+// Basic Card styles including horizontal and vertical options
+
+.ood-basic-card {
+  @include margin(null auto);
+  position: relative;
+  display: block;
+  box-shadow: $ood-shadow--shallow;
+  border-width: 1px;
+  border-style: solid;
+
+  &.su-bg-white {
+    border: 1px solid $su-color-black-10; // Only white cards have a different colored grey border
+  }
+
+  &--has-image {
+    &:not(.ood-basic-card--horizontal) {
+      @include margin(8rem null null); // Same rem value to off set image overhang
+
+      .su-media {
+        @include margin(-8rem null null); // Image overhang
+      }
+    }
+  }
+
+  &__superhead {
+    @include margin(-0.4rem null 1.2rem);
+    display: block;
+    font-size: 0.9em;
+    letter-spacing: 0.06em;
+  }
+
+  &__headline {
+    @include margin(-0.2em null 0.6em); // Negative margin at the top so headline lines up with top of image for horizontal cards
+    letter-spacing: 0;
+  }
+
+  &__contents {
+    max-width: 85rem; // For the edge-to-edge cards we don't want the content to get too wide
+
+    // Inside Richtext component inside card body
+    p,
+    ul,
+    ol {
+      @include margin(null null 1em);
+      font-size: 1.8rem;
+      line-height: 1.3;
+
+      @include grid-media('xl') {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__body {
+    > div {
+      > *:last-child {
+        @include margin(null null 0); // Last element inside Richtext component has no bottom margin
+
+        > *:last-child {
+          @include margin(null null 0); // If last element inside Richtext has child elements (eg, li inside ul) - also no bottom margin
+
+          > *:last-child {
+            @include margin(null null 0);
+          }
+        }
+      }
+    }
+  }
+
+  .ood-cta {
+    @include modular-spacing('margin', 1 null null);
+
+    &__button {
+      @include margin(null null 0.6rem);
+    }
+  }
+}
+
+.ood-basic-card--horizontal {
+  @include modular-spacing('padding', 2);
+  display: flex;
+  flex-direction: row;
+
+  .ood-basic-card__contents {
+    @include padding(0 null null);
+  }
+
+  // Horizontal card with image
+  &.ood-basic-card--has-image {
+    @include margin(null null null 8rem);
+
+    .ood-basic-card__media {
+      position: absolute;
+      left: -8rem; // image overhang
+      width: 20rem;
+      max-width: 20rem;
+    }
+
+    .ood-basic-card__contents {
+      @include margin(null 0 null null);
+      width: calc(100% - 20rem + 8rem);
+    }
+
+    // Horizontal card with image and the large padding option
+    &.su-pt-5 {
+      .ood-basic-card__contents {
+        width: calc(100% - 20rem + 11rem);
+      }
+    }
+
+    @include grid-media-max('sm') {
+      .ood-basic-card__media {
+        width: 10rem;
+        max-width: 10rem;
+      }
+
+      .ood-basic-card__contents {
+        width: calc(100% - 10rem + 8rem);
+      }
+
+      &.su-pt-5 {
+        .ood-basic-card__contents {
+          width: calc(100% - 10rem + 11rem);
+        }
+      }
+    }
+  }
+}

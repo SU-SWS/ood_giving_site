@@ -7,6 +7,17 @@
     }
   }
 
+  &-hocus {
+    @each $key, $color in $ood-colors {
+      &-#{$key} {
+        &:hover,
+        &:focus {
+          background-color: $color;
+        }
+      }
+    }
+  }
+
   &-transparent {
     background-color: transparent;
   }

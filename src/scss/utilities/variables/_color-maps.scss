@@ -3,22 +3,26 @@
 // scss maps for OOD colors; for generating color related decorators
 
 $ood-colors: (
+    "archway":                    $su-color-archway,
     "archway-dark":               $su-color-archway-dark,
     "bay":                        $su-color-bay,
     "bay-light":                  $su-color-bay-light,
     "bay-dark":                   $su-color-bay-dark,
     "black":                      $su-color-black,
-    "brick":                      $su-color-brick,
+    "black-10":                   $su-color-black-10,
     "cardinal-red":               $su-color-cardinal-red,
     "digital-red":                $su-color-digital-red,
+    "fog":                        $su-color-fog,
     "fog-light":                  $su-color-fog-light,
     "lagunita":                   $su-color-lagunita,
     "lagunita-light":             $su-color-lagunita-light,
+    "lagunita-dark":              $su-color-lagunita-dark,
     "palo-alto":                  $su-color-palo-alto,
     "palo-alto-light":            $su-color-palo-alto-light,
     "palo-alto-dark":             $su-color-palo-alto-dark,
     "palo-verde-light":           $su-color-palo-verde-light,
     "palo-verde-dark":            $su-color-palo-verde-dark,
+    "plum-dark":                  $su-color-plum-dark,
     "sky":                        $su-color-sky,
     "sky-light":                  $su-color-sky-light,
     "sky-dark":                   $su-color-sky-dark,
@@ -26,12 +30,14 @@ $ood-colors: (
 ) !default;
 
 $ood-text-colors: (
+    "archway":                    $su-color-archway,
     "bay-dark":                   $su-color-bay-dark,
     "black":                      $su-color-black,
     "black-true":                 $su-color-black-true,
     "cardinal-red":               $su-color-cardinal-red,
     "cool-grey":                  $su-color-cool-grey,
     "digital-red":                $su-color-digital-red,
+    "palo-alto-light":            $su-color-palo-alto-light,
     "palo-alto":                  $su-color-palo-alto,
     "palo-alto-dark":             $su-color-palo-alto-dark,
     "sky-dark":                   $su-color-sky-dark,

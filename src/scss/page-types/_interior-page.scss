@@ -3,6 +3,21 @@
 // Interior page content type
 
 .ood-interior-page {
+  &__header {
+    &-content {
+      &-wrapper {
+        @include margin(-6em auto null);
+        @include modular-spacing('padding', 4);
+        box-shadow: $ood-shadow--shallow;
+        background-color: $su-color-white;
+
+        @include grid-media-max('sm') {
+          @include padding(3em 2em);
+        }
+      }
+    }
+  }
+
   &__title {
     @include modular-typography(6);
     @include margin(null auto 0);
@@ -41,30 +56,19 @@
   }
 }
 
+// Interior page with minimal header option
 .ood-interior-page--minimal {
   .ood-interior-page__body {
     @include modular-spacing('padding', null null 6);
   }
 }
 
+// Interior page with colored header option
 .ood-interior-page--no-image {
   .ood-interior-page__header {
     &-title {
       &-wrapper {
         @include modular-spacing('padding', null null 9);
-      }
-    }
-
-    &-content {
-      &-wrapper {
-        @include margin(-6em auto null);
-        @include modular-spacing('padding', 4);
-        box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
-        background-color: $su-color-white;
-
-        @include grid-media-max('sm') {
-          @include padding(3em 2em);
-        }
       }
     }
   }
@@ -74,6 +78,7 @@
   }
 }
 
+// Interior page with image header option
 .ood-interior-page--has-image {
   .ood-interior-page__header {
     &-title {
@@ -101,19 +106,6 @@
 
         @include grid-media('2xl') {
           min-height: 480px;
-        }
-      }
-    }
-
-    &-content {
-      &-wrapper {
-        @include margin(-6em auto null);
-        @include modular-spacing('padding', 4);
-        box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
-        background-color: $su-color-white;
-
-        @include grid-media-max('sm') {
-          @include padding(3em 2em);
         }
       }
     }
@@ -165,7 +157,6 @@
     @include modular-spacing('padding', 6 null);
   }
 }
-
 
 .ood-interior-page__header-media {
   @include grid-media('lg') {

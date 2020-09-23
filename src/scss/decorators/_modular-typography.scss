@@ -31,4 +31,20 @@
   &-5 {
     @include modular-typography(5);
   }
+
+  &-4 {
+    @include modular-typography(4);
+  }
+
+  &-3 {
+    @include modular-typography(3);
+  }
+
+  &-2 {
+    @include modular-typography(2);
+  }
+
+  &-1 {
+    @include modular-typography(1);
+  }
 }

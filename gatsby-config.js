@@ -18,8 +18,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-storyblok',
       options: {
-        //accessToken: '3yGRaYQBhyg4HrjiQjtHyQtt', // Yvonne's my-test space
-        accessToken: '92ypKFm3burr70cKOiW3sQtt',  // ADAPT Digital space
+        accessToken: '92ypKFm3burr70cKOiW3sQtt',  // OOD Giving Space Preview
         homeSlug: 'home',
         resolveRelations: [
           "oodQuoteSlider.quotes",

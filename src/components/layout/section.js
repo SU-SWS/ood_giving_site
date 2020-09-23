@@ -11,7 +11,7 @@ const Section = (props) => {
 
   const EdgeToEdgeContainer = (props) => (
     <SbEditable content={props.blok}>
-      <div>
+      <div className="section__content">
         {props.blok.content && props.blok.content.map((blok) => React.createElement(Components(blok.component), {
           key: blok._uid,
           blok: blok
@@ -22,7 +22,7 @@ const Section = (props) => {
 
   const CenteredContainer = (props) => (
     <SbEditable content={props.blok}>
-      <div className="centered-container">
+      <div className="section__content centered-container">
         {props.blok.content && props.blok.content.map((blok) => React.createElement(Components(blok.component), {
           key: blok._uid,
           blok: blok
@@ -33,7 +33,7 @@ const Section = (props) => {
 
   const FlexContainer = (props) => (
     <SbEditable content={props.blok}>
-      <div className="centered-container flex-container">
+      <div className="section__content centered-container flex-container">
         <div className={`su-mx-auto ${props.blok.contentWidth}`}>
           {props.blok.content && props.blok.content.map((blok) => React.createElement(Components(blok.component), {
             key: blok._uid,

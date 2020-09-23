@@ -46,6 +46,19 @@
         }
       }
     }
+
+    &-hocus {
+      @each $key, $color in $ood-text-colors {
+        &-#{$key} {
+          &:hover,
+          &:focus {
+            &::before {
+              background-color: $color;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -55,6 +68,19 @@
       &-#{$key} {
         &::after {
           background-color: $color;
+        }
+      }
+    }
+
+    &-hocus {
+      @each $key, $color in $ood-text-colors {
+        &-#{$key} {
+          &:hover,
+          &:focus {
+            &::after {
+              background-color: $color;
+            }
+          }
         }
       }
     }
