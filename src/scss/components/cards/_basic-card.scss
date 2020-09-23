@@ -80,6 +80,7 @@
     @include padding(0 null null);
   }
 
+  // Horizontal card with image
   &.ood-basic-card--has-image {
     @include margin(null null null 8rem);
 
@@ -94,11 +95,12 @@
       @include margin(null 0 null null);
       width: calc(100% - 20rem + 8rem);
     }
-  }
 
-  &.su-pt-5 {
-    .ood-basic-card__contents {
-      width: calc(100% - 20rem + 11rem);
+    // Horizontal card with image and the large padding option
+    &.su-pt-5 {
+      .ood-basic-card__contents {
+        width: calc(100% - 20rem + 11rem);
+      }
     }
   }
 }
