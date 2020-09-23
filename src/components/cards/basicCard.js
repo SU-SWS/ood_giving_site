@@ -8,13 +8,14 @@ const BasicCard = (props) => {
   return (
     <SbEditable content={props.blok}>
       <article className={`ood-basic-card
-             su-bg-${props.blok.backgroundColor}
-             ${props.blok.backgroundColor !== "white" ? `su-border-color-${props.blok.backgroundColor}`: ""}
-             ${props.blok.orientation ? "su-card--horizontal" : ""}
-             ${props.blok.largeCardPadding === true ? "su-px-5 su-pb-5" : "su-px-2 su-pb-2"}
-             su-text-align-${props.blok.textAlign}
-             ${(props.blok.image.filename && props.blok.showImage === true) ? "ood-basic-card--has-image" : "ood-basic-card--no-image"}
-             ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : ""}`
+               ${props.blok.orientation ? "ood-basic-card--horizontal" : ""}
+               su-bg-${props.blok.backgroundColor}
+               ${props.blok.backgroundColor !== "white" ? `su-border-color-${props.blok.backgroundColor}`: ""}
+               ${(props.blok.orientation && props.blok.largeCardPadding === true) ? "su-pt-5" : ""}
+               ${props.blok.largeCardPadding === true ? "su-px-5 su-pb-5" : "su-px-2 su-pb-2"}
+               su-text-align-${props.blok.textAlign}
+               ${(props.blok.image.filename && props.blok.showImage === true) ? "ood-basic-card--has-image" : "ood-basic-card--no-image"}
+               ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : ""}`
       }>
           {(props.blok.image.filename && props.blok.showImage === true) && (
             <figure className={`su-media ood-basic-card__media`}>
