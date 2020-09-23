@@ -12,12 +12,12 @@
   //height: 100%;
 
   &.su-bg-white {
-    border: 1px solid $su-color-black-10; // Only white cards have the grey border
+    border: 1px solid $su-color-black-10; // Only white cards have a different colored grey border
   }
 
   &--has-image {
     &:not(.ood-basic-card--horizontal) {
-      @include margin(8rem null null);
+      @include margin(8rem null null); // Same rem value to off set image overhang
 
       .su-media {
         @include margin(-8rem null null); // Image overhang
@@ -26,21 +26,21 @@
   }
 
   &__superhead {
-    @include margin(-0.4rem null 0.6rem);
+    @include margin(-0.4rem null 1rem);
     display: block;
     font-size: 0.9em;
     letter-spacing: 0.06em;
   }
 
   &__headline {
-    @include margin(null null 0.6em);
+    @include margin(-0.2em null 0.6em); // Negative margin at the top so headline lines up with top of image for horizontal cards
     letter-spacing: 0;
   }
 
   &__contents {
     max-width: 85rem; // For the edge-to-edge cards we don't want the content to get too wide
 
-    // Inside Richtext component in card body
+    // Inside Richtext component inside card body
     p,
     ul,
     ol {
@@ -91,8 +91,14 @@
     }
 
     .ood-basic-card__contents {
-      @include margin(null 0 null null)
-      width: calc(100% - 20rem + 8rem)
+      @include margin(null 0 null null);
+      width: calc(100% - 20rem + 8rem);
+    }
+  }
+
+  &.su-pt-5 {
+    .ood-basic-card__contents {
+      width: calc(100% - 20rem + 11rem);
     }
   }
 }
