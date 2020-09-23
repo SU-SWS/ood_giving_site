@@ -16,7 +16,6 @@ const BasicCard = (props) => {
              ${(props.blok.image.filename && props.blok.showImage === true) ? "ood-basic-card--has-image" : "ood-basic-card--no-image"}
              ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : ""}`
       }>
-
           {(props.blok.image.filename && props.blok.showImage === true) && (
             <figure className={`su-media ood-basic-card__media`}>
               <div className={`su-media__wrapper su-aspect-ratio--${props.blok.imageAspectRatio}`}>

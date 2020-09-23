@@ -15,10 +15,12 @@
   }
 
   &--has-image {
-    @include margin(8rem null null);
+    &:not(.su-card--horizontal) {
+      @include margin(8rem null null);
 
-    .su-media {
-      @include margin(-8rem null null); // Image overhang
+      .su-media {
+        @include margin(-8rem null null); // Image overhang
+      }
     }
   }
 
