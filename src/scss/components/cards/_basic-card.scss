@@ -9,7 +9,6 @@
   box-shadow: $ood-shadow--shallow;
   border-width: 1px;
   border-style: solid;
-  //height: 100%;
 
   &.su-bg-white {
     border: 1px solid $su-color-black-10; // Only white cards have a different colored grey border
@@ -26,7 +25,7 @@
   }
 
   &__superhead {
-    @include margin(-0.4rem null 1rem);
+    @include margin(-0.4rem null 1.2rem);
     display: block;
     font-size: 0.9em;
     letter-spacing: 0.06em;
@@ -58,6 +57,14 @@
     > div {
       > *:last-child {
         @include margin(null null 0); // Last element inside Richtext component has no bottom margin
+
+        > *:last-child {
+          @include margin(null null 0); // If last element inside Richtext has child elements (eg, li inside ul) - also no bottom margin
+
+          > *:last-child {
+            @include margin(null null 0);
+          }
+        }
       }
     }
   }
@@ -100,6 +107,23 @@
     &.su-pt-5 {
       .ood-basic-card__contents {
         width: calc(100% - 20rem + 11rem);
+      }
+    }
+
+    @include grid-media-max('sm') {
+      .ood-basic-card__media {
+        width: 10rem;
+        max-width: 10rem;
+      }
+
+      .ood-basic-card__contents {
+        width: calc(100% - 10rem + 8rem);
+      }
+
+      &.su-pt-5 {
+        .ood-basic-card__contents {
+          width: calc(100% - 10rem + 11rem);
+        }
       }
     }
   }
