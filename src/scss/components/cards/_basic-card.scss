@@ -3,7 +3,8 @@
 // Basic Card styles including horizontal and vertical options
 
 .ood-basic-card {
-  @include box-shadow(shallow, 0);
+  @include margin(null auto);
+  box-shadow: $ood-shadow--shallow;
   display: block;
   //height: 100%;
 
@@ -11,6 +12,10 @@
     &__media {
       display: none;
     }
+  }
+
+  &.su-bg-white {
+    border: 1px solid $su-color-black-10; // Only white cards have the grey border
   }
 
   &__contents {
