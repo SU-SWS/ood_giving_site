@@ -3,6 +3,7 @@
 // scss maps for OOD colors; for generating color related decorators
 
 $ood-colors: (
+    "archway":                    $su-color-archway,
     "archway-dark":               $su-color-archway-dark,
     "bay":                        $su-color-bay,
     "bay-light":                  $su-color-bay-light,
@@ -11,6 +12,7 @@ $ood-colors: (
     "brick":                      $su-color-brick,
     "cardinal-red":               $su-color-cardinal-red,
     "digital-red":                $su-color-digital-red,
+    "fog":                        $su-color-fog,
     "fog-light":                  $su-color-fog-light,
     "lagunita":                   $su-color-lagunita,
     "lagunita-light":             $su-color-lagunita-light,
@@ -28,6 +30,7 @@ $ood-colors: (
 ) !default;
 
 $ood-text-colors: (
+    "archway":                    $su-color-archway,
     "bay-dark":                   $su-color-bay-dark,
     "black":                      $su-color-black,
     "black-true":                 $su-color-black-true,

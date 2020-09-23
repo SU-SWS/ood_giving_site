@@ -14,6 +14,8 @@
   }
 
   &__contents {
+    max-width: 100rem; // For the edge-to-edge cards we don't want the content to get too wide
+
     p,
     ul,
     ol {

@@ -16,12 +16,12 @@ const BasicCard = (props) => {
       }>
         {(props.blok.image.filename && props.blok.showImage === true) && (
           <figure className="su-media ood-basic-card__media">
-            <div className="su-media__wrapper su-aspect-ratio su-aspect-ratio--3x2">
+            <div className={`su-media__wrapper su-aspect-ratio--${props.blok.imageAspectRatio}`}>
               <img className="ood-basic-card__image" src={props.blok.image.filename} alt="" />
             </div>
           </figure>
         )}
-        <section className={`ood-basic-card__contents
+        <section className={`ood-basic-card__contents su-mx-auto
                  ${props.blok.largeCardPadding === true ? "su-p-5" : "su-p-2"}`}>
           {props.blok.superheadline && (
             <span className="ood-basic-card__superhead su-uppercase su-semibold">{props.blok.superheadline}</span>
