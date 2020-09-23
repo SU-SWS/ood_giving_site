@@ -14,6 +14,7 @@ import BasicCard from './cards/basicCard'
 import OodIconCard from './cards/oodIconCard'
 import OodSupportCard from './cards/oodSupportCard'
 import OodQuoteCard from './cards/oodQuoteCard'
+import OodStoryCard from './cards/oodStoryCard'
 import OodTileCard from './cards/oodTileCard'
 // OOD Specific Components
 import OodHomepageHero from './composite/oodHomepageHero'
@@ -95,6 +96,7 @@ const ComponentList = {
   oodInteriorPage: OodInteriorPage,
   oodLandingPage: OodLandingPage,
   oodStory: OodStory,
+  oodStoryCard: OodStoryCard,
   oodSupportPage: OodSupportPage,
   gridThreeColumns: GridThreeColumns,
 }
