@@ -9,20 +9,24 @@ const BasicCard = (props) => {
     <SbEditable content={props.blok}>
       <article className={`ood-basic-card
              su-bg-${props.blok.backgroundColor}
+             ${props.blok.backgroundColor !== "white" ? `su-border-color-${props.blok.backgroundColor}`: ""}
              ${props.blok.orientation ? "su-card--horizontal" : ""}
              su-text-align-${props.blok.textAlign}
              ${(props.blok.image.filename && props.blok.showImage === true) ? "ood-basic-card--has-image" : "ood-basic-card--no-image"}
              ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : ""}`
       }>
-        {(props.blok.image.filename && props.blok.showImage === true) && (
-          <figure className="su-media ood-basic-card__media">
-            <div className={`su-media__wrapper su-aspect-ratio--${props.blok.imageAspectRatio}`}>
-              <img className="ood-basic-card__image" src={props.blok.image.filename} alt="" />
-            </div>
-          </figure>
-        )}
+
+          {(props.blok.image.filename && props.blok.showImage === true) && (
+            <figure className={`su-media ood-basic-card__media
+                  ${props.blok.largeCardPadding === true ? "su-mx-5" : "su-mx-2"}`}>
+              <div className={`su-media__wrapper su-aspect-ratio--${props.blok.imageAspectRatio}`}>
+                <img className="ood-basic-card__image" src={props.blok.image.filename} alt="" />
+              </div>
+            </figure>
+          )}
         <section className={`ood-basic-card__contents su-mx-auto
-                 ${props.blok.largeCardPadding === true ? "su-p-5" : "su-p-2"}`}>
+                 ${props.blok.largeCardPadding === true ? "su-px-5 su-pb-5 su-pt-2" : "su-p-2"}`}
+        >
           {props.blok.superheadline && (
             <span className="ood-basic-card__superhead su-uppercase su-semibold">{props.blok.superheadline}</span>
           )}

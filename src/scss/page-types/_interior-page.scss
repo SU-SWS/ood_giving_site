@@ -56,12 +56,14 @@
   }
 }
 
+// Interior page with minimal header option
 .ood-interior-page--minimal {
   .ood-interior-page__body {
     @include modular-spacing('padding', null null 6);
   }
 }
 
+// Interior page with colored header option
 .ood-interior-page--no-image {
   .ood-interior-page__header {
     &-title {
@@ -76,6 +78,7 @@
   }
 }
 
+// Interior page with image header option
 .ood-interior-page--has-image {
   .ood-interior-page__header {
     &-title {
@@ -154,7 +157,6 @@
     @include modular-spacing('padding', 6 null);
   }
 }
-
 
 .ood-interior-page__header-media {
   @include grid-media('lg') {
