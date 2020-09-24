@@ -9,7 +9,7 @@ const OodStoryCard = (props) => {
                ${props.blok.orientation ? "ood-story-card--horizontal" : ""}
                su-bg-${props.blok.backgroundColor}
                ${props.blok.backgroundColor !== "white" ? `su-border-color-${props.blok.backgroundColor}`: ""}
-               ${(props.blok.orientation && props.blok.largeCardPadding === true) ? "su-pt-5" : ""}
+               ${props.blok.orientation ? "su-px-3 su-pb-3" : "su-px-2 su-pb-3"}
                ${(props.blok.image.filename && props.blok.showImage === true) ? "ood-story-card--has-image" : "ood-story-card--no-image"}`
       }>
         {(props.blok.image.filename && props.blok.showImage === true) && (
@@ -19,9 +19,9 @@ const OodStoryCard = (props) => {
             </div>
           </figure>
         )}
-        <section className={`ood-story-card__contents su-mx-auto`}>
+        <section className={`ood-story-card__contents su-mx-auto ood-has-tab-before`}>
           {props.blok.headline && (
-            <Heading className={`ood-story-card__headline su-sans su-semibold`}>
+            <Heading className={`ood-story-card__headline su-sans su-semibold su-mod-type-3`}>
               {props.blok.headline}
             </Heading>
           )}

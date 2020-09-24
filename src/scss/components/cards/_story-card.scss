@@ -3,5 +3,45 @@
 // OOD Story Card style
 
 .ood-story-card {
+  @include margin(null auto);
+  position: relative;
+  display: block;
+  border-width: 1px;
+  border-style: solid;
 
+  &.su-bg-white {
+    border: 1px solid $su-color-black-10; // Only white cards have a different colored grey border
+  }
+
+  &--has-image {
+    &:not(.ood-story-card--horizontal) {
+      @include margin(8rem null null); // Same rem value to offset image overhang below
+
+      .su-media {
+        @include margin(-8rem null null); // Image overhang
+      }
+    }
+  }
+
+  &__headline {
+    @include margin(0.6em null null);
+  }
+
+  &--horizontal {
+    .ood-story-card__headline {
+      @include margin(-0.2em null 0.6em); // Negative margin at the top so headline lines up with top of image for horizontal cards
+    }
+  }
+
+  &__body {
+    p {
+      @include margin(null null 1em);
+      font-size: 1.8rem;
+      line-height: 1.3;
+
+      @include grid-media('xl') {
+        font-size: 2rem;
+      }
+    }
+  }
 }
