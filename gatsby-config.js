@@ -1,5 +1,10 @@
 const path = require('path');
 
+// Get Environment Vars.
+require('dotenv').config({
+  path: path.resolve(__dirname, '.env.local')
+});
+
 module.exports = {
   siteMetadata: {
     title: `Giving to Stanford`,
@@ -18,7 +23,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-storyblok',
       options: {
-        accessToken: '92ypKFm3burr70cKOiW3sQtt',  // OOD Giving Space Preview
+        accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
         homeSlug: 'home',
         resolveRelations: [
           "oodQuoteSlider.quotes",
