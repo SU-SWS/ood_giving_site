@@ -19,6 +19,10 @@
     }
   }
 
+  &__image {
+    transition: transform 0.3s ease-in-out;
+  }
+
   &__headline {
     @include modular-spacing('margin', 2 null null);
     @include margin(null null 0.6em);
@@ -38,12 +42,19 @@
     border-style: solid;
     text-decoration: none;
     height: 100%;
+    color: transparent;
 
     &:hover,
     &:focus {
+      color: transparent;
+
       .ood-story-card__headline {
         color: $su-color-digital-red;
         text-decoration: underline;
+      }
+
+      .ood-story-card__image {
+        transform: scale(1.03);
       }
     }
   }
