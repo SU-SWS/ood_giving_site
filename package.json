@@ -31,7 +31,6 @@
     "storyblok-react": "^0.1.1"
   },
   "devDependencies": {
-    "fsevents": "^2.1.3",
     "prettier": "2.0.5"
   },
   "keywords": [

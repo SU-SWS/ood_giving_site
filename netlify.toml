@@ -19,7 +19,7 @@ package = "netlify-plugin-a11y"
 # https://github.com/jlengstorf/netlify-plugin-gatsby-cache#readme
 # ##############################################################################
 [build]
-  publish = "public"
+  publish = "public/"
 
 [[plugins]]
   package = "netlify-plugin-gatsby-cache"
