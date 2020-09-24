@@ -6,25 +6,46 @@
   @include margin(null auto);
   position: relative;
   display: block;
-  border-width: 1px;
-  border-style: solid;
-
-  &.su-bg-white {
-    border: 1px solid $su-color-black-10; // Only white cards have a different colored grey border
-  }
+  height: 100%;
 
   &--has-image {
     &:not(.ood-story-card--horizontal) {
-      @include margin(8rem null null); // Same rem value to offset image overhang below
+      border-top: 8rem solid transparent; // The transparent border compensate for the 80px image overhang
 
       .su-media {
         @include margin(-8rem null null); // Image overhang
+        @include modular-spacing('margin', null 2);
       }
     }
   }
 
   &__headline {
-    @include margin(0.6em null null);
+    @include modular-spacing('margin', 2 null null);
+    @include margin(null null 0.6em);
+    letter-spacing: -0.016em;
+
+    // External link icon
+    &::after {
+      @include margin(null null null 0.3em);
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &__link {
+    display: block;
+    border-width: 1px;
+    border-style: solid;
+    text-decoration: none;
+    height: 100%;
+
+    &:hover,
+    &:focus {
+      .ood-story-card__headline {
+        color: $su-color-digital-red;
+        text-decoration: underline;
+      }
+    }
   }
 
   &--horizontal {
@@ -34,14 +55,12 @@
   }
 
   &__body {
-    p {
-      @include margin(null null 1em);
-      font-size: 1.8rem;
-      line-height: 1.3;
+    @include margin(null null 0);
+    font-size: 1.8rem;
+    line-height: 1.3;
 
-      @include grid-media('xl') {
-        font-size: 2rem;
-      }
+    @include grid-media('xl') {
+      font-size: 2rem;
     }
   }
 }
