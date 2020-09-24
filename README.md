@@ -17,6 +17,7 @@ Installation
 ---
 
 ```
+cp example.env.development .env.development
 nvm use
 npm install
 gatsby build
@@ -26,8 +27,8 @@ gatsby develop
 Configuration
 ---
 
-Note about ENV FILES here.
-
+In order to access Storyblok you will need to get an access token. Once you have
+a token you can add the value to your .env.development file.
 
 Troubleshooting
 ---
