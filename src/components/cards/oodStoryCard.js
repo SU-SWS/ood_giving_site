@@ -36,13 +36,17 @@ const OodStoryCard = (props) => {
         {props.blok.link.linktype === "story" &&
           <Link
             to={props.blok.link.cached_url === "home" ? "/" : `/${props.blok.link.cached_url}${props.blok.link.cached_url.endsWith("/") ? "" : "/"}`}
-            className={`ood-story-card__link su-bg-${props.blok.backgroundColor} su-border-color-${props.blok.backgroundColor} su-text-no-underline`}
+            className={`ood-story-card__link su-bg-${props.blok.backgroundColor} su-text-no-underline
+            ${props.blok.backgroundColor === "white" ? "su-border-color-black-10" : "su-border-color-black-11"}`}
           >
             <StoryCardContent {...props}/>
           </Link>
         }
         {props.blok.link.linktype === "url" &&
-          <a href={props.blok.link.url} className={`ood-story-card__link su-bg-${props.blok.backgroundColor} su-text-no-underline`}>
+          <a href={props.blok.link.url}
+             className={`ood-story-card__link su-bg-${props.blok.backgroundColor} su-text-no-underline
+             ${props.blok.backgroundColor === "white" ? "su-border-color-black-10" : "su-border-color-black-11"}`}
+          >
             <StoryCardContent {...props}/>
           </a>
         }

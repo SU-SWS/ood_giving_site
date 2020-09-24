@@ -20,7 +20,7 @@
   }
 
   &__image {
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.25s ease-in;
   }
 
   &__headline {
@@ -43,6 +43,8 @@
     text-decoration: none;
     height: 100%;
     color: transparent;
+    transition: color 0.25s ease-in;
+    box-shadow: $ood-shadow--shallow;
 
     &:hover,
     &:focus {
