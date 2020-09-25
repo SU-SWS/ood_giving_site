@@ -22,6 +22,15 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [
+          { userAgent: '*', allow: '/' }
+          { userAgent: '*', disallow: '/editor/' }
+        ]
+      }
+    },
+    {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         exclude: [`/editor/*`],
