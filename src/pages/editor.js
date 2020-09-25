@@ -8,8 +8,6 @@ const sbConfigs = config.plugins.filter((item) => {
 })
 const sbConfig = sbConfigs.length > 0 ? sbConfigs[0] : {}
 
-console.log(sbConfigs);
-
 const loadStoryblokBridge = function(cb) {
   let script = document.createElement('script')
   script.type = 'text/javascript'

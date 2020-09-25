@@ -1,8 +1,8 @@
 # HEADERS - BASIC AUTH
-# [[headers]]
-#   for = "/*"
-#   [headers.values]
-#   	Authorization = 'Basic YWRhcHQ6bGV0bWVpbjIwMjA='
+[[headers]]
+  for = "/*"
+  [headers.values]
+  	Authorization = 'Basic YWRhcHQ6bGV0bWVpbjIwMjA='
 
 # PLUGIN A11Y
 # https://github.com/netlify-labs/netlify-plugin-a11y#readme
