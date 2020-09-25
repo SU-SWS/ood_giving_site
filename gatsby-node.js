@@ -6,11 +6,6 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     const storyblokEntry = path.resolve('src/templates/storyblok-entry.js')
 
-    createPage({
-      path: `/editor`,
-      component: path.resolve('src/pages/editor.js')
-    })
-
     resolve(
       graphql(
         `{
