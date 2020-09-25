@@ -2,7 +2,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
-  	Authorization = 'Bearer MtrGNTWpaQ7y2ayZ'
+  	Basic-Auth = 'adapt:letmein2020'
 
 # PLUGIN A11Y
 # https://github.com/netlify-labs/netlify-plugin-a11y#readme
