@@ -24,7 +24,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
-        siteUrl: 'https://giving-preview.stanford.edu',
+        siteUrl: `${site.siteMetadata.siteUrl}`,
       },
     },
     {
