@@ -39,7 +39,7 @@ rules:
   nesting-depth:
     - 1
     -
-      max-depth: 4
+      max-depth: 5
   no-color-literals: 0
   no-css-comments: 0
   no-empty-rulesets: 1
