@@ -19,9 +19,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-react-helmet-canonical-urls`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl: `${siteMetadata.siteUrl}`,
+      },
+    },
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
