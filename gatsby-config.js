@@ -27,7 +27,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-storyblok',
       options: {
-        accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
+        accessToken: process.env.GATSBY_STORYBLOK_ACCESS_TOKEN,
         homeSlug: 'home',
         resolveRelations: [
           "oodQuoteSlider.quotes",
