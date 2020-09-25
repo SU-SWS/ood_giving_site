@@ -65,6 +65,31 @@
     .ood-story-card__headline {
       @include margin(-0.2em null 0.6em); // Negative margin at the top so headline lines up with top of image for horizontal cards
     }
+
+    &.ood-story-card--has-image {
+      @include margin(null 13vw null null);
+
+      .ood-story-card__link {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+
+      .su-media {
+        @include margin(null -13vw null null); // Image overhang
+        @include modular-spacing('margin', 3 null);
+        max-width: 26vw;
+        width: 26vw;
+      }
+
+      .ood-story-card__headline {
+        @include modular-spacing('margin', 2 null null);
+      }
+
+      .ood-story-card__contents {
+        @include modular-spacing('padding', null 2 null 3);
+        max-width: calc(100% - 26vw + 13vw)
+      }
+    }
   }
 
   &__body {

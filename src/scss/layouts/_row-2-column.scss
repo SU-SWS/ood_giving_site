@@ -6,8 +6,10 @@
   // For option where layout becomes 1-column at MD breakpoint
   @include grid-media-max('md') {
     > div {
-      &:not(:last-of-type):not(:empty) {
-        @include margin(null null 2em);
+      > div {
+        &:not(:last-of-type):not(:empty) {
+          @include margin(null null 2em);
+        }
       }
     }
   }
@@ -15,8 +17,10 @@
   // // For option where layout becomes 1-column at SM breakpoint
   @include grid-media-max('sm') {
     > div {
-      &:not(:last-of-type):not(:empty) {
-        @include margin(null null 2em);
+      > div {
+        &:not(:last-of-type):not(:empty) {
+          @include margin(null null 2em);
+        }
       }
     }
   }
