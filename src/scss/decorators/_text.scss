@@ -55,4 +55,28 @@
   &-uppercase {
     text-transform: uppercase;
   }
+
+  &-underline {
+    text-decoration: underline;
+  }
+
+  &-no-underline {
+    text-decoration: none;
+  }
+
+  &-hocus {
+    &-underline {
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+
+    &-no-underline {
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
 }

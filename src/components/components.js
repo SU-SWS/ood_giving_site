@@ -14,6 +14,7 @@ import BasicCard from './cards/basicCard'
 import OodIconCard from './cards/oodIconCard'
 import OodSupportCard from './cards/oodSupportCard'
 import OodQuoteCard from './cards/oodQuoteCard'
+import OodStoryCard from './cards/oodStoryCard'
 import OodTileCard from './cards/oodTileCard'
 // OOD Specific Components
 import OodHomepageHero from './composite/oodHomepageHero'
@@ -34,6 +35,7 @@ import OodMegaMenuNavItem from './navigation/oodMegaMenuNavItem'
 import OodMegaMenuLinkGroup from './navigation/oodMegaMenuLinkGroup'
 // Layout Components
 import ColumnGrid from './layout/columnGrid'
+import RowTwoColumns from './layout/rowTwoColumns'
 import RowThreeColumns from './layout/rowThreeColumns'
 import GridThreeColumns from './layout/gridThreeColumns'
 import Section from './layout/section'
@@ -63,6 +65,7 @@ const ComponentList = {
   richTextField: RichTextField,
   columnGrid: ColumnGrid,
   rowThreeColumns: RowThreeColumns,
+  rowTwoColumns: RowTwoColumns,
   section: Section,
   singleColumnContent: SingleColumnContent,
   globalFooter: GlobalFooter,
@@ -95,6 +98,7 @@ const ComponentList = {
   oodInteriorPage: OodInteriorPage,
   oodLandingPage: OodLandingPage,
   oodStory: OodStory,
+  oodStoryCard: OodStoryCard,
   oodSupportPage: OodSupportPage,
   gridThreeColumns: GridThreeColumns,
 }

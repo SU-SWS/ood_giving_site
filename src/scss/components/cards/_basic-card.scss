@@ -16,7 +16,7 @@
 
   &--has-image {
     &:not(.ood-basic-card--horizontal) {
-      @include margin(8rem null null); // Same rem value to off set image overhang
+      @include margin(8rem null null); // Same rem value to offset image overhang below
 
       .su-media {
         @include margin(-8rem null null); // Image overhang
@@ -62,7 +62,7 @@
           @include margin(null null 0); // If last element inside Richtext has child elements (eg, li inside ul) - also no bottom margin
 
           > *:last-child {
-            @include margin(null null 0);
+            @include margin(null null 0); // When there is a <p> element inside that last li element
           }
         }
       }
