@@ -1,9 +1,18 @@
 const path = require('path');
 
+const activeEnv =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+
+console.log(`Using environment config: '${activeEnv}'`)
+
+require("dotenv").config({
+  path: `.env.${activeEnv}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Giving to Stanford`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Giving to Stanford.`,
     author: `Stanford University Office of Development`,
   },
   plugins: [
@@ -18,7 +27,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-storyblok',
       options: {
-        accessToken: '92ypKFm3burr70cKOiW3sQtt',  // OOD Giving Space Preview
+        accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
         homeSlug: 'home',
         resolveRelations: [
           "oodQuoteSlider.quotes",
@@ -27,8 +36,7 @@ module.exports = {
           "localHeaderPicker.localHeader",
           "contentMenuPicker.contentMenu",
         ],
-
-        // version: process.env.NODE_ENV == 'production' ? 'published' : 'draft'  // show only published on the front end site
+        version: process.env.NODE_ENV == 'production' ? 'published' : 'draft'  // show only published on the front end site
         // version: 'draft'  // would show any including drafts
       }
     },
