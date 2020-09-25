@@ -24,6 +24,11 @@ gatsby build
 gatsby develop
 ```
 
+Connecting to Storyblok
+---
+
+You will need an access token to connect to a storyblok space. Contact a member on the project team to get one. Once you have obtained a key you will need to add it to your local environment file. In `.env.development` and/or `.env.production` add the value of the access key to the `GATSBY_STORYBLOK_ACCESS_TOKEN` variable. 
+
 Configuration
 ---
 
