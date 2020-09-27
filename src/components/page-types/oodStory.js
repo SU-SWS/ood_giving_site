@@ -11,13 +11,12 @@ import {Link} from "gatsby";
 
 
 const OodStory = (props) => {
-  let processedHeroImg = "";
-  let processedCardImg = "";
+  let processedHeroImg, processedCardImg;
   processedHeroImg = transformImage(props.blok.heroImage.filename, "/2000x0");
   processedCardImg = transformImage(props.blok.heroImage.filename, "/800x0");
 
-  const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
-  const formattedPublishedDate = new Date(props.blok.publishedDate).toLocaleDateString("en-US", options);
+  const dateOptions = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+  const formattedPublishedDate = new Date(props.blok.publishedDate).toLocaleDateString("en-US", dateOptions);
 
   if (props.layout !== "story-card") {
     return (

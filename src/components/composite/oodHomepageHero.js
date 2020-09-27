@@ -3,7 +3,7 @@ import SbEditable from 'storyblok-react'
 import transformImage from "../../utilities/transformImage";
 
 const OodHomepageHero = (props) => {
-  let processedImg = "";
+  let processedImg;
   processedImg = transformImage(props.blok.image.filename, "/2000x0");
 
   return (
