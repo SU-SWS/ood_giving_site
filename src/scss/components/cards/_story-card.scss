@@ -3,7 +3,6 @@
 // OOD Story Card style
 
 .ood-story-card {
-  @include margin(null auto);
   position: relative;
   display: block;
   height: 100%;
@@ -101,5 +100,13 @@
     @include grid-media('xl') {
       font-size: 2rem;
     }
+  }
+}
+
+.ood-curated-stories__other {
+  @include margin(null null -4.75rem);
+
+  .ood-story-card {
+    @include modular-spacing('margin', null null 3);
   }
 }

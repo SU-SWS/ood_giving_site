@@ -35,6 +35,7 @@ import OodMegaMenuNavItem from './navigation/oodMegaMenuNavItem'
 import OodMegaMenuLinkGroup from './navigation/oodMegaMenuLinkGroup'
 // Layout Components
 import ColumnGrid from './layout/columnGrid'
+import CuratedStories from './layout/curatedStories'
 import RowTwoColumns from './layout/rowTwoColumns'
 import RowThreeColumns from './layout/rowThreeColumns'
 import GridThreeColumns from './layout/gridThreeColumns'
@@ -65,6 +66,7 @@ const ComponentList = {
   accordion: Accordion,
   richTextField: RichTextField,
   columnGrid: ColumnGrid,
+  curatedStories: CuratedStories,
   rowThreeColumns: RowThreeColumns,
   rowTwoColumns: RowTwoColumns,
   section: Section,
