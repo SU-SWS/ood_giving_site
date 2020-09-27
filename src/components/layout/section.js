@@ -55,7 +55,7 @@ const Section = (props) => {
           <div className={`centered-container section__header`}>
             {props.blok.title &&
               <Heading
-                className={`section__title su-serif su-bold su-text-align-left su-mb-4
+                className={`section__title su-serif su-bold su-text-align-left su-mb-6
                           ${titleStyleClassList(props.blok.titleStyle)}`}>
                 {props.blok.title}
               </Heading>
