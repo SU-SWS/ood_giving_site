@@ -35,6 +35,7 @@ module.exports = {
           "localFooterPicker.localFooter",
           "localHeaderPicker.localHeader",
           "contentMenuPicker.contentMenu",
+          "storyPicker.story",
         ],
         version: process.env.NODE_ENV == 'production' ? 'published' : 'draft'  // show only published on the front end site
         // version: 'draft'  // would show any including drafts

@@ -49,6 +49,7 @@ import OodSupportPage from './page-types/oodSupportPage'
 import CtaLink from './simple/ctaLink'
 import EmbedScript from './simple/embedScript'
 import StoryImage from './simple/storyImage'
+import StoryPicker from './simple/storyPicker'
 import SimpleWysiwyg from './simple/simpleWysiwyg'
 // Composite Components
 import Accordion from './composite/accordion'
@@ -99,6 +100,7 @@ const ComponentList = {
   oodLandingPage: OodLandingPage,
   oodStory: OodStory,
   oodStoryCard: OodStoryCard,
+  storyPicker: StoryPicker,
   oodSupportPage: OodSupportPage,
   gridThreeColumns: GridThreeColumns,
 }
