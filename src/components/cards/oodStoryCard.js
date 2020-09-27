@@ -4,12 +4,13 @@ import SbEditable from 'storyblok-react'
 
 const OodStoryCard = (props) => {
   const Heading = props.blok.headingLevel;
+
   const StoryCardContent = (props) => (
     <SbEditable content={props.blok}>
-      {(props.blok.image.filename && props.blok.showImage === true) && (
+      {(props.blok.image.filename != null && props.blok.showImage === true) && (
         <figure className={`su-media ood-story-card__media`}>
           <div className={`su-media__wrapper su-aspect-ratio--3x2`}>
-            <img className="ood-story-card__image" src={props.blok.image.filename} alt={props.blok.image.alt}/>
+            <img className="ood-story-card__image" src={props.blok.image.filename} alt={props.blok.image.alt ? props.blok.image.alt : ""} />
           </div>
         </figure>
       )}
@@ -31,7 +32,7 @@ const OodStoryCard = (props) => {
     <SbEditable content={props.blok}>
       <article className={`ood-story-card
                ${props.blok.orientation ? "ood-story-card--horizontal" : ""}
-               ${(props.blok.image.filename && props.blok.showImage === true) ? "ood-story-card--has-image" : "ood-story-card--no-image"}`
+               ${(props.blok.image.filename != null && props.blok.showImage === true) ? "ood-story-card--has-image" : "ood-story-card--no-image"}`
       }>
         {props.blok.link.linktype === "story" &&
           <Link

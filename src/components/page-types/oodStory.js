@@ -12,9 +12,9 @@ import {Link} from "gatsby";
 
 const OodStory = (props) => {
   let processedHeroImg = "";
-  if (props.blok.heroImage.filename != null) {
-    processedHeroImg = transformImage(props.blok.heroImage.filename, "/2000x0");
-  }
+  let processedCardImg = "";
+  processedHeroImg = transformImage(props.blok.heroImage.filename, "/2000x0");
+  processedCardImg = transformImage(props.blok.heroImage.filename, "/800x0");
 
   const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
   const formattedPublishedDate = new Date(props.blok.publishedDate).toLocaleDateString("en-US", options);
@@ -37,7 +37,7 @@ const OodStory = (props) => {
             `}>
                 {(props.blok.heroImage.filename != null && props.blok.displayImage === "show-image") && (
                   <figure className={`su-media ood-story__media`}>
-                    <img src={processedHeroImg} alt={props.blok.heroImage.alt}
+                    <img src={processedHeroImg} alt={props.blok.heroImage.alt ? props.blok.heroImage.alt : ""}
                          className={`ood-story__image su-obj-position-h-center-v-${props.blok.visibleVertical}`}
                     />
                   </figure>
@@ -103,23 +103,23 @@ const OodStory = (props) => {
               <figure className={`su-media ood-story-card__media`}>
                 <div className={`su-media__wrapper su-aspect-ratio--3x2`}>
                   <img className="ood-story-card__image"
-                       src={props.blok.heroImage.filename}
-                       alt={props.blok.heroImage.alt}/>
+                       src={processedCardImg}
+                       alt={props.blok.heroImage.alt ? props.blok.heroImage.alt : ""}
+                  />
                 </div>
               </figure>
             )}
             <section
               className={`ood-story-card__contents su-mx-auto ood-has-tab-before su-px-2 su-pb-4`}>
               {props.blok.title && (
-                <h3 className={`ood-story-card__headline su-sans su-semibold su-mod-type-3 su-text-black
-                         `}>
+                <h3 className={`ood-story-card__headline su-sans su-semibold su-mod-type-3 su-text-black`}>
                   {props.blok.title}
                 </h3>
               )}
               {props.blok.intro &&
-              <p
-                className="ood-story-card__body su-text-black su-regular">{props.blok.intro}
-              </p>
+                <p
+                  className="ood-story-card__body su-text-black su-regular">{props.blok.intro}
+                </p>
               }
             </section>
           </Link>
