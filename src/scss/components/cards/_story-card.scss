@@ -79,6 +79,12 @@
       }
     }
 
+    .ood-story-card__body {
+      @include grid-media('xl') {
+        @include modular-typography(1);
+      }
+    }
+
     &.ood-story-card--has-image {
       @include margin(null 20vw null null);
 
