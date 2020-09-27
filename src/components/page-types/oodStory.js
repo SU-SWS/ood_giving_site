@@ -95,7 +95,7 @@ const OodStory = (props) => {
                  ${(props.blok.heroImage.filename != null && props.hideimage === false) ? "ood-story-card--has-image" : "ood-story-card--no-image"}`
         }>
           <Link
-            to={`/`}
+            to={`/${props.href}/`}
             className={`ood-story-card__link su-bg-${props.blok.backgroundColor} su-text-no-underline
             ${props.blok.backgroundColor === "white" ? "su-border-color-black-10" : "su-border-color-black-11"}`}
           >
