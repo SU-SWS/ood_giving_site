@@ -12,6 +12,7 @@ const StoryPicker = (props) => {
         orientation: props.blok.orientation,
         hideimage: props.blok.hideImage,
         href: story.full_slug,
+        backgroundColor: props.blok.backgroundColor,
       }))}
     </SbEditable>
   )

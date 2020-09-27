@@ -95,8 +95,8 @@ const OodStory = (props) => {
         }>
           <Link
             to={`/${props.href}/`}
-            className={`ood-story-card__link su-bg-${props.blok.backgroundColor} su-text-no-underline
-            ${props.blok.backgroundColor === "white" ? "su-border-color-black-10" : "su-border-color-black-11"}`}
+            className={`ood-story-card__link su-bg-${props.backgroundColor} su-text-no-underline
+            ${props.backgroundColor === "white" ? "su-border-color-black-10" : "su-border-color-black-11"}`}
           >
             {(props.blok.heroImage.filename != null && props.hideimage === false) && (
               <figure className={`su-media ood-story-card__media`}>
@@ -111,7 +111,7 @@ const OodStory = (props) => {
             <section
               className={`ood-story-card__contents su-mx-auto ood-has-tab-before su-px-2 su-pb-4`}>
               {props.blok.title && (
-                <h3 className={`ood-story-card__headline su-sans su-semibold su-mod-type-3 su-text-black`}>
+                <h3 className={`ood-story-card__headline su-sans su-semibold su-text-black`}>
                   {props.blok.title}
                 </h3>
               )}

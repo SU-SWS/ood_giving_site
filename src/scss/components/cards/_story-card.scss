@@ -25,7 +25,12 @@
   &__headline {
     @include modular-spacing('margin', 2 null null);
     @include margin(null null 0.6em);
+    @include modular-typography(2);
     letter-spacing: -0.016em;
+
+    @include grid-media('xl') {
+      @include modular-typography(3);
+    }
 
     // External link icon
     &::after {
@@ -65,8 +70,17 @@
       @include margin(-0.2em null 0.6em); // Negative margin at the top so headline lines up with top of image for horizontal cards
     }
 
+    .ood-story-card__headline {
+      @include modular-spacing('margin', 2 null null);
+      @include modular-typography(3);
+
+      @include grid-media('xl') {
+        @include modular-typography(4);
+      }
+    }
+
     &.ood-story-card--has-image {
-      @include margin(null 15vw null null);
+      @include margin(null 20vw null null);
 
       .ood-story-card__link {
         display: flex;
@@ -74,21 +88,31 @@
       }
 
       .su-media {
-        @include margin(null -15vw null null); // Image overhang
+        @include margin(null -20vw null null); // Image overhang (half of image width)
         @include modular-spacing('margin', 3 null);
-        max-width: 30vw;
-        width: 30vw;
-      }
-
-      .ood-story-card__headline {
-        @include modular-spacing('margin', 2 null null);
-        @include modular-typography(4);
+        max-width: 40vw;
+        width: 40vw;
       }
 
       .ood-story-card__contents {
         @include modular-spacing('padding', null 2 null 3);
-        max-width: calc(100% - 30vw + 15vw)
+        max-width: calc(100% - 40vw + 20vw)
       }
+
+      @include grid-media('2xl') {
+        @include margin(null 30rem null null);
+
+        .su-media {
+          @include margin(null -30rem null null); // Image overhang (half of image width)
+          max-width: 60rem;
+          width: 60rem;
+        }
+
+        .ood-story-card__contents {
+          max-width: calc(100% - 60rem + 30rem)
+        }
+      }
+
     }
   }
 
