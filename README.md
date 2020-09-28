@@ -16,24 +16,33 @@ Netlify hosted, Gatsby built, storyblok headless cms site for giving.stanford.ed
 Installation
 ---
 
+*Development*
 ```
 cp example.env.development .env.development
+* Manually add the access token to .env.development *
+nvm use
+npm install
+gatsby develop
+```
+
+*Production*
+```
+cp example.env.development .env.production
+* Manually add the access token to .env.production *
 nvm use
 npm install
 gatsby build
-gatsby develop
 ```
 
 Connecting to Storyblok
 ---
 
-You will need an access token to connect to a storyblok space. Contact a member on the project team to get one. Once you have obtained a key you will need to add it to your local environment file. In `.env.development` and/or `.env.production` add the value of the access key to the `GATSBY_STORYBLOK_ACCESS_TOKEN` variable. 
+You will need an access token to connect to a storyblok space. Contact a member on the project team to get one. Once you have obtained a key you will need to add it to your local environment file. In `.env.development` and/or `.env.production` add the value of the access key to the `GATSBY_STORYBLOK_ACCESS_TOKEN` variable. `Development` builds can use the `preview` access tokens from Storyblok, but `Production` builds should only ever use the `public` access tokens. This is to ensure no unpublished content is accidentally revealed to the public.
 
-Configuration
+Development vs Production builds.
 ---
 
-In order to access Storyblok you will need to get an access token. Once you have
-a token you can add the value to your .env.development file.
+This project makes use of the NODE_ENV environment variable to run different builds. We also use `.env.*` files to pass through configuration options.
 
 Troubleshooting
 ---
