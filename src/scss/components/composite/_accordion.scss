@@ -3,10 +3,10 @@
 // Accordion styles
 
 .ood-accordion {
-  @include grid-media('xl') {
-    p {
-      font-size: 2.2rem;
-    }
+  p,
+  ol,
+  ul {
+    @include ood-big-paragraph;
   }
 
   &__heading {
