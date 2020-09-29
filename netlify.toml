@@ -1,14 +1,25 @@
 # HEADERS - BASIC AUTH
+# ##############################################################################
 [[headers]]
   for = "/*"
   [headers.values]
     Authorization = 'Basic YWRhcHQ6bGV0bWVpbjIwMjA='
 
+# BUILD Settings:
+# ##############################################################################
+[build]
+  publish = "public"
+
+[dev]
+  publish = "public"
+  port = 64946
+  autolaunch = true
+
 # PLUGIN A11Y
 # https://github.com/netlify-labs/netlify-plugin-a11y#readme
 # ##############################################################################
 [[plugins]]
-package = "netlify-plugin-a11y"
+  package = "netlify-plugin-a11y"
 
   # all inputs are optional, we just show you the defaults below
   [plugins.inputs]
@@ -24,9 +35,6 @@ package = "netlify-plugin-a11y"
 # PLUGIN GATSBY CACHE
 # https://github.com/jlengstorf/netlify-plugin-gatsby-cache#readme
 # ##############################################################################
-[build]
-  publish = "public/"
-
 [[plugins]]
   package = "netlify-plugin-gatsby-cache"
 
