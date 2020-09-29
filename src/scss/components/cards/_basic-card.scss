@@ -43,13 +43,7 @@
     p,
     ul,
     ol {
-      @include margin(null null 1em);
-      font-size: 1.8rem;
-      line-height: 1.3;
-
-      @include grid-media('xl') {
-        font-size: 2rem;
-      }
+      @include ood-card-text;
     }
   }
 
