@@ -15,10 +15,11 @@
     }
   }
 
-  @include grid-media('xl') {
-    p {
-      font-size: 2.2rem;
-    }
+  p,
+  ol,
+  ul {
+    @include ood-big-paragraph;
+    @include margin(null null 1.6em);
   }
 
   h2,

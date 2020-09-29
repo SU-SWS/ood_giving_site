@@ -64,16 +64,12 @@ const OodStory = (props) => {
               </div>
               <footer className="ood-story__main-footer su-bg-white">
                 <div className="centered-container flex-container">
-                  <div className="flex-md-10-of-12 flex-lg-8-of-12 su-mx-auto">
+                  <div className="flex-lg-8-of-12 su-mx-auto">
                     <div className="ood-story__metadata su-pb-5">
-                      <p
-                        className="ood-story__metadata-title su-bold su-uppercase">Author</p>
-                      <span
-                        className="ood-story__metadata-data">{props.blok.author}</span>
-                      <p
-                        className="ood-story__metadata-title su-bold su-uppercase">Date</p>
-                      <span
-                        className="ood-story__metadata-data su-mb-none">{formattedPublishedDate}</span>
+                      <p className="ood-story__metadata-title su-bold su-uppercase">Author</p>
+                      <span className="ood-story__metadata-data">{props.blok.author}</span>
+                      <p className="ood-story__metadata-title su-bold su-uppercase">Date</p>
+                      <span className="ood-story__metadata-data su-mb-none">{formattedPublishedDate}</span>
                     </div>
                   </div>
                 </div>

@@ -29,7 +29,7 @@ const StoryImage = (props) => {
       `}>
         <div className={`${(props.blok.imageWidth !== "su-w-full")? "centered-container flex-container" : ""}`}>
           <figure className={`su-media su-media--image ood-story-media__figure
-                  ${(props.blok.imageWidth === "su-w-story") ? "flex-md-10-of-12 flex-lg-8-of-12" : ""}
+                  ${(props.blok.imageWidth === "su-w-story") ? "flex-lg-8-of-12" : ""}
                   ${(props.blok.imageWidth === "su-w-inset") ? "flex-sm-10-of-12 flex-md-8-of-12 flex-lg-7-of-12 flex-xl-6-of-12 flex-2xl-5-of-12" : ""}`}>
             <div className={`su-media__wrapper ood-story-media__wrapper`}>
               <img className={`ood-story-media__image
