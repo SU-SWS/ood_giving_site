@@ -3,6 +3,13 @@
 // Accordion styles
 
 .ood-accordion {
+  p,
+  ol,
+  ul {
+    @include ood-big-paragraph;
+    @include margin(null null 1.6em);
+  }
+
   &__heading {
     @include margin(-0.16em null null);
   }

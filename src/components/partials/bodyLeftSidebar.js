@@ -13,10 +13,6 @@ const BodyLeftSidebar = (props) => (
         key: blok._uid,
         blok: blok
       }))}
-      {props.blok.otherContent && props.blok.otherContent.map((blok) => React.createElement(Components(blok.component), {
-        key: blok._uid,
-        blok: blok
-      }))}
     </aside>
     <div className="ood-interior-page__body-content flex-lg-8-of-12">
       {props.blok.pageContent && props.blok.pageContent.map((blok) => React.createElement(Components(blok.component), {

@@ -53,6 +53,12 @@
     &-content {
       color: $su-color-black-true;
     }
+
+    &-sidebar {
+      @include grid-media-max('md') {
+        @include modular-spacing('margin', null null 4);
+      }
+    }
   }
 }
 
