@@ -133,8 +133,6 @@
 }
 
 .ood-curated-stories__other {
-  @include margin(null null -4.75rem);
-
   .ood-story-card {
     @include modular-spacing('margin', null null 3);
   }
