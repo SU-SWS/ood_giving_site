@@ -19,6 +19,7 @@
   ol,
   ul {
     @include ood-big-paragraph;
+    @include margin(null null 1.6em);
   }
 
   h2,

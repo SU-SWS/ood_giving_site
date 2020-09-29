@@ -95,6 +95,6 @@
 
   &__body {
     @include margin(null null 0);
-    @include ood-card-text;
+    @include ood-small-paragraph;
   }
 }
