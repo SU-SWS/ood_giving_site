@@ -9,19 +9,17 @@
 # ##############################################################################
 [build]
   publish = "public"
-  command = "npm run build"
 
 [dev]
-  targetPort = 3000
-  port = 3333
   publish = "public"
+  port = 64946
   autolaunch = true
 
 # PLUGIN A11Y
 # https://github.com/netlify-labs/netlify-plugin-a11y#readme
 # ##############################################################################
 [[plugins]]
-package = "netlify-plugin-a11y"
+  package = "netlify-plugin-a11y"
 
   # all inputs are optional, we just show you the defaults below
   [plugins.inputs]
