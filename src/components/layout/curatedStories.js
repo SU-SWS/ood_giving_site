@@ -21,9 +21,10 @@ const CuratedStories = (props) => (
             )}
         </div>
       )}
-      {props.blok.cta.map((blok) =>
-        React.createElement(Components(blok.component), {key: blok._uid, blok: blok})
-      )}
+      {props.blok.ctaLink && props.blok.ctaLink.map((blok) => React.createElement(Components(blok.component), {
+        key: blok._uid,
+        blok: blok
+      }))}
     </div>
   </SbEditable>
 );
