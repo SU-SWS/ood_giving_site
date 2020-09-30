@@ -12,7 +12,7 @@ const OodTileCard = (props) => {
           </div>
         </figure>
       )}
-      <section className="su-card__contents ood-tile-card__contents">
+      <section className="ood-tile-card__contents">
         {props.blok.superheadline && (
           <span className="ood-tile-card__superhead su-uppercase su-semibold">{props.blok.superheadline}</span>
         )}
@@ -23,7 +23,7 @@ const OodTileCard = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <article className={`su-card su-card--link ood-tile-card
+      <article className={`ood-tile-card
              ${(props.blok.image.filename && props.blok.showImage === true) ? "ood-tile-card--has-image" : "ood-tile-card--no-image"}
              ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : ""}`
       }>

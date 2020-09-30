@@ -2,6 +2,6 @@
 
 .su-shadow {
   &-shallow {
-    @include box-shadow('shallow', 0);
+    box-shadow: $ood-shadow--shallow;
   }
 }
