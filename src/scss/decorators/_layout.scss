@@ -43,6 +43,10 @@
     flex-direction: row-reverse;
   }
 
+  &-col {
+    flex-direction: column;
+  }
+
   &-2-col {
     > * {
       @include responsive-flex-column(6);
