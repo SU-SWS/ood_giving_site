@@ -6,8 +6,22 @@
 
     @include grid-media('lg') {
       &.ood-has-tab-before {
-        + .section__intro {
-          @include modular-spacing('margin', 1 null null);
+        &.su-mod-type-3 {
+          + .section__intro {
+            @include margin(1.6rem null null);
+          }
+        }
+
+        &.su-mod-type-4 {
+          + .section__intro {
+            @include margin(2rem null null);
+          }
+        }
+
+        &.su-mod-type-5 {
+          + .section__intro {
+            @include margin(2.4rem null null);
+          }
         }
       }
     }
