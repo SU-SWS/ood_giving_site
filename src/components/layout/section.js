@@ -51,18 +51,20 @@ const Section = (props) => {
                      ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}`}
            id={props.blok.id}
       >
-        {(props.blok.title || props.blok.introText) && (
-          <div className={`centered-container section__header`}>
+        {(props.blok.title || props.blok.intro) && (
+          <div className={`centered-container flex-container section__header su-mb-3`}>
             {props.blok.title &&
               <Heading
-                className={`section__title su-serif su-bold su-text-align-left su-mb-4
+                className={`section__title flex-lg-5-of-12 su-serif su-bold su-text-align-left su-mb-4
+                          ${props.blok.titleSize}
+                          su-before-bg-${props.blok.tabColor}
                           ${titleStyleClassList(props.blok.titleStyle)}`}>
                 {props.blok.title}
               </Heading>
             }
-            {props.blok.introText &&
-              <div className="su-intro-text section__intro su-ml-none">
-                <RichTextField data={props.blok.introText}/>
+            {props.blok.intro &&
+              <div className={`su-intro-text flex-lg-7-of-12 section__intro su-mr-none`}>
+                <RichTextField data={props.blok.intro}/>
               </div>
             }
           </div>
