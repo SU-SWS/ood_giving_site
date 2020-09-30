@@ -79,7 +79,10 @@ const OodStory = (props) => {
     </>
   )
 
-  const StoryCardView = (props) => (
+  const StoryCardView = (props) => {
+    const Heading = props.headingLevel;
+
+    return (
     <SbEditable content={props.blok}>
       <article className={`ood-story-card
                  ${props.orientation === "horizontal" ? "ood-story-card--horizontal" : ""}
@@ -103,9 +106,9 @@ const OodStory = (props) => {
           <section
             className={`ood-story-card__contents su-mx-auto ood-has-tab-before su-px-2 su-pb-4`}>
             {(props.blok.shortTitle || props.blok.title) && (
-              <h3 className={`ood-story-card__headline su-sans su-semibold su-text-black`}>
+              <Heading className={`ood-story-card__headline su-sans su-semibold su-text-black`}>
                 {props.blok.shortTitle ? props.blok.shortTitle : props.blok.title}
-              </h3>
+              </Heading>
             )}
             {(props.blok.teaser || props.blok.intro) &&
             <p className="ood-story-card__body su-text-black su-regular">{props.blok.teaser ? props.blok.teaser : props.blok.intro}</p>
@@ -114,7 +117,7 @@ const OodStory = (props) => {
         </Link>
       </article>
     </SbEditable>
-  )
+  )}
 
   if (props.layout === "story-card") {
     return (
