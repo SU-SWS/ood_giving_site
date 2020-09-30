@@ -104,7 +104,7 @@ const OodStory = (props) => {
             </figure>
           )}
           <section
-            className={`ood-story-card__contents su-mx-auto ood-has-tab-before su-px-2 su-pb-4`}>
+            className={`ood-story-card__contents su-mx-auto ood-has-tab-before su-px-2 su-pb-5`}>
             {(props.blok.shortTitle || props.blok.title) && (
               <Heading className={`ood-story-card__headline su-sans su-semibold su-text-black`}>
                 {props.blok.shortTitle ? props.blok.shortTitle : props.blok.title}
