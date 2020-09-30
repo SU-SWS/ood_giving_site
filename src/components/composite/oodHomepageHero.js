@@ -23,7 +23,7 @@ const OodHomepageHero = (props) => {
               su-after-bg-${props.blok.tabColor}`}>
               {props.blok.splashText}
           </h1>
-          <a className={`flex-lg-5-of-12 ood-hero-home__link su-bg-${props.blok.ctaBackgroundColor}`} href={props.blok.link} rel="nofollow noopener">
+          <a className={`flex-lg-5-of-12 ood-hero-home__link su-bg-${props.blok.ctaBackgroundColor}`} href={props.blok.link}>
             <h2 className={`ood-hero-home__cta-headline su-text-white`}>{props.blok.ctaHeadline}</h2>
             <p className={`su-link--action ood-hero-home__cta-text su-text-white su-text-align-right`}>{props.blok.ctaText}</p>
           </a>
