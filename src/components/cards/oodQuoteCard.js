@@ -9,13 +9,15 @@ const OodQuoteCard = (props) => (
              su-text-align-${props.blok.textAlign}`
     }>
       <div className="ood-quote-card__content">
-        <blockquote className={`ood-quote-card__quote su-serif su-before-color-${props.blok.quotationMarkColor}`}>{props.blok.quoteText}</blockquote>
-        {props.blok.personName && (
-          <p className="ood-quote-card__name su-semibold su-text-black">{props.blok.personName}</p>
+        {props.blok.quoteText && (
+          <blockquote className={`ood-quote-card__quote su-serif su-before-color-${props.blok.quotationMarkColor}`}>
+            <RichTextField data={props.blok.quoteText} />
+          </blockquote>
         )}
-        {(props.blok.personClassYear || props.blok.personTitle) && (
-          <p className="ood-quote-card__bio">
-            {`${props.blok.personTitle}${(props.blok.personTitle && props.blok.personClassYear) ? ", " : ""}${props.blok.personClassYear}`}</p>
+        {props.blok.quoteSource && (
+          <div className="ood-quote-card__bio">
+            <RichTextField data={props.blok.quoteSource} />
+          </div>
         )}
       </div>
       {(props.blok.photo.filename && props.blok.showImage === "has-image") && (
