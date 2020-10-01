@@ -24,7 +24,6 @@
   &__quote {
     @include margin(0 0 1em);
     @include padding(50px null null);
-    @include modular-typography(2);
     line-height: $su-base-line-height;
 
     &::before {
@@ -38,11 +37,10 @@
     }
   }
 
-  &__name,
-  &__bio {
+  &__source {
     @include margin(null null 0);
     @include modular-typography(1);
-    color: $su-color-cool-grey-75;
+    color: $su-color-black;
   }
 
   // Styles for version showing image
