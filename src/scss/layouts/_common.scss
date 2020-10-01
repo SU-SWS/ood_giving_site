@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+// Styles that apply to more than 1 layout Components
+
+.row {
+  &--2-columns,
+  &--3-columns {
+    .ood-story-card,
+    .ood-basic-card,
+    .ood-tile-card {
+      height: 100%; // For forced equal height option to work
+    }
+  }
+}
