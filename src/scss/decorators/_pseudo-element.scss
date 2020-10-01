@@ -17,21 +17,11 @@
 
 .su-before {
   &-color {
-    &-palo-verde-light {
-      &::before {
-        color: $su-color-palo-verde-light;
-      }
-    }
-
-    &-lagunita {
-      &::before {
-        color: $su-color-lagunita;
-      }
-    }
-
-    &-cardinal-red {
-      &::before {
-        color: $su-color-cardinal-red;
+    @each $key, $color in $ood-colors {
+      &-#{$key} {
+        &::before {
+          color: $color;
+        }
       }
     }
   }

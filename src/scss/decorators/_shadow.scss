@@ -5,3 +5,9 @@
     @include box-shadow('shallow', 0);
   }
 }
+
+.ood-shadow {
+  &-shallow {
+    box-shadow: $ood-shadow--shallow;
+  }
+}
