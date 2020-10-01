@@ -12,6 +12,7 @@
     > .ood-support-card__headline {
       @include modular-typography(3);
       @include margin(null null 0);
+      letter-spacing: -0.016em;
     }
 
     .ood-support-card__icon {
@@ -39,10 +40,10 @@
   }
 
   &__contents {
-    min-height: 200px;
+    min-height: 20rem;
 
     @include grid-media('md') {
-      min-height: 260px;
+      min-height: 26rem;
     }
   }
 
