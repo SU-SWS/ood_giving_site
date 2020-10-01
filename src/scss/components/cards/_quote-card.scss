@@ -22,8 +22,8 @@
   }
 
   &__quote {
-    @include margin(0 0 1em);
-    @include padding(50px null null);
+    @include margin(0);
+    @include padding(1.3em null null);
     line-height: $su-base-line-height;
 
     &::before {
@@ -41,6 +41,12 @@
     @include margin(null null 0);
     @include modular-typography(1);
     color: $su-color-black;
+
+    > div {
+      > *:last-child {
+        @include margin(null null 0); // Last paragraph in WYSIWYG
+      }
+    }
   }
 
   // Styles for version showing image
