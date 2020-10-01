@@ -15,6 +15,7 @@
 
   &__headline {
     @include modular-typography(2);
+    letter-spacing: -0.016em;
 
     @include grid-media('xl') {
       @include modular-typography(3);
