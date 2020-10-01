@@ -66,7 +66,7 @@
       }
 
       .ood-story-card__image {
-        transform: scale(1.03);
+        transform: scale($ood-card-image-zoom);
       }
     }
   }
@@ -93,7 +93,7 @@
 
     &.ood-story-card--has-image {
       @include grid-media('sm') {
-        @include margin(null 20vw null null);
+        @include margin(null $ood-horizontal-story-card-overhang null null);
 
         .ood-story-card__link {
           display: flex;
@@ -101,29 +101,29 @@
         }
 
         .su-media {
-          @include margin(null -20vw null null); // Image overhang (half of image width)
+          @include margin(null #{-$ood-horizontal-story-card-overhang} null null); // Image overhang (half of image width)
           @include modular-spacing('margin', 3 null);
-          max-width: 40vw;
-          width: 40vw;
+          max-width: $ood-horizontal-story-card-image-width;
+          width: $ood-horizontal-story-card-image-width;
         }
 
         .ood-story-card__contents {
           @include modular-spacing('padding', null 2 null 3);
-          max-width: calc(100% - 40vw + 20vw)
+          max-width: calc(100% - #{$ood-horizontal-story-card-image-width} + #{$ood-horizontal-story-card-overhang});
         }
       }
 
       @include grid-media('2xl') {
-        @include margin(null 30rem null null);
+        @include margin(null $ood-horizontal-story-card-max-overhang null null);
 
         .su-media {
-          @include margin(null -30rem null null); // Image overhang (half of image width)
-          max-width: 60rem;
-          width: 60rem;
+          @include margin(null #{-$ood-horizontal-story-card-max-overhang} null null); // Image overhang (half of image width)
+          max-width: $ood-horizontal-story-card-max-image-width;
+          width: $ood-horizontal-story-card-max-image-width;
         }
 
         .ood-story-card__contents {
-          max-width: calc(100% - 60rem + 30rem)
+          max-width: calc(100% - #{$ood-horizontal-story-card-max-image-width} + #{$ood-horizontal-story-card-max-overhang})
         }
       }
     }
