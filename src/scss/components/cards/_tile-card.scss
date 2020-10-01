@@ -5,12 +5,6 @@
 .ood-tile-card {
   &__superhead {
     @include margin(null null 0.8em);
-    display: block;
-    font-size: 0.9em;
-
-    @include grid-media('lg') {
-      letter-spacing: 0.06em;
-    }
   }
 
   &__headline {

@@ -30,3 +30,10 @@
     }
   }
 }
+
+.ood-tile-card,
+.ood-basic-card {
+  &__superhead {
+    @include ood-superhead;
+  }
+}
