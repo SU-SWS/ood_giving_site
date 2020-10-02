@@ -3,60 +3,77 @@
 // Tile Cards style (I Want to Cards)
 
 .ood-tile-card {
-  @include margin(null auto);
-  background-color: transparent;
-  max-width: 80rem;
-
-  &__media,
-  &__image {
-    @include grid-media-only('xs') {
-      display: block;
-    }
+  &__superhead {
+    @include margin(null null 0.8em);
   }
 
-  // Need nesting to override Decanter styles
-  .su-card__contents {
-    > .ood-tile-card__headline {
-      @include modular-typography(2);
+  &__headline {
+    @include modular-typography(2);
+    letter-spacing: -0.016em;
 
-      @include grid-media('xl') {
-        @include modular-typography(3);
-      }
-    }
-
-    .ood-tile-card__superhead {
-      @include margin(null null 1em);
-
-      @include grid-media('lg') {
-        letter-spacing: 0.06em;
-      }
+    @include grid-media('xl') {
+      @include modular-typography(3);
     }
   }
 
   &__contents {
+    @include modular-spacing('padding', 2);
+
     @include grid-media('md') {
       min-height: 40rem;
     }
   }
 
   &__link {
+    &:hover,
+    &:focus {
+      .ood-tile-card__headline {
+        text-decoration: underline;
+      }
+
+      .ood-tile-card__image {
+        transform: scale(1.03);
+      }
+    }
+
     &:not(.su-bg-white) {
       border-color: transparent; // Only white cards have the grey border
     }
   }
 
   &--has-image {
-    border-top: 8rem solid transparent; // The transparent border compensate for the 80px image overhang
+    @include grid-media('sm') {
+      border-top: 8rem solid transparent; // The transparent border compensate for the 80px image overhang
 
-    .su-media {
-      @include margin(-8rem null null);
-      @include modular-spacing('margin', null 2);
+      .su-media {
+        @include margin(-8rem null null); // Image overhang
+        @include modular-spacing('margin', null 2);
+      }
+    }
+
+    // Hide image for vertical cards at XS breakpoint
+    @include grid-media-only('xs') {
+      .su-media {
+        display: none;
+      }
+    }
+
+    .ood-tile-card__contents {
+      @include modular-spacing('padding', 2);
     }
   }
 
+  &__image {
+    transition: transform 0.25s ease-in;
+  }
+
   &--no-image {
-    .su-card__contents {
-      @include modular-spacing("padding", 4 3);
+    // No image cards have bigger horizontal padding
+
+    @include grid-media('xl') {
+      .ood-tile-card__contents {
+        @include modular-spacing("padding", 4);
+      }
     }
 
     .su-media {
@@ -67,32 +84,46 @@
   > a {
     height: 100%;
   }
+}
 
-  // Overriding Decanter .su-card--link
-  &.su-card--link {
-    // All cards with dark background + white text will have white hover/focus text colors
-    &.su-text-white {
-      > a,
-      > a:hover,
-      > a:focus {
-        color: $su-color-white;
+.ood-tile-card__link {
+  transition: box-shadow 0.3s ease-in;
 
-        h2 {
-          color: $su-color-white;
-        }
-      }
+  // All cards with light background + black text will have black hover/focus text colors
+
+  .ood-tile-card__headline,
+  .ood-tile-card__superhead {
+    color: $su-color-black;
+  }
+
+  &:hover,
+  &:focus {
+    @include box-shadow('medium', 0);
+
+    .ood-tile-card__headline {
+      color: $su-color-black;
+      text-decoration: underline;
     }
 
-    // All cards with light background + black text will have black hover/focus text colors
-    &:not(.su-text-white) {
-      > a,
-      > a:hover,
-      > a:focus {
-        color: $su-color-black;
+    .ood-tile-card__superhead {
+      color: $su-color-black;
+      text-decoration: none;
+    }
+  }
 
-        h2 {
-          color: $su-color-black;
-        }
+  // All cards with dark background + white text will have white hover/focus text colors
+
+  &:not(.su-bg-white):not(.su-bg-fog-light) {
+    .ood-tile-card__headline,
+    .ood-tile-card__superhead {
+      color: $su-color-white;
+    }
+
+    &:hover,
+    &:focus {
+      .ood-tile-card__headline,
+      .ood-tile-card__superhead {
+        color: $su-color-white;
       }
     }
   }

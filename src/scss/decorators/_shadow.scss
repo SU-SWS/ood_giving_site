@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
-.su-shadow {
+.ood-shadow {
   &-shallow {
-    @include box-shadow('shallow', 0);
+    box-shadow: $ood-shadow--shallow;
   }
 }
 

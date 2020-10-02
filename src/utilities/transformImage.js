@@ -2,7 +2,7 @@
 // See all the "param" options on the website
 // https://www.storyblok.com/docs/image-service
 
-const transformImage = (image, param = null) => {
+const transformImage = (image = null, param = null) => {
   const imageService = "//img2.storyblok.com";
 
   if (image === null) {

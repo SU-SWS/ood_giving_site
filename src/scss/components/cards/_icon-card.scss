@@ -17,6 +17,7 @@
   .su-card__contents {
     > .ood-icon-card__headline {
       @include modular-typography(2);
+      letter-spacing: -0.016em;
 
       @include grid-media('xl') {
         @include modular-typography(3);
@@ -28,7 +29,7 @@
     @include modular-spacing("padding", 4 3);
 
     @include grid-media('md') {
-      min-height: 200px;
+      min-height: 18rem;
     }
   }
 
