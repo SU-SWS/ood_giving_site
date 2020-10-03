@@ -3,7 +3,7 @@ import Link from "gatsby-link"
 import SbEditable from 'storyblok-react'
 
 const OodSupportCard = (props) => {
-  const Heading = props.blok.headingLevel;
+  const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h3";
   const taxonomyString = (taxonomyArray) => {
     return taxonomyArray.toString();
   };

@@ -4,7 +4,7 @@ import Components from '../components.js'
 import RichTextField from '../../utilities/richTextField'
 
 const BasicCard = (props) => {
-  const Heading = props.blok.headingLevel;
+  const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h3";
 
   return (
     <SbEditable content={props.blok}>
