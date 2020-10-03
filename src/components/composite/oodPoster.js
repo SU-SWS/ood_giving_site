@@ -5,6 +5,7 @@ import Components from "../components"
 import transformImage from '../../utilities/transformImage'
 
 const OodPoster = (props) => {
+  const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h3";
   let processedImg;
   processedImg = transformImage(props.blok.image.filename, "/2000x0");
 
@@ -30,7 +31,7 @@ const OodPoster = (props) => {
                  ${(props.blok.cardBackgroundColor !== "white" && props.blok.cardBackgroundColor !== "fog-light") ? "su-text-white" : ""}`
               }>
                 {props.blok.headline && (
-                  <h2 className="ood-poster__headline su-semibold">{props.blok.headline}</h2>
+                  <Heading className="ood-poster__headline su-semibold">{props.blok.headline}</Heading>
                 )}
                 {props.blok.bodyText &&
                   <div className="ood-poster__text">
