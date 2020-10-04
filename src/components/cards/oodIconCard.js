@@ -23,7 +23,9 @@ const OodIconCard = (props) => {
           </div>
           <section className="su-card__contents ood-icon-card__contents">
             <Heading
-              className="ood-icon-card__headline su-semibold">{props.blok.headline}
+              className={`ood-icon-card__headline su-semibold su-hocus-underline
+              ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : "su-text-black"}`}>
+              {props.blok.headline}
             </Heading>
           </section>
         </a>
