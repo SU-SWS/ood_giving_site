@@ -32,6 +32,7 @@ module.exports = {
       options: {
         policy: [
           { userAgent: '*', allow: '/' },
+          { userAgent: '*', disallow: '/editor/' }
         ]
       }
     },
