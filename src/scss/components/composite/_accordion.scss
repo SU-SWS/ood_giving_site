@@ -3,7 +3,6 @@
 // Accordion styles
 
 .ood-accordion {
-
   &__heading {
     @include margin(-0.16em null null);
     @include modular-typography(3);
@@ -14,8 +13,6 @@
     letter-spacing: 0;
 
     > .ood-accordion__button {
-      font-weight: $su-font-semi-bold;
-
       &::after {
         color: $su-color-black;
       }
