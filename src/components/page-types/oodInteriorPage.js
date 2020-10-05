@@ -7,6 +7,7 @@ import HeaderNoImage from '../partials/headerNoImage'
 import HeaderWithImage from '../partials/headerWithImage'
 import BodyLeftSidebar from '../partials/bodyLeftSidebar'
 import BodyNoSidebar from '../partials/bodyNoSidebar'
+import BelowContent from '../partials/belowContent'
 import IconCardSection from '../partials/iconCardSection'
 import Footer from '../partials/footer'
 import { Helmet } from 'react-helmet'
@@ -58,14 +59,7 @@ const OodInteriorPage = (props) => {
                 </div>
               </section>
             )}
-            {(props.blok.belowContent != null && Object.keys(props.blok.belowContent).length > 0) && (
-              <section className="ood-interior-page__below-body">
-                {props.blok.belowContent && props.blok.belowContent.map((blok) => React.createElement(Components(blok.component), {
-                  key: blok._uid,
-                  blok: blok
-                }))}
-              </section>
-            )}
+            <BelowContent {...props}/>
             <footer className="ood-interior-page__main-footer">
               <IconCardSection {...props}/>
             </footer>
