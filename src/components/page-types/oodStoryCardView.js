@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import transformImage from "../../utilities/transformImage"
 
 const StoryCardView = (props) => {
-  const Heading = props.headingLevel;
+  const Heading = props.headingLevel ? props.headingLevel : "h3";
   let processedCardImg;
   processedCardImg = transformImage(props.blok.heroImage.filename, "/800x0");
 

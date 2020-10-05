@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import SbEditable from 'storyblok-react'
 
 const OodStoryCard = (props) => {
-  const Heading = props.blok.headingLevel;
+  const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h3";
 
   const StoryCardContent = (props) => (
     <SbEditable content={props.blok}>

@@ -4,7 +4,7 @@ import RichTextField from '../../utilities/richTextField'
 import Components from "../components";
 
 const AccordionItem = (props) => {
-  const Heading = props.blok.titleHeadingLevel;
+  const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h4";
 
   return (
     <SbEditable content={props.blok}>
