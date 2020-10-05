@@ -4,7 +4,7 @@ import Components from '../components.js'
 import RichTextField from '../../utilities/richTextField'
 
 const Section = (props) => {
-  const Heading = props.blok.titleHeadingLevel;
+  const Heading = props.blok.titleHeadingLevel ? props.blok.titleHeadingLevel : "h2";
   const titleStyleClassList = (titleStyleArray) => {
     return titleStyleArray.toString().replace(/,/g, " ");
   };
