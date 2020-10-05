@@ -1,5 +1,4 @@
 import React from 'react'
-import RichTextField from '../../utilities/richTextField'
 import SbEditable from 'storyblok-react'
 import Components from "../components";
 
@@ -8,7 +7,7 @@ const Accordion = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <div className={`su-accordion no-js ${props.blok.classes}
+      <div className={`su-accordion ood-accordion
            ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
            ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}
       `}>
