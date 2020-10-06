@@ -5,17 +5,37 @@
 .ood-accordion {
   &__heading {
     @include margin(-0.16em null null);
+    @include modular-typography(3);
   }
 
   &__title {
-    @include modular-typography(2);
+    @include modular-typography(1);
     letter-spacing: 0;
 
     > .ood-accordion__button {
-      font-weight: $su-font-semi-bold;
-
       &::after {
         color: $su-color-black;
+      }
+    }
+  }
+
+  &__list {
+    @include margin(null null 0);
+  }
+
+  &__item {
+    > div {
+      p,
+      ol,
+      ul {
+        @include ood-big-paragraph;
+        @include margin(null null 1.6em);
+      }
+      
+      > * {
+        &:last-child {
+          @include margin(null null 0); // last item in the WYSIWYG
+        }
       }
     }
   }

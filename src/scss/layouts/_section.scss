@@ -1,12 +1,29 @@
 @charset "UTF-8";
 
 .section {
-  &__header {
-    @include modular-spacing('margin', null null 4);
-  }
-
   &__title {
-    @include modular-typography(4);
     letter-spacing: 0; // Don't need to tighten up spacing for serif titles
+
+    @include grid-media('lg') {
+      &.ood-has-tab-before {
+        &.su-mod-type-3 {
+          + .section__intro {
+            @include margin(1.6rem null null);
+          }
+        }
+
+        &.su-mod-type-4 {
+          + .section__intro {
+            @include margin(2rem null null);
+          }
+        }
+
+        &.su-mod-type-5 {
+          + .section__intro {
+            @include margin(2.4rem null null);
+          }
+        }
+      }
+    }
   }
 }

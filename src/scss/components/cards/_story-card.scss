@@ -3,18 +3,34 @@
 // OOD Story Card style
 
 .ood-story-card {
-  @include margin(null auto);
-  position: relative;
-  display: block;
-  height: 100%;
-
   &--has-image {
     &:not(.ood-story-card--horizontal) {
-      border-top: 8rem solid transparent; // The transparent border compensate for the 80px image overhang
+      @include grid-media('sm') {
+        border-top: 8rem solid transparent; // The transparent border compensate for the 80px image overhang
 
-      .su-media {
-        @include margin(-8rem null null); // Image overhang
-        @include modular-spacing('margin', null 2);
+        .su-media {
+          @include margin(-8rem null null); // Image overhang
+          @include modular-spacing('margin', null 2);
+        }
+      }
+
+      // Hide image for vertical cards at XS breakpoint
+      @include grid-media-only('xs') {
+        .su-media {
+          display: none;
+        }
+      }
+    }
+
+    // Horizontal card behaves same way as vertical card at XS breakpoint (but with image visible)
+    &.ood-story-card--horizontal {
+      @include grid-media-only('xs') {
+        border-top: 8rem solid transparent; // The transparent border compensate for the 80px image overhang
+
+        .su-media {
+          @include margin(-8rem null null); // Image overhang
+          @include modular-spacing('margin', null 2);
+        }
       }
     }
   }
@@ -26,7 +42,12 @@
   &__headline {
     @include modular-spacing('margin', 2 null null);
     @include margin(null null 0.6em);
+    @include modular-typography(2);
     letter-spacing: -0.016em;
+
+    @include grid-media('xl') {
+      @include modular-typography(3);
+    }
 
     // External link icon
     &::after {
@@ -37,26 +58,15 @@
   }
 
   &__link {
-    display: block;
-    border-width: 1px;
-    border-style: solid;
-    text-decoration: none;
-    height: 100%;
-    color: transparent;
-    transition: color 0.25s ease-in;
-    box-shadow: $ood-shadow--shallow;
-
     &:hover,
     &:focus {
-      color: transparent;
-
       .ood-story-card__headline {
         color: $su-color-digital-red;
         text-decoration: underline;
       }
 
       .ood-story-card__image {
-        transform: scale(1.03);
+        transform: scale($ood-card-image-zoom);
       }
     }
   }
@@ -66,40 +76,67 @@
       @include margin(-0.2em null 0.6em); // Negative margin at the top so headline lines up with top of image for horizontal cards
     }
 
-    &.ood-story-card--has-image {
-      @include margin(null 15vw null null);
+    .ood-story-card__headline {
+      @include modular-spacing('margin', 2 null null);
+      @include modular-typography(3);
 
-      .ood-story-card__link {
-        display: flex;
-        flex-direction: row-reverse;
-      }
-
-      .su-media {
-        @include margin(null -15vw null null); // Image overhang
-        @include modular-spacing('margin', 3 null);
-        max-width: 30vw;
-        width: 30vw;
-      }
-
-      .ood-story-card__headline {
-        @include modular-spacing('margin', 2 null null);
+      @include grid-media('xl') {
         @include modular-typography(4);
       }
+    }
 
-      .ood-story-card__contents {
-        @include modular-spacing('padding', null 2 null 3);
-        max-width: calc(100% - 30vw + 15vw)
+    .ood-story-card__body {
+      @include grid-media('xl') {
+        @include modular-typography(1);
+      }
+    }
+
+    &.ood-story-card--has-image {
+      @include grid-media('sm') {
+        @include margin(null $ood-horizontal-story-card-overhang null null);
+
+        .ood-story-card__link {
+          display: flex;
+          flex-direction: row-reverse;
+        }
+
+        .su-media {
+          @include margin(null #{-$ood-horizontal-story-card-overhang} null null); // Image overhang (half of image width)
+          @include modular-spacing('margin', 3 null);
+          max-width: $ood-horizontal-story-card-image-width;
+          width: $ood-horizontal-story-card-image-width;
+        }
+
+        .ood-story-card__contents {
+          @include modular-spacing('padding', null 2 null 3);
+          max-width: calc(100% - #{$ood-horizontal-story-card-image-width} + #{$ood-horizontal-story-card-overhang});
+        }
+      }
+
+      @include grid-media('2xl') {
+        @include margin(null $ood-horizontal-story-card-max-overhang null null);
+
+        .su-media {
+          @include margin(null #{-$ood-horizontal-story-card-max-overhang} null null); // Image overhang (half of image width)
+          max-width: $ood-horizontal-story-card-max-image-width;
+          width: $ood-horizontal-story-card-max-image-width;
+        }
+
+        .ood-story-card__contents {
+          max-width: calc(100% - #{$ood-horizontal-story-card-max-image-width} + #{$ood-horizontal-story-card-max-overhang})
+        }
       }
     }
   }
 
   &__body {
     @include margin(null null 0);
-    font-size: 1.8rem;
-    line-height: 1.3;
+    @include ood-small-paragraph;
+  }
+}
 
-    @include grid-media('xl') {
-      font-size: 2rem;
-    }
+.ood-curated-stories__other {
+  .ood-story-card {
+    @include modular-spacing('margin', null null 3);
   }
 }

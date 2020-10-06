@@ -142,12 +142,24 @@
     }
 
     .ood-story-media__caption {
-      text-align: center;
+
+      @include grid-media('xl') {
+        text-align: center;
+      }
     }
   }
 
   &__caption {
     @include margin(0.8em null null);
+    font-size: 1.5rem;
+
+    @include grid-media('md') {
+      font-size: 1.6rem;
+    }
+
+    @include grid-media('2xl') {
+      font-size: 1.8rem;
+    }
 
     > div {
       > * {

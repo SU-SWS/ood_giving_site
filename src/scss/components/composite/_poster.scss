@@ -48,10 +48,16 @@
 
   &__headline {
     @include modular-typography(4);
+    @include margin(null null 0.4em);
     font-weight: $su-font-regular;
+    letter-spacing: -0.016em;
   }
 
   &__text {
     @include modular-typography(1);
+  }
+
+  .ood-cta {
+    @include margin(2em null null);
   }
 }

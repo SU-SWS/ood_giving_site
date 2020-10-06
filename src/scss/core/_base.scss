@@ -20,8 +20,6 @@ a {
 }
 
 p {
-  @include margin(null null 1.6em);
-
   &:empty {
     display: none;
   }
@@ -30,3 +28,5 @@ p {
 .centered-container {
   @include centered-column;
 }
+
+

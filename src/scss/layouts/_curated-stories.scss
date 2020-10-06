@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+// Styles for the Curated Story layout component
+
+.ood-curated-stories {
+  &__other {
+    .ood-story-card {
+      height: 100%;
+    }
+  }
+}

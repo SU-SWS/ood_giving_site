@@ -26,7 +26,11 @@
 .ood-cta {
   color: $su-color-bay-dark;
   font-weight: $su-font-semi-bold;
-  font-size: 2rem;
+  font-size: 1.8rem;
+
+  @include grid-media('md') {
+    font-size: 2rem;
+  }
 
   &__button {
     @include padding(1.1rem 3rem 1.2rem);
@@ -41,11 +45,6 @@
     &:hover,
     &:focus {
       text-decoration: underline;
-    }
-
-    &--small {
-      @include padding(1rem 3rem);
-      font-size: 1.6rem;
     }
 
     &--medium {

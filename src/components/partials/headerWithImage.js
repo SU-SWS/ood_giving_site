@@ -10,7 +10,7 @@ const HeaderWithImage = (props) => (
           <h1 className="ood-interior-page__title flex-lg-6-of-12 flex-xl-5-of-12 flex-2xl-6-of-12 su-serif su-text-white su-text-align-left">{props.blok.title}</h1>
           <figure className="su-media flex-lg-6-of-12 flex-xl-7-of-12 flex-2xl-6-of-12 ood-interior-page__header-media">
             <div className="su-media__wrapper su-aspect-ratio su-aspect-ratio--3x2">
-              <img className="ood-interior-page__image" src={props.blok.headerImage.filename ? props.blok.headerImage.filename : ""} alt="" />
+              <img className="ood-interior-page__image" src={props.blok.headerImage.filename} alt="" />
             </div>
           </figure>
         </div>

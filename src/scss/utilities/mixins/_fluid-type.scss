@@ -2,11 +2,11 @@
 
 // Calculate fluid font size over a device width range when one specifies min and max font sizes.
 
-@mixin fluid-type($_min_font_size, $_max_font_size, $_min_viewport_width, $_max_viewport_width) {
+@mixin fluid-type($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width) {
 
-  $_font_size_range: strip-unit($_max_font_size - $_min_font_size);
-  $_viewport_width_range: strip-unit($_max_viewport_width - $_min_viewport_width);
+  $_font_size_range: strip-unit($max-font-size - $min-font-size);
+  $_viewport_width_range: strip-unit($max-viewport-width - $min-viewport-width);
 
   // Formula from https://css-tricks.com/books/volume-i/scale-typography-screen-size/
-  font-size: calc(#{$_min_font_size} + (#{$_font_size_range} * ((100vw - #{$_min_viewport_width}) / #{$_viewport_width_range})));
+  font-size: calc(#{$min-font-size} + (#{$_font_size_range} * ((100vw - #{$min-viewport-width}) / #{$_viewport_width_range})));
 }

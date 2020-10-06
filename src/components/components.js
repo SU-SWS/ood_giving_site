@@ -35,6 +35,7 @@ import OodMegaMenuNavItem from './navigation/oodMegaMenuNavItem'
 import OodMegaMenuLinkGroup from './navigation/oodMegaMenuLinkGroup'
 // Layout Components
 import ColumnGrid from './layout/columnGrid'
+import CuratedStories from './layout/curatedStories'
 import RowTwoColumns from './layout/rowTwoColumns'
 import RowThreeColumns from './layout/rowThreeColumns'
 import GridThreeColumns from './layout/gridThreeColumns'
@@ -49,6 +50,7 @@ import OodSupportPage from './page-types/oodSupportPage'
 import CtaLink from './simple/ctaLink'
 import EmbedScript from './simple/embedScript'
 import StoryImage from './simple/storyImage'
+import StoryPicker from './simple/storyPicker'
 import SimpleWysiwyg from './simple/simpleWysiwyg'
 // Composite Components
 import Accordion from './composite/accordion'
@@ -64,6 +66,7 @@ const ComponentList = {
   accordion: Accordion,
   richTextField: RichTextField,
   columnGrid: ColumnGrid,
+  curatedStories: CuratedStories,
   rowThreeColumns: RowThreeColumns,
   rowTwoColumns: RowTwoColumns,
   section: Section,
@@ -99,6 +102,7 @@ const ComponentList = {
   oodLandingPage: OodLandingPage,
   oodStory: OodStory,
   oodStoryCard: OodStoryCard,
+  storyPicker: StoryPicker,
   oodSupportPage: OodSupportPage,
   gridThreeColumns: GridThreeColumns,
 }

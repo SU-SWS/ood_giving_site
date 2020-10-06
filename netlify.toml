@@ -28,9 +28,8 @@
   # required config
   checkPaths = ['/'] # you can give an array of directories or paths to html files, that you want to run a11y checks on
 
-  # # optional config
-  # ignoreDirectories = ['/admin']  # explicitly ignore these directories
-
+  ## optional config
+  ignoreDirectories = ['/editor']  # explicitly ignore these directories
   resultMode = "warn" # is "error" by default
 
 # PLUGIN GATSBY CACHE

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+// Common styles shared between more than 1 card types
+
+.ood-tile-card,
+.ood-icon-card,
+.ood-support-card,
+.ood-story-card,
+.ood-basic-card,
+.ood-quote-card {
+  position: relative;
+  display: block;
+}
+
+.ood-tile-card,
+.ood-story-card {
+  &__link {
+    display: block;
+    border-width: 1px;
+    border-style: solid;
+    text-decoration: none;
+    height: 100%;
+    transition: color 0.25s ease-in;
+    box-shadow: $ood-shadow--shallow;
+    color: transparent;
+
+    &:hover,
+    &:focus {
+      color: transparent;
+    }
+  }
+}
+
+.ood-tile-card,
+.ood-basic-card {
+  &__superhead {
+    @include ood-superhead;
+  }
+}

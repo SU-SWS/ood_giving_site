@@ -1,23 +1,22 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import SbEditable from 'storyblok-react'
 import RichTextField from '../../utilities/richTextField'
 import Components from "../components"
 import transformImage from '../../utilities/transformImage'
 
 const OodPoster = (props) => {
-  let processedImg = "";
-  if (props.blok.image.filename) {
-    processedImg = transformImage(props.blok.image.filename, "/2000x0");
-  }
+  const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h3";
+  let processedImg;
+  processedImg = transformImage(props.blok.image.filename, "/2000x0");
 
   return (
     <SbEditable content={props.blok}>
       <div className={`ood-poster su-bg-${props.blok.backgroundColor}`
       }>
-        {props.blok.image.filename && (
+        {props.blok.image.filename != null && (
           <figure className={`su-hero__media ood-poster__media ${props.blok.overlay && (props.blok.overlay)}`}>
-            <img src={processedImg} alt=""
+            <img src={processedImg}
+                 alt={props.blok.image.alt ? props.blok.image.alt : ""}
                  className={`ood-poster__image su-obj-position-h-center-v-${props.blok.visibleVertical}`}
             />
           </figure>
@@ -32,7 +31,7 @@ const OodPoster = (props) => {
                  ${(props.blok.cardBackgroundColor !== "white" && props.blok.cardBackgroundColor !== "fog-light") ? "su-text-white" : ""}`
               }>
                 {props.blok.headline && (
-                  <h2 className="ood-poster__headline su-semibold">{props.blok.headline}</h2>
+                  <Heading className="ood-poster__headline su-semibold">{props.blok.headline}</Heading>
                 )}
                 {props.blok.bodyText &&
                   <div className="ood-poster__text">

@@ -8,23 +8,26 @@
   &__media {
     position: absolute;
     right: -8rem; // image overhang
-    width: 36rem;
-    max-width: 36rem;
+    width: 30rem;
+    max-width: 30rem;
     align-self: center;
+
+    @include grid-media-between('sm', 'lg') {
+      width: 24vw;
+      max-width: 24vw;
+    }
   }
 
   &__content {
-    @include modular-spacing('padding', 3);
+    @include modular-spacing('padding', 4 3);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 46rem;
   }
 
   &__quote {
-    @include margin(0 0 1em);
-    @include padding(50px null null);
-    @include modular-typography(2);
+    @include margin(0);
+    @include padding(1.3em null null);
     line-height: $su-base-line-height;
 
     &::before {
@@ -38,11 +41,15 @@
     }
   }
 
-  &__name,
-  &__bio {
+  &__source {
     @include margin(null null 0);
     @include modular-typography(1);
-    color: $su-color-cool-grey-75;
+
+    > div {
+      > *:last-child {
+        @include margin(null null 0); // Last paragraph in WYSIWYG
+      }
+    }
   }
 
   // Styles for version showing image
@@ -50,7 +57,14 @@
     @include margin(null 8rem null null);
 
     .ood-quote-card__content {
-      width: calc(100% - 36rem + 8rem); // 100% minus the image width but add back the overhang amount
+      width: calc(100% - 30rem + 8rem); // 100% minus the image width but add back the overhang amount
+      min-height: 42rem;
+    }
+
+    @include grid-media-between('sm', 'lg') {
+      .ood-quote-card__content {
+        width: calc(100% - 24vw + 8rem); // 100% minus the image width but add back the overhang amount
+      }
     }
   }
 }
