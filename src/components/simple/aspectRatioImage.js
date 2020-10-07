@@ -5,18 +5,18 @@ import transformImage from '../../utilities/transformImage'
 const AspectRatioImage = (props) => {
   let processedImg = "";
 
-  if (props.blok.image.filename != null) {
+  if (props.filename != null) {
     if (props.imageSize === "card") {
-      processedImg = transformImage(props.blok.image.filename, "/600x0");
+      processedImg = transformImage(props.filename, "/600x0");
     }
     else if (props.imageSize === "thumbnail") {
-      processedImg = transformImage(props.blok.image.filename, "/400x0");
+      processedImg = transformImage(props.filename, "/400x0");
     }
-    else if (props.imageSize === "header" || props.imageSize === "h-card") {
-      processedImg = transformImage(props.blok.image.filename, "/1000x0");
+    else if (props.imageSize === "header" || props.imageSize === "horizontal-card") {
+      processedImg = transformImage(props.filename, "/800x0");
     }
     else {
-      processedImg = transformImage(props.blok.image.filename, "/1200x0");
+      processedImg = transformImage(props.filename, "/1200x0");
     }
   }
 
@@ -28,7 +28,7 @@ const AspectRatioImage = (props) => {
                ${props.classPrefix ? `${props.classPrefix}__image` : ""}
                su-obj-position-h-${props.blok.visibleHorizontal}-v-${props.blok.visibleVertical}`}
                src={processedImg}
-               alt={props.blok.image.alt ? props.blok.image.alt : ""}
+               alt={props.alt ? props.alt : ""}
           />
         </div>
       </figure>

@@ -22,6 +22,8 @@ const BasicCard = (props) => {
         {(props.blok.image.filename != null && props.blok.showImage === true) && (
           <AspectRatioImage
             {...props}
+            filename={props.blok.image.filename}
+            alt={props.blok.image.alt}
             classPrefix={"ood-basic-card"}
             imageSize={"card"}
             aspectRatio={props.blok.imageAspectRatio}
