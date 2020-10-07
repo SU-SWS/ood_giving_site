@@ -51,8 +51,12 @@ class Accordion extends React.Component {
           {props.blok.title &&
             <h2 className={`ood-accordion__heading su-serif`}>{props.blok.title}</h2>
           }
-          <button className="su-accordion__collapse-all su-button ood-cta__button--secondary" onClick={this.collapseAll}>Collapse all -</button>
-          <button className="su-accordion__expand-all su-button ood-cta__button--secondary" onClick={this.expandAll}>Expand all +</button>
+          {props.blok.accordionItems.length > 1 &&
+            <>
+            <button className="su-accordion__collapse-all su-button ood-cta__button--secondary" onClick={this.collapseAll}>Collapse all -</button>
+            <button className="su-accordion__expand-all su-button ood-cta__button--secondary" onClick={this.expandAll}>Expand all +</button>
+            </>
+          }
           <ul className="su-accordion__list ood-accordion__list su-border-color-palo-alto-light">
             {props.blok.accordionItems && props.blok.accordionItems.map((blok, index) =>
               React.createElement(Components(blok.component), { key: blok._uid, blok: blok, ref: this.accordionItems[index]})
