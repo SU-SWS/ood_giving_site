@@ -1,6 +1,7 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
 import Components from '../components.js'
+import AspectRatioImage from '../simple/aspectRatioImage'
 import RichTextField from '../../utilities/richTextField'
 
 const BasicCard = (props) => {
@@ -18,13 +19,16 @@ const BasicCard = (props) => {
                ${(props.blok.image.filename != null && props.blok.showImage === true) ? "ood-basic-card--has-image" : "ood-basic-card--no-image"}
                ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : ""}`
       }>
-          {(props.blok.image.filename != null && props.blok.showImage === true) && (
-            <figure className={`su-media ood-basic-card__media`}>
-              <div className={`su-media__wrapper su-aspect-ratio--${props.blok.imageAspectRatio}`}>
-                <img className="ood-basic-card__image" src={props.blok.image.filename} alt="" />
-              </div>
-            </figure>
-          )}
+        {(props.blok.image.filename != null && props.blok.showImage === true) && (
+          <AspectRatioImage
+            {...props}
+            filename={props.blok.image.filename}
+            alt={props.blok.image.alt}
+            classPrefix={"ood-basic-card"}
+            imageSize={"card"}
+            aspectRatio={props.blok.imageAspectRatio}
+          />
+        )}
         <section className={`ood-basic-card__contents su-mx-auto
                  ${((props.blok.image.filename == null || props.blok.showImage === false) && props.blok.largeCardPadding === true)
                  ? "su-pt-5" : "su-pt-2"}

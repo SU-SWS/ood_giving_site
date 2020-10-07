@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from "gatsby"
 import SbEditable from 'storyblok-react'
+import AspectRatioImage from "../simple/aspectRatioImage"
 
 const OodStoryCard = (props) => {
   const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h3";
@@ -8,11 +9,14 @@ const OodStoryCard = (props) => {
   const StoryCardContent = (props) => (
     <SbEditable content={props.blok}>
       {(props.blok.image.filename != null && props.blok.showImage === true) && (
-        <figure className={`su-media ood-story-card__media`}>
-          <div className={`su-media__wrapper su-aspect-ratio--3x2`}>
-            <img className="ood-story-card__image" src={props.blok.image.filename} alt={props.blok.image.alt ? props.blok.image.alt : ""} />
-          </div>
-        </figure>
+        <AspectRatioImage
+          {...props}
+          filename={props.blok.image.filename}
+          alt={props.blok.image.alt}
+          classPrefix={"ood-story-card"}
+          imageSize={`${props.blok.orientation ? `${props.blok.orientation}-card` : "card"}`}
+          aspectRatio={"3x2"}
+        />
       )}
       <section className={`ood-story-card__contents su-mx-auto ood-has-tab-before su-px-2 su-pb-5`}>
         {props.blok.headline && (
