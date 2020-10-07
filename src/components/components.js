@@ -36,6 +36,7 @@ import OodMegaMenuLinkGroup from './navigation/oodMegaMenuLinkGroup'
 // Layout Components
 import ColumnGrid from './layout/columnGrid'
 import CuratedStories from './layout/curatedStories'
+import RowOneColumn from './layout/rowOneColumn'
 import RowTwoColumns from './layout/rowTwoColumns'
 import RowThreeColumns from './layout/rowThreeColumns'
 import GridThreeColumns from './layout/gridThreeColumns'
@@ -71,6 +72,7 @@ const ComponentList = {
   curatedStories: CuratedStories,
   rowThreeColumns: RowThreeColumns,
   rowTwoColumns: RowTwoColumns,
+  rowOneColumn: RowOneColumn,
   section: Section,
   singleColumnContent: SingleColumnContent,
   globalFooter: GlobalFooter,
