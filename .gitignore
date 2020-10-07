@@ -65,11 +65,14 @@ public
 yarn-error.log
 .pnp/
 .pnp.js
+
 # Yarn Integrity file
 .yarn-integrity
 
-.idea/
-components.89985.json
-
 # Local Netlify folder
 .netlify
+
+# Editors
+.vscode
+.idea/
+components.89985.json

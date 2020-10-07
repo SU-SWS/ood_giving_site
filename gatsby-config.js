@@ -39,7 +39,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: [`/editor/*`],
+        exclude: [
+          `/editor/*`,
+          `/editor/`,
+          `/editor`,
+          `/global-components/*`,
+          `/global-components`,
+        ],
       }
     },
     {

@@ -16,6 +16,9 @@ const StoryImage = (props) => {
     else if (props.blok.imageWidth === "su-w-story") {
       processedImg = transformImage(props.blok.image.filename, "/1000x0");
     }
+    else if (props.blok.imageWidth === "fit-container") {
+      processedImg = transformImage(props.blok.image.filename, "/1200x0");
+    }
     else {
       processedImg = transformImage(props.blok.image.filename, "/800x0");
     }

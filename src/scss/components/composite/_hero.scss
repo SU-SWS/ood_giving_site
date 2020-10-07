@@ -19,7 +19,7 @@
   &__image {
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: top;
   }
 
   &__content {
@@ -90,9 +90,4 @@
       background-color: $su-color-white;
     }
   }
-
-  .su-media__caption {
-    //position: relative;
-  }
-
 }

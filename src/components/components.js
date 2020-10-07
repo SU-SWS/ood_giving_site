@@ -47,6 +47,7 @@ import OodLandingPage from './page-types/oodLandingPage'
 import OodStory from './page-types/oodStory'
 import OodSupportPage from './page-types/oodSupportPage'
 // Simple Components
+import AspectRatioImage from './simple/aspectRatioImage'
 import CtaLink from './simple/ctaLink'
 import EmbedScript from './simple/embedScript'
 import StoryImage from './simple/storyImage'
@@ -58,6 +59,7 @@ import AccordionItem from './composite/accordionItem'
 
 const ComponentList = {
   page: Page,
+  aspectRatioImage: AspectRatioImage,
   embedScript: EmbedScript,
   simpleWysiwyg: SimpleWysiwyg,
   storyImage: StoryImage,
