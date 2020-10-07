@@ -4,6 +4,7 @@
 
 .ood-basic-card {
   @include margin(null auto);
+  width: 100%;
   border-width: 1px;
   border-style: solid;
 
