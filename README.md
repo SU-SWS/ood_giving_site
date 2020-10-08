@@ -62,3 +62,25 @@ Contribution / Collaboration
 ---
 
 You are welcome to contribute functionality, bug fixes, or documentation to this module. If you would like to suggest a fix or new functionality you may add a new issue to the GitHub issue queue or you may fork this repository and submit a pull request. For more help please see [GitHub's article on fork, branch, and pull requests](https://help.github.com/articles/using-pull-requests)
+
+### Component Organization in This Repo
+
+#### Partials
+
+Deciding when a component belongs in the Partials folder: This folder includes components that represent part of a page,
+like 'Below Content' or 'Footer'. 'Below content' could belong to just one page-type component, or it could be used by several.
+The Footer component is a partial because it is included into each page-type component. The footer component includes
+the local and global footer (with settings) and places them on the page.
+
+#### View Modes for Components
+
+When a certain component type has multiple "view modes", like a full-page view mode and a card or feature view mode,
+then it should have several components associated with it. Here are a few standards about this approach:
+
+PrimaryComponent: should have the switch logic to include the view mode components
+Example viewmode components: PrimaryComponentFullView  PrimaryComponentCardView  PrimaryComponentTeaserView
+
+* Each "viewmode" component should be in it's own component file.
+* These "viewmode" components should end with 'View' so it's like OodInteriorPageCardView or OodInteriorPageView, and contain the type of viewmode: like 'Full' 'Card' or 'Feature'.
+We use 'Full' instead of 'Page' for the full page viewmode because some component types include the word 'page' in their name already.
+For example, "OodInteriorPageFullView" and "OodInteriorPageCardView"
