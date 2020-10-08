@@ -18,11 +18,6 @@
     X-XSS-Protection = "1; mode=block"
     Basic-Auth = "adapt:letmein2020"
 
-[[headers]]
-  for = "/stories/*"
-  [headers.values]
-    x-test-header = "foobar"
-
 # PLUGIN A11Y
 # https://github.com/netlify-labs/netlify-plugin-a11y#readme
 # ##############################################################################
@@ -61,7 +56,7 @@
 
 # REDIRECTS
 # ###############################################################################
-[[redirects]]
-  from = "/test"
-  to = "/stories/a-win-win-solution/"
-  status = 301
+# [[redirects]]
+#   from = "/test"
+#   to = "/stories/a-win-win-solution/"
+#   status = 301
