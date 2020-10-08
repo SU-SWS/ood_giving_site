@@ -44,6 +44,7 @@
   &__source {
     @include margin(null null 0);
     @include modular-typography(1);
+    max-width: 55rem;
 
     > div {
       > *:last-child {
