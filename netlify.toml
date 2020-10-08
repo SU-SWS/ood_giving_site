@@ -16,7 +16,7 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
-    Basic-Auth = "giving:letmeout2020"
+    Basic-Auth = "adapt:letmein2020"
 
 [[headers]]
   for = "/stories/*"
