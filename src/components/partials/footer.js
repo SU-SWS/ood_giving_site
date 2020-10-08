@@ -2,6 +2,8 @@ import React from "react";
 import SbEditable from "storyblok-react";
 import Components from "../components";
 
+// The footer component is referenced and used in all page-type components.
+
 const Footer = (props) => (
   <SbEditable content={props.blok}>
     <footer>

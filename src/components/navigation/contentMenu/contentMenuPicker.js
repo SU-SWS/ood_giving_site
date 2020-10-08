@@ -1,6 +1,6 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import Components from "../components";
+import Components from "../../components";
 
 const ContentMenuPicker = (props) => {
   return (
