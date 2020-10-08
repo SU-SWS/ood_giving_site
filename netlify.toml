@@ -1,10 +1,3 @@
-# HEADERS - BASIC AUTH
-# ##############################################################################
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Authorization = 'Basic YWRhcHQ6bGV0bWVpbjIwMjA='
-
 # BUILD Settings:
 # ##############################################################################
 [build]
@@ -15,6 +8,20 @@
   publish = "public"
   port = 64946
   autolaunch = true
+
+# HEADERS - BASIC AUTH
+# ##############################################################################
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Authorization = "Basic YWRhcHQ6bGV0bWVpbjIwMjA="
+
+[[headers]]
+  for = "/stories/*"
+  [headers.values]
+    x-test-header = "foobar"
 
 # PLUGIN A11Y
 # https://github.com/netlify-labs/netlify-plugin-a11y#readme
@@ -51,3 +58,10 @@
   #   best-practices = 0.9
   #   seo = 0.9
   #   pwa = 0.9
+
+# REDIRECTS
+# ###############################################################################
+[[redirects]]
+  from = "/test"
+  to = "/stories/a-win-win-solution/"
+  status = 301
