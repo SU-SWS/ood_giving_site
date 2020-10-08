@@ -16,7 +16,7 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
-    Basic-Auth = "adapt:letmein2020"
+    Authorization = 'Basic YWRhcHQ6bGV0bWVpbjIwMjA='
 
 # PLUGIN A11Y
 # https://github.com/netlify-labs/netlify-plugin-a11y#readme
