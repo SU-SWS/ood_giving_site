@@ -1,7 +1,7 @@
 import SbEditable from "storyblok-react";
 import RichTextField from "../../utilities/richTextField";
 import React from "react";
-import AspectRatioImage from "../simple/aspectRatioImage"
+import AspectRatioImage from "../media/aspectRatioImage"
 
 /*
 *
