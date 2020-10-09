@@ -3,7 +3,6 @@
 // Styles for Single Column WYSIWYG Content with different content width options
 
 .ood-single-column-content {
-  &,
   &__wrapper {
     @include margin(null auto);
     > div {

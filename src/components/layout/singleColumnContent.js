@@ -4,7 +4,8 @@ import RichTextField from '../../utilities/richTextField'
 
 const SingleColumnContent = (props) => (
   <SbEditable content={props.blok}>
-    <div className={`ood-single-column-content su-bg-${props.blok.backgroundColor}
+    <div className={`ood-single-column-content
+                   ${props.blok.backgroundColor !== "" ? `su-bg-${props.blok.backgroundColor}` : ""}
                    ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
                    ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}
     `}>
