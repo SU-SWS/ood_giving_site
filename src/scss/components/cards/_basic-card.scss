@@ -79,6 +79,7 @@
   // Horizontal card with image
   &.ood-basic-card--has-image {
     @include margin(null null null 8rem);
+    width: auto;
 
     .ood-basic-card__media {
       position: absolute;
