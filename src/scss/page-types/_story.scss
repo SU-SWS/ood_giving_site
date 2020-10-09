@@ -113,6 +113,12 @@
       display: block;
     }
   }
+
+  &__main-footer {
+    .ood-cta {
+      @include margin(null null 1.6em);
+    }
+  }
 }
 
 // Story Image Component

@@ -66,6 +66,10 @@ const OodStory = (props) => {
               {(props.blok.author || publishedDate) &&
                 <div className="centered-container flex-container">
                   <div className="flex-lg-8-of-12 su-mx-auto">
+                    {props.blok.cta && props.blok.cta.map((blok) => React.createElement(Components(blok.component), {
+                      key: blok._uid,
+                      blok: blok
+                    }))}
                     <div className="ood-story__metadata su-pb-5">
                       {props.blok.author &&
                         <>
