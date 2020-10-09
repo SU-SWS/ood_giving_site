@@ -8,7 +8,7 @@ const SingleColumnContent = (props) => (
                    ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
                    ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}
     `}>
-      <div id={props.blok.id} className={`centered-container flex-container`}>
+      <div id={props.blok.id} className={`${props.blok.contentWidth !== "fit-container" ? "centered-container" : ""} flex-container`}>
         <div className={`ood-single-column-content__wrapper ${props.blok.contentWidth}`}>
           <RichTextField data={props.blok.content}/>
         </div>
