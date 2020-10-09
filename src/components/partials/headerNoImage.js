@@ -2,11 +2,7 @@ import React from "react";
 import SbEditable from "storyblok-react";
 import RichTextField from "../../utilities/richTextField";
 
-/*
-*
-** The Header No Image component is referenced by the Interior Page and Support page types.
-*
-*/
+/* The Header No Image component is referenced by the Interior Page and Support page types. */
 
 const HeaderNoImage = (props) => (
   <SbEditable content={props.blok}>

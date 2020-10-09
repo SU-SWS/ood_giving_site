@@ -2,11 +2,7 @@ import SbEditable from "storyblok-react";
 import React from "react";
 import Components from "../components"
 
-/*
-*
-** The BelowContent component is referenced by the Interior Page and Support page types.
-*
-*/
+/* The BelowContent component is referenced by the Interior Page and Support page types. */
 
 const BelowContent = (props) => (
   <SbEditable content={props.blok}>
