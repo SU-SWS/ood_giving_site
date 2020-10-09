@@ -3,10 +3,8 @@ import SbEditable from "storyblok-react";
 import Components from "../components";
 
 /*
-*
 ** The footer component is referenced and used in all page-type components.
 ** It incorporates the local footer and global footer, based on page settings.
-*
 */
 
 const Footer = (props) => (

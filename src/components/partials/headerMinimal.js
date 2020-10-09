@@ -1,11 +1,7 @@
 import SbEditable from "storyblok-react";
 import React from "react";
 
-/*
-*
-** The Header Minimal component is referenced by the Interior Page type.
-*
-*/
+/* The Header Minimal component is referenced by the Interior Page type. */
 
 const HeaderMinimal = (props) => (
   <SbEditable content={props.blok}>

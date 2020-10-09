@@ -2,11 +2,7 @@ import SbEditable from "storyblok-react";
 import React from "react";
 import Components from "../components";
 
-/*
-*
-** The BodyLeftSidebar component is referenced by the Interior Page type.
-*
-*/
+/* The BodyLeftSidebar component is referenced by the Interior Page type.  */
 
 const BodyLeftSidebar = (props) => (
   <SbEditable content={props.blok}>
