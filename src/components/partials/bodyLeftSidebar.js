@@ -2,6 +2,12 @@ import SbEditable from "storyblok-react";
 import React from "react";
 import Components from "../components";
 
+/*
+*
+** The BodyLeftSidebar component is referenced by the Interior Page type.
+*
+*/
+
 const BodyLeftSidebar = (props) => (
   <SbEditable content={props.blok}>
     <aside className="ood-interior-page__body-sidebar flex-lg-4-of-12 flex-xl-3-of-12">
