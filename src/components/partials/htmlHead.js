@@ -1,5 +1,13 @@
 import React from 'react'
 
+/*
+*
+** The HtmlHead component is included into the html.js file, to always be loaded.
+* The purpose of this file is to provide a default Title value,
+* ensure that favicons are provided from Stanford's media source,
+*
+*/
+
 const HtmlHead = (props) => {
   return (
     <>
