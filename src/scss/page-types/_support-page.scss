@@ -5,6 +5,10 @@
 
 .ood-support-page {
   &__filter-container {
+    @include grid-media('md') {
+      text-align: center;
+    }
+
     .ood-support-card {
       position: relative;
       left: 0;
@@ -16,8 +20,8 @@
     }
 
     label {
-      @include padding(0.7em 0.2em);
-      @include margin(null null 1em);
+      @include padding(0.7em 1.4em);
+      @include margin(null 0.4em 1em);
       font-size: 0.9em;
       display: inline-block;
       border: 1px solid $su-color-palo-alto-dark;
@@ -38,7 +42,8 @@
       }
 
       @include grid-media-max('sm') {
-        @include margin(null 2% null null);
+        @include padding(0.7em 0.2em);
+        @include margin(null 2% null 0);
         width: 49%;
 
         &:nth-of-type(2n) {
@@ -46,32 +51,8 @@
         }
       }
 
-      @include grid-media-only('md') {
-        @include margin(null 2% null null);
-        width: 32%;
-
-        &:nth-of-type(3n) {
-          @include margin(null 0 null null);
-        }
-      }
-
-      @include grid-media-between('lg', 'xl') {
-        @include margin(null 1.33% null null);
-        width: 24%;
-
-        &:nth-of-type(4n) {
-          @include margin(null 0 null null);
-        }
-      }
-
-      @include grid-media-only('2xl') {
-        @include margin(null 1.25% null null);
-        font-size: 1em;
-        width: 19%;
-
-        &:nth-of-type(5n) {
-          @include margin(null 0 null null);
-        }
+      @include grid-media('xl') {
+        font-size: 2rem;
       }
     }
 
@@ -93,6 +74,7 @@
         }
       }
 
+      &[id="all"]:checked ~ div article:not([data-areas-to-support*="all"]),
       &[id="undergraduate"]:checked ~ div article:not([data-areas-to-support*="undergraduate"]),
       &[id="grad"]:checked ~ div article:not([data-areas-to-support*="grad-education"]),
       &[id="arts"]:checked ~ div article:not([data-areas-to-support*="arts"]),

@@ -49,7 +49,9 @@ const OodSupportPage = (props) => {
                 <label htmlFor="science">Science + Technology</label>
                 <input type="radio" id="sustainability" name="areas-to-support"/>
                 <label htmlFor="sustainability">Sustainability</label>
-                <div className={`grid-3-column su-my-7`}>
+                <input type="radio" id="all" name="areas-to-support" defaultChecked />
+                <label htmlFor="all">All</label>
+                <div className={`grid-3-column su-mt-6 su-mb-4`}>
                   {props.blok.undergraduate && props.blok.undergraduate.map((blok) => React.createElement(Components(blok.component), {
                     key: blok._uid,
                     blok: blok
