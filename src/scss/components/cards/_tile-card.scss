@@ -87,8 +87,6 @@
 }
 
 .ood-tile-card__link {
-  transition: box-shadow 0.3s ease-in;
-
   // All cards with light background + black text will have black hover/focus text colors
 
   .ood-tile-card__headline,
@@ -98,8 +96,6 @@
 
   &:hover,
   &:focus {
-    @include box-shadow('medium', 0);
-
     .ood-tile-card__headline {
       color: $su-color-black;
       text-decoration: underline;
