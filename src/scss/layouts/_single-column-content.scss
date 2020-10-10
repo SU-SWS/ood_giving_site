@@ -4,7 +4,6 @@
 
 .ood-single-column-content {
   &__wrapper {
-    @include margin(null auto);
     width: 100%;
     overflow-wrap: break-word;
 

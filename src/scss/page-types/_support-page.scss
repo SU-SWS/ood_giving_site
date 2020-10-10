@@ -24,15 +24,17 @@
       @include margin(null 0.4em 1em);
       font-size: 0.9em;
       display: inline-block;
-      border: 1px solid $su-color-palo-alto-dark;
-      color: $su-color-palo-alto-dark;
+      background-color: $su-color-white;
+      color: $su-color-bay-dark;
+      box-shadow: inset 0 0 0 1px $su-color-bay-dark;
       text-align: center;
       cursor: pointer;
       transition: color 0.25s ease-out, background-color 0.25s ease-out;
 
       &:hover,
       &:focus {
-        background-color: $su-color-white;
+        background-color: $su-color-bay-dark;
+        color: $su-color-white;
         text-decoration: underline;
       }
 
