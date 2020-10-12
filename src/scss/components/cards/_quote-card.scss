@@ -7,7 +7,7 @@
 
   &__media {
     position: absolute;
-    right: -8rem; // image overhang
+    right: #{-$card-overhang};
     width: 30rem;
     max-width: 30rem;
     align-self: center;
@@ -55,16 +55,16 @@
 
   // Styles for version showing image
   &--has-image {
-    @include margin(null 8rem null null);
+    @include margin(null $card-overhang null null);
 
     .ood-quote-card__content {
-      width: calc(100% - 30rem + 8rem); // 100% minus the image width but add back the overhang amount
+      width: calc(100% - 30rem + #{$card-overhang}); // 100% minus the image width but add back the overhang amount
       min-height: 42rem;
     }
 
     @include grid-media-between('sm', 'lg') {
       .ood-quote-card__content {
-        width: calc(100% - 24vw + 8rem); // 100% minus the image width but add back the overhang amount
+        width: calc(100% - 24vw + #{$card-overhang}); // 100% minus the image width but add back the overhang amount
       }
     }
   }

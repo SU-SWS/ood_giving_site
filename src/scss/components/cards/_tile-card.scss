@@ -43,10 +43,10 @@
 
   &--has-image {
     @include grid-media('sm') {
-      border-top: 8rem solid transparent; // The transparent border compensate for the 80px image overhang
+      border-top: #{$card-overhang} solid transparent;
 
       .su-media {
-        @include margin(-8rem null null); // Image overhang
+        @include margin(#{-$card-overhang} null null);
         @include modular-spacing('margin', null 2);
       }
     }

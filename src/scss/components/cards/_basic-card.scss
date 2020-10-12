@@ -14,10 +14,10 @@
 
   &--has-image {
     &:not(.ood-basic-card--horizontal) {
-      @include margin(8rem null null); // Same rem value to offset image overhang below
+      @include margin($card-overhang null null); // Same rem value to offset image overhang below
 
       .su-media {
-        @include margin(-8rem null null); // Image overhang
+        @include margin(#{-$card-overhang} null null); // Image overhang
       }
     }
   }
@@ -83,14 +83,14 @@
 
     .ood-basic-card__media {
       position: absolute;
-      left: -8rem; // image overhang
+      left: #{-$card-overhang}; // image overhang
       width: 20rem;
       max-width: 20rem;
     }
 
     .ood-basic-card__contents {
       @include margin(null 0 null null);
-      width: calc(100% - 20rem + 8rem);
+      width: calc(100% - 20rem + #{$card-overhang});
     }
 
     // Horizontal card with image and the large padding option
@@ -107,7 +107,7 @@
       }
 
       .ood-basic-card__contents {
-        width: calc(100% - 10rem + 8rem);
+        width: calc(100% - 10rem + #{$card-overhang});
       }
 
       &.su-pt-5 {

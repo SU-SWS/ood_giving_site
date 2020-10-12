@@ -14,6 +14,20 @@
 }
 
 .ood-tile-card,
+.ood-icon-card,
+.ood-support-card,
+.ood-story-card {
+  &__headline {
+    // External link icon
+    &::after {
+      @include margin(null null null 0.3em);
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+.ood-tile-card,
 .ood-story-card {
   &__link {
     display: block;

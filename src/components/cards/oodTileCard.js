@@ -19,7 +19,8 @@ const OodTileCard = (props) => {
           <span className="ood-tile-card__superhead su-uppercase su-bold">{props.blok.superheadline}</span>
         )}
         {props.blok.headline && (
-          <Heading className="ood-tile-card__headline su-semibold">{props.blok.headline}</Heading>
+          <Heading className={`ood-tile-card__headline su-semibold
+                   ${props.blok.link.linktype === "url" ? "su-link--external" : ""}`}>{props.blok.headline}</Heading>
         )}
       </section>
     </SbEditable>
@@ -40,7 +41,7 @@ const OodTileCard = (props) => {
           </Link>
         }
         {props.blok.link.linktype === "url" &&
-          <a href={props.blok.link.url} className={`ood-tile-card__link su-link--external su-bg-${props.blok.backgroundColor}`}>
+          <a href={props.blok.link.url} className={`ood-tile-card__link su-bg-${props.blok.backgroundColor}`}>
             <TileCardContent {...props}/>
           </a>
         }
