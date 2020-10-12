@@ -12,9 +12,11 @@
     border: 1px solid $su-color-black-10; // Only white cards have a different colored grey border
   }
 
+  // Vertical cards with image
   &--has-image {
     &:not(.ood-basic-card--horizontal) {
       @include margin($card-overhang null null); // Same rem value to offset image overhang below
+      height: auto;
 
       .su-media {
         @include margin(#{-$card-overhang} null null); // Image overhang
