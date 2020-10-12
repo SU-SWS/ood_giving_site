@@ -77,9 +77,8 @@
   }
 
   &__cta-headline {
-    @include modular-typography(4);
+    @include modular-typography(3);
     @include margin(null null 0.6em);
-    font-weight: $su-font-regular;
   }
 
   &__cta-text {

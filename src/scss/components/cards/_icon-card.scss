@@ -6,34 +6,40 @@
   width: 100%;
   background-color: transparent;
 
-  &__media {
-    @include modular-spacing('padding', 4 3 null);
-  }
-
   &__icon {
     font-size: 2em;
   }
 
-  .su-card__contents {
-    > .ood-icon-card__headline {
-      @include modular-typography(2);
-      letter-spacing: -0.016em;
+  &__headline {
+    @include modular-typography(2);
+    letter-spacing: -0.016em;
 
-      @include grid-media('xl') {
-        @include modular-typography(3);
-      }
+    @include grid-media('xl') {
+      @include modular-typography(3);
     }
   }
 
   &__contents {
-    @include modular-spacing("padding", 4 3);
-
-    @include grid-media('md') {
-      min-height: 18rem;
-    }
+    @include modular-spacing('margin', 1 null null);
   }
 
-  > a {
-    height: 100%;
+  &__link {
+    @include modular-spacing("padding", 4 3 5);
+
+    &:hover,
+    &:focus {
+      .ood-icon-card__headline {
+        text-decoration: underline;
+      }
+    }
+
+    &.su-bg-white {
+      &:hover,
+      &:focus {
+        .ood-icon-card__headline {
+          color: $su-color-digital-red;
+        }
+      }
+    }
   }
 }

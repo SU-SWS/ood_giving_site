@@ -10,7 +10,7 @@ const OodSupportCard = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <article className={`su-card--link ood-support-card su-text-white su-text-align-left`}
+      <article className={`ood-support-card su-text-white su-text-align-left`}
                data-areas-to-support={taxonomyString(props.blok.taxonomy)}>
         <a href={props.blok.link} rel="nofollow noopener" className={`ood-support-card__link su-bg-${props.blok.backgroundColor}`}>
           <section className="ood-support-card__contents">

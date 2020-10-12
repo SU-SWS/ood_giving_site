@@ -8,21 +8,28 @@
 
   &__contents {
     position: relative;
+    min-height: 20rem;
+    z-index: 100;
 
-    > .ood-support-card__headline {
-      @include modular-typography(3);
-      @include margin(null null 0);
-      letter-spacing: -0.016em;
+    @include grid-media('md') {
+      min-height: 26rem;
     }
+  }
+
+  &__headline {
+    @include modular-typography(3);
+    @include margin(null null 0);
+    letter-spacing: -0.016em;
   }
 
   &__icon {
     font-size: 3em;
   }
 
-  > a {
+  &__link {
     border-color: transparent;
 
+    // Darkened mask over whole card visible on hover/focus
     &::after {
       display: block;
       content: "";
@@ -61,15 +68,6 @@
 
     @include grid-media('2xl') {
       @include padding(6.1rem);
-    }
-  }
-
-  &__contents {
-    min-height: 20rem;
-    z-index: 100;
-
-    @include grid-media('md') {
-      min-height: 26rem;
     }
   }
 

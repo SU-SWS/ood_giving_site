@@ -31,6 +31,8 @@
 
   &__contents {
     @include padding(3rem);
+    position: relative;
+    z-index: 10;
 
     @include grid-media-between('md', 'lg') {
       min-height: 30rem;
@@ -47,6 +49,8 @@
     }
 
     .su-media {
+      z-index: 12;
+      position: relative;
       // Hide image for vertical cards at XS and SM breakpoint
       @include grid-media-max('sm') {
         display: none;
@@ -172,6 +176,26 @@
       .ood-tile-card__headline,
       .ood-tile-card__superhead {
         color: $su-color-white;
+      }
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0);
+      transition: background-color 0.25s ease-in;
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        background-color: rgba(0, 0, 0, 0.4);
       }
     }
   }
