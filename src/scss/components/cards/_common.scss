@@ -18,11 +18,13 @@
 .ood-support-card,
 .ood-story-card {
   &__headline {
+    @include padding(null 0.6em null null); // Padding right to offset the overflow of the right margin below
+
     // External link icon
     &::after {
-      @include margin(null null null 0.3em);
-      width: 14px;
-      height: 14px;
+      @include margin(null -0.6em null 0.24em); // Negative right margin to prevent icon from wrapping to 2nd line on its own
+      width: 0.36em;
+      height: 0.36em;
     }
   }
 }

@@ -17,6 +17,10 @@
     @include grid-media('xl') {
       @include modular-typography(3);
     }
+
+    &::after {
+      background-color: $su-color-white;
+    }
   }
 
   &__contents {
@@ -30,14 +34,29 @@
     &:focus {
       .ood-icon-card__headline {
         text-decoration: underline;
+
+        &::after {
+          color: $su-color-white;
+          transform: translate3d(0.15em, -0.15em, 0);
+        }
       }
     }
 
     &.su-bg-white {
+      .ood-icon-card__headline {
+        &::after {
+          background-color: $su-color-black;
+        }
+      }
+
       &:hover,
       &:focus {
         .ood-icon-card__headline {
           color: $su-color-digital-red;
+
+          &::after {
+            background-color: $su-color-digital-red;
+          }
         }
       }
     }
