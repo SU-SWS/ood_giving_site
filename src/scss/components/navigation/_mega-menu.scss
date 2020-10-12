@@ -124,6 +124,10 @@
     @include grid-media('2xl') {
       top: 154px;
     }
+
+    .ood-cta {
+      @include modular-spacing('margin', 0 null null);
+    }
   }
 
   &__link-group {
@@ -203,11 +207,6 @@
 
       &[aria-expanded="true"] + .su-main-nav__menu-lv1 {
         position: absolute;
-      }
-
-      // Toggle button variants
-      &--center {
-        @include margin(null auto);
       }
 
       &--right {
