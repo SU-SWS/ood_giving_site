@@ -142,6 +142,19 @@
     &-content {
       @include modular-spacing('padding', 1);
     }
+
+    &__link {
+      &:hover,
+      &:focus {
+        .ood-mega-nav__card-cta {
+          text-decoration: none;
+        }
+
+        .ood-mega-nav__card-headline {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 
   &__toggle {
