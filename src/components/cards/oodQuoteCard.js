@@ -1,6 +1,7 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
 import RichTextField from '../../utilities/richTextField'
+import AspectRatioImage from "../simple/aspectRatioImage"
 
 const OodQuoteCard = (props) => (
   <SbEditable content={props.blok}>
@@ -24,14 +25,16 @@ const OodQuoteCard = (props) => (
         )}
       </div>
       {(props.blok.image.filename != null && props.blok.showImage === "has-image") && (
-        <figure className="su-media ood-quote-card__media">
-          <div className="su-media__wrapper su-aspect-ratio--1x1">
-            <img className={`ood-quote-card__img su-obj-position-${props.blok.visibleHorizontal}-${props.blok.visibleVertical}`}
-                 src={props.blok.image.filename}
-                 alt={props.blok.image.alt ? props.blok.image.alt : ""}
-            />
-          </div>
-        </figure>
+        <AspectRatioImage
+          {...props}
+          filename={props.blok.image.filename}
+          alt={props.blok.image.alt}
+          classPrefix={"ood-quote-card"}
+          imageSize={"thumbnail"}
+          aspectRatio={"1x1"}
+          visibleHorizontal={props.blok.visibleHorizontal}
+          visibleVertical={props.blok.visibleVertical}
+        />
       )}
     </article>
   </SbEditable>

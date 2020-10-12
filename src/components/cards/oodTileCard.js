@@ -40,7 +40,7 @@ const OodTileCard = (props) => {
           </Link>
         }
         {props.blok.link.linktype === "url" &&
-          <a href={props.blok.link.url} className={`ood-tile-card__link su-bg-${props.blok.backgroundColor}`}>
+          <a href={props.blok.link.url} className={`ood-tile-card__link su-link--external su-bg-${props.blok.backgroundColor}`}>
             <TileCardContent {...props}/>
           </a>
         }
