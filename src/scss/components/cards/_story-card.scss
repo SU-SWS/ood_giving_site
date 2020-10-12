@@ -35,10 +35,6 @@
     }
   }
 
-  &__image {
-    transition: transform 0.25s ease-in;
-  }
-
   &__headline {
     @include modular-spacing('margin', 2 null null);
     @include margin(null null 0.6em);
@@ -56,10 +52,6 @@
       .ood-story-card__headline {
         color: $su-color-digital-red;
         text-decoration: underline;
-      }
-
-      .ood-story-card__image {
-        transform: scale($card-image-zoom);
       }
     }
   }

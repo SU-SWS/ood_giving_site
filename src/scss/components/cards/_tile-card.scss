@@ -16,23 +16,11 @@
     }
   }
 
-  &__contents {
-    @include modular-spacing('padding', 2);
-
-    @include grid-media('md') {
-      min-height: 40rem;
-    }
-  }
-
   &__link {
     &:hover,
     &:focus {
       .ood-tile-card__headline {
         text-decoration: underline;
-      }
-
-      .ood-tile-card__image {
-        transform: scale(1.03);
       }
     }
 
@@ -41,38 +29,77 @@
     }
   }
 
-  &--has-image {
-    @include grid-media('sm') {
-      border-top: #{$card-overhang} solid transparent;
+  &__contents {
+    @include padding(3rem);
 
-      .su-media {
-        @include margin(#{-$card-overhang} null null);
-        @include modular-spacing('margin', null 2);
-      }
+    @include grid-media-between('md', 'lg') {
+      min-height: 30rem;
     }
 
-    // Hide image for vertical cards at XS breakpoint
-    @include grid-media-only('xs') {
-      .su-media {
+    @include grid-media('xl') {
+      min-height: 40rem;
+    }
+  }
+
+  &--has-image {
+    @include grid-media('md') {
+      border-top: #{$card-overhang} solid transparent;
+    }
+
+    .su-media {
+      // Hide image for vertical cards at XS and SM breakpoint
+      @include grid-media-max('sm') {
         display: none;
+      }
+
+      @include grid-media('md') {
+        @include margin(#{-$card-overhang} null null);
+      }
+
+      @include grid-media-only('md') {
+        @include margin(null 2rem);
+      }
+
+      @include grid-media('lg') {
+        @include margin(null 3.6rem);
+      }
+
+      @include grid-media('2xl') {
+        @include margin(null 3.8rem);
       }
     }
 
     .ood-tile-card__contents {
-      @include modular-spacing('padding', 2);
+      @include grid-media-only('md') {
+        @include padding(3rem 2rem);
+      }
+
+      @include grid-media('lg') {
+        @include padding(3.6rem);
+      }
+
+      @include grid-media('2xl') {
+        @include padding(3.8rem);
+      }
     }
   }
 
-  &__image {
-    transition: transform 0.25s ease-in;
-  }
-
   &--no-image {
-    // No image cards have bigger horizontal padding
 
-    @include grid-media('xl') {
-      .ood-tile-card__contents {
-        @include modular-spacing("padding", 4);
+    // No image cards have bigger horizontal padding
+    .ood-tile-card__contents {
+      @include padding(3rem);
+
+      @include grid-media-only('md') {
+        @include padding(3.6rem 2rem);
+      }
+
+      @include grid-media('lg') {
+        @include padding(4.5rem);
+      }
+
+      @include grid-media('2xl') {
+        @include padding(6.1rem);
       }
     }
 

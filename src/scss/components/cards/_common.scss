@@ -43,7 +43,15 @@
     &:focus {
       color: transparent;
       box-shadow: $ood-shadow--medium;
+
+      img {
+        transform: scale(1.03);
+      }
     }
+  }
+
+  &__image {
+    transition: transform 0.25s ease-in;
   }
 }
 
