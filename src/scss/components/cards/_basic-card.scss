@@ -58,6 +58,12 @@
         }
       }
     }
+
+    li {
+      p {
+        @include margin(null null 0.4em);
+      }
+    }
   }
 
   .ood-cta {
