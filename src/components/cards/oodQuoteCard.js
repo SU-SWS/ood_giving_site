@@ -19,7 +19,9 @@ const OodQuoteCard = (props) => (
           </blockquote>
         )}
         {props.blok.quoteSource && (
-          <div className="ood-quote-card__source su-semibold">
+          <div className={`ood-quote-card__source su-semibold
+                ${props.blok.textAlign === "center" ? "su-mx-auto" : ""}
+                ${props.blok.textAlign === "right" ? "su-mr-0 su-ml-auto" : ""}`}>
             <RichTextField data={props.blok.quoteSource} />
           </div>
         )}
