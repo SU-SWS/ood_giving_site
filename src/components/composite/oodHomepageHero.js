@@ -10,7 +10,9 @@ const OodHomepageHero = (props) => {
   const CtaBoxContent = (props) => (
     <SbEditable content={props.blok}>
       <h2 className={`ood-hero-home__cta-headline su-text-white su-semibold`}>{props.blok.ctaHeadline}</h2>
-      <p className={`ood-hero-home__cta-text su-link--action su-text-white su-text-align-left su-semibold su-ml-auto`}>{props.blok.ctaText}</p>
+      {props.blok.ctaText &&
+        <p className={`ood-hero-home__cta-text su-link--action su-text-white su-text-align-right su-semibold su-ml-auto`}>{props.blok.ctaText}</p>
+      }
     </SbEditable>
   );
 
