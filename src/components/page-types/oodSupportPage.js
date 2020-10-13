@@ -52,11 +52,11 @@ const OodSupportPage = (props) => {
                 <input type="radio" id="all" name="areas-to-support" defaultChecked />
                 <label htmlFor="all">All</label>
                 <div className={`grid-3-column su-mt-6 su-mb-4`}>
-                  {props.blok.undergraduate && props.blok.undergraduate.map((blok) => React.createElement(Components(blok.component), {
+                  {props.blok.graduate && props.blok.graduate.map((blok) => React.createElement(Components(blok.component), {
                     key: blok._uid,
                     blok: blok
                   }))}
-                  {props.blok.graduate && props.blok.graduate.map((blok) => React.createElement(Components(blok.component), {
+                  {props.blok.undergraduate && props.blok.undergraduate.map((blok) => React.createElement(Components(blok.component), {
                     key: blok._uid,
                     blok: blok
                   }))}
