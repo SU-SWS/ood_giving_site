@@ -20,6 +20,10 @@
     @include modular-typography(3);
     @include margin(null null 0);
     letter-spacing: -0.016em;
+
+    &::after {
+      background-color: $su-color-white;
+    }
   }
 
   &__icon {
@@ -69,6 +73,35 @@
     @include grid-media('2xl') {
       @include padding(6.1rem);
     }
+
+    &:hover,
+    &:focus {
+      .ood-support-card__headline {
+        &::after {
+          background-color: $su-color-white;
+          transform: translate3d(0.15em, -0.15em, 0);
+        }
+      }
+    }
+
+    &.su-bg-white {
+      .ood-support-card__headline {
+        &::after {
+          background-color: $su-color-black;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        .ood-support-card__headline {
+          color: $su-color-digital-red;
+
+          &::after {
+            background-color: $su-color-digital-red;
+          }
+        }
+      }
+    }
   }
 
   &__icon {
@@ -77,21 +110,5 @@
     right: 0;
     text-align: right;
     transition: font-size 0.25s ease-in;
-  }
-
-  // Overriding Decanter .su-card--link
-  &.su-card--link {
-    // All cards with dark background + white text will have white hover/focus text colors
-    &.su-text-white {
-      > a,
-      > a:hover,
-      > a:focus {
-        color: $su-color-white;
-
-        .ood-support-card__headline {
-          color: $su-color-white;
-        }
-      }
-    }
   }
 }
