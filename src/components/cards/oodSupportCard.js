@@ -12,7 +12,8 @@ const OodSupportCard = (props) => {
   const SupportCardContent = (props) => (
     <SbEditable content={props.blok}>
       <section className="ood-support-card__contents">
-        <Heading className="ood-support-card__headline su-semibold su-text-white">{props.blok.headline}</Heading>
+        <Heading className={`ood-support-card__headline su-semibold su-text-white
+                 ${props.blok.link.linktype === "url" ? "su-link--external" : ""}`}>{props.blok.headline}</Heading>
         <span aria-hidden="true"
               className={`ood-support-card__icon su-text-white
                   ${props.blok.iconStyle ? props.blok.iconStyle : props.blok.icon.type}
@@ -34,8 +35,8 @@ const OodSupportCard = (props) => {
             <SupportCardContent {...props}/>
           </Link>
         }
-        {props.blok.link.linktype === "url" &&
-          <a href={props.blok.link.url}
+        {(props.blok.link.linktype === "url" || props.blok.link.linktype === "asset") &&
+          <a href={props.blok.link.url ? props.blok.link.url : props.blok.link.cached_url}
              className={`ood-support-card__link su-bg-${props.blok.backgroundColor}`}>
             <SupportCardContent {...props}/>
           </a>
