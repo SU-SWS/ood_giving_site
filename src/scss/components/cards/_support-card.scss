@@ -8,24 +8,60 @@
 
   &__contents {
     position: relative;
+    min-height: 20rem;
+    z-index: 100;
 
-    > .ood-support-card__headline {
-      @include modular-typography(3);
-      @include margin(null null 0);
-      letter-spacing: -0.016em;
-    }
-
-    .ood-support-card__icon {
-      font-size: 3em;
+    @include grid-media('md') {
+      min-height: 26rem;
     }
   }
 
-  > a {
+  &__headline {
+    @include modular-typography(3);
+    @include margin(null null 0);
+    letter-spacing: -0.016em;
+
+    &::after {
+      background-color: $su-color-white;
+    }
+  }
+
+  &__icon {
+    font-size: 3em;
+  }
+
+  &__link {
     border-color: transparent;
+
+    // Darkened mask over whole card visible on hover/focus
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0);
+      transition: background-color 0.25s ease-in;
+    }
 
     &:hover,
     &:focus {
       border-color: transparent;
+
+      &::after {
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .ood-support-card__headline {
+        text-decoration: underline;
+      }
+
+      .ood-support-card__icon {
+        font-size: 3.3em;
+      }
     }
   }
 
@@ -37,13 +73,34 @@
     @include grid-media('2xl') {
       @include padding(6.1rem);
     }
-  }
 
-  &__contents {
-    min-height: 20rem;
+    &:hover,
+    &:focus {
+      .ood-support-card__headline {
+        &::after {
+          background-color: $su-color-white;
+          transform: translate3d(0.15em, -0.15em, 0);
+        }
+      }
+    }
 
-    @include grid-media('md') {
-      min-height: 26rem;
+    &.su-bg-white {
+      .ood-support-card__headline {
+        &::after {
+          background-color: $su-color-black;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        .ood-support-card__headline {
+          color: $su-color-digital-red;
+
+          &::after {
+            background-color: $su-color-digital-red;
+          }
+        }
+      }
     }
   }
 
@@ -51,23 +108,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    font-size: 4rem;
     text-align: right;
-  }
-
-  // Overriding Decanter .su-card--link
-  &.su-card--link {
-    // All cards with dark background + white text will have white hover/focus text colors
-    &.su-text-white {
-      > a,
-      > a:hover,
-      > a:focus {
-        color: $su-color-white;
-
-        h2 {
-          color: $su-color-white;
-        }
-      }
-    }
+    transition: font-size 0.25s ease-in;
   }
 }

@@ -55,6 +55,17 @@ const OodLocalFooter = (props) => (
           </div>
 
           <div className="flex-md-6-of-12 flex-xl-3-of-12 ood-local-footer__cell">
+            <nav aria-label="Local footer Make a Gift links">
+              {props.blok.headingGroupGift && (
+                <h2 className="ood-local-footer__list-heading su-serif">{props.blok.headingGroupGift}</h2>
+              )}
+              <ul className="ood-local-footer__link-list">
+                {props.blok.linkGroupGift && props.blok.linkGroupGift.map((blok) => React.createElement(Components(blok.component), {
+                  key: blok._uid,
+                  blok: blok,
+                }))}
+              </ul>
+            </nav>
             <h2 className="ood-local-footer__list-heading su-serif">Tax ID</h2>
             <p>{props.blok.taxId}</p>
           </div>

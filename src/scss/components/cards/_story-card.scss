@@ -6,10 +6,10 @@
   &--has-image {
     &:not(.ood-story-card--horizontal) {
       @include grid-media('sm') {
-        border-top: 8rem solid transparent; // The transparent border compensate for the 80px image overhang
+        border-top: $card-overhang solid transparent;
 
         .su-media {
-          @include margin(-8rem null null); // Image overhang
+          @include margin(#{-$card-overhang} null null);
           @include modular-spacing('margin', null 2);
         }
       }
@@ -25,18 +25,14 @@
     // Horizontal card behaves same way as vertical card at XS breakpoint (but with image visible)
     &.ood-story-card--horizontal {
       @include grid-media-only('xs') {
-        border-top: 8rem solid transparent; // The transparent border compensate for the 80px image overhang
+        border-top: $card-overhang solid transparent;
 
         .su-media {
-          @include margin(-8rem null null); // Image overhang
+          @include margin(#{-$card-overhang} null null);
           @include modular-spacing('margin', null 2);
         }
       }
     }
-  }
-
-  &__image {
-    transition: transform 0.25s ease-in;
   }
 
   &__headline {
@@ -48,13 +44,6 @@
     @include grid-media('xl') {
       @include modular-typography(3);
     }
-
-    // External link icon
-    &::after {
-      @include margin(null null null 0.3em);
-      width: 14px;
-      height: 14px;
-    }
   }
 
   &__link {
@@ -63,10 +52,10 @@
       .ood-story-card__headline {
         color: $su-color-digital-red;
         text-decoration: underline;
-      }
 
-      .ood-story-card__image {
-        transform: scale($ood-card-image-zoom);
+        &::after {
+          transform: translate3d(0.15em, -0.15em, 0);
+        }
       }
     }
   }
@@ -93,7 +82,7 @@
 
     &.ood-story-card--has-image {
       @include grid-media('sm') {
-        @include margin(null $ood-horizontal-story-card-overhang null null);
+        @include margin(null $h-story-card-overhang null null);
 
         .ood-story-card__link {
           display: flex;
@@ -101,29 +90,29 @@
         }
 
         .su-media {
-          @include margin(null #{-$ood-horizontal-story-card-overhang} null null); // Image overhang (half of image width)
+          @include margin(null #{-$h-story-card-overhang} null null); // Image overhang (half of image width)
           @include modular-spacing('margin', 3 null);
-          max-width: $ood-horizontal-story-card-image-width;
-          width: $ood-horizontal-story-card-image-width;
+          max-width: $h-story-card-image-width;
+          width: $h-story-card-image-width;
         }
 
         .ood-story-card__contents {
           @include modular-spacing('padding', null 2 null 3);
-          max-width: calc(100% - #{$ood-horizontal-story-card-image-width} + #{$ood-horizontal-story-card-overhang});
+          max-width: calc(100% - #{$h-story-card-image-width} + #{$h-story-card-overhang});
         }
       }
 
       @include grid-media('2xl') {
-        @include margin(null $ood-horizontal-story-card-max-overhang null null);
+        @include margin(null $h-story-card-max-overhang null null);
 
         .su-media {
-          @include margin(null #{-$ood-horizontal-story-card-max-overhang} null null); // Image overhang (half of image width)
-          max-width: $ood-horizontal-story-card-max-image-width;
-          width: $ood-horizontal-story-card-max-image-width;
+          @include margin(null #{-$h-story-card-max-overhang} null null);
+          max-width: $h-story-card-max-image-width;
+          width: $h-story-card-max-image-width;
         }
 
         .ood-story-card__contents {
-          max-width: calc(100% - #{$ood-horizontal-story-card-max-image-width} + #{$ood-horizontal-story-card-max-overhang})
+          max-width: calc(100% - #{$h-story-card-max-image-width} + #{$h-story-card-max-overhang})
         }
       }
     }

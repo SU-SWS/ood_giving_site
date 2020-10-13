@@ -25,8 +25,8 @@ const BasicCard = (props) => {
             filename={props.blok.image.filename}
             alt={props.blok.image.alt}
             classPrefix={"ood-basic-card"}
-            imageSize={"card"}
             aspectRatio={props.blok.imageAspectRatio}
+            imageSize={(props.blok.imageAspectRatio === "1x1" && props.blok.orientation === "horizontal") ? "thumbnail" : "card"}
           />
         )}
         <section className={`ood-basic-card__contents su-mx-auto
