@@ -140,7 +140,7 @@
 
   &__card {
     &-content {
-      @include modular-spacing('padding', 1);
+      @include modular-spacing('padding', 1 1 2);
     }
 
     &__link {
@@ -153,6 +153,11 @@
       &:focus {
         .ood-mega-nav__card-cta {
           text-decoration: none;
+
+          &::after {
+            background-color: $su-color-white;
+            transform: translateX(0.2em);
+          }
         }
 
         .ood-mega-nav__card-headline {
