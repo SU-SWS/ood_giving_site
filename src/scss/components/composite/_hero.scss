@@ -71,22 +71,26 @@
       .ood-hero-home__cta-text {
         &::after {
           background-color: $su-color-white;
+          transform: translateX(0.2em);
         }
       }
     }
   }
 
   &__cta-headline {
-    @include modular-typography(4);
-    @include margin(null null 0.6em);
-    font-weight: $su-font-regular;
+    @include modular-typography(3);
+    @include margin(null null 0);
   }
 
   &__cta-text {
     @include modular-typography(0);
-    @include margin(null null 0);
+    @include margin(1em 0 0);
+    display: flex;
+    align-items: center;
+    max-width: 9em;
 
     &::after {
+      @include margin(null null null 0.8rem);
       background-color: $su-color-white;
     }
   }

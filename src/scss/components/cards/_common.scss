@@ -10,6 +10,47 @@
 .ood-quote-card {
   position: relative;
   display: block;
+  overflow-wrap: break-word;
+}
+
+.ood-tile-card,
+.ood-icon-card,
+.ood-support-card,
+.ood-story-card {
+  &__headline {
+    &.su-link--external {
+      @include padding(null 0.6em null null); // Padding right to offset the overflow of the right margin below
+
+      // External link icon
+      &::after {
+        @include margin(null -0.6em null 0.24em); // Negative right margin to prevent icon from wrapping to 2nd line on its own
+        width: 0.36em;
+        height: 0.36em;
+      }
+    }
+  }
+}
+
+.ood-tile-card,
+.ood-story-card,
+.ood-icon-card,
+.ood-support-card {
+  &__link {
+    display: block;
+    border-width: 1px;
+    border-style: solid;
+    text-decoration: none;
+    height: 100%;
+    transition: color 0.25s ease-in, box-shadow 0.25s ease-in;
+    box-shadow: $ood-shadow--shallow;
+    color: transparent;
+
+    &:hover,
+    &:focus {
+      color: transparent;
+      box-shadow: $ood-shadow--medium;
+    }
+  }
 }
 
 .ood-tile-card,
@@ -20,14 +61,20 @@
     border-style: solid;
     text-decoration: none;
     height: 100%;
-    transition: color 0.25s ease-in;
+    transition: color 0.25s ease-in, box-shadow 0.25s ease-in;
     box-shadow: $ood-shadow--shallow;
     color: transparent;
 
     &:hover,
     &:focus {
-      color: transparent;
+      img {
+        transform: scale(1.03);
+      }
     }
+  }
+
+  &__image {
+    transition: transform 0.25s ease-in;
   }
 }
 

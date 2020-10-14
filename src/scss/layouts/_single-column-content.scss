@@ -2,10 +2,11 @@
 
 // Styles for Single Column WYSIWYG Content with different content width options
 
-.ood-single-column-content,
-.simpleWysiwyg {
+.ood-single-column-content {
   &__wrapper {
-    @include margin(null auto);
+    width: 100%;
+    overflow-wrap: break-word;
+
     > div {
       > * {
         &:last-child {
@@ -20,6 +21,12 @@
   ul {
     @include ood-big-paragraph;
     @include margin(null null 1.6em);
+  }
+
+  li {
+    p {
+      @include margin(null null 0.4em);
+    }
   }
 
   h2,

@@ -15,7 +15,7 @@ a {
 
   &:hover,
   &:focus {
-    color: $su-color-palo-verde-dark;
+    color: $su-color-sky-dark;
   }
 }
 
@@ -28,5 +28,3 @@ p {
 .centered-container {
   @include centered-column;
 }
-
-

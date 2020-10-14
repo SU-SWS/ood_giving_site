@@ -7,5 +7,16 @@
     .ood-story-card {
       height: 100%;
     }
+
+    &.su-flex-3-col {
+      @include grid-media-max('md') {
+        display: block;
+
+        > * {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+    }
   }
 }

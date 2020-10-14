@@ -16,23 +16,11 @@
     }
   }
 
-  &__contents {
-    @include modular-spacing('padding', 2);
-
-    @include grid-media('md') {
-      min-height: 40rem;
-    }
-  }
-
   &__link {
     &:hover,
     &:focus {
       .ood-tile-card__headline {
         text-decoration: underline;
-      }
-
-      .ood-tile-card__image {
-        transform: scale(1.03);
       }
     }
 
@@ -41,38 +29,81 @@
     }
   }
 
-  &--has-image {
-    @include grid-media('sm') {
-      border-top: 8rem solid transparent; // The transparent border compensate for the 80px image overhang
+  &__contents {
+    @include padding(3rem);
+    position: relative;
+    z-index: 10;
 
-      .su-media {
-        @include margin(-8rem null null); // Image overhang
-        @include modular-spacing('margin', null 2);
-      }
+    @include grid-media-between('md', 'lg') {
+      min-height: 30rem;
     }
 
-    // Hide image for vertical cards at XS breakpoint
-    @include grid-media-only('xs') {
-      .su-media {
+    @include grid-media('xl') {
+      min-height: 40rem;
+    }
+  }
+
+  &--has-image {
+    @include grid-media('md') {
+      border-top: #{$card-overhang} solid transparent;
+    }
+
+    .su-media {
+      z-index: 12;
+      position: relative;
+      // Hide image for vertical cards at XS and SM breakpoint
+      @include grid-media-max('sm') {
         display: none;
+      }
+
+      @include grid-media('md') {
+        @include margin(#{-$card-overhang} null null);
+      }
+
+      @include grid-media-only('md') {
+        @include margin(null 2rem);
+      }
+
+      @include grid-media('lg') {
+        @include margin(null 3.6rem);
+      }
+
+      @include grid-media('2xl') {
+        @include margin(null 3.8rem);
       }
     }
 
     .ood-tile-card__contents {
-      @include modular-spacing('padding', 2);
+      @include grid-media-only('md') {
+        @include padding(3rem 2rem);
+      }
+
+      @include grid-media('lg') {
+        @include padding(3.6rem);
+      }
+
+      @include grid-media('2xl') {
+        @include padding(3.8rem);
+      }
     }
   }
 
-  &__image {
-    transition: transform 0.25s ease-in;
-  }
-
   &--no-image {
-    // No image cards have bigger horizontal padding
 
-    @include grid-media('xl') {
-      .ood-tile-card__contents {
-        @include modular-spacing("padding", 4);
+    // No image cards have bigger horizontal padding
+    .ood-tile-card__contents {
+      @include padding(3rem);
+
+      @include grid-media-only('md') {
+        @include padding(3.6rem 2rem);
+      }
+
+      @include grid-media('lg') {
+        @include padding(4.5rem);
+      }
+
+      @include grid-media('2xl') {
+        @include padding(6.1rem);
       }
     }
 
@@ -87,22 +118,28 @@
 }
 
 .ood-tile-card__link {
-  transition: box-shadow 0.3s ease-in;
-
   // All cards with light background + black text will have black hover/focus text colors
-
   .ood-tile-card__headline,
   .ood-tile-card__superhead {
     color: $su-color-black;
   }
 
+  .ood-tile-card__headline {
+    &::after {
+      background-color: $su-color-black;
+    }
+  }
+
   &:hover,
   &:focus {
-    @include box-shadow('medium', 0);
-
     .ood-tile-card__headline {
       color: $su-color-black;
       text-decoration: underline;
+
+      &::after {
+        background-color: $su-color-black;
+        transform: translate3d(0.15em, -0.15em, 0);
+      }
     }
 
     .ood-tile-card__superhead {
@@ -119,11 +156,46 @@
       color: $su-color-white;
     }
 
+    .ood-tile-card__headline {
+      &::after {
+        background-color: $su-color-white;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      .ood-tile-card__headline {
+        &::after {
+          background-color: $su-color-white;
+        }
+      }
+    }
+
     &:hover,
     &:focus {
       .ood-tile-card__headline,
       .ood-tile-card__superhead {
         color: $su-color-white;
+      }
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0);
+      transition: background-color 0.25s ease-in;
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        background-color: rgba(0, 0, 0, 0.4);
       }
     }
   }
