@@ -14,12 +14,17 @@
 
 // Finetuning link icon styles from Decanter
 .su-link {
-  color: $su-color-palo-alto-light;
+  color: $su-color-digital-red;
 
   &--action {
     &::after {
       @include margin(null 0 null null);
     }
+  }
+
+  &:hover,
+  &:focus {
+    color: $su-color-sky-dark;
   }
 }
 
@@ -81,9 +86,9 @@
 
       &:hover,
       &:focus {
-        background-color: $su-color-white;
-        color: $su-color-bay-dark;
-        box-shadow: inset 0 0 0 1px $su-color-black;
+        background-color: $su-color-bay-dark;
+        color: $su-color-white;
+        box-shadow: inset 0 0 0 1px $su-color-bay-dark;
       }
     }
 

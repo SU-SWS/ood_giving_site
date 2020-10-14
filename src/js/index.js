@@ -1,4 +1,1 @@
-import 'decanter/core/src/js/core/core';
-import 'decanter/core/src/js/components/accordion/accordion';
-
-import './navigation/test';
+import 'decanter/core/src/js/decanter-no-markup.js';

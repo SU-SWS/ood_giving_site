@@ -4,6 +4,7 @@
 
 .ood-basic-card {
   @include margin(null auto);
+  width: 100%;
   border-width: 1px;
   border-style: solid;
 
@@ -11,18 +12,20 @@
     border: 1px solid $su-color-black-10; // Only white cards have a different colored grey border
   }
 
+  // Vertical cards with image
   &--has-image {
     &:not(.ood-basic-card--horizontal) {
-      @include margin(8rem null null); // Same rem value to offset image overhang below
+      @include margin($card-overhang null null); // Same rem value to offset image overhang below
+      height: auto;
 
       .su-media {
-        @include margin(-8rem null null); // Image overhang
+        @include margin(#{-$card-overhang} null null); // Image overhang
       }
     }
   }
 
   &__superhead {
-    @include margin(-0.4rem null 1.2rem);
+    @include margin(-0.4rem null 1.6rem);
   }
 
   &__headline {
@@ -55,6 +58,12 @@
         }
       }
     }
+
+    li {
+      p {
+        @include margin(null null 0.4em);
+      }
+    }
   }
 
   .ood-cta {
@@ -78,17 +87,18 @@
   // Horizontal card with image
   &.ood-basic-card--has-image {
     @include margin(null null null 8rem);
+    width: auto;
 
     .ood-basic-card__media {
       position: absolute;
-      left: -8rem; // image overhang
+      left: #{-$card-overhang}; // image overhang
       width: 20rem;
       max-width: 20rem;
     }
 
     .ood-basic-card__contents {
       @include margin(null 0 null null);
-      width: calc(100% - 20rem + 8rem);
+      width: calc(100% - 20rem + #{$card-overhang});
     }
 
     // Horizontal card with image and the large padding option
@@ -105,7 +115,7 @@
       }
 
       .ood-basic-card__contents {
-        width: calc(100% - 10rem + 8rem);
+        width: calc(100% - 10rem + #{$card-overhang});
       }
 
       &.su-pt-5 {

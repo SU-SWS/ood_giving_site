@@ -79,6 +79,12 @@
     }
   }
 
+  nav {
+    + .ood-local-footer__list-heading {
+      @include modular-spacing('margin', 2 null null);
+    }
+  }
+
   .ood-cta {
     @include modular-spacing('margin', 3 null null);
 

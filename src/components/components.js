@@ -36,6 +36,7 @@ import OodMegaMenuLinkGroup from './navigation/oodMegaMenuLinkGroup'
 // Layout Components
 import ColumnGrid from './layout/columnGrid'
 import CuratedStories from './layout/curatedStories'
+import RowOneColumn from './layout/rowOneColumn'
 import RowTwoColumns from './layout/rowTwoColumns'
 import RowThreeColumns from './layout/rowThreeColumns'
 import GridThreeColumns from './layout/gridThreeColumns'
@@ -47,19 +48,19 @@ import OodLandingPage from './page-types/oodLandingPage'
 import OodStory from './page-types/oodStory'
 import OodSupportPage from './page-types/oodSupportPage'
 // Simple Components
+import AspectRatioImage from './simple/aspectRatioImage'
 import CtaLink from './simple/ctaLink'
 import EmbedScript from './simple/embedScript'
 import StoryImage from './simple/storyImage'
 import StoryPicker from './simple/storyPicker'
-import SimpleWysiwyg from './simple/simpleWysiwyg'
 // Composite Components
 import Accordion from './composite/accordion'
 import AccordionItem from './composite/accordionItem'
 
 const ComponentList = {
   page: Page,
+  aspectRatioImage: AspectRatioImage,
   embedScript: EmbedScript,
-  simpleWysiwyg: SimpleWysiwyg,
   storyImage: StoryImage,
   ctaLink: CtaLink,
   accordionItem: AccordionItem,
@@ -69,6 +70,7 @@ const ComponentList = {
   curatedStories: CuratedStories,
   rowThreeColumns: RowThreeColumns,
   rowTwoColumns: RowTwoColumns,
+  rowOneColumn: RowOneColumn,
   section: Section,
   singleColumnContent: SingleColumnContent,
   globalFooter: GlobalFooter,

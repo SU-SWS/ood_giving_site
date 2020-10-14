@@ -12,7 +12,13 @@ const OodStory = (props) => {
   processedHeroImg = transformImage(props.blok.heroImage.filename, "/2000x0");
 
   const dateOptions = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
-  const formattedPublishedDate = new Date(props.blok.publishedDate).toLocaleDateString("en-US", dateOptions);
+  let publishedDate;
+
+  if (props.blok.publishedDate) {
+    publishedDate = new Date(props.blok.publishedDate).toLocaleDateString("en-US", dateOptions);
+  } else if (props.blok.manualDate) {
+    publishedDate = props.blok.manualDate;
+  }
 
   const StoryPageView = (props) => (
     <>
@@ -42,8 +48,7 @@ const OodStory = (props) => {
                      su-bg-${props.blok.headerBoxColor}
                      ${(props.blok.headerBoxColor !== "white" && props.blok.headerBoxColor !== "fog-light") ? "su-text-white" : ""}
                      `}>
-                  <h1
-                    className={`ood-story__title su-semibold ood-has-tab-before su-before-bg-${props.blok.tabColor}`}>{props.blok.title}</h1>
+                  <h1 className={`ood-story__title su-semibold ood-has-tab-before su-before-bg-${props.blok.tabColor}`}>{props.blok.title}</h1>
                   {props.blok.intro && (
                     <p
                       className="su-intro-text ood-story__intro-text">{props.blok.intro}</p>
@@ -58,16 +63,30 @@ const OodStory = (props) => {
               }))}
             </div>
             <footer className="ood-story__main-footer su-bg-white">
-              <div className="centered-container flex-container">
-                <div className="flex-lg-8-of-12 su-mx-auto">
-                  <div className="ood-story__metadata su-pb-5">
-                    <p className="ood-story__metadata-title su-bold su-uppercase">Author</p>
-                    <span className="ood-story__metadata-data">{props.blok.author}</span>
-                    <p className="ood-story__metadata-title su-bold su-uppercase">Date</p>
-                    <span className="ood-story__metadata-data su-mb-none">{formattedPublishedDate}</span>
+              {(props.blok.author || publishedDate) &&
+                <div className="centered-container flex-container">
+                  <div className="flex-lg-8-of-12 su-mx-auto">
+                    {props.blok.cta && props.blok.cta.map((blok) => React.createElement(Components(blok.component), {
+                      key: blok._uid,
+                      blok: blok
+                    }))}
+                    <div className="ood-story__metadata su-pb-5">
+                      {props.blok.author &&
+                        <>
+                          <p className="ood-story__metadata-title su-bold su-uppercase">Author</p>
+                          <span className="ood-story__metadata-data">{props.blok.author}</span>
+                        </>
+                      }
+                      {publishedDate &&
+                        <>
+                          <p className="ood-story__metadata-title su-bold su-uppercase">Date</p>
+                          <span className="ood-story__metadata-data su-mb-none">{publishedDate}</span>
+                        </>
+                      }
+                    </div>
                   </div>
                 </div>
-              </div>
+              }
               <IconCardSection {...props}/>
             </footer>
           </article>

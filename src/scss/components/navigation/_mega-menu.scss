@@ -124,6 +124,10 @@
     @include grid-media('2xl') {
       top: 154px;
     }
+
+    .ood-cta {
+      @include modular-spacing('margin', 0 null null);
+    }
   }
 
   &__link-group {
@@ -136,7 +140,38 @@
 
   &__card {
     &-content {
-      @include modular-spacing('padding', 1);
+      @include modular-spacing('padding', 1 1 2);
+    }
+
+    &__link {
+      img {
+        transform: scale(1);
+        transition: transform 0.25s ease-in;
+      }
+
+      &:hover,
+      &:focus {
+        .ood-mega-nav__card-cta {
+          text-decoration: none;
+
+          &::after {
+            background-color: $su-color-white;
+            transform: translateX(0.2em);
+          }
+        }
+
+        .ood-mega-nav__card-headline {
+          text-decoration: underline;
+
+          &::after {
+            background-color: $su-color-white;
+          }
+        }
+
+        img {
+          transform: scale(1.03);
+        }
+      }
     }
   }
 
@@ -203,11 +238,6 @@
 
       &[aria-expanded="true"] + .su-main-nav__menu-lv1 {
         position: absolute;
-      }
-
-      // Toggle button variants
-      &--center {
-        @include margin(null auto);
       }
 
       &--right {
