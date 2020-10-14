@@ -52,7 +52,6 @@ import AspectRatioImage from './media/aspectRatioImage'
 import CtaLink from './simple/ctaLink'
 import EmbedScript from './simple/embedScript'
 import StoryImage from './simple/storyImage'
-import StoryPicker from './simple/storyPicker'
 import StoryImage from './media/storyImage'
 import StoryPicker from './entryPickers/storyPicker'
 // Composite Components

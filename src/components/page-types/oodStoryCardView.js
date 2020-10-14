@@ -1,8 +1,7 @@
 import SbEditable from "storyblok-react";
 import React from "react";
 import { Link } from "gatsby"
-import transformImage from "../../utilities/transformImage"
-import AspectRatioImage from "../media/aspectRatioImage"
+import AspectRatioImage from "../simple/aspectRatioImage"
 
 const StoryCardView = (props) => {
   const Heading = props.headingLevel ? props.headingLevel : "h3";
