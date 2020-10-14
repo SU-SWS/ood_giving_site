@@ -126,7 +126,7 @@
 
   .ood-tile-card__headline {
     &::after {
-      background-color: $su-color-black;
+      background-color: $su-color-digital-red;
     }
   }
 
@@ -137,7 +137,7 @@
       text-decoration: underline;
 
       &::after {
-        background-color: $su-color-black;
+        background-color: $su-color-digital-red;
         transform: translate3d(0.15em, -0.15em, 0);
       }
     }
