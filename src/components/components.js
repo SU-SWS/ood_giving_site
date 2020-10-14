@@ -51,9 +51,10 @@ import OodSupportPage from './page-types/oodSupportPage'
 import AspectRatioImage from './media/aspectRatioImage'
 import CtaLink from './simple/ctaLink'
 import EmbedScript from './simple/embedScript'
+import StoryImage from './simple/storyImage'
+import StoryPicker from './simple/storyPicker'
 import StoryImage from './media/storyImage'
 import StoryPicker from './entryPickers/storyPicker'
-import SimpleWysiwyg from './simple/simpleWysiwyg'
 // Composite Components
 import Accordion from './composite/accordion'
 import AccordionItem from './composite/accordionItem'
@@ -62,7 +63,6 @@ const ComponentList = {
   page: Page,
   aspectRatioImage: AspectRatioImage,
   embedScript: EmbedScript,
-  simpleWysiwyg: SimpleWysiwyg,
   storyImage: StoryImage,
   ctaLink: CtaLink,
   accordionItem: AccordionItem,

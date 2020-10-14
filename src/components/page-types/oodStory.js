@@ -13,7 +13,13 @@ const OodStory = (props) => {
   processedHeroImg = transformImage(props.blok.heroImage.filename, "/2000x0");
 
   const dateOptions = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
-  const formattedPublishedDate = new Date(props.blok.publishedDate).toLocaleDateString("en-US", dateOptions);
+  let publishedDate;
+
+  if (props.blok.publishedDate) {
+    publishedDate = new Date(props.blok.publishedDate).toLocaleDateString("en-US", dateOptions);
+  } else if (props.blok.manualDate) {
+    publishedDate = props.blok.manualDate;
+  }
 
   if (props.layout === "story-card") {
     return (
