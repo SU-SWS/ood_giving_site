@@ -4,8 +4,23 @@ import React from "react";
 import Components from "../components";
 import IconCardSection from "../partials/iconCardSection";
 import Footer from "../partials/footer";
+import transformImage from "../../utilities/transformImage";
 
-const StoryFullView = (props) => (
+const StoryFullView = (props) => {
+
+  let processedHeroImg;
+  processedHeroImg = transformImage(props.blok.heroImage.filename, "/2000x0");
+
+  const dateOptions = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+  let publishedDate;
+
+  if (props.blok.publishedDate) {
+    publishedDate = new Date(props.blok.publishedDate).toLocaleDateString("en-US", dateOptions);
+  } else if (props.blok.manualDate) {
+    publishedDate = props.blok.manualDate;
+  }
+
+  return (
   <>
     <SbEditable content={props.blok}>
       <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title>
@@ -79,5 +94,6 @@ const StoryFullView = (props) => (
       <Footer {...props}/>
     </SbEditable>
   </>
-)
+  )
+};
 export default StoryFullView
