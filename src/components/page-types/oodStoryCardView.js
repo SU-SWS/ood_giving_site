@@ -25,6 +25,8 @@ const StoryCardView = (props) => {
               classPrefix={"ood-story-card"}
               imageSize={`${props.orientation ? `${props.orientation}-card` : "card"}`}
               aspectRatio={"3x2"}
+              visibleHorizontal={props.visibleHorizontal}
+              visibleVertical={props.visibleVertical}
             />
           )}
           <section

@@ -51,7 +51,7 @@ const OodStory = (props) => {
                   <h1 className={`ood-story__title su-semibold ood-has-tab-before su-before-bg-${props.blok.tabColor}`}>{props.blok.title}</h1>
                   {props.blok.intro && (
                     <p
-                      className="su-intro-text ood-story__intro-text">{props.blok.intro}</p>
+                      className="intro-text ood-story__intro-text">{props.blok.intro}</p>
                   )}
                 </div>
               </div>

@@ -14,6 +14,8 @@ const StoryPicker = (props) => {
         storyLink: story.full_slug,
         backgroundColor: props.blok.backgroundColor,
         headingLevel: props.blok.headingLevel,
+        visibleHorizontal: props.blok.visibleHorizontal,
+        visibleVertical: props.blok.visibleVertical,
       }))}
     </SbEditable>
   )
