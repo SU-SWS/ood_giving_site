@@ -101,6 +101,7 @@
       &:hover,
       &:focus {
         color: $su-color-white;
+        box-shadow: inset 0 0 0 1px $su-color-fog;
 
         &::after {
           background-color: $su-color-white;

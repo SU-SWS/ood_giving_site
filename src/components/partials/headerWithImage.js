@@ -25,7 +25,7 @@ const HeaderWithImage = (props) => (
       <div className={`ood-interior-page__header-intro-wrapper su-py-6 su-bg-white`}>
         <div className={`centered-container flex-container`}>
           {props.blok.intro && (
-            <div className="su-intro-text ood-interior-page__intro flex-xl-8-of-12">
+            <div className="intro-text ood-interior-page__intro flex-xl-8-of-12">
               <RichTextField data={props.blok.intro}/>
             </div>
           )}
