@@ -1,11 +1,8 @@
 import React from 'react'
-import transformImage from '../../utilities/transformImage'
 import StoryCardView from "./oodStoryCardView";
 import StoryFullView from "./oodStoryFullView";
 
 const OodStory = (props) => {
-
-
 
   if (props.layout === "story-card") {
     return (
