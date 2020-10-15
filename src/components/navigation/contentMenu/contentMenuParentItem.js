@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import SbEditable from 'storyblok-react'
-import Components from "../components";
+import Components from "../../components";
 
 const ContentMenuParentItem = (props) => (
   <SbEditable content={props.blok}>
