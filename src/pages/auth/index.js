@@ -1,13 +1,16 @@
 import React from "react"
-import Layout from "../../components/layout"
-import Link from "gatsby-link"
+import Wrapper from "../../components/layout/wrapper"
+import PrivateRoute from "../../components/privateRoute"
+import { Router } from "@reach/router"
 
-const Authd = () => (
-  <Layout>
-    <h1>Authentication Successful</h1>
-    <p>You can only see this if you are logged in.</p>
-    <Link to={`/logout`}>Log out</Link>
-  </Layout>
-)
+const Authd = (props) => {
+  return (
+    <Router basepath="/auth">
+      <Wrapper default heading="Default" />
+      <PrivateRoute path="/test" component={Wrapper} />
+      <PrivateRoute path="/test2" component={Wrapper} />
+    </Router>
+  )
+}
 
 export default Authd

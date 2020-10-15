@@ -29,9 +29,7 @@ export const handleLogin = ({ username, password }) => {
 // Check if the user is logged in.
 export const isLoggedIn = () => {
   if (!isBrowser) return false
-
   const user = getUser()
-
   return !!user.email
 }
 
