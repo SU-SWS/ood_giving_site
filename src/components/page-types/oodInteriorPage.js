@@ -1,6 +1,5 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import RichTextField from '../../utilities/richTextField'
 import Components from "../components"
 import HeaderMinimal from '../partials/headerMinimal'
 import HeaderNoImage from '../partials/headerNoImage'
@@ -10,13 +9,13 @@ import BodyNoSidebar from '../partials/bodyNoSidebar'
 import BelowContent from '../partials/belowContent'
 import IconCardSection from '../partials/iconCardSection'
 import Footer from '../partials/footer'
-import { Helmet } from 'react-helmet'
+import SeoSocial from '../partials/seoSocial'
 
 const OodInteriorPage = (props) => {
   return (
     <>
       <SbEditable content={props.blok}>
-        <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
+        <SeoSocial {...props}/>
         {props.blok.localHeader && props.blok.localHeader.map((blok) => React.createElement(Components(blok.component), {
           key: blok._uid,
           blok: blok
