@@ -51,7 +51,6 @@ import OodSupportPage from './page-types/oodSupportPage'
 import AspectRatioImage from './media/aspectRatioImage'
 import CtaLink from './simple/ctaLink'
 import EmbedScript from './simple/embedScript'
-import StoryImage from './simple/storyImage'
 import StoryImage from './media/storyImage'
 import StoryPicker from './entryPickers/storyPicker'
 // Composite Components
