@@ -54,6 +54,13 @@
 
 # REDIRECTS
 # ###############################################################################
+
+# API redirect for lambda functions.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
 # [[redirects]]
 #   from = "/test"
 #   to = "/stories/a-win-win-solution/"

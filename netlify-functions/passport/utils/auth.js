@@ -2,6 +2,8 @@ const { sign } = require('jsonwebtoken')
 const { Strategy: GitHubStrategy } = require('passport-github2')
 const passport = require('passport')
 const passportJwt = require('passport-jwt')
+const suSAML = require('passport-stanford')
+
 
 const { BASE_URL, ENDPOINT, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, SECRET } = require('./config')
 
@@ -9,6 +11,41 @@ function authJwt(email) {
   return sign({ user: { email } }, SECRET)
 }
 
+// SU SAML
+// /////////////////////////////////////////////////////////////////////////////
+const samlPath = '/saml';
+let saml = new suSAML.Strategy({
+  protocol:           'http://',
+  idp:                'itlab',
+  entityId:           'https://github.com/scottylogan/passport-stanford',
+  path:               samlPath,
+  loginPath:          samlPath,
+  passReqToCallback:  true,
+  passport:           passport,
+  decryptionPvkPath:  './private.pem',
+  decryptionCertPath: './public.pem',
+});
+
+let forcedSaml = new suSAML.Strategy({
+  name:               'forced',
+  protocol:           'http://',
+  idp:                'itlab',
+  entityId:           'https://github.com/scottylogan/passport-stanford',
+  path:               samlPath,
+  loginPath:          samlPath,
+  passReqToCallback:  true,
+  passport:           passport,
+  forceAuthn:         true,
+  decryptionPvkPath:  './private.pem',
+  decryptionCertPath: './public.pem',
+});
+
+passport.use(saml);
+passport.use(forcedSaml);
+
+
+// GITHUB
+// /////////////////////////////////////////////////////////////////////////////
 passport.use(
   new GitHubStrategy(
     {
@@ -32,6 +69,8 @@ passport.use(
   )
 )
 
+// JWT
+// /////////////////////////////////////////////////////////////////////////////
 passport.use(
   new passportJwt.Strategy(
     {
