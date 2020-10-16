@@ -112,8 +112,17 @@
     @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 2.6%);
     position: absolute;
     left: 0;
+    height: 0;
     width: 100%;
-    display: none;
+    opacity: 0;
+    transition: height 0.4s ease-in, opacity 0.4s ease-in;
+    visibility: hidden;
+
+    * {
+      opacity: 0;
+      transition: opacity 0.4s ease-in;
+      visibility: hidden;
+    }
 
     @include grid-media('lg') {
       top: 153px;
@@ -282,7 +291,15 @@
         &:hover,
         &:focus-within {
           > section {
+            visibility: visible;
+            opacity: 1;
+            height: 570px;
             display: flex;
+
+            * {
+              visibility: visible;
+              opacity: 1;
+            }
           }
         }
       }
