@@ -2,6 +2,13 @@ import React from 'react'
 import Components from '../components.js'
 import SbEditable from 'storyblok-react'
 
+/*
+** The Curated Stories component is allowed inside any section area.
+* The purpose of this component is to provide a hand-curated featured area of stories.
+* Users can select stories with the picker or manually create a story card to link to an external story.
+* (See page-types/story/storyPicker.js)
+*/
+
 const CuratedStories = (props) => (
   <SbEditable content={props.blok}>
     <div className={`ood-curated-stories`}>

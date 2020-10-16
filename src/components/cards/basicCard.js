@@ -1,7 +1,7 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
 import Components from '../components.js'
-import AspectRatioImage from '../simple/aspectRatioImage'
+import AspectRatioImage from '../media/aspectRatioImage'
 import RichTextField from '../../utilities/richTextField'
 
 const BasicCard = (props) => {

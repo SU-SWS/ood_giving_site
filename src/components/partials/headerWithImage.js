@@ -1,7 +1,9 @@
 import SbEditable from "storyblok-react";
 import RichTextField from "../../utilities/richTextField";
 import React from "react";
-import AspectRatioImage from "../simple/aspectRatioImage"
+import AspectRatioImage from "../media/aspectRatioImage"
+
+/* The Header with Image component is referenced by the Interior Page type. */
 
 const HeaderWithImage = (props) => (
   <SbEditable content={props.blok}>

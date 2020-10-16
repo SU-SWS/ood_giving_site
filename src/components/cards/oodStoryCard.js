@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "gatsby"
 import SbEditable from 'storyblok-react'
-import AspectRatioImage from "../simple/aspectRatioImage"
+import AspectRatioImage from "../media/aspectRatioImage"
 
 const OodStoryCard = (props) => {
   const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h3";
