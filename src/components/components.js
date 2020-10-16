@@ -45,14 +45,14 @@ import SingleColumnContent from './layout/singleColumnContent'
 // Page Type Components
 import OodInteriorPage from './page-types/oodInteriorPage'
 import OodLandingPage from './page-types/oodLandingPage'
-import OodStory from './page-types/oodStory'
+import OodStory from './page-types/story/oodStory'
 import OodSupportPage from './page-types/oodSupportPage'
 // Simple Components
 import AspectRatioImage from './media/aspectRatioImage'
 import CtaLink from './simple/ctaLink'
 import EmbedScript from './simple/embedScript'
 import StoryImage from './media/storyImage'
-import StoryPicker from './entryPickers/storyPicker'
+import StoryPicker from './page-types/story/storyPicker'
 // Composite Components
 import Accordion from './composite/accordion'
 import AccordionItem from './composite/accordionItem'

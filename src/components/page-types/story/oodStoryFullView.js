@@ -1,10 +1,10 @@
 import SbEditable from "storyblok-react";
 import {Helmet} from "react-helmet";
 import React from "react";
-import Components from "../components";
-import IconCardSection from "../partials/iconCardSection";
-import Footer from "../partials/footer";
-import transformImage from "../../utilities/transformImage";
+import Components from "../../components";
+import IconCardSection from "../../partials/iconCardSection";
+import Footer from "../../partials/footer";
+import transformImage from "../../../utilities/transformImage";
 
 const StoryFullView = (props) => {
 
