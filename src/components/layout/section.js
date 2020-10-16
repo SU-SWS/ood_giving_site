@@ -44,12 +44,12 @@ const Section = (props) => {
     </SbEditable>
   );
 
-  return (
-    <SbEditable content={props.blok}>
-      {props.blok.hideSection !== true &&
+  if (props.blok.hideSection !== true) {
+    return (
+      <SbEditable content={props.blok}>
         <div className={`section su-bg-${props.blok.backgroundColor}
-                       ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
-                       ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}`}
+                     ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
+                     ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}`}
              id={props.blok.id}
         >
           {(props.blok.title || props.blok.intro) && (
@@ -80,9 +80,12 @@ const Section = (props) => {
             <FlexContainer {...props}/>
           }
         </div>
-      }
-    </SbEditable>
-  )
+      </SbEditable>
+    )
+  }
+  else {
+    return null;
+  }
 };
 
 export default Section
