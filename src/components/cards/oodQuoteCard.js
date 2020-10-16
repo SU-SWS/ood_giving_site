@@ -1,7 +1,7 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
 import RichTextField from '../../utilities/richTextField'
-import AspectRatioImage from "../simple/aspectRatioImage"
+import AspectRatioImage from "../media/aspectRatioImage"
 
 const OodQuoteCard = (props) => (
   <SbEditable content={props.blok}>
