@@ -29,6 +29,8 @@ const OodSupportPage = (props) => {
                 </header>
               }
               <div className="centered-container ood-support-page__filter-container">
+                <input type="radio" id="all" name="areas-to-support" defaultChecked />
+                <label htmlFor="all">All</label>
                 <input type="radio" id="undergraduate" name="areas-to-support"/>
                 <label htmlFor="undergraduate">Undergraduate Education</label>
                 <input type="radio" id="grad" name="areas-to-support"/>
@@ -49,8 +51,6 @@ const OodSupportPage = (props) => {
                 <label htmlFor="science">Science + Technology</label>
                 <input type="radio" id="sustainability" name="areas-to-support"/>
                 <label htmlFor="sustainability">Sustainability</label>
-                <input type="radio" id="all" name="areas-to-support" defaultChecked />
-                <label htmlFor="all">All</label>
                 <div className={`grid-3-column su-mt-6 su-mb-4`}>
                   {props.blok.graduate && props.blok.graduate.map((blok) => React.createElement(Components(blok.component), {
                     key: blok._uid,
