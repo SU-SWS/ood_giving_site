@@ -2,7 +2,7 @@
   "name": "oauth-passport",
   "version": "1.0.0",
   "description": "netlify functions:create - template for Oauth workflow using Passport + Express.js",
-  "main": "oauth-passport.js",
+  "main": "passport.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

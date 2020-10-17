@@ -57,10 +57,10 @@ exports.onCreatePage = async ({ page, actions }) => {
   // only on the client.
   if (page.path.match(/^\/auth/)) {
     page.matchPath = `/auth/*`
-
     // Update the page.
     createPage(page)
   }
+
 }
 
 // Alter Gatsby's webpack config.
