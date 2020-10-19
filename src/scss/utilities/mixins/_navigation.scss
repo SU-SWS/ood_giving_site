@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+// Navigation mixins
+
+@mixin navigation-item--black {
+  text-decoration: underline;
+  color: $su-color-black;
+
+  &::before {
+    background-color: $su-color-black;
+  }
+}
