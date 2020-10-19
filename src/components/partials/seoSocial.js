@@ -11,6 +11,14 @@ const SeoSocial = (props) => {
           <meta name="description"
               content={props.blok.seo.description} />
         }
+        {props.blok.seo.og_title &&
+          <meta property="og:title"
+              content={props.blok.seo.og_title} />
+        }
+        {props.blok.seo.og_description &&
+          <meta property="og:description"
+              content={props.blok.seo.og_description} />
+        }
       </Helmet>
     </SbEditable>
   )

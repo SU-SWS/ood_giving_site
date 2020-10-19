@@ -5,13 +5,13 @@ import HeaderNoImage from '../partials/headerNoImage'
 import Footer from "../partials/footer"
 import BelowContent from '../partials/belowContent'
 import IconCardSection from '../partials/iconCardSection'
-import { Helmet } from 'react-helmet'
+import SeoSocial from "../partials/seoSocial"
 
 const OodSupportPage = (props) => {
   return (
     <>
       <SbEditable content={props.blok}>
-        <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
+        <SeoSocial {...props}/>
         {props.blok.localHeader && props.blok.localHeader.map((blok) => React.createElement(Components(blok.component), {
           key: blok._uid,
           blok: blok
