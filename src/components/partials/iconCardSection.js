@@ -2,6 +2,12 @@ import React from "react";
 import SbEditable from "storyblok-react";
 import Components from "../components";
 
+/*
+*
+** The Icon Card Section component is referenced by the Interior Page, Landing Page, Story page, and Support page types.
+*
+*/
+
 const IconCardSection = (props) => {
   let numIconCards;
   if (props.blok.iconCards == null) {

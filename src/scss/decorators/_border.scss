@@ -17,5 +17,16 @@
         border-color: $color;
       }
     }
+
+    &-hocus {
+      @each $key, $color in $ood-colors {
+        &-#{$key} {
+          &:hover,
+          &:focus {
+            border-color: $color;
+          }
+        }
+      }
+    }
   }
 }

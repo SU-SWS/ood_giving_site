@@ -46,39 +46,41 @@ const Section = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <div className={`section su-bg-${props.blok.backgroundColor}
-                     ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
-                     ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}`}
-           id={props.blok.id}
-      >
-        {(props.blok.title || props.blok.intro) && (
-          <div className={`centered-container flex-container section__header su-mb-3`}>
-            {props.blok.title &&
-              <Heading
-                className={`section__title flex-lg-5-of-12 su-serif su-bold su-text-align-left su-mb-4
-                          ${props.blok.titleSize}
-                          su-before-bg-${props.blok.tabColor}
-                          ${titleStyleClassList(props.blok.titleStyle)}`}>
-                {props.blok.title}
-              </Heading>
-            }
-            {props.blok.intro &&
-              <div className={`su-intro-text flex-lg-7-of-12 section__intro su-mr-none`}>
-                <RichTextField data={props.blok.intro}/>
-              </div>
-            }
-          </div>
-        )}
-        {props.blok.contentWidth === "edge-to-edge" &&
-          <EdgeToEdgeContainer {...props}/>
-        }
-        {props.blok.contentWidth === "centered-container" &&
-          <CenteredContainer {...props}/>
-        }
-        {(props.blok.contentWidth !== "edge-to-edge" && props.blok.contentWidth !== "centered-container") &&
-          <FlexContainer {...props}/>
-        }
-      </div>
+      {props.blok.hideSection !== true &&
+        <div className={`section su-bg-${props.blok.backgroundColor}
+                       ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
+                       ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}`}
+             id={props.blok.id}
+        >
+          {(props.blok.title || props.blok.intro) && (
+            <div
+              className={`centered-container flex-container section__header su-mb-3
+              ${props.blok.srOnlyHeader === true ? "su-sr-only-element" : ""}`}>
+              {props.blok.title &&
+                <Heading
+                  className={`section__title flex-lg-5-of-12 su-serif su-bold su-text-align-left su-mb-4
+                              ${props.blok.titleSize}
+                              su-before-bg-${props.blok.tabColor}
+                              ${titleStyleClassList(props.blok.titleStyle)}`}>
+                  {props.blok.title}
+                </Heading>
+              }
+              {props.blok.intro &&
+                <div className={`intro-text flex-lg-7-of-12 section__intro su-mr-none`}><RichTextField data={props.blok.intro}/></div>
+              }
+            </div>
+          )}
+          {props.blok.contentWidth === "edge-to-edge" &&
+            <EdgeToEdgeContainer {...props}/>
+          }
+          {props.blok.contentWidth === "centered-container" &&
+            <CenteredContainer {...props}/>
+          }
+          {(props.blok.contentWidth !== "edge-to-edge" && props.blok.contentWidth !== "centered-container") &&
+            <FlexContainer {...props}/>
+          }
+        </div>
+      }
     </SbEditable>
   )
 };

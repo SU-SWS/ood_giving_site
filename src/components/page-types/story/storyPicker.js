@@ -1,6 +1,6 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import Components from "../components";
+import Components from "../../components";
 
 const StoryPicker = (props) => {
   return (
@@ -14,6 +14,8 @@ const StoryPicker = (props) => {
         storyLink: story.full_slug,
         backgroundColor: props.blok.backgroundColor,
         headingLevel: props.blok.headingLevel,
+        visibleHorizontal: props.blok.visibleHorizontal,
+        visibleVertical: props.blok.visibleVertical,
       }))}
     </SbEditable>
   )

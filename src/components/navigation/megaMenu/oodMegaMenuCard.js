@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import SbEditable from 'storyblok-react'
-import AspectRatioImage from "../simple/aspectRatioImage"
+import AspectRatioImage from "../../media/aspectRatioImage"
 
 const MegaMenuCardContent = (props) => (
   <SbEditable content={props.blok}>

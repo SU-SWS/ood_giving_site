@@ -1,7 +1,8 @@
 import SbEditable from "storyblok-react";
 import React from "react";
 import { Link } from "gatsby"
-import AspectRatioImage from "../simple/aspectRatioImage"
+import transformImage from "../../../utilities/transformImage"
+import AspectRatioImage from "../../media/aspectRatioImage"
 
 const StoryCardView = (props) => {
   const Heading = props.headingLevel ? props.headingLevel : "h3";
@@ -25,6 +26,8 @@ const StoryCardView = (props) => {
               classPrefix={"ood-story-card"}
               imageSize={`${props.orientation ? `${props.orientation}-card` : "card"}`}
               aspectRatio={"3x2"}
+              visibleHorizontal={props.visibleHorizontal}
+              visibleVertical={props.visibleVertical}
             />
           )}
           <section
