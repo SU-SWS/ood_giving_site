@@ -165,15 +165,26 @@
 
           &::after {
             background-color: $su-color-white;
-            transform: translateX(0.2em);
           }
-        }
 
-        .ood-mega-nav__card-headline {
-          text-decoration: underline;
+          &.su-link--action {
+            &::after {
+              transform: translateX(0.2em);
+            }
+          }
 
-          &::after {
-            background-color: $su-color-white;
+          &.su-link--external {
+            &::after {
+              transform: translate3d(0.15em, -0.15em, 0);
+            }
+          }
+
+          .ood-mega-nav__card-headline {
+            text-decoration: underline;
+
+            &::after {
+              background-color: $su-color-white;
+            }
           }
         }
 

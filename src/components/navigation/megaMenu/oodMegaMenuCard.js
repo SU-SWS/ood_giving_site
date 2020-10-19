@@ -18,7 +18,8 @@ const MegaMenuCardContent = (props) => (
     <section
       className={`ood-mega-nav__card-content su-text-white su-bg-${props.blok.backgroundColor}`}>
       <h3 className="ood-mega-nav__card-headline su-semibold">{props.blok.headline}</h3>
-      <p className="ood-mega-nav__card-cta su-link--action su-after-bg-white su-after-bg-hocus-white su-mb-none">{props.blok.ctaText}</p>
+      <p className={`ood-mega-nav__card-cta su-after-bg-white su-after-bg-hocus-white su-mb-none
+          ${props.blok.link.linktype === "url" ? "su-link--external" : "su-link--action"}`}>{props.blok.ctaText}</p>
     </section>
   </SbEditable>
 );
