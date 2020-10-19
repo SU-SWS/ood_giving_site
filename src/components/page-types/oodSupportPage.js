@@ -1,6 +1,5 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import RichTextField from '../../utilities/richTextField'
 import Components from "../components"
 import HeaderNoImage from '../partials/headerNoImage'
 import Footer from "../partials/footer"
@@ -46,17 +45,17 @@ const OodSupportPage = (props) => {
                 <input type="radio" id="law" name="areas-to-support"/>
                 <label htmlFor="law">Law, Policy, + Government</label>
                 <input type="radio" id="medicine" name="areas-to-support"/>
-                <label htmlFor="medicine">Medicine + Healthcare</label>
+                <label htmlFor="medicine">Medicine + Health Care</label>
                 <input type="radio" id="science" name="areas-to-support"/>
                 <label htmlFor="science">Science + Technology</label>
                 <input type="radio" id="sustainability" name="areas-to-support"/>
                 <label htmlFor="sustainability">Sustainability</label>
                 <div className={`grid-3-column su-mt-6 su-mb-4`}>
-                  {props.blok.graduate && props.blok.graduate.map((blok) => React.createElement(Components(blok.component), {
+                  {props.blok.undergraduate && props.blok.undergraduate.map((blok) => React.createElement(Components(blok.component), {
                     key: blok._uid,
                     blok: blok
                   }))}
-                  {props.blok.undergraduate && props.blok.undergraduate.map((blok) => React.createElement(Components(blok.component), {
+                  {props.blok.graduate && props.blok.graduate.map((blok) => React.createElement(Components(blok.component), {
                     key: blok._uid,
                     blok: blok
                   }))}
