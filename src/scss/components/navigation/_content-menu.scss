@@ -48,6 +48,10 @@
     &:hover,
     &:focus {
      @include navigation-item--black;
+
+      &::after {
+        background-color: $su-color-digital-red;
+      }
     }
 
     &--active {
