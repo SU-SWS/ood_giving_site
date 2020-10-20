@@ -7,6 +7,7 @@ import React from 'react'
 */
 
 const HtmlHead = (props) => {
+
   return (
     <>
     <title>Giving to Stanford</title>

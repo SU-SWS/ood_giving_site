@@ -1,18 +1,17 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import RichTextField from '../../utilities/richTextField'
 import Components from "../components"
 import HeaderNoImage from '../partials/headerNoImage'
 import Footer from "../partials/footer"
 import BelowContent from '../partials/belowContent'
 import IconCardSection from '../partials/iconCardSection'
-import { Helmet } from 'react-helmet'
+import SeoSocial from "../partials/seoSocial"
 
 const OodSupportPage = (props) => {
   return (
     <>
       <SbEditable content={props.blok}>
-        <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
+        <SeoSocial {...props}/>
         {props.blok.localHeader && props.blok.localHeader.map((blok) => React.createElement(Components(blok.component), {
           key: blok._uid,
           blok: blok
@@ -29,6 +28,8 @@ const OodSupportPage = (props) => {
                 </header>
               }
               <div className="centered-container ood-support-page__filter-container">
+                <input type="radio" id="all" name="areas-to-support" defaultChecked />
+                <label htmlFor="all">All</label>
                 <input type="radio" id="undergraduate" name="areas-to-support"/>
                 <label htmlFor="undergraduate">Undergraduate Education</label>
                 <input type="radio" id="grad" name="areas-to-support"/>
@@ -44,19 +45,17 @@ const OodSupportPage = (props) => {
                 <input type="radio" id="law" name="areas-to-support"/>
                 <label htmlFor="law">Law, Policy, + Government</label>
                 <input type="radio" id="medicine" name="areas-to-support"/>
-                <label htmlFor="medicine">Medicine + Healthcare</label>
+                <label htmlFor="medicine">Medicine + Health Care</label>
                 <input type="radio" id="science" name="areas-to-support"/>
                 <label htmlFor="science">Science + Technology</label>
                 <input type="radio" id="sustainability" name="areas-to-support"/>
                 <label htmlFor="sustainability">Sustainability</label>
-                <input type="radio" id="all" name="areas-to-support" defaultChecked />
-                <label htmlFor="all">All</label>
                 <div className={`grid-3-column su-mt-6 su-mb-4`}>
-                  {props.blok.graduate && props.blok.graduate.map((blok) => React.createElement(Components(blok.component), {
+                  {props.blok.undergraduate && props.blok.undergraduate.map((blok) => React.createElement(Components(blok.component), {
                     key: blok._uid,
                     blok: blok
                   }))}
-                  {props.blok.undergraduate && props.blok.undergraduate.map((blok) => React.createElement(Components(blok.component), {
+                  {props.blok.graduate && props.blok.graduate.map((blok) => React.createElement(Components(blok.component), {
                     key: blok._uid,
                     blok: blok
                   }))}
