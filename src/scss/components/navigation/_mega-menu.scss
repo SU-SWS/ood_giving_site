@@ -112,10 +112,10 @@
     @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 2.6%);
     position: absolute;
     left: 0;
-    height: 0;
+    max-height: 0;
     width: 100%;
     opacity: 0;
-    transition: height 0.4s ease-in, opacity 0.4s ease-in;
+    transition: max-height 0.4s ease-in, opacity 0.4s ease-in;
     visibility: hidden;
 
     * {
@@ -304,7 +304,8 @@
           > section {
             visibility: visible;
             opacity: 1;
-            height: 570px;
+            height: auto;
+            max-height: 60rem;
             display: flex;
 
             * {
