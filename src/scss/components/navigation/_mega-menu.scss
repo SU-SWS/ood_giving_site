@@ -115,6 +115,7 @@
     max-height: 0;
     width: 100%;
     opacity: 0;
+    // CSS doesn't allow transition of height to auto so using this trick of using the max-height for the transition
     transition: max-height 0.4s ease-in, opacity 0.4s ease-in;
     visibility: hidden;
 
