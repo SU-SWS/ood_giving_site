@@ -13,8 +13,8 @@ import transformImage from "../../utilities/transformImage"
 
 const SeoSocial = (props) => {
   const { title } = UseSiteMetadata();
-  let ogImage = props.blok.seo.og_image;
-  let twitterImage = props.blok.seo.twitter_image;
+  let ogImage = props.blok.seo.og_image ?? "";
+  let twitterImage = props.blok.seo.twitter_image ?? "";
 
   if (ogImage !== "") {
     ogImage = transformImage(ogImage, "/1200x630");
