@@ -1,12 +1,15 @@
 import React from 'react'
 import { Helmet } from "react-helmet"
 import SbEditable from "storyblok-react"
+import UseSiteMetadata from "../../hooks/useSiteMetadata"
 
 const SeoSocial = (props) => {
+  const { title, siteUrl } = UseSiteMetadata();
+
   return (
     <SbEditable content={props.blok}>
       <Helmet>
-        <title>{`${props.blok.title} | Giving to Stanford`}</title>
+        <title>{`${props.blok.title} | ${title}`}</title>
         {props.blok.seo.description &&
           <meta name="description"
               content={props.blok.seo.description} />
@@ -35,6 +38,7 @@ const SeoSocial = (props) => {
           <meta name="twitter:image"
               content={props.blok.seo.twitter_image} />
         }
+        <link rel="canonical" href={`${siteUrl}${location.pathname}`} />
       </Helmet>
     </SbEditable>
   )
