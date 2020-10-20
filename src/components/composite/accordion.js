@@ -44,10 +44,11 @@ class Accordion extends React.Component {
 
     return (
       <SbEditable content={props.blok}>
-        <div className={`su-accordion ${props.blok.classes}
+        <div className={`su-accordion
             ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
-            ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}
-        `}>
+            ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}`}
+             id={props.blok.id}
+        >
           {props.blok.title &&
             <h2 className={`ood-accordion__heading su-serif`}>{props.blok.title}</h2>
           }
