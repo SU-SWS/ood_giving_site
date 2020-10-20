@@ -7,6 +7,8 @@ import transformImage from "../../utilities/transformImage"
 /*
 ** If no Twitter specific metadata is provided,
 * Twitter can still read the generic OG metadata.
+* The Storyblok SEO OG image and Twitter image make use of the old image block,
+* and thus returns a string, not an object like the new asset block.
 */
 
 const SeoSocial = (props) => {
@@ -34,9 +36,9 @@ const SeoSocial = (props) => {
           <meta property="og:title"
               content={props.blok.seo.og_title || props.blok.title} />
         }
-        {(props.blok.seo.og_description || props.blok.teaser) &&
+        {(props.blok.seo.og_description || props.blok.seo.description || props.blok.teaser) &&
           <meta property="og:description"
-              content={props.blok.seo.og_description || props.blok.teaser} />
+              content={props.blok.seo.og_description || props.blok.seo.description || props.blok.teaser} />
         }
         {ogImage !== "" &&
           <meta property="og:image"
