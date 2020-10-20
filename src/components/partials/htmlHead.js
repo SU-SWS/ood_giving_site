@@ -1,4 +1,5 @@
 import React from 'react'
+import UseSiteMetadata from "../../hooks/useSiteMetadata"
 
 /*
 ** The HtmlHead component is included into the html.js file, to always be loaded.
@@ -7,9 +8,11 @@ import React from 'react'
 */
 
 const HtmlHead = (props) => {
+  const { title } = UseSiteMetadata();
+
   return (
     <>
-    <title>Giving to Stanford</title>
+    <title>{ title }</title>
     <link rel="apple-touch-icon" sizes="57x57" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-72x72.png" />
