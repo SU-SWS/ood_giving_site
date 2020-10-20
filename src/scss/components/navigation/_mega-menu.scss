@@ -179,14 +179,10 @@
               transform: translate3d(0.15em, -0.15em, 0);
             }
           }
+        }
 
-          .ood-mega-nav__card-headline {
-            text-decoration: underline;
-
-            &::after {
-              background-color: $su-color-white;
-            }
-          }
+        .ood-mega-nav__card-headline {
+          text-decoration: underline;
         }
 
         img {
