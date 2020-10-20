@@ -6,8 +6,8 @@ import RichTextField from '../../utilities/richTextField'
 const Section = (props) => {
   
   // Hide and don't return nothing.
-  if (props.blok.hideSection == true) {
-    return;
+  if (props.blok.hideSection === true) {
+    return null;
   }
   
   const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h2";
