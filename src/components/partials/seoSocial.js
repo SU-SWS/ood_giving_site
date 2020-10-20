@@ -4,7 +4,7 @@ import SbEditable from "storyblok-react"
 import UseSiteMetadata from "../../hooks/useSiteMetadata"
 
 const SeoSocial = (props) => {
-  const { title, siteUrl } = UseSiteMetadata();
+  const { title } = UseSiteMetadata();
 
   return (
     <SbEditable content={props.blok}>
@@ -38,7 +38,6 @@ const SeoSocial = (props) => {
           <meta name="twitter:image"
               content={props.blok.seo.twitter_image} />
         }
-        <link rel="canonical" href={`${siteUrl}${location.pathname}`} />
       </Helmet>
     </SbEditable>
   )
