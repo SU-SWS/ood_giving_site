@@ -34,8 +34,10 @@
   h4,
   h5,
   h6 {
+    @include margin(null null 0.7em);
     @include serif;
     letter-spacing: 0;
+    clear: both;
   }
 
   // Vertical rhythm
@@ -61,14 +63,5 @@
     &:not(:first-child) {
       @include margin(1em null null);
     }
-  }
-
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @include margin(null null 0.7em);
-    clear: both;
   }
 }
