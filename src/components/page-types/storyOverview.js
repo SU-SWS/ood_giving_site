@@ -17,9 +17,9 @@ const StoryOverview = (props) => {
           blok: blok
         }))}
         <main id="main-content"
-              className={`ood-interior-page ood-interior-page--${props.blok.headerStyle}`}
+              className={`ood-interior-page ood-interior-page--no-image`}
         >
-          <article className={`su-bg-fog-light`}>
+          <article className={`su-bg-white`}>
             <HeaderNoImage {...props}/>
             {props.blok.stories && props.blok.stories.map((blok) => React.createElement(Components(blok.component), {
               key: blok._uid,
