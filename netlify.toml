@@ -15,6 +15,12 @@
   for = "/*"
   [headers.values]
     Basic-Auth = "adapt:letmein2020"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "form-action https:; frame-src *.stanford.edu *.storyblok.com"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=2592000"
+    Feature-Policy = "vibrate 'none'; geolocation 'none'; midi 'none'; notifications 'none'; push 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; vibrate 'none'; fullscreen 'none'"
 
 # PLUGIN A11Y
 # https://github.com/netlify-labs/netlify-plugin-a11y#readme
