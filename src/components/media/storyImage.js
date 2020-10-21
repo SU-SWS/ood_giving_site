@@ -16,17 +16,14 @@ const StoryImage = (props) => {
     else if (props.blok.imageWidth === "su-w-story") {
       processedImg = transformImage(props.blok.image.filename, "/1000x0");
     }
-    else if (props.blok.imageWidth === "fit-container") {
-      processedImg = transformImage(props.blok.image.filename, "/800x0");
-    }
     else {
-      processedImg = transformImage(props.blok.image.filename, "/800x0");
+      processedImg = transformImage(props.blok.image.filename, "");
     }
   }
 
   return (
     <SbEditable content={props.blok}>
-      <div className={`ood-story-media su-bg-${props.blok.backgroundColor}
+      <div className={`ood-story-media su-bg-transparent
                      ${(props.blok.imageWidth === "su-w-full" || props.blok.imageWidth === "fit-container") ? props.blok.imageWidth : ""}
                      ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
                      ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}
@@ -42,7 +39,7 @@ const StoryImage = (props) => {
               />
             </div>
             {props.blok.caption && (
-              <figcaption className={`su-media__caption ood-story-media__caption
+              <figcaption className={`su-media__caption ood-story-media__caption su-text-align-${props.blok.captionAlign}
                           ${props.blok.imageWidth === "su-w-full" ? "centered-container" : ""}`}>
                 <RichTextField data={props.blok.caption}/>
               </figcaption>

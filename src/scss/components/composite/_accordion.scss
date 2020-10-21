@@ -21,6 +21,10 @@
 
   &__list {
     @include margin(null null 0);
+
+    ul {
+      list-style-type: disc;
+    }
   }
 
   &__item {
@@ -35,6 +39,22 @@
       > * {
         &:last-child {
           @include margin(null null 0); // last item in the WYSIWYG
+        }
+      }
+
+      h3,
+      h4,
+      h5,
+      h6 {
+        @include serif;
+        @include margin(null null 0.7em);
+        letter-spacing: 0;
+        clear: both;
+      }
+
+      li {
+        p {
+          @include margin(null null 0.4em);
         }
       }
     }

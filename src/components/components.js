@@ -47,6 +47,7 @@ import OodInteriorPage from './page-types/oodInteriorPage'
 import OodLandingPage from './page-types/oodLandingPage'
 import OodStory from './page-types/story/oodStory'
 import OodSupportPage from './page-types/oodSupportPage'
+import StoryOverview from './page-types/storyOverview'
 // Simple Components
 import AspectRatioImage from './media/aspectRatioImage'
 import CtaLink from './simple/ctaLink'
@@ -104,6 +105,7 @@ const ComponentList = {
   oodLandingPage: OodLandingPage,
   oodStory: OodStory,
   oodStoryCard: OodStoryCard,
+  storyOverview: StoryOverview,
   storyPicker: StoryPicker,
   oodSupportPage: OodSupportPage,
   gridThreeColumns: GridThreeColumns,
