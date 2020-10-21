@@ -12,6 +12,11 @@ import transformImage from "../../utilities/transformImage"
 */
 
 const SeoSocial = (props) => {
+
+  if (props.blok.seo == null) {
+    return null;
+  }
+
   const { title } = UseSiteMetadata();
   let ogImage = props.blok.seo.og_image ?? "";
   let twitterImage = props.blok.seo.twitter_image ?? "";
