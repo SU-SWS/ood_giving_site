@@ -13,7 +13,7 @@ const OodSupportPage = (props) => {
     <>
       <SbEditable content={props.blok}>
         <SeoSocial {...props}/>
-        {CreateBloks(props.blok.localHeader)}
+        <CreateBloks blokSection={props.blok.localHeader} />
         <main id="main-content"
               className="ood-interior-page--no-image ood-support-page"
         >
@@ -51,17 +51,17 @@ const OodSupportPage = (props) => {
                 <input type="radio" id="teaching" name="areas-to-support"/>
                 <label htmlFor="teaching">Teaching + Learning</label>
                 <div className={`grid-3-column su-mt-6 su-mb-4`}>
-                  {CreateBloks(props.blok.undergraduate)}
-                  {CreateBloks(props.blok.graduate)}
-                  {CreateBloks(props.blok.arts)}
-                  {CreateBloks(props.blok.athletics)}
-                  {CreateBloks(props.blok.business)}
-                  {CreateBloks(props.blok.culture)}
-                  {CreateBloks(props.blok.law)}
-                  {CreateBloks(props.blok.medicine)}
-                  {CreateBloks(props.blok.science)}
-                  {CreateBloks(props.blok.sustainability)}
-                  {CreateBloks(props.blok.teaching)}
+                  <CreateBloks blokSection={props.blok.undergraduate} />
+                  <CreateBloks blokSection={props.blok.graduate} />
+                  <CreateBloks blokSection={props.blok.arts} />
+                  <CreateBloks blokSection={props.blok.athletics} />
+                  <CreateBloks blokSection={props.blok.business} />
+                  <CreateBloks blokSection={props.blok.culture} />
+                  <CreateBloks blokSection={props.blok.law} />
+                  <CreateBloks blokSection={props.blok.medicine} />
+                  <CreateBloks blokSection={props.blok.science} />
+                  <CreateBloks blokSection={props.blok.sustainability} />
+                  <CreateBloks blokSection={props.blok.teaching} />
                 </div>
               </div>
             </section>

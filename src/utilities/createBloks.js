@@ -5,10 +5,10 @@
 import React from "react"
 import Components from "../components/components"
 
-const CreateBloks = (blokSection) => {
-  if (blokSection) {
+const CreateBloks = (props) => {
+  if (props.blokSection) {
     return (
-      blokSection.map((blok) => React.createElement(Components(blok.component), {
+      props.blokSection.map((blok) => React.createElement(Components(blok.component), {
         key: blok._uid,
         blok: blok
       }))
