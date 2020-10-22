@@ -16,7 +16,8 @@ const HeaderWithImage = (props) => (
             filename={props.blok.headerImage.filename}
             alt={props.blok.headerImage.alt}
             classPrefix={"ood-interior-page__header"}
-            otherClasses={"flex-lg-6-of-12 flex-xl-7-of-12 flex-2xl-6-of-12"}
+            otherClasses={"flex-md-9-of-12 flex-lg-6-of-12 flex-xl-7-of-12" +
+            " flex-2xl-6-of-12 su-ml-auto su-mr-none"}
             imageSize={"header"}
             aspectRatio={"3x2"}
           />
