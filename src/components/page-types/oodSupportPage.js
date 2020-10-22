@@ -6,16 +6,14 @@ import Footer from "../partials/footer"
 import BelowContent from '../partials/belowContent'
 import IconCardSection from '../partials/iconCardSection'
 import SeoSocial from "../partials/seoSocial"
+import CreateBloks from "../../utilities/createBloks"
 
 const OodSupportPage = (props) => {
   return (
     <>
       <SbEditable content={props.blok}>
         <SeoSocial {...props}/>
-        {props.blok.localHeader && props.blok.localHeader.map((blok) => React.createElement(Components(blok.component), {
-          key: blok._uid,
-          blok: blok
-        }))}
+        <CreateBloks blokSection={props.blok.localHeader} />
         <main id="main-content"
               className="ood-interior-page--no-image ood-support-page"
         >
@@ -50,47 +48,20 @@ const OodSupportPage = (props) => {
                 <label htmlFor="science">Science + Technology</label>
                 <input type="radio" id="sustainability" name="areas-to-support"/>
                 <label htmlFor="sustainability">Sustainability</label>
+                <input type="radio" id="teaching" name="areas-to-support"/>
+                <label htmlFor="teaching">Teaching + Learning</label>
                 <div className={`grid-3-column su-mt-6 su-mb-4`}>
-                  {props.blok.undergraduate && props.blok.undergraduate.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.graduate && props.blok.graduate.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.arts && props.blok.arts.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.athletics && props.blok.athletics.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.business && props.blok.business.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.culture && props.blok.culture.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.law && props.blok.law.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.medicine && props.blok.medicine.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.science && props.blok.science.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.sustainability && props.blok.sustainability.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
+                  <CreateBloks blokSection={props.blok.undergraduate} />
+                  <CreateBloks blokSection={props.blok.graduate} />
+                  <CreateBloks blokSection={props.blok.arts} />
+                  <CreateBloks blokSection={props.blok.athletics} />
+                  <CreateBloks blokSection={props.blok.business} />
+                  <CreateBloks blokSection={props.blok.culture} />
+                  <CreateBloks blokSection={props.blok.law} />
+                  <CreateBloks blokSection={props.blok.medicine} />
+                  <CreateBloks blokSection={props.blok.science} />
+                  <CreateBloks blokSection={props.blok.sustainability} />
+                  <CreateBloks blokSection={props.blok.teaching} />
                 </div>
               </div>
             </section>
