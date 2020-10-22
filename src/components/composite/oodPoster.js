@@ -1,7 +1,6 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
 import RichTextField from '../../utilities/richTextField'
-import Components from "../components"
 import transformImage from '../../utilities/transformImage'
 import CreateBloks from "../../utilities/createBloks"
 
