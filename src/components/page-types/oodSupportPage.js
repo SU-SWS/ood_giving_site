@@ -50,6 +50,8 @@ const OodSupportPage = (props) => {
                 <label htmlFor="science">Science + Technology</label>
                 <input type="radio" id="sustainability" name="areas-to-support"/>
                 <label htmlFor="sustainability">Sustainability</label>
+                <input type="radio" id="teaching" name="areas-to-support"/>
+                <label htmlFor="teaching">Teaching + Learning</label>
                 <div className={`grid-3-column su-mt-6 su-mb-4`}>
                   {props.blok.undergraduate && props.blok.undergraduate.map((blok) => React.createElement(Components(blok.component), {
                     key: blok._uid,
@@ -88,6 +90,10 @@ const OodSupportPage = (props) => {
                     blok: blok
                   }))}
                   {props.blok.sustainability && props.blok.sustainability.map((blok) => React.createElement(Components(blok.component), {
+                    key: blok._uid,
+                    blok: blok
+                  }))}
+                  {props.blok.teaching && props.blok.teaching.map((blok) => React.createElement(Components(blok.component), {
                     key: blok._uid,
                     blok: blok
                   }))}

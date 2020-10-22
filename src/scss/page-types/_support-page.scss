@@ -86,6 +86,7 @@
       &[id="law"]:checked ~ div article:not([data-areas-to-support*="law"]),
       &[id="medicine"]:checked ~ div article:not([data-areas-to-support*="medicine"]),
       &[id="science"]:checked ~ div article:not([data-areas-to-support*="science"]),
+      &[id="teaching"]:checked ~ div article:not([data-areas-to-support*="teaching"]),
       &[id="sustainability"]:checked ~ div article:not([data-areas-to-support*="sustainability"]) {
         width: 0;
         height: 0;
