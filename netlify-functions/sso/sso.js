@@ -6,11 +6,11 @@ const cookieParser = require('cookie-parser')
 const express = require('express')
 const session = require('express-session')
 const passport = require('passport')
+const passportJwt = require('passport-jwt');
 const suSAML = require('passport-stanford')
-const serverless = require('serverless-http')
-const util = require('util')
-require('./utils/auth')
 const { COOKIE_SECURE, SECRET } = require('./utils/config')
+const { sign } = require(`jsonwebtoken`);
+const serverless = require('serverless-http')
 const app = express()
 
 // create a Stanford SAML Strategy and tell Passport to use it
@@ -23,7 +23,6 @@ const saml = new suSAML.Strategy({
   loginPath: '/api/sso/login',
   logoutUrl: '/api/sso/logout',
   passReqToCallback: true,
-  forceAuthn: true,
   decryptionPvkPath: path.resolve(__dirname, '../../certs/private.pem'),
   decryptionCertPath: path.resolve(__dirname, '../../certs/public.pem'),
   validateInResponseTo: false,
@@ -50,7 +49,17 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 const handleCallback = (req, res) => {
-  res.cookie('jwt', req.user.jwt, { httpOnly: true, COOKIE_SECURE }).redirect('/')
+
+  let user = {
+    name: req.user.displayName,
+    firstName: req.user.givenName,
+    email: req.user.email,
+    uid: req.user.uid,
+  }
+
+  res
+    .cookie('stanford_auth_user', JSON.stringify(user), { httpOnly: true, COOKIE_SECURE })
+    .json({"user": user})
 }
 
 passport.serializeUser(function(user, done){
@@ -65,21 +74,26 @@ passport.deserializeUser(function(json, done){
   }
 });
 
-app.get(`/api/sso/status`, passport.authenticate('jwt', { session: false }), (req, res) =>
-  res.json({ email: req.user.email })
+app.get(
+  `/api/sso/status`,
+  function(req, res) {
+    if (req.isAuthenticated()) {
+      res.json({"user": req.user})
+    }
+    else {
+      res.json({"status": false})
+    }
+  }
 )
 
 app.get('/api/sso/login',
   passport.authenticate(saml.name,
     {
-      failureRedirect: '/',
+      failureRedirect: '/403',
       failureFlash: true,
       validateInResponseTo: false
     }
-  ),
-  function(req, res) {
-    res.redirect('/');
-  }
+  )
 );
 
 app.get('/api/sso/logout', function(req, res) {
@@ -94,7 +108,7 @@ app.get('/api/sso/metadata',
 app.post('/api/sso/auth',
   passport.authenticate(saml.name,
     {
-      failureRedirect: '/',
+      failureRedirect: '/403',
       failureFlash: true,
       validateInResponseTo: false
     }
