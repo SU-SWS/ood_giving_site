@@ -3,6 +3,7 @@ import SbEditable from 'storyblok-react'
 import RichTextField from '../../utilities/richTextField'
 import Components from "../components"
 import transformImage from '../../utilities/transformImage'
+import CreateBloks from "../../utilities/createBloks"
 
 const OodPoster = (props) => {
   const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h3";
@@ -38,10 +39,7 @@ const OodPoster = (props) => {
                     <RichTextField data={props.blok.bodyText}/>
                   </div>
                 }
-                {props.blok.ctaLink && props.blok.ctaLink.map((blok) => React.createElement(Components(blok.component), {
-                  key: blok._uid,
-                  blok: blok
-                }))}
+                <CreateBloks blokSection={props.blok.ctaLink} />
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import Components from "../../components";
+import CreateBloks from "../../../utilities/createBloks"
 
 const OodMegaMenuSection = (props) => (
   <SbEditable content={props.blok}>
@@ -10,21 +10,12 @@ const OodMegaMenuSection = (props) => (
         <div className="centered-container flex-container su-py-3">
           <div className="flex-lg-8-of-12 flex-2xl-9-of-12 su-flex su-flex-col">
             <div className="flex-container">
-              {props.blok.linkGroups && props.blok.linkGroups.map((blok) => React.createElement(Components(blok.component), {
-                key: blok._uid,
-                blok: blok,
-              }))}
+              <CreateBloks blokSection={props.blok.linkGroups} />
             </div>
-            {props.blok.sectionCtaLink && props.blok.sectionCtaLink.map((blok) => React.createElement(Components(blok.component), {
-              key: blok._uid,
-              blok: blok,
-            }))}
+            <CreateBloks blokSection={props.blok.sectionCtaLink} />
           </div>
           <div className="flex-lg-4-of-12 flex-2xl-3-of-12">
-            {props.blok.card && props.blok.card.map((blok) => React.createElement(Components(blok.component), {
-              key: blok._uid,
-              blok: blok,
-            }))}
+            <CreateBloks blokSection={props.blok.card} />
           </div>
         </div>
       </section>

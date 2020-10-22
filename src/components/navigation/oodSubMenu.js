@@ -1,16 +1,13 @@
 import React from 'react'
 import { Link } from "gatsby"
-import Components from '../components.js'
 import SbEditable from 'storyblok-react'
+import CreateBloks from "../../utilities/createBloks"
 
 const OodSubMenu = (props) => (
   <SbEditable content={props.blok}>
     <nav className="ood-submenu" aria-label="Sub Menu">
       <ul>
-        {props.blok.menuLinkItems && props.blok.menuLinkItems.map((blok) => React.createElement(Components(blok.component), {
-          key: blok._uid,
-          blok: blok,
-        }))}
+        <CreateBloks blokSection={props.blok.menuLinkItems} />
       </ul>
       {props.blok.buttonLink.linktype === "story" &&
         <Link to={props.blok.link.cached_url === "home" ? "/" : `/${props.blok.link.cached_url}${props.blok.link.cached_url.endsWith("/") ? "" : "/"}`}
