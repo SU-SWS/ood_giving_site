@@ -12,8 +12,10 @@ const CtaLink = (props) => (
                   `ood-cta__button ${props.blok.linkButtonStyle} ${props.blok.linkButtonSize} ${props.blok.linkIcon}`
                   : `su-link ood-cta__link ${props.blok.linkIcon} ${props.blok.linkTextColor}`}
                 {...props.blok.rel ? {rel : props.blok.rel} : {}}
-          >
-            {props.blok.linkText}
+          >{props.blok.linkText}
+            {props.blok.srText &&
+              <span className="su-sr-only-element">{` ${props.blok.srText}`}</span>
+            }
           </Link>
         }
         {props.blok.link.linktype === "url" &&
@@ -22,8 +24,10 @@ const CtaLink = (props) => (
                `ood-cta__button ${props.blok.linkButtonStyle} ${props.blok.linkButtonSize} ${props.blok.linkIcon}`
                : `su-link ood-cta__link ${props.blok.linkIcon} ${props.blok.linkTextColor}`}
              {...props.blok.rel ? {rel : props.blok.rel} : {}}
-          >
-           {props.blok.linkText}
+          >{props.blok.linkText}
+            {props.blok.srText &&
+              <span className="su-sr-only-element">{` ${props.blok.srText}`}</span>
+            }
           </a>
         }
       </div>

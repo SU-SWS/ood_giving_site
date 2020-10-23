@@ -1,22 +1,19 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import RichTextField from '../../utilities/richTextField'
 import Components from "../components"
 import HeaderNoImage from '../partials/headerNoImage'
 import Footer from "../partials/footer"
 import BelowContent from '../partials/belowContent'
 import IconCardSection from '../partials/iconCardSection'
-import { Helmet } from 'react-helmet'
+import SeoSocial from "../partials/seoSocial"
+import CreateBloks from "../../utilities/createBloks"
 
 const OodSupportPage = (props) => {
   return (
     <>
       <SbEditable content={props.blok}>
-        <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title></Helmet>
-        {props.blok.localHeader && props.blok.localHeader.map((blok) => React.createElement(Components(blok.component), {
-          key: blok._uid,
-          blok: blok
-        }))}
+        <SeoSocial {...props}/>
+        <CreateBloks blokSection={props.blok.localHeader} />
         <main id="main-content"
               className="ood-interior-page--no-image ood-support-page"
         >
@@ -29,6 +26,8 @@ const OodSupportPage = (props) => {
                 </header>
               }
               <div className="centered-container ood-support-page__filter-container">
+                <input type="radio" id="all" name="areas-to-support" defaultChecked />
+                <label htmlFor="all">All</label>
                 <input type="radio" id="undergraduate" name="areas-to-support"/>
                 <label htmlFor="undergraduate">Undergraduate Education</label>
                 <input type="radio" id="grad" name="areas-to-support"/>
@@ -44,54 +43,25 @@ const OodSupportPage = (props) => {
                 <input type="radio" id="law" name="areas-to-support"/>
                 <label htmlFor="law">Law, Policy, + Government</label>
                 <input type="radio" id="medicine" name="areas-to-support"/>
-                <label htmlFor="medicine">Medicine + Healthcare</label>
+                <label htmlFor="medicine">Medicine + Health Care</label>
                 <input type="radio" id="science" name="areas-to-support"/>
                 <label htmlFor="science">Science + Technology</label>
                 <input type="radio" id="sustainability" name="areas-to-support"/>
                 <label htmlFor="sustainability">Sustainability</label>
-                <input type="radio" id="all" name="areas-to-support" defaultChecked />
-                <label htmlFor="all">All</label>
+                <input type="radio" id="teaching" name="areas-to-support"/>
+                <label htmlFor="teaching">Teaching + Learning</label>
                 <div className={`grid-3-column su-mt-6 su-mb-4`}>
-                  {props.blok.graduate && props.blok.graduate.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.undergraduate && props.blok.undergraduate.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.arts && props.blok.arts.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.athletics && props.blok.athletics.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.business && props.blok.business.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.culture && props.blok.culture.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.law && props.blok.law.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.medicine && props.blok.medicine.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.science && props.blok.science.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
-                  {props.blok.sustainability && props.blok.sustainability.map((blok) => React.createElement(Components(blok.component), {
-                    key: blok._uid,
-                    blok: blok
-                  }))}
+                  <CreateBloks blokSection={props.blok.undergraduate} />
+                  <CreateBloks blokSection={props.blok.graduate} />
+                  <CreateBloks blokSection={props.blok.arts} />
+                  <CreateBloks blokSection={props.blok.athletics} />
+                  <CreateBloks blokSection={props.blok.business} />
+                  <CreateBloks blokSection={props.blok.culture} />
+                  <CreateBloks blokSection={props.blok.law} />
+                  <CreateBloks blokSection={props.blok.medicine} />
+                  <CreateBloks blokSection={props.blok.science} />
+                  <CreateBloks blokSection={props.blok.sustainability} />
+                  <CreateBloks blokSection={props.blok.teaching} />
                 </div>
               </div>
             </section>

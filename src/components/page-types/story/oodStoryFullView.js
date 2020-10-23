@@ -1,10 +1,10 @@
 import SbEditable from "storyblok-react";
-import {Helmet} from "react-helmet";
 import React from "react";
 import Components from "../../components";
 import IconCardSection from "../../partials/iconCardSection";
 import Footer from "../../partials/footer";
 import transformImage from "../../../utilities/transformImage";
+import SeoSocial from "../../partials/seoSocial"
 
 const StoryFullView = (props) => {
 
@@ -23,8 +23,7 @@ const StoryFullView = (props) => {
   return (
   <>
     <SbEditable content={props.blok}>
-      <Helmet><title>{`${props.blok.title} | Giving to Stanford`}</title>
-      </Helmet>
+      <SeoSocial {...props}/>
       {props.blok.localHeader && props.blok.localHeader.map((blok) => React.createElement(Components(blok.component), {
         key: blok._uid,
         blok: blok

@@ -4,6 +4,12 @@ import Components from '../components.js'
 import RichTextField from '../../utilities/richTextField'
 
 const Section = (props) => {
+  
+  // Hide and don't return nothing.
+  if (props.blok.hideSection === true) {
+    return null;
+  }
+  
   const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h2";
   const titleStyleClassList = (titleStyleArray) => {
     return titleStyleArray.toString().replace(/,/g, " ");
@@ -44,12 +50,11 @@ const Section = (props) => {
     </SbEditable>
   );
 
-  return (
-    <SbEditable content={props.blok}>
-      {props.blok.hideSection !== true &&
+    return (
+      <SbEditable content={props.blok}>
         <div className={`section su-bg-${props.blok.backgroundColor}
-                       ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
-                       ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}`}
+                     ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
+                     ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}`}
              id={props.blok.id}
         >
           {(props.blok.title || props.blok.intro) && (
@@ -80,9 +85,8 @@ const Section = (props) => {
             <FlexContainer {...props}/>
           }
         </div>
-      }
-    </SbEditable>
-  )
+      </SbEditable>
+    )
 };
 
 export default Section

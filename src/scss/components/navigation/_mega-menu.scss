@@ -112,8 +112,18 @@
     @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 2.6%);
     position: absolute;
     left: 0;
+    max-height: 0;
     width: 100%;
-    display: none;
+    opacity: 0;
+    // CSS doesn't allow transition of height to auto so using this trick of using the max-height for the transition
+    transition: max-height 0.4s ease-in, opacity 0.4s ease-in;
+    visibility: hidden;
+
+    * {
+      opacity: 0;
+      transition: opacity 0.4s ease-in;
+      visibility: hidden;
+    }
 
     @include grid-media('lg') {
       top: 153px;
@@ -156,16 +166,23 @@
 
           &::after {
             background-color: $su-color-white;
-            transform: translateX(0.2em);
+          }
+
+          &.su-link--action {
+            &::after {
+              transform: translateX(0.2em);
+            }
+          }
+
+          &.su-link--external {
+            &::after {
+              transform: translate3d(0.15em, -0.15em, 0);
+            }
           }
         }
 
         .ood-mega-nav__card-headline {
           text-decoration: underline;
-
-          &::after {
-            background-color: $su-color-white;
-          }
         }
 
         img {
@@ -282,7 +299,16 @@
         &:hover,
         &:focus-within {
           > section {
+            visibility: visible;
+            opacity: 1;
+            height: auto;
+            max-height: 60rem;
             display: flex;
+
+            * {
+              visibility: visible;
+              opacity: 1;
+            }
           }
         }
       }

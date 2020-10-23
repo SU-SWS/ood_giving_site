@@ -11,13 +11,14 @@
 
 # HEADERS - BASIC AUTH
 # ##############################################################################
+
 [[headers]]
   for = "/*"
   [headers.values]
     Basic-Auth = "adapt:letmein2020"
     X-Frame-Options = "SAMEORIGIN"
     X-XSS-Protection = "1; mode=block"
-    Content-Security-Policy = "form-action https:; frame-src *.stanford.edu *.storyblok.com"
+    Content-Security-Policy = "form-action https:; frame-src *.stanford.edu *.storyblok.com *.kimbia.com"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Strict-Transport-Security = "max-age=2592000"
     Feature-Policy = "vibrate 'none'; geolocation 'none'; midi 'none'; notifications 'none'; push 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; vibrate 'none'; fullscreen 'none'"
@@ -25,18 +26,18 @@
 # PLUGIN A11Y
 # https://github.com/netlify-labs/netlify-plugin-a11y#readme
 # ##############################################################################
-[[plugins]]
-  package = "netlify-plugin-a11y"
+# [[plugins]]
+  # package = "netlify-plugin-a11y"
 
   # all inputs are optional, we just show you the defaults below
-  [plugins.inputs]
+  # [plugins.inputs]
 
   # required config
-  checkPaths = ['/'] # you can give an array of directories or paths to html files, that you want to run a11y checks on
+  # checkPaths = ['/'] # you can give an array of directories or paths to html files, that you want to run a11y checks on
 
   ## optional config
-  ignoreDirectories = ['/editor']  # explicitly ignore these directories
-  resultMode = "warn" # is "error" by default
+  # ignoreDirectories = ['/editor']  # explicitly ignore these directories
+  # resultMode = "warn" # is "error" by default
 
 # PLUGIN GATSBY CACHE
 # https://github.com/jlengstorf/netlify-plugin-gatsby-cache#readme
