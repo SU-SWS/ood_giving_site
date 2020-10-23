@@ -12,9 +12,9 @@
 # HEADERS - BASIC AUTH
 # ##############################################################################
 [[headers]]
-  for = "/.well-known/*"
+  for = "/.well-known/apple-developer-merchantid-domain-association"
   [headers.values]
-    Basic-Auth = ""
+    X-Custom-Header = "Free Pass"
 
 [[headers]]
   for = "/*"
