@@ -58,3 +58,11 @@
     }
   }
 }
+
+.row--3-columns {
+  .ood-icon-card__link {
+    @include grid-media-between('md', 'lg') {
+      @include padding(null 2.6rem);
+    }
+  }
+}
