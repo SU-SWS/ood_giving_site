@@ -11,7 +11,15 @@
 
 # HEADERS - BASIC AUTH
 # ##############################################################################
+[[headers]]
+  for = "/.well-known/*"
+  [headers.values]
+    Basic-Auth = ""
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Basic-Auth = "adapt:letmein2020"
 
 # PLUGIN A11Y
 # https://github.com/netlify-labs/netlify-plugin-a11y#readme
