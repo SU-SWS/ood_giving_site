@@ -3,9 +3,9 @@
 // Poster style
 
 .ood-poster {
-  border-bottom: 80px solid transparent;
+  border-bottom: 8rem solid transparent;
   position: relative;
-  height: 640px; // height of the image plus the transparent border bottom
+  height: 64rem; // height of the image plus the transparent border bottom
 
   &__media {
     position: absolute;
@@ -13,7 +13,7 @@
     z-index: 1;
 
     @include grid-media('lg') {
-      height: 560px;
+      height: 56rem;
     }
   }
 
@@ -40,21 +40,25 @@
   &__card {
     @include modular-spacing('padding', 4);
     width: 100%;
-    min-height: 460px;
+    min-height: 43rem;
     position: absolute;
-    bottom: -80px;
+    bottom: -8rem;
     padding: 2em;
+
+    @include grid-media-max('sm') {
+      @include padding(3.4rem);
+      min-height: 36rem;
+    }
   }
 
   &__headline {
-    @include modular-typography(4);
-    @include margin(null null 0.4em);
-    font-weight: $su-font-regular;
+    @include modular-typography(3);
+    @include margin(null null 0.6em);
     letter-spacing: -0.016em;
   }
 
   &__text {
-    @include modular-typography(1);
+    @include ood-big-paragraph;
   }
 
   .ood-cta {
