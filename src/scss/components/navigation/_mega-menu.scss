@@ -292,23 +292,19 @@
       }
     }
 
-    // On desktop, if mouse user hovers over a parent menu item,
-    // submenu is expanded
+    // On desktop, if aria-hidden of a mega menu section is set to "false", then it is shown
     @include grid-media('lg') {
-      .ood-mega-nav__item--parent {
-        &:hover,
-        &:focus-within {
-          > section {
+      .ood-mega-nav__section {
+        &[aria-hidden="false"] {
+          visibility: visible;
+          opacity: 1;
+          height: auto;
+          max-height: 60rem;
+          display: flex;
+
+          * {
             visibility: visible;
             opacity: 1;
-            height: auto;
-            max-height: 60rem;
-            display: flex;
-
-            * {
-              visibility: visible;
-              opacity: 1;
-            }
           }
         }
       }
