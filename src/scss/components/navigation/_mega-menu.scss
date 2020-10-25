@@ -28,7 +28,7 @@
         top: 0;
         height: 11px; // Small svg gets chopped off if use em instead of px
         width: 11px;
-        transition: transform 0.3s ease-out;
+        transition: transform 0.3s ease-in;
       }
     }
   }
@@ -112,17 +112,19 @@
     @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 2.6%);
     position: absolute;
     left: 0;
-    max-height: 0;
     width: 100%;
     opacity: 0;
-    // CSS doesn't allow transition of height to auto so using this trick of using the max-height for the transition
-    transition: max-height 0.4s ease-in, opacity 0.4s ease-in;
-    visibility: hidden;
+    transform: scaleY(0);
+    transform-origin: center top;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
-    * {
-      opacity: 0;
-      transition: opacity 0.4s ease-in;
-      visibility: hidden;
+    // On desktop, if aria-hidden of a mega menu section is set to "false", then it is shown
+    @include grid-media('lg') {
+      &[aria-hidden="false"] {
+        display: flex;
+        opacity: 1;
+        transform: scaleY(1);
+      }
     }
 
     @include grid-media('lg') {
@@ -288,24 +290,6 @@
       &:focus-within {
         .ood-mega-nav__menu-lv1 {
           display: flex;
-        }
-      }
-    }
-
-    // On desktop, if aria-hidden of a mega menu section is set to "false", then it is shown
-    @include grid-media('lg') {
-      .ood-mega-nav__section {
-        &[aria-hidden="false"] {
-          visibility: visible;
-          opacity: 1;
-          height: auto;
-          max-height: 60rem;
-          display: flex;
-
-          * {
-            visibility: visible;
-            opacity: 1;
-          }
         }
       }
     }
