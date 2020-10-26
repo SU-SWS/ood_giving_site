@@ -32,10 +32,6 @@
       }
     }
 
-    &:focus {
-      outline: 0;
-    }
-
     &[aria-expanded="true"] {
       &::after {
         transform: rotate(180deg);
@@ -77,6 +73,7 @@
             &:hover,
             &:focus {
               color: $su-color-digital-red;
+              outline: none;
             }
           }
 
