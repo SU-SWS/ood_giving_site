@@ -5,19 +5,6 @@
   display: flex;
   flex-direction: row;
 
-  &__media {
-    position: absolute;
-    right: #{-$card-overhang};
-    width: 30rem;
-    max-width: 30rem;
-    align-self: center;
-
-    @include grid-media-between('sm', 'lg') {
-      width: 24vw;
-      max-width: 24vw;
-    }
-  }
-
   &__content {
     @include modular-spacing('padding', 4 3);
     display: flex;
@@ -53,18 +40,37 @@
     }
   }
 
+  &__media {
+    position: absolute;
+    right: #{-$card-overhang};
+    width: 13rem;
+    max-width: 13rem;
+    align-self: center;
+
+    @include grid-media-between('md', 'lg') {
+      width: 20rem;
+      max-width: 20rem;
+    }
+
+    @include grid-media-min('xl') {
+      width: 30rem;
+      max-width: 30rem;
+    }
+  }
+
   // Styles for version showing image
   &--has-image {
     @include margin(null $card-overhang null null);
 
     .ood-quote-card__content {
-      width: calc(100% - 30rem + #{$card-overhang}); // 100% minus the image width but add back the overhang amount
-      min-height: 42rem;
-    }
+      @include grid-media-only('lg') {
+        width: calc(100% - 20rem + #{$card-overhang}); // 100% minus the image width but add back the overhang amount
+        min-height: 32rem;
+      }
 
-    @include grid-media-between('sm', 'lg') {
-      .ood-quote-card__content {
-        width: calc(100% - 24vw + #{$card-overhang}); // 100% minus the image width but add back the overhang amount
+      @include grid-media('xl') {
+        width: calc(100% - 30rem + #{$card-overhang}); // 100% minus the image width but add back the overhang amount
+        min-height: 42rem;
       }
     }
   }
