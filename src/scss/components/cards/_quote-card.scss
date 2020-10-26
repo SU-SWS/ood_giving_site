@@ -5,12 +5,16 @@
   display: flex;
   flex-direction: column-reverse;
 
+  @include grid-media-max('md') {
+    @include margin(#{$card-overhang} null null);
+  }
+
   @include grid-media('lg') {
     flex-direction: row;
   }
 
   &__content {
-    @include modular-spacing('padding', 3);
+    @include modular-spacing('padding', 3 3 4);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,7 +78,7 @@
       right: #{-$card-overhang};
       align-self: center;
     }
-    
+
     @include grid-media('xl') {
       width: 30rem;
       max-width: 30rem;
