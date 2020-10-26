@@ -37,12 +37,12 @@ exports.createPages = ({ graphql, actions }) => {
           let pagePath = entry.node.full_slug == 'home' ? '' : `${entry.node.full_slug}/`
 
           // Wire up the 404 page.
-          if (pagePath.match(/^\/404/)) {
+          if (pagePath.match(/^404/)) {
             pagePath = "404"
           }
 
           // Wire up the 403 page.
-          if (pagePath.match(/^\/403/)) {
+          if (pagePath.match(/^403/)) {
             pagePath = "403"
           }
           
