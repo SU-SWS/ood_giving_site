@@ -36,6 +36,17 @@ exports.createPages = ({ graphql, actions }) => {
         entries.forEach((entry, index) => {
           let pagePath = entry.node.full_slug == 'home' ? '' : `${entry.node.full_slug}/`
 
+          // Wire up the 404 page.
+          if (pagePath.match(/^404/)) {
+            pagePath = "404"
+          }
+
+          // Wire up the 403 page.
+          if (pagePath.match(/^403/)) {
+            pagePath = "403"
+          }
+
+          // Create a page.
           createPage({
             path: `/${pagePath}`,
             component: storyblokEntry,

@@ -14,6 +14,7 @@ const serverless = require('serverless-http')
 const app = express()
 
 // create a Stanford SAML Strategy and tell Passport to use it
+// -----------------------------------------------------------------------------
 const saml = new suSAML.Strategy({
   protocol: 'http://',
   host: 'localhost:64946',
@@ -30,6 +31,39 @@ const saml = new suSAML.Strategy({
 });
 
 passport.use(saml);
+// -----------------------------------------------------------------------------
+
+// JWT
+// -----------------------------------------------------------------------------
+passport.use(
+  new passportJwt.Strategy(
+    {
+      jwtFromRequest(req) {
+        if (!req.cookies) throw new Error('Missing cookie-parser middleware')
+        return req.cookies.stanford_jwt
+      },
+      secretOrKey: SECRET,
+      passReqToCallback: true
+    },
+    async (req, payload, done) => {
+      try {
+
+        if (typeof payload.user == "object") {
+          if (payload.user.token === JSON.parse(req.cookies.stanford_auth_user).token) {
+            return done(null, payload.user)
+          }
+        }
+
+        return done(false, null);
+      }
+      catch (error) {
+        return done(error)
+      }
+    }
+  )
+)
+
+// -----------------------------------------------------------------------------
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -47,7 +81,16 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
+// -----------------------------------------------------------------------------
 
+// FUNCTIONS
+// -----------------------------------------------------------------------------
+
+/**
+ *
+ * @param {*} req
+ * @param {*} res
+ */
 const handleCallback = (req, res) => {
 
   let user = {
@@ -55,12 +98,27 @@ const handleCallback = (req, res) => {
     firstName: req.user.givenName,
     email: req.user.email,
     uid: req.user.uid,
+    token: req.cookies.stanford_auth_token
   }
 
   res
     .cookie('stanford_auth_user', JSON.stringify(user), { httpOnly: true, COOKIE_SECURE })
-    .json({"user": user})
+    .cookie('stanford_jwt', authJwt(user, req.cookies.stanford_auth_token), { httpOnly: true, COOKIE_SECURE })
+    .redirect("/")
 }
+
+/**
+ *
+ * @param {*} user
+ * @param {*} token
+ */
+function authJwt(user, samltoken) {
+  return sign({ user: user , token: samltoken }, SECRET)
+}
+// -----------------------------------------------------------------------------
+
+// PASSPORT FUNCTIONS
+// -----------------------------------------------------------------------------
 
 passport.serializeUser(function(user, done){
   done(null, JSON.stringify(user));
@@ -73,47 +131,50 @@ passport.deserializeUser(function(json, done){
     done(err, null);
   }
 });
+// -----------------------------------------------------------------------------
 
-app.get(
-  `/api/sso/status`,
-  function(req, res) {
-    if (req.isAuthenticated()) {
-      res.json({"user": req.user})
-    }
-    else {
-      res.json({"status": false})
-    }
-  }
+// ENDPOINTS
+// -----------------------------------------------------------------------------
+
+// Validate logged in status.
+app.get(`/api/sso/status`,
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => res.json({ status: true })
 )
 
-app.get('/api/sso/login',
-  passport.authenticate(saml.name,
-    {
-      failureRedirect: '/403',
-      failureFlash: true,
-      validateInResponseTo: false
-    }
-  )
-);
+// Do the login.
+app.get('/api/sso/login', passport.authenticate(saml.name,
+  {
+    failureRedirect: '/403',
+    failureFlash: true,
+    validateInResponseTo: false,
+    validatedInResponseTo: false
+  }
+));
 
+// Logout.
 app.get('/api/sso/logout', function(req, res) {
   req.logout();
   res.redirect('/');
 });
 
+// Metadata for SAML Provider.
 app.get('/api/sso/metadata',
   saml.metadata()
 );
 
+// Handle SAML callback at this path.
 app.post('/api/sso/auth',
   passport.authenticate(saml.name,
     {
       failureRedirect: '/403',
       failureFlash: true,
-      validateInResponseTo: false
+      validateInResponseTo: false,
+      validatedInResponseTo: false
     }
   ),
   handleCallback
 );
 
+// -----------------------------------------------------------------------------
 module.exports.handler = serverless(app)

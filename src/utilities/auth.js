@@ -1,46 +1,69 @@
+import jwt from 'jsonwebtoken'
+import jwksClient from 'jwks-rsa'
+
 // Get the window.
 const isBrowser = typeof window !== `undefined`
+const userKey = "user"
 
-// Get the user from local storage.
-const getUser = () =>
-  window.localStorage.gatsbyUser
-    ? JSON.parse(window.localStorage.gatsbyUser)
-    : {}
+// Get the user from session storage.
+// -----------------------------------------------------------------------------
+const getUser = () => {
+  return JSON.parse(window.sessionStorage.getItem(userKey));
+}
 
-// Set the user to local storage.
-const setUser = user => (window.localStorage.gatsbyUser = JSON.stringify(user))
+// Set the user to session storage.
+// -----------------------------------------------------------------------------
+const setUser = (user) => {
+  window.sessionStorage.setItem(userKey, JSON.stringify(user));
+  return true;
+}
 
-// Handle the authentication process.
-export const handleLogin = ({ username, password }) => {
+// Handle the authentication process by kicking off IDCS or SAML.
+// -----------------------------------------------------------------------------
+export const handleLogin = () => {
   if (!isBrowser) return false
 
-  if (username === `gatsby` && password === `demo`) {
-    console.log(`Credentials match! Setting the active user.`)
-    return setUser({
-      name: `Jim`,
-      legalName: `James K. User`,
-      email: `jim@example.org`,
-    })
+  // Here we do something to handle the login itself. Kick off saml or Idcs.
+  if (isBrowser) {
+    setUser({"name": "Shea"});
+    return true;
   }
 
   return false
 }
 
 // Check if the user is logged in.
+// -----------------------------------------------------------------------------
 export const isLoggedIn = () => {
   if (!isBrowser) return false
-  const user = getUser()
-  return !!user.email
+  return true;
 }
 
-// Get a user if there is one.
-export const getCurrentUser = () => isBrowser && getUser()
-
-// Do the logout.
-export const logout = callback => {
+// Log the user out.
+// -----------------------------------------------------------------------------
+export const logout = () => {
   if (!isBrowser) return
-
-  console.log(`Ensuring the \`gatsbyUser\` property exists.`)
   setUser({})
-  callback()
+  return true
+}
+
+// Set Token.
+// -----------------------------------------------------------------------------
+export const setToken = () => {
+  if (!isBrowser) return
+  return true
+}
+
+// Get Token.
+// -----------------------------------------------------------------------------
+export const getToken = () => {
+  if (!isBrowser) return
+  return true
+}
+
+// Get Token.
+// -----------------------------------------------------------------------------
+export const validateToken = () => {
+  if (!isBrowser) return
+  return true
 }
