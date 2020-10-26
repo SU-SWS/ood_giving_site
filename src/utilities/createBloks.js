@@ -13,7 +13,8 @@ const CreateBloks = (props) => {
         blok: blok
       }))
     )
-  } else {
+  }
+  else {
     return null;
   }
 };
