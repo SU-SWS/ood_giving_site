@@ -38,6 +38,23 @@
     @include serif;
     letter-spacing: 0;
     clear: both;
+
+    a {
+      @include link-icon(caret-right, 0.5em, right, 0.06em);
+
+      &::after {
+        background-color: $su-color-digital-red;
+      }
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+
+        &::after {
+          background-color: $su-color-sky-dark;
+        }
+      }
+    }
   }
 
   // Vertical rhythm
