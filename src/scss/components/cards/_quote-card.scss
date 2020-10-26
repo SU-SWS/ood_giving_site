@@ -3,13 +3,21 @@
 .ood-quote-card {
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
+
+  @include grid-media('lg') {
+    flex-direction: row;
+  }
 
   &__content {
-    @include modular-spacing('padding', 4 3);
+    @include modular-spacing('padding', 3);
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @include grid-media-max('md') {
+      @include padding(1em null null);
+    }
   }
 
   &__quote {
@@ -41,18 +49,33 @@
   }
 
   &__media {
-    position: absolute;
-    right: #{-$card-overhang};
     width: 13rem;
     max-width: 13rem;
-    align-self: center;
+
+    @include grid-media-max('md') {
+      @include margin(#{-$card-overhang} null null);
+    }
+
+    @include grid-media-max('sm') {
+      @include margin(null 4rem null auto);
+    }
+
+    @include grid-media-only('md') {
+      @include margin(null 4.5rem null auto);
+    }
 
     @include grid-media-between('md', 'lg') {
       width: 20rem;
       max-width: 20rem;
     }
 
-    @include grid-media-min('xl') {
+    @include grid-media('lg') {
+      position: absolute;
+      right: #{-$card-overhang};
+      align-self: center;
+    }
+    
+    @include grid-media('xl') {
       width: 30rem;
       max-width: 30rem;
     }
@@ -60,7 +83,9 @@
 
   // Styles for version showing image
   &--has-image {
-    @include margin(null $card-overhang null null);
+    @include grid-media('lg') {
+      @include margin(null $card-overhang null null);
+    }
 
     .ood-quote-card__content {
       @include grid-media-only('lg') {
