@@ -1,84 +1,90 @@
 @charset "UTF-8";
 
-// Styles for Single Column WYSIWYG Content with different content width options
+// Styles for WYSIWYG Content - text, link, vertical rhythms etc.
+// Common styles for Single Column Content and Accordion item WYSYWYG.
+
+.ood-single-column-content__wrapper,
+.ood-accordion__content {
+  width: 100%;
+  overflow-wrap: break-word;
+
+  > div {
+    p,
+    ol,
+    ul {
+      @include ood-big-paragraph;
+      @include margin(null null 1.6em);
+    }
+
+    li {
+      p {
+        @include margin(null null 0.4em);
+      }
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @include serif;
+      @include margin(null null 0.7em);
+      letter-spacing: 0;
+      clear: both;
+
+      a {
+        @include link-icon(caret-right, 0.5em, right, 0.06em);
+
+        &::after {
+          background-color: $su-color-digital-red;
+        }
+
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+
+          &::after {
+            background-color: $su-color-sky-dark;
+          }
+        }
+      }
+    }
+
+    //Vertical rhythm
+    h2 {
+      &:not(:first-child) {
+        @include margin(1.8em null null);
+      }
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
+      &:not(:first-child) {
+        @include margin(1.6em null null);
+      }
+    }
+
+    h1 + h2,
+    h2 + h3,
+    h3 + h4,
+    h4 + h5 {
+      &:not(:first-child) {
+        @include margin(1em null null);
+      }
+    }
+  }
+}
 
 .ood-single-column-content {
   &__wrapper {
-    width: 100%;
-    overflow-wrap: break-word;
-
     > div {
       > * {
         &:last-child {
           @include margin(null null 0); // last item in the WYSIWYG
         }
       }
-    }
-  }
-
-  p,
-  ol,
-  ul {
-    @include ood-big-paragraph;
-    @include margin(null null 1.6em);
-  }
-
-  li {
-    p {
-      @include margin(null null 0.4em);
-    }
-  }
-
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @include margin(null null 0.7em);
-    @include serif;
-    letter-spacing: 0;
-    clear: both;
-
-    a {
-      @include link-icon(caret-right, 0.5em, right, 0.06em);
-
-      &::after {
-        background-color: $su-color-digital-red;
-      }
-
-      &:hover,
-      &:focus {
-        text-decoration: underline;
-
-        &::after {
-          background-color: $su-color-sky-dark;
-        }
-      }
-    }
-  }
-
-  // Vertical rhythm
-  h2 {
-    &:not(:first-child) {
-      @include margin(1.8em null null);
-    }
-  }
-
-  h3,
-  h4,
-  h5,
-  h6 {
-    &:not(:first-child) {
-      @include margin(1.6em null null);
-    }
-  }
-
-  h1 + h2,
-  h2 + h3,
-  h3 + h4,
-  h4 + h5 {
-    &:not(:first-child) {
-      @include margin(1em null null);
     }
   }
 }
