@@ -1,6 +1,3 @@
-import jwt from 'jsonwebtoken'
-import jwksClient from 'jwks-rsa'
-
 // Get the window.
 const isBrowser = typeof window !== `undefined`
 const userKey = "user"

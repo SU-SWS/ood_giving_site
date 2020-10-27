@@ -47,13 +47,11 @@ passport.use(
     },
     async (req, payload, done) => {
       try {
-
         if (typeof payload.user == "object") {
-          if (payload.user.token === JSON.parse(req.cookies.stanford_auth_user).token) {
+          if (payload.user.token === req.cookies.stanford_auth_token) {
             return done(null, payload.user)
           }
         }
-
         return done(false, null);
       }
       catch (error) {
@@ -72,7 +70,7 @@ app.use(session({
   secret: SECRET,
   resave: false,
   saveUninitialized: true,
-  name: 'stanford_auth_token',
+  name: 'saml_auth_token',
   cookie: {
     httpOnly: true,
     maxAge: 600000
@@ -98,13 +96,13 @@ const handleCallback = (req, res) => {
     firstName: req.user.givenName,
     email: req.user.email,
     uid: req.user.uid,
-    token: req.cookies.stanford_auth_token
+    token: req.cookies.saml_auth_token
   }
 
   res
-    .cookie('stanford_auth_user', JSON.stringify(user), { httpOnly: true, COOKIE_SECURE })
-    .cookie('stanford_jwt', authJwt(user, req.cookies.stanford_auth_token), { httpOnly: true, COOKIE_SECURE })
-    .redirect("/")
+    .cookie('stanford_auth_token', req.cookies.saml_auth_token, { httpOnly: true, COOKIE_SECURE })
+    .cookie('stanford_jwt', authJwt(user), { httpOnly: true, COOKIE_SECURE })
+    .redirect("/user/redirect")
 }
 
 /**
@@ -112,8 +110,8 @@ const handleCallback = (req, res) => {
  * @param {*} user
  * @param {*} token
  */
-function authJwt(user, samltoken) {
-  return sign({ user: user , token: samltoken }, SECRET)
+function authJwt(user) {
+  return sign({ user: user }, SECRET)
 }
 // -----------------------------------------------------------------------------
 
@@ -139,7 +137,7 @@ passport.deserializeUser(function(json, done){
 // Validate logged in status.
 app.get(`/api/sso/status`,
   passport.authenticate('jwt', { session: false }),
-  (req, res) => res.json({ status: true })
+  (req, res) => res.json(req.user)
 )
 
 // Do the login.

@@ -34,7 +34,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         const entries = result.data.allStoryblokEntry.edges
         entries.forEach((entry, index) => {
-          let pagePath = entry.node.full_slug == 'home' ? '' : `${entry.node.full_slug}/`
+          let pagePath = entry.node.full_slug == 'home' ? '' : `${entry.node.full_slug}`
 
           // Wire up the 404 page.
           if (pagePath.match(/^404/)) {
