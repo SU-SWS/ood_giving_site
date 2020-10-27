@@ -9,25 +9,21 @@ import CreateBloks from "../../utilities/createBloks"
 
 const StoryOverview = (props) => {
   return (
-    <>
-      <SbEditable content={props.blok}>
-        <SeoSocial {...props}/>
-        <CreateBloks blokSection={props.blok.localHeader} />
-        <main id="main-content"
-              className={`ood-interior-page ood-interior-page--no-image`}
-        >
-          <article className={`su-bg-white`}>
-            <HeaderNoImage {...props}/>
-            <CreateBloks blokSection={props.blok.stories} />
-            <BelowContent {...props}/>
-            <footer className="ood-interior-page__main-footer">
-              <IconCardSection {...props}/>
-            </footer>
-          </article>
-        </main>
-        <Footer {...props}/>
-      </SbEditable>
-    </>
+    <SbEditable content={props.blok}>
+      <SeoSocial {...props}/>
+      <CreateBloks blokSection={props.blok.localHeader} />
+      <main id="main-content" className={`ood-interior-page ood-interior-page--no-image`}>
+        <article className={`su-bg-white`}>
+          <HeaderNoImage {...props}/>
+          <CreateBloks blokSection={props.blok.stories} />
+          <BelowContent {...props}/>
+          <footer className={`ood-interior-page__main-footer`}>
+            <IconCardSection {...props}/>
+          </footer>
+        </article>
+      </main>
+      <Footer {...props}/>
+    </SbEditable>
   )
 };
 
