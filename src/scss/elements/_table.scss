@@ -27,17 +27,20 @@ table {
 
         // first columns and header rows
         td:first-of-type {
-          //background: pink;
           min-width: 300px;
           font-weight: 600;
           @include modular-spacing('padding', null null null 2);
         }
 
         th {
-          &[colspan="6"] {
+          .compare-giving-header {
             font-weight: bold;
             @include modular-typography(1);
-            //margin-bottom: 0;
+            @include modular-spacing('padding-top', 1);
+
+            &.compare-giving-first-header {
+              @include modular-spacing('padding-top', -2);
+            }
           }
         }
       }
