@@ -1,10 +1,10 @@
 import SbEditable from "storyblok-react";
 import React from "react";
-import Components from "../../components";
 import IconCardSection from "../../partials/iconCardSection";
 import Footer from "../../partials/footer";
 import transformImage from "../../../utilities/transformImage";
 import SeoSocial from "../../partials/seoSocial"
+import CreateBloks from "../../../utilities/createBloks"
 
 const StoryFullView = (props) => {
 
@@ -21,13 +21,9 @@ const StoryFullView = (props) => {
   }
 
   return (
-  <>
     <SbEditable content={props.blok}>
       <SeoSocial {...props}/>
-      {props.blok.localHeader && props.blok.localHeader.map((blok) => React.createElement(Components(blok.component), {
-        key: blok._uid,
-        blok: blok
-      }))}
+      <CreateBloks blokSection={props.blok.localHeader} />
       <main id="main-content">
         <article className={`ood-story su-bg-white`}>
           <header className={`ood-story__header
@@ -56,19 +52,13 @@ const StoryFullView = (props) => {
             </div>
           </header>
           <div className="ood-story__content">
-            {props.blok.storyContent && props.blok.storyContent.map((blok) => React.createElement(Components(blok.component), {
-              key: blok._uid,
-              blok: blok
-            }))}
+            <CreateBloks blokSection={props.blok.storyContent} />
           </div>
           <footer className="ood-story__main-footer su-bg-white">
             {(props.blok.author || publishedDate) &&
             <div className="centered-container flex-container">
               <div className="flex-lg-8-of-12 su-mx-auto">
-                {props.blok.cta && props.blok.cta.map((blok) => React.createElement(Components(blok.component), {
-                  key: blok._uid,
-                  blok: blok
-                }))}
+                <CreateBloks blokSection={props.blok.cta} />
                 <div className="ood-story__metadata su-pb-5">
                   {props.blok.author &&
                   <>
@@ -92,7 +82,6 @@ const StoryFullView = (props) => {
       </main>
       <Footer {...props}/>
     </SbEditable>
-  </>
   )
 };
 export default StoryFullView

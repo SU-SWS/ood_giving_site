@@ -1,6 +1,5 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import Components from "../components"
 import HeaderMinimal from '../partials/headerMinimal'
 import HeaderNoImage from '../partials/headerNoImage'
 import HeaderWithImage from '../partials/headerWithImage'
@@ -10,16 +9,13 @@ import BelowContent from '../partials/belowContent'
 import IconCardSection from '../partials/iconCardSection'
 import Footer from '../partials/footer'
 import SeoSocial from '../partials/seoSocial'
+import CreateBloks from "../../utilities/createBloks"
 
 const OodInteriorPage = (props) => {
   return (
-    <>
       <SbEditable content={props.blok}>
         <SeoSocial {...props}/>
-        {props.blok.localHeader && props.blok.localHeader.map((blok) => React.createElement(Components(blok.component), {
-          key: blok._uid,
-          blok: blok
-        }))}
+        <CreateBloks blokSection={props.blok.localHeader} />
         <main id="main-content"
               className={`ood-interior-page ood-interior-page--${props.blok.headerStyle}`}
         >
@@ -35,10 +31,7 @@ const OodInteriorPage = (props) => {
             }
             {(props.blok.aboveContent != null && Object.keys(props.blok.aboveContent).length > 0) && (
               <section className="ood-interior-page__above-body">
-                {props.blok.aboveContent && props.blok.aboveContent.map((blok) => React.createElement(Components(blok.component), {
-                  key: blok._uid,
-                  blok: blok
-                }))}
+                <CreateBloks blokSection={props.blok.aboveContent} />
               </section>
             )}
             {(props.blok.bodyTitle || (props.blok.pageContent != null && Object.keys(props.blok.pageContent).length > 0)) && (
@@ -66,7 +59,6 @@ const OodInteriorPage = (props) => {
         </main>
         <Footer {...props}/>
       </SbEditable>
-    </>
   )
 };
 

@@ -3,6 +3,7 @@ import SbEditable from 'storyblok-react'
 import Components from '../components.js'
 import AspectRatioImage from '../media/aspectRatioImage'
 import RichTextField from '../../utilities/richTextField'
+import CreateBloks from "../../utilities/createBloks"
 
 const BasicCard = (props) => {
   const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h3";
@@ -47,10 +48,7 @@ const BasicCard = (props) => {
               <RichTextField data={props.blok.content}/>
             </div>
           }
-          {props.blok.ctaLink && props.blok.ctaLink.map((blok) => React.createElement(Components(blok.component), {
-            key: blok._uid,
-            blok: blok
-          }))}
+          <CreateBloks blokSection={props.blok.ctaLink} />
         </section>
       </article>
     </SbEditable>

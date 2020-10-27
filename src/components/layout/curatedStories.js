@@ -1,6 +1,6 @@
 import React from 'react'
-import Components from '../components.js'
 import SbEditable from 'storyblok-react'
+import CreateBloks from "../../utilities/createBloks"
 
 /*
 ** The Curated Stories component is allowed inside any section area.
@@ -15,23 +15,16 @@ const CuratedStories = (props) => (
       {(props.blok.featuredStories != null && Object.keys(props.blok.featuredStories).length > 0) && (
         <div className={`flex-container ood-curated-stories__featured su-mb-3`}>
           <div className={`flex-xl-10-of-12 su-mx-auto`}>
-            {props.blok.featuredStories.map((blok) =>
-              React.createElement(Components(blok.component), {key: blok._uid, blok: blok})
-            )}
+            <CreateBloks blokSection={props.blok.featuredStories} />
           </div>
         </div>
       )}
       {(props.blok.otherStories != null && Object.keys(props.blok.otherStories).length > 0) && (
         <div className={`flex-container ood-curated-stories__other ${props.blok.layout === "2"? "flex-lg-10-of-12 flex-xl-8-of-12 " : ""}su-flex-${props.blok.layout}-col su-mx-auto`}>
-            {props.blok.otherStories.map((blok) =>
-              React.createElement(Components(blok.component), {key: blok._uid, blok: blok})
-            )}
+          <CreateBloks blokSection={props.blok.otherStories} />
         </div>
       )}
-      {props.blok.ctaLink && props.blok.ctaLink.map((blok) => React.createElement(Components(blok.component), {
-        key: blok._uid,
-        blok: blok
-      }))}
+      <CreateBloks blokSection={props.blok.ctaLink} />
     </div>
   </SbEditable>
 );
