@@ -21,7 +21,6 @@ const StoryFullView = (props) => {
   }
 
   return (
-  <>
     <SbEditable content={props.blok}>
       <SeoSocial {...props}/>
       <CreateBloks blokSection={props.blok.localHeader} />
@@ -83,7 +82,6 @@ const StoryFullView = (props) => {
       </main>
       <Footer {...props}/>
     </SbEditable>
-  </>
   )
 };
 export default StoryFullView
