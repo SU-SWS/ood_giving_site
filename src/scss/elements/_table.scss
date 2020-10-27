@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+table {
+  th {
+    background-color: $su-color-white;
+    border: 1px solid $su-color-white;
+  }
+
+  td {
+    border: 1px solid $su-color-white;
+    border-top: 1px solid $su-color-cool-grey-50;
+    @include modular-spacing('padding', null 2);
+  }
+
+  th {
+    &.table-header {
+      font-weight: bold;
+      @include modular-typography(1);
+      @include modular-spacing('padding-top', 1);
+
+      &.table-header--first {
+        @include modular-spacing('padding-top', 0);
+      }
+    }
+  }
+
+  // Specific for the Compare Life Income Gifts table
+  &#compare-life-income-gifts-table {
+    @include modular-spacing('padding', 2);
+    background: $su-color-white;
+
+    tbody {
+
+      .table-top-headers-row {
+        th {
+          text-align: center;
+        }
+      }
+
+      tr {
+        td {
+          border: 1px solid $su-color-white;
+          border-top: 1px solid $su-color-cool-grey-50;
+          @include modular-spacing('padding', null 0 null 0);
+        }
+
+        // first columns and header rows
+        td:first-of-type {
+          min-width: 300px;
+          font-weight: 600;
+          @include modular-spacing('padding', null null null 2);
+        }
+      }
+    }
+
+    .fas.fa-check:before {
+      color: $su-color-black;
+    }
+
+    #best-type-of-gift-label {
+      @include modular-spacing('padding-top', 2);
+      border-top: 1px solid $su-color-white;
+      font-weight: normal;
+    }
+  }
+}
+
+
