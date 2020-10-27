@@ -1,14 +1,22 @@
 import { React, useEffect } from "react"
-import Layout from "../../components/layout"
-import { Redirect } from '@reach/router'
 import { navigate } from 'gatsby';
 
+const getReturnTo = () => {
+  let ret = window.sessionStorage.getItem("returnto")
+  window.sessionStorage.removeItem("returnto")
 
+  // Home James...
+  if (ret === null) {
+    ret = "/"
+  }
+
+  return ret
+}
 
 const RedirectPage = () => {
 
   useEffect(() => {
-    navigate('/test-items/givegab-test');
+    navigate(getReturnTo());
   }, []);
 
   return null;
