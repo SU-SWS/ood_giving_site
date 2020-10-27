@@ -1,22 +1,19 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import Components from "../components"
+import CreateBloks from "../../utilities/createBloks"
 
 const OodLocalFooter = (props) => (
   <SbEditable content={props.blok}>
     <div className="ood-local-footer su-bg-white">
       <div className="centered-container">
         <div className="ood-local-footer__header">
-          {props.blok.websiteLogo && props.blok.websiteLogo.map((blok) => React.createElement(Components(blok.component), {
-            key: blok._uid,
-            blok: blok
-          }))}
+          <CreateBloks blokSection={props.blok.websiteLogo} />
         </div>
         <section className="flex-container ood-local-footer__content">
           <div className="flex-md-6-of-12 flex-xl-3-of-12 ood-local-footer__cell">
-            {props.blok.contactHeading && (
+            {props.blok.contactHeading &&
               <h2 className="ood-local-footer__list-heading su-serif">{props.blok.contactHeading}</h2>
-            )}
+            }
             <address className="ood-local-footer__address">
               {props.blok.addressLine1 &&
                 <span>{props.blok.addressLine1}</span>
@@ -34,10 +31,7 @@ const OodLocalFooter = (props) => (
                 <a href={`mailto:${props.blok.email}`}>{props.blok.email}</a>
               }
             </address>
-            {props.blok.cta && props.blok.cta.map((blok) => React.createElement(Components(blok.component), {
-              key: blok._uid,
-              blok: blok,
-            }))}
+            <CreateBloks blokSection={props.blok.cta} />
           </div>
 
           <div className="flex-md-6-of-12 flex-xl-3-of-12 ood-local-footer__cell">
@@ -46,10 +40,7 @@ const OodLocalFooter = (props) => (
                 <h2 className="ood-local-footer__list-heading su-serif">{props.blok.headingGroupOod}</h2>
               )}
               <ul className="ood-local-footer__link-list">
-                {props.blok.linkGroupOod && props.blok.linkGroupOod.map((blok) => React.createElement(Components(blok.component), {
-                  key: blok._uid,
-                  blok: blok,
-                }))}
+                <CreateBloks blokSection={props.blok.linkGroupOod} />
               </ul>
             </nav>
           </div>
@@ -60,10 +51,7 @@ const OodLocalFooter = (props) => (
                 <h2 className="ood-local-footer__list-heading su-serif">{props.blok.headingGroupGift}</h2>
               )}
               <ul className="ood-local-footer__link-list">
-                {props.blok.linkGroupGift && props.blok.linkGroupGift.map((blok) => React.createElement(Components(blok.component), {
-                  key: blok._uid,
-                  blok: blok,
-                }))}
+                <CreateBloks blokSection={props.blok.linkGroupGift} />
               </ul>
             </nav>
             <h2 className="ood-local-footer__list-heading su-serif">Tax ID</h2>
@@ -76,10 +64,7 @@ const OodLocalFooter = (props) => (
                 <h2 className="ood-local-footer__list-heading su-serif">{props.blok.headingGroupInfo}</h2>
               )}
               <ul className="ood-local-footer__link-list">
-                {props.blok.linkGroupInfo && props.blok.linkGroupInfo.map((blok) => React.createElement(Components(blok.component), {
-                  key: blok._uid,
-                  blok: blok,
-                }))}
+                <CreateBloks blokSection={props.blok.linkGroupInfo} />
               </ul>
             </nav>
           </div>
