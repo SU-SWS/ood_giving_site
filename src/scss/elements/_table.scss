@@ -12,6 +12,19 @@ table {
     @include modular-spacing('padding', null 2 null 2);
   }
 
+  th {
+    &.table-header {
+      font-weight: bold;
+      @include modular-typography(1);
+      @include modular-spacing('padding-top', 1);
+
+      &.table-header--first {
+        @include modular-spacing('padding-top', -2);
+      }
+    }
+  }
+
+
   // Specific for the Compare Life Income Gifts table
   &#compare-life-income-gifts-table {
     @include modular-spacing('padding', 2);
@@ -32,17 +45,7 @@ table {
           @include modular-spacing('padding', null null null 2);
         }
 
-        th {
-          .compare-giving-header {
-            font-weight: bold;
-            @include modular-typography(1);
-            @include modular-spacing('padding-top', 1);
 
-            &.compare-giving-first-header {
-              @include modular-spacing('padding-top', -2);
-            }
-          }
-        }
       }
     }
 
