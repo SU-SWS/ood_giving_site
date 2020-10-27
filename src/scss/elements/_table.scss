@@ -19,7 +19,7 @@ table {
       @include modular-spacing('padding-top', 1);
 
       &.table-header--first {
-        @include modular-spacing('padding-top', -2);
+        @include modular-spacing('padding-top', 0);
       }
     }
   }
@@ -31,6 +31,13 @@ table {
     background: $su-color-white;
 
     tbody {
+
+      .table-top-headers-row {
+        th {
+          text-align: center;
+        }
+      }
+
       tr {
         td {
           border: 1px solid $su-color-white;
