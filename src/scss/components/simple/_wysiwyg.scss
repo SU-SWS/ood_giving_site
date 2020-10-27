@@ -85,6 +85,15 @@
           @include margin(null null 0); // last item in the WYSIWYG
         }
       }
+
+      blockquote {
+        @include margin(null null null 0);
+        @include serif;
+
+        > p {
+          @include modular-typography(2);
+        }
+      }
     }
   }
 }
