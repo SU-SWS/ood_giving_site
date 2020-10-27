@@ -2,7 +2,7 @@
 # ##############################################################################
 [build]
   publish = "public"
-  functions = "netlify-functions"
+  functions = "lambda"
 
 [dev]
   publish = "public"
