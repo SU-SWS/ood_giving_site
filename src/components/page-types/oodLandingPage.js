@@ -7,7 +7,6 @@ import CreateBloks from "../../utilities/createBloks"
 
 const OodLandingPage = (props) => {
   return (
-    <>
       <SbEditable content={props.blok}>
         <SeoSocial {...props}/>
         <div className={`ood-landing-page su-bg-fog-light`}>
@@ -28,7 +27,6 @@ const OodLandingPage = (props) => {
           <Footer {...props}/>
         </div>
       </SbEditable>
-    </>
   )
 };
 
