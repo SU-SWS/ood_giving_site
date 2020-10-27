@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import SbEditable from 'storyblok-react'
-import Components from "../../components";
+import CreateBloks from "../../../utilities/createBloks"
 
 const ContentMenuParentItem = (props) => (
   <SbEditable content={props.blok}>
@@ -12,10 +12,7 @@ const ContentMenuParentItem = (props) => (
       {props.blok.parentItemLink.linktype === "url" &&
       <a href={props.blok.parentItemLink.url} className="su-secondary-nav__link su-link--external ood-content-nav__link">{props.blok.parentItemText}
       </a>}
-      {props.blok.nestedMenu && props.blok.nestedMenu.map((blok) => React.createElement(Components(blok.component), {
-        key: blok._uid,
-        blok: blok,
-      }))}
+      <CreateBloks blokSection={props.blok.nestedMenu} />
     </li>
   </SbEditable>
 )
