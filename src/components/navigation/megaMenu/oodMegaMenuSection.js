@@ -15,7 +15,7 @@ const OodMegaMenuSection = (props) => {
         <button className="ood-mega-nav__trigger"
                 aria-expanded={sectionOpened}
                 onClick={toggleSection}>{props.blok.linkText}</button>
-        <section className="ood-mega-nav__section su-bg-white" aria-hidden={!sectionOpened}>
+        <div className="ood-mega-nav__section su-bg-white" aria-hidden={!sectionOpened}>
           <div className="centered-container flex-container su-py-3">
             <div className="flex-lg-8-of-12 flex-2xl-9-of-12 su-flex su-flex-col">
               <div className="flex-container">
@@ -27,7 +27,7 @@ const OodMegaMenuSection = (props) => {
               <CreateBloks blokSection={props.blok.card} />
             </div>
           </div>
-        </section>
+        </div>
       </li>
     </SbEditable>
   )
