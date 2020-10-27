@@ -13,7 +13,6 @@ import CreateBloks from "../../utilities/createBloks"
 
 const OodInteriorPage = (props) => {
   return (
-    <>
       <SbEditable content={props.blok}>
         <SeoSocial {...props}/>
         <CreateBloks blokSection={props.blok.localHeader} />
@@ -60,7 +59,6 @@ const OodInteriorPage = (props) => {
         </main>
         <Footer {...props}/>
       </SbEditable>
-    </>
   )
 };
 
