@@ -24,7 +24,6 @@ table {
     }
   }
 
-
   // Specific for the Compare Life Income Gifts table
   &#compare-life-income-gifts-table {
     @include modular-spacing('padding', 2);
@@ -51,8 +50,6 @@ table {
           font-weight: 600;
           @include modular-spacing('padding', null null null 2);
         }
-
-
       }
     }
 
@@ -65,7 +62,6 @@ table {
       border-top: 1px solid $su-color-white;
       font-weight: normal;
     }
-
   }
 }
 
