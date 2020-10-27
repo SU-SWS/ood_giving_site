@@ -16,7 +16,7 @@ table {
     &.table-header {
       font-weight: bold;
       @include modular-typography(1);
-      @include modular-spacing('padding-top', 1);
+      @include modular-spacing('padding-top', 3);
 
       &.table-header--first {
         @include modular-spacing('padding-top', 0);
@@ -48,7 +48,6 @@ table {
         td:first-of-type {
           min-width: 300px;
           font-weight: 600;
-          @include modular-spacing('padding', null null null 2);
         }
       }
     }
