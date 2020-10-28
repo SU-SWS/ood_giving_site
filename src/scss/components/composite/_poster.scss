@@ -3,9 +3,13 @@
 // Poster style
 
 .ood-poster {
-  border-bottom: 8rem solid transparent;
+  border-bottom: $card-overhang solid transparent;
   position: relative;
-  height: 64rem; // height of the image plus the transparent border bottom
+  height: 54rem; // height of the image plus the transparent border bottom
+
+  @include grid-media('md') {
+    height: 64rem;
+  }
 
   &__media {
     position: absolute;
@@ -42,12 +46,16 @@
     width: 100%;
     min-height: 43rem;
     position: absolute;
-    bottom: -8rem;
+    bottom: #{-$card-overhang};
     padding: 2em;
 
-    @include grid-media-max('sm') {
-      @include padding(3.4rem);
-      min-height: 36rem;
+    @include grid-media-only('xs') {
+      @include padding(5.1rem 3.4rem);
+      min-height: 33rem;
+    }
+
+    @include grid-media('sm') {
+      min-height: 40rem;
     }
   }
 
@@ -62,6 +70,6 @@
   }
 
   .ood-cta {
-    @include margin(2em null null);
+    @include modular-spacing('margin', 3 null null);
   }
 }

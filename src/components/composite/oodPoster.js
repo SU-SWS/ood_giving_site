@@ -25,7 +25,7 @@ const OodPoster = (props) => {
           <div className={`flex-container ood-poster__row
              ${props.blok.cardPosition === "right" ? "su-flex-row-reverse" : ""}`
           }>
-            <div className="flex-md-8-of-12 flex-xl-6-of-12 ood-poster__flex-cell">
+            <div className="flex-sm-9-of-12 flex-md-8-of-12 flex-xl-6-of-12 ood-poster__flex-cell">
               <div className={`ood-poster__card
                  ${`su-bg-${props.blok.cardBackgroundColor}`}
                  ${(props.blok.cardBackgroundColor !== "white" && props.blok.cardBackgroundColor !== "fog-light") ? "su-text-white" : ""}`
