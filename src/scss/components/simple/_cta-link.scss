@@ -8,10 +8,6 @@
   @include button-secondary;
 }
 
-.su-button--big {
-  @include button-big;
-}
-
 // Finetuning link icon styles from Decanter
 .su-link {
   color: $su-color-digital-red;
@@ -53,13 +49,23 @@
     }
 
     &--medium {
-      @include padding(1.8rem 3.4rem);
-      font-size: 2.4rem;
+      @include padding(1.1rem 3rem 1.2rem);
+      font-size: 2rem;
+
+      @include grid-media('md') {
+        @include padding(1.4rem 3.4rem);
+        font-size: 2.4rem;
+      }
     }
 
     &--large {
-      @include padding(2rem 3.6rem);
-      font-size: 2.8rem;
+      @include padding(1.6rem 3rem);
+      font-size: 2.2rem;
+
+      @include grid-media('md') {
+        @include padding(2rem 3.6rem);
+        font-size: 2.8rem;
+      }
     }
 
     // OOD Primary Button
@@ -97,11 +103,12 @@
       color: $su-color-white;
       background-color: transparent;
       box-shadow: inset 0 0 0 1px $su-color-white;
+      transition: box-shadow 0.25s ease-in;
 
       &:hover,
       &:focus {
         color: $su-color-white;
-        box-shadow: inset 0 0 0 1px $su-color-fog;
+        box-shadow: inset 0 0 0 3px $su-color-white;
 
         &::after {
           background-color: $su-color-white;

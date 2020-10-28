@@ -1,17 +1,21 @@
-import React, {useState} from "react"
+import React, {useState, useRef} from "react"
 import SbEditable from "storyblok-react"
 import CreateBloks from "../../../utilities/createBloks"
+import UseOnClickOutside from "../../../hooks/useOnClickOutside"
 
 const OodMegaMenuSection = (props) => {
   const [sectionOpened, setSectionOpened] = useState(false);
+  const ref = useRef();
 
   const toggleSection = () => {
     setSectionOpened(!sectionOpened);
   }
 
+  UseOnClickOutside(ref, () => setSectionOpened(false));
+
   return (
     <SbEditable content={props.blok}>
-      <li className="ood-mega-nav__item--parent">
+      <li className="ood-mega-nav__item--parent" ref={ref}>
         <button className="ood-mega-nav__trigger"
                 aria-expanded={sectionOpened}
                 onClick={toggleSection}>{props.blok.linkText}</button>
