@@ -64,12 +64,12 @@
   &-3-col {
     display: block;
 
-    @include grid-media('md') {
+    @include grid-media('lg') {
       display: flex;
     }
 
     > * {
-      @include grid-media-max('sm') {
+      @include grid-media-max('md') {
         width: 100%;
         max-width: 100%;
       }
