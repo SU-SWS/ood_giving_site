@@ -1,15 +1,15 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import Components from '../components.js'
 import RichTextField from '../../utilities/richTextField'
+import CreateBloks from "../../utilities/createBloks"
 
 const Section = (props) => {
-  
+
   // Hide and don't return nothing.
   if (props.blok.hideSection === true) {
     return null;
   }
-  
+
   const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h2";
   const titleStyleClassList = (titleStyleArray) => {
     return titleStyleArray.toString().replace(/,/g, " ");
@@ -18,10 +18,7 @@ const Section = (props) => {
   const EdgeToEdgeContainer = (props) => (
     <SbEditable content={props.blok}>
       <div className="section__content">
-        {props.blok.content && props.blok.content.map((blok) => React.createElement(Components(blok.component), {
-          key: blok._uid,
-          blok: blok
-        }))}
+        <CreateBloks blokSection={props.blok.content} />
       </div>
     </SbEditable>
   );
@@ -29,10 +26,7 @@ const Section = (props) => {
   const CenteredContainer = (props) => (
     <SbEditable content={props.blok}>
       <div className="section__content centered-container">
-        {props.blok.content && props.blok.content.map((blok) => React.createElement(Components(blok.component), {
-          key: blok._uid,
-          blok: blok
-        }))}
+        <CreateBloks blokSection={props.blok.content} />
       </div>
     </SbEditable>
   );
@@ -41,10 +35,7 @@ const Section = (props) => {
     <SbEditable content={props.blok}>
       <div className="section__content centered-container flex-container">
         <div className={`su-mx-auto ${props.blok.contentWidth}`}>
-          {props.blok.content && props.blok.content.map((blok) => React.createElement(Components(blok.component), {
-            key: blok._uid,
-            blok: blok
-          }))}
+          <CreateBloks blokSection={props.blok.content} />
         </div>
       </div>
     </SbEditable>

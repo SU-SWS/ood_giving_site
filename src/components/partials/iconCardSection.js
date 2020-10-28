@@ -1,6 +1,6 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import Components from "../components";
+import React from "react"
+import SbEditable from "storyblok-react"
+import CreateBloks from "../../utilities/createBloks"
 
 /*
 *
@@ -22,10 +22,7 @@ const IconCardSection = (props) => {
       {numIconCards > 0 && (
         <div className="ood-icon-card-section su-bg-black-10 su-py-6">
           <div className={`centered-container flex-container ood-icon-card-section__container su-align-items-stretch su-flex-${numIconCards}-col`}>
-            {props.blok.iconCards && props.blok.iconCards.map((blok) => React.createElement(Components(blok.component), {
-              key: blok._uid,
-              blok: blok
-            }))}
+            <CreateBloks blokSection={props.blok.iconCards} />
           </div>
         </div>
       )}

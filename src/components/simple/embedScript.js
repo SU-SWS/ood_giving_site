@@ -1,5 +1,5 @@
 import React from 'react'
-import SbEditable from "storyblok-react";
+import SbEditable from "storyblok-react"
 
 const EmbedScript = (props) => {
   return (
