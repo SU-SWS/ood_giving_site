@@ -1,6 +1,5 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import Components from "../components"
 import HeaderNoImage from '../partials/headerNoImage'
 import Footer from "../partials/footer"
 import BelowContent from '../partials/belowContent'
