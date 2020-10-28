@@ -1,7 +1,6 @@
 import React, {useState, useRef} from "react"
 import SbEditable from "storyblok-react"
 import CreateBloks from "../../../utilities/createBloks"
-import UseKeyPress from "../../../hooks/useKeyPress"
 import UseOnClickOutside from "../../../hooks/useOnClickOutside"
 
 const OodMegaMenuSection = (props) => {
