@@ -87,6 +87,7 @@
       }
 
       blockquote {
+        @include modular-spacing('padding', null 3);
         @include margin(5em null null 0);
         @include serif;
 
