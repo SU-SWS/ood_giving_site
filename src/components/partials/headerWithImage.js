@@ -10,7 +10,7 @@ const HeaderWithImage = (props) => (
     <header className={`ood-interior-page__header ood-interior-page__header--has-image`}>
       <div className={`ood-interior-page__header-title-wrapper su-pt-6 su-pb-5 su-bg-${props.blok.headerBackgroundColor}`}>
         <div className={`centered-container flex-container`}>
-          <h1 className="ood-interior-page__title flex-lg-6-of-12 flex-xl-5-of-12 flex-2xl-6-of-12 su-serif su-text-white su-text-align-left">{props.blok.title}</h1>
+          <h1 className="ood-interior-page__title flex-lg-6-of-12 flex-xl-5-of-12 flex-2xl-6-of-12 su-serif su-text-white">{props.blok.title}</h1>
           <AspectRatioImage
             {...props}
             filename={props.blok.headerImage.filename}
