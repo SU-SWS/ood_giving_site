@@ -14,10 +14,12 @@ function UseOnClickOutside(ref, handler) {
 
       document.addEventListener('mousedown', listener);
       document.addEventListener('touchstart', listener);
+      document.addEventListener('keyup', listener);
 
       return () => {
         document.removeEventListener('mousedown', listener);
         document.removeEventListener('touchstart', listener);
+        document.addEventListener('keyup', listener);
       };
     },
     [ref, handler]
