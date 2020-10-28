@@ -86,6 +86,9 @@ module.exports = {
       options: {
         name: `Giving to Stanford`,
         start_url: `/`,
+        include_favicon: false,
+        crossOrigin: `use-credentials`,
+        icons: [],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
