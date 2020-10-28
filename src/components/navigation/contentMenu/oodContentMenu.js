@@ -1,6 +1,6 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import Components from "../../components";
+import CreateBloks from "../../../utilities/createBloks"
 
 const OodContentMenu = (props) => {
   return (
@@ -12,10 +12,7 @@ const OodContentMenu = (props) => {
           )}
           <ul
             className="su-secondary-nav__menu su-secondary-nav__menu-lv1 ood-content-nav__menu ood-content-nav__menu-lv1">
-            {props.blok.menuLinks && props.blok.menuLinks.map((blok) => React.createElement(Components(blok.component), {
-              key: blok._uid,
-              blok: blok,
-            }))}
+            <CreateBloks blokSection={props.blok.menuLinks} />
           </ul>
         </div>
         {props.blok.relatedMenuLinks && (
@@ -25,10 +22,7 @@ const OodContentMenu = (props) => {
             )}
             <ul
               className="su-secondary-nav__menu su-secondary-nav__menu-lv1 ood-content-nav__menu ood-content-nav__menu-lv1 ood-content-nav__menu-related">
-              {props.blok.relatedMenuLinks && props.blok.relatedMenuLinks.map((blok) => React.createElement(Components(blok.component), {
-                key: blok._uid,
-                blok: blok,
-              }))}
+              <CreateBloks blokSection={props.blok.relatedMenuLinks} />
             </ul>
           </div>
         )}

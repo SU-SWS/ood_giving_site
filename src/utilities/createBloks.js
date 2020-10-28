@@ -14,6 +14,9 @@ const CreateBloks = (props) => {
       }))
     )
   }
+  
+  // Return null if no content provided.
+  return null;
 };
 
 export default CreateBloks

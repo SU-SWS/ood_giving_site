@@ -1,6 +1,6 @@
-import SbEditable from "storyblok-react";
-import RichTextField from "../../utilities/richTextField";
-import React from "react";
+import SbEditable from "storyblok-react"
+import RichTextField from "../../utilities/richTextField"
+import React from "react"
 import AspectRatioImage from "../media/aspectRatioImage"
 
 /* The Header with Image component is referenced by the Interior Page type. */
