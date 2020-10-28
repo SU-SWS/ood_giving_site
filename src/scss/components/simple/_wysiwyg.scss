@@ -87,11 +87,20 @@
       }
 
       blockquote {
-        @include margin(null null null 0);
+        @include margin(5em null null 0);
         @include serif;
 
         > p {
           @include modular-typography(2);
+        }
+
+        &::before {
+          font-size: 6em;
+          line-height: 0.2;
+          content: '\201C';
+          display: block;
+          color: $su-color-palo-verde-light;
+          font-weight: $su-font-bold;
         }
       }
     }
