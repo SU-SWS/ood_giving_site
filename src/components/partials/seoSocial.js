@@ -29,6 +29,8 @@ const SeoSocial = (props) => {
     twitterImage = transformImage(twitterImage, "/1200x600");
   }
 
+  let { blok: { seo: { og_title, og_description, twitter_title, twitter_description } } } = props;
+  
   return (
     <SbEditable content={props.blok}>
       <Helmet>
@@ -37,25 +39,25 @@ const SeoSocial = (props) => {
           <meta name="description"
               content={props.blok.seo.description || props.blok.teaser} />
         }
-        {(props.blok.seo.og_title || props.blok.title) &&
+        {(og_title|| props.blok.title) &&
           <meta property="og:title"
-              content={props.blok.seo.og_title || props.blok.title} />
+              content={og_title || props.blok.title} />
         }
-        {(props.blok.seo.og_description || props.blok.seo.description || props.blok.teaser) &&
+        {(og_description || props.blok.seo.description || props.blok.teaser) &&
           <meta property="og:description"
-              content={props.blok.seo.og_description || props.blok.seo.description || props.blok.teaser} />
+              content={og_description || props.blok.seo.description || props.blok.teaser} />
         }
         {ogImage !== "" &&
           <meta property="og:image"
               content={ogImage} />
         }
-        {props.blok.seo.twitter_title &&
+        {twitter_title &&
           <meta name="twitter:title"
               content={props.blok.seo.twitter_title} />
         }
-        {props.blok.seo.twitter_description &&
+        {twitter_description &&
           <meta name="twitter:description"
-              content={props.blok.seo.twitter_description} />
+              content={twitter_description} />
         }
         {twitterImage !== "" &&
           <meta name="twitter:image"
