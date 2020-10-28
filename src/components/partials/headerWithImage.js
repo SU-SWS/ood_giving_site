@@ -9,13 +9,13 @@ import UseWindowWidth from "../../hooks/useWindowWidth"
 
 const HeaderWithImage = (props) => {
   let windowWidth = UseWindowWidth();
-  
+
   return (
     <SbEditable content={props.blok}>
       <header className={`ood-interior-page__header ood-interior-page__header--has-image`}>
         <div className={`ood-interior-page__header-title-wrapper su-pt-6 su-pb-5 su-bg-${props.blok.headerBackgroundColor}`}>
           <div className={`centered-container flex-container`}>
-            {windowWidth <= 991 &&
+            {windowWidth.width <= 991 &&
             <CreateBloks blokSection={props.blok.contentMenu}/>
             }
             <h1 className="ood-interior-page__title flex-lg-6-of-12 flex-xl-5-of-12 flex-2xl-6-of-12 su-serif su-text-white su-text-align-left">{props.blok.title}</h1>

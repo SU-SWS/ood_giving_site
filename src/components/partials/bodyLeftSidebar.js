@@ -11,7 +11,7 @@ const BodyLeftSidebar = (props) => {
   return (
     <SbEditable content={props.blok}>
       <aside className="ood-interior-page__body-sidebar flex-lg-4-of-12 flex-xl-3-of-12">
-        {windowWidth > 991 &&
+        {windowWidth.width > 991 &&
           <CreateBloks blokSection={props.blok.contentMenu}/>
         }
         <CreateBloks blokSection={props.blok.contactInfo} />
