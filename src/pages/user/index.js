@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import LoginButton from "../../components/auth/LoginButton"
-import LogoutButton from "../../components/auth/LogoutButton"
+import LoginButton from "../../components/auth/loginButton"
+import LogoutButton from "../../components/auth/logoutButton"
 import { getUser } from "../../utilities/auth"
 
 const Authd = (props) => {
