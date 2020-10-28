@@ -1,25 +1,28 @@
-import React from 'react'
-import { isLoggedIn } from "../../utilities/auth"
-
-const kickoffLoginSequence = () => {
-  // Log the page the user is on before sending out so we can redirect back
-  // to the right place.
-  window.sessionStorage.setItem("returnto", window.location.pathname);
-  // Hitting this URL will trigger the login.
-  window.location = "/api/sso/login";
-}
+import React, { useState, useEffect } from 'react'
+import { isLoggedIn, doLogin } from "../../utilities/auth"
 
 const LoginButton = (props) => {
 
-  // If the user is logged don't show the button.
-  if (isLoggedIn()) {
-    return null
+  const [auth, setAuth] = useState(false);
+  let theButton = null;
+
+  useEffect(() => {
+    const validateUser = async () => {
+      const result = await isLoggedIn();
+      setAuth(result);
+    };
+    validateUser();
+  }, [auth]);
+
+  if (!auth) {
+    theButton = (
+      <button onClick={doLogin}>{props.children}</button>
+    )
   }
 
-  // If the user is not logged in show the button.
-  return (
-    <button onClick={kickoffLoginSequence}>{props.children}</button>
-  )
+  // Return the button to login if not authenticated.
+  return theButton
+
 };
 
 export default LoginButton

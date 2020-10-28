@@ -1,5 +1,6 @@
-import { React, useEffect } from "react"
-import { navigate } from 'gatsby';
+import React, { useEffect } from "react"
+import { navigate } from 'gatsby'
+import { fetchUserData, setUser } from "../../utilities/auth"
 
 const getReturnTo = () => {
   let ret = window.sessionStorage.getItem("returnto")
@@ -16,6 +17,12 @@ const getReturnTo = () => {
 const RedirectPage = () => {
 
   useEffect(() => {
+
+    const getUser = async () => {
+      const result = await fetchUserData()
+      setUser(result);
+    };
+    getUser();
     navigate(getReturnTo());
   }, []);
 

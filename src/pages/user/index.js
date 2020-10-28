@@ -1,27 +1,23 @@
-import React from "react"
-import Wrapper from "../../components/layout/wrapper"
-import PrivateWrapper from "../../components/auth/privateWrapper"
-import { Router } from "@reach/router"
+import React, { useState, useEffect } from 'react'
 import LoginButton from "../../components/auth/LoginButton"
 import LogoutButton from "../../components/auth/LogoutButton"
 import { getUser } from "../../utilities/auth"
 
 const Authd = (props) => {
 
-  const user = getUser()
+  const [user, setUser] = useState(false);
   let HelloUser = `Continue as guest or ...`
 
-  if (user) {
+  useEffect(() => {
+    setUser(getUser())
+  }, []);
+
+  if (user && user.name) {
     HelloUser = `Hello ${user.name}`
   }
 
   return (
     <>
-
-      <Router basepath="/user">
-        <PrivateWrapper path="/test" component={Wrapper} />
-      </Router>
-
       <header className="ood-header su-bg-white su-border-top-10px su-border-color-cardinal-red"><a href="#main-content"
           className="su-skiplinks">Skip to main content</a>
         <div className="centered-container">

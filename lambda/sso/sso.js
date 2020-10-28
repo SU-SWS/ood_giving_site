@@ -153,7 +153,11 @@ app.get('/api/sso/login', passport.authenticate(saml.name,
 // Logout.
 app.get('/api/sso/logout', function(req, res) {
   req.logout();
-  res.redirect('/');
+  res.clearCookie("stanford_auth_token");
+  res.clearCookie("stanford_jwt");
+  req.session.destroy(); // Deletes the session in memory.
+  req.session = null; // Deletes the cookie.
+  res.json({"success": true});
 });
 
 // Metadata for SAML Provider.

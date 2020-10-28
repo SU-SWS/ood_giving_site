@@ -1,21 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { navigate } from 'gatsby'
 import { isLoggedIn } from "../../utilities/auth"
 
-const alerter = () => {
-  alert("Clicked me")
+const triggerLogout = () => {
+  navigate("/user/logout");
 }
 
 const LogoutButton = (props) => {
 
-  // Show the button if the user is logged in.
-  if (isLoggedIn()) {
-    return (
-      <button onClick={alerter}>{props.children}</button>
+  const [auth, setAuth] = useState(false);
+  let theButton = null;
+
+  useEffect(() => {
+    const validateUser = async () => {
+      const result = await isLoggedIn()
+      setAuth(result);
+    };
+    validateUser();
+  }, []);
+
+  if (auth) {
+    theButton = (
+      <button onClick={triggerLogout}>{props.children}</button>
     )
   }
 
-  // Don't show nothing if the user is not logged in.
-  return null
+  // Return the button to login if not authenticated.
+  return theButton
 };
 
 export default LogoutButton
