@@ -8,10 +8,6 @@
   @include button-secondary;
 }
 
-.su-button--big {
-  @include button-big;
-}
-
 // Finetuning link icon styles from Decanter
 .su-link {
   color: $su-color-digital-red;
