@@ -15,6 +15,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
+    Basic-Auth = "adapt:letmein2020"
     Access-Control-Allow-Origin = "*"
     X-Frame-Options = "SAMEORIGIN"
     Content-Security-Policy = "form-action https:; frame-src *.stanford.edu *.storyblok.com *.kimbia.com"
