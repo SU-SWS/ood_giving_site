@@ -25,7 +25,7 @@ rules:
   function-name-format:
     - 1
     -
-      convention: hyphenatedlowercase
+      convention: hyphenatedbem
   hex-length: 0
   hex-notation:
     - 1
