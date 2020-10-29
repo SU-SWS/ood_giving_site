@@ -6,7 +6,7 @@
 
 import React from "react"
 
-export function onRenderBody({ setHeadComponents, setPostBodyComponents }) {
+export function onRenderBody({ setHeadComponents }) {
   setHeadComponents([
     <script key="stripe" src="https://js.stripe.com/v3"  type="text/javascript" async />,
   ])
