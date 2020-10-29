@@ -3,3 +3,9 @@
  *
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
+
+setHeadComponents([
+  <script key="stripe" src="https://js.stripe.com/v3"  type="text/javascript" async />
+]);
+
+
