@@ -86,7 +86,7 @@
   }
 
   .ood-cta {
-    @include modular-spacing('margin', 3 null null);
+    @include modular-spacing('margin', 2 null null);
 
     &__button {
       @include padding(null 2.8rem null 3.2rem);
@@ -101,6 +101,11 @@
       max-height: 60rem;
 
       > div {
+        &:nth-child(2),
+        &:nth-child(4) {
+          @include margin(null 0 null auto);
+        }
+
         &:nth-child(1) {
           order: 1;
         }
