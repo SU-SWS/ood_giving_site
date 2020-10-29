@@ -121,31 +121,32 @@
   }
 }
 
+// If quote card with image is placed inside
 .ood-interior-page__body-content {
   .ood-quote-card--has-image {
-    @include grid-media-max('xl') {
-      @include margin(null 0 null null);
+    @include grid-media-between('lg','xl') {
+      @include margin(#{$card-overhang} 0 null null);
       flex-direction: column-reverse;
-    }
 
-    .ood-quote-card__media {
-      @include grid-media-between('lg', 'xl') {
+      .ood-quote-card__media {
+        @include margin(#{-$card-overhang} 5.76rem null auto);
+        position: relative;
+        right: 0;
         width: 20rem;
         max-width: 20rem;
       }
 
-      @include grid-media-max('xl') {
-        @include margin(null 5.76rem null auto);
-        position: relative;
-        right: 0;
-        align-self: center;
+      .ood-quote-card__content {
+        @include padding(0 5.76rem 5.76rem);
+        @include margin(-1.3em null null);
+        width: 100%;
       }
     }
 
-    .ood-quote-card__content {
-      @include grid-media-between('lg', 'xl') {
-        @include padding(0 5.76rem 5.76rem);
-        width: 100%;
+    @include grid-media-only('xl') {
+      .ood-quote-card__media {
+        width: 22rem;
+        max-width: 22rem;
       }
     }
   }
