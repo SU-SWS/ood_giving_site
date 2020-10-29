@@ -89,6 +89,7 @@
       &:focus {
         .ood-cta__link {
           color: $su-color-sky-dark;
+          text-decoration: underline;
 
           &::after {
             background-color: $su-color-sky-dark;
