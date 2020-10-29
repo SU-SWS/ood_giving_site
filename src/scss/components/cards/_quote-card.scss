@@ -124,7 +124,7 @@
 // If quote card with image is placed inside
 .ood-interior-page__body-content {
   .ood-quote-card--has-image {
-    @include grid-media-between('lg','xl') {
+    @include grid-media-between('lg', 'xl') {
       @include margin(#{$card-overhang} 0 null null);
       flex-direction: column-reverse;
 
