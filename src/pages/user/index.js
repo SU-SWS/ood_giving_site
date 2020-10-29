@@ -1,23 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import LoginButton from "../../components/auth/loginButton"
 import LogoutButton from "../../components/auth/logoutButton"
-import { getUser } from "../../utilities/auth"
+import { UserStateConsumer } from "../../context/UserContext"
 
 const Authd = (props) => {
 
-  const [user, setUser] = useState(false);
-  let HelloUser = `Continue as guest or ...`
-
-  useEffect(() => {
-    setUser(getUser())
-  }, []);
-
-  if (user && user.name) {
-    HelloUser = `Hello ${user.name}`
-  }
-
   return (
-    <>
+    <React.Fragment>
       <header className="ood-header su-bg-white su-border-top-10px su-border-color-cardinal-red"><a href="#main-content"
           className="su-skiplinks">Skip to main content</a>
         <div className="centered-container">
@@ -257,9 +246,15 @@ const Authd = (props) => {
                 <div className={`ood-interior-page__body-content flex-lg-8-of-12`}>
                   <p>&nbsp;</p>
                   <h1>User Page</h1>
-                  <p>{HelloUser}</p>
-                  <LoginButton>Login</LoginButton>
-                  <LogoutButton>Logout</LogoutButton>
+                  <UserStateConsumer>
+                    {user => (
+                      <React.Fragment>
+                        <p>{user.name}</p>
+                        <LoginButton>Login</LoginButton>
+                        <LogoutButton>Logout</LogoutButton>
+                      </React.Fragment>
+                    )}
+                  </UserStateConsumer>
                   <p>&nbsp;</p>
                 </div>
               </div>
@@ -302,7 +297,7 @@ const Authd = (props) => {
           </div>
         </div>
       </footer>
-    </>
+    </React.Fragment>
   )
 }
 

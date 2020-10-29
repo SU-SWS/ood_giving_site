@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { navigate } from 'gatsby'
-import { isLoggedIn } from "../../utilities/auth"
+import { UserStateConsumer } from "../../context/UserContext"
 
 const triggerLogout = () => {
   navigate("/user/logout");
@@ -8,25 +8,13 @@ const triggerLogout = () => {
 
 const LogoutButton = (props) => {
 
-  const [auth, setAuth] = useState(false);
-  let theButton = null;
-
-  useEffect(() => {
-    const validateUser = async () => {
-      const result = await isLoggedIn()
-      setAuth(result);
-    };
-    validateUser();
-  }, []);
-
-  if (auth) {
-    theButton = (
-      <button onClick={triggerLogout}>{props.children}</button>
-    )
-  }
-
-  // Return the button to login if not authenticated.
-  return theButton
-};
+  return (
+    <UserStateConsumer>
+      {user => {
+        return user.status ? <button onClick={triggerLogout}>{props.children}</button> : null
+      }}
+    </UserStateConsumer>
+  )
+}
 
 export default LogoutButton
