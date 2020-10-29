@@ -5,33 +5,29 @@
   display: flex;
   flex-direction: column-reverse;
 
-  @include grid-media-max('md') {
-    @include margin(#{$card-overhang} null null);
-  }
-
   @include grid-media('lg') {
     flex-direction: row;
   }
 
   &__content {
-    @include modular-spacing('padding', 3 3 4);
+    @include modular-spacing('padding', 3 4 5);
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    @include grid-media-max('md') {
-      @include padding(1em null null);
+    @include grid-media-max('sm') {
+      @include padding(null 4rem 5rem);
     }
   }
 
   &__quote {
     @include margin(0);
-    @include padding(1.3em null null);
+    @include padding(1.8em null null);
     line-height: $su-base-line-height;
 
     &::before {
       @include margin(null null null -2px);
-      font-size: 4em;
+      font-size: 5em;
       line-height: 0.3;
       content: '\201C';
       display: block;
@@ -65,7 +61,7 @@
     }
 
     @include grid-media-only('md') {
-      @include margin(null 4.5rem null auto);
+      @include margin(null 5.76rem null auto);
     }
 
     @include grid-media-between('md', 'lg') {
@@ -87,11 +83,31 @@
 
   // Styles for version showing image
   &--has-image {
+    @include grid-media-max('md') {
+      @include margin(#{$card-overhang} null null);
+    }
+
     @include grid-media('lg') {
       @include margin(null $card-overhang null null);
     }
 
     .ood-quote-card__content {
+      @include grid-media-max('md') {
+        @include padding(0 null null);
+      }
+
+      @include grid-media-max('sm') {
+        @include margin(-1em null null);
+      }
+
+      @include grid-media-only('md') {
+        @include margin(-1.3em null null);
+      }
+
+      @include grid-media('lg') {
+        @include modular-spacing('padding', 3 3 4 5);
+      }
+
       @include grid-media-only('lg') {
         width: calc(100% - 20rem + #{$card-overhang}); // 100% minus the image width but add back the overhang amount
         min-height: 32rem;
