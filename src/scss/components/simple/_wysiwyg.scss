@@ -74,6 +74,29 @@
         @include margin(1em null null);
       }
     }
+
+    a {
+      .ood-cta__link {
+        text-decoration: none;
+        display: inline-block; // Only way to remove the underline due to the way the style classes are applied in the WYSIWYG
+
+        &::after {
+          background-color: $su-color-digital-red;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        .ood-cta__link {
+          color: $su-color-sky-dark;
+
+          &::after {
+            background-color: $su-color-sky-dark;
+            transform: translateX(0.2em);
+          }
+        }
+      }
+    }
   }
 }
 

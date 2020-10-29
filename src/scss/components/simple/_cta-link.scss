@@ -26,12 +26,20 @@
 }
 
 .ood-cta {
-  color: $su-color-bay-dark;
   font-weight: $su-font-semi-bold;
   font-size: 1.8rem;
 
   @include grid-media('md') {
     font-size: 2rem;
+  }
+
+  &__link {
+    color: $su-color-digital-red;
+
+    &:hover,
+    &:focus {
+      color: $su-color-sky-dark;
+    }
   }
 
   &__button {
