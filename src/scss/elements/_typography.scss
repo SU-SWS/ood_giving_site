@@ -4,10 +4,6 @@ body {
   @include sans;
 }
 
-.su-intro-text {
-  @include margin(null auto);
-}
-
 .intro-text {
   @include margin(null auto);
   font-size: 2rem;
@@ -19,4 +15,21 @@ body {
 
 .big-paragraph {
   @include ood-big-paragraph;
+}
+
+.callout,
+.splash-text {
+  line-height: $su-displays-line-height;
+}
+
+.callout {
+  @include sans;
+  @include modular-typography(2);
+  font-weight: $su-font-semi-bold;
+}
+
+.splash-text {
+  @include serif;
+  @include modular-typography(3);
+  font-weight: $su-font-bold;
 }

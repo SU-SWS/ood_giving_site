@@ -5,7 +5,7 @@
 .ood-story {
   &__title {
     @include margin(null null 0.4em);
-    @include modular-typography(6);
+    @include modular-typography(5);
 
     @include grid-media-max('sm') {
       font-size: 3.6rem;
@@ -51,10 +51,31 @@
 
     &--no-image {
       border-top-style: solid;
-      border-top-width: 300px;
+      border-top-width: 16rem;
+
+      @include grid-media('md') {
+        border-top-width: 22rem;
+      }
+
+      @include grid-media('xl') {
+        border-top-width: 26rem;
+      }
 
       .ood-story__header-content-wrapper {
-        @include margin(-200px null null);
+        @include margin(-14rem null null);
+
+        @include grid-media('sm') {
+          @include margin(-13rem null null);
+        }
+
+        @include grid-media('md') {
+          @include margin(-14rem null null);
+        }
+
+        @include grid-media('xl') {
+          @include margin(-18rem null null);
+          min-height: 22rem;
+        }
       }
     }
   }
