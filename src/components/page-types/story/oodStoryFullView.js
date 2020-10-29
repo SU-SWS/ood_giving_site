@@ -7,7 +7,6 @@ import SeoSocial from "../../partials/seoSocial"
 import CreateBloks from "../../../utilities/createBloks"
 
 const StoryFullView = (props) => {
-
   let processedHeroImg;
   processedHeroImg = transformImage(props.blok.heroImage.filename, "/2000x0");
 
