@@ -16,19 +16,19 @@
     justify-content: center;
 
     @include grid-media-max('sm') {
-      @include padding(null 4rem 5rem);
+      @include padding(null 4rem 4rem);
     }
   }
 
   &__quote {
     @include margin(0);
-    @include padding(1.8em null null);
+    @include padding(2em null null);
     line-height: $su-base-line-height;
 
     &::before {
       @include margin(null null null -2px);
       font-size: 5em;
-      line-height: 0.3;
+      line-height: 0.1;
       content: '\201C';
       display: block;
       color: $su-color-palo-verde-light;
@@ -116,6 +116,36 @@
       @include grid-media('xl') {
         width: calc(100% - 30rem + #{$card-overhang}); // 100% minus the image width but add back the overhang amount
         min-height: 42rem;
+      }
+    }
+  }
+}
+
+.ood-interior-page__body-content {
+  .ood-quote-card--has-image {
+    @include grid-media-max('xl') {
+      @include margin(null 0 null null);
+      flex-direction: column-reverse;
+    }
+
+    .ood-quote-card__media {
+      @include grid-media-between('lg', 'xl') {
+        width: 20rem;
+        max-width: 20rem;
+      }
+
+      @include grid-media-max('xl') {
+        @include margin(null 5.76rem null auto);
+        position: relative;
+        right: 0;
+        align-self: center;
+      }
+    }
+
+    .ood-quote-card__content {
+      @include grid-media-between('lg', 'xl') {
+        @include padding(0 5.76rem 5.76rem);
+        width: 100%;
       }
     }
   }
