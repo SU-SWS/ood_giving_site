@@ -35,7 +35,7 @@ const StoryImage = (props) => {
             <div className={`su-media__wrapper ood-story-media__wrapper`}>
               <img className={`ood-story-media__image
                    ${(props.blok.imageWidth === "su-w-full") ? `su-obj-position-h-center-v-${props.blok.visibleVertical}`: ""}`}
-                   src={processedImg} alt={props.blok.image.alt}
+                   src={processedImg} alt={props.blok.image.alt ? props.blok.image.alt : ""}
               />
             </div>
             {props.blok.caption && (
