@@ -6,38 +6,6 @@ const loginPath = "/api/sso/login"
 const logoutPath = "/api/sso/logout"
 const statusPath = "/api/sso/status"
 
-// Get the user from session storage.
-// -----------------------------------------------------------------------------
-export const getUser = () => {
-  if (!isBrowser) {
-    return false
-  }
-
-  // If user data is already available use that.
-  const user = JSON.parse(window.sessionStorage.getItem(userKey));
-  if (user && user.name) {
-    return user;
-  }
-
-  return false
-}
-
-// Set the user to session storage.
-// -----------------------------------------------------------------------------
-export const setUser = (user) => {
-  if (!isBrowser) return false
-  window.sessionStorage.setItem(userKey, JSON.stringify(user));
-  return true;
-}
-
-// Remove the user from session storage.
-// -----------------------------------------------------------------------------
-export const removeUser = () => {
-  if (!isBrowser) return
-  window.sessionStorage.removeItem(userKey);
-  return true;
-}
-
 // Check if the user is logged in.
 // -----------------------------------------------------------------------------
 export const fetchUserData = async () => {
@@ -79,8 +47,7 @@ export const isLoggedIn = async () => {
       if (!data) {
         return false
       }
-      delete data.token
-      setUser(data)
+
       return true
     })
     .catch(error => {
@@ -106,9 +73,6 @@ export const doLogin = () => {
 // -----------------------------------------------------------------------------
 export const doLogout = async () => {
   if (!isBrowser) return false
-
-  // Remove Local Storage.
-  removeUser()
 
   // Kill any sessions or cookies.
   let sus = await fetch(logoutPath)

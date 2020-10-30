@@ -17,6 +17,9 @@ const UserStateProvider = ( { children } ) => {
         const newState = action.user
         return newState;
 
+      case 'logout':
+        return anon;
+
       default:
         throw new Error();
     };
