@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { doLogin } from "../../utilities/auth"
-import { UserStateConsumer } from "../../context/UserContext"
+import { UserContext } from "../../context/UserContext"
 
 const LoginButton = (props) => {
+  const { state: user } = useContext(UserContext);
 
-  return (
-    <UserStateConsumer>
-      {user => {
-        return user.status ? null : <button onClick={doLogin}>{props.children}</button>
-      }}
-    </UserStateConsumer>
-  )
-};
+  if (!user.status) {
+    return (
+      <button onClick={doLogin}>{props.children}</button>
+    )
+  }
+
+  return null
+}
 
 export default LoginButton

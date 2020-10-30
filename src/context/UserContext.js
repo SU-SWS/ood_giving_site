@@ -1,24 +1,29 @@
-import React, { useState, createContext, useEffect } from "react"
+import React, { useReducer, createContext } from "react"
 
-export const UserStateContext = createContext(false)
-export const UserStateConsumer = UserStateContext.Consumer
-export const UserStateProvider = UserStateContext.Provider
-
-// The main thing.
-const UserContextProvider = ({ children }) => {
-  const [user, setUser] = useState({name: "Anonymous", status: 0})
-
-  useEffect(() => {
-    // Set the user from Session Storage.
-    setUser({name: "Shea McKinney", email: "sheamck@stanford.edu", status: 1});
-  })
-
-  // Render the wrapper.
-  return (
-    <UserStateContext.Provider value={user}>
-      {children}
-    </UserStateContext.Provider>
-  )
+// Anonymous user.
+const anon = {
+  name: "Anonymous",
+  status: 0
 }
 
-export default UserContextProvider
+const UserContext = createContext(anon)
+const { Provider, Consumer } = UserContext;
+
+const UserStateProvider = ( { children } ) => {
+  const [state, dispatch] = useReducer((state, action) => {
+
+    switch(action.type) {
+      case 'login':
+        const newState = action.user
+        return newState;
+
+      default:
+        throw new Error();
+    };
+
+  }, anon);
+
+  return <Provider value={{ state, dispatch }}>{children}</Provider>;
+};
+
+export { UserContext, UserStateProvider, Consumer }

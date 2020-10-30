@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import LoginButton from "../../components/auth/loginButton"
 import LogoutButton from "../../components/auth/logoutButton"
-import { UserStateConsumer } from "../../context/UserContext"
+import { UserContext } from "../../context/UserContext"
 
 const Authd = (props) => {
+
+  const { state: user } = useContext(UserContext);
 
   return (
     <React.Fragment>
@@ -246,15 +248,11 @@ const Authd = (props) => {
                 <div className={`ood-interior-page__body-content flex-lg-8-of-12`}>
                   <p>&nbsp;</p>
                   <h1>User Page</h1>
-                  <UserStateConsumer>
-                    {user => (
-                      <React.Fragment>
-                        <p>{user.name}</p>
-                        <LoginButton>Login</LoginButton>
-                        <LogoutButton>Logout</LogoutButton>
-                      </React.Fragment>
-                    )}
-                  </UserStateConsumer>
+
+                  <p>{user.name}</p>
+                  <LoginButton>Login</LoginButton>
+                  <LogoutButton>Logout</LogoutButton>
+
                   <p>&nbsp;</p>
                 </div>
               </div>

@@ -9,7 +9,9 @@ const statusPath = "/api/sso/status"
 // Get the user from session storage.
 // -----------------------------------------------------------------------------
 export const getUser = () => {
-  if (!isBrowser) return
+  if (!isBrowser) {
+    return false
+  }
 
   // If user data is already available use that.
   const user = JSON.parse(window.sessionStorage.getItem(userKey));
@@ -23,7 +25,7 @@ export const getUser = () => {
 // Set the user to session storage.
 // -----------------------------------------------------------------------------
 export const setUser = (user) => {
-  if (!isBrowser) return
+  if (!isBrowser) return false
   window.sessionStorage.setItem(userKey, JSON.stringify(user));
   return true;
 }
@@ -92,7 +94,7 @@ export const isLoggedIn = async () => {
 // Log the user out.
 // -----------------------------------------------------------------------------
 export const doLogin = () => {
-  if (!isBrowser) return
+  if (!isBrowser) return false
   // Log the page the user is on before sending out so we can redirect back
   // to the right place.
   window.sessionStorage.setItem("returnto", window.location.pathname);
@@ -103,7 +105,7 @@ export const doLogin = () => {
 // Log the user out.
 // -----------------------------------------------------------------------------
 export const doLogout = async () => {
-  if (!isBrowser) return
+  if (!isBrowser) return false
 
   // Remove Local Storage.
   removeUser()

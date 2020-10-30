@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { navigate } from 'gatsby'
-import { UserStateConsumer } from "../../context/UserContext"
+import { UserContext } from "../../context/UserContext"
 
 const triggerLogout = () => {
   navigate("/user/logout");
 }
 
 const LogoutButton = (props) => {
+  const { state: user } = useContext(UserContext);
 
-  return (
-    <UserStateConsumer>
-      {user => {
-        return user.status ? <button onClick={triggerLogout}>{props.children}</button> : null
-      }}
-    </UserStateConsumer>
-  )
+  if (user.status) {
+    return (
+      <button onClick={triggerLogout}>{props.children}</button>
+    )
+  }
+
+  return null
 }
 
 export default LogoutButton

@@ -23,6 +23,7 @@ const saml = new suSAML.Strategy({
   path: '/api/sso/auth',
   loginPath: '/api/sso/login',
   logoutUrl: '/api/sso/logout',
+  forceAuthn: true,
   passReqToCallback: true,
   decryptionPvkPath: path.resolve(__dirname, '../../certs/private.pem'),
   decryptionCertPath: path.resolve(__dirname, '../../certs/public.pem'),
@@ -100,8 +101,8 @@ const handleCallback = (req, res) => {
   }
 
   res
-    .cookie('stanford_auth_token', req.cookies.saml_auth_token, { httpOnly: true, COOKIE_SECURE })
-    .cookie('stanford_jwt', authJwt(user), { httpOnly: true, COOKIE_SECURE })
+    .cookie('stanford_auth_token', req.cookies.saml_auth_token, { httpOnly: true, COOKIE_SECURE, maxAge: 600000 })
+    .cookie('stanford_jwt', authJwt(user), { httpOnly: true, COOKIE_SECURE, maxAge: 600000 })
     .redirect("/user/redirect")
 }
 
