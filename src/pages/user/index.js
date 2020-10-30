@@ -248,11 +248,9 @@ const Authd = (props) => {
                 <div className={`ood-interior-page__body-content flex-lg-8-of-12`}>
                   <p>&nbsp;</p>
                   <h1>User Page</h1>
-
                   <p>{user.name}</p>
                   <LoginButton>Login</LoginButton>
                   <LogoutButton>Logout</LogoutButton>
-
                   <p>&nbsp;</p>
                 </div>
               </div>

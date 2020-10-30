@@ -27,7 +27,7 @@ const saml = new suSAML.Strategy({
   passReqToCallback: true,
   decryptionPvkPath: path.resolve(__dirname, '../../certs/private.pem'),
   decryptionCertPath: path.resolve(__dirname, '../../certs/public.pem'),
-  validateInResponseTo: false,
+  validatedInResponseTo: false,
   passport: passport,
 });
 
@@ -145,20 +145,19 @@ app.get(`/api/sso/status`,
 app.get('/api/sso/login', passport.authenticate(saml.name,
   {
     failureRedirect: '/403',
-    failureFlash: true,
-    validateInResponseTo: false,
-    validatedInResponseTo: false
+    failureFlash: true
   }
 ));
 
 // Logout.
 app.get('/api/sso/logout', function(req, res) {
   req.logout();
+  res.clearCookie("saml_auth_token");
   res.clearCookie("stanford_auth_token");
   res.clearCookie("stanford_jwt");
   req.session.destroy(); // Deletes the session in memory.
   req.session = null; // Deletes the cookie.
-  res.json({"success": true});
+  res.redirect("/");
 });
 
 // Metadata for SAML Provider.
@@ -171,9 +170,7 @@ app.post('/api/sso/auth',
   passport.authenticate(saml.name,
     {
       failureRedirect: '/403',
-      failureFlash: true,
-      validateInResponseTo: false,
-      validatedInResponseTo: false
+      failureFlash: true
     }
   ),
   handleCallback

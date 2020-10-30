@@ -3,7 +3,7 @@ import { navigate } from 'gatsby'
 import { UserContext } from "../../context/UserContext"
 
 const triggerLogout = () => {
-  navigate("/user/logout");
+  navigate("/api/sso/logout");
 }
 
 const LogoutButton = (props) => {
