@@ -191,7 +191,7 @@
   }
 
   @include grid-media-between('lg', 'xl') {
-    @include fluid-type(48px, 58px, $su-screen-lg, $su-screen-xl);
+    @include fluid-type(52px, 72px, $su-screen-lg, #{$su-screen-2xl - 1});
   }
 }
 
