@@ -9,7 +9,7 @@ const userData = (props) => {
 
     const getUser = async () => {
       const result = await fetchUserData()
-      if (result && result.name && result.name.length) {
+      if (result && result.name) {
         result.status = 1
         dispatch({type: "login", user: result })
       }

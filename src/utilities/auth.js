@@ -18,7 +18,7 @@ export const fetchUserData = async () => {
       return false
     })
     .then(data => {
-      if (!data) {
+      if (!data || !data.token) {
         return false
       }
       delete data.token
