@@ -19,7 +19,6 @@
   }
 
   &__title {
-    @include modular-typography(6);
     @include margin(null auto 0);
     letter-spacing: 0;
     text-align: center;
@@ -178,20 +177,22 @@
 }
 
 .ood-interior-page__title {
-  @include grid-media-max('xs') {
-    font-size: 3.6rem;
-  }
+  font-size: 3.6rem;
 
-  @include grid-media-only('sm') {
+  @include grid-media('sm') {
     font-size: 4.2rem;
   }
 
-  @include grid-media-only('md') {
+  @include grid-media('md') {
     font-size: 5.2rem;
   }
 
   @include grid-media-between('lg', 'xl') {
-    @include fluid-type(52px, 72px, $su-screen-lg, #{$su-screen-2xl - 1});
+    @include fluid-type(52px, 72px, $su-screen-lg, 1499px);
+  }
+
+  @include grid-media('2xl') {
+    @include modular-typography(6);
   }
 }
 
