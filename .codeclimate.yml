@@ -1,4 +1,27 @@
 version: "2"
+checks:
+  argument-count:
+    enabled: false
+  complex-logic:
+    enabled: false
+  file-lines:
+    config:
+      threshold: 300
+  method-complexity:
+    enabled: false
+  method-count:
+    enabled: false
+  method-lines:
+    enabled: false
+  nested-control-flow:
+    enabled: false
+  return-statements:
+    config:
+      threshold: 6
+  similar-code:
+    enabled: true
+  identical-code:
+    enabled: true
 plugins:
   duplication:
     enabled: true
@@ -26,15 +49,10 @@ plugins:
   coffeelint:
     enabled: false
   # SASS Lint requires a .sass-lint.yml file in the repo in order to tweak settings.
-  # Withouth the .sass-lint.yml file it will run with the defaults.
+  # Without the .sass-lint.yml file it will run with the defaults.
   # Defaults file: https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml
   sass-lint:
     enabled: true
-  # SCSS Lint requires a .scss-lint.yml file in the repo in order to tweak settings.
-  # Withouth the .scss-lint.yml file it will run with the defaults.
-  # Defaults file: https://github.com/brigade/scss-lint/blob/master/config/default.yml
-  scss-lint:
-    enabled: false
 exclude_patterns:
   - node_modules/
   - "**/__tests__/"
