@@ -37,7 +37,9 @@ const OodSupportCard = (props) => {
         }
         {(props.blok.link.linktype === "url" || props.blok.link.linktype === "asset") &&
           <a href={props.blok.link.url ? props.blok.link.url : props.blok.link.cached_url}
-             className={`ood-support-card__link su-bg-${props.blok.backgroundColor}`}>
+             className={`ood-support-card__link su-bg-${props.blok.backgroundColor}`}
+             {...props.blok.link.linktype === "asset" ? {target : "_blank"} : {}}
+          >
             <SupportCardContent {...props}/>
           </a>
         }

@@ -18,12 +18,13 @@ const CtaLink = (props) => (
             }
           </Link>
         }
-        {props.blok.link.linktype === "url" &&
-          <a href={props.blok.link.url}
+        {(props.blok.link.linktype === "url" || props.blok.link.linktype === "asset") &&
+          <a href={props.blok.link.url ? props.blok.link.url : props.blok.link.cached_url}
              className={props.blok.isButton === true ?
                `ood-cta__button ${props.blok.linkButtonStyle} ${props.blok.linkButtonSize} ${props.blok.linkIcon}`
                : `su-link ood-cta__link ${props.blok.linkIcon} ${props.blok.linkTextColor}`}
              {...props.blok.rel ? {rel : props.blok.rel} : {}}
+             {...props.blok.link.linktype === "asset" ? {target : "_blank"} : {}}
           >{props.blok.linkText}
             {props.blok.srText &&
               <span className="su-sr-only-element">{` ${props.blok.srText}`}</span>
