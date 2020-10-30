@@ -4,8 +4,8 @@ import { navigate } from "gatsby"
 import { isLoggedIn } from "../../utilities/auth"
 
 const PrivateWrapper = ({ component: Component, location, ...rest }) => {
-  if (!isLoggedIn() && location.pathname !== `/user/login`) {
-    navigate("/user/login")
+  if (!isLoggedIn() && location.pathname !== `/api/sso/login`) {
+    navigate("/api/sso/login")
     return null
   }
 
