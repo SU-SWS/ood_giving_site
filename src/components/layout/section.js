@@ -11,6 +11,7 @@ const Section = (props) => {
   }
 
   const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h2";
+
   const titleStyleClassList = (titleStyleArray) => {
     return titleStyleArray.toString().replace(/,/g, " ");
   };
@@ -50,11 +51,11 @@ const Section = (props) => {
         >
           {(props.blok.title || props.blok.intro) && (
             <div
-              className={`centered-container flex-container section__header su-mb-3
+              className={`centered-container flex-container section__header
               ${props.blok.srOnlyHeader === true ? "su-sr-only-element" : ""}`}>
               {props.blok.title &&
                 <Heading
-                  className={`section__title flex-lg-5-of-12 su-serif su-bold su-text-align-left su-mb-4
+                  className={`section__title flex-lg-5-of-12 su-serif su-bold su-text-align-left
                               ${props.blok.titleSize}
                               su-before-bg-${props.blok.tabColor}
                               ${titleStyleClassList(props.blok.titleStyle)}`}>

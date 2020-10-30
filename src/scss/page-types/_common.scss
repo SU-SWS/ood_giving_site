@@ -4,7 +4,7 @@
 
 .ood {
   &-icon-card-section__container {
-    @include grid-media-max('sm') {
+    @include grid-media-max('md') {
       > *:not(:last-child) {
         @include margin(null null 2em);
       }
