@@ -19,12 +19,14 @@
   }
 
   &__title {
-    @include modular-typography(6);
     @include margin(null auto 0);
     letter-spacing: 0;
+    text-align: center;
   }
 
   &__intro {
+    text-align: left;
+
     > div {
       > *:last-child {
         @include margin(null null 0);
@@ -37,6 +39,7 @@
 
     @include grid-media-max('sm') {
       font-size: 1.25em;
+      text-align: left;
     }
   }
 
@@ -64,6 +67,12 @@
 
 // Interior page with minimal header option
 .ood-interior-page--minimal {
+  @include grid-media-max('sm') {
+    .ood-interior-page__header--minimal {
+      @include padding(3em null);
+    }
+  }
+
   .ood-interior-page__body {
     @include modular-spacing('padding', null null 6);
   }
@@ -72,9 +81,19 @@
 // Interior page with colored header option
 .ood-interior-page--no-image {
   .ood-interior-page__header {
-    &-title {
-      &-wrapper {
-        @include modular-spacing('padding', null null 9);
+    &-title-wrapper {
+      @include modular-spacing('padding', null null 9);
+    }
+
+    @include grid-media-max('sm') {
+      &-content-wrapper {
+        @include margin(-7em null null);
+      }
+    }
+
+    @include grid-media('md') {
+      .ood-interior-page__intro {
+        text-align: center;
       }
     }
   }
@@ -87,50 +106,48 @@
 // Interior page with image header option
 .ood-interior-page--has-image {
   .ood-interior-page__header {
-    &-title {
-      &-wrapper {
-        > .centered-container {
-          position: relative;
-        }
-
-        @include grid-media-max('sm') {
-          @include padding(3em null null);
-        }
-
-        @include grid-media-max('md') {
-          @include padding(null null 0);
-          @include margin(null null -4em);
-        }
-
-        @include grid-media('lg') {
-          min-height: 26vw;
-        }
-
-        @include grid-media('xl') {
-          min-height: 30vw;
-        }
-
-        @include grid-media('2xl') {
-          min-height: 480px;
-        }
+    .ood-interior-page__title {
+      @include grid-media('md') {
+        text-align: left;
       }
     }
 
-    &-intro {
-      &-wrapper {
-        @include grid-media-max('sm') {
-          @include padding(null null 2.4em);
-          border-top: 1.4em solid transparent;
-        }
+    &-title-wrapper {
+      > .centered-container {
+        position: relative;
+      }
 
-        @include grid-media-only('md') {
-          @include padding(null null 3.6em);
-          border-top: 2.6em solid transparent;
-        }
+      @include grid-media-max('md') {
+        @include padding(null null 0);
+        @include margin(null null -4em);
+      }
 
-        @include grid-media('lg') {
-          border-top: 4em solid transparent;
-        }
+      @include grid-media('lg') {
+        min-height: 26vw;
+      }
+
+      @include grid-media('xl') {
+        min-height: 30vw;
+      }
+
+      @include grid-media('2xl') {
+        min-height: 48rem;
+      }
+    }
+
+    &-intro-wrapper {
+      @include grid-media-max('sm') {
+        @include padding(null null 2.4em);
+        border-top: 1.4em solid transparent;
+      }
+
+      @include grid-media-only('md') {
+        @include padding(null null 3.6em);
+        border-top: 2.6em solid transparent;
+      }
+
+      @include grid-media('lg') {
+        border-top: 4em solid transparent;
       }
     }
   }
@@ -138,30 +155,29 @@
   .ood-interior-page__title {
     @include margin(null null null 0);
 
-    @include grid-media-max('xs') {
-      font-size: 3.6rem;
-    }
-
-    @include grid-media-only('sm') {
-      font-size: 4.2rem;
-    }
-
-    @include grid-media-only('md') {
-      font-size: 4.8rem;
-    }
-
     @include grid-media-max('md') {
       @include margin(null null 0.6em);
-    }
-
-    @include grid-media-between('lg', 'xl') {
-      @include fluid-type(48px, 58px, $su-screen-lg, $su-screen-xl);
     }
   }
 
   .ood-interior-page__body {
     @include modular-spacing('padding', 6 null);
   }
+}
+
+.ood-interior-page--has-image,
+.ood-interior-page--no-image {
+  .ood-interior-page__header {
+    &-title-wrapper {
+      @include grid-media-max('sm') {
+        @include padding(3em null null);
+      }
+    }
+  }
+}
+
+.ood-interior-page__title {
+  @include interior-page-h1-fontsize;
 }
 
 .ood-interior-page__header__media {

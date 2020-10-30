@@ -3,9 +3,13 @@
 // Poster style
 
 .ood-poster {
-  border-bottom: 80px solid transparent;
+  border-bottom: $card-overhang solid transparent;
   position: relative;
-  height: 640px; // height of the image plus the transparent border bottom
+  height: 54rem; // height of the image plus the transparent border bottom
+
+  @include grid-media('md') {
+    height: 64rem;
+  }
 
   &__media {
     position: absolute;
@@ -13,7 +17,7 @@
     z-index: 1;
 
     @include grid-media('lg') {
-      height: 560px;
+      height: 56rem;
     }
   }
 
@@ -38,26 +42,34 @@
   }
 
   &__card {
-    @include modular-spacing('padding', 4);
+    @include modular-spacing('padding', 4 4 5);
     width: 100%;
-    min-height: 460px;
+    min-height: 43rem;
     position: absolute;
-    bottom: -80px;
+    bottom: #{-$card-overhang};
     padding: 2em;
+
+    @include grid-media-only('xs') {
+      @include padding(5.1rem 3.4rem);
+      min-height: 33rem;
+    }
+
+    @include grid-media('sm') {
+      min-height: 40rem;
+    }
   }
 
   &__headline {
-    @include modular-typography(4);
-    @include margin(null null 0.4em);
-    font-weight: $su-font-regular;
+    @include modular-typography(3);
+    @include margin(null null 0.6em);
     letter-spacing: -0.016em;
   }
 
   &__text {
-    @include modular-typography(1);
+    @include ood-big-paragraph;
   }
 
   .ood-cta {
-    @include margin(2em null null);
+    @include modular-spacing('margin', 3 null null);
   }
 }
