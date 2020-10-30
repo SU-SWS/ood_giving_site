@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+// Curated H1 page title font sizes for all breakpoints for interior pages.
+
+@mixin interior-page-h1-fontsize {
+  font-size: 3.6rem;
+
+  @include grid-media('sm') {
+    font-size: 4.2rem;
+  }
+
+  @include grid-media('md') {
+    font-size: 5.2rem;
+  }
+
+  @include grid-media-between('lg', 'xl') {
+    @include fluid-type(52px, 72px, $su-screen-lg, 1499px);
+  }
+
+  @include grid-media('2xl') {
+    @include modular-typography(6);
+  }
+}
