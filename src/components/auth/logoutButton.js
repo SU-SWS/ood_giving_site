@@ -7,7 +7,7 @@ const triggerLogout = () => {
 }
 
 const LogoutButton = (props) => {
-  const { state: user } = useContext(UserContext);
+  const { state: { user } } = useContext(UserContext);
 
   if (user.status) {
     return (

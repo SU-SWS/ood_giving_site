@@ -1,12 +1,14 @@
 import React, { useReducer, createContext } from "react"
 
 // Anonymous user.
-const anon = {
-  name: "Anonymous",
-  status: 0
+const defaultState = {
+  user: {
+    name: "Anonymous",
+    status: 0
+  }
 }
 
-const UserContext = createContext(anon)
+const UserContext = createContext(defaultState)
 const { Provider, Consumer } = UserContext;
 
 const UserStateProvider = ( { children } ) => {
@@ -14,17 +16,16 @@ const UserStateProvider = ( { children } ) => {
 
     switch(action.type) {
       case 'login':
-        const newState = action.user
-        return newState;
+        return action;
 
       case 'logout':
-        return anon;
+        return defaultState;
 
       default:
         throw new Error();
     };
 
-  }, anon);
+  }, defaultState);
 
   return <Provider value={{ state, dispatch }}>{children}</Provider>;
 };

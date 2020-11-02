@@ -5,7 +5,7 @@ import { UserContext } from "../../context/UserContext"
 
 const Authd = (props) => {
 
-  const { state: user } = useContext(UserContext);
+  const { state: { user } } = useContext(UserContext);
 
   return (
     <React.Fragment>

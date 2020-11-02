@@ -3,7 +3,7 @@ import { fetchUserData } from "../../utilities/auth"
 import { UserContext } from "../../context/UserContext"
 
 const userData = (props) => {
-  const { state: user, dispatch } = useContext(UserContext);
+  const { state: { user }, dispatch } = useContext(UserContext);
 
   useEffect(() => {
 

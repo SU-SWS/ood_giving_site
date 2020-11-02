@@ -3,7 +3,7 @@ import { doLogin } from "../../utilities/auth"
 import { UserContext } from "../../context/UserContext"
 
 const LoginButton = (props) => {
-  const { state: user } = useContext(UserContext);
+  const { state: { user } } = useContext(UserContext);
 
   if (!user.status) {
     return (
