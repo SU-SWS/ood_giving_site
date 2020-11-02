@@ -12,8 +12,8 @@ const HeaderNoImage = (props) => (
           <h1 className="ood-interior-page__title flex-xl-10-of-12 su-serif su-text-white">{props.blok.title}</h1>
         </div>
       </div>
-      <div className={`centered-container flex-container ood-interior-page__header-content`}>
-        <div className={`ood-interior-page__header-content-wrapper flex-12-of-12 su-bg-white`}>
+      <div className={`centered-container flex-container ood-interior-page__header-intro`}>
+        <div className={`ood-interior-page__header-intro-wrapper flex-12-of-12 su-bg-white`}>
           {props.blok.intro && (
             <div className="intro-text ood-interior-page__intro flex-xl-10-of-12">
               <RichTextField data={props.blok.intro}/>

@@ -105,6 +105,10 @@
   &__wrapper {
     > div {
       > * {
+        &:first-child {
+          @include margin(-0.26em null null);
+        }
+
         &:last-child {
           @include margin(null null 0); // last item in the WYSIWYG
         }
