@@ -34,7 +34,9 @@ exports.createPages = ({ graphql, actions }) => {
 
         const entries = result.data.allStoryblokEntry.edges
         entries.forEach((entry, index) => {
-          let pagePath = entry.node.full_slug == 'home' ? '' : `${entry.node.full_slug}/`
+          let slug = `${entry.node.full_slug}`
+          slug = slug.replace(/^\/|\/$/g, '')
+          let pagePath = entry.node.full_slug == 'home' ? '' : slug + '/'
 
           // Wire up the 404 page by setting the path to just 404 as Gatsby expects it.
           if (pagePath.match(/^404/)) {
@@ -45,9 +47,9 @@ exports.createPages = ({ graphql, actions }) => {
           if (pagePath.match(/^403/)) {
             pagePath = "403"
           }
-          
+
           createPage({
-            path: `/${pagePath}`,
+            path: '/' + pagePath,
             component: storyblokEntry,
             context: {
               story: entry.node
