@@ -48,8 +48,12 @@
       @include modular-spacing('padding', null null 5);
 
       &-title {
-        @include modular-typography(4);
+        @include modular-typography(2);
         @include margin(null null 0);
+
+        @include grid-media('md') {
+          @include modular-typography(4);
+        }
       }
     }
 
