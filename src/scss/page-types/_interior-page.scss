@@ -20,6 +20,7 @@
 
   &__title {
     @include margin(null auto 0);
+    @include interior-page-h1-fontsize;
     letter-spacing: 0;
     text-align: center;
   }
@@ -44,6 +45,8 @@
   }
 
   &__body {
+    @include modular-spacing('padding', 6 null);
+
     &-header {
       @include modular-spacing('padding', null null 5);
 
@@ -76,10 +79,6 @@
       @include padding(3em null);
     }
   }
-
-  .ood-interior-page__body {
-    @include modular-spacing('padding', null null 6);
-  }
 }
 
 // Interior page with colored header option
@@ -100,10 +99,6 @@
         text-align: center;
       }
     }
-  }
-
-  .ood-interior-page__body {
-    @include modular-spacing('padding', 6 null);
   }
 }
 
@@ -163,10 +158,6 @@
       @include margin(null null 0.6em);
     }
   }
-
-  .ood-interior-page__body {
-    @include modular-spacing('padding', 6 null);
-  }
 }
 
 .ood-interior-page--has-image,
@@ -178,10 +169,6 @@
       }
     }
   }
-}
-
-.ood-interior-page__title {
-  @include interior-page-h1-fontsize;
 }
 
 .ood-interior-page__header__media {
