@@ -39,16 +39,23 @@
     }
 
     @include grid-media-max('sm') {
-      font-size: 1.25em;
-      text-align: left;
+      @include modular-typography(1);
     }
   }
 
   &__body {
     @include modular-spacing('padding', 6 null);
 
+    @include grid-media-max('sm') {
+      @include padding(4.5rem null);
+    }
+
     &-header {
       @include modular-spacing('padding', null null 5);
+
+      @include grid-media-max('sm') {
+        @include padding(null null 3.8rem);
+      }
 
       &-title {
         @include modular-typography(2);
