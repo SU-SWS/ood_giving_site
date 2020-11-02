@@ -28,6 +28,14 @@
     }
   }
 
+  &__header__media {
+    @include grid-media('lg') {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
   &__body {
     @include modular-spacing('padding', 6 null);
 
@@ -172,13 +180,5 @@
         @include padding(3em null null);
       }
     }
-  }
-}
-
-.ood-interior-page__header__media {
-  @include grid-media('lg') {
-    position: absolute;
-    right: 0;
-    top: 0;
   }
 }
