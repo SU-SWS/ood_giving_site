@@ -1,193 +1,62 @@
 // details: https://markus.oberlehner.net/blog/implementing-an-authentication-flow-with-passport-and-netlify-functions/
 
-// const path = require('path')
-// const bodyParser = require('body-parser')
-// const cookieParser = require('cookie-parser')
-// const express = require('express')
-// const session = require('express-session')
-// const passport = require('passport')
-// const passportJwt = require('passport-jwt');
-// const suSAML = require('passport-stanford')
-// const { COOKIE_SECURE, SECRET } = require('./utils/config')
-// const { sign } = require(`jsonwebtoken`);
-// const serverless = require('serverless-http')
-// const app = express()
+const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+const express = require('express')
+const passport = require('passport')
+const OAuth2Strategy  = require('passport-oauth2').Strategy
+const { COOKIE_SECURE, SECRET } = require('./utils/config')
+const serverless = require('serverless-http')
+const app = express()
 
-// // create a Stanford SAML Strategy and tell Passport to use it
-// // -----------------------------------------------------------------------------
-// const saml = new suSAML.Strategy({
-//   protocol: 'http://',
-//   host: 'localhost:64946',
-//   idp: 'itlab',
-//   entityId: 'https://github.com/SU-SWS/ood_giving_site',
-//   path: '/api/sso/auth',
-//   loginPath: '/api/sso/login',
-//   logoutUrl: '/api/sso/logout',
-//   passReqToCallback: true,
-//   decryptionPvkPath: path.resolve(__dirname, '../../certs/private.pem'),
-//   decryptionCertPath: path.resolve(__dirname, '../../certs/public.pem'),
-//   validateInResponseTo: false,
-//   passport: passport,
-// });
+// -----------------------------------------------------------------------------
 
-// passport.use(saml);
-// // -----------------------------------------------------------------------------
-
-// // JWT
-// // -----------------------------------------------------------------------------
-// passport.use(
-//   new passportJwt.Strategy(
-//     {
-//       jwtFromRequest(req) {
-//         if (!req.cookies) throw new Error('Missing cookie-parser middleware')
-//         return req.cookies.stanford_jwt
-//       },
-//       secretOrKey: SECRET,
-//       passReqToCallback: true
-//     },
-//     async (req, payload, done) => {
-//       try {
-//         if (typeof payload.user == "object") {
-//           if (payload.user.token === req.cookies.stanford_auth_token) {
-//             return done(null, payload.user)
-//           }
-//         }
-//         return done(false, null);
-//       }
-//       catch (error) {
-//         return done(error)
-//       }
-//     }
-//   )
-// )
-
-// // -----------------------------------------------------------------------------
-
-// app.use(bodyParser.urlencoded({ extended: true }))
-// app.use(bodyParser.json())
-// app.use(cookieParser())
-// app.use(session({
-//   secret: SECRET,
-//   resave: false,
-//   saveUninitialized: true,
-//   name: 'saml_auth_token',
-//   cookie: {
-//     httpOnly: true,
-//     maxAge: 600000
-//   }
-// }));
-
-// app.use(passport.initialize())
-// app.use(passport.session())
-// // -----------------------------------------------------------------------------
-
-// // FUNCTIONS
-// // -----------------------------------------------------------------------------
-
-// /**
-//  *
-//  * @param {*} req
-//  * @param {*} res
-//  */
-// const handleCallback = (req, res) => {
-
-//   let user = {
-//     name: req.user.displayName,
-//     firstName: req.user.givenName,
-//     email: req.user.email,
-//     uid: req.user.uid,
-//     token: req.cookies.saml_auth_token
-//   }
-
-//   res
-//     .cookie('stanford_auth_token', req.cookies.saml_auth_token, { httpOnly: true, COOKIE_SECURE })
-//     .cookie('stanford_jwt', authJwt(user), { httpOnly: true, COOKIE_SECURE })
-//     .redirect("/user/redirect")
-// }
-
-// /**
-//  *
-//  * @param {*} user
-//  * @param {*} token
-//  */
-// function authJwt(user) {
-//   return sign({ user: user }, SECRET)
-// }
-// // -----------------------------------------------------------------------------
-
-// // PASSPORT FUNCTIONS
-// // -----------------------------------------------------------------------------
-
-// passport.serializeUser(function(user, done){
-//   done(null, JSON.stringify(user));
-// });
-
-// passport.deserializeUser(function(json, done){
-//   try {
-//     done(null, JSON.parse(json));
-//   } catch (err) {
-//     done(err, null);
-//   }
-// });
-// // -----------------------------------------------------------------------------
-
-// // ENDPOINTS
-// // -----------------------------------------------------------------------------
-
-// // Validate logged in status.
-// app.get(`/api/sso/status`,
-//   passport.authenticate('jwt', { session: false }),
-//   (req, res) => res.json(req.user)
-// )
-
-// // Do the login.
-// app.get('/api/sso/login', passport.authenticate(saml.name,
-//   {
-//     failureRedirect: '/403',
-//     failureFlash: true,
-//     validateInResponseTo: false,
-//     validatedInResponseTo: false
-//   }
-// ));
-
-// // Logout.
-// app.get('/api/sso/logout', function(req, res) {
-//   req.logout();
-//   res.redirect('/');
-// });
-
-// // Metadata for SAML Provider.
-// app.get('/api/sso/metadata',
-//   saml.metadata()
-// );
-
-// // Handle SAML callback at this path.
-// app.post('/api/sso/auth',
-//   passport.authenticate(saml.name,
-//     {
-//       failureRedirect: '/403',
-//       failureFlash: true,
-//       validateInResponseTo: false,
-//       validatedInResponseTo: false
-//     }
-//   ),
-//   handleCallback
-// );
-
-// // -----------------------------------------------------------------------------
-// module.exports.handler = serverless(app)
-
-exports.handler = async (event, context) => {
-  try {
-    const subject = event.queryStringParameters.name || 'World'
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: `Hello ${subject}` })
-      // // more keys you can return:
-      // headers: { "headerName": "headerValue", ... },
-      // isBase64Encoded: true,
-    }
-  } catch (err) {
-    return { statusCode: 500, body: err.toString() }
+passport.use(new OAuth2Strategy(
+  {
+    authorizationURL: 'https://ap-rtfv-d.stanford.edu/oauth2provider/authorize',
+    tokenURL: 'https://ap-rtfv-d.stanford.edu/oauth2provider/token',
+    clientID: "adv",
+    clientSecret: "testing",
+    callbackURL: "http://localhost:64946/api/mega/ret",
+    response_type: "token",
+    passReqToCallback: true
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    console.log(accessToken)
+    console.log(refreshToken)
+    console.log(cb)
+    console.log(profile)
   }
-}
+));
+
+// -----------------------------------------------------------------------------
+
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+app.use(cookieParser())
+app.use(passport.initialize())
+app.use(passport.session())
+// -----------------------------------------------------------------------------
+
+
+// ENDPOINTS
+// -----------------------------------------------------------------------------
+
+// Get stuff
+app.get(`/api/mega/get`,
+  passport.authenticate('oauth2')
+)
+
+// Get stuff
+app.all(`/api/mega/ret`,
+  (req, res) => {
+    console.log(req)
+    console.log(res)
+    res.send(JSON.stringify({status: "done"}))
+  }
+)
+
+// -----------------------------------------------------------------------------
+module.exports.handler = serverless(app)
+
+
