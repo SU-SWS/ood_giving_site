@@ -66,9 +66,15 @@
 
 // Interior page with minimal header option
 .ood-interior-page--minimal {
-  @include grid-media-max('sm') {
-    .ood-interior-page__header--minimal {
-      @include padding(3em null);
+  .ood-interior-page__header--minimal {
+    @include padding(3.8rem null);
+
+    @include grid-media('md') {
+      @include padding(7.2rem null);
+    }
+
+    @include grid-media('lg') {
+      @include padding(11.4rem null);
     }
   }
 }

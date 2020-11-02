@@ -5,7 +5,7 @@ import React from "react"
 
 const HeaderMinimal = (props) => (
   <SbEditable content={props.blok}>
-    <header className={`ood-interior-page__header ood-interior-page__header--minimal su-text-white su-py-7 su-bg-${props.blok.headerBackgroundColor}`}>
+    <header className={`ood-interior-page__header ood-interior-page__header--minimal su-text-white su-bg-${props.blok.headerBackgroundColor}`}>
       <div className={`centered-container`}>
         <h1 className="ood-interior-page__title su-serif su-text-align-center">{props.blok.title}</h1>
       </div>
