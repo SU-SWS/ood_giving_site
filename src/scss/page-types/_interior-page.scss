@@ -3,21 +3,6 @@
 // Interior page content type
 
 .ood-interior-page {
-  &__header {
-    &-content {
-      &-wrapper {
-        @include margin(-6em auto null);
-        @include modular-spacing('padding', 4);
-        box-shadow: $ood-shadow--shallow;
-        background-color: $su-color-white;
-
-        @include grid-media-max('sm') {
-          @include padding(3em 2em);
-        }
-      }
-    }
-  }
-
   &__title {
     @include margin(null auto 0);
     @include interior-page-h1-fontsize;
@@ -95,16 +80,22 @@
       @include modular-spacing('padding', null null 9);
     }
 
-    @include grid-media-max('sm') {
-      &-content-wrapper {
+    &-intro-wrapper {
+      @include margin(-6em auto null);
+      @include modular-spacing('padding', 4);
+      box-shadow: $ood-shadow--shallow;
+      background-color: $su-color-white;
+
+      @include grid-media-max('sm') {
         @include margin(-7em null null);
+        @include padding(3em 2em);
       }
     }
+  }
 
-    @include grid-media('md') {
-      .ood-interior-page__intro {
-        text-align: center;
-      }
+  @include grid-media('md') {
+    .ood-interior-page__intro {
+      text-align: center;
     }
   }
 }
