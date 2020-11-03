@@ -9,7 +9,7 @@
   &__contents {
     position: relative;
     min-height: 20rem;
-    z-index: 100;
+    z-index: 10;
 
     @include grid-media('md') {
       min-height: 26rem;
