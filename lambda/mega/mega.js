@@ -59,14 +59,14 @@ const profileFetcher = async (profileID, token) => {
       endpoint,
       { headers: headers }
     )
-    // .then(res => res.text())
+    .then(res => res.json())
     .then(body => {
       console.log(body)
       return body
     })
     .catch(error => {
       console.log(error.output)
-      return { status: 400, msg: error.message }
+      return { status: 500, msg: error.message }
     });
 
   return data
@@ -76,7 +76,7 @@ const profileFetcher = async (profileID, token) => {
 // ENDPOINTS
 // -----------------------------------------------------------------------------
 
-// Get stuff
+// Get stuff.
 app.get(`/api/mega/token`,
   async (req, res) => {
     let data = await tokenFetcher()
@@ -84,15 +84,29 @@ app.get(`/api/mega/token`,
   }
 )
 
+// Get profile data.
 app.get(`/api/mega/profile/:profileId`,
   async (req, res) => {
+    let profile = false
     let profileId = req.params.profileId
     let tokenData = await tokenFetcher()
-    let profile = await profileFetcher(profileId, tokenData.access_token)
-    res.send(JSON.stringify(profile))
+
+    // If we get a token go and get the profile.
+    if (tokenData && tokenData.access_token) {
+      profile = await profileFetcher(profileId, tokenData.access_token)
+    }
+
+    // If we got a profile back send it to the browser.
+    if (profile && profile.encodedSUID) {
+      res.send(JSON.stringify(profile))
+    }
+    else {
+      res
+        .status(404)
+        .redirect("/404")
+    }
   }
 )
-
 
 // -----------------------------------------------------------------------------
 module.exports.handler = serverless(app)
