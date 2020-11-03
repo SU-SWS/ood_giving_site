@@ -12,4 +12,8 @@
   .su-lockup {
     @include modular-spacing('padding', null null 0);
   }
+
+  .ood-cta__button {
+    @include padding(1rem 2.2rem 1.3rem 2.6rem);
+  }
 }
