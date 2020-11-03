@@ -12,6 +12,14 @@
     border: 1px solid $su-color-black-10; // Only white cards have a different colored grey border
   }
 
+  &:not(.su-bg-white) {
+    .ood-basic-card__body {
+      a {
+        color: $su-color-white;
+      }
+    }
+  }
+
   &--no-image {
     @include modular-spacing('padding', 2);
 
@@ -22,30 +30,6 @@
 
       @include grid-media('lg') {
         @include padding(7.6rem);
-      }
-    }
-  }
-
-  &--big-padding {
-    //@include padding(null 3.2rem 3.2rem);
-
-    @include grid-media('md') {
-      //@include padding(null 7.2rem 7.2rem);
-    }
-
-    @include grid-media('lg') {
-      //@include padding(null 7.6rem 7.6rem);
-    }
-
-    .ood-basic-card__contents {
-      //@include padding(3.2rem null null);
-
-      @include grid-media('md') {
-        //@include padding(7.2rem null null);
-      }
-
-      @include grid-media('lg') {
-        //@include padding(7.6rem null null);
       }
     }
   }
