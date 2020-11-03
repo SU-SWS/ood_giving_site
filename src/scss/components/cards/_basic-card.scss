@@ -12,6 +12,44 @@
     border: 1px solid $su-color-black-10; // Only white cards have a different colored grey border
   }
 
+  &--no-image {
+    @include modular-spacing('padding', 2);
+
+    &.ood-basic-card--big-padding {
+      @include grid-media('md') {
+        @include padding(7.2rem);
+      }
+
+      @include grid-media('lg') {
+        @include padding(7.6rem);
+      }
+    }
+  }
+
+  &--big-padding {
+    //@include padding(null 3.2rem 3.2rem);
+
+    @include grid-media('md') {
+      //@include padding(null 7.2rem 7.2rem);
+    }
+
+    @include grid-media('lg') {
+      //@include padding(null 7.6rem 7.6rem);
+    }
+
+    .ood-basic-card__contents {
+      //@include padding(3.2rem null null);
+
+      @include grid-media('md') {
+        //@include padding(7.2rem null null);
+      }
+
+      @include grid-media('lg') {
+        //@include padding(7.6rem null null);
+      }
+    }
+  }
+
   // Vertical cards with image
   &--has-image {
     &:not(.ood-basic-card--horizontal) {
@@ -22,6 +60,30 @@
         @include margin(#{-$card-overhang} null null); // Image overhang
       }
     }
+
+    .ood-basic-card__contents {
+      @include modular-spacing('padding', 2 null null);
+    }
+
+    &.ood-basic-card--big-padding {
+      @include padding(null 3.2rem 3.2rem);
+
+      @include grid-media-only('md') {
+        @include padding(null 7.2rem 7.2rem);
+
+        .ood-basic-card__contents {
+          @include padding(7.2rem null null);
+        }
+      }
+
+      @include grid-media('lg') {
+        @include padding(null 7.6rem 7.6rem);
+
+        .ood-basic-card__contents {
+          @include padding(7.6rem null null);
+        }
+      }
+    }
   }
 
   &__superhead {
@@ -30,11 +92,22 @@
 
   &__headline {
     @include margin(-0.2em null 0.6em); // Negative margin at the top so headline lines up with top of image for horizontal cards
+    @include modular-typography(2);
     letter-spacing: 0;
+
+    &--large {
+      @include grid-media('md') {
+        @include modular-typography(3);
+      }
+
+      @include grid-media('lg') {
+        @include modular-typography(4);
+      }
+    }
   }
 
   &__contents {
-    max-width: 85rem; // For the edge-to-edge cards we don't want the content to get too wide
+    max-width: 91rem; // For the edge-to-edge cards we don't want the content to get too wide
 
     // Inside Richtext component inside card body
     p,
@@ -42,6 +115,10 @@
     ol {
       @include ood-small-paragraph;
     }
+  }
+
+  &:not(.ood-basic-card--big-padding) {
+    @include modular-spacing('padding', null 2 2);
   }
 
   &__body {
