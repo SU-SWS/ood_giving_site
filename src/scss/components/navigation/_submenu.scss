@@ -23,6 +23,10 @@
         color: $su-color-cool-grey;
         font-weight: $su-font-regular;
 
+        @include grid-media-only('md') {
+          line-height: 4.3rem;
+        }
+
         &::after {
           background-color: $su-color-cool-grey;
         }
@@ -37,6 +41,14 @@
           }
         }
       }
+    }
+  }
+
+  .ood-cta__button {
+    @include padding(1rem 2.2rem 1.3rem 2.6rem);
+
+    @include grid-media-only('md') {
+      font-size: 1.8rem;
     }
   }
 }
