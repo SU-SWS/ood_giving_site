@@ -16,7 +16,6 @@
   [headers.values]
     Basic-Auth = "adapt:letmein2020"
     Access-Control-Allow-Origin = "*"
-    X-Frame-Options = "SAMEORIGIN"
     Content-Security-Policy = "form-action https:; frame-src *.stanford.edu *.storyblok.com *.kimbia.com *.stripe.com *.stripe.network"
     Referrer-Policy = "origin-when-cross-origin"
     Strict-Transport-Security = "max-age=2592000"
