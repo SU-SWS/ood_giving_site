@@ -1,11 +1,13 @@
 import React, { useReducer, createContext } from "react"
 
+const Anon = {
+  name: "Anonymous",
+  status: 0
+}
+
 // Anonymous user.
 const defaultState = {
-  user: {
-    name: "Anonymous",
-    status: 0
-  }
+  user: Anon
 }
 
 const UserContext = createContext(defaultState)
@@ -30,4 +32,4 @@ const UserStateProvider = ( { children } ) => {
   return <Provider value={{ state, dispatch }}>{children}</Provider>;
 };
 
-export { UserContext, UserStateProvider, Consumer }
+export { UserContext, UserStateProvider, Consumer, Anon }

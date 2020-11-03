@@ -1,13 +1,18 @@
 import React, { useContext } from 'react'
 import { navigate } from 'gatsby'
-import { UserContext } from "../../context/UserContext"
+import { UserContext, Anon } from "../../context/UserContext"
 
 const triggerLogout = () => {
   navigate("/user/logout");
 }
 
 const LogoutButton = (props) => {
-  const { state: { user } } = useContext(UserContext);
+  const { state } = useContext(UserContext);
+  let user = Anon
+
+  if (state && state.user) {
+    user = state.user
+  }
 
   if (user.status) {
     return (

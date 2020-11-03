@@ -3,58 +3,96 @@
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const express = require('express')
-const passport = require('passport')
-const OAuth2Strategy  = require('passport-oauth2').Strategy
-const { COOKIE_SECURE, SECRET } = require('./utils/config')
+const fetch = require('node-fetch')
+const { Headers } = require('node-fetch');
+const { PROFILE_URL, TOKEN_URL, CLIENT_ID, CLIENT_SECRET } = require('./utils/config')
 const serverless = require('serverless-http')
 const app = express()
-
-// -----------------------------------------------------------------------------
-
-passport.use(new OAuth2Strategy(
-  {
-    authorizationURL: 'https://ap-rtfv-d.stanford.edu/oauth2provider/authorize',
-    tokenURL: 'https://ap-rtfv-d.stanford.edu/oauth2provider/token',
-    clientID: "adv",
-    clientSecret: "testing",
-    callbackURL: "http://localhost:64946/api/mega/ret",
-    response_type: "token",
-    passReqToCallback: true
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    console.log(accessToken)
-    console.log(refreshToken)
-    console.log(cb)
-    console.log(profile)
-  }
-));
+var ClientOAuth2 = require('client-oauth2')
 
 // -----------------------------------------------------------------------------
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cookieParser())
-app.use(passport.initialize())
-app.use(passport.session())
+
 // -----------------------------------------------------------------------------
+
+let megaTokenAuth = new ClientOAuth2({
+  clientId: CLIENT_ID,
+  clientSecret: CLIENT_SECRET,
+  accessTokenUri: TOKEN_URL,
+  scopes: []
+})
+
+/**
+ * Fetches an access token using the client/secret provided.
+ */
+const tokenFetcher = async () => {
+
+  let data = megaTokenAuth.credentials.getToken()
+    .then((response) => {
+      if (response && response.data && response.data.access_token) {
+        return response.data
+      }
+      throw new Error("Response did not contain access token");
+    })
+    .catch((error) => {
+      console.log(error.output)
+      return { status: 400, msg: error.message }
+    })
+
+    return data
+}
+
+/**
+ * Get profile data from MEGA PROFILE
+ * @param {*} profileID
+ */
+const profileFetcher = async (profileID, token) => {
+  const endpoint = PROFILE_URL + profileID
+  const headers = new Headers({
+    Authorization: 'Bearer ' + token
+  });
+
+  let data = fetch(
+      endpoint,
+      { headers: headers }
+    )
+    // .then(res => res.text())
+    .then(body => {
+      console.log(body)
+      return body
+    })
+    .catch(error => {
+      console.log(error.output)
+      return { status: 400, msg: error.message }
+    });
+
+  return data
+}
 
 
 // ENDPOINTS
 // -----------------------------------------------------------------------------
 
 // Get stuff
-app.get(`/api/mega/get`,
-  passport.authenticate('oauth2')
-)
-
-// Get stuff
-app.all(`/api/mega/ret`,
-  (req, res) => {
-    console.log(req)
-    console.log(res)
-    res.send(JSON.stringify({status: "done"}))
+app.get(`/api/mega/token`,
+  async (req, res) => {
+    let data = await tokenFetcher()
+    res.send(JSON.stringify(data))
   }
 )
+
+app.get(`/api/mega/profile/:profileId`,
+  async (req, res) => {
+    let profileId = req.params.profileId
+    let tokenData = await tokenFetcher()
+    let profile = await profileFetcher(profileId, tokenData.access_token)
+    res.send(JSON.stringify(profile))
+  }
+)
+
 
 // -----------------------------------------------------------------------------
 module.exports.handler = serverless(app)

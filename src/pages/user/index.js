@@ -1,11 +1,16 @@
 import React, { useContext } from 'react'
 import LoginButton from "../../components/auth/loginButton"
 import LogoutButton from "../../components/auth/logoutButton"
-import { UserContext } from "../../context/UserContext"
+import { UserContext, Anon } from "../../context/UserContext"
 
 const Authd = (props) => {
 
-  const { state: { user } } = useContext(UserContext);
+  const { state } = useContext(UserContext);
+  let user = Anon
+
+  if (state && state.user) {
+    user = state.user
+  }
 
   return (
     <React.Fragment>

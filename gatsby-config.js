@@ -76,9 +76,6 @@ module.exports = {
       resolve: `gatsby-plugin-sass`,
       options: {
         includePaths: [path.resolve(__dirname, 'node_modules')],
-        cssLoaderOptions: {
-          camelCase: false,
-        },
       },
     },
     {
