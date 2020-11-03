@@ -3,11 +3,20 @@
 // Poster style
 
 .ood-poster {
-  border-bottom: $card-overhang solid transparent;
   position: relative;
-  height: 54rem; // height of the image plus the transparent border bottom
+  border-bottom: 6rem solid transparent;
+  height: 49rem; // height of the image plus the transparent border bottom
 
   @include grid-media('md') {
+    height: 52rem;
+  }
+
+  @include grid-media('md') {
+    border-bottom: $card-overhang solid transparent;
+    height: 58rem;
+  }
+
+  @include grid-media('xl') {
     height: 64rem;
   }
 
@@ -15,8 +24,13 @@
     position: absolute;
     top: 0;
     z-index: 1;
+    height: 43rem;
 
-    @include grid-media('lg') {
+    @include grid-media('md') {
+      height: 50rem;
+    }
+
+    @include grid-media('xl') {
       height: 56rem;
     }
   }
@@ -44,32 +58,52 @@
   &__card {
     @include modular-spacing('padding', 4 4 5);
     width: 100%;
-    min-height: 43rem;
+    min-height: 30rem;
     position: absolute;
-    bottom: #{-$card-overhang};
+    bottom: -6rem;
     padding: 2em;
 
-    @include grid-media-only('xs') {
-      @include padding(5.1rem 3.4rem);
-      min-height: 33rem;
+    @include grid-media-max('sm') {
+      @include padding(3.4rem 3.4rem 5rem);
     }
 
-    @include grid-media('sm') {
-      min-height: 40rem;
+    @include grid-media-only('md') {
+      @include padding(4.5rem 4.5rem 5.8rem);
+    }
+
+    @include grid-media('md') {
+      bottom: #{-$card-overhang};
+      min-height: 39rem;
+    }
+
+    @include grid-media-only('lg') {
+      @include padding(4.8rem 4.8rem 6.1rem);
     }
   }
 
   &__headline {
-    @include modular-typography(3);
+    @include modular-typography(2);
     @include margin(null null 0.6em);
     letter-spacing: -0.016em;
+
+    @include grid-media('md') {
+      @include modular-typography(3);
+    }
   }
 
   &__text {
     @include ood-big-paragraph;
+
+    @include grid-media-only('md') {
+      font-size: 2rem;
+    }
   }
 
   .ood-cta {
     @include modular-spacing('margin', 3 null null);
+
+    @include grid-media-max('sm') {
+      @include margin(3.2rem null null);
+    }
   }
 }
