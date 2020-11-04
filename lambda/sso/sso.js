@@ -27,7 +27,7 @@ const saml = new suSAML.Strategy({
   passReqToCallback: true,
   privateCert: PRIVATE_PEM,
   decryptionCert: PUBLIC_PEM,
-  decryptionPvk: PUBLIC_PEM,
+  decryptionPvk: PRIVATE_PEM,
   validatedInResponseTo: false,
   passport: passport,
 });
