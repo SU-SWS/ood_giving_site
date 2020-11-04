@@ -27,8 +27,8 @@ const OodPoster = (props) => {
           }>
             <div className="flex-sm-9-of-12 flex-md-8-of-12 flex-lg-7-of-12 flex-xl-6-of-12 ood-poster__flex-cell">
               <div className={`ood-poster__card
-                 ${`su-bg-${props.blok.cardBackgroundColor}`}
-                 ${(props.blok.cardBackgroundColor !== "white" && props.blok.cardBackgroundColor !== "fog-light") ? "su-text-white" : ""}`
+                   su-bg-${props.blok.cardBackgroundColor} ood-shadow-shallow-dark
+                   ${(props.blok.cardBackgroundColor !== "white" && props.blok.cardBackgroundColor !== "fog-light") ? "su-text-white" : ""}`
               }>
                 {props.blok.headline && (
                   <Heading className="ood-poster__headline su-semibold">{props.blok.headline}</Heading>
