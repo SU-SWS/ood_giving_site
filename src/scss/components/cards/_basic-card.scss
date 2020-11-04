@@ -41,18 +41,24 @@
     }
   }
 
-  // Vertical cards with image
   &--has-image {
-    &:not(.ood-basic-card--horizontal) {
-      @include margin($card-overhang null null); // Same rem value to offset image overhang below
-      height: auto;
-
-      .su-media {
-        @include margin(#{-$card-overhang} null null); // Image overhang
+    .su-media {
+      @include grid-media-max('sm') {
+        display: none;
       }
+    }
 
-      &.ood-basic-card--big-padding {
-        @include grid-media('md') {
+    // Vertical cards with image
+    @include grid-media('md') {
+      &:not(.ood-basic-card--horizontal) {
+        @include margin($card-overhang null null); // Same rem value to offset image overhang below
+        height: auto;
+
+        .su-media {
+          @include margin(#{-$card-overhang} null null); // Image overhang
+        }
+
+        &.ood-basic-card--big-padding {
           .ood-basic-card__contents {
             @include padding(5rem null null);
           }
@@ -155,19 +161,21 @@
 
   // Horizontal card with image
   &.ood-basic-card--has-image {
-    @include margin(null null null 8rem);
-    width: auto;
+    @include grid-media('md') {
+      @include margin(null null null 8rem);
+      width: auto;
 
-    .ood-basic-card__media {
-      position: absolute;
-      left: #{-$card-overhang}; // image overhang
-      width: 20rem;
-      max-width: 20rem;
-    }
+      .ood-basic-card__media {
+        position: absolute;
+        left: #{-$card-overhang}; // image overhang
+        width: 20rem;
+        max-width: 20rem;
+      }
 
-    .ood-basic-card__contents {
-      @include margin(null 0 null null);
-      width: calc(100% - 20rem + #{$card-overhang});
+      .ood-basic-card__contents {
+        @include margin(null 0 null null);
+        width: calc(100% - 20rem + #{$card-overhang});
+      }
     }
 
     // Horizontal card with image and the large padding option
@@ -184,17 +192,6 @@
         @include grid-media('md') {
           width: calc(100% - 8rem);
         }
-      }
-    }
-
-    @include grid-media-max('sm') {
-      .ood-basic-card__media {
-        width: 10rem;
-        max-width: 10rem;
-      }
-
-      .ood-basic-card__contents {
-        width: calc(100% - 9rem + #{$card-overhang});
       }
     }
   }
