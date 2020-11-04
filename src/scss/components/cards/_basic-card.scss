@@ -54,18 +54,10 @@
 
       @include grid-media-only('md') {
         @include padding(null 7.2rem 7.2rem);
-
-        .ood-basic-card__contents {
-          @include padding(7.2rem null null);
-        }
       }
 
       @include grid-media('lg') {
         @include padding(null 7.6rem 7.6rem);
-
-        .ood-basic-card__contents {
-          @include padding(7.6rem null null);
-        }
       }
     }
   }
@@ -163,9 +155,11 @@
     }
 
     // Horizontal card with image and the large padding option
-    &.su-pt-5 {
+    &.ood-basic-card--big-padding {
       .ood-basic-card__contents {
-        width: calc(100% - 20rem + 11rem);
+        @include grid-media('md') {
+          width: calc(100% - 20rem + 12rem);
+        }
       }
     }
 
