@@ -8,7 +8,7 @@ const session = require('express-session')
 const passport = require('passport')
 const passportJwt = require('passport-jwt');
 const suSAML = require('passport-stanford')
-const { COOKIE_SECURE, SECRET } = require('./utils/config')
+const { COOKIE_SECURE, SECRET, BASE_PROTOCOL, BASE_URL, PRIVATE_PEM, PUBLIC_PEM } = require('./utils/config')
 const { sign } = require(`jsonwebtoken`);
 const serverless = require('serverless-http')
 const app = express()
@@ -16,17 +16,17 @@ const app = express()
 // create a Stanford SAML Strategy and tell Passport to use it
 // -----------------------------------------------------------------------------
 const saml = new suSAML.Strategy({
-  protocol: 'http://',
-  host: 'localhost:64946',
+  protocol: BASE_PROTOCOL,
+  host: BASE_URL,
   idp: 'itlab',
-  entityId: 'https://github.com/SU-SWS/ood_giving_site',
+  entityId: 'https://stanford-giving-auth-preview.netlify.app',
   path: '/api/sso/auth',
   loginPath: '/api/sso/login',
   logoutUrl: '/api/sso/logout',
   forceAuthn: true,
   passReqToCallback: true,
-  decryptionPvkPath: path.resolve(__dirname, '../../certs/private.pem'),
-  decryptionCertPath: path.resolve(__dirname, '../../certs/public.pem'),
+  decryptionCert: PRIVATE_PEM,
+  decryptionPvk: PUBLIC_PEM,
   validatedInResponseTo: false,
   passport: passport,
 });

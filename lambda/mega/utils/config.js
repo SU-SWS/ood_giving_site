@@ -5,3 +5,4 @@ exports.TOKEN_URL = process.env.MEGAPROFILE_TOKEN_URL === undefined ? 'https://a
 exports.PROFILE_URL = process.env.MEGAPROFILE_PROFILE_URL === undefined ? 'https://ap-rtfv-d.stanford.edu/adaptfullprofile/' : process.env.MEGAPROFILE_PROFILE_URL
 exports.CLIENT_ID = process.env.MEGAPROFILE_CLIENT
 exports.CLIENT_SECRET = process.env.MEGAPROFILE_SECRET
+
