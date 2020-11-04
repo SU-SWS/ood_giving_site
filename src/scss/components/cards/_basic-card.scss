@@ -43,12 +43,21 @@
       .su-media {
         @include margin(#{-$card-overhang} null null); // Image overhang
       }
+
+      &.ood-basic-card--big-padding {
+        @include grid-media('md') {
+          .ood-basic-card__contents {
+            @include padding(5rem null null);
+          }
+        }
+      }
     }
 
     .ood-basic-card__contents {
       @include modular-spacing('padding', 2 null null);
     }
 
+    // Vertical cards with image and large padding option
     &.ood-basic-card--big-padding {
       @include padding(null 3.2rem 3.2rem);
 
@@ -156,9 +165,17 @@
 
     // Horizontal card with image and the large padding option
     &.ood-basic-card--big-padding {
+      @include grid-media-only('md') {
+        @include padding(7.2rem null null);
+      }
+
+      @include grid-media('lg') {
+        @include padding(7.6rem null null);
+      }
+
       .ood-basic-card__contents {
         @include grid-media('md') {
-          width: calc(100% - 20rem + 12rem);
+          width: calc(100% - 8rem);
         }
       }
     }
@@ -170,13 +187,7 @@
       }
 
       .ood-basic-card__contents {
-        width: calc(100% - 10rem + #{$card-overhang});
-      }
-
-      &.su-pt-5 {
-        .ood-basic-card__contents {
-          width: calc(100% - 10rem + 11rem);
-        }
+        width: calc(100% - 9rem + #{$card-overhang});
       }
     }
   }
