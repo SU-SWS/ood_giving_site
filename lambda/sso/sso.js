@@ -19,7 +19,7 @@ const saml = new suSAML.Strategy({
   protocol: BASE_PROTOCOL,
   host: BASE_URL,
   idp: 'itlab',
-  entityId: 'https://stanford-giving-auth-preview.netlify.app',
+  entityId: 'https://adapt-giving.netlify.app/',
   path: '/api/sso/auth',
   loginPath: '/api/sso/login',
   logoutUrl: '/api/sso/logout',
