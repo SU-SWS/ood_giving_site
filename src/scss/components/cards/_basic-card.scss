@@ -12,10 +12,17 @@
     border: 1px solid $su-color-black-10; // Only white cards have a different colored grey border
   }
 
+  // Cards with non-white background colors
   &:not(.su-bg-white) {
     .ood-basic-card__body {
       a {
         color: $su-color-white;
+        transition: background-color 0.25s ease-in;
+
+        &:hover,
+        &:focus {
+          background-color: $su-color-black-true;
+        }
       }
     }
   }
