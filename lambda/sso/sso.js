@@ -25,7 +25,7 @@ const saml = new suSAML.Strategy({
   logoutUrl: '/api/sso/logout',
   forceAuthn: true,
   passReqToCallback: true,
-  privateCert: PRIVATE_PEM
+  privateCert: PRIVATE_PEM,
   decryptionCert: PUBLIC_PEM,
   decryptionPvk: PUBLIC_PEM,
   validatedInResponseTo: false,
