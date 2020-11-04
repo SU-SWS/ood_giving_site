@@ -172,6 +172,24 @@
         max-width: 20rem;
       }
 
+      .ood-media--3x2 {
+        width: 30rem;
+        max-width: 30rem;
+
+        + .ood-basic-card__contents {
+          width: calc(100% - 30rem + 8rem)
+        }
+
+        @include grid-media('xl') {
+          width: 38rem;
+          max-width: 38rem;
+
+          + .ood-basic-card__contents {
+            width: calc(100% - 38rem + 8rem)
+          }
+        }
+      }
+
       .ood-basic-card__contents {
         @include margin(null 0 null null);
         width: calc(100% - 20rem + #{$card-overhang});
