@@ -7,6 +7,7 @@ const Authd = (props) => {
 
   const { state: account, dispatch } = useContext(UserContext);
   let user = (account && account.user) ? account.user : Anon
+  let profile = (account && account.profile) ? account.profile : {}
 
   return (
     <React.Fragment>
@@ -250,11 +251,9 @@ const Authd = (props) => {
                   <p>&nbsp;</p>
                   <h1>User Page</h1>
                   <p>{user.name}</p>
-                  <pre>{JSON.stringify(account.profile)}</pre>
+                  <pre>{JSON.stringify(profile)}</pre>
                   <LoginButton>Login</LoginButton>
                   <LogoutButton>Logout</LogoutButton>
-                   &nbsp;|&nbsp;
-                  <button onClick={()=>{dispatch({type:'refresh'}); dispatch({type:'changeName'})}}>Refresh</button>
                   <p>&nbsp;</p>
                 </div>
               </div>

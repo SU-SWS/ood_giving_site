@@ -48,17 +48,12 @@ function UserContextReducer(state, action) {
 
     case 'rmProfile':
       console.log("Dispatch: Remove Profile")
-      delete state.profile
+      state.profile = false
       return { ...state }
 
     case 'refresh':
       console.log("Dispatch: Refresh")
       return { ...state, refresh: Math.random(10) }
-
-    case 'changeName':
-      console.log("Dispatch: Change Name")
-      state.user.name = "Leland Stanford"
-      return { ...state }
 
     default:
       throw new Error();
