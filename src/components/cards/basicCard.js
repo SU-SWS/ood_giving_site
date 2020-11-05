@@ -9,7 +9,7 @@ const BasicCard = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <article className={`ood-basic-card ood-shadow-shallow
+      <article className={`ood-basic-card ood-shadow-shallow${props.blok.backgroundColor !== "white" ? "-dark" : ""}
                ${props.blok.orientation ? "ood-basic-card--horizontal" : ""}
                su-bg-${props.blok.backgroundColor}
                ${props.blok.backgroundColor !== "white" ? `su-border-color-${props.blok.backgroundColor}`: ""}
