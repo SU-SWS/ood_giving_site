@@ -172,12 +172,13 @@
         max-width: 20rem;
       }
 
+      // Horizontal card with 3:2 image
       .ood-media--3x2 {
-        width: 30rem;
-        max-width: 30rem;
+        width: 26rem;
+        max-width: 26rem;
 
         + .ood-basic-card__contents {
-          width: calc(100% - 30rem + 8rem)
+          width: calc(100% - 26rem + 8rem)
         }
 
         @include grid-media('xl') {
@@ -209,6 +210,19 @@
       .ood-basic-card__contents {
         @include grid-media('md') {
           width: calc(100% - 8rem);
+        }
+      }
+
+      // Horizontal card with large padding and 3:2 image
+      .ood-media--3x2 {
+        + .ood-basic-card__contents {
+          @include grid-media('md') {
+            width: calc(100% - 14rem);
+          }
+
+          @include grid-media('lg') {
+            width: calc(100% - 26rem);
+          }
         }
       }
     }
