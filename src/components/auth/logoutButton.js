@@ -1,22 +1,13 @@
 import React, { useContext } from 'react'
-import { navigate } from 'gatsby'
-import { UserContext, Anon } from "../../context/UserContext"
-
-const triggerLogout = () => {
-  navigate("/user/logout");
-}
+import { UserContext, doLogout, Anon } from "../../context/UserContext"
 
 const LogoutButton = (props) => {
-  const { state } = useContext(UserContext);
-  let user = Anon
-
-  if (state && state.user) {
-    user = state.user
-  }
+  const { state: account, dispatch } = useContext(UserContext);
+  let user = (account && account.user) ? account.user : Anon
 
   if (user.status) {
     return (
-      <button onClick={triggerLogout}>{props.children}</button>
+      <button onClick={() => { doLogout; dispatch({type:'logout'})}}>{props.children}</button>
     )
   }
 

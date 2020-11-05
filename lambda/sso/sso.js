@@ -13,6 +13,16 @@ const { sign } = require(`jsonwebtoken`);
 const serverless = require('serverless-http')
 const app = express()
 
+let user = {
+  name: "Shea McKinney",
+  firstName: "Shea",
+  lastName: "McKinney",
+  email: "sheamck@stanford.edu",
+  uid: "sheamck",
+  encodedSUID: 25868952802,
+  authToken: "abc123",
+}
+
 // create a Stanford SAML Strategy and tell Passport to use it
 // -----------------------------------------------------------------------------
 const saml = new suSAML.Strategy({
@@ -68,16 +78,16 @@ passport.use(
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cookieParser())
-app.use(session({
-  secret: SECRET,
-  resave: false,
-  saveUninitialized: true,
-  name: 'saml_auth_token',
-  cookie: {
-    httpOnly: true,
-    maxAge: 600000
-  }
-}));
+// app.use(session({
+//   secret: SECRET,
+//   resave: false,
+//   saveUninitialized: true,
+//   name: 'saml_auth_token',
+//   cookie: {
+//     httpOnly: true,
+//     maxAge: 600000
+//   }
+// }));
 
 app.use(passport.initialize())
 app.use(passport.session())
@@ -93,18 +103,24 @@ app.use(passport.session())
  */
 const handleCallback = (req, res) => {
 
-  let user = {
-    name: req.user.displayName,
-    firstName: req.user.givenName,
-    email: req.user.email,
-    uid: req.user.uid,
-    token: req.cookies.saml_auth_token
-  }
+  // let user = {
+  //   name: req.user.displayName,
+  //   firstName: req.user.givenName,
+  //   email: req.user.email,
+  //   uid: req.user.uid,
+  //   token: req.cookies.saml_auth_token
+  // }
+
+  // res
+  //   .cookie('stanford_auth_token', req.cookies.saml_auth_token, { httpOnly: true, COOKIE_SECURE, maxAge: 600000 })
+  //   .cookie('stanford_jwt', authJwt(user), { httpOnly: true, COOKIE_SECURE, maxAge: 600000 })
+  //   .redirect("/user/redirect")
 
   res
-    .cookie('stanford_auth_token', req.cookies.saml_auth_token, { httpOnly: true, COOKIE_SECURE, maxAge: 600000 })
     .cookie('stanford_jwt', authJwt(user), { httpOnly: true, COOKIE_SECURE, maxAge: 600000 })
+    .cookie('stanford_auth_token', user.authToken, { httpOnly: true, COOKIE_SECURE, maxAge: 600000 })
     .redirect("/user/redirect")
+
 }
 
 /**
@@ -138,27 +154,31 @@ passport.deserializeUser(function(json, done){
 
 // Validate logged in status.
 app.get(`/api/sso/status`,
-  passport.authenticate('jwt', { session: false }),
-  (req, res) => res.json(req.user)
+  // passport.authenticate('jwt', { session: false }),
+  // (req, res) => res.json(req.user)
+  (req, res) => {
+    res.json(user)
+    // res.status(403).send("No")
+  }
 )
 
 // Do the login.
-app.get('/api/sso/login', passport.authenticate(saml.name,
-  {
-    failureRedirect: '/403',
-    failureFlash: true
-  }
-));
+app.get('/api/sso/login',
+  // passport.authenticate(saml.name,{ failureRedirect: '/403', failureFlash: true }
+  handleCallback
+);
 
 // Logout.
 app.get('/api/sso/logout', function(req, res) {
-  req.logout();
+  // req.logout();
   res.clearCookie("saml_auth_token");
   res.clearCookie("stanford_auth_token");
   res.clearCookie("stanford_jwt");
-  req.session.destroy(); // Deletes the session in memory.
-  req.session = null; // Deletes the cookie.
-  res.redirect("/");
+  // req.session.destroy(); // Deletes the session in memory.
+  // req.session = null; // Deletes the cookie.
+  // res.redirect("/");
+  res.status(200)
+  res.send("ok")
 });
 
 // Metadata for SAML Provider.
@@ -168,12 +188,7 @@ app.get('/api/sso/metadata',
 
 // Handle SAML callback at this path.
 app.post('/api/sso/auth',
-  passport.authenticate(saml.name,
-    {
-      failureRedirect: '/403',
-      failureFlash: true
-    }
-  ),
+  // passport.authenticate(saml.name, { failureRedirect: '/403', failureFlash: true }),
   handleCallback
 );
 

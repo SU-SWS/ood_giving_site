@@ -1,16 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import LoginButton from "../../components/auth/loginButton"
 import LogoutButton from "../../components/auth/logoutButton"
 import { UserContext, Anon } from "../../context/UserContext"
 
 const Authd = (props) => {
 
-  const { state } = useContext(UserContext);
-  let user = Anon
-
-  if (state && state.user) {
-    user = state.user
-  }
+  const { state: account, dispatch } = useContext(UserContext);
+  let user = (account && account.user) ? account.user : Anon
 
   return (
     <React.Fragment>
@@ -254,8 +250,11 @@ const Authd = (props) => {
                   <p>&nbsp;</p>
                   <h1>User Page</h1>
                   <p>{user.name}</p>
+                  <pre>{JSON.stringify(account.profile)}</pre>
                   <LoginButton>Login</LoginButton>
                   <LogoutButton>Logout</LogoutButton>
+                   &nbsp;|&nbsp;
+                  <button onClick={()=>{dispatch({type:'refresh'}); dispatch({type:'changeName'})}}>Refresh</button>
                   <p>&nbsp;</p>
                 </div>
               </div>

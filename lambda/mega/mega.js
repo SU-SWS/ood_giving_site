@@ -66,12 +66,11 @@ const profileFetcher = async (profileID, token) => {
     })
     .catch(error => {
       console.log(error.output)
-      return { status: 500, msg: error.message }
+      return false
     });
 
   return data
 }
-
 
 // ENDPOINTS
 // -----------------------------------------------------------------------------
@@ -110,5 +109,3 @@ app.get(`/api/mega/profile/:profileId`,
 
 // -----------------------------------------------------------------------------
 module.exports.handler = serverless(app)
-
-

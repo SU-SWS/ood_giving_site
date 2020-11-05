@@ -1,14 +1,12 @@
 import React, { useContext } from 'react'
-import { doLogin } from "../../utilities/auth"
-import { UserContext, Anon } from "../../context/UserContext"
+import { UserContext, doLogin, Anon } from "../../context/UserContext"
 
 const LoginButton = (props) => {
-  const { state } = useContext(UserContext);
-  let user = Anon
+  const { state: account } = useContext(UserContext);
+  let user = (account && account.user) ? account.user : Anon
 
-  if (state && state.user) {
-    user = state.user
-  }
+  console.log("Rendering the login button")
+  console.log(user)
 
   if (!user.status) {
     return (
