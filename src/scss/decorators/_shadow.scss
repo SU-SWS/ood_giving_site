@@ -3,11 +3,19 @@
 .ood-shadow {
   &-shallow {
     box-shadow: $ood-shadow--shallow;
+
+    &-dark {
+      box-shadow: $ood-shadow--shallow-dark;
+    }
   }
 }
 
 .ood-shadow {
   &-medium {
     box-shadow: $ood-shadow--medium;
+
+    &-dark {
+      box-shadow: $ood-shadow--medium-dark;
+    }
   }
 }
