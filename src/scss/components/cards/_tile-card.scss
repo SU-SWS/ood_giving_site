@@ -184,6 +184,8 @@
 
     &:hover,
     &:focus {
+      box-shadow: $ood-shadow--medium-dark;
+
       .ood-tile-card__headline {
         &::after {
           background-color: $su-color-white;

@@ -39,13 +39,18 @@ const OodTileCard = (props) => {
         {props.blok.link.linktype === "story" &&
           <Link
             to={props.blok.link.cached_url === "home" ? "/" : `/${props.blok.link.cached_url}${props.blok.link.cached_url.endsWith("/") ? "" : "/"}`}
-            className={`ood-tile-card__link su-bg-${props.blok.backgroundColor}`}
+            className={`ood-tile-card__link su-bg-${props.blok.backgroundColor}
+            ood-shadow-shallow${props.blok.backgroundColor !== "white" ? "-dark" : ""}
+            `}
           >
             <TileCardContent {...props}/>
           </Link>
         }
         {props.blok.link.linktype === "url" &&
-          <a href={props.blok.link.url} className={`ood-tile-card__link su-bg-${props.blok.backgroundColor}`}>
+          <a href={props.blok.link.url}
+             className={`ood-tile-card__link su-bg-${props.blok.backgroundColor}
+             ood-shadow-shallow${props.blok.backgroundColor !== "white" ? "-dark" : ""}
+             `}>
             <TileCardContent {...props}/>
           </a>
         }

@@ -47,6 +47,8 @@
   }
 
   &__link {
+    box-shadow: $ood-shadow--shallow;
+
     &:hover,
     &:focus {
       .ood-story-card__headline {
