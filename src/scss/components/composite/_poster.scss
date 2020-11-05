@@ -58,10 +58,8 @@
   &__card {
     @include modular-spacing('padding', 4 4 5);
     width: 100%;
-    min-height: 30rem;
     position: absolute;
     bottom: -6rem;
-    padding: 2em;
 
     @include grid-media-max('sm') {
       @include padding(3.4rem 3.4rem 5rem);

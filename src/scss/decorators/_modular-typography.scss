@@ -39,6 +39,10 @@
   &-5 {
     @include modular-typography(5);
 
+    @include grid-media-only('md') {
+      font-size: 4.2rem;
+    }
+
     @include grid-media-max('sm') {
       font-size: 3.6rem;
     }

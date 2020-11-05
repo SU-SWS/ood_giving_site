@@ -6,7 +6,7 @@
   .ood-tile-card,
   .ood-icon-card,
   .ood-basic-card {
-    @include modular-spacing('margin', null null 3);
+    @include responsive-spacing('margin', null null 3);
     height: auto;
   }
 
