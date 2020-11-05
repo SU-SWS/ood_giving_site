@@ -172,52 +172,54 @@
         max-width: 20rem;
       }
 
-      // Setting min-height for horizontal cards with images
       .ood-basic-card__contents {
-        @include grid-media('md') {
-          min-height: 17.3rem;
-        }
-
-        @include grid-media('xl') {
-          min-height: 21.3rem;
-        }
-
-        @include grid-media('2xl') {
-          min-height: 25.3rem;
-        }
+        @include margin(null 0 null null);
+        width: calc(100% - 20rem + #{$card-overhang});
       }
+    }
 
-      // Horizontal card with 3:2 image
-      .ood-media--3x2 {
+    // Horizontal card with 3:2 image
+    .ood-media--3x2 {
+      @include grid-media('md') {
         width: 26rem;
         max-width: 26rem;
 
         + .ood-basic-card__contents {
           width: calc(100% - 26rem + 8rem)
         }
+      }
 
-        @include grid-media('xl') {
-          width: 32rem;
-          max-width: 32rem;
+      @include grid-media('xl') {
+        width: 32rem;
+        max-width: 32rem;
 
-          + .ood-basic-card__contents {
-            width: calc(100% - 32rem + 8rem)
-          }
-        }
-
-        @include grid-media('2xl') {
-          width: 38rem;
-          max-width: 38rem;
-
-          + .ood-basic-card__contents {
-            width: calc(100% - 38rem + 8rem)
-          }
+        + .ood-basic-card__contents {
+          width: calc(100% - 32rem + 8rem)
         }
       }
 
-      .ood-basic-card__contents {
-        @include margin(null 0 null null);
-        width: calc(100% - 20rem + #{$card-overhang});
+      @include grid-media('2xl') {
+        width: 38rem;
+        max-width: 38rem;
+
+        + .ood-basic-card__contents {
+          width: calc(100% - 38rem + 8rem)
+        }
+      }
+    }
+
+    // Setting min-height for horizontal cards with images
+    .ood-basic-card__contents {
+      @include grid-media('md') {
+        min-height: 17.3rem;
+      }
+
+      @include grid-media('xl') {
+        min-height: 21.3rem;
+      }
+
+      @include grid-media('2xl') {
+        min-height: 25.3rem;
       }
     }
 
