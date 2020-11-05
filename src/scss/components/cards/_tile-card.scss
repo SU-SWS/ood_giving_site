@@ -5,11 +5,28 @@
 .ood-tile-card {
   &__superhead {
     @include margin(null null 0.8em);
+
+    @include grid-media-between('md', 'lg') {
+      font-size: 0.8em;
+      font-weight: $su-font-semi-bold;
+    }
+
+    @include grid-media('xl') {
+      font-weight: $su-font-bold;
+    }
   }
 
   &__headline {
     @include modular-typography(2);
     letter-spacing: -0.016em;
+
+    @include grid-media('md') {
+      @include modular-typography(1);
+    }
+
+    @include grid-media('lg') {
+      @include modular-typography(2);
+    }
 
     @include grid-media('xl') {
       @include modular-typography(3);
@@ -34,7 +51,11 @@
     position: relative;
     z-index: 10;
 
-    @include grid-media-between('md', 'lg') {
+    @include grid-media-only('md') {
+      min-height: 24rem;
+    }
+
+    @include grid-media-only('lg') {
       min-height: 30rem;
     }
 
@@ -51,6 +72,7 @@
     .su-media {
       z-index: 12;
       position: relative;
+
       // Hide image for vertical cards at XS and SM breakpoint
       @include grid-media-max('sm') {
         display: none;
@@ -89,7 +111,6 @@
   }
 
   &--no-image {
-
     // No image cards have bigger horizontal padding
     .ood-tile-card__contents {
       @include padding(3rem);
@@ -149,7 +170,6 @@
   }
 
   // All cards with dark background + white text will have white hover/focus text colors
-
   &:not(.su-bg-white):not(.su-bg-fog-light) {
     .ood-tile-card__headline,
     .ood-tile-card__superhead {
