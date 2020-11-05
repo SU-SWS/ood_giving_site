@@ -182,6 +182,15 @@
         }
 
         @include grid-media('xl') {
+          width: 32rem;
+          max-width: 32rem;
+
+          + .ood-basic-card__contents {
+            width: calc(100% - 32rem + 8rem)
+          }
+        }
+
+        @include grid-media('2xl') {
           width: 38rem;
           max-width: 38rem;
 
@@ -220,7 +229,11 @@
             width: calc(100% - 14rem);
           }
 
-          @include grid-media('lg') {
+          @include grid-media('xl') {
+            width: calc(100% - 20rem);
+          }
+
+          @include grid-media('2xl') {
             width: calc(100% - 26rem);
           }
         }
