@@ -175,6 +175,7 @@
       .ood-basic-card__contents {
         @include margin(null 0 null null);
         width: calc(100% - 20rem + #{$card-overhang});
+        min-height: 20rem; // Horizontal card with image needs a min-height
       }
     }
 
@@ -185,7 +186,8 @@
         max-width: 26rem;
 
         + .ood-basic-card__contents {
-          width: calc(100% - 26rem + 8rem)
+          width: calc(100% - 26rem + 8rem);
+          min-height: 17.3rem;
         }
       }
 
@@ -194,7 +196,8 @@
         max-width: 32rem;
 
         + .ood-basic-card__contents {
-          width: calc(100% - 32rem + 8rem)
+          width: calc(100% - 32rem + 8rem);
+          min-height: 21.3rem;
         }
       }
 
@@ -203,23 +206,9 @@
         max-width: 38rem;
 
         + .ood-basic-card__contents {
-          width: calc(100% - 38rem + 8rem)
+          width: calc(100% - 38rem + 8rem);
+          min-height: 25.3rem;
         }
-      }
-    }
-
-    // Setting min-height for horizontal cards with images
-    .ood-basic-card__contents {
-      @include grid-media('md') {
-        min-height: 17.3rem;
-      }
-
-      @include grid-media('xl') {
-        min-height: 21.3rem;
-      }
-
-      @include grid-media('2xl') {
-        min-height: 25.3rem;
       }
     }
 
