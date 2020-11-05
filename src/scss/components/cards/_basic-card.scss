@@ -68,6 +68,10 @@
 
     .ood-basic-card__contents {
       @include modular-spacing('padding', 2 null null);
+
+      @include grid-media-max('sm') {
+        width: 100%;
+      }
     }
 
     // Vertical cards with image and large padding option
