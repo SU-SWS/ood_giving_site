@@ -71,7 +71,7 @@
     position: relative;
 
     @include grid-media('2xl') {
-      @include padding(6.1rem);
+      @include padding(get-responsive-spacing-value(4, 'desktop'));
     }
 
     &:hover,

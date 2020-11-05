@@ -34,7 +34,7 @@ const OodTileCard = (props) => {
     <SbEditable content={props.blok}>
       <article className={`ood-tile-card
         ${(props.blok.image.filename != null && props.blok.showImage === true) ? "ood-tile-card--has-image" : "ood-tile-card--no-image"}
-        ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : ""}`
+        ${props.blok.backgroundColor !== "white" ? "su-text-white" : ""}`
       }>
         {props.blok.link.linktype === "story" &&
           <Link

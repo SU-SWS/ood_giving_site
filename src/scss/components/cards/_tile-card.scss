@@ -52,7 +52,7 @@
   }
 
   &__contents {
-    @include padding(3.2rem);
+    @include padding(get-responsive-spacing-value(3, 'mobile'));
     position: relative;
     z-index: 10;
 
@@ -106,11 +106,11 @@
       }
 
       @include grid-media('lg') {
-        @include padding(3.6rem);
+        @include padding(get-responsive-spacing-value(2, 'tablet'));
       }
 
       @include grid-media('2xl') {
-        @include padding(3.8rem);
+        @include padding(get-responsive-spacing-value(2, 'desktop'));
       }
     }
   }
@@ -123,11 +123,11 @@
       }
 
       @include grid-media('lg') {
-        @include padding(4.5rem);
+        @include padding(get-responsive-spacing-value(3, 'tablet'));
       }
 
       @include grid-media('2xl') {
-        @include padding(6.1rem);
+        @include padding(get-responsive-spacing-value(4, 'desktop'));
       }
     }
 
