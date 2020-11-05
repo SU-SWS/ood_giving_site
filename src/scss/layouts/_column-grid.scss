@@ -11,10 +11,20 @@
   }
 
   &__column {
+    @include grid-media-max('sm') {
+      @include margin(null null 4rem);
+    }
+
     > * {
       &:last-child {
         @include margin(null null 0);
       }
+    }
+  }
+
+  > * {
+    &:last-child {
+      @include margin(null null 0);
     }
   }
 }
