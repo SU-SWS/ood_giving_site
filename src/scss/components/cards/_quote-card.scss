@@ -4,6 +4,8 @@
   position: relative;
   display: flex;
   flex-direction: column-reverse;
+  border-width: 1px;
+  border-style: solid;
 
   @include grid-media('lg') {
     flex-direction: row;

@@ -41,6 +41,10 @@
       }
     }
 
+    &.su-bg-white {
+      border-color: $su-color-black-10;
+    }
+
     &:not(.su-bg-white) {
       border-color: transparent; // Only white cards have the grey border
     }
