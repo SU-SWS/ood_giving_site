@@ -32,7 +32,6 @@ table {
     background-color: $su-color-white;
 
     tbody {
-
       .table-top-headers-row {
         th {
           text-align: center;
@@ -54,7 +53,7 @@ table {
       }
     }
 
-    .fas.fa-check:before {
+    .fas.fa-check::before {
       color: $su-color-black;
     }
 
