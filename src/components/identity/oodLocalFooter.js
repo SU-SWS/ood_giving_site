@@ -1,11 +1,12 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
 import CreateBloks from "../../utilities/createBloks"
+import CenteredContainer from "../partials/centeredContainer"
 
 const OodLocalFooter = (props) => (
   <SbEditable content={props.blok}>
     <div className="ood-local-footer su-bg-white">
-      <div className="centered-container">
+      <CenteredContainer>
         <div className="ood-local-footer__header">
           <CreateBloks blokSection={props.blok.websiteLogo} />
         </div>
@@ -69,7 +70,7 @@ const OodLocalFooter = (props) => (
             </nav>
           </div>
         </section>
-      </div>
+      </CenteredContainer>
     </div>
   </SbEditable>
 )
