@@ -147,7 +147,7 @@
     }
 
     .ood-cta {
-      @include modular-spacing('margin', 0 null null);
+      @include responsive-spacing('margin', 0 null null);
     }
   }
 
@@ -161,7 +161,7 @@
 
   &__card {
     &-content {
-      @include modular-spacing('padding', 1 1 2);
+      @include responsive-spacing('padding', 1 1 2);
     }
 
     &__link {
