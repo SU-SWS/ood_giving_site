@@ -120,7 +120,7 @@
     // No image cards have bigger horizontal padding
     .ood-tile-card__contents {
       @include grid-media-only('md') {
-        @include padding(3.6rem get-responsive-spacing-value(1, 'mobile'));
+        @include padding(get-responsive-spacing-value(2, 'mobile') get-responsive-spacing-value(1, 'mobile'));
       }
 
       @include grid-media('lg') {
