@@ -20,11 +20,11 @@
   }
 
   &__contents {
-    @include modular-spacing('margin', 1 null null);
+    @include responsive-spacing('margin', 1 null null);
   }
 
   &__link {
-    @include modular-spacing("padding", 4 3 5);
+    @include responsive-spacing("padding", 4 3 5);
 
     &:hover,
     &:focus {
@@ -61,8 +61,8 @@
 
 .row--3-columns {
   .ood-icon-card__link {
-    @include grid-media-between('md', 'lg') {
-      @include padding(null 2.6rem);
+    @include grid-media-only('lg') {
+      @include padding(4rem 2.6rem 5rem);
     }
   }
 }
