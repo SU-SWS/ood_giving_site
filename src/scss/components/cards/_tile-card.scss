@@ -12,11 +12,6 @@
 
     @include grid-media-between('md', 'lg') {
       font-size: 0.8em;
-      font-weight: $su-font-semi-bold;
-    }
-
-    @include grid-media('xl') {
-      font-weight: $su-font-bold;
     }
   }
 
@@ -124,7 +119,7 @@
       }
 
       @include grid-media('lg') {
-        @include padding(get-responsive-spacing-value(3, 'tablet'));
+        @include padding(get-responsive-spacing-value(2, 'tablet'));
       }
 
       @include grid-media('2xl') {
