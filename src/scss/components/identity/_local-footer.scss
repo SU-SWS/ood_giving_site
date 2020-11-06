@@ -3,10 +3,10 @@
 // Styles for OOD Local Footer (based on Stanford Local Footer in Decanter but with some different styles)
 
 .ood-local-footer {
-  @include modular-spacing('padding', 4 null 5);
+  @include responsive-spacing('padding', 4 null 5);
 
   &__header {
-    @include modular-spacing('padding', null null 3);
+    @include responsive-spacing('padding', null null 3);
   }
 
   &__address {
@@ -81,12 +81,12 @@
 
   nav {
     + .ood-local-footer__list-heading {
-      @include modular-spacing('margin', 2 null null);
+      @include responsive-spacing('margin', 2 null null);
     }
   }
 
   .ood-cta {
-    @include modular-spacing('margin', 2 null null);
+    @include responsive-spacing('margin', 2 null null);
   }
 }
 

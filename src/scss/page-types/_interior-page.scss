@@ -148,7 +148,7 @@
 
     &-intro-wrapper {
       @include grid-media-max('sm') {
-        @include padding(null null 2.4em);
+        @include padding(7rem null 3.6rem);
         border-top: 1.4em solid transparent;
       }
 
