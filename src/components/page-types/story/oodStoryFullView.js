@@ -5,6 +5,7 @@ import Footer from "../../partials/footer";
 import transformImage from "../../../utilities/transformImage";
 import SeoSocial from "../../partials/seoSocial"
 import CreateBloks from "../../../utilities/createBloks"
+import CenteredContainer from "../../partials/centeredContainer"
 
 const StoryFullView = (props) => {
   let processedHeroImg;
@@ -36,8 +37,7 @@ const StoryFullView = (props) => {
                 />
               </figure>
             )}
-            <div
-              className={`centered-container flex-container ood-story__header-content`}>
+            <CenteredContainer flex={true} classes={"ood-story__header-content"}>
               <div className={`ood-story__header-content-wrapper flex-md-12-of-12 flex-lg-10-of-12 flex-2xl-9-of-12
                      su-bg-${props.blok.headerBoxColor}
                      ${(props.blok.headerBoxColor !== "white" && props.blok.headerBoxColor !== "fog-light") ? "su-text-white" : ""}
@@ -48,7 +48,7 @@ const StoryFullView = (props) => {
                     className="intro-text ood-story__intro-text">{props.blok.intro}</p>
                 )}
               </div>
-            </div>
+            </CenteredContainer>
           </header>
           <div className="ood-story__content">
             <CreateBloks blokSection={props.blok.storyContent} />

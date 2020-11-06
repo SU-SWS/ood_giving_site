@@ -3,6 +3,7 @@ import SbEditable from 'storyblok-react'
 import RichTextField from '../../utilities/richTextField'
 import transformImage from '../../utilities/transformImage'
 import CreateBloks from "../../utilities/createBloks"
+import CenteredContainer from "../partials/centeredContainer"
 
 const OodPoster = (props) => {
   const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h3";
@@ -21,7 +22,7 @@ const OodPoster = (props) => {
             />
           </figure>
         )}
-        <div className="centered-container ood-poster__container">
+        <CenteredContainer classes={"ood-poster__container"}>
           <div className={`flex-container ood-poster__row
              ${props.blok.cardPosition === "right" ? "su-flex-row-reverse" : ""}`
           }>
@@ -42,7 +43,7 @@ const OodPoster = (props) => {
               </div>
             </div>
           </div>
-        </div>
+        </CenteredContainer>
       </div>
     </SbEditable>
   )
