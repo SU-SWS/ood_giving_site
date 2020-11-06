@@ -37,18 +37,10 @@
   }
 
   &__body {
-    @include modular-spacing('padding', 6 null);
-
-    @include grid-media-max('sm') {
-      @include padding(4.5rem null);
-    }
+    @include responsive-spacing('padding', 6 null);
 
     &-header {
-      @include modular-spacing('padding', null null 5);
-
-      @include grid-media-max('sm') {
-        @include padding(null null 3.8rem);
-      }
+      @include responsive-spacing('padding', null null 5);
 
       &-title {
         @include modular-typography(2);
@@ -66,7 +58,7 @@
 
     &-sidebar {
       @include grid-media-max('md') {
-        @include modular-spacing('margin', null null 4);
+        @include margin(null null 4em);
       }
     }
   }
@@ -91,18 +83,17 @@
 .ood-interior-page--no-image {
   .ood-interior-page__header {
     &-title-wrapper {
-      @include modular-spacing('padding', null null 9);
+      @include responsive-spacing('padding', null null 9);
     }
 
     &-intro-wrapper {
       @include margin(-6em auto null);
-      @include modular-spacing('padding', 4);
+      @include responsive-spacing('padding', 4);
       box-shadow: $ood-shadow--shallow;
       background-color: $su-color-white;
 
       @include grid-media-max('sm') {
-        @include margin(-7em null null);
-        @include padding(3em 2em);
+        @include margin(-3em null null);
       }
     }
   }
