@@ -10,6 +10,7 @@ import IconCardSection from '../partials/iconCardSection'
 import Footer from '../partials/footer'
 import SeoSocial from '../partials/seoSocial'
 import CreateBloks from "../../utilities/createBloks"
+import CenteredContainer from "../partials/centeredContainer"
 
 const OodInteriorPage = (props) => {
   return (
@@ -41,14 +42,14 @@ const OodInteriorPage = (props) => {
                     <h2 className="ood-interior-page__body-header-title su-serif su-bold ood-has-tab-before">{props.blok.bodyTitle}</h2>
                   </header>
                 }
-                <div className="centered-container flex-container">
+                <CenteredContainer flex={true}>
                   {props.blok.layout === "no-sidebar" &&
                     <BodyNoSidebar {...props}/>
                   }
                   {props.blok.layout === "left-sidebar" &&
                     <BodyLeftSidebar {...props}/>
                   }
-                </div>
+                </CenteredContainer>
               </section>
             )}
             <BelowContent {...props}/>
