@@ -46,18 +46,12 @@ const Section = (props) => {
           </div>
         }
         {props.blok.contentWidth === "centered-container" &&
-          <CenteredContainer
-            flex={false}
-            classes={"section__content"}
-          >
+          <CenteredContainer flex={false} classes={"section__content"}>
             <CreateBloks blokSection={props.blok.content} />
           </CenteredContainer>
         }
         {(props.blok.contentWidth !== "edge-to-edge" && props.blok.contentWidth !== "centered-container") &&
-          <CenteredContainer
-            flex={true}
-            classes={"section__content"}
-          >
+          <CenteredContainer flex={true} classes={"section__content"}>
             <div className={`su-mx-auto ${props.blok.contentWidth}`}>
               <CreateBloks blokSection={props.blok.content} />
             </div>
