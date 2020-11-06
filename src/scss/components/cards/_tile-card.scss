@@ -57,7 +57,7 @@
     z-index: 10;
 
     @include grid-media-only('md') {
-      min-height: 24rem;
+      min-height: 22rem;
     }
 
     @include grid-media-only('lg') {
@@ -70,7 +70,11 @@
   }
 
   &--has-image {
-    @include grid-media('md') {
+    @include grid-media-only('md') {
+      border-top: 4rem solid transparent;
+    }
+
+    @include grid-media('lg') {
       border-top: #{$card-overhang} solid transparent;
     }
 
@@ -83,15 +87,12 @@
         display: none;
       }
 
-      @include grid-media('md') {
-        @include margin(#{-$card-overhang} null null);
-      }
-
       @include grid-media-only('md') {
-        @include margin(null 2rem);
+        @include margin(-4rem 2rem null);
       }
 
       @include grid-media('lg') {
+        @include margin(#{-$card-overhang} null null);
         @include margin(null 3.6rem);
       }
 
@@ -102,7 +103,7 @@
 
     .ood-tile-card__contents {
       @include grid-media-only('md') {
-        @include padding(3rem 2rem);
+        @include padding(get-responsive-spacing-value(1, 'mobile'));
       }
 
       @include grid-media('lg') {
@@ -119,7 +120,7 @@
     // No image cards have bigger horizontal padding
     .ood-tile-card__contents {
       @include grid-media-only('md') {
-        @include padding(3.6rem 2rem);
+        @include padding(3.6rem get-responsive-spacing-value(1, 'mobile'));
       }
 
       @include grid-media('lg') {
