@@ -2,7 +2,7 @@
 
 table {
   border-collapse: separate;
-  
+
   th {
     background-color: $su-color-white;
     border: 1px solid $su-color-white;
@@ -29,7 +29,7 @@ table {
   // Specific for the Compare Life Income Gifts table
   &#compare-life-income-gifts-table {
     @include responsive-spacing('padding', 2);
-    background: $su-color-white;
+    background-color: $su-color-white;
 
     tbody {
 
@@ -65,5 +65,3 @@ table {
     }
   }
 }
-
-
