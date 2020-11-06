@@ -137,13 +137,13 @@
     }
 
     @include grid-media('lg') {
-      top: 157px;
+      top: 158px;
       z-index: 220; // When menu wrap to 2nd line make sure dropdown covers up top level links
       box-shadow: rgba(0, 0, 0, 0.12) 0 34px 30px;
     }
 
     @include grid-media('2xl') {
-      top: 158px;
+      top: 159px;
     }
 
     .ood-cta {

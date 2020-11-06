@@ -10,7 +10,7 @@
 
         .su-media {
           @include margin(#{-$card-overhang} null null);
-          @include modular-spacing('margin', null 2);
+          @include responsive-spacing('margin', null 2);
         }
       }
 
@@ -29,14 +29,14 @@
 
         .su-media {
           @include margin(#{-$card-overhang} null null);
-          @include modular-spacing('margin', null 2);
+          @include responsive-spacing('margin', null 2);
         }
       }
     }
   }
 
   &__headline {
-    @include modular-spacing('margin', 2 null null);
+    @include responsive-spacing('margin', 2 null null);
     @include margin(null null 0.6em);
     @include modular-typography(2);
     letter-spacing: -0.016em;
@@ -68,7 +68,7 @@
     }
 
     .ood-story-card__headline {
-      @include modular-spacing('margin', 2 null null);
+      @include responsive-spacing('margin', 2 null null);
       @include modular-typography(3);
 
       @include grid-media('xl') {
@@ -93,13 +93,13 @@
 
         .su-media {
           @include margin(null #{-$h-story-card-overhang} null null); // Image overhang (half of image width)
-          @include modular-spacing('margin', 3 null);
+          @include responsive-spacing('margin', 3 null);
           max-width: $h-story-card-image-width;
           width: $h-story-card-image-width;
         }
 
         .ood-story-card__contents {
-          @include modular-spacing('padding', null 2 null 3);
+          @include responsive-spacing('padding', null 2 null 3);
           max-width: calc(100% - #{$h-story-card-image-width} + #{$h-story-card-overhang});
         }
       }
@@ -128,6 +128,6 @@
 
 .ood-curated-stories__other {
   .ood-story-card {
-    @include modular-spacing('margin', null null 3);
+    @include responsive-spacing('margin', null null 3);
   }
 }
