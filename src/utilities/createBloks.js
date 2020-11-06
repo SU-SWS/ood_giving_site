@@ -1,6 +1,4 @@
-// Process image using the Storyblok image service
-// See all the "param" options on the website
-// https://www.storyblok.com/docs/image-service
+// Create nested components in Storyblok
 
 import React from "react"
 import Components from "../components/components"
@@ -14,7 +12,7 @@ const CreateBloks = (props) => {
       }))
     )
   }
-  
+
   // Return null if no content provided.
   return null;
 };
