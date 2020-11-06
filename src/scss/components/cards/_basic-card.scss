@@ -28,7 +28,7 @@
   }
 
   &--no-image {
-    @include modular-spacing('padding', 2);
+    @include responsive-spacing('padding', 2);
 
     &.ood-basic-card--big-padding {
       @include grid-media('md') {
@@ -67,7 +67,7 @@
     }
 
     .ood-basic-card__contents {
-      @include modular-spacing('padding', 2 null null);
+      @include responsive-spacing('padding', 2 null null);
 
       @include grid-media-max('sm') {
         width: 100%;
@@ -120,7 +120,7 @@
   }
 
   &:not(.ood-basic-card--big-padding) {
-    @include modular-spacing('padding', null 2 2);
+    @include responsive-spacing('padding', null 2 2);
   }
 
   &__body {
@@ -146,7 +146,7 @@
   }
 
   .ood-cta {
-    @include modular-spacing('margin', 1 null null);
+    @include responsive-spacing('margin', 1 null null);
 
     &__button {
       @include margin(null null 0.6rem);
@@ -155,7 +155,7 @@
 }
 
 .ood-basic-card--horizontal {
-  @include modular-spacing('padding', 2);
+  @include responsive-spacing('padding', 2);
   display: flex;
   flex-direction: row;
 
