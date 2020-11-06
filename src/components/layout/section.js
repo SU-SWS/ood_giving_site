@@ -46,7 +46,7 @@ const Section = (props) => {
           </div>
         }
         {props.blok.contentWidth === "centered-container" &&
-          <CenteredContainer flex={false} classes={"section__content"}>
+          <CenteredContainer classes={"section__content"}>
             <CreateBloks blokSection={props.blok.content} />
           </CenteredContainer>
         }
