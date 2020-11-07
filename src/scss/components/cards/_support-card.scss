@@ -8,18 +8,30 @@
 
   &__contents {
     position: relative;
-    min-height: 20rem;
+    min-height: 16rem;
     z-index: 10;
 
-    @include grid-media('md') {
+    @include grid-media('sm') {
+      min-height: 22rem;
+    }
+
+    @include grid-media('xl') {
       min-height: 26rem;
     }
   }
 
   &__headline {
-    @include modular-typography(3);
+    @include modular-typography(2);
     @include margin(null null 0);
     letter-spacing: -0.016em;
+
+    @include grid-media-only('lg') {
+      font-size: 2.5rem;
+    }
+
+    @include grid-media('xl') {
+      @include modular-typography(3);
+    }
 
     &::after {
       background-color: $su-color-white;
@@ -69,6 +81,10 @@
     @include responsive-spacing('padding', 3);
     height: 100%;
     position: relative;
+
+    @include grid-media-only('lg') {
+      @include padding(get-responsive-spacing-value(1, 'desktop'));
+    }
 
     @include grid-media('2xl') {
       @include padding(get-responsive-spacing-value(4, 'desktop'));
