@@ -61,7 +61,6 @@ const profileFetcher = async (profileID, token) => {
     )
     .then(res => res.json())
     .then(body => {
-      console.log(body)
       return body
     })
     .catch(error => {

@@ -1,54 +1,66 @@
 // details: https://markus.oberlehner.net/blog/implementing-an-authentication-flow-with-passport-and-netlify-functions/
 
-const path = require('path')
+const { COOKIE_SECURE, SECRET, BASE_PROTOCOL, BASE_URL, SAML_CERT} = require('./utils/config')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const express = require('express')
-const session = require('express-session')
-const passport = require('passport')
-const passportJwt = require('passport-jwt');
-const suSAML = require('passport-stanford')
-const { COOKIE_SECURE, SECRET, BASE_PROTOCOL, BASE_URL, PRIVATE_PEM, PUBLIC_PEM } = require('./utils/config')
-const { sign } = require(`jsonwebtoken`);
 const serverless = require('serverless-http')
+const passport = require('passport')
+const passportJWT = require('passport-jwt');
+const passportSAML = require('passport-saml')
+const { sign } = require(`jsonwebtoken`);
 const app = express()
+let user = {}
 
-let user = {
-  name: "Shea McKinney",
-  firstName: "Shea",
-  lastName: "McKinney",
-  email: "sheamck@stanford.edu",
-  uid: "sheamck",
-  encodedSUID: 25868952802,
-  authToken: "abc123",
-}
+// SAML Strategy for OIDCS
+const saml = new passportSAML.Strategy(
+  {
+    protocol: BASE_PROTOCOL,
+    host: BASE_URL,
+    callbackUrl: BASE_PROTOCOL + BASE_URL + '/api/sso/auth',
+    issuer: 'https://stanford-giving-auth-preview.netlify.app',
+    entryPoint: 'https://idcs-8368be3faf0542efbdb27ae2b33d5d80.identity.oraclecloud.com/fed/v1/idp/sso',
+    path: '/api/sso/auth',
+    loginPath: '/api/sso/login',
+    logoutUrl: '/api/sso/logout',
+    passReqToCallback: true,
+    validatedInResponseTo: false,
+    passport: passport,
+    acceptedClockSkewMs: 60000,
+    skipRequestCompression: false,
+    disableRequestedAuthnContext: true,
+  },
+  function(req, profile, done) {
+    return done(null,
+      profile
+    )
+  }
+)
 
-// create a Stanford SAML Strategy and tell Passport to use it
 // -----------------------------------------------------------------------------
-const saml = new suSAML.Strategy({
-  protocol: BASE_PROTOCOL,
-  host: BASE_URL,
-  idp: 'itlab',
-  entityId: 'https://stanford-giving-auth-preview.netlify.app',
-  path: '/api/sso/auth',
-  loginPath: '/api/sso/login',
-  logoutUrl: '/api/sso/logout',
-  forceAuthn: true,
-  passReqToCallback: true,
-  privateCert: PRIVATE_PEM,
-  decryptionCert: PUBLIC_PEM,
-  decryptionPvk: PRIVATE_PEM,
-  validatedInResponseTo: false,
-  passport: passport,
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function (user, done) {
+  done(null, user);
 });
 
 passport.use(saml);
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
+
+// -----------------------------------------------------------------------------
 // JWT
 // -----------------------------------------------------------------------------
 passport.use(
-  new passportJwt.Strategy(
+  new passportJWT.Strategy(
     {
       jwtFromRequest(req) {
         if (!req.cookies) throw new Error('Missing cookie-parser middleware')
@@ -73,55 +85,18 @@ passport.use(
   )
 )
 
+// EXPRESS CONFIG.
 // -----------------------------------------------------------------------------
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cookieParser())
-// app.use(session({
-//   secret: SECRET,
-//   resave: false,
-//   saveUninitialized: true,
-//   name: 'saml_auth_token',
-//   cookie: {
-//     httpOnly: true,
-//     maxAge: 600000
-//   }
-// }));
-
 app.use(passport.initialize())
-app.use(passport.session())
+
 // -----------------------------------------------------------------------------
 
 // FUNCTIONS
 // -----------------------------------------------------------------------------
-
-/**
- *
- * @param {*} req
- * @param {*} res
- */
-const handleCallback = (req, res) => {
-
-  // let user = {
-  //   name: req.user.displayName,
-  //   firstName: req.user.givenName,
-  //   email: req.user.email,
-  //   uid: req.user.uid,
-  //   token: req.cookies.saml_auth_token
-  // }
-
-  // res
-  //   .cookie('stanford_auth_token', req.cookies.saml_auth_token, { httpOnly: true, COOKIE_SECURE, maxAge: 600000 })
-  //   .cookie('stanford_jwt', authJwt(user), { httpOnly: true, COOKIE_SECURE, maxAge: 600000 })
-  //   .redirect("/user/redirect")
-
-  res
-    .cookie('stanford_jwt', authJwt(user), { httpOnly: true, COOKIE_SECURE, maxAge: 600000 })
-    .cookie('stanford_auth_token', user.authToken, { httpOnly: true, COOKIE_SECURE, maxAge: 600000 })
-    .redirect("/user/redirect")
-
-}
 
 /**
  *
@@ -133,63 +108,41 @@ function authJwt(user) {
 }
 // -----------------------------------------------------------------------------
 
-// PASSPORT FUNCTIONS
-// -----------------------------------------------------------------------------
-
-passport.serializeUser(function(user, done){
-  done(null, JSON.stringify(user));
-});
-
-passport.deserializeUser(function(json, done){
-  try {
-    done(null, JSON.parse(json));
-  } catch (err) {
-    done(err, null);
-  }
-});
-// -----------------------------------------------------------------------------
-
 // ENDPOINTS
 // -----------------------------------------------------------------------------
 
-// Validate logged in status.
-app.get(`/api/sso/status`,
-  // passport.authenticate('jwt', { session: false }),
-  // (req, res) => res.json(req.user)
-  (req, res) => {
-    res.json(user)
-    // res.status(403).send("No")
-  }
-)
-
 // Do the login.
 app.get('/api/sso/login',
-  // passport.authenticate(saml.name,{ failureRedirect: '/403', failureFlash: true }
-  handleCallback
-);
+  passport.authenticate(saml.name, { failureRedirect: '/403', failureFlash: true })
+)
 
 // Logout.
 app.get('/api/sso/logout', function(req, res) {
-  // req.logout();
-  res.clearCookie("saml_auth_token");
-  res.clearCookie("stanford_auth_token");
-  res.clearCookie("stanford_jwt");
-  // req.session.destroy(); // Deletes the session in memory.
-  // req.session = null; // Deletes the cookie.
-  // res.redirect("/");
+  // res.clearCookie("saml_auth_token");
+  // res.clearCookie("stanford_auth_token");
+  // res.clearCookie("stanford_jwt");
   res.status(200)
   res.send("ok")
 });
 
 // Metadata for SAML Provider.
 app.get('/api/sso/metadata',
-  saml.metadata()
+  (req, res) => {
+    res.type('application/xml');
+    res.status(200)
+    res.send(saml.generateServiceProviderMetadata(SAML_CERT))
+  }
 );
 
 // Handle SAML callback at this path.
 app.post('/api/sso/auth',
-  // passport.authenticate(saml.name, { failureRedirect: '/403', failureFlash: true }),
-  handleCallback
+  passport.authenticate(saml.name, { failureRedirect: '/403', failureFlash: true }),
+  (req, res) => {
+    console.log(req.user)
+    let user = req.user
+    res.json(user)
+    // do stuff with response.
+  }
 );
 
 // -----------------------------------------------------------------------------

@@ -91,7 +91,7 @@ const fetchSSOStatus = async () => {
       return data
     })
     .catch(error => {
-      console.log('login error is', error)
+      console.error('login error is', error)
       return false
     })
 
@@ -116,7 +116,7 @@ const fetchMegaProfile = async (encodedSUID) => {
       return data
     })
     .catch(error => {
-      console.log('login error is', error)
+      console.error('login error is', error)
       return false
     })
 
@@ -146,7 +146,7 @@ const isLoggedIn = async () => {
       return true
     })
     .catch(error => {
-      console.log('login error is', error)
+      console.error('login error is', error)
       return false
     })
 
@@ -184,7 +184,7 @@ const doSSOLogout = async () => {
       return false
     })
     .catch(error => {
-      console.log('logout error is', error)
+      console.error('logout error is', error)
       return false
     })
 
@@ -193,7 +193,6 @@ const doSSOLogout = async () => {
 
 // Do the logout. Everywhere.
 const doLogout = () => {
-  console.log("Do Logout")
   doSSOLogout()
 }
 
