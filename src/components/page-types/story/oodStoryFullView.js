@@ -55,29 +55,29 @@ const StoryFullView = (props) => {
             <CreateBloks blokSection={props.blok.storyContent} />
           </div>
           <footer className="ood-story__main-footer">
-            <div className="ood-story__metadata">
-              {(props.blok.author || publishedDate) &&
-              <div className="centered-container flex-container">
-                <div className="flex-lg-8-of-12 su-mx-auto">
-                  <CreateBloks blokSection={props.blok.cta} />
-                  <div className="ood-story__metadata su-pb-5">
-                    {props.blok.author &&
-                    <>
-                      <p className="ood-story__metadata-title su-bold su-uppercase">Author</p>
-                      <span className="ood-story__metadata-data">{props.blok.author}</span>
-                    </>
-                    }
-                    {publishedDate &&
-                    <>
-                      <p className="ood-story__metadata-title su-bold su-uppercase">Date</p>
-                      <span className="ood-story__metadata-data su-mb-none">{publishedDate}</span>
-                    </>
-                    }
+            {(props.blok.author || publishedDate) &&
+              <div className="ood-story__metadata">
+                <div className="centered-container flex-container">
+                  <div className="flex-lg-8-of-12 su-mx-auto">
+                    <CreateBloks blokSection={props.blok.cta} />
+                    <div className="ood-story__metadata su-pb-5">
+                      {props.blok.author &&
+                      <>
+                        <p className="ood-story__metadata-title su-bold su-uppercase">Author</p>
+                        <span className="ood-story__metadata-data">{props.blok.author}</span>
+                      </>
+                      }
+                      {publishedDate &&
+                      <>
+                        <p className="ood-story__metadata-title su-bold su-uppercase">Date</p>
+                        <span className="ood-story__metadata-data su-mb-none">{publishedDate}</span>
+                      </>
+                      }
+                    </div>
                   </div>
                 </div>
               </div>
-              }
-            </div>
+            }
             <BelowContent {...props}/>
             <IconCardSection {...props}/>
           </footer>
