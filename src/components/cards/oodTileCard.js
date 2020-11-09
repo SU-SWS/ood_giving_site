@@ -20,7 +20,7 @@ const OodTileCard = (props) => {
       )}
       <section className="ood-tile-card__contents">
         {props.blok.superheadline && (
-          <span className="ood-tile-card__superhead su-uppercase su-bold">{props.blok.superheadline}</span>
+          <span className="ood-tile-card__superhead su-uppercase">{props.blok.superheadline}</span>
         )}
         {props.blok.headline && (
           <Heading className={`ood-tile-card__headline su-semibold
@@ -34,18 +34,23 @@ const OodTileCard = (props) => {
     <SbEditable content={props.blok}>
       <article className={`ood-tile-card
         ${(props.blok.image.filename != null && props.blok.showImage === true) ? "ood-tile-card--has-image" : "ood-tile-card--no-image"}
-        ${(props.blok.backgroundColor !== "white" && props.blok.backgroundColor !== "fog-light") ? "su-text-white" : ""}`
+        ${props.blok.backgroundColor !== "white" ? "su-text-white" : ""}`
       }>
         {props.blok.link.linktype === "story" &&
           <Link
             to={props.blok.link.cached_url === "home" ? "/" : `/${props.blok.link.cached_url}${props.blok.link.cached_url.endsWith("/") ? "" : "/"}`}
-            className={`ood-tile-card__link su-bg-${props.blok.backgroundColor}`}
+            className={`ood-tile-card__link su-bg-${props.blok.backgroundColor}
+            ood-shadow-shallow${props.blok.backgroundColor !== "white" ? "-dark" : ""}
+            `}
           >
             <TileCardContent {...props}/>
           </Link>
         }
         {props.blok.link.linktype === "url" &&
-          <a href={props.blok.link.url} className={`ood-tile-card__link su-bg-${props.blok.backgroundColor}`}>
+          <a href={props.blok.link.url}
+             className={`ood-tile-card__link su-bg-${props.blok.backgroundColor}
+             ood-shadow-shallow${props.blok.backgroundColor !== "white" ? "-dark" : ""}
+             `}>
             <TileCardContent {...props}/>
           </a>
         }

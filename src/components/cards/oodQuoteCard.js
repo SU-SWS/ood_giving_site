@@ -7,6 +7,7 @@ const OodQuoteCard = (props) => (
   <SbEditable content={props.blok}>
     <article className={ `ood-quote-card su-bg-${props.blok.backgroundColor} ood-shadow-shallow
              ${(props.blok.image.filename && props.blok.showImage === "has-image") ? "ood-quote-card--has-image" : "ood-quote-card--no-image"}
+             ${props.blok.backgroundColor === "white" ? "su-border-color-black-10" : "su-border-color-black-11"}
              su-text-align-${props.blok.textAlign}`
     }>
       <div className="ood-quote-card__content">
