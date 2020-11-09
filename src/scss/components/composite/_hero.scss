@@ -4,8 +4,8 @@
 
 .ood-hero-home {
   position: relative;
-  height: 700px;
-  border-bottom: 100px solid transparent; // To compensate for the CTA box bottom offset
+  height: 70rem;
+  border-bottom: 10rem solid transparent; // To compensate for the CTA box bottom offset
 
   &__media {
     height: 100%;
@@ -30,7 +30,7 @@
     @include serif;
     @include margin(null null 0);
     position: absolute;
-    bottom: 220px;
+    bottom: 22rem;
     left: 0;
     line-height: 1.1;
     z-index: 100;
@@ -46,12 +46,12 @@
     }
 
     @include grid-media('lg') {
-      bottom: 80px;
+      bottom: 8rem;
     }
   }
 
   &__link {
-    @include modular-spacing('padding', 3);
+    @include responsive-spacing('padding', 3);
     position: absolute;
     bottom: -100px;
     right: 0;
