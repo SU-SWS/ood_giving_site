@@ -8,6 +8,8 @@
 
   &__contents {
     position: relative;
+    display: flex;
+    flex-direction: column;
     min-height: 16rem;
     z-index: 10;
 
@@ -24,6 +26,8 @@
     @include modular-typography(2);
     @include margin(null null 0);
     letter-spacing: -0.016em;
+    flex-basis: auto;
+    flex-grow: 1;
 
     @include grid-media-only('lg') {
       font-size: 2.5rem;
@@ -121,9 +125,8 @@
   }
 
   &__icon {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    display: block;
+    flex-basis: 0;
     text-align: right;
     transition: font-size 0.25s ease-in;
   }

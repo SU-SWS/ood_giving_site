@@ -18,7 +18,7 @@ const OodSupportCard = (props) => {
               className={`ood-support-card__icon su-text-white
                   ${props.blok.iconStyle ? props.blok.iconStyle : props.blok.icon.type}
                   ${props.blok.extraIcon ? `fa-${props.blok.extraIcon}` : props.blok.icon.icon}
-            `}/>
+        `}/>
       </section>
     </SbEditable>
   );
