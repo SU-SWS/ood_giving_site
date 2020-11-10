@@ -68,7 +68,7 @@
 }
 
 // Have icon cards go to 9 of 12 columns on SM-MD breakpoints when they stack
-@include grid-media-between('sm','md') {
+@include grid-media-between('sm', 'md') {
   .ood-icon-card-section {
     .ood-icon-card {
       @include margin(null auto);
