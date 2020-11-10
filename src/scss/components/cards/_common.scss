@@ -83,3 +83,41 @@
     @include ood-superhead;
   }
 }
+
+// If icon cards or support cards are placed in a 3-column row or column grid,
+// have them go to 9 of 12 columns with when they start stacking
+.row--3-columns,
+.column-grid {
+  @include grid-media-only('sm') {
+    .flex-md-4-of-12,
+    .flex-lg-4-of-12 {
+      .ood-support-card,
+      .ood-icon-card {
+        @include margin(null auto);
+        @include flex-column(9, $su-gutter-sm);
+      }
+    }
+  }
+
+  @include grid-media-only('md') {
+    .flex-lg-4-of-12 {
+      .ood-support-card,
+      .ood-icon-card {
+        @include margin(null auto);
+        @include flex-column(9, $su-gutter-md);
+      }
+    }
+  }
+}
+
+// For Row with 1 or 2 Column component, cards have max-width when they stack on SM breakpoint
+.row--2-columns,
+.row--1-column {
+  @include grid-media-only('sm') {
+    .ood-support-card,
+    .ood-icon-card {
+      @include margin(null auto);
+      @include flex-column(9, $su-gutter-sm);
+    }
+  }
+}

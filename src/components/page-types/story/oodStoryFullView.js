@@ -57,7 +57,7 @@ const StoryFullView = (props) => {
           <footer className="ood-story__main-footer">
             {(props.blok.author || publishedDate) &&
               <div className="ood-story__metadata">
-                <div className="centered-container flex-container">
+                <CenteredContainer flex={true}>
                   <div className="flex-lg-8-of-12 su-mx-auto">
                     <CreateBloks blokSection={props.blok.cta} />
                     <div className="ood-story__metadata su-pb-5">
@@ -75,7 +75,7 @@ const StoryFullView = (props) => {
                       }
                     </div>
                   </div>
-                </div>
+                </CenteredContainer>
               </div>
             }
             <BelowContent {...props}/>
