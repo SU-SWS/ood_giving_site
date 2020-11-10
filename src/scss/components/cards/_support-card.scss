@@ -29,11 +29,16 @@
     flex-basis: auto;
     flex-grow: 1; // This makes the icon sticks to the bottom of the card
 
+    // Headline font sizes need to be finetuned between below breakpoints
     @include grid-media-between('lg', 'xl') {
-      @include fluid-type(25px, 35px, 992px, 1499px);
+      @include fluid-type(25px, 34px, 992px, 1499px);
     }
 
-    @include grid-media('2xl') {
+    @media only screen and (min-width: 1500px) and (max-width: 1699px) {
+      @include fluid-type(34px, 37px, 1500px, 1699px);
+    }
+
+    @media only screen and (min-width: 1700px) {
       @include modular-typography(3);
     }
 
@@ -147,10 +152,35 @@
   }
 }
 
-.row--2-columns {
+.row--1-column {
+  @include grid-media-only('md') {
+    .ood-support-card__contents {
+      min-height: 18rem;
+    }
+  }
+}
+
+.row--2-columns,
+.row--1-column {
   @include grid-media-only('sm') {
     .ood-support-card__contents {
       min-height: 18rem;
+    }
+  }
+}
+
+.row--2-columns {
+  @include grid-media-only('md') {
+    .flex-lg-6-of-12 {
+      .ood-support-card {
+        @include margin(null auto);
+        flex-basis: calc(75% - 9px);
+        max-width: calc(75% - 9px);
+      }
+
+      .ood-support-card__contents {
+        min-height: 18rem;
+      }
     }
   }
 }

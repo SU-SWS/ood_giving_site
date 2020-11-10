@@ -112,7 +112,8 @@
   }
 }
 
-.row--2-columns {
+.row--2-columns,
+.row--1-column {
   @include grid-media-only('sm') {
     .ood-support-card,
     .ood-icon-card {
