@@ -3,6 +3,7 @@ import SbEditable from "storyblok-react"
 import CreateBloks from "../../../utilities/createBloks"
 import UseOnClickOutside from "../../../hooks/useOnClickOutside"
 import CenteredContainer from "../../partials/centeredContainer"
+import FlexCell from "../../partials/flexCell"
 
 const OodMegaMenuSection = (props) => {
   const [sectionOpened, setSectionOpened] = useState(false);
@@ -22,15 +23,15 @@ const OodMegaMenuSection = (props) => {
                 onClick={toggleSection}>{props.blok.linkText}</button>
         <div className="ood-mega-nav__section su-bg-white" aria-hidden={!sectionOpened}>
           <CenteredContainer flex={true} classes={"su-py-3"}>
-            <div className="flex-lg-8-of-12 flex-2xl-9-of-12 su-flex su-flex-col">
+            <FlexCell lg={8} xxl={9} classes={"su-flex su-flex-col"}>
               <div className="flex-container">
                 <CreateBloks blokSection={props.blok.linkGroups} />
               </div>
               <CreateBloks blokSection={props.blok.sectionCtaLink} />
-            </div>
-            <div className="flex-lg-4-of-12 flex-2xl-3-of-12">
+            </FlexCell>
+            <FlexCell lg={4} xxl={3}>
               <CreateBloks blokSection={props.blok.card} />
-            </div>
+            </FlexCell>
           </CenteredContainer>
         </div>
       </li>

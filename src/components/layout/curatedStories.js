@@ -1,6 +1,7 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
 import CreateBloks from "../../utilities/createBloks"
+import FlexCell from "../partials/flexCell"
 
 /*
 ** The Curated Stories component is allowed inside any section area.
@@ -14,9 +15,9 @@ const CuratedStories = (props) => (
     <div className={`ood-curated-stories`}>
       {(props.blok.featuredStories != null && Object.keys(props.blok.featuredStories).length > 0) && (
         <div className={`flex-container ood-curated-stories__featured su-mb-3`}>
-          <div className={`flex-xl-10-of-12 su-mx-auto`}>
+          <FlexCell xl={10} classes={"su-mx-auto"}>
             <CreateBloks blokSection={props.blok.featuredStories} />
-          </div>
+          </FlexCell>
         </div>
       )}
       {(props.blok.otherStories != null && Object.keys(props.blok.otherStories).length > 0) && (

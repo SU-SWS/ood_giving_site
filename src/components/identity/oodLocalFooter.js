@@ -6,7 +6,7 @@ import FlexCell from "../partials/flexCell"
 
 const OodLocalFooter = (props) => (
   <SbEditable content={props.blok}>
-    <FlexCell className="ood-local-footer su-bg-white">
+    <div className="ood-local-footer su-bg-white">
       <CenteredContainer>
         <div className="ood-local-footer__header">
           <CreateBloks blokSection={props.blok.websiteLogo} />
