@@ -14,26 +14,26 @@
     z-index: 10;
 
     @include grid-media('sm') {
-      min-height: 22rem;
+      min-height: 24rem;
     }
 
     @include grid-media('xl') {
-      min-height: 26rem;
+      min-height: 28rem;
     }
   }
 
   &__headline {
     @include modular-typography(2);
-    @include margin(null null 0);
+    @include margin(null null 1rem);
     letter-spacing: -0.016em;
     flex-basis: auto;
-    flex-grow: 1;
+    flex-grow: 1; // This makes the icon sticks to the bottom of the card
 
-    @include grid-media-only('lg') {
-      font-size: 2.5rem;
+    @include grid-media-between('lg', 'xl') {
+      @include fluid-type(25px, 35px, 992px, 1499px);
     }
 
-    @include grid-media('xl') {
+    @include grid-media('2xl') {
       @include modular-typography(3);
     }
 
@@ -43,47 +43,14 @@
   }
 
   &__icon {
+    display: block;
+    flex-basis: 0;
     font-size: 3em;
-  }
+    text-align: right;
 
-  &__link {
-    border-color: transparent;
-
-
-    &:hover,
-    &:focus {
-      border-color: transparent;
-
-      .ood-support-card__headline {
-        text-decoration: underline;
-      }
-
-      .ood-support-card__icon {
-        font-size: 3.3em;
-      }
-    }
-
-    // Darkened mask over whole card visible on hover/focus
-    &:not(.su-bg-white) {
-      &::after {
-        display: block;
-        content: "";
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0);
-        transition: background-color 0.25s ease-in;
-      }
-
-      &:hover,
-      &:focus {
-        &::after {
-          background-color: rgba(0, 0, 0, 0.4);
-        }
-      }
+    &::before {
+      transform-origin: right bottom;
+      transition: font-size 0.25s ease-in;
     }
   }
 
@@ -91,6 +58,7 @@
     @include responsive-spacing('padding', 3);
     height: 100%;
     position: relative;
+    border-color: transparent;
 
     @include grid-media-only('lg') {
       @include padding(get-responsive-spacing-value(1, 'desktop'));
@@ -102,11 +70,19 @@
 
     &:hover,
     &:focus {
+      border-color: transparent;
+
       .ood-support-card__headline {
+        text-decoration: underline;
+
         &::after {
           background-color: $su-color-white;
           transform: translate3d(0.15em, -0.15em, 0);
         }
+      }
+
+      .ood-support-card__icon {
+        font-size: 3.3em;
       }
     }
 
@@ -134,12 +110,39 @@
         }
       }
     }
-  }
 
-  &__icon {
-    display: block;
-    flex-basis: 0;
-    text-align: right;
-    transition: font-size 0.25s ease-in;
+    // Darkened mask over whole card visible on hover/focus for non-white cards
+    &:not(.su-bg-white) {
+      &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0);
+        transition: background-color 0.25s ease-in;
+      }
+
+      &:hover,
+      &:focus {
+        &::after {
+          background-color: rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+  }
+}
+
+.row--3-columns,
+.column-grid {
+  @include grid-media-between('sm','md') {
+    .flex-lg-4-of-12 {
+      .ood-support-card__contents {
+        min-height: 18rem;
+      }
+    }
   }
 }
