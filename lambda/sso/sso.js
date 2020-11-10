@@ -1,6 +1,6 @@
 // details: https://markus.oberlehner.net/blog/implementing-an-authentication-flow-with-passport-and-netlify-functions/
 
-const { COOKIE_SECURE, SECRET, BASE_PROTOCOL, BASE_URL, SAML_CERT} = require('./utils/config')
+const { SAML_ENTRYPOINT, SECRET, BASE_PROTOCOL, BASE_URL, SAML_CERT, SAML_ENTITYID} = require('./utils/config')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const express = require('express')
@@ -19,8 +19,8 @@ const saml = new passportSAML.Strategy(
     protocol: BASE_PROTOCOL,
     host: BASE_URL,
     callbackUrl: BASE_PROTOCOL + BASE_URL + '/api/sso/auth',
-    issuer: 'https://stanford-giving-auth-preview.netlify.app',
-    entryPoint: 'https://idcs-8368be3faf0542efbdb27ae2b33d5d80.identity.oraclecloud.com/fed/v1/idp/sso',
+    issuer: SAML_ENTITYID,
+    entryPoint: SAML_ENTRYPOINT,
     path: '/api/sso/auth',
     loginPath: '/api/sso/login',
     logoutUrl: '/api/sso/logout',
