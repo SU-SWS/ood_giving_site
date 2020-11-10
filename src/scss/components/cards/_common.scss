@@ -112,6 +112,7 @@
   }
 }
 
+// For Row with 1 or 2 Column component, cards have max-width when they stack on SM breakpoint
 .row--2-columns,
 .row--1-column {
   @include grid-media-only('sm') {
