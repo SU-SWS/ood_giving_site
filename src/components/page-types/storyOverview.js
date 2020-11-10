@@ -12,7 +12,7 @@ const StoryOverview = (props) => {
     <SbEditable content={props.blok}>
       <SeoSocial {...props}/>
       <CreateBloks blokSection={props.blok.localHeader} />
-      <main id="main-content" className={`ood-interior-page ood-interior-page--no-image`}>
+      <main id="main-content" className={`ood-interior-page ood-interior-page--no-image story-overview-page`}>
         <article className={`su-bg-white`}>
           <HeaderNoImage {...props}/>
           <CreateBloks blokSection={props.blok.stories} />

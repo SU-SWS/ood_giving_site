@@ -3,6 +3,14 @@
 // OOD Story Card style
 
 .ood-story-card {
+  // All vertical story cards (non-featured) have inset width at SM and MD breakpoints
+  &:not(.ood-story-card--horizontal) {
+    @include grid-media-between('sm', 'md') {
+      @include margin(null auto);
+      @include flex-column(9, $su-gutter-md)
+    }
+  }
+
   &--has-image {
     &:not(.ood-story-card--horizontal) {
       @include grid-media('sm') {
@@ -22,9 +30,9 @@
       }
     }
 
-    // Horizontal card behaves same way as vertical card at XS breakpoint (but with image visible)
+    // Horizontal card with image have vertical orientation for XS-MD breakpoints and displays image
     &.ood-story-card--horizontal {
-      @include grid-media-only('xs') {
+      @include grid-media-max('md') {
         border-top: $card-overhang solid transparent;
 
         .su-media {
@@ -76,6 +84,12 @@
       }
     }
 
+    .ood-story-card__contents {
+      @include grid-media('lg') {
+        @include responsive-spacing('padding', null 3);
+      }
+    }
+
     .ood-story-card__body {
       @include grid-media('xl') {
         @include modular-typography(1);
@@ -83,7 +97,7 @@
     }
 
     &.ood-story-card--has-image {
-      @include grid-media('sm') {
+      @include grid-media('lg') {
         @include margin(null $h-story-card-overhang null null);
 
         .ood-story-card__link {
