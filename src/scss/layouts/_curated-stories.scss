@@ -20,3 +20,15 @@
     }
   }
 }
+
+.story-overview-page {
+  .ood-curated-stories__other {
+    &.su-flex-3-col {
+      @include grid-media-only('lg') {
+        > * {
+          @include flex-column(6, $su-gutter-lg);
+        }
+      }
+    }
+  }
+}
