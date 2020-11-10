@@ -11,7 +11,7 @@ const HeaderNoImage = (props) => (
     <header className={`ood-interior-page__header ood-interior-page__header--no-image`}>
       <div className={`ood-interior-page__header-title-wrapper su-pt-7 su-bg-${props.blok.headerBackgroundColor}`}>
         <CenteredContainer>
-          <h1 className="ood-interior-page__title flex-xl-10-of-12 su-serif su-text-white">{props.blok.title}</h1>
+          <FlexCell element={"h1"} xl={10} classes={"ood-interior-page__title su-serif su-text-white"}>{props.blok.title}</FlexCell>
         </CenteredContainer>
       </div>
       <CenteredContainer classes={"ood-interior-page__header-intro"}>
