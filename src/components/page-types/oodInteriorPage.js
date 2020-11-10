@@ -31,9 +31,9 @@ const OodInteriorPage = (props) => {
               <HeaderMinimal {...props}/>
             }
             {(props.blok.aboveContent != null && Object.keys(props.blok.aboveContent).length > 0) && (
-              <section className="ood-interior-page__above-body">
+              <div className="ood-interior-page__above-body">
                 <CreateBloks blokSection={props.blok.aboveContent} />
-              </section>
+              </div>
             )}
             {(props.blok.bodyTitle || (props.blok.pageContent != null && Object.keys(props.blok.pageContent).length > 0)) && (
               <section className="ood-interior-page__body">

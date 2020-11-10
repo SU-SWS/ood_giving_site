@@ -1,18 +1,19 @@
 import SbEditable from "storyblok-react"
 import React from "react"
 import CreateBloks from "../../utilities/createBloks"
+import FlexCell from "./flexCell"
 
 /* The BodyLeftSidebar component is referenced by the Interior Page type.  */
 
 const BodyLeftSidebar = (props) => (
   <SbEditable content={props.blok}>
-    <aside className="ood-interior-page__body-sidebar flex-lg-4-of-12 flex-xl-3-of-12">
+    <FlexCell element={"aside"} lg={4} xl={3} classes={"ood-interior-page__body-sidebar"}>
       <CreateBloks blokSection={props.blok.contentMenu} />
       <CreateBloks blokSection={props.blok.contactInfo} />
-    </aside>
-    <div className="ood-interior-page__body-content flex-lg-8-of-12">
+    </FlexCell>
+    <FlexCell lg={8} classes={"ood-interior-page__body-content"}>
       <CreateBloks blokSection={props.blok.pageContent} />
-    </div>
+    </FlexCell>
   </SbEditable>
 );
 
