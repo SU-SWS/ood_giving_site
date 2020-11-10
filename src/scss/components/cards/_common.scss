@@ -94,8 +94,7 @@
       .ood-support-card,
       .ood-icon-card {
         @include margin(null auto);
-        flex-basis: calc(75% - 9px);
-        max-width: calc(75% - 9px);
+        @include flex-column(9, $su-gutter-sm);
       }
     }
   }
@@ -105,8 +104,7 @@
       .ood-support-card,
       .ood-icon-card {
         @include margin(null auto);
-        flex-basis: calc(75% - 9px);
-        max-width: calc(75% - 9px);
+        @include flex-column(9, $su-gutter-md);
       }
     }
   }
@@ -119,8 +117,7 @@
     .ood-support-card,
     .ood-icon-card {
       @include margin(null auto);
-      flex-basis: calc(75% - 9px);
-      max-width: calc(75% - 9px);
+      @include flex-column(9, $su-gutter-sm);
     }
   }
 }

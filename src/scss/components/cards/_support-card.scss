@@ -174,8 +174,7 @@
     .flex-lg-6-of-12 {
       .ood-support-card {
         @include margin(null auto);
-        flex-basis: calc(75% - 9px);
-        max-width: calc(75% - 9px);
+        @include flex-column(9, $su-gutter-md);
       }
 
       .ood-support-card__contents {
