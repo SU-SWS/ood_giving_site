@@ -137,11 +137,11 @@ const createUserJWT = (res, user) => {
 
 // Do the login.
 app.get('/api/sso/login',
-  passport.authenticate(saml.name, { session: false, failureRedirect: '/403', failureFlash: true })
+  passport.authenticate(saml.name, { session: false, failureRedirect: '/403' })
 )
 
 app.get('/api/sso/status',
-  passport.authenticate('jwt', { session: false, failureFlash: true }),
+  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     if (req.user) {
       req.user.status = 1
@@ -173,7 +173,7 @@ app.get('/api/sso/metadata',
 
 // Handle SAML callback at this path.
 app.post('/api/sso/auth',
-  passport.authenticate(saml.name, { session: false, failureRedirect: '/403', failureFlash: true }),
+  passport.authenticate(saml.name, { session: false, failureRedirect: '/403' }),
   (req, res) => {
     let user = parseSAMLForUser(req.user);
     createUserJWT(res, user)

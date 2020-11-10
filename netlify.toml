@@ -40,8 +40,8 @@
 # PLUGIN GATSBY CACHE
 # https://github.com/jlengstorf/netlify-plugin-gatsby-cache#readme
 # ##############################################################################
-# [[plugins]]
-#   package = "netlify-plugin-gatsby-cache"
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"
 
 # PLUGIN LIGHTHOUSE
 # https://github.com/netlify-labs/netlify-plugin-lighthouse#readme
