@@ -3,6 +3,14 @@
 // OOD Story Card style
 
 .ood-story-card {
+  // All vertical story cards (non-featured) have inset width at SM and MD breakpoints
+  &:not(.ood-story-card--horizontal) {
+    @include grid-media-between('sm', 'md') {
+      @include margin(null auto);
+      @include flex-column(9, $su-gutter-md)
+    }
+  }
+
   &--has-image {
     &:not(.ood-story-card--horizontal) {
       @include grid-media('sm') {

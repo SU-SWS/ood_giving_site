@@ -18,7 +18,7 @@ const OodStoryCard = (props) => {
           aspectRatio={"3x2"}
         />
       )}
-      <section className={`ood-story-card__contents su-mx-auto ood-has-tab-before su-px-2 su-pb-5`}>
+      <section className={`ood-story-card__contents su-mx-auto ood-has-tab-before su-px-2 su-pb-4`}>
         {props.blok.headline && (
           <Heading className={`ood-story-card__headline su-sans su-semibold su-text-black
                    ${props.blok.link.linktype === "url" ? "su-link--external su-after-bg-digital-red su-after-bg-hocus-digital-red" : ""}`}>
