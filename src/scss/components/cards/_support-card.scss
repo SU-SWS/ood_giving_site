@@ -14,7 +14,7 @@
     z-index: 10;
 
     @include grid-media('sm') {
-      min-height: 24rem;
+      min-height: 25rem;
     }
 
     @include grid-media('xl') {
@@ -143,6 +143,14 @@
       .ood-support-card__contents {
         min-height: 18rem;
       }
+    }
+  }
+}
+
+.row--2-columns {
+  @include grid-media-only('sm') {
+    .ood-support-card__contents {
+      min-height: 18rem;
     }
   }
 }
