@@ -22,9 +22,9 @@
       }
     }
 
-    // Horizontal card behaves same way as vertical card at XS breakpoint (but with image visible)
+    // Horizontal card with image have vertical orientation for XS-MD breakpoints and displays image
     &.ood-story-card--horizontal {
-      @include grid-media-only('xs') {
+      @include grid-media-max('md') {
         border-top: $card-overhang solid transparent;
 
         .su-media {
@@ -83,7 +83,7 @@
     }
 
     &.ood-story-card--has-image {
-      @include grid-media('sm') {
+      @include grid-media('lg') {
         @include margin(null $h-story-card-overhang null null);
 
         .ood-story-card__link {
