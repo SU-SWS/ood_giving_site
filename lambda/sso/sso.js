@@ -10,7 +10,8 @@ const passportJWT = require('passport-jwt');
 const passportSAML = require('passport-saml')
 const { sign } = require(`jsonwebtoken`);
 const app = express()
-let user = {}
+const userCookieName = "su_auth"
+const userCookieExpires = 36000000 + Date.now()
 
 // SAML Strategy for OIDCS
 const saml = new passportSAML.Strategy(
@@ -52,27 +53,33 @@ passport.deserializeUser(function (user, done) {
 passport.use(saml);
 
 // -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
-
-
-// -----------------------------------------------------------------------------
 // JWT
 // -----------------------------------------------------------------------------
+
+const getUserJWT = (req) => {
+  var token = null;
+  if (req && req.cookies) {
+    token = req.cookies[userCookieName];
+  }
+  return token;
+}
+
 passport.use(
   new passportJWT.Strategy(
     {
       jwtFromRequest(req) {
         if (!req.cookies) throw new Error('Missing cookie-parser middleware')
-        return req.cookies.stanford_jwt
+        return req.cookies[userCookieName]
       },
       secretOrKey: SECRET,
-      passReqToCallback: true
+      passReqToCallback: true,
+      fromExtractors: [ getUserJWT ],
     },
     async (req, payload, done) => {
+
       try {
         if (typeof payload.user == "object") {
-          if (payload.user.token === req.cookies.stanford_auth_token) {
+          if (payload.user.session && payload.user.expires >= Date.now()) {
             return done(null, payload.user)
           }
         }
@@ -103,9 +110,26 @@ app.use(passport.initialize())
  * @param {*} user
  * @param {*} token
  */
-function authJwt(user) {
+function authJWT(user) {
   return sign({ user: user }, SECRET)
 }
+
+// Create a user object from the SAML response data.
+const parseSAMLForUser = (user) => {
+  let account = {}
+  account.suid = user.SUID;
+  account.email = user.nameID;
+  account.session = user['oracle:cloud:identity:sessionid'];
+  account.expires = userCookieExpires
+  return account;
+}
+
+// Create a user JWT cookie.
+const createUserJWT = (res, user) => {
+  let signed = authJWT(user);
+  res.cookie(userCookieName, signed, {httpOnly: true, expire: userCookieExpires})
+}
+
 // -----------------------------------------------------------------------------
 
 // ENDPOINTS
@@ -113,7 +137,20 @@ function authJwt(user) {
 
 // Do the login.
 app.get('/api/sso/login',
-  passport.authenticate(saml.name, { failureRedirect: '/403', failureFlash: true })
+  passport.authenticate(saml.name, { session: false, failureRedirect: '/403', failureFlash: true })
+)
+
+app.get('/api/sso/status',
+  passport.authenticate('jwt', { session: false, failureFlash: true }),
+  (req, res) => {
+    if (req.user) {
+      req.user.status = 1
+      res.json(req.user)
+    }
+    else {
+      res.json({status: 0})
+    }
+  }
 )
 
 // Logout.
@@ -136,12 +173,11 @@ app.get('/api/sso/metadata',
 
 // Handle SAML callback at this path.
 app.post('/api/sso/auth',
-  passport.authenticate(saml.name, { failureRedirect: '/403', failureFlash: true }),
+  passport.authenticate(saml.name, { session: false, failureRedirect: '/403', failureFlash: true }),
   (req, res) => {
-    console.log(req.user)
-    let user = req.user
-    res.json(user)
-    // do stuff with response.
+    let user = parseSAMLForUser(req.user);
+    createUserJWT(res, user)
+    res.redirect("/user/redirect")
   }
 );
 

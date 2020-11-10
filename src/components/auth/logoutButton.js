@@ -4,10 +4,11 @@ import { UserContext, doLogout, Anon } from "../../context/UserContext"
 const LogoutButton = (props) => {
   const { state: account, dispatch } = useContext(UserContext);
   let user = (account && account.user) ? account.user : Anon
+  let buttonLabel = props.buttonLabel ? props.buttonLabel : "Logout"
 
   if (user.status) {
     return (
-      <button onClick={() => { doLogout; dispatch({type:'logout'})}}>{props.children}</button>
+      <button onClick={() => { doLogout; dispatch({type:'logout'})}}>{buttonLabel}</button>
     )
   }
 

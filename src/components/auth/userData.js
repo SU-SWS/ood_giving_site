@@ -12,11 +12,25 @@ const userData = (props) => {
 
   // Get the Mega Profile information from that API.
   const getMegaProfile = async (profileID) => {
-    const mega = await fetchMegaProfile(profileID)
+    let mega = false;
+
+    mega = await fetchMegaProfile(profileID)
     if (mega && mega.encodedSUID) {
       dispatch({type: "addProfile", profile: mega })
       return mega
     }
+
+    // If no profile was found then try a known id.
+    let rando = [ '66733988139', '50236888698', '64058874980', '38455014318', '25868952802' ]
+    let rand = Math.floor(Math.random() * 6)
+
+    mega = await fetchMegaProfile(rando[rand])
+    if (mega && mega.encodedSUID) {
+      dispatch({type: "addProfile", profile: mega })
+      return mega
+    }
+
+    // Nothing.
     return false
   }
 
@@ -26,7 +40,7 @@ const userData = (props) => {
   const getUser = async () => {
     // Get the status from the SSO first.
     const result = await fetchSSOStatus()
-    if (result && result.name) {
+    if (result && result.session) {
       result.status = 1
       dispatch({type: "login", user: result })
       return result
@@ -40,8 +54,8 @@ const userData = (props) => {
    */
   const runEffect = async () => {
     let user = await getUser()
-    if (user && user.encodedSUID) {
-      await getMegaProfile(user.encodedSUID)
+    if (user && user.suid) {
+      await getMegaProfile(user.suid)
     }
     dispatch({type: "refresh"})
   }

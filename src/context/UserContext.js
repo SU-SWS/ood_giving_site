@@ -1,13 +1,12 @@
 import React, { useReducer, createContext } from "react"
-import { navigate } from "gatsby"
 
 // Variables.
 // -----------------------------------------------------------------------------
 const isBrowser = typeof window !== `undefined`
-const loginPath = "/api/sso/login"
-const logoutPath = "/api/sso/logout"
-const statusPath = "/api/sso/status"
-const megaPath = "/api/mega/profile"
+const loginPath =   "/api/sso/login"
+const logoutPath =  "/api/sso/logout"
+const statusPath =  "/api/sso/status"
+const megaPath =    "/api/mega/profile"
 
 // Anonymous User
 const Anon = {
@@ -26,6 +25,14 @@ const UserContext = createContext(defaultState)
 const UserContextConsumer = UserContext.Consumer
 const UserContextProvider = UserContext.Provider
 
+/**
+ * Reducer function for the user context state.
+ *
+ * @param {*} state
+ * @param {*} action
+ *
+ * @return A new state.
+ */
 function UserContextReducer(state, action) {
 
   if (!state) {
@@ -35,6 +42,7 @@ function UserContextReducer(state, action) {
   switch(action.type) {
     case 'login':
       console.log("Dispatch: Login")
+      if (isBrowser) { window.user = action.user }
       return { ...state, user: action.user };
 
     case 'logout':
@@ -44,6 +52,7 @@ function UserContextReducer(state, action) {
 
     case 'addProfile':
       console.log("Dispatch: AddProfile")
+      if (isBrowser) { window.userProfile = action.profile }
       return { ...state, profile: action.profile }
 
     case 'rmProfile':
@@ -61,7 +70,15 @@ function UserContextReducer(state, action) {
 
 }
 
-// User State Provider. This handles the state updates on the UserContext store.
+/**
+ * User State Provider.
+ *
+ * This handles the state updates on the UserContext store.
+ *
+ * @param {*} param0
+ *
+ * @return JSX template wrapper.
+ */
 const UserStateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(UserContextReducer)
   return (
@@ -84,10 +101,10 @@ const fetchSSOStatus = async () => {
       return false
     })
     .then(data => {
-      if (!data || !data.authToken) {
+      if (!data || !data.session || !data.status) {
         return false
       }
-      delete data.authToken
+
       return data
     })
     .catch(error => {
@@ -105,7 +122,13 @@ const fetchMegaProfile = async (encodedSUID) => {
   let result = await fetch(megaPath + "/" + encodedSUID)
     .then(response => {
       if (response.ok) {
-        return response.json()
+        try {
+          let data = response.json()
+          return data
+        }
+        catch(e) {
+          return false
+        }
       }
       return false
     })
@@ -193,6 +216,7 @@ const doSSOLogout = async () => {
 
 // Do the logout. Everywhere.
 const doLogout = () => {
+  if (isBrowser) { window.user = null }
   doSSOLogout()
 }
 

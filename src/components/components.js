@@ -1,6 +1,12 @@
 import Page from './page'
 import RichTextField from "../utilities/richTextField"
 import ComponentNotFound from './component_not_found'
+// User & Authentication
+import LoginButton from './auth/loginButton'
+import LogoutButton from './auth/logoutButton'
+import UserInfoBlock from './auth/userInfoBlock'
+import WhoIs from './auth/whoIs'
+
 // Site Identity Elements
 import GlobalFooter from './identity/globalFooter'
 import GlobalFooterPicker from './identity/globalFooterPicker'
@@ -109,6 +115,10 @@ const ComponentList = {
   storyPicker: StoryPicker,
   oodSupportPage: OodSupportPage,
   gridThreeColumns: GridThreeColumns,
+  loginButton: LoginButton,
+  logoutButton: LogoutButton,
+  userInfoBlock: UserInfoBlock,
+  whoIs: WhoIs,
 }
 
 const Components = (type) => {

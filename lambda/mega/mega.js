@@ -38,7 +38,7 @@ const tokenFetcher = async () => {
       throw new Error("Response did not contain access token");
     })
     .catch((error) => {
-      console.log(error.output)
+      console.error(error.output)
       return { status: 400, msg: error.message }
     })
 
@@ -64,7 +64,7 @@ const profileFetcher = async (profileID, token) => {
       return body
     })
     .catch(error => {
-      console.log(error.output)
+      console.error(error.output)
       return false
     });
 
@@ -100,8 +100,8 @@ app.get(`/api/mega/profile/:profileId`,
     }
     else {
       res
-        .status(404)
-        .redirect("/404")
+        .status(403)
+        .json({status: 0})
     }
   }
 )
