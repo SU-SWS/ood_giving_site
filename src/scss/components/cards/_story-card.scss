@@ -84,6 +84,12 @@
       }
     }
 
+    .ood-story-card__contents {
+      @include grid-media('lg') {
+        @include responsive-spacing('padding', null 3);
+      }
+    }
+
     .ood-story-card__body {
       @include grid-media('xl') {
         @include modular-typography(1);
