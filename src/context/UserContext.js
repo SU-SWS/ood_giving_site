@@ -42,22 +42,24 @@ function UserContextReducer(state, action) {
   switch(action.type) {
     case 'login':
       console.log("Dispatch: Login")
-      if (isBrowser) { window.user = action.user }
+      if (isBrowser) { Window.user = action.user }
       return { ...state, user: action.user };
 
     case 'logout':
       console.log("Dispatch: Logout")
+      if (isBrowser) { delete Window.user }
       doLogout()
       return defaultState;
 
     case 'addProfile':
       console.log("Dispatch: AddProfile")
-      if (isBrowser) { window.userProfile = action.profile }
+      if (isBrowser) { Window.userProfile = action.profile }
       return { ...state, profile: action.profile }
 
     case 'rmProfile':
       console.log("Dispatch: Remove Profile")
       state.profile = false
+      if (isBrowser) { delete Window.userProfile }
       return { ...state }
 
     case 'refresh':
