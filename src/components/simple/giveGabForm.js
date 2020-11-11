@@ -68,7 +68,7 @@ const GiveGabForm = (props) => {
     Window.su_gab_personal_zip = address.zipPostalCode ?? '';
 
     let spouse = findSignificantOther(profile.relationships);
-    Window.su_gab_partner_title = spouse.relatedContactGender == "Female" ? 'Mrs.' : "Mr."; // This line needs work and is not correct but will do for our sample data.
+    Window.su_gab_partner_title = spouse.relatedContactGender == "Female" ? 'Mrs.' : 'Mr.'; // This line needs work and is not correct but will do for our sample data.
     Window.su_gab_partner_first = spouse.relatedContactFirstName ?? '';
     Window.su_gab_partner_middle = spouse.relatedContactMiddleName ?? '';
     Window.su_gab_partner_last = spouse.relatedContactLastName ?? '';
@@ -82,7 +82,7 @@ const GiveGabForm = (props) => {
     return (<h3>Loading...</h3>)
   }
 
-  if (!user || user.status == 0) {
+  if (!user && user.status == 0 && user.refresh) {
     return getScript(props, scriptRef)
   }
 
