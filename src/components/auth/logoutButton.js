@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { UserContext, doLogout, Anon } from "../../context/UserContext"
+import { UserContext, Anon } from "../../context/UserContext"
 
 const LogoutButton = (props) => {
   const { state: account, dispatch } = useContext(UserContext);
@@ -8,7 +8,7 @@ const LogoutButton = (props) => {
 
   if (user.status) {
     return (
-      <button onClick={() => { doLogout; dispatch({type:'logout'})}}>{buttonLabel}</button>
+      <button onClick={() => {dispatch({type:'logout'})}}>{buttonLabel}</button>
     )
   }
 

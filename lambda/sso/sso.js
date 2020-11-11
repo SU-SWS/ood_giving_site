@@ -155,9 +155,7 @@ app.get('/api/sso/status',
 
 // Logout.
 app.get('/api/sso/logout', function(req, res) {
-  // res.clearCookie("saml_auth_token");
-  // res.clearCookie("stanford_auth_token");
-  // res.clearCookie("stanford_jwt");
+  res.clearCookie(userCookieName);
   res.status(200)
   res.send("ok")
 });
