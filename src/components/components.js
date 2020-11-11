@@ -58,6 +58,7 @@ import StoryOverview from './page-types/storyOverview'
 import AspectRatioImage from './media/aspectRatioImage'
 import CtaLink from './simple/ctaLink'
 import EmbedScript from './simple/embedScript'
+import GiveGabForm from './simple/giveGabForm'
 import StoryImage from './media/storyImage'
 import StoryPicker from './page-types/story/storyPicker'
 // Composite Components
@@ -68,6 +69,7 @@ const ComponentList = {
   page: Page,
   aspectRatioImage: AspectRatioImage,
   embedScript: EmbedScript,
+  giveGabForm: GiveGabForm,
   storyImage: StoryImage,
   ctaLink: CtaLink,
   accordionItem: AccordionItem,

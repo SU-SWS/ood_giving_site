@@ -21,8 +21,8 @@ const userData = (props) => {
     }
 
     // If no profile was found then try a known id.
-    let rando = [ '66733988139', '50236888698', '64058874980', '38455014318', '25868952802', ]
-    let rand = Math.floor(Math.random() * 6)
+    let rando = [ '66733988139', '50236888698', '64058874980', '38455014318', '25868952802' ]
+    let rand = Math.floor(Math.random() * 5)
 
     mega = await fetchMegaProfile(rando[rand])
     if (mega && mega.encodedSUID) {

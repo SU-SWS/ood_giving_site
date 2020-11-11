@@ -100,8 +100,7 @@ app.get(`/api/mega/profile/:profileId`,
     }
     else {
       res
-        .status(403)
-        .json({status: 0})
+        .json({error: true, status: 0})
     }
   }
 )
