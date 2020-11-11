@@ -1,7 +1,7 @@
 import React from "react"
 
 const Heading = (props) => {
-  const HeadingTag = props.level ? props.level : props.defaultLevel;
+  const HeadingTag = props.level || props.defaultLevel || "h3";
 
   return (
     <HeadingTag className={`
