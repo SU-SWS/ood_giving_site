@@ -13,7 +13,6 @@ const userData = (props) => {
   // Get the Mega Profile information from that API.
   const getMegaProfile = async (profileID) => {
     let mega = false;
-
     mega = await fetchMegaProfile(profileID)
     if (mega && mega.encodedSUID) {
       dispatch({type: "addProfile", profile: mega })
@@ -53,11 +52,14 @@ const userData = (props) => {
    * Function to run other async functions.
    */
   const runEffect = async () => {
+    dispatch({type: "startLoading"})
     let user = await getUser()
     if (user && user.suid) {
       await getMegaProfile(user.suid)
     }
     dispatch({type: "refresh"})
+    dispatch({type: "doneLoading"})
+
   }
 
   /**

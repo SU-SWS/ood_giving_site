@@ -49,6 +49,7 @@ const GiveGabForm = (props) => {
   const { state: account, dispatch } = useContext(UserContext);
   let user = (account && account.user) ? account.user : Anon
   let profile = (account && account.profile) ? account.profile : false
+  let isLoading = (account && account.loading && account.loading !== 0) ? true : false
   const isBrowser = typeof window !== `undefined`
   const scriptRef = useRef()
 
@@ -78,15 +79,15 @@ const GiveGabForm = (props) => {
     Window.su_gab_personal_email = "sheamck@stanford.edu"
   }
 
-  if (user && user.status == 1 && !profile) {
+  if (isLoading) {
     return (<h3>Loading...</h3>)
   }
 
-  if (!user && user.status == 0 && user.refresh) {
+  if (user && user.status == 0 && !isLoading) {
     return getScript(props, scriptRef)
   }
 
-  if (user && user.status == 1 && profile) {
+  if (user && user.status == 1 && !isLoading) {
     return getScript(props, scriptRef)
   }
 

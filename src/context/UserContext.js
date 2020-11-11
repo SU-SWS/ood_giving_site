@@ -7,6 +7,9 @@ const loginPath =   "/api/sso/login"
 const logoutPath =  "/api/sso/logout"
 const statusPath =  "/api/sso/status"
 const megaPath =    "/api/mega/profile"
+const DONE = 0
+const LOADING = 1
+const PENDING = 2
 
 // Anonymous User
 const Anon = {
@@ -17,7 +20,8 @@ const Anon = {
 // Default State.
 const defaultState = {
   user: Anon,
-  profile: false
+  profile: false,
+  loading: PENDING,
 }
 
 // The context.
@@ -42,25 +46,29 @@ function UserContextReducer(state, action) {
   switch(action.type) {
     case 'login':
       console.log("Dispatch: Login")
-      if (isBrowser) { Window.user = action.user }
       return { ...state, user: action.user };
 
     case 'logout':
       console.log("Dispatch: Logout")
-      if (isBrowser) { delete Window.user }
       doLogout()
       return defaultState;
 
     case 'addProfile':
       console.log("Dispatch: AddProfile")
-      if (isBrowser) { Window.userProfile = action.profile }
       return { ...state, profile: action.profile }
 
     case 'rmProfile':
       console.log("Dispatch: Remove Profile")
       state.profile = false
-      if (isBrowser) { delete Window.userProfile }
       return { ...state }
+
+    case 'startLoading':
+      console.log("Dispatch: Start Loading")
+      return { ...state, loading: LOADING }
+
+    case 'doneLoading':
+      console.log("Dispatch: Done Loading")
+      return { ...state, loading: DONE }
 
     case 'refresh':
       console.log("Dispatch: Refresh")
