@@ -3,6 +3,7 @@ import SbEditable from "storyblok-react"
 import CreateBloks from "../../../utilities/createBloks"
 import UseOnClickOutside from "../../../hooks/useOnClickOutside"
 import CenteredContainer from "../../partials/centeredContainer"
+import UseEscape from "../../../hooks/useEscape"
 
 const OodMegaMenuSection = (props) => {
   const [sectionOpened, setSectionOpened] = useState(false);
@@ -12,6 +13,7 @@ const OodMegaMenuSection = (props) => {
     setSectionOpened(!sectionOpened);
   }
 
+  UseEscape(() => setSectionOpened(false));
   UseOnClickOutside(ref, () => setSectionOpened(false));
 
   return (
