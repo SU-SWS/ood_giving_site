@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from 'react'
 import SbEditable from "storyblok-react"
-import { UserContext, Anon } from "../../context/UserContext"
+import { UserContext, Anon, isLoggedIn } from "../../context/UserContext"
 
 // Find thte home address information.
 const findHomeAddress = (addresses) => {
@@ -28,20 +28,6 @@ const findSignificantOther = (relationships) => {
   return found
 }
 
-// Returns the script.
-const getScript = (props, scriptRef) => {
-  return (
-    <SbEditable content={props.blok}>
-      <div
-        ref={scriptRef}
-        dangerouslySetInnerHTML={{
-          __html: props.blok.script,
-        }}
-      />
-    </SbEditable>
-  )
-}
-
 // THE COMPONENT
 // -----------------------------------------------------------------------------
 const GiveGabForm = (props) => {
@@ -49,7 +35,7 @@ const GiveGabForm = (props) => {
   const { state: account, dispatch } = useContext(UserContext);
   let user = (account && account.user) ? account.user : Anon
   let profile = (account && account.profile) ? account.profile : false
-  let isLoading = (account && account.loading && account.loading !== 0) ? true : false
+  let isLoading = (account && account.loading !== 0) ?? true
   const isBrowser = typeof window !== `undefined`
   const scriptRef = useRef()
 
@@ -83,15 +69,17 @@ const GiveGabForm = (props) => {
     return (<h3>Loading...</h3>)
   }
 
-  if (user && user.status == 0 && !isLoading) {
-    return getScript(props, scriptRef)
-  }
+  return (
+    <SbEditable content={props.blok}>
+      <div
+        ref={scriptRef}
+        dangerouslySetInnerHTML={{
+          __html: props.blok.script,
+        }}
+      />
+    </SbEditable>
+  )
 
-  if (user && user.status == 1 && !isLoading) {
-    return getScript(props, scriptRef)
-  }
-
-  return null;
 }
 
 export default GiveGabForm
