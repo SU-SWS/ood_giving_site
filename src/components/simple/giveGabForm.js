@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import SbEditable from "storyblok-react"
 import { UserContext, Anon } from "../../context/UserContext"
 
@@ -28,12 +28,29 @@ const findSignificantOther = (relationships) => {
   return found
 }
 
+// Returns the script.
+const getScript = (props, scriptRef) => {
+  return (
+    <SbEditable content={props.blok}>
+      <div
+        ref={scriptRef}
+        dangerouslySetInnerHTML={{
+          __html: props.blok.script,
+        }}
+      />
+    </SbEditable>
+  )
+}
+
+// THE COMPONENT
+// -----------------------------------------------------------------------------
 const GiveGabForm = (props) => {
 
-  const { state: account } = useContext(UserContext);
+  const { state: account, dispatch } = useContext(UserContext);
   let user = (account && account.user) ? account.user : Anon
   let profile = (account && account.profile) ? account.profile : false
   const isBrowser = typeof window !== `undefined`
+  const scriptRef = useRef()
 
   if (user && user.suid && user.status == 1 && profile && isBrowser) {
     Window.su_gab_personal_email = user.email;
@@ -61,16 +78,19 @@ const GiveGabForm = (props) => {
     Window.su_gab_personal_email = "sheamck@stanford.edu"
   }
 
+  if (user && user.status == 1 && !profile) {
+    return (<h3>Loading...</h3>)
+  }
 
-  return (
-    <SbEditable content={props.blok}>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: props.blok.script,
-        }}
-      />
-    </SbEditable>
-  )
+  if (!user || user.status == 0) {
+    return getScript(props, scriptRef)
+  }
+
+  if (user && user.status == 1 && profile) {
+    return getScript(props, scriptRef)
+  }
+
+  return null;
 }
 
 export default GiveGabForm
