@@ -1,14 +1,11 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import Components from "../components";
+import CreateStories from "../../utilities/createStories"
 
 const LocalFooterPicker = (props) => {
   return (
     <SbEditable content={props.blok}>
-      {props.blok.localFooter && props.blok.localFooter.map((story) => React.createElement(Components(story.content.component), {
-        key: story.content._uid,
-        blok: story.content,
-      }))}
+      <CreateStories stories={props.blok.localFooter} />
     </SbEditable>
   )
 }
