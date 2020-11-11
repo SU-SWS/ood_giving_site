@@ -24,6 +24,8 @@ const EmbedScript = (props) => {
     />)
   }
 
+  console.log("Refreshing embed component.")
+
   return (
     <SbEditable content={props.blok}>
       {prescript}
