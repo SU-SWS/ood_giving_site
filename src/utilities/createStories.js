@@ -10,6 +10,8 @@ const CreateStories = (props) => {
       props.stories.map((story) => React.createElement(Components(story.content.component), {
         key: story.content._uid,
         blok: story.content,
+        storyLink: story.full_slug,
+        ...props
       }))
     )
   }
