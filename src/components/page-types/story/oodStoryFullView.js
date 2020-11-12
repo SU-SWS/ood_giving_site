@@ -5,6 +5,8 @@ import Footer from "../../partials/footer";
 import transformImage from "../../../utilities/transformImage";
 import SeoSocial from "../../partials/seoSocial"
 import CreateBloks from "../../../utilities/createBloks"
+import CenteredContainer from "../../partials/centeredContainer"
+import BelowContent from "../../partials/belowContent"
 
 const StoryFullView = (props) => {
   let processedHeroImg;
@@ -36,8 +38,7 @@ const StoryFullView = (props) => {
                 />
               </figure>
             )}
-            <div
-              className={`centered-container flex-container ood-story__header-content`}>
+            <CenteredContainer flex={true} classes={"ood-story__header-content"}>
               <div className={`ood-story__header-content-wrapper flex-md-12-of-12 flex-lg-10-of-12 flex-2xl-9-of-12
                      su-bg-${props.blok.headerBoxColor}
                      ${(props.blok.headerBoxColor !== "white" && props.blok.headerBoxColor !== "fog-light") ? "su-text-white" : ""}
@@ -48,33 +49,36 @@ const StoryFullView = (props) => {
                     className="intro-text ood-story__intro-text">{props.blok.intro}</p>
                 )}
               </div>
-            </div>
+            </CenteredContainer>
           </header>
           <div className="ood-story__content">
             <CreateBloks blokSection={props.blok.storyContent} />
           </div>
-          <footer className="ood-story__main-footer su-bg-white">
+          <footer className="ood-story__main-footer">
             {(props.blok.author || publishedDate) &&
-            <div className="centered-container flex-container">
-              <div className="flex-lg-8-of-12 su-mx-auto">
-                <CreateBloks blokSection={props.blok.cta} />
-                <div className="ood-story__metadata su-pb-5">
-                  {props.blok.author &&
-                  <>
-                    <p className="ood-story__metadata-title su-bold su-uppercase">Author</p>
-                    <span className="ood-story__metadata-data">{props.blok.author}</span>
-                  </>
-                  }
-                  {publishedDate &&
-                  <>
-                    <p className="ood-story__metadata-title su-bold su-uppercase">Date</p>
-                    <span className="ood-story__metadata-data su-mb-none">{publishedDate}</span>
-                  </>
-                  }
-                </div>
+              <div className="ood-story__metadata">
+                <CenteredContainer flex={true}>
+                  <div className="flex-lg-8-of-12 su-mx-auto">
+                    <CreateBloks blokSection={props.blok.cta} />
+                    <div className="ood-story__metadata su-pb-5">
+                      {props.blok.author &&
+                      <>
+                        <p className="ood-story__metadata-title su-bold su-uppercase">Author</p>
+                        <span className="ood-story__metadata-data">{props.blok.author}</span>
+                      </>
+                      }
+                      {publishedDate &&
+                      <>
+                        <p className="ood-story__metadata-title su-bold su-uppercase">Date</p>
+                        <span className="ood-story__metadata-data su-mb-none">{publishedDate}</span>
+                      </>
+                      }
+                    </div>
+                  </div>
+                </CenteredContainer>
               </div>
-            </div>
             }
+            <BelowContent {...props}/>
             <IconCardSection {...props}/>
           </footer>
         </article>

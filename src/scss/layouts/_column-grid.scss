@@ -6,15 +6,43 @@
   .ood-tile-card,
   .ood-icon-card,
   .ood-basic-card {
-    @include modular-spacing('margin', null null 3);
+    @include responsive-spacing('margin', null null 3);
     height: auto;
   }
 
   &__column {
+    @include grid-media-max('sm') {
+      @include margin(null null get-responsive-spacing-value(3, 'mobile'));
+    }
+
     > * {
       &:last-child {
         @include margin(null null 0);
       }
+    }
+
+    // If the one column for MD option is chosen, add margin at bottom for each column
+    &.flex-lg-4-of-12 {
+      @include grid-media-only('md') {
+        @include margin(null null get-responsive-spacing-value(3, 'tablet'));
+      }
+
+      &:last-child {
+        @include margin(null null 0);
+      }
+    }
+
+    &.su-mb-none {
+      &.flex-md-4-of-12,
+      &.flex-lg-4-of-12 {
+        @include margin(null null 0);
+      }
+    }
+  }
+
+  > * {
+    &:last-child {
+      @include margin(null null 0);
     }
   }
 }

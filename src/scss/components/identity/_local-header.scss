@@ -10,6 +10,6 @@
   z-index: 130;
 
   .su-lockup {
-    @include modular-spacing('padding', null null 0);
+    @include responsive-spacing('padding', null null 0);
   }
 }

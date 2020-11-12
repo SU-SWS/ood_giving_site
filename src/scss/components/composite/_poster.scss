@@ -56,7 +56,7 @@
   }
 
   &__card {
-    @include modular-spacing('padding', 4 4 5);
+    @include responsive-spacing('padding', 4 4 5);
     width: 100%;
     position: absolute;
     bottom: -6rem;
@@ -98,10 +98,6 @@
   }
 
   .ood-cta {
-    @include modular-spacing('margin', 3 null null);
-
-    @include grid-media-max('sm') {
-      @include margin(3.2rem null null);
-    }
+    @include responsive-spacing('margin', 3 null null);
   }
 }

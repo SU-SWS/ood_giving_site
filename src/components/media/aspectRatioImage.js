@@ -24,11 +24,10 @@ const AspectRatioImage = (props) => {
     <SbEditable content={props.blok}>
       <figure className={`su-media su-media--image ood-media ood-media--${props.aspectRatio}
               ${props.classPrefix ? `${props.classPrefix}__media` : ""}${props.otherClasses ? ` ${props.otherClasses}` : ""}`}>
-        <div className={`su-media__wrapper su-aspect-ratio--${props.aspectRatio ? `${props.aspectRatio}` : "3x2"}`}>
+        <div className={`su-media__wrapper su-aspect-ratio--${props.aspectRatio ? props.aspectRatio : "3x2"}`}>
           <img className={`ood-media__image
                ${props.classPrefix ? `${props.classPrefix}__image` : ""}
-               su-obj-position-h-${props.visibleHorizontal}-v-${props.visibleVertical}
-               `}
+               su-obj-position-h-${props.visibleHorizontal}-v-${props.visibleVertical}`}
                src={processedImg}
                alt={props.alt ? props.alt : ""}
           />

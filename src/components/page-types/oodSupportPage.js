@@ -6,6 +6,7 @@ import BelowContent from '../partials/belowContent'
 import IconCardSection from '../partials/iconCardSection'
 import SeoSocial from "../partials/seoSocial"
 import CreateBloks from "../../utilities/createBloks"
+import CenteredContainer from "../partials/centeredContainer"
 
 const OodSupportPage = (props) => {
   return (
@@ -24,7 +25,7 @@ const OodSupportPage = (props) => {
                   <h2 className="ood-interior-page__body-header-title su-serif su-bold ood-has-tab-before">{props.blok.bodyTitle}</h2>
                 </header>
               }
-              <div className="centered-container ood-support-page__filter-container">
+              <CenteredContainer classes={"ood-support-page__filter-container"}>
                 <input type="radio" id="all" name="areas-to-support" defaultChecked />
                 <label htmlFor="all">All</label>
                 <input type="radio" id="undergraduate" name="areas-to-support"/>
@@ -62,7 +63,7 @@ const OodSupportPage = (props) => {
                   <CreateBloks blokSection={props.blok.sustainability} />
                   <CreateBloks blokSection={props.blok.teaching} />
                 </div>
-              </div>
+              </CenteredContainer>
             </section>
             <BelowContent {...props}/>
             <footer className="ood-support-page__main-footer">
