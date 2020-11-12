@@ -2,6 +2,7 @@ import React from "react"
 import SbEditable from "storyblok-react"
 import RichTextField from "../../utilities/richTextField"
 import CenteredContainer from "./centeredContainer"
+import Heading from "./heading"
 
 /* The Header No Image component is referenced by the Interior Page and Support page types. */
 
@@ -10,7 +11,7 @@ const HeaderNoImage = (props) => (
     <header className={`ood-interior-page__header ood-interior-page__header--no-image`}>
       <div className={`ood-interior-page__header-title-wrapper su-pt-7 su-bg-${props.blok.headerBackgroundColor}`}>
         <CenteredContainer>
-          <h1 className="ood-interior-page__title flex-xl-10-of-12 su-serif su-text-white">{props.blok.title}</h1>
+          <Heading level={"h1"} serif={true} color={"white"} classes={"ood-interior-page__title flex-xl-10-of-12"}>{props.blok.title}</Heading>
         </CenteredContainer>
       </div>
       <CenteredContainer flex={true} classes={"ood-interior-page__header-intro"}>

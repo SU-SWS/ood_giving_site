@@ -1,9 +1,9 @@
 import React from 'react'
 import Link from "gatsby-link"
 import SbEditable from 'storyblok-react'
+import Heading from '../partials/heading'
 
 const OodIconCard = (props) => {
-  const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h3";
 
   const IconCardContent = (props) => (
     <SbEditable content={props.blok}>
@@ -16,10 +16,12 @@ const OodIconCard = (props) => {
          `}/>
       </div>
       <section className="ood-icon-card__contents">
-        <Heading
-          className={`ood-icon-card__headline su-semibold su-hocus-underline su-mb-none
-              ${props.blok.backgroundColor !== "white" ? "su-text-white" : "su-text-black"}
-              ${props.blok.link.linktype === "url" ? "su-link--external" : ""}`}>
+        <Heading level={props.blok.headingLevel} defaultLevel={"h3"}
+                 classes={"ood-icon-card__headline su-hocus-underline su-mb-none"}
+                 weight={"semibold"}
+                 external={props.blok.link.linktype === "url"}
+                 color={props.blok.backgroundColor !== "white" ? "white" : "black"}
+        >
           {props.blok.headline}
         </Heading>
       </section>
