@@ -8,18 +8,39 @@
 
   &__contents {
     position: relative;
-    min-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 16rem;
     z-index: 10;
 
-    @include grid-media('md') {
-      min-height: 26rem;
+    @include grid-media('sm') {
+      min-height: 25rem;
+    }
+
+    @include grid-media('xl') {
+      min-height: 28rem;
     }
   }
 
   &__headline {
-    @include modular-typography(3);
-    @include margin(null null 0);
+    @include modular-typography(2);
+    @include margin(null null 1rem);
     letter-spacing: -0.016em;
+    flex-basis: auto;
+    flex-grow: 1; // This makes the icon sticks to the bottom of the card
+
+    // Headline font sizes need to be finetuned between below breakpoints
+    @include grid-media-between('lg', 'xl') {
+      @include fluid-type(25px, 34px, 992px, 1499px);
+    }
+
+    @media only screen and (min-width: 1500px) and (max-width: 1699px) {
+      @include fluid-type(34px, 37px, 1500px, 1699px);
+    }
+
+    @media only screen and (min-width: 1700px) {
+      @include modular-typography(3);
+    }
 
     &::after {
       background-color: $su-color-white;
@@ -27,41 +48,14 @@
   }
 
   &__icon {
+    display: block;
+    flex-basis: 0;
     font-size: 3em;
-  }
+    text-align: right;
 
-  &__link {
-    border-color: transparent;
-
-    // Darkened mask over whole card visible on hover/focus
-    &::after {
-      display: block;
-      content: "";
-      position: absolute;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0);
-      transition: background-color 0.25s ease-in;
-    }
-
-    &:hover,
-    &:focus {
-      border-color: transparent;
-
-      &::after {
-        background-color: rgba(0, 0, 0, 0.4);
-      }
-
-      .ood-support-card__headline {
-        text-decoration: underline;
-      }
-
-      .ood-support-card__icon {
-        font-size: 3.3em;
-      }
+    &::before {
+      transform-origin: right bottom;
+      transition: font-size 0.25s ease-in;
     }
   }
 
@@ -69,6 +63,11 @@
     @include responsive-spacing('padding', 3);
     height: 100%;
     position: relative;
+    border-color: transparent;
+
+    @include grid-media-only('lg') {
+      @include padding(get-responsive-spacing-value(1, 'desktop'));
+    }
 
     @include grid-media('2xl') {
       @include padding(get-responsive-spacing-value(4, 'desktop'));
@@ -76,19 +75,33 @@
 
     &:hover,
     &:focus {
+      border-color: transparent;
+
       .ood-support-card__headline {
+        text-decoration: underline;
+
         &::after {
           background-color: $su-color-white;
           transform: translate3d(0.15em, -0.15em, 0);
         }
       }
+
+      .ood-support-card__icon {
+        font-size: 3.3em;
+      }
     }
 
     &.su-bg-white {
       .ood-support-card__headline {
+        color: $su-color-black;
+
         &::after {
           background-color: $su-color-black;
         }
+      }
+
+      .ood-support-card__icon {
+        color: $su-color-black;
       }
 
       &:hover,
@@ -102,13 +115,71 @@
         }
       }
     }
-  }
 
-  &__icon {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    text-align: right;
-    transition: font-size 0.25s ease-in;
+    // Darkened mask over whole card visible on hover/focus for non-white cards
+    &:not(.su-bg-white) {
+      &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0);
+        transition: background-color 0.25s ease-in;
+      }
+
+      &:hover,
+      &:focus {
+        &::after {
+          background-color: rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+  }
+}
+
+.row--3-columns,
+.column-grid {
+  @include grid-media-between('sm', 'md') {
+    .flex-lg-4-of-12 {
+      .ood-support-card__contents {
+        min-height: 18rem;
+      }
+    }
+  }
+}
+
+.row--1-column {
+  @include grid-media-only('md') {
+    .ood-support-card__contents {
+      min-height: 18rem;
+    }
+  }
+}
+
+.row--2-columns,
+.row--1-column {
+  @include grid-media-only('sm') {
+    .ood-support-card__contents {
+      min-height: 18rem;
+    }
+  }
+}
+
+.row--2-columns {
+  @include grid-media-only('md') {
+    .flex-lg-6-of-12 {
+      .ood-support-card {
+        @include margin(null auto);
+        @include flex-column(9, $su-gutter-md);
+      }
+
+      .ood-support-card__contents {
+        min-height: 18rem;
+      }
+    }
   }
 }

@@ -21,7 +21,7 @@ const CuratedStories = (props) => (
         </div>
       )}
       {(props.blok.otherStories != null && Object.keys(props.blok.otherStories).length > 0) && (
-        <div className={`flex-container ood-curated-stories__other ${props.blok.layout === "2"? "flex-lg-10-of-12 flex-xl-8-of-12 " : ""}su-flex-${props.blok.layout}-col su-mx-auto`}>
+        <div className={`flex-container ood-curated-stories__other ${props.blok.layout === "2"? "flex-xl-10-of-12 flex-2xl-8-of-12 " : ""}su-flex-${props.blok.layout}-col su-mx-auto`}>
           <CreateBloks blokSection={props.blok.otherStories} />
         </div>
       )}

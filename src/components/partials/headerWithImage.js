@@ -3,7 +3,7 @@ import RichTextField from "../../utilities/richTextField"
 import React from "react"
 import AspectRatioImage from "../media/aspectRatioImage"
 import CenteredContainer from "./centeredContainer"
-import FlexCell from "./flexCell"
+import Heading from "./heading"
 
 /* The Header with Image component is referenced by the Interior Page type. */
 
@@ -12,7 +12,8 @@ const HeaderWithImage = (props) => (
     <header className={`ood-interior-page__header ood-interior-page__header--has-image`}>
       <div className={`ood-interior-page__header-title-wrapper su-pt-6 su-pb-5 su-bg-${props.blok.headerBackgroundColor}`}>
         <CenteredContainer flex={true}>
-          <h1 className="ood-interior-page__title flex-lg-6-of-12 flex-xl-5-of-12 flex-2xl-6-of-12 su-serif su-text-white">{props.blok.title}</h1>
+          <Heading level={"h1"} serif={true} color={"white"}
+                   classes={"ood-interior-page__title flex-lg-6-of-12 flex-xl-5-of-12 flex-2xl-6-of-12"}>{props.blok.title}</Heading>
           <AspectRatioImage
             {...props}
             filename={props.blok.headerImage.filename}
@@ -27,9 +28,9 @@ const HeaderWithImage = (props) => (
       <div className={`ood-interior-page__header-intro-wrapper su-py-6 su-bg-white`}>
         <CenteredContainer flex={true}>
           {props.blok.intro && (
-            <FlexCell xl={8} classes={"intro-text ood-interior-page__intro"}>
+            <div className="intro-text ood-interior-page__intro flex-xl-8-of-12">
               <RichTextField data={props.blok.intro}/>
-            </FlexCell>
+            </div>
           )}
         </CenteredContainer>
       </div>
