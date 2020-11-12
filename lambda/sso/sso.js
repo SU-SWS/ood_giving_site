@@ -27,6 +27,7 @@ const saml = new passportSAML.Strategy(
     passReqToCallback: true,
     validatedInResponseTo: false,
     passport: passport,
+    forceAuthn: true,
     acceptedClockSkewMs: 60000,
     skipRequestCompression: false,
     disableRequestedAuthnContext: true,
@@ -156,6 +157,7 @@ app.get('/api/sso/status',
 // Logout.
 app.get('/api/sso/logout', function(req, res) {
   res.clearCookie(userCookieName);
+  req.logout()
   res.status(200)
   res.send("ok")
 });
