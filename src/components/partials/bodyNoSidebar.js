@@ -1,12 +1,13 @@
 import SbEditable from "storyblok-react"
 import React from "react"
 import CreateBloks from "../../utilities/createBloks"
+import FlexCell from "./flexCell"
 
 const BodyNoSidebar = (props) => (
   <SbEditable content={props.blok}>
-    <div className="ood-interior-page__body-content flex-lg-10-of-12 flex-xl-8-of-12 su-mx-auto">
+    <FlexCell lg={10} xl={8} classes={"ood-interior-page__body-content su-mx-auto"}>
       <CreateBloks blokSection={props.blok.pageContent} />
-    </div>
+    </FlexCell>
   </SbEditable>
 );
 

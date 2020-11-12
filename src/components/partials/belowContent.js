@@ -8,9 +8,9 @@ import CreateBloks from "../../utilities/createBloks"
 const BelowContent = (props) => (
   <SbEditable content={props.blok}>
     {(props.blok.belowContent != null && Object.keys(props.blok.belowContent).length > 0) && (
-      <section className="ood-interior-page__below-body">
+      <div className="ood-interior-page__below-body">
         <CreateBloks blokSection={props.blok.belowContent} />
-      </section>
+      </div>
     )}
   </SbEditable>
 );
