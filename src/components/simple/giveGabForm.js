@@ -39,6 +39,10 @@ const GiveGabForm = (props) => {
   let profile = (account && account.profile) ? account.profile : false
   let isLoading = (account && account.loading !== 0) ?? true
 
+  if (isLoading) {
+    return (<h3>Loading...</h3>)
+  }
+
   if (user && user.suid && user.status == 1 && profile && isBrowser) {
     window.su_gab_personal_email = user.email;
     window.su_gab_personal_title = profile.name.fullNameParsed.prefix;
@@ -47,7 +51,7 @@ const GiveGabForm = (props) => {
     window.su_gab_personal_last = profile.name.fullNameParsed.lastName;
 
     let address = findHomeAddress(profile.addresses);
-    window.su_gab_personal_co = address.addressCountry ?? '';
+    // window.su_gab_personal_co = address.addressCountry ?? '';
     window.su_gab_personal_st = address.streetAddress1 ?? '';
     window.su_gab_personal_st2 = address.streetAddress2 ?? '';
     window.su_gab_personal_city = address.city ?? '';
@@ -55,14 +59,9 @@ const GiveGabForm = (props) => {
     window.su_gab_personal_zip = address.zipPostalCode ?? '';
 
     let spouse = findSignificantOther(profile.relationships);
-    window.su_gab_partner_title = spouse.relatedContactGender == "Female" ? 'Mrs.' : 'Mr.'; // This line needs work and is not correct but will do for our sample data.
     window.su_gab_partner_first = spouse.relatedContactFirstName ?? '';
     window.su_gab_partner_middle = spouse.relatedContactMiddleName ?? '';
     window.su_gab_partner_last = spouse.relatedContactLastName ?? '';
-  }
-
-  if (isLoading) {
-    return (<h3>Loading...</h3>)
   }
 
   const doOnLoad = (props) => {
