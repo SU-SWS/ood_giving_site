@@ -166,6 +166,22 @@
   &__card {
     &-content {
       @include responsive-spacing('padding', 1 1 2);
+      @include add-mask;
+
+      &::after {
+        z-index: 1;
+      }
+    }
+
+    &-content,
+    &-headline,
+    &-cta {
+      position: relative;
+    }
+
+    &-headline,
+    &-cta {
+      z-index: 11;
     }
 
     &__link {
@@ -176,6 +192,12 @@
 
       &:hover,
       &:focus {
+        .ood-mega-nav__card-content {
+          &::after {
+            background-color: rgba(0, 0, 0, 0.4);
+          }
+        }
+
         .ood-mega-nav__card-cta {
           text-decoration: none;
 
