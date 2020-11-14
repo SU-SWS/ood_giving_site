@@ -94,6 +94,10 @@
 
       .ood-mega-nav__item {
         @include margin(null null 1em);
+
+        &:last-of-type {
+          @include margin(null null 0);
+        }
       }
 
       .ood-mega-nav__link {
@@ -147,7 +151,7 @@
     }
 
     .ood-cta {
-      @include responsive-spacing('margin', 0 null null);
+      @include responsive-spacing('margin', 4 null null);
     }
   }
 

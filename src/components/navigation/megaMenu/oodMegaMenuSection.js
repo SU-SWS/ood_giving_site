@@ -23,7 +23,7 @@ const OodMegaMenuSection = (props) => {
                 aria-expanded={sectionOpened}
                 onClick={toggleSection}>{props.blok.linkText}</button>
         <div className="ood-mega-nav__section su-bg-white" aria-hidden={!sectionOpened}>
-          <CenteredContainer flex={true} classes={"su-py-3"}>
+          <CenteredContainer flex={true} classes={"su-pt-3 su-pb-5"}>
             <div className="flex-lg-8-of-12 flex-2xl-9-of-12 su-flex su-flex-col">
               <div className="flex-container">
                 <CreateBloks blokSection={props.blok.linkGroups} />
