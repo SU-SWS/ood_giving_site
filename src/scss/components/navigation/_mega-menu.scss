@@ -168,7 +168,7 @@
       @include responsive-spacing('padding', 1 1 2);
       @include add-mask;
 
-      @include grid-media-only('2xl') {
+      @include grid-media('xl') {
         @include padding(get-responsive-spacing-value(2, 'desktop') get-responsive-spacing-value(2, 'desktop') get-responsive-spacing-value(3, 'desktop'));
       }
 
