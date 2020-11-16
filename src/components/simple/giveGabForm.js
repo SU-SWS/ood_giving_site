@@ -1,9 +1,9 @@
 import React, { useContext, useRef, useEffect } from 'react'
 import SbEditable from "storyblok-react"
 import { UserContext, Anon, isLoggedIn } from "../../context/UserContext"
-import Script from 'react-load-script'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from 'react-loader-spinner'
+import CenteredContainer from '../partials/centeredContainer'
 
 // Find thte home address information.
 const findHomeAddress = (addresses) => {
@@ -42,15 +42,6 @@ const GiveGabForm = (props) => {
   let profile = (account && account.profile) ? account.profile : false
   let isLoading = (account && account.loading !== 0) ?? true
 
-  if (isLoading) {
-    return (
-      <React.Fragment>
-      <p>&nbsp</p>
-      <Loader type="Bars" color="#00BFFF" height={100} width={100} timeout={20000} />
-      </React.Fragment>
-    )
-  }
-
   if (user && user.suid && user.status == 1 && profile && isBrowser) {
     window.su_gab_personal_email = user.email;
     window.su_gab_personal_title = profile.name.fullNameParsed.prefix;
@@ -72,17 +63,29 @@ const GiveGabForm = (props) => {
     window.su_gab_partner_last = spouse.relatedContactLastName ?? '';
   }
 
+  /**
+   * Some Stuff
+   * @param {*} props
+   */
   const doOnLoad = (props) => {
-    // const script = document.createElement('script');
-    // script.src = props.blok.script
-    // script.async = true
-    // scriptRef.current.appendChild(script)
+
+    if (isLoading) { return null }
+    if (!scriptRef || typeof scriptRef.current == undefined) { return null }
+
+    const script = document.createElement('script');
+    script.src = props.blok.script
+    script.async = true
+    scriptRef.current.appendChild(script)
   }
 
+  // Render
   return (
-    <SbEditable content={props.blok}>
-      <Script url={props.blok.script} />
-    </SbEditable>
+    <CenteredContainer>
+      {isLoading && (
+        <Loader type="TailSpin" color="#00BFFF" height={100} width={100} timeout={20000} />
+      )}
+      <div ref={scriptRef} onLoad={doOnLoad(props)}></div>
+    </CenteredContainer>
   )
 
 }
