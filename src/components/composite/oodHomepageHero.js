@@ -2,6 +2,7 @@ import React from 'react'
 import SbEditable from 'storyblok-react'
 import transformImage from "../../utilities/transformImage";
 import { Link } from "gatsby"
+import CenteredContainer from "../partials/centeredContainer"
 
 const OodHomepageHero = (props) => {
   let processedImg;
@@ -27,7 +28,7 @@ const OodHomepageHero = (props) => {
             />
           </div>
         </figure>
-        <div className="centered-container flex-container ood-hero-home__content">
+        <CenteredContainer flex={true} classes={"ood-hero-home__content"}>
           <h1 className={`flex-lg-7-of-12 ood-hero-home__splash-text su-semibold su-text-white su-text-focus-in
               su-mod-type-${props.blok.splashTextSize}
               su-after-bg-${props.blok.tabColor}`}>
@@ -46,7 +47,7 @@ const OodHomepageHero = (props) => {
               <CtaBoxContent {...props}/>
             </a>
           }
-        </div>
+        </CenteredContainer>
       </div>
     </SbEditable>
   )

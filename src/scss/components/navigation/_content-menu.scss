@@ -10,12 +10,12 @@
   }
 
   &__menu-group {
-    @include modular-spacing('padding', 0 null 1);
+    @include responsive-spacing('padding', 0 null 1);
     border-top: 1px solid $su-color-black-40;
   }
 
   &__title {
-    @include modular-spacing('margin', null null 1);
+    @include responsive-spacing('margin', null null 1);
     font-size: 1.6rem;
     font-weight: $su-font-bold;
     text-transform: uppercase;

@@ -3,6 +3,8 @@ import SbEditable from 'storyblok-react'
 import RichTextField from '../../utilities/richTextField'
 import transformImage from '../../utilities/transformImage'
 import CreateBloks from "../../utilities/createBloks"
+import CenteredContainer from "../partials/centeredContainer"
+import FlexCell from "../partials/flexCell"
 
 const OodPoster = (props) => {
   const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h3";
@@ -21,11 +23,11 @@ const OodPoster = (props) => {
             />
           </figure>
         )}
-        <div className="centered-container ood-poster__container">
+        <CenteredContainer classes={"ood-poster__container"}>
           <div className={`flex-container ood-poster__row
              ${props.blok.cardPosition === "right" ? "su-flex-row-reverse" : ""}`
           }>
-            <div className="flex-sm-9-of-12 flex-md-8-of-12 flex-lg-7-of-12 flex-xl-6-of-12 ood-poster__flex-cell">
+            <FlexCell sm={9} md={8} lg={7} xl={6} classes={"ood-poster__flex-cell"}>
               <div className={`ood-poster__card
                    su-bg-${props.blok.cardBackgroundColor} ood-shadow-shallow-dark
                    ${(props.blok.cardBackgroundColor !== "white" && props.blok.cardBackgroundColor !== "fog-light") ? "su-text-white" : ""}`
@@ -40,9 +42,9 @@ const OodPoster = (props) => {
                 }
                 <CreateBloks blokSection={props.blok.ctaLink} />
               </div>
-            </div>
+            </FlexCell>
           </div>
-        </div>
+        </CenteredContainer>
       </div>
     </SbEditable>
   )

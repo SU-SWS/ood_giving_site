@@ -13,11 +13,7 @@
 
     &.ood-has-tab-before {
       &::before {
-        @include modular-spacing('margin', null null 3);
-
-        @include grid-media-max('sm') {
-          @include margin(null null 1em);
-        }
+        @include responsive-spacing('margin', null null 3);
       }
     }
   }
@@ -32,12 +28,8 @@
     &-content {
       &-wrapper {
         @include margin(null auto);
-        @include modular-spacing('padding', null 4 4);
+        @include responsive-spacing('padding', null 4 4);
         box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
-
-        @include grid-media-max('sm') {
-          @include padding(null 2em 3em);
-        }
       }
     }
   }
@@ -83,18 +75,18 @@
   &__media {
     width: 100%;
     overflow: hidden;
-    height: 300px;
+    height: 30rem;
 
     @include grid-media('md') {
-      height: 400px;
+      height: 40rem;
     }
 
     @include grid-media('xl') {
-      height: 500px;
+      height: 50rem;
     }
 
     @include grid-media('2xl') {
-      height: 640px;
+      height: 64rem;
     }
   }
 
@@ -113,11 +105,11 @@
   &__content {
     > div {
       &:first-child {
-        @include modular-spacing('padding', 4 null null);
+        @include responsive-spacing('padding', 4 null null);
       }
 
       &:last-child {
-        @include modular-spacing('padding', null null 5);
+        @include responsive-spacing('padding', null null 5);
       }
     }
   }
@@ -143,7 +135,6 @@
 }
 
 // Story Image Component
-
 .ood-story-media {
   &__figure {
     @include margin(null auto);
@@ -169,7 +160,6 @@
     }
 
     .ood-story-media__caption {
-
       @include grid-media('xl') {
         text-align: center;
       }
@@ -178,13 +168,9 @@
 
   &__caption {
     @include margin(0.8em null null);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 
-    @include grid-media('md') {
-      font-size: 1.6rem;
-    }
-
-    @include grid-media('2xl') {
+    @include grid-media('xl') {
       font-size: 1.8rem;
     }
 

@@ -43,13 +43,12 @@ const GiveGabForm = (props) => {
   let isLoading = (account && account.loading !== 0) ?? true
 
   if (isLoading) {
-    return (<Loader
-      type="Puff"
-      color="#00BFFF"
-      height={100}
-      width={100}
-      timeout={20000} // 20 secs
-   />)
+    return (
+      <React.Fragment>
+      <p>&nbsp</p>
+      <Loader type="Bars" color="#00BFFF" height={100} width={100} timeout={20000} />
+      </React.Fragment>
+    )
   }
 
   if (user && user.suid && user.status == 1 && profile && isBrowser) {

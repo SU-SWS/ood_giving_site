@@ -94,6 +94,10 @@
 
       .ood-mega-nav__item {
         @include margin(null null 1em);
+
+        &:last-of-type {
+          @include margin(null null 0);
+        }
       }
 
       .ood-mega-nav__link {
@@ -137,17 +141,17 @@
     }
 
     @include grid-media('lg') {
-      top: 157px;
+      top: 158px;
       z-index: 220; // When menu wrap to 2nd line make sure dropdown covers up top level links
       box-shadow: rgba(0, 0, 0, 0.12) 0 34px 30px;
     }
 
     @include grid-media('2xl') {
-      top: 158px;
+      top: 159px;
     }
 
     .ood-cta {
-      @include modular-spacing('margin', 0 null null);
+      @include responsive-spacing('margin', 4 null null);
     }
   }
 
@@ -161,7 +165,27 @@
 
   &__card {
     &-content {
-      @include modular-spacing('padding', 1 1 2);
+      @include responsive-spacing('padding', 1 1 2);
+      @include add-shade;
+
+      @include grid-media('xl') {
+        @include padding(get-responsive-spacing-value(2, 'desktop') get-responsive-spacing-value(2, 'desktop') get-responsive-spacing-value(3, 'desktop'));
+      }
+
+      &::after {
+        z-index: 1;
+      }
+    }
+
+    &-content,
+    &-headline,
+    &-cta {
+      position: relative;
+    }
+
+    &-headline,
+    &-cta {
+      z-index: 11;
     }
 
     &__link {
@@ -172,6 +196,12 @@
 
       &:hover,
       &:focus {
+        .ood-mega-nav__card-content {
+          &::after {
+            background-color: rgba(0, 0, 0, 0.4);
+          }
+        }
+
         .ood-mega-nav__card-cta {
           text-decoration: none;
 
