@@ -174,7 +174,7 @@
 
   // All cards with dark background + white text will have white hover/focus text colors
   &:not(.su-bg-white):not(.su-bg-fog-light) {
-    @include add-mask;
+    @include add-shade;
 
     &::after {
       z-index: 1;

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@mixin add-mask {
+@mixin add-shade {
   &::after {
     display: block;
     content: "";

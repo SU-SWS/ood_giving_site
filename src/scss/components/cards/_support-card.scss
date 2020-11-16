@@ -118,7 +118,7 @@
 
     // Darkened mask over whole card visible on hover/focus for non-white cards
     &:not(.su-bg-white) {
-      @include add-mask;
+      @include add-shade;
 
       &::after {
         z-index: 1;
