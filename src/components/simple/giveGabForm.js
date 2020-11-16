@@ -84,7 +84,7 @@ const GiveGabForm = (props) => {
       {isLoading && (
         <Loader type="TailSpin" color="#00BFFF" height={100} width={100} timeout={20000} />
       )}
-      <div ref={scriptRef} onLoad={doOnLoad(props)}></div>
+      <div ref={scriptRef} id={`su-content`} onLoad={doOnLoad(props)}></div>
     </CenteredContainer>
   )
 
