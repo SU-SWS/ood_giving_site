@@ -116,7 +116,7 @@
       }
     }
 
-    // Darkened mask over whole card visible on hover/focus for non-white cards
+    // Dark overlay over whole card visible on hover/focus for non-white cards
     &:not(.su-bg-white) {
       @include add-shade;
 
