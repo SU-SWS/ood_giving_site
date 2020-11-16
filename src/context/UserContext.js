@@ -137,6 +137,7 @@ const fetchMegaProfile = async (encodedSUID) => {
           return data
         }
         catch(e) {
+          console.error('login error is', error)
           return false
         }
       }
@@ -144,6 +145,7 @@ const fetchMegaProfile = async (encodedSUID) => {
     })
     .then(data => {
       if (!data || !data.encodedSUID) {
+        console.error('Could not find encodedSUID')
         return false
       }
       return data

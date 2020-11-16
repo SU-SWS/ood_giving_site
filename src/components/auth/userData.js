@@ -54,8 +54,8 @@ const userData = (props) => {
   const runEffect = async () => {
     dispatch({type: "startLoading"})
     let user = await getUser()
-    if (user && user.suid) {
-      await getMegaProfile(user.suid)
+    if (user && user.encodedSUID) {
+      await getMegaProfile(user.encodedSUID)
     }
     dispatch({type: "refresh"})
     dispatch({type: "doneLoading"})

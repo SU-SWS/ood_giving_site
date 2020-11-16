@@ -1,6 +1,9 @@
 import React, { useContext, useRef, useEffect } from 'react'
 import SbEditable from "storyblok-react"
 import { UserContext, Anon, isLoggedIn } from "../../context/UserContext"
+import Script from 'react-load-script'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner'
 
 // Find thte home address information.
 const findHomeAddress = (addresses) => {
@@ -40,7 +43,13 @@ const GiveGabForm = (props) => {
   let isLoading = (account && account.loading !== 0) ?? true
 
   if (isLoading) {
-    return (<h3>Loading...</h3>)
+    return (<Loader
+      type="Puff"
+      color="#00BFFF"
+      height={100}
+      width={100}
+      timeout={20000} // 20 secs
+   />)
   }
 
   if (user && user.suid && user.status == 1 && profile && isBrowser) {
@@ -65,15 +74,15 @@ const GiveGabForm = (props) => {
   }
 
   const doOnLoad = (props) => {
-    const script = document.createElement('script');
-    script.src = props.blok.script
-    window.document.body.appendChild(script)
+    // const script = document.createElement('script');
+    // script.src = props.blok.script
+    // script.async = true
+    // scriptRef.current.appendChild(script)
   }
 
   return (
     <SbEditable content={props.blok}>
-      <div id={`giveGabScript`} ref={scriptRef} />
-      {doOnLoad(props)}
+      <Script url={props.blok.script} />
     </SbEditable>
   )
 

@@ -118,10 +118,14 @@ function authJWT(user) {
 // Create a user object from the SAML response data.
 const parseSAMLForUser = (user) => {
   let account = {}
+  account.encodedSUID = user.EncodedSUID;
   account.suid = user.SUID;
   account.email = user.nameID;
+  account.firstName = user.firstName;
+  account.lastName = user.lastName;
+  account.name = user.firstName + " " + user.lastName;
   account.session = user['oracle:cloud:identity:sessionid'];
-  account.expires = userCookieExpires
+  account.expires = userCookieExpires;
   return account;
 }
 

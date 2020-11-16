@@ -57,7 +57,10 @@ const profileFetcher = async (profileID, token) => {
 
   let data = fetch(
       endpoint,
-      { headers: headers }
+      {
+        headers: headers,
+        timeout: 8000,
+      }
     )
     .then(res => res.json())
     .then(body => {
