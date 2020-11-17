@@ -40,10 +40,10 @@ const GiveGabForm = (props) => {
   const scriptRef = useRef()
   let user = (account && account.user) ? account.user : Anon
   let profile = (account && account.profile) ? account.profile : false
-  let isLoading = (account && account.loading !== 0) ?? true
+  let isLoading = (account && account.loading !== 0 && account.loading !== 3) ?? true
 
   if (user && user.suid && user.status == 1 && profile && isBrowser) {
-    window.su_gab_personal_email = user.email;
+    window.su_gab_personal_email = profile.emails[0].emailAddress ?? user.email;
     window.su_gab_personal_title = profile.name.fullNameParsed.prefix;
     window.su_gab_personal_first = profile.name.fullNameParsed.firstName;
     window.su_gab_personal_middle = profile.name.fullNameParsed.middleName;
@@ -80,12 +80,14 @@ const GiveGabForm = (props) => {
 
   // Render
   return (
-    <CenteredContainer>
-      {isLoading && (
-        <Loader type="TailSpin" color="#00BFFF" height={100} width={100} timeout={20000} />
-      )}
-      <div ref={scriptRef} id={`su-content`} onLoad={doOnLoad(props)}></div>
-    </CenteredContainer>
+    <SbEditable content={props.blok}>
+      <CenteredContainer>
+        {isLoading && (
+          <Loader type="TailSpin" color="#00BFFF" height={100} width={100} timeout={20000} />
+        )}
+        <div ref={scriptRef} id={`su-content`} onLoad={doOnLoad(props)}></div>
+      </CenteredContainer>
+    </SbEditable>
   )
 
 }

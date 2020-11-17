@@ -10,6 +10,7 @@ const megaPath =    "/api/mega/profile"
 const DONE = 0
 const LOADING = 1
 const PENDING = 2
+const LOGGEDOUT = 3
 
 // Anonymous User
 const Anon = {
@@ -51,7 +52,7 @@ function UserContextReducer(state, action) {
     case 'logout':
       console.log("Dispatch: Logout")
       doLogout()
-      return defaultState;
+      return { ...defaultState, loading: LOGGEDOUT };
 
     case 'addProfile':
       console.log("Dispatch: AddProfile")
