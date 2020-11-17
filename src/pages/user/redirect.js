@@ -1,22 +1,21 @@
 import React, { useEffect } from "react"
 import { navigate } from 'gatsby'
 
-const getReturnTo = () => {
+const doReturnTo = () => {
   let ret = window.sessionStorage.getItem("returnto")
   window.sessionStorage.removeItem("returnto")
 
-  // Home James...
-  if (ret === null) {
-    ret = "/"
+  if (ret && ret.length > 1) {
+    window.location = ret
   }
 
-  return ret
+  navigate("/")
 }
 
 const RedirectPage = () => {
 
   useEffect(() => {
-    navigate(getReturnTo());
+    doReturnTo();
   }, []);
 
   return null;

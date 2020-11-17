@@ -194,7 +194,7 @@ const doSSOLogin = () => {
   if (!isBrowser) return false
   // Log the page the user is on before sending out so we can redirect back
   // to the right place.
-  window.sessionStorage.setItem("returnto", window.location.pathname);
+  window.sessionStorage.setItem("returnto", window.location);
   // Hitting this URL will trigger the login.
   window.location = loginPath;
 }
