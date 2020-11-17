@@ -118,7 +118,7 @@ function authJWT(user) {
 // Create a user object from the SAML response data.
 const parseSAMLForUser = (user) => {
   let account = {}
-  account.encodedSUID = user.EncodedSUID;
+  account.encodedSUID = user.EncodedSUID || user.encodedSUID;
   account.suid = user.SUID;
   account.email = user.nameID;
   account.firstName = user.firstName;
