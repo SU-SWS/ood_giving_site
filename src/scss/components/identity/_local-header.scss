@@ -9,7 +9,20 @@
   max-width: 100%;
   z-index: 130;
 
+  @include grid-media('md') {
+    border-top-width: 10px;
+    border-top-style: solid;
+  }
+
   .su-lockup {
-    @include responsive-spacing('padding', null null 0);
+    @include responsive-spacing('margin', null null 0);
+
+    @include grid-media-max('sm') {
+      @include margin(get-responsive-spacing-value(1, 'mobile') null null);
+    }
+
+    @include grid-media-only('md') {
+      @include margin(get-responsive-spacing-value(1, 'tablet') null null);
+    }
   }
 }
