@@ -34,12 +34,16 @@
   }
 
   .su-lockup {
-    @include responsive-spacing('padding', null null 1);
+    @include padding(null null get-responsive-spacing-value(1, 'mobile'));
+
+    @include grid-media-only('md') {
+      @include padding(null null get-responsive-spacing-value(2, 'tablet'));
+    }
   }
 }
 
 .ood-mega-nav {
   @include grid-media-max('md') {
-    align-self: flex-end; // the hover border of the hamburger button has to be vertically aligned with bottom of header
+    align-self: center;
   }
 }
