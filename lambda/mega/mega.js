@@ -59,7 +59,7 @@ const profileFetcher = async (profileID, token) => {
       endpoint,
       {
         headers: headers,
-        timeout: 8000,
+        timeout: 9000,
       }
     )
     .then(res => res.json())
@@ -103,7 +103,7 @@ app.get(`/api/mega/profile/:profileId`,
     }
     else {
       res
-        .json({error: true, status: 0})
+        .json({ error: true, status: 0, msg: profile.error })
     }
   }
 )
