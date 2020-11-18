@@ -21,11 +21,11 @@
     justify-content: space-between;
 
     @include grid-media-max('sm') {
-      @include margin(get-responsive-spacing-value(1, 'mobile') null null);
+      @include padding(get-responsive-spacing-value(0, 'mobile') null);
     }
 
     @include grid-media-only('md') {
-      @include margin(get-responsive-spacing-value(1, 'tablet') null null);
+      @include padding(get-responsive-spacing-value(0, 'tablet') null get-responsive-spacing-value(2, 'tablet'));
     }
 
     @include grid-media('lg') {
@@ -34,14 +34,9 @@
   }
 
   .su-lockup {
-    @include margin(0.6rem null null);
-    @include padding(null null get-responsive-spacing-value(1, 'mobile'));
-
-    @media only screen and (min-width: 360px) and (max-width: 575px) {
-
-    }
-
     @media only screen and (min-width: 360px) and (max-width: 767px) {
+      @include margin(0.6rem null null);
+
       > a {
         display: flex;
         flex-direction: row;
@@ -74,19 +69,13 @@
       }
     }
 
+    @include grid-media('lg') {
+      @include padding(null null get-responsive-spacing-value(1, 'mobile'));
+    }
+
     @include grid-media-only('sm') {
       transform: scale(1.2);
       transform-origin: left top;
     }
-
-    @include grid-media-only('md') {
-      @include padding(null null get-responsive-spacing-value(2, 'tablet'));
-    }
-  }
-}
-
-.ood-mega-nav {
-  @include grid-media-max('md') {
-    align-self: center;
   }
 }

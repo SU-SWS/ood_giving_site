@@ -4,6 +4,7 @@
 
 .ood-header__submenu-container {
   @include margin(null auto);
+  position: relative;
 
   @include grid-media-max('sm') {
     background-color: $su-color-digital-red-dark;
