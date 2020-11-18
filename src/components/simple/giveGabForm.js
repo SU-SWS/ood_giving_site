@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import SbEditable from "storyblok-react"
 import { UserContext, Anon, isLoggedIn } from "../../context/UserContext"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
@@ -38,6 +38,8 @@ const GiveGabForm = (props) => {
   const { state: account, dispatch } = useContext(UserContext)
   const isBrowser = typeof window !== `undefined`
   const scriptRef = useRef()
+  const [formLoaded, setFormLoaded] = useState(false);
+
   let user = (account && account.user) ? account.user : Anon
   let profile = (account && account.profile) ? account.profile : false
   let isLoading = (account && account.loading !== 0 && account.loading !== 3) ?? true
@@ -76,12 +78,15 @@ const GiveGabForm = (props) => {
   const doOnLoad = (props) => {
 
     if (isLoading) { return null }
+    if (formLoaded) { return null }
     if (!scriptRef || typeof scriptRef.current == undefined) { return null }
 
     const script = document.createElement('script');
     script.src = props.blok.script
     script.async = true
     scriptRef.current.appendChild(script)
+
+    setFormLoaded(true)
   }
 
   // Render
