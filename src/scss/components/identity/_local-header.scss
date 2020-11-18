@@ -14,8 +14,11 @@
     border-top-style: solid;
   }
 
-  .su-lockup {
-    @include responsive-spacing('margin', null null 0);
+  // Lock up + mega menu region
+  &__masthead {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
     @include grid-media-max('sm') {
       @include margin(get-responsive-spacing-value(1, 'mobile') null null);
@@ -24,5 +27,19 @@
     @include grid-media-only('md') {
       @include margin(get-responsive-spacing-value(1, 'tablet') null null);
     }
+
+    @include grid-media('lg') {
+      flex-direction: column;
+    }
+  }
+
+  .su-lockup {
+    @include responsive-spacing('padding', null null 1);
+  }
+}
+
+.ood-mega-nav {
+  @include grid-media-max('md') {
+    align-self: flex-end; // the hover border of the hamburger button has to be vertically aligned with bottom of header
   }
 }

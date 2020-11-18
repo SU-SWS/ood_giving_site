@@ -10,7 +10,7 @@ const OodLocalHeader = (props) => (
       <div className={`ood-header__submenu-container`}>
         <CreateBloks blokSection={props.blok.subMenu} />
       </div>
-      <CenteredContainer>
+      <CenteredContainer classes={"ood-header__masthead"}>
         <CreateBloks blokSection={props.blok.lockup} />
         <CreateBloks blokSection={props.blok.megaMenu} />
       </CenteredContainer>

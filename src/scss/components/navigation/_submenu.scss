@@ -44,7 +44,11 @@
     list-style-type: none;
 
     > li {
-      @include margin(null 2.4rem 0 null);
+      @include margin(null 2.2rem 0 null);
+
+      @include grid-media('sm') {
+        @include margin(null 2.4rem 0 null);
+      }
     }
 
     a {
