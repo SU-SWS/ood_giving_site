@@ -95,10 +95,22 @@
   }
 
   .ood-cta__button {
-    @include padding(1rem 2.2rem 1.3rem 2.6rem);
+    @include padding(null 1.6rem null 1.8rem);
+
+    @include grid-media-only('xs') {
+      font-size: 1.4rem;
+    }
+
+    @include grid-media-only('sm') {
+      font-size: 1.6rem;
+    }
 
     @include grid-media-only('md') {
       font-size: 1.8rem;
+    }
+
+    @include grid-media('md') {
+      @include padding(1rem 2.2rem 1.3rem 2.6rem); // optical adjustment
     }
   }
 }
