@@ -50,7 +50,7 @@ const GiveGabForm = (props) => {
     window.su_gab_personal_last = profile.name.fullNameParsed.lastName ?? '';
 
     // One char for middle name.
-    window.su_gab_personal_middle.substring(0, 1)
+    window.su_gab_personal_middle = window.su_gab_personal_middle.substring(0, 1)
 
     let address = findHomeAddress(profile.addresses);
     // window.su_gab_personal_co = address.addressCountry ?? '';
@@ -66,7 +66,7 @@ const GiveGabForm = (props) => {
     window.su_gab_partner_last = spouse.relatedContactLastName ?? '';
 
     // One char for middle name.
-    window.su_gab_partner_middle.substring(0, 1)
+    window.su_gab_partner_middle = window.su_gab_partner_middle.substring(0, 1)
   }
 
   /**
