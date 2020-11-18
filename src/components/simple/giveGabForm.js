@@ -44,10 +44,13 @@ const GiveGabForm = (props) => {
 
   if (user && user.suid && user.status == 1 && profile && isBrowser) {
     window.su_gab_personal_email = profile.emails[0].emailAddress ?? user.email;
-    window.su_gab_personal_title = profile.name.fullNameParsed.prefix;
-    window.su_gab_personal_first = profile.name.fullNameParsed.firstName;
-    window.su_gab_personal_middle = profile.name.fullNameParsed.middleName;
-    window.su_gab_personal_last = profile.name.fullNameParsed.lastName;
+    window.su_gab_personal_title = profile.name.fullNameParsed.prefix ?? '';
+    window.su_gab_personal_first = profile.name.fullNameParsed.firstName ?? '';
+    window.su_gab_personal_middle = profile.name.fullNameParsed.middleName ?? '';
+    window.su_gab_personal_last = profile.name.fullNameParsed.lastName ?? '';
+
+    // One char for middle name.
+    window.su_gab_personal_middle.substring(0, 1)
 
     let address = findHomeAddress(profile.addresses);
     // window.su_gab_personal_co = address.addressCountry ?? '';
@@ -61,6 +64,9 @@ const GiveGabForm = (props) => {
     window.su_gab_partner_first = spouse.relatedContactFirstName ?? '';
     window.su_gab_partner_middle = spouse.relatedContactMiddleName ?? '';
     window.su_gab_partner_last = spouse.relatedContactLastName ?? '';
+
+    // One char for middle name.
+    window.su_gab_partner_middle.substring(0, 1)
   }
 
   /**
