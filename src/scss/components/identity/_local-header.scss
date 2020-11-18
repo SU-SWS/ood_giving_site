@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-// Styles for OOD Local Header
+// Styles for OOD Local Header which includes the submenu (eyebrow nav), logo lockup and the mega menu
 
 .ood-header {
   @include box-shadow($depth: 'shallow', $stroke: 0);
@@ -33,8 +33,9 @@
     }
   }
 
+  // Scale logo down for mobile
   .su-lockup {
-    @media only screen and (min-width: 360px) and (max-width: 767px) {
+    @include grid-media-max('sm') {
       @include margin(0.6rem null null);
 
       > a {
@@ -69,13 +70,13 @@
       }
     }
 
-    @include grid-media('lg') {
-      @include padding(null null get-responsive-spacing-value(1, 'mobile'));
-    }
-
     @include grid-media-only('sm') {
       transform: scale(1.2);
       transform-origin: left top;
+    }
+
+    @include grid-media('lg') {
+      @include padding(null null get-responsive-spacing-value(1, 'mobile'));
     }
   }
 }
