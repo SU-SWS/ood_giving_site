@@ -29,6 +29,14 @@
   .ood-header__submenu-container {
     @include margin(null auto);
 
+    @include grid-media-max('sm') {
+      background-color: $su-color-cardinal-red;
+
+      a {
+        color: $su-color-white;
+      }
+    }
+
     // Only apply the centered container widths for MD and above
     @include grid-media('md') {
       max-width: calc(100% - #{2 * map-get($su-screen-margins, 'md')});
