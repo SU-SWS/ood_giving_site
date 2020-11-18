@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+@mixin grid-media-2xs {
+  @media only screen and (min-width: 320px) and (max-width: 360px) {
+    @content;
+  }
+}
