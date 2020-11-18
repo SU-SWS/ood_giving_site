@@ -34,7 +34,50 @@
   }
 
   .su-lockup {
+    @include margin(0.6rem null null);
     @include padding(null null get-responsive-spacing-value(1, 'mobile'));
+
+    @media only screen and (min-width: 360px) and (max-width: 575px) {
+
+    }
+
+    @media only screen and (min-width: 360px) and (max-width: 767px) {
+      > a {
+        display: flex;
+        flex-direction: row;
+      }
+
+      &__cell1 {
+        min-height: 2.1rem;
+        border-right: 1px solid $su-color-black;
+      }
+
+      &__cell2 {
+        align-self: flex-end;
+      }
+
+      &__wordmark {
+        font-size: 3rem;
+        line-height: 1.3rem;
+
+        &-wrapper {
+          @include padding(null 0.4rem null null);
+          line-height: 2.1rem;
+        }
+      }
+
+      &__line1 {
+        @include margin(0 null null 0);
+        @include padding(null null null 0.4rem);
+        font-size: 2.2rem;
+        line-height: 1.8rem;
+      }
+    }
+
+    @include grid-media-only('sm') {
+      transform: scale(1.2);
+      transform-origin: left top;
+    }
 
     @include grid-media-only('md') {
       @include padding(null null get-responsive-spacing-value(2, 'tablet'));

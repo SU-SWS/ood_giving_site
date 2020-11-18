@@ -26,7 +26,7 @@
   }
 
   @include grid-media('2xl') {
-    max-width: 1500px;
+    max-width: $su-site-max-width;
     width: calc(100% - 2 * map-get($su-screen-margins, '2xl'));
   }
 }
@@ -44,10 +44,10 @@
     list-style-type: none;
 
     > li {
-      @include margin(null 2.2rem 0 null);
+      @include margin(null 2.4rem 0 null);
 
       @include grid-media('sm') {
-        @include margin(null 2.4rem 0 null);
+        @include margin(null 2.6rem 0 null);
       }
     }
 
@@ -58,6 +58,7 @@
       font-size: 1.4rem;
 
       &::after {
+        @include margin(null 0 null null);
         background-color: $su-color-digital-red-light;
       }
 
