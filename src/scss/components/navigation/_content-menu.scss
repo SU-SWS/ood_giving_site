@@ -119,8 +119,21 @@
   }
 }
 
-@include grid-media-max('sm') {
-  .ood-content-nav {
-    width: 100%;
+// Mobile/Tablet styles for the nav
+.ood-content-nav {
+  @include grid-media-max('md') {
+    @include margin(null auto);
+
+    &__menu-group {
+      background-color: $su-color-white;
+    }
+  }
+
+  @include grid-media-max('sm') {
+    max-width: 90%;
+  }
+
+  @include grid-media-only('md') {
+    max-width: 36rem;
   }
 }
