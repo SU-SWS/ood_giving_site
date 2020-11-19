@@ -129,6 +129,8 @@
 
 // Mobile/Tablet styles for the nav
 .ood-content-nav {
+
+  // Mobile and tablet styles
   @include grid-media-max('md') {
     @include margin(null auto);
     @include margin(get-responsive-spacing-value(2, 'mobile') null get-responsive-spacing-value(5, 'mobile'));
@@ -136,12 +138,18 @@
     &__menu-group {
       background-color: $su-color-white;
     }
+
+    &__title {
+      @include margin(null null null 2.4rem);
+    }
   }
 
+  // Mobile only styles
   @include grid-media-max('sm') {
     max-width: 90%;
   }
 
+  // Tablet only styles
   @include grid-media-only('md') {
     max-width: 40rem;
   }
