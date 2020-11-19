@@ -96,3 +96,31 @@
     }
   }
 }
+
+// The toggle button when the nav appears in the header for mobile/tablet
+.ood-content-nav__toggle {
+  @include padding(1.2rem 3rem);
+  cursor: pointer;
+  color: $su-color-white;
+  background-color: transparent;
+  border: 1px solid $su-color-white;
+  font-size: 1.5rem;
+  font-weight: $su-font-semi-bold;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  width: 100%;
+
+  @include grid-media-only('md') {
+    font-size: 1.6rem;
+  }
+
+  @include grid-media('lg') {
+    display: none;
+  }
+}
+
+@include grid-media-max('sm') {
+  .ood-content-nav {
+    width: 100%;
+  }
+}
