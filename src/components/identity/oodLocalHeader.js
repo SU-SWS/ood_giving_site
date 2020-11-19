@@ -5,10 +5,12 @@ import CenteredContainer from "../partials/centeredContainer"
 
 const OodLocalHeader = (props) => (
   <SbEditable content={props.blok}>
-    <header className={props.blok.topBarColor ? `ood-header su-bg-white su-border-top-10px su-border-color-${props.blok.topBarColor}` : "ood-global-header su-bg-white su-border-top-5px"}>
+    <header className={`ood-header su-bg-white su-border-color-${props.blok.topBarColor}`}>
       <a href="#main-content" className="su-skiplinks">Skip to main content</a>
-      <CenteredContainer>
+      <div className={`ood-header__submenu-container`}>
         <CreateBloks blokSection={props.blok.subMenu} />
+      </div>
+      <CenteredContainer classes={"ood-header__masthead"}>
         <CreateBloks blokSection={props.blok.lockup} />
         <CreateBloks blokSection={props.blok.megaMenu} />
       </CenteredContainer>

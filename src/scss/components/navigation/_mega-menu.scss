@@ -141,13 +141,9 @@
     }
 
     @include grid-media('lg') {
-      top: 158px;
+      top: 160px;
       z-index: 220; // When menu wrap to 2nd line make sure dropdown covers up top level links
       box-shadow: rgba(0, 0, 0, 0.12) 0 34px 30px;
-    }
-
-    @include grid-media('2xl') {
-      top: 159px;
     }
 
     .ood-cta {
@@ -238,22 +234,27 @@
     cursor: pointer;
 
     @include grid-media-max('md') {
-      @include fancy-hover($su-color-digital-red, $su-color-black, bottom, 10px);
-      @include padding(0 0 2rem);
       @include margin(0);
+      @include padding(0);
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       align-items: center;
       outline: none;
-      width: 40px;
+      width: auto;
       background-color: transparent;
-      color: color(h-link, $su-nav-colors);
+      color: $su-color-digital-red;
       font-size: 1.6rem;
+      font-weight: $su-font-semi-bold;
       line-height: 0.7;
+
+      > i {
+        @include margin(null null 0.6rem);
+        font-size: 1.8rem;
+      }
 
       &::after {
         @include margin(0 auto);
-        display: inline-block;
+        display: none;
         width: 30px;
         height: 26px;
         background: url("#{$su-image-path}/hamburger-black.svg") no-repeat 3px 0;
@@ -304,6 +305,9 @@
     }
 
     @include grid-media-only('md') {
+      position: relative;
+      top: 0.6rem;
+
       &[aria-expanded="true"]  + .ood-mega-nav__menu-lv1 {
         max-width: 100%;
       }
