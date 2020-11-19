@@ -79,7 +79,7 @@ const GiveGabForm = (props) => {
 
     if (isLoading) { return null }
     if (formLoaded) { return null }
-    if (!scriptRef || typeof scriptRef.current == undefined) { return null }
+    if (!scriptRef || typeof scriptRef.current == "undefined") { return null }
 
     const script = document.createElement('script');
     script.src = props.blok.script
