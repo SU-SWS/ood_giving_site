@@ -50,7 +50,7 @@ const tokenFetcher = async () => {
  * @param {*} profileID
  */
 const profileFetcher = async (profileID, token) => {
-  const endpoint = PROFILE_URL + profileID
+  const endpoint = "https://api-dev.stanford.edu/AdvancementSystems/v1/constituents/" + profileID + "/profiles/full"
   const headers = new Headers({
     Authorization: 'Bearer ' + token
   });
