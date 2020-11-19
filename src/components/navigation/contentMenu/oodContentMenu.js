@@ -5,7 +5,8 @@ import CreateBloks from "../../../utilities/createBloks"
 const OodContentMenu = (props) => {
   return (
     <SbEditable content={props.blok}>
-      <nav className="su-secondary-nav ood-content-nav no-js" id="content-nav" aria-label="Content Menu">
+      <nav className="su-secondary-nav ood-content-nav" id="content-nav" aria-label="Section Content Menu">
+        <button className={`ood-content-nav__toggle`}>Section Menu <i aria-hidden="true" className={`fas fa-bars`} /></button>
         <div className={`ood-content-nav__menu-group`}>
           {props.blok.menuTitle && (
             <h2 className="ood-content-nav__title">{props.blok.menuTitle}</h2>
