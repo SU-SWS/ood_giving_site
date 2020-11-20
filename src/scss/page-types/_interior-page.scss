@@ -52,6 +52,11 @@
       }
     }
 
+    // Content goes before the sidebar in the DOM, but visually the sidebar goes first (on the left)
+    &-container {
+      flex-direction: row-reverse;
+    }
+
     &-content {
       color: $su-color-black-true;
     }

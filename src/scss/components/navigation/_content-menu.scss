@@ -133,9 +133,8 @@
   }
 }
 
-// Mobile/Tablet styles for the nav
+// Mobile/Tablet styles for the content nav (in the header)
 .ood-content-nav {
-  // Mobile and tablet styles
   @include grid-media-max('md') {
     @include margin(get-responsive-spacing-value(2, 'mobile') auto null);
 
