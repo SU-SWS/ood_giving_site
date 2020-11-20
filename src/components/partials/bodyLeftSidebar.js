@@ -11,14 +11,15 @@ const BodyLeftSidebar = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <FlexCell lg={8} classes={"ood-interior-page__body-content"} id={"body-content"}>
-        <CreateBloks blokSection={props.blok.pageContent} />
-      </FlexCell>
       <FlexCell element={"aside"} lg={4} xl={3} classes={"ood-interior-page__body-sidebar"}>
+        <a href="#body-content" className="su-skiplinks">Skip past sidebar navigation to page content</a>
         {windowSize.width > 991 &&
           <CreateBloks blokSection={props.blok.contentMenu}/>
         }
         <CreateBloks blokSection={props.blok.contactInfo} />
+      </FlexCell>
+      <FlexCell lg={8} classes={"ood-interior-page__body-content"} id={"body-content"}>
+        <CreateBloks blokSection={props.blok.pageContent} />
       </FlexCell>
     </SbEditable>
   );
