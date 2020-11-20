@@ -2,10 +2,12 @@ import React from 'react'
 import SbEditable from 'storyblok-react'
 import CreateBloks from "../../../utilities/createBloks"
 import Heading from "../../partials/heading"
+import UseWindowSize from "../../../hooks/useWindowSize"
 
 const OodContentMenu = (props) => {
+  let windowSize = UseWindowSize();
 
-  const MenuContent = (props) => (
+  const Menus = (props) => (
     <>
       <div className={`ood-content-nav__menu-group`}>
         {props.blok.menuTitle && (
@@ -28,15 +30,28 @@ const OodContentMenu = (props) => {
     </>
   );
 
-  return (
-    <SbEditable content={props.blok}>
-      <nav className="su-secondary-nav ood-content-nav" id="content-nav" aria-label="Section Content Menu">
-        <button className={`ood-content-nav__toggle`}>Section Menu <i aria-hidden="true" className={`fas fa-bars`} /></button>
-        <div className={`ood-content-nav__menus`}>
-          <MenuContent {...props} />
-        </div>
-      </nav>
-    </SbEditable>
-  )
+  // Desktop version of the content menu is always expanded
+  if (windowSize.width > 991) {
+    return (
+      <SbEditable content={props.blok}>
+        <nav className="su-secondary-nav ood-content-nav" id="content-nav" aria-label="Section Content Menu">
+          <div className={`ood-content-nav__menus`}>
+            <Menus {...props} />
+          </div>
+        </nav>
+      </SbEditable>
+    )
+  } else
+    // Mobile/tablet version of the content menu with toggle button and collapsable
+    return (
+      <SbEditable content={props.blok}>
+        <nav className="su-secondary-nav ood-content-nav" id="content-nav" aria-label="Section Content Menu">
+          <button className={`ood-content-nav__toggle`}>Section Menu <i aria-hidden="true" className={`fas fa-bars`} /></button>
+          <div className={`ood-content-nav__menus`}>
+            <Menus {...props} />
+          </div>
+        </nav>
+      </SbEditable>
+    )
 }
 export default OodContentMenu
