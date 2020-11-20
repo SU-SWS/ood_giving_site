@@ -137,6 +137,7 @@
 .ood-content-nav {
   @include grid-media-max('md') {
     @include margin(get-responsive-spacing-value(2, 'mobile') auto null);
+    position: relative;
     z-index: 200;
 
     &__menus {
@@ -167,9 +168,10 @@
   }
 
   @include grid-media-only('xs') {
-    &,
+    width: 90%;
+    
     &__menus {
-      width: 90%;
+      width: 100%;
     }
   }
 

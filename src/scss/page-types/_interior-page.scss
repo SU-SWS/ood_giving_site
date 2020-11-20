@@ -81,6 +81,10 @@
     @include grid-media('lg') {
       @include padding(11.4rem null);
     }
+
+    > .centered-container {
+      position: relative;
+    }
   }
 }
 
