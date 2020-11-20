@@ -12,7 +12,7 @@ const BodyLeftSidebar = (props) => {
   return (
     <SbEditable content={props.blok}>
       <FlexCell element={"aside"} lg={4} xl={3} classes={"ood-interior-page__body-sidebar"}>
-        <a href="#body-content" className="su-skiplinks">Skip past sidebar navigation to page content</a>
+        <a href="#body-content" className="su-skiplinks">Skip past section menu to page content</a>
         {windowSize.width > 991 &&
           <CreateBloks blokSection={props.blok.contentMenu}/>
         }

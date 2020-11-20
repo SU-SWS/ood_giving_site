@@ -53,7 +53,7 @@ const OodContentMenu = (props) => {
       </SbEditable>
     )
   } else
-    // Mobile/tablet version of the content menu with toggle button and collapsable
+    // Mobile/tablet version of the content menu with toggle button and collapsable with aria labels
     return (
       <SbEditable content={props.blok}>
         <nav className="su-secondary-nav ood-content-nav" id="content-nav" aria-label="Section Content Menu" ref={ref}>
