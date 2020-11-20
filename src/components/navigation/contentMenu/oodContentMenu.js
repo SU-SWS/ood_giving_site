@@ -59,7 +59,7 @@ const OodContentMenu = (props) => {
         <nav className="su-secondary-nav ood-content-nav" id="content-nav" aria-label="Section Content Menu" ref={ref}>
           <button className={`ood-content-nav__toggle`}
                   aria-expanded={menuOpened}
-                  onClick={toggleMenu}>Section Menu <i aria-hidden="true" className={`fas fa-bars`} /></button>
+                  onClick={toggleMenu}>{menuOpened? "Close" : "Section Menu"} <i aria-hidden="true" className={`fas fa-${menuOpened? "times" : "bars"}`} /></button>
           <div className={`ood-content-nav__menus`} aria-hidden={!menuOpened}>
             <Menus {...props} />
           </div>
