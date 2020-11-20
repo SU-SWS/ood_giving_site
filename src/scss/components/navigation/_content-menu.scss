@@ -135,12 +135,12 @@
     @include margin(null auto);
     @include margin(get-responsive-spacing-value(2, 'mobile') null get-responsive-spacing-value(5, 'mobile'));
 
-    &__menu-group {
+    &__menus {
       background-color: $su-color-white;
     }
 
     &__title {
-      @include margin(null null null 2.4rem);
+      @include margin(null 2.4rem);
     }
   }
 
