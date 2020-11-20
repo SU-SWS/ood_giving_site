@@ -5,17 +5,14 @@
 .ood-content-nav {
   background-color: transparent;
 
-  @include grid-media('lg') {
-    max-width: 400px;
-  }
-
   &__menu-group {
-    @include responsive-spacing('padding', 0 null 1);
-    border-top: 1px solid $su-color-black-40;
+    @include responsive-spacing('padding', null null 1);
   }
 
   &__title {
     @include responsive-spacing('margin', null null 1);
+    @include responsive-spacing('padding', 0 null null);
+    border-top: 1px solid $su-color-black-40;
     font-size: 1.6rem;
     font-weight: $su-font-bold;
     text-transform: uppercase;
@@ -104,18 +101,31 @@
   cursor: pointer;
   color: $su-color-white;
   background-color: transparent;
-  border: 1px solid $su-color-white;
+  border: 0;
+  box-shadow: inset 0 0 0 1px $su-color-white;
   font-size: 1.5rem;
   font-weight: $su-font-semi-bold;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-align: left;
   width: 100%;
+  transition: box-shadow 0.25s ease-in;
 
   // Icon position
   i {
     position: absolute;
     right: 3rem;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 0 0 3px $su-color-white;
+    outline: none;
+  }
+
+  &[aria-expanded="true"] {
+    background-color: $su-color-fog-light;
+    color: $su-color-black;
   }
 
   @include grid-media-only('md') {
@@ -125,13 +135,12 @@
 
 // Mobile/Tablet styles for the nav
 .ood-content-nav {
-
   // Mobile and tablet styles
   @include grid-media-max('md') {
-    @include margin(null auto);
-    @include margin(get-responsive-spacing-value(2, 'mobile') null get-responsive-spacing-value(5, 'mobile'));
+    @include margin(get-responsive-spacing-value(2, 'mobile') auto null);
 
     &__menus {
+      @include padding(get-responsive-spacing-value(2, 'mobile') null null);
       display: block;
       background-color: $su-color-white;
 
@@ -145,13 +154,16 @@
     }
   }
 
-  // Mobile only styles
   @include grid-media-only('xs') {
     width: 90%;
   }
 
-  // Tablet only styles
   @include grid-media-between('sm', 'md') {
     width: 40rem;
+  }
+
+  // Tablet only styles
+  @include grid-media-only('md') {
+    @include margin(get-responsive-spacing-value(3, 'tablet') null get-responsive-spacing-value(0, 'tablet'));
   }
 }

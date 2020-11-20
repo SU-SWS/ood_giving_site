@@ -125,6 +125,7 @@
       }
 
       @include grid-media('lg') {
+        @include padding(get-responsive-spacing-value(6, 'tablet') null null);
         min-height: 26vw;
       }
 
@@ -133,6 +134,7 @@
       }
 
       @include grid-media('2xl') {
+        @include padding(get-responsive-spacing-value(6, 'desktop') null null);
         min-height: 48rem;
       }
     }
@@ -157,19 +159,20 @@
   .ood-interior-page__title {
     @include margin(null null null 0);
 
-    @include grid-media-max('md') {
-      @include margin(null null 0.6em);
+    @include grid-media-max('sm') {
+      @include margin(get-responsive-spacing-value(5, 'mobile') null 0.6em);
+    }
+
+    @include grid-media-only('md') {
+      @include margin(get-responsive-spacing-value(5, 'tablet') null 0.6em);
     }
   }
 }
 
-.ood-interior-page--has-image,
-.ood-interior-page--no-image {
-  .ood-interior-page__header {
-    &-title-wrapper {
-      @include grid-media-max('sm') {
-        @include padding(3em null null);
-      }
+.ood-content-nav {
+  + .ood-interior-page__title {
+    @include grid-media-max('md') {
+      @include margin(get-responsive-spacing-value(2, 'tablet') null null);
     }
   }
 }

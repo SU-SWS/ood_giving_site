@@ -15,7 +15,7 @@ const HeaderWithImage = (props) => {
   return (
     <SbEditable content={props.blok}>
       <header className={`ood-interior-page__header ood-interior-page__header--has-image`}>
-        <div className={`ood-interior-page__header-title-wrapper su-pt-6 su-pb-5 su-bg-${props.blok.headerBackgroundColor}`}>
+        <div className={`ood-interior-page__header-title-wrapper su-pb-5 su-bg-${props.blok.headerBackgroundColor}`}>
           <CenteredContainer flex={true}>
             {(windowSize.width <= 991 && props.blok.layout !== "no-sidebar") &&
               <CreateBloks blokSection={props.blok.contentMenu}/>
