@@ -136,7 +136,12 @@
     @include margin(get-responsive-spacing-value(2, 'mobile') null get-responsive-spacing-value(5, 'mobile'));
 
     &__menus {
+      display: block;
       background-color: $su-color-white;
+
+      &[aria-hidden="true"] {
+        display: none;
+      }
     }
 
     &__title {
@@ -146,11 +151,11 @@
 
   // Mobile only styles
   @include grid-media-max('sm') {
-    max-width: 90%;
+    width: 90%;
   }
 
   // Tablet only styles
   @include grid-media-only('md') {
-    max-width: 40rem;
+    width: 40rem;
   }
 }

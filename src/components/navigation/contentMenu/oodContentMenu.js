@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useRef, useState } from "react"
 import SbEditable from 'storyblok-react'
 import CreateBloks from "../../../utilities/createBloks"
 import Heading from "../../partials/heading"
 import UseWindowSize from "../../../hooks/useWindowSize"
+import UseEscape from "../../../hooks/useEscape"
+import UseOnClickOutside from "../../../hooks/useOnClickOutside"
 
 const OodContentMenu = (props) => {
   let windowSize = UseWindowSize();
+  const [menuOpened, setMenuOpened] = useState(false);
+  const ref = useRef();
+
+  const toggleMenu = () => {
+    setMenuOpened(!menuOpened);
+  }
+
+  UseEscape(() => setMenuOpened(false));
+  UseOnClickOutside(ref, () => setMenuOpened(false));
 
   const Menus = (props) => (
     <>
@@ -45,9 +56,11 @@ const OodContentMenu = (props) => {
     // Mobile/tablet version of the content menu with toggle button and collapsable
     return (
       <SbEditable content={props.blok}>
-        <nav className="su-secondary-nav ood-content-nav" id="content-nav" aria-label="Section Content Menu">
-          <button className={`ood-content-nav__toggle`}>Section Menu <i aria-hidden="true" className={`fas fa-bars`} /></button>
-          <div className={`ood-content-nav__menus`}>
+        <nav className="su-secondary-nav ood-content-nav" id="content-nav" aria-label="Section Content Menu" ref={ref}>
+          <button className={`ood-content-nav__toggle`}
+                  aria-expanded={menuOpened}
+                  onClick={toggleMenu}>Section Menu <i aria-hidden="true" className={`fas fa-bars`} /></button>
+          <div className={`ood-content-nav__menus`} aria-hidden={!menuOpened}>
             <Menus {...props} />
           </div>
         </nav>
