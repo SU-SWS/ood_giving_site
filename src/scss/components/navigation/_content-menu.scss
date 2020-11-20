@@ -137,14 +137,27 @@
 .ood-content-nav {
   @include grid-media-max('md') {
     @include margin(get-responsive-spacing-value(2, 'mobile') auto null);
+    z-index: 200;
 
     &__menus {
       @include padding(get-responsive-spacing-value(2, 'mobile') null null);
+      position: absolute;
       display: block;
       background-color: $su-color-white;
+      transform-origin: center top;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
       &[aria-hidden="true"] {
-        display: none;
+        opacity: 0;
+        visibility: hidden;
+        transform: scaleY(0);
+      }
+
+      &[aria-hidden="false"] {
+        opacity: 1;
+        visibility: visible;
+        transform: scaleY(1);
+        box-shadow: rgba(0, 0, 0, 0.32) 0 34px 30px;
       }
     }
 
@@ -154,11 +167,17 @@
   }
 
   @include grid-media-only('xs') {
-    width: 90%;
+    &,
+    &__menus {
+      width: 90%;
+    }
   }
 
   @include grid-media-between('sm', 'md') {
-    width: 40rem;
+    &,
+    &__menus {
+      width: 40rem;
+    }
   }
 
   // Tablet only styles
