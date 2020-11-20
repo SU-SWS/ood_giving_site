@@ -17,8 +17,8 @@ const HeaderWithImage = (props) => {
       <header className={`ood-interior-page__header ood-interior-page__header--has-image`}>
         <div className={`ood-interior-page__header-title-wrapper su-pt-6 su-pb-5 su-bg-${props.blok.headerBackgroundColor}`}>
           <CenteredContainer flex={true}>
-            {windowSize.width <= 991 &&
-            <CreateBloks blokSection={props.blok.contentMenu}/>
+            {(windowSize.width <= 991 && props.blok.layout !== "no-sidebar") &&
+              <CreateBloks blokSection={props.blok.contentMenu}/>
             }
             <Heading level={"h1"} serif={true} color={"white"}
                      classes={"ood-interior-page__title flex-lg-6-of-12 flex-xl-5-of-12 flex-2xl-6-of-12"}>{props.blok.title}</Heading>

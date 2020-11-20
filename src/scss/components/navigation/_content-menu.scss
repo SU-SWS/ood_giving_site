@@ -121,10 +121,6 @@
   @include grid-media-only('md') {
     font-size: 1.6rem;
   }
-
-  @include grid-media('lg') {
-    display: none;
-  }
 }
 
 // Mobile/Tablet styles for the nav
@@ -150,12 +146,12 @@
   }
 
   // Mobile only styles
-  @include grid-media-max('sm') {
+  @include grid-media-only('xs') {
     width: 90%;
   }
 
   // Tablet only styles
-  @include grid-media-only('md') {
+  @include grid-media-between('sm', 'md') {
     width: 40rem;
   }
 }
