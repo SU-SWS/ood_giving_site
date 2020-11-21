@@ -57,8 +57,14 @@
     }
 
     &-sidebar {
-      @include grid-media-max('md') {
-        @include margin(null null 4em);
+      > *:last-child {
+        @include grid-media-max('sm') {
+          @include margin(null null get-responsive-spacing-value(6, mobile));
+        }
+
+        @include grid-media-only('md') {
+          @include margin(null null get-responsive-spacing-value(5, tablet));
+        }
       }
     }
   }
