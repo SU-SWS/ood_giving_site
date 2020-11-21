@@ -138,7 +138,7 @@
   @include grid-media-max('md') {
     @include margin(get-responsive-spacing-value(2, 'mobile') auto null);
     position: relative;
-    z-index: 200;
+    z-index: 30;
 
     &__menus {
       @include padding(get-responsive-spacing-value(2, 'mobile') null null);
@@ -164,6 +164,7 @@
 
     &__title {
       @include margin(null 2.4rem);
+      color: $su-color-black;
     }
   }
 
