@@ -52,10 +52,6 @@
       }
     }
 
-    &-content {
-      color: $su-color-black-true;
-    }
-
     &-sidebar {
       > *:last-child {
         @include grid-media-max('sm') {
