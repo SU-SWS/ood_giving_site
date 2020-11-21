@@ -4,27 +4,27 @@
 // Some of the larger ones might need to be scale down manually for mobile breakpoints
 
 .su-mod-type {
+  // Step 8, 9 used only for the Hero component splash text (small and large options
   &-9 {
     @include modular-typography(9);
 
-    @include grid-media-only('md') {
+    @include grid-media-only('lg') {
       font-size: 10rem;
-    }
-
-    @include grid-media-max('sm') {
-      font-size: 7.2rem;
     }
   }
 
   &-8 {
     @include modular-typography(8);
+  }
 
+  &-8,
+  &-9 {
     @include grid-media-only('md') {
       font-size: 7.2rem;
     }
 
     @include grid-media-max('sm') {
-      font-size: 6rem;
+      font-size: 5rem;
     }
   }
 

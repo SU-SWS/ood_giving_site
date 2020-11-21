@@ -4,12 +4,22 @@
 
 .ood-hero-home {
   position: relative;
-  height: 70rem;
   border-bottom: 10rem solid transparent; // To compensate for the CTA box bottom offset
 
+  @include grid-media('lg') {
+    border-bottom: 8rem solid transparent;
+  }
+
   &__media {
-    height: 100%;
     background-color: $su-color-archway-dark;
+
+    @include grid-media('lg') {
+      height: 50rem;
+    }
+
+    @include grid-media('xl') {
+      height: 60rem;
+    }
 
     &-wrapper {
       height: 100%;
@@ -53,12 +63,16 @@
   &__link {
     @include responsive-spacing('padding', 3);
     position: absolute;
-    bottom: -100px;
+    bottom: -10rem;
     right: 0;
     color: $su-color-white;
     z-index: 90;
     text-decoration: none;
     font-weight: $su-font-regular;
+
+    @include grid-media('lg') {
+      bottom: -8rem;
+    }
 
     &:hover,
     &:focus {
