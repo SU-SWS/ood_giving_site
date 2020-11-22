@@ -15,7 +15,7 @@ rules:
     -
       allow-leading-underscore: false
     -
-      convention: hyphenatedlowercase
+      convention: hyphenatedbem
   empty-line-between-blocks: 1
   extends-before-declarations: 1
   extends-before-mixins: 1
@@ -25,7 +25,7 @@ rules:
   function-name-format:
     - 1
     -
-      convention: hyphenatedbem
+      convention: hyphenatedlowercase
   hex-length: 0
   hex-notation:
     - 1
