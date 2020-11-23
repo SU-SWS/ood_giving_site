@@ -54,7 +54,7 @@
 
     // Top level desktop menu items
     @include grid-media('lg') {
-      @include padding(0 null null 0);
+      @include padding(null null null 0);
       flex-direction: row;
       flex-wrap: wrap;
 
@@ -120,10 +120,19 @@
     opacity: 0;
     visibility: hidden;
     transform: scaleY(0);
+    background-color: $su-color-fog-light;
+
+    &[aria-hidden="false"] {
+      position: relative;
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+      transform: scaleY(1);
+    }
 
     @include grid-media('lg') {
       @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 2.6%); // Fake the drop shadow at the top of the drop down panels
-      position: absolute;
+      background-color: $su-color-white;
       left: 0;
       width: 100%;
       opacity: 0;
@@ -137,18 +146,12 @@
 
       // On desktop, if aria-hidden of a mega menu section is set to "false", then it is shown
       &[aria-hidden="false"] {
+        position: absolute;
         display: flex;
         opacity: 1;
         visibility: visible;
         transform: scaleY(1);
       }
-    }
-
-    &[aria-hidden="false"] {
-      display: flex;
-      opacity: 1;
-      visibility: visible;
-      transform: scaleY(1);
     }
 
     .ood-cta {
@@ -292,8 +295,13 @@
 }
 
 // Mobile/tablet styles
+// The whole menu as dropdown
 .ood-mega-nav__menu-lv1 {
   @include responsive-spacing('padding', 1 null null);
+
+  @include grid-media('lg') {
+    @include padding(0 null null);
+  }
 
   @include grid-media-max('md') {
     position: absolute;
@@ -306,7 +314,8 @@
 
     // When mobile mega menu is expanded
     &[aria-hidden="false"] {
-      @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 2.6%); // Fake drop shadow at top of dropdown
+      @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 20px); // Fake drop shadow at top of dropdown
+      box-shadow: rgba(0, 0, 0, 0.12) 0 34px 30px;
       background-color: $su-color-white;
       display: flex;
       width: 100vw;
