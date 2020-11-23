@@ -116,18 +116,21 @@
   }
 
   &__section {
-    // Fake the drop shadow at the top of the drop down panels
-    @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 2.6%);
     position: absolute;
-    left: 0;
-    width: 100%;
     opacity: 0;
     visibility: hidden;
     transform: scaleY(0);
-    transform-origin: center top;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
     @include grid-media('lg') {
+      @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 2.6%); // Fake the drop shadow at the top of the drop down panels
+      position: absolute;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transform: scaleY(0);
+      transform-origin: center top;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
       top: 160px;
       z-index: 220; // When menu wrap to 2nd line make sure dropdown covers up top level links
       box-shadow: rgba(0, 0, 0, 0.12) 0 34px 30px;
@@ -139,6 +142,13 @@
         visibility: visible;
         transform: scaleY(1);
       }
+    }
+
+    &[aria-hidden="false"] {
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+      transform: scaleY(1);
     }
 
     .ood-cta {
