@@ -22,7 +22,15 @@
   }
 
   &-8 {
-    @include modular-typography(8);
+    font-size: 10rem;
+
+    @include grid-media-only('xl') {
+      @include modular-typography(7);
+    }
+
+    @include grid-media-only('lg') {
+      font-size: 7.2rem;
+    }
 
     @include grid-media-max('md') {
       @include modular-typography(5);
