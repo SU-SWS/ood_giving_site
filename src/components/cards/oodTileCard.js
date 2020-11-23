@@ -22,6 +22,8 @@ const OodTileCard = (props) => {
               classPrefix={"ood-tile-card"}
               imageSize={"card"}
               aspectRatio={"3x2"}
+              visibleHorizontal={props.blok.visibleHorizontal}
+              visibleVertical={props.blok.visibleVertical}
             />
           )}
           <section className="ood-tile-card__contents">

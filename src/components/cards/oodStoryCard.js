@@ -22,6 +22,8 @@ const OodStoryCard = (props) => {
               classPrefix={"ood-story-card"}
               imageSize={`${props.blok.orientation ? `${props.blok.orientation}-card` : "card"}`}
               aspectRatio={"3x2"}
+              visibleHorizontal={props.blok.visibleHorizontal}
+              visibleVertical={props.blok.visibleVertical}
             />
           )}
           <section className={`ood-story-card__contents su-mx-auto ood-has-tab-before su-px-2 su-pb-4`}>
