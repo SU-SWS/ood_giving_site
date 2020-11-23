@@ -23,9 +23,9 @@ const OodHomepageHero = (props) => {
       <div className={`hero su-bg-${props.blok.backgroundColor}`}>
         <figure className="su-media hero__media">
           <div className="su-media__wrapper hero__media-wrapper">
-            <img className="hero__image"
-                 src={processedImg}
+            <img src={processedImg}
                  alt={props.blok.image.alt ? props.blok.image.alt : ""}
+                 className={`hero__image su-obj-position-h-${props.blok.visibleHorizontal}-v-${props.blok.visibleVertical}`}
             />
           </div>
         </figure>
