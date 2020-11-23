@@ -1,37 +1,90 @@
 import React from "react"
 import Link from 'gatsby-link'
 
-/* Reusable Storyblok Link component for various link types - internal, external, asset */
+/**
+ * Reusable Storyblok Link component for various link types
+ * eg: internal, external, asset
+ **/
 
 const SbLink = (props) => {
-  // Storyblok link object either has a url (external links) or cached_url (internal or asset links)
-  const linkUrl = props.link.url || props.link.cached_url;
 
+  // TODO: Create a global configuration file to store this vale and have it
+  // set by an environment variable.
+  const baseUrl = "/"
+
+  // Storyblok link object either has a url (external links) or cached_url
+  // (internal or asset links)
+  let linkUrl = props.link.url || props.link.cached_url
+
+  // Default Classes for all links.
+  const linkClasses = props.classes ?? ""
+  const storyClasses = props.internalClasses ?? ""
+  const urlClasses = props.externalClasses ?? ""
+  const activeClasses = props.activeClass ?? ""
+  const assetClasses = props.assetClasses ?? ""
+  const otherAttributes = props.attributes ?? {}
+
+  // Story or Internal type link.
+  // ---------------------------------------------------------------------------
   if (props.link.linktype === "story") {
+
+    // Handle the home slug.
+    linkUrl = (linkUrl === "home") ? baseUrl : baseUrl + linkUrl
+    linkUrl += linkUrl.endsWith("/") ? "" : "/"
+
     return (
       <Link
-        to={linkUrl === "home" ? "/" : `/${linkUrl}${linkUrl.endsWith("/") ? "" : "/"}`}
-        className={`${props.classes ? props.classes : ""} ${props.internalClasses ? props.internalClasses : ""}`}
-        {...{activeClassName : props.activeClass}}
+        to={linkUrl}
+        className={linkClasses + " " + storyClasses}
+        activeClassName={activeClasses}
+        {...otherAttributes}
       >
         {props.children}
       </Link>
     )
   }
-  else if (props.link.linktype === "url") {
+
+  // External or absolute url type link.
+  // ---------------------------------------------------------------------------
+  if (props.link.linktype === "url") {
     return (
-      <a href={linkUrl} className={`${props.classes ? props.classes : ""} ${props.externalClasses ? props.externalClasses : ""}`}>{props.children}</a>
+      <a
+        href={linkUrl}
+        className={linkClasses + " " + urlClasses}
+        {...otherAttributes}
+      >
+        {props.children}
+      </a>
     )
   }
-  else if (props.link.linktype === "asset") {
+
+  // A link to a file or other asset.
+  // ---------------------------------------------------------------------------
+  if (props.link.linktype === "asset") {
     return (
-      <a href={linkUrl} className={`${props.classes ? props.classes : ""} ${props.assetClasses ? props.assetClasses : ""}`} {...{target : "_blank"}}>{props.children}</a>
-    )
-  } else {
-    return (
-      <a href={linkUrl} className={props.classes ? props.classes : ""}>{props.children}</a>
+      <a
+        href={linkUrl}
+        className={linkClasses + " " + assetClasses}
+        target={`_blank`}
+        {...otherAttributes}
+      >
+        {props.children}
+      </a>
     )
   }
+
+  // Default if we don't know what type this is.
+  // ---------------------------------------------------------------------------
+  return (
+    <a
+      href={linkUrl}
+      className={linkClasses}
+      {...otherAttributes}
+    >
+      {props.children}
+    </a>
+  )
+
 };
 
 export default SbLink
