@@ -244,6 +244,7 @@
     font-weight: $su-font-semi-bold;
     line-height: 0.7;
 
+    // FontAwesome icon
     > i {
       @include margin(null null 0.6rem);
       font-size: 1.8rem;
@@ -281,17 +282,18 @@
 }
 
 // Mobile/tablet styles
-
 .ood-mega-nav__menu-lv1 {
   @include grid-media-max('md') {
     position: absolute;
     background-color: $su-color-white;
 
+    // When mobile mega menu is collapsed
     &[aria-hidden="true"] {
       @include margin(null null null -30px);
       display: none;
     }
 
+    // When mobile mega menu is expanded
     &[aria-hidden="false"] {
       display: flex;
       width: 100vw;
@@ -302,6 +304,12 @@
   @include grid-media-max('sm') {
     &[aria-hidden="false"] {
       top: 105px; // Height of the local header for XS-SM
+    }
+  }
+
+  @include grid-media-only('md') {
+    &[aria-hidden="false"] {
+      top: 142px; // Height of the local header for MD
     }
   }
 }
