@@ -285,7 +285,6 @@
 .ood-mega-nav__menu-lv1 {
   @include grid-media-max('md') {
     position: absolute;
-    background-color: $su-color-white;
 
     // When mobile mega menu is collapsed
     &[aria-hidden="true"] {
@@ -295,6 +294,8 @@
 
     // When mobile mega menu is expanded
     &[aria-hidden="false"] {
+      @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 2.6%); // Fake drop shadow at top of dropdown
+      background-color: $su-color-white;
       display: flex;
       width: 100vw;
       left: 0;
