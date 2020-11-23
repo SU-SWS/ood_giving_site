@@ -42,13 +42,11 @@
     text-decoration: none;
     height: 100%;
     transition: color 0.25s ease-in, box-shadow 0.25s ease-in;
-    box-shadow: $ood-shadow--shallow;
     color: transparent;
 
     &:hover,
     &:focus {
       color: transparent;
-      box-shadow: $ood-shadow--medium;
     }
   }
 }
