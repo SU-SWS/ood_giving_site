@@ -14,7 +14,7 @@
     background-color: $su-color-archway-dark;
     height: 36rem;
 
-    @include grid-media('lg') {
+    @include grid-media('md') {
       height: 40rem;
     }
 
@@ -48,6 +48,11 @@
 
     @include grid-media-only('md') {
       left: map-get($su-screen-margins, "md");
+
+      > .hero__splash-text,
+      > .hero__link {
+        @include margin(null auto);
+      }
     }
 
     @include grid-media('lg') {

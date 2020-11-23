@@ -29,7 +29,7 @@ const OodHomepageHero = (props) => {
           </div>
         </figure>
         <CenteredContainer flex={true} classes={"hero__content"}>
-          <h1 className={`flex-lg-7-of-12 hero__splash-text su-semibold su-text-white su-text-focus-in
+          <h1 className={`flex-md-10-of-12 flex-lg-7-of-12 hero__splash-text su-semibold su-text-white su-text-focus-in
               su-mod-type-${props.blok.splashTextSize}
               su-after-bg-${props.blok.tabColor}`}>
               {props.blok.splashText}
@@ -37,13 +37,13 @@ const OodHomepageHero = (props) => {
           {props.blok.link.linktype === "story" &&
             <Link
               to={props.blok.link.cached_url === "home" ? "/" : `/${props.blok.link.cached_url}${props.blok.link.cached_url.endsWith("/") ? "" : "/"}`}
-              className={`flex-lg-5-of-12 hero__link su-bg-${props.blok.ctaBackgroundColor}`}
+              className={`flex-md-10-of-12 flex-lg-5-of-12 hero__link su-bg-${props.blok.ctaBackgroundColor}`}
             >
               <CtaBoxContent {...props}/>
             </Link>
           }
           {props.blok.link.linktype === "url" &&
-            <a href={props.blok.link.url} className={`flex-lg-5-of-12 hero__link su-bg-${props.blok.ctaBackgroundColor}`}>
+            <a href={props.blok.link.url} className={`flex-md-10-of-12 flex-lg-5-of-12 hero__link su-bg-${props.blok.ctaBackgroundColor}`}>
               <CtaBoxContent {...props}/>
             </a>
           }
