@@ -46,74 +46,71 @@
     text-decoration: none;
   }
 
-  &__menu {
-    &-lv1 {
-      @include margin(0 null);
-      display: flex;
-      flex-direction: column;
-      width: 100%;
+  &__menu-lv1 {
+    @include margin(0 null);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 
-      // Top level desktop menu items
-      @include grid-media('lg') {
-        @include padding(null null null 0);
-        flex-direction: row;
-        flex-wrap: wrap;
+    // Top level desktop menu items
+    @include grid-media('lg') {
+      @include padding(null null null 0);
+      flex-direction: row;
+      flex-wrap: wrap;
 
-        > li {
-          > a,
-          > button {
-            @include fancy-hover($su-color-digital-red, $su-color-black, 'bottom', '10px');
-            @include padding (1.6rem 0 null);
-            @include margin(0 4rem 0 0);
-            display: inline-block;
-            color: $su-color-black;
-            transition: color 0.3s ease-out;
-            font-size: 2.1rem;
+      > li {
+        > a,
+        > button {
+          @include fancy-hover($su-color-digital-red, $su-color-black, 'bottom', '10px');
+          @include padding (1.6rem 0 null);
+          @include margin(0 4rem 0 0);
+          display: inline-block;
+          color: $su-color-black;
+          transition: color 0.3s ease-out;
+          font-size: 2.1rem;
 
-            &:hover,
-            &:focus {
-              color: $su-color-digital-red;
-              outline: none;
-            }
-          }
-
-          > .ood-mega-nav__link--active {
-            &::before {
-              transform: scaleX(1);
-              background-color: $su-color-black-40;
-              visibility: visible;
-            }
+          &:hover,
+          &:focus {
+            color: $su-color-digital-red;
+            outline: none;
           }
         }
 
+        > .ood-mega-nav__link--active {
+          &::before {
+            transform: scaleX(1);
+            background-color: $su-color-black-40;
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+
+  &__menu-lv2 {
+    @include margin(null null 0);
+
+    .ood-mega-nav__item {
+      @include margin(null null 1em);
+
+      &:last-of-type {
+        @include margin(null null 0);
       }
     }
 
-    &-lv2 {
-      @include margin(null null 0);
+    .ood-mega-nav__link {
+      font-size: 1.9rem;
+      font-weight: $su-font-regular;
+      line-height: 1.2;
 
-      .ood-mega-nav__item {
-        @include margin(null null 1em);
-
-        &:last-of-type {
-          @include margin(null null 0);
-        }
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+        color: $su-color-digital-red;
       }
 
-      .ood-mega-nav__link {
-        font-size: 1.9rem;
-        font-weight: $su-font-regular;
-        line-height: 1.2;
-
-        &:hover,
-        &:focus {
-          text-decoration: underline;
-          color: $su-color-digital-red;
-        }
-
-        &::after {
-          background-color: $su-color-digital-red;
-        }
+      &::after {
+        background-color: $su-color-digital-red;
       }
     }
   }
@@ -130,20 +127,18 @@
     transform-origin: center top;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
-    // On desktop, if aria-hidden of a mega menu section is set to "false", then it is shown
     @include grid-media('lg') {
+      top: 160px;
+      z-index: 220; // When menu wrap to 2nd line make sure dropdown covers up top level links
+      box-shadow: rgba(0, 0, 0, 0.12) 0 34px 30px;
+
+      // On desktop, if aria-hidden of a mega menu section is set to "false", then it is shown
       &[aria-hidden="false"] {
         display: flex;
         opacity: 1;
         visibility: visible;
         transform: scaleY(1);
       }
-    }
-
-    @include grid-media('lg') {
-      top: 160px;
-      z-index: 220; // When menu wrap to 2nd line make sure dropdown covers up top level links
-      box-shadow: rgba(0, 0, 0, 0.12) 0 34px 30px;
     }
 
     .ood-cta {
@@ -228,107 +223,97 @@
       }
     }
   }
+}
 
-  &__toggle {
-    border: 0;
-    cursor: pointer;
+// Mobile/tablet hamburger button
+.ood-mega-nav__toggle {
+  border: 0;
+  cursor: pointer;
 
-    @include grid-media-max('md') {
-      @include margin(0);
-      @include padding(0);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      outline: none;
-      width: auto;
-      background-color: transparent;
-      color: $su-color-digital-red;
-      font-size: 1.6rem;
-      font-weight: $su-font-semi-bold;
-      line-height: 0.7;
+  @include grid-media-max('md') {
+    @include margin(0);
+    @include padding(0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: none;
+    width: auto;
+    background-color: transparent;
+    color: $su-color-digital-red;
+    font-size: 1.6rem;
+    font-weight: $su-font-semi-bold;
+    line-height: 0.7;
 
-      > i {
-        @include margin(null null 0.6rem);
-        font-size: 1.8rem;
+    > i {
+      @include margin(null null 0.6rem);
+      font-size: 1.8rem;
+    }
+
+    &::after {
+      @include margin(0 auto);
+      display: none;
+      width: 30px;
+      height: 26px;
+      background: url("#{$su-image-path}/hamburger-black.svg") no-repeat 3px 0;
+      content: "";
+    }
+
+    &[aria-expanded="true"] {
+      &::before {
+        visibility: visible;
+        transform: scaleX(1);
+        background-color: color(h-border--expanded, $su-nav-colors);
       }
 
       &::after {
-        @include margin(0 auto);
-        display: none;
-        width: 30px;
-        height: 26px;
-        background: url("#{$su-image-path}/hamburger-black.svg") no-repeat 3px 0;
-        content: "";
+        width: 22px;
+        background: url("#{$su-image-path}/close-black.svg") no-repeat 3px 0;
+        background-size: 16px 16px;
       }
 
-      &[aria-expanded="true"] {
-        &::before {
-          visibility: visible;
-          transform: scaleX(1);
-          background-color: color(h-border--expanded, $su-nav-colors);
-        }
-
-        &::after {
-          width: 22px;
-          background: url("#{$su-image-path}/close-black.svg") no-repeat 3px 0;
-          background-size: 16px 16px;
-        }
-
-        &:hover::before {
-          background-color: color(h-border--hover, $su-nav-colors);
-        }
-
-        &:active::before {
-          background-color: color(h-border--active, $su-nav-colors);
-        }
+      &:hover::before {
+        background-color: color(h-border--hover, $su-nav-colors);
       }
 
-      &:hover,
-      &:active,
-      &:focus {
-        background-color: transparent;
-        color: color(h-link, $su-nav-colors);
-        box-shadow: none;
-      }
-
-      &[aria-expanded="false"] + .su-main-nav__menu-lv1 {
-        display: none;
-      }
-
-      &[aria-expanded="true"] + .su-main-nav__menu-lv1 {
-        position: absolute;
-      }
-
-      &--right {
-        @include margin(null 0 null auto);
+      &:active::before {
+        background-color: color(h-border--active, $su-nav-colors);
       }
     }
 
-    @include grid-media-only('md') {
-      position: relative;
-      top: 0.6rem;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: transparent;
+      color: color(h-link, $su-nav-colors);
+      box-shadow: none;
+    }
 
-      &[aria-expanded="true"]  + .ood-mega-nav__menu-lv1 {
-        max-width: 100%;
-      }
+    &--right {
+      @include margin(null 0 null auto);
     }
   }
 
-  @include grid-media-max('md') {
-    .ood-mega-nav__menu-lv1 {
-      &[aria-hidden="true"] {
-        @include margin(null null null -30px);
-        position: absolute;
-        display: none;
-        background-color: $su-color-white;
-        width: 100vw;
-      }
+  @include grid-media-only('md') {
+    position: relative;
+    top: 0.6rem;
+  }
+}
 
-      &[aria-hidden="false"] {
-        .ood-mega-nav__menu-lv1 {
-          display: flex;
-        }
-      }
+// Mobile/tablet styles
+@include grid-media-max('md') {
+  .ood-mega-nav__menu-lv1 {
+    position: absolute;
+    background-color: $su-color-white;
+
+    &[aria-hidden="true"] {
+      @include margin(null null null -30px);
+      display: none;
+    }
+
+    &[aria-hidden="false"] {
+      display: flex;
+      width: 100vw;
+      left: 0;
     }
   }
 }
