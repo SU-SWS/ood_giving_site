@@ -63,7 +63,7 @@
         > button {
           @include fancy-hover($su-color-digital-red, $su-color-black, 'bottom', '10px');
           @include padding (1.6rem 0 null);
-          @include margin(0 4rem 0 0);
+          @include margin(0 3.8rem 0 0);
           display: inline-block;
           color: $su-color-black;
           transition: color 0.3s ease-out;

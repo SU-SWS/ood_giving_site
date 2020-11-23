@@ -4,6 +4,7 @@ import CreateBloks from "../../../utilities/createBloks"
 import UseEscape from "../../../hooks/useEscape"
 import UseOnClickOutside from "../../../hooks/useOnClickOutside"
 import UseWindowSize from "../../../hooks/useWindowSize"
+import { config } from "../../../utilities/config"
 
 const OodMegaMenu = (props) => {
   let windowSize = UseWindowSize();
@@ -17,7 +18,7 @@ const OodMegaMenu = (props) => {
   UseEscape(() => setMenuOpened(false));
   UseOnClickOutside(ref, () => setMenuOpened(false));
 
-  if (windowSize.width > 991) {
+  if (windowSize.width >= config.breakpoint.lg) {
     return (
       <SbEditable content={props.blok}>
         <nav className="ood-mega-nav" aria-label="Main Menu">
