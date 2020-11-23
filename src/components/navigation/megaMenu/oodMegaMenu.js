@@ -31,11 +31,13 @@ const OodMegaMenu = (props) => {
   else {
     return (
       <SbEditable content={props.blok}>
-        <nav className="ood-mega-nav" aria-label="Main Menu">
-          <button className="ood-mega-nav__toggle su-mr-none su-ml-auto" aria-label="menu toggle" aria-expanded="false">
-            <i aria-hidden="true" className={`fas fa-bars`}/>Menu
+        <nav className="ood-mega-nav" aria-label="Main Menu" ref={ref}>
+          <button className="ood-mega-nav__toggle su-mr-none su-ml-auto" aria-label="menu toggle"
+                  aria-expanded={menuOpened}
+                  onClick={toggleMenu}>
+            <i aria-hidden="true" className={`fas fa-${menuOpened? "times" : "bars"}`}/>{menuOpened? "Close" : "Menu"}
           </button>
-          <ul className="ood-mega-nav__menu-lv1 su-list-none">
+          <ul className="ood-mega-nav__menu-lv1 su-list-none" aria-hidden={!menuOpened}>
             <CreateBloks blokSection={props.blok.topLevelLinks}/>
           </ul>
         </nav>
