@@ -1,6 +1,5 @@
 import React from "react"
 import Link from 'gatsby-link'
-import SbEditable from 'storyblok-react'
 
 /* Reusable Storyblok Link component for various link types - internal, external, asset */
 
