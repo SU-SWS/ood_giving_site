@@ -26,18 +26,22 @@
       height: 60rem;
     }
 
-    &-wrapper {
-      height: 100%;
+    // Add blue gradient overlay for mobile/tablet - higher contrast for white text
+    @include grid-media-max('md') {
+      &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(360deg, rgba(1, 74, 106, 0.7) 0%, rgba(255, 255, 255, 0) 90%);
+      }
     }
 
-    &::after {
-      display: block;
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+    &-wrapper {
+      height: 100%;
     }
   }
 
