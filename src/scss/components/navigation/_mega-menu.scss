@@ -312,16 +312,11 @@
         max-width: 100%;
       }
     }
-
-    @include grid-media('lg') {
-      display: none;
-    }
   }
 
-  // When js is disabled, submenus is visible when parent trigger is hovered
-  &.no-js {
-    @include grid-media-max('md') {
-      .ood-mega-nav__menu-lv1 {
+  @include grid-media-max('md') {
+    .ood-mega-nav__menu-lv1 {
+      &[aria-hidden="true"] {
         @include margin(null null null -30px);
         position: absolute;
         display: none;
@@ -329,8 +324,7 @@
         width: 100vw;
       }
 
-      &:hover,
-      &:focus-within {
+      &[aria-hidden="false"] {
         .ood-mega-nav__menu-lv1 {
           display: flex;
         }
