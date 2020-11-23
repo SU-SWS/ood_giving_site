@@ -342,6 +342,7 @@
 
         &:hover,
         &:focus {
+          outline: none;
           color: $su-color-digital-red;
           text-decoration: underline;
         }
@@ -382,8 +383,6 @@
 
         &:hover,
         &:focus {
-          outline: none;
-
           &::after {
             background: $su-color-black url("#{$su-image-path}/caret-down-white.svg") no-repeat center/50%;
             background-size: 14px;
