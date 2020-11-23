@@ -38,9 +38,14 @@
   }
 
   &__content {
-    position: absolute;
-    bottom: -10rem; // overhang of CTA box for mobile/tablet
-    left: map-get($su-screen-margins, "xs");
+    @include grid-media-max('md') {
+      position: absolute;
+      bottom: -10rem; // overhang of CTA box for mobile/tablet
+    }
+
+    @include grid-media-max('xs') {
+      left: map-get($su-screen-margins, "xs");
+    }
 
     @include grid-media-only('sm') {
       left: map-get($su-screen-margins, "sm");
@@ -63,9 +68,6 @@
   &__splash-text {
     @include serif;
     @include responsive-spacing('margin', null null 2);
-    //position: absolute;
-    //bottom: 22rem;
-    //left: 0;
     line-height: 1.1;
     z-index: 100;
     text-shadow: rgba(0,0,0,0.6) 0 0 26px;
@@ -81,14 +83,14 @@
 
     @include grid-media('lg') {
       @include margin(null null 0);
-      //bottom: 8rem;
+      position: absolute;
+      left: 0;
+      bottom: 8rem;
     }
   }
 
   &__link {
     @include responsive-spacing('padding', 3);
-    //position: absolute;
-    //bottom: -10rem;
     right: 0;
     color: $su-color-white;
     z-index: 90;
@@ -100,7 +102,8 @@
     }
 
     @include grid-media('lg') {
-      //bottom: #{-$card-overhang};
+      position: absolute;
+      bottom: #{-$card-overhang};
     }
 
     &:hover,
