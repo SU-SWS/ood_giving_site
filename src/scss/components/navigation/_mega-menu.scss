@@ -249,26 +249,11 @@
       font-size: 1.8rem;
     }
 
-    &::after {
-      @include margin(0 auto);
-      display: none;
-      width: 30px;
-      height: 26px;
-      background: url("#{$su-image-path}/hamburger-black.svg") no-repeat 3px 0;
-      content: "";
-    }
-
     &[aria-expanded="true"] {
       &::before {
         visibility: visible;
         transform: scaleX(1);
         background-color: color(h-border--expanded, $su-nav-colors);
-      }
-
-      &::after {
-        width: 22px;
-        background: url("#{$su-image-path}/close-black.svg") no-repeat 3px 0;
-        background-size: 16px 16px;
       }
 
       &:hover::before {
@@ -287,10 +272,6 @@
       color: color(h-link, $su-nav-colors);
       box-shadow: none;
     }
-
-    &--right {
-      @include margin(null 0 null auto);
-    }
   }
 
   @include grid-media-only('md') {
@@ -300,8 +281,9 @@
 }
 
 // Mobile/tablet styles
-@include grid-media-max('md') {
-  .ood-mega-nav__menu-lv1 {
+
+.ood-mega-nav__menu-lv1 {
+  @include grid-media-max('md') {
     position: absolute;
     background-color: $su-color-white;
 
@@ -314,6 +296,12 @@
       display: flex;
       width: 100vw;
       left: 0;
+    }
+  }
+
+  @include grid-media-max('sm') {
+    &[aria-hidden="false"] {
+      top: 105px; // Height of the local header for XS-SM
     }
   }
 }
