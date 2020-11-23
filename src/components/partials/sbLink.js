@@ -5,13 +5,13 @@ import Link from 'gatsby-link'
 
 const SbLink = (props) => {
   // Storyblok link object either has a url (external links) or cached_url (internal or asset links)
-  let linkUrl = props.link.url || props.link.cached_url;
+  const linkUrl = props.link.url || props.link.cached_url;
 
   if (props.link.linktype === "story") {
     return (
       <Link
         to={linkUrl === "home" ? "/" : `/${linkUrl}${linkUrl.endsWith("/") ? "" : "/"}`}
-        className={`${props.classes} ${props.internalClasses}`}
+        className={`${props.classes ? props.classes : ""} ${props.internalClasses ? props.internalClasses : ""}`}
         {...{activeClassName : props.activeClass}}
       >
         {props.children}
@@ -20,16 +20,16 @@ const SbLink = (props) => {
   }
   else if (props.link.linktype === "url") {
     return (
-      <a href={linkUrl} className={`${props.classes} ${props.externalClasses}`}>{props.children}</a>
+      <a href={linkUrl} className={`${props.classes ? props.classes : ""} ${props.externalClasses ? props.externalClasses : ""}`}>{props.children}</a>
     )
   }
   else if (props.link.linktype === "asset") {
     return (
-      <a href={linkUrl} className={`${props.classes} ${props.assetClasses}`} {...{target : "_blank"}}>{props.children}</a>
+      <a href={linkUrl} className={`${props.classes ? props.classes : ""} ${props.assetClasses ? props.assetClasses : ""}`} {...{target : "_blank"}}>{props.children}</a>
     )
   } else {
     return (
-      <a href={linkUrl} className={`${props.classes}`}>{props.children}</a>
+      <a href={linkUrl} className={props.classes ? props.classes : ""}>{props.children}</a>
     )
   }
 };
