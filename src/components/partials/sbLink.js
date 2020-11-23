@@ -12,7 +12,7 @@ const SbLink = (props) => {
     return (
       <Link
         to={linkUrl === "home" ? "/" : `/${linkUrl}${linkUrl.endsWith("/") ? "" : "/"}`}
-        className={props.internalClsses}
+        className={`${props.classes} ${props.internalClasses}`}
         {...{activeClassName : props.activeClass}}
       >
         {props.children}
@@ -21,16 +21,16 @@ const SbLink = (props) => {
   }
   else if (props.link.linktype === "url") {
     return (
-      <a href={linkUrl} className={`su-link--external ${props.externalClasses}`}>{props.children}</a>
+      <a href={linkUrl} className={`${props.classes} ${props.externalClasses}`}>{props.children}</a>
     )
   }
   else if (props.link.linktype === "asset") {
     return (
-      <a href={linkUrl} className={props.assetClasses} {...{target : "_blank"}}>{props.children}</a>
+      <a href={linkUrl} className={`${props.classes} ${props.assetClasses}`} {...{target : "_blank"}}>{props.children}</a>
     )
   } else {
     return (
-      <a href={linkUrl}>{props.children}</a>
+      <a href={linkUrl} className={`${props.classes}`}>{props.children}</a>
     )
   }
 };
