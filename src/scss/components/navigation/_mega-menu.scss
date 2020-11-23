@@ -54,7 +54,7 @@
 
     // Top level desktop menu items
     @include grid-media('lg') {
-      @include padding(null null null 0);
+      @include padding(0 null null 0);
       flex-direction: row;
       flex-wrap: wrap;
 
@@ -283,6 +283,8 @@
 
 // Mobile/tablet styles
 .ood-mega-nav__menu-lv1 {
+  @include responsive-spacing('padding', 1 null null);
+
   @include grid-media-max('md') {
     position: absolute;
 
@@ -299,6 +301,25 @@
       display: flex;
       width: 100vw;
       left: 0;
+    }
+
+    // 1st level link and parent items
+    > li {
+      > a,
+      > button {
+        @include padding(1.6rem 4.8rem 1.6rem 2.4rem);
+        display: block;
+        width: 100%;
+        font-size: 2rem;
+        border-bottom: 1px solid $su-color-black-10;
+        text-align: left;
+
+        &:hover,
+        &:focus {
+          color: $su-color-digital-red;
+          text-decoration: underline;
+        }
+      }
     }
   }
 
