@@ -330,13 +330,28 @@
         display: block;
         width: 100%;
         font-size: 2rem;
-        border-bottom: 1px solid $su-color-black-10;
+        border-bottom: 1px solid $su-color-black-20;
         text-align: left;
 
         &:hover,
         &:focus {
           color: $su-color-digital-red;
           text-decoration: underline;
+        }
+      }
+
+      > a {
+        @include link-icon(caret-right, 10px, right, 0.06em);
+
+        &::after {
+          background-color: $su-color-digital-red;
+        }
+
+        &:hover,
+        &:focus {
+          &::after {
+            background-color: $su-color-digital-red;
+          }
         }
       }
     }
