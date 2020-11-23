@@ -24,11 +24,7 @@
   &-8 {
     @include modular-typography(8);
 
-    @include grid-media-only('md') {
-      @include modular-typography(6);
-    }
-
-    @include grid-media-only('xs') {
+    @include grid-media-max('md') {
       @include modular-typography(5);
     }
   }
