@@ -1,36 +1,20 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import SbEditable from 'storyblok-react'
+import SbLink from "../partials/sbLink"
 
 const CtaLink = (props) => (
   <SbEditable content={props.blok}>
     {props.blok.linkText && (
       <div className={`ood-cta su-block su-text-align-${props.blok.align}`}>
-        {props.blok.link.linktype === "story" &&
-          <Link to={props.blok.link.cached_url === "home" ? "/" : `/${props.blok.link.cached_url}${props.blok.link.cached_url.endsWith("/") ? "" : "/"}`}
-                className={props.blok.isButton === true ?
-                  `ood-cta__button ${props.blok.linkButtonStyle} ${props.blok.linkButtonSize} ${props.blok.linkIcon}`
-                  : `su-link ood-cta__link ${props.blok.linkIcon} ${props.blok.linkTextColor}`}
-                {...props.blok.rel ? {rel : props.blok.rel} : {}}
-          >{props.blok.linkText}
-            {props.blok.srText &&
-              <span className="su-sr-only-element">{` ${props.blok.srText}`}</span>
-            }
-          </Link>
-        }
-        {(props.blok.link.linktype === "url" || props.blok.link.linktype === "asset") &&
-          <a href={props.blok.link.url ? props.blok.link.url : props.blok.link.cached_url}
-             className={props.blok.isButton === true ?
-               `ood-cta__button ${props.blok.linkButtonStyle} ${props.blok.linkButtonSize} ${props.blok.linkIcon}`
-               : `su-link ood-cta__link ${props.blok.linkIcon} ${props.blok.linkTextColor}`}
-             {...props.blok.rel ? {rel : props.blok.rel} : {}}
-             {...props.blok.link.linktype === "asset" ? {target : "_blank"} : {}}
-          >{props.blok.linkText}
-            {props.blok.srText &&
-              <span className="su-sr-only-element">{` ${props.blok.srText}`}</span>
-            }
-          </a>
-        }
+        <SbLink link={props.blok.link} classes={props.blok.isButton === true ?
+          `ood-cta__button ${props.blok.linkButtonStyle} ${props.blok.linkButtonSize} ${props.blok.linkIcon}`
+          : `su-link ood-cta__link ${props.blok.linkIcon} ${props.blok.linkTextColor}`}
+                attributes={props.blok.rel ? {rel : props.blok.rel} : {}}
+        >{props.blok.linkText}
+          {props.blok.srText &&
+          <span className="su-sr-only-element">{` ${props.blok.srText}`}</span>
+          }
+        </SbLink>
       </div>
     )}
   </SbEditable>
