@@ -46,7 +46,7 @@ const OodContentMenu = (props) => {
   if (windowSize.width >= config.breakpoint.lg) {
     return (
       <SbEditable content={props.blok}>
-        <nav className="su-secondary-nav ood-content-nav" id="content-nav" aria-label="Section Content Menu">
+        <nav className="su-secondary-nav ood-content-nav" aria-label="Section Content Menu">
           <div className={`ood-content-nav__menus`}>
             <Menus {...props} />
           </div>
@@ -57,7 +57,7 @@ const OodContentMenu = (props) => {
     // Mobile/tablet version of the content menu with toggle button and collapsable with aria labels
     return (
       <SbEditable content={props.blok}>
-        <nav className="su-secondary-nav ood-content-nav" id="content-nav" aria-label="Section Content Menu" ref={ref}>
+        <nav className="su-secondary-nav ood-content-nav" aria-label="Section Content Menu" ref={ref}>
           <button className={`ood-content-nav__toggle`}
                   aria-expanded={menuOpened}
                   onClick={toggleMenu}>{menuOpened ? "Close" : "Section Menu"} <i aria-hidden="true" className={`fas fa-${menuOpened ? "times" : "bars"}`} /></button>
