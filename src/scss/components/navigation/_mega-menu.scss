@@ -91,7 +91,7 @@
     @include margin(null null 0);
 
     .ood-mega-nav__item {
-      @include margin(null null 1em);
+      @include margin(null null 2rem);
 
       &:last-of-type {
         @include margin(null null 0);
@@ -115,12 +115,14 @@
     }
   }
 
+  // Mega menu dropdown panel for 2nd level links
   &__section {
+    @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, $su-color-fog-light 10px, $su-color-fog-light 98%, rgba(0, 0, 0, 0.1) 100%);
+    background-color: $su-color-fog-light;
     position: absolute;
     opacity: 0;
     visibility: hidden;
     transform: scaleY(0);
-    background-color: $su-color-fog-light;
 
     &[aria-hidden="false"] {
       position: relative;
@@ -131,7 +133,7 @@
     }
 
     @include grid-media('lg') {
-      @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 2.6%); // Fake the drop shadow at the top of the drop down panels
+      @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, $su-color-white 12px); // Fake the drop shadow at the top of the drop down panels
       background-color: $su-color-white;
       left: 0;
       width: 100%;
@@ -248,7 +250,7 @@
 }
 
 .ood-mega-nav__card__media {
-  @include grid-media-max('sm') {
+  @include grid-media-max('md') {
     display: none;
   }
 }
@@ -394,7 +396,7 @@
         &:focus {
           &::after {
             background: $su-color-black url("#{$su-image-path}/caret-down-white.svg") no-repeat center/50%;
-            background-size: 14px;
+            background-size: 14px; // SVG quirk - have to keep this even though it's unchanged from normal state
           }
         }
 
