@@ -42,7 +42,7 @@ const OodInteriorPage = (props) => {
                     <h2 className="ood-interior-page__body-header-title su-serif su-bold ood-has-tab-before">{props.blok.bodyTitle}</h2>
                   </header>
                 }
-                <CenteredContainer flex={true}>
+                <CenteredContainer flex={true} classes={`ood-interior-page__body-container`}>
                   {props.blok.layout === "no-sidebar" &&
                     <BodyNoSidebar {...props}/>
                   }

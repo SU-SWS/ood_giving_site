@@ -25,7 +25,7 @@
     }
 
     @include grid-media-only('md') {
-      @include padding(get-responsive-spacing-value(0, 'tablet') null get-responsive-spacing-value(2, 'tablet'));
+      @include padding(get-responsive-spacing-value(1, 'tablet') null get-responsive-spacing-value(2, 'tablet'));
     }
 
     @include grid-media('lg') {
