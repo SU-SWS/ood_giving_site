@@ -1,7 +1,7 @@
 // Global variables for this project
 
 const config = {
-  baseUrl: "/",
+  basePath: process.env.GATSBY_BASE_PATH === undefined ? '/' : process.env.GATSBY_BASE_PATH
   breakpoint: {
     xs: 0,
     sm: 576,
