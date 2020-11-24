@@ -5,9 +5,9 @@ import transformImage from '../../utilities/transformImage'
 import CreateBloks from "../../utilities/createBloks"
 import CenteredContainer from "../partials/centeredContainer"
 import FlexCell from "../partials/flexCell"
+import Heading from "../partials/heading"
 
 const OodPoster = (props) => {
-  const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h3";
   let processedImg;
   processedImg = transformImage(props.blok.image.filename, "/2000x0");
 
@@ -33,7 +33,7 @@ const OodPoster = (props) => {
                    ${(props.blok.cardBackgroundColor !== "white" && props.blok.cardBackgroundColor !== "fog-light") ? "su-text-white" : ""}`
               }>
                 {props.blok.headline && (
-                  <Heading className="ood-poster__headline su-semibold">{props.blok.headline}</Heading>
+                  <Heading level={props.blok.headingLevel} defaultLevel={'h3'} weight={"semibold"} classes={"ood-poster__headline"}>{props.blok.headline}</Heading>
                 )}
                 {props.blok.bodyText &&
                   <div className="ood-poster__text">
