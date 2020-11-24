@@ -417,7 +417,7 @@
 
   @include grid-media-only('md') {
     &[aria-hidden="false"] {
-      top: 132px; // Height of the local header for MD
+      top: 140px; // Height of the local header for MD
     }
   }
 }
