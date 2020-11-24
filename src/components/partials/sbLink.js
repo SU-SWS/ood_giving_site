@@ -18,7 +18,7 @@ const SbLink = (props) => {
   const linkClasses = props.classes ?? ""
   const storyClasses = props.internalClasses ?? ""
   const urlClasses = props.externalClasses ?? ""
-  const activeClasses = props.activeClass ?? ""
+  const activeClass = props.activeClass ?? ""
   const assetClasses = props.assetClasses ?? ""
   const otherAttributes = props.attributes ?? {}
 
@@ -34,7 +34,7 @@ const SbLink = (props) => {
       <Link
         to={linkUrl}
         className={linkClasses + " " + storyClasses}
-        activeClassName={activeClasses}
+        activeClassName={activeClass}
         {...otherAttributes}
       >
         {props.children}
