@@ -8,7 +8,7 @@ import { config } from "../../utilities/config"
  **/
 
 const SbLink = (props) => {
-  const baseUrl = config.baseUrl
+  const basePath = config.basePath
 
   // Storyblok link object either has a url (external links)
   // or cached_url (internal or asset links)
@@ -86,4 +86,3 @@ const SbLink = (props) => {
 };
 
 export default SbLink
-
