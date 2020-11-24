@@ -64,6 +64,7 @@
     height: 100%;
     position: relative;
     border-color: transparent;
+    box-shadow: $ood-shadow--shallow-dark;
 
     @include grid-media-only('lg') {
       @include padding(get-responsive-spacing-value(1, 'desktop'));
@@ -76,6 +77,7 @@
     &:hover,
     &:focus {
       border-color: transparent;
+      box-shadow: $ood-shadow--medium-dark;
 
       .ood-support-card__headline {
         text-decoration: underline;

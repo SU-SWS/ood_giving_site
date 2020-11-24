@@ -3,47 +3,46 @@ import SbEditable from 'storyblok-react'
 import transformImage from "../../utilities/transformImage";
 import { Link } from "gatsby"
 import CenteredContainer from "../partials/centeredContainer"
+import Heading from "../partials/heading"
 
 const OodHomepageHero = (props) => {
   let processedImg;
   processedImg = transformImage(props.blok.image.filename, "/2000x0");
 
   const CtaBoxContent = (props) => (
-    <SbEditable content={props.blok}>
-      <h2 className={`ood-hero-home__cta-headline su-text-white su-semibold`}>{props.blok.ctaHeadline}</h2>
+    <>
+      <Heading level={"h2"} color={"white"} weight={"semibold"} classes={"hero__cta-headline"}>{props.blok.ctaHeadline}</Heading>
       {props.blok.ctaText &&
-        <p className={`ood-hero-home__cta-text su-link--action su-text-white su-semibold su-ml-auto`}>{props.blok.ctaText}</p>
+        <p className={`hero__cta-text su-link--action su-text-white su-semibold su-ml-auto`}>{props.blok.ctaText}</p>
       }
-    </SbEditable>
+    </>
   );
 
   return (
     <SbEditable content={props.blok}>
-      <div className={`ood-hero-home su-bg-${props.blok.backgroundColor}`}>
-        <figure className="su-media ood-hero-home__media">
-          <div className="su-media__wrapper ood-hero-home__media-wrapper">
-            <img className="ood-hero-home__image"
-                 src={processedImg}
+      <div className={`hero su-bg-${props.blok.backgroundColor}`}>
+        <figure className="su-media hero__media">
+          <div className="su-media__wrapper hero__media-wrapper">
+            <img src={processedImg}
                  alt={props.blok.image.alt ? props.blok.image.alt : ""}
+                 className={`hero__image su-obj-position-h-${props.blok.visibleHorizontal}-v-${props.blok.visibleVertical}`}
             />
           </div>
         </figure>
-        <CenteredContainer flex={true} classes={"ood-hero-home__content"}>
-          <h1 className={`flex-lg-7-of-12 ood-hero-home__splash-text su-semibold su-text-white su-text-focus-in
-              su-mod-type-${props.blok.splashTextSize}
-              su-after-bg-${props.blok.tabColor}`}>
-              {props.blok.splashText}
-          </h1>
+        <CenteredContainer flex={true} classes={"hero__content"}>
+          <Heading level={"h1"} color={"white"} weight={"semibold"}
+                   classes={`hero__splash-text flex-md-10-of-12 flex-lg-7-of-12 su-text-focus-in su-mod-type-${props.blok.splashTextSize} su-after-bg-${props.blok.tabColor}`}>
+            {props.blok.splashText}</Heading>
           {props.blok.link.linktype === "story" &&
             <Link
               to={props.blok.link.cached_url === "home" ? "/" : `/${props.blok.link.cached_url}${props.blok.link.cached_url.endsWith("/") ? "" : "/"}`}
-              className={`flex-lg-5-of-12 ood-hero-home__link su-bg-${props.blok.ctaBackgroundColor}`}
+              className={`flex-md-10-of-12 flex-lg-5-of-12 hero__link su-bg-${props.blok.ctaBackgroundColor}`}
             >
               <CtaBoxContent {...props}/>
             </Link>
           }
           {props.blok.link.linktype === "url" &&
-            <a href={props.blok.link.url} className={`flex-lg-5-of-12 ood-hero-home__link su-bg-${props.blok.ctaBackgroundColor}`}>
+            <a href={props.blok.link.url} className={`flex-md-10-of-12 flex-lg-5-of-12 hero__link su-bg-${props.blok.ctaBackgroundColor}`}>
               <CtaBoxContent {...props}/>
             </a>
           }
