@@ -4,19 +4,11 @@ import transformImage from "../../utilities/transformImage";
 import { Link } from "gatsby"
 import CenteredContainer from "../partials/centeredContainer"
 import Heading from "../partials/heading"
+import SbLink from "../partials/sbLink"
 
 const OodHomepageHero = (props) => {
   let processedImg;
   processedImg = transformImage(props.blok.image.filename, "/2000x0");
-
-  const CtaBoxContent = (props) => (
-    <>
-      <Heading level={"h2"} color={"white"} weight={"semibold"} classes={"hero__cta-headline"}>{props.blok.ctaHeadline}</Heading>
-      {props.blok.ctaText &&
-        <p className={`hero__cta-text su-link--action su-text-white su-semibold su-ml-auto`}>{props.blok.ctaText}</p>
-      }
-    </>
-  );
 
   return (
     <SbEditable content={props.blok}>
@@ -33,19 +25,12 @@ const OodHomepageHero = (props) => {
           <Heading level={"h1"} color={"white"} weight={"semibold"}
                    classes={`hero__splash-text flex-md-10-of-12 flex-lg-7-of-12 su-text-focus-in su-mod-type-${props.blok.splashTextSize} su-after-bg-${props.blok.tabColor}`}>
             {props.blok.splashText}</Heading>
-          {props.blok.link.linktype === "story" &&
-            <Link
-              to={props.blok.link.cached_url === "home" ? "/" : `/${props.blok.link.cached_url}${props.blok.link.cached_url.endsWith("/") ? "" : "/"}`}
-              className={`flex-md-10-of-12 flex-lg-5-of-12 hero__link su-bg-${props.blok.ctaBackgroundColor}`}
-            >
-              <CtaBoxContent {...props}/>
-            </Link>
-          }
-          {props.blok.link.linktype === "url" &&
-            <a href={props.blok.link.url} className={`flex-md-10-of-12 flex-lg-5-of-12 hero__link su-bg-${props.blok.ctaBackgroundColor}`}>
-              <CtaBoxContent {...props}/>
-            </a>
-          }
+          <SbLink link={props.blok.link} classes={`hero__link flex-md-10-of-12 flex-lg-5-of-12 su-bg-${props.blok.ctaBackgroundColor}`}>
+            <Heading level={"h2"} color={"white"} weight={"semibold"} classes={"hero__cta-headline"}>{props.blok.ctaHeadline}</Heading>
+            {props.blok.ctaText &&
+              <p className={`hero__cta-text su-link--action su-text-white su-semibold su-ml-auto`}>{props.blok.ctaText}</p>
+            }
+          </SbLink>
         </CenteredContainer>
       </div>
     </SbEditable>

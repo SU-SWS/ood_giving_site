@@ -14,6 +14,7 @@
     ul {
       @include ood-big-paragraph;
       @include margin(null null 1.6em);
+      color: $su-color-black-true;
     }
 
     li {

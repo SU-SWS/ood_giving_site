@@ -12,7 +12,8 @@ const FlexCell = (props) => {
        ${props.lg ? `flex-lg-${props.lg}-of-12` : ""}
        ${props.xl ? `flex-xl-${props.xl}-of-12` : ""}
        ${props.xxl ? `flex-2xl-${props.xxl}-of-12` : ""}
-    `}>
+    `}
+    id={props.id}>
       {props.children}
     </Element>
   );
