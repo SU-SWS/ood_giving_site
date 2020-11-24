@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 
-/* From https://usehooks.com/ */
+/**
+ * @see: https://usehooks.com/
+ **/
 
 function UseWindowSize() {
   // Initialize state with undefined width/height so server and client renders match
