@@ -4,8 +4,12 @@
 
 .ood-mega-nav__card {
   &-content {
-    @include responsive-spacing('padding', 1 1 2);
+    @include responsive-spacing('padding', 2 2 3);
     @include add-shade;
+
+    @include grid-media-only('lg') {
+      @include padding(get-responsive-spacing-value(1, 'desktop') get-responsive-spacing-value(1, 'desktop') get-responsive-spacing-value(2, 'desktop'));
+    }
 
     @include grid-media('xl') {
       @include padding(get-responsive-spacing-value(2, 'desktop') get-responsive-spacing-value(2, 'desktop') get-responsive-spacing-value(3, 'desktop'));
@@ -70,8 +74,13 @@
       }
     }
   }
+
+  @include grid-media-max('md') {
+    @include padding(2em null null);
+  }
 }
 
+// Hide card image for mobile/tablet
 .ood-mega-nav__card__media {
   @include grid-media-max('md') {
     display: none;
