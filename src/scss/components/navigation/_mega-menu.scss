@@ -306,7 +306,7 @@
 
     @include grid-media-only('md') {
       position: relative;
-      top: 0.6rem;
+      top: 0.4rem;
 
       &[aria-expanded="true"]  + .ood-mega-nav__menu-lv1 {
         max-width: 100%;
