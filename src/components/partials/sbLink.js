@@ -27,7 +27,7 @@ const SbLink = (props) => {
   if (props.link.linktype === "story") {
 
     // Handle the home slug.
-    linkUrl = (linkUrl === "home") ? baseUrl : baseUrl + linkUrl
+    linkUrl = (linkUrl === "home") ? basePath : basePath + linkUrl
     linkUrl += linkUrl.endsWith("/") ? "" : "/"
 
     return (
