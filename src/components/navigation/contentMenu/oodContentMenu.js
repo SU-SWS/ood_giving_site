@@ -53,19 +53,19 @@ const OodContentMenu = (props) => {
         </nav>
       </SbEditable>
     )
-  } else
-    // Mobile/tablet version of the content menu with toggle button and collapsable with aria labels
-    return (
-      <SbEditable content={props.blok}>
-        <nav className="su-secondary-nav ood-content-nav" aria-label="Section Content Menu" ref={ref}>
-          <button className={`ood-content-nav__toggle`}
-                  aria-expanded={menuOpened}
-                  onClick={toggleMenu}>{menuOpened ? "Close" : "Section Menu"} <i aria-hidden="true" className={`fas fa-${menuOpened ? "times" : "bars"}`} /></button>
-          <div className={`ood-content-nav__menus`} aria-hidden={!menuOpened}>
-            <Menus {...props} />
-          </div>
-        </nav>
-      </SbEditable>
-    )
+  }
+  // Mobile/tablet version of the content menu with toggle button and collapsable with aria labels
+  return (
+    <SbEditable content={props.blok}>
+      <nav className="su-secondary-nav ood-content-nav" aria-label="Section Content Menu" ref={ref}>
+        <button className={`ood-content-nav__toggle`}
+                aria-expanded={menuOpened}
+                onClick={toggleMenu}>{menuOpened ? "Close" : "Section Menu"} <i aria-hidden="true" className={`fas fa-${menuOpened ? "times" : "bars"}`} /></button>
+        <div className={`ood-content-nav__menus`} aria-hidden={!menuOpened}>
+          <Menus {...props} />
+        </div>
+      </nav>
+    </SbEditable>
+  )
 }
 export default OodContentMenu
