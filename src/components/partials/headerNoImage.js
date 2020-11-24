@@ -5,6 +5,7 @@ import UseWindowSize from "../../hooks/useWindowSize"
 import CenteredContainer from "./centeredContainer"
 import Heading from "./heading"
 import CreateBloks from "../../utilities/createBloks"
+import { config } from "../../utilities/config"
 
 /* The Header No Image component is referenced by the Interior Page and Support page types. */
 
@@ -16,7 +17,7 @@ const HeaderNoImage = (props) => {
       <header className={`ood-interior-page__header ood-interior-page__header--no-image`}>
         <div className={`ood-interior-page__header-title-wrapper su-bg-${props.blok.headerBackgroundColor}`}>
           <CenteredContainer flex={true}>
-            {(windowSize.width <= 991 && props.blok.layout !== "no-sidebar") &&
+            {(windowSize.width < config.breakpoint.lg && props.blok.layout !== "no-sidebar") &&
             <CreateBloks blokSection={props.blok.contentMenu}/>
             }
             <Heading level={"h1"} serif={true} color={"white"} classes={"ood-interior-page__title flex-xl-10-of-12"}>{props.blok.title}</Heading>

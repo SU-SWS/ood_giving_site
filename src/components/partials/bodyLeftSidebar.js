@@ -3,6 +3,7 @@ import React from "react"
 import CreateBloks from "../../utilities/createBloks"
 import UseWindowSize from "../../hooks/useWindowSize"
 import FlexCell from "./flexCell"
+import { config } from "../../utilities/config"
 
 /* The BodyLeftSidebar component is referenced by the Interior Page type.  */
 
@@ -12,7 +13,7 @@ const BodyLeftSidebar = (props) => {
   return (
     <SbEditable content={props.blok}>
       <FlexCell element={"aside"} lg={4} xl={3} classes={"ood-interior-page__body-sidebar"}>
-        {windowSize.width > 991 &&
+        {windowSize.width >= config.breakpoint.lg &&
           <>
             <a href="#body-content" className="su-skiplinks">Skip past section menu to page content</a>
             <CreateBloks blokSection={props.blok.contentMenu}/>

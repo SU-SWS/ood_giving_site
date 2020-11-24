@@ -6,6 +6,7 @@ import CreateBloks from "../../utilities/createBloks"
 import UseWindowSize from "../../hooks/useWindowSize"
 import CenteredContainer from "./centeredContainer"
 import Heading from "./heading"
+import { config } from "../../utilities/config"
 
 /* The Header with Image component is referenced by the Interior Page type. */
 
@@ -17,7 +18,7 @@ const HeaderWithImage = (props) => {
       <header className={`ood-interior-page__header ood-interior-page__header--has-image`}>
         <div className={`ood-interior-page__header-title-wrapper su-pb-5 su-bg-${props.blok.headerBackgroundColor}`}>
           <CenteredContainer flex={true}>
-            {(windowSize.width <= 991 && props.blok.layout !== "no-sidebar") &&
+            {(windowSize.width < config.breakpoint.lg && props.blok.layout !== "no-sidebar") &&
               <CreateBloks blokSection={props.blok.contentMenu}/>
             }
             <Heading level={"h1"} serif={true} color={"white"}

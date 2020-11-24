@@ -5,6 +5,7 @@ import Heading from "../../partials/heading"
 import UseWindowSize from "../../../hooks/useWindowSize"
 import UseEscape from "../../../hooks/useEscape"
 import UseOnClickOutside from "../../../hooks/useOnClickOutside"
+import { config } from "../../../utilities/config"
 
 const OodContentMenu = (props) => {
   let windowSize = UseWindowSize();
@@ -42,7 +43,7 @@ const OodContentMenu = (props) => {
   );
 
   // Desktop version of the content menu is always expanded
-  if (windowSize.width > 991) {
+  if (windowSize.width >= config.breakpoint.lg) {
     return (
       <SbEditable content={props.blok}>
         <nav className="su-secondary-nav ood-content-nav" id="content-nav" aria-label="Section Content Menu">
