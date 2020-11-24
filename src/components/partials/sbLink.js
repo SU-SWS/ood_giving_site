@@ -1,5 +1,6 @@
 import React from "react"
 import Link from 'gatsby-link'
+import { config } from "../../utilities/config"
 
 /**
  * Reusable Storyblok Link component for various link types
@@ -7,13 +8,10 @@ import Link from 'gatsby-link'
  **/
 
 const SbLink = (props) => {
+  const baseUrl = config.baseUrl
 
-  // TODO: Create a global configuration file to store this vale and have it
-  // set by an environment variable.
-  const baseUrl = "/"
-
-  // Storyblok link object either has a url (external links) or cached_url
-  // (internal or asset links)
+  // Storyblok link object either has a url (external links)
+  // or cached_url (internal or asset links)
   let linkUrl = props.link.url || props.link.cached_url
 
   // Default Classes for all links.
