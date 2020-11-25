@@ -154,7 +154,7 @@
     box-shadow: rgba(0, 0, 0, 0.26) 0 38px 30px;
     background-color: $su-color-white;
     transform-origin: center top;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s;
   }
 
   @include grid-media-max('sm') {
