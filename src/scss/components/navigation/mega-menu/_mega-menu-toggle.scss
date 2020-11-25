@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+// Mobile/tablet hamburger button
+
+.ood-mega-nav__toggle {
+  border: 0;
+  cursor: pointer;
+
+  @include grid-media-max('md') {
+    @include margin(0);
+    @include padding(0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: none;
+    width: auto;
+    background-color: transparent;
+    color: $su-color-digital-red;
+    font-size: 1.6rem;
+    font-weight: $su-font-semi-bold;
+    line-height: 0.7;
+
+    // FontAwesome icon
+    > i {
+      @include margin(null null 0.6rem);
+      font-size: 1.8rem;
+    }
+
+    &[aria-expanded="true"] {
+      &::before {
+        visibility: visible;
+        transform: scaleX(1);
+        background-color: color(h-border--expanded, $su-nav-colors);
+      }
+
+      &:hover::before {
+        background-color: color(h-border--hover, $su-nav-colors);
+      }
+
+      &:active::before {
+        background-color: color(h-border--active, $su-nav-colors);
+      }
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: transparent;
+      color: color(h-link, $su-nav-colors);
+      box-shadow: none;
+    }
+  }
+
+  @include grid-media-only('md') {
+    position: relative;
+    top: 0.6rem;
+  }
+}
