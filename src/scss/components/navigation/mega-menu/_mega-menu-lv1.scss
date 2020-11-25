@@ -9,10 +9,6 @@
   flex-direction: column;
   width: 100%;
 
-  @include grid-media-max('md') {
-    position: absolute;
-  }
-
   @include grid-media('lg') {
     @include padding(0 null 0 0);
     flex-direction: row;
@@ -149,31 +145,39 @@
 }
 
 .ood-mega-nav__menu-lv1 {
-  // When mobile mega menu is collapsed
-  &[aria-hidden="true"] {
-    @include grid-media-max('md') {
-      @include margin(null null null -30px);
-      display: none;
-    }
+  @include grid-media-max('md') {
+    @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, $su-color-white 12px); // Fake drop shadow at top of dropdown
+    position: absolute;
+    display: flex;
+    left: 0;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.26) 0 38px 30px;
+    background-color: $su-color-white;
+    transform-origin: center top;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s
   }
 
-  // When mobile mega menu is expanded
-  &[aria-hidden="false"] {
-    @include grid-media-max('sm') {
-      top: 105px; // Height of the local header for XS-SM
+  @include grid-media-max('sm') {
+    top: 105px; // Height of the local header for XS-SM
+  }
+
+  @include grid-media-only('md') {
+    top: 140px; // Height of the local header for MD
+  }
+
+  @include grid-media-max('md') {
+    // When mobile mega menu is collapsed
+    &[aria-hidden="true"] {
+      opacity: 0;
+      visibility: hidden;
+      transform: scaleY(0);
     }
 
-    @include grid-media-only('md') {
-      top: 140px; // Height of the local header for MD
-    }
-
-    @include grid-media-max('md') {
-      @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 12px); // Fake drop shadow at top of dropdown
-      box-shadow: rgba(0, 0, 0, 0.26) 0 38px 30px;
-      background-color: $su-color-white;
-      display: flex;
-      left: 0;
-      width: 100%;
+    // When mobile mega menu is expanded
+    &[aria-hidden="false"] {
+      opacity: 1;
+      visibility: visible;
+      transform: scaleY(1);
     }
   }
 }
