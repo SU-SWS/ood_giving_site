@@ -19,6 +19,7 @@
   },
   plugins: [
     "react",
+    "react-hooks",
     "security",
     "prettier"
   ],
