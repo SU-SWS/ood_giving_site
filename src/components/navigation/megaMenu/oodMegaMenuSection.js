@@ -26,7 +26,7 @@ const OodMegaMenuSection = (props) => {
         <div className="ood-mega-nav__section" aria-hidden={!sectionOpened}>
           <CenteredContainer flex={true} classes={"su-pt-4 su-pb-5"}>
             <FlexCell lg={8} classes={"su-flex su-flex-col"}>
-              <div className="flex-container">
+              <div className="flex-container ood-mega-nav__section-links">
                 <CreateBloks blokSection={props.blok.linkGroups} />
               </div>
               <CreateBloks blokSection={props.blok.sectionCtaLink} />

@@ -157,6 +157,12 @@
       }
     }
 
+    &-links {
+      @include grid-media-max('sm') {
+        @include margin(null null -2em);
+      }
+    }
+
     .ood-cta {
       @include responsive-spacing('margin', 4 null null);
     }
@@ -172,7 +178,7 @@
     @include grid-media-max('sm') {
       @include margin(null null 2em);
 
-      &:last-child {
+      &:empty {
         @include margin(null null 0);
       }
 
