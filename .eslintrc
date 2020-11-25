@@ -3,8 +3,8 @@
     "eslint:recommended",
     "plugin:react/recommended",
     // "plugin:react-hooks/recommended",
-    // "plugin:security/recommended",
-    // "plugin:prettier/recommended",
+    "plugin:security/recommended",
+    "plugin:prettier/recommended"
   ],
   settings: {
     react: {
@@ -19,7 +19,6 @@
   },
   plugins: [
     "react",
-    "react-hooks",
     "security",
     "prettier"
   ],
@@ -27,7 +26,7 @@
     ecmaFeatures: {
       jsx: true
     },
-    ecmaVersion: 7,
+    ecmaVersion: 9,
     sourceType: "module"
   },
   rules: {
