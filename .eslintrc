@@ -1,6 +1,8 @@
 {
   extends: [
     "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
   ],
   settings: {
     react: {
@@ -23,22 +25,22 @@
     ecmaFeatures: {
       jsx: true
     },
-    ecmaVersion: 2018,
+    ecmaVersion: 7,
     sourceType: "module"
   },
   rules: {
     "react/prop-types": "off",
     "prettier/prettier": "error",
-     // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
-     "no-danger": "warn",
-     "no-find-dom-node": "warn",
-     "jsx-no-script-url": "warn",
-     "jsx-no-target-blank": "warn",
-     "jsx-props-no-spreading": "warn",
-     // https://github.com/snyk-labs/eslint-plugin-react-security
-     "no-refs": "warn",
-     // https://github.com/mozilla/eslint-plugin-no-unsanitized
-     "no-unsanitized/method": "error",
-     "no-unsanitized/property": "error"
+    // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
+    "no-danger": "warn",
+    "no-find-dom-node": "warn",
+    "jsx-no-script-url": "warn",
+    "jsx-no-target-blank": "warn",
+    "jsx-props-no-spreading": "warn",
+    // https://github.com/snyk-labs/eslint-plugin-react-security
+    "no-refs": "warn",
+    // https://github.com/mozilla/eslint-plugin-no-unsanitized
+    "no-unsanitized/method": "error",
+    "no-unsanitized/property": "error"
   }
 }
