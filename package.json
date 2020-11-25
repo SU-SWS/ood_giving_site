@@ -35,6 +35,7 @@
     "storyblok-react": "^0.1.1"
   },
   "devDependencies": {
+    "eslint": "^7.14.0",
     "eslint-plugin-no-unsanitized": "^3.1.4",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
