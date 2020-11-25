@@ -2,7 +2,9 @@
   parser: "@typescript-eslint/parser",
   extends: [
     "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "plugin:security/recommended"
   ],
   settings: {
     react: {
@@ -14,7 +16,12 @@
     node: true,
     es6: true
   },
-  plugins: ["react", "prettier"],
+  plugins: [
+    "react",
+    "prettier",
+    "security",
+    "no-unsanitized"
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true

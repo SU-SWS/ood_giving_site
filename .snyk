@@ -1,0 +1,101 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-AXIOS-1038255:
+    - gatsby > axios:
+        reason: no fix available
+        expires: '2020-12-25T21:30:47.067Z'
+    - gatsby-source-storyblok > storyblok-js-client > axios:
+        reason: No fix available
+        expires: '2020-12-25T21:30:47.067Z'
+    - gatsby > gatsby-cli > gatsby-recipes > contentful-management > axios:
+        reason: No fix available
+        expires: '2020-12-25T21:30:47.067Z'
+  SNYK-JS-DECOMPRESSTAR-559095:
+    - gatsby-plugin-sharp > imagemin-mozjpeg > mozjpeg > bin-build > decompress > decompress-tar:
+        reason: No fix available
+        expires: '2020-12-25T21:30:47.068Z'
+    - gatsby-plugin-sharp > imagemin-pngquant > pngquant-bin > bin-build > decompress > decompress-tar:
+        reason: No fix available
+        expires: '2020-12-25T21:30:47.068Z'
+    - gatsby-plugin-sharp > imagemin-mozjpeg > mozjpeg > bin-build > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No fix available
+        expires: '2020-12-25T21:30:47.068Z'
+    - gatsby-plugin-sharp > imagemin-pngquant > pngquant-bin > bin-build > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No fix available
+        expires: '2020-12-25T21:30:47.068Z'
+    - gatsby-plugin-sharp > imagemin-mozjpeg > mozjpeg > bin-build > decompress > decompress-targz > decompress-tar:
+        reason: No fix available
+        expires: '2020-12-25T21:30:47.068Z'
+    - gatsby-plugin-sharp > imagemin-pngquant > pngquant-bin > bin-build > decompress > decompress-targz > decompress-tar:
+        reason: No fix available
+        expires: '2020-12-25T21:30:47.068Z'
+    - gatsby-plugin-sharp > imagemin-mozjpeg > mozjpeg > bin-build > download > decompress > decompress-tar:
+        reason: No fix available
+        expires: '2020-12-25T21:30:47.068Z'
+    - gatsby-plugin-sharp > imagemin-pngquant > pngquant-bin > bin-build > download > decompress > decompress-tar:
+        reason: None given
+        expires: '2020-12-25T21:30:47.069Z'
+    - gatsby-plugin-sharp > imagemin-mozjpeg > mozjpeg > bin-wrapper > download > decompress > decompress-tar:
+        reason: None given
+        expires: '2020-12-25T21:30:47.069Z'
+    - gatsby-plugin-sharp > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress > decompress-tar:
+        reason: None given
+        expires: '2020-12-25T21:30:47.069Z'
+    - gatsby-plugin-sharp > imagemin-mozjpeg > mozjpeg > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: None given
+        expires: '2020-12-25T21:30:47.069Z'
+    - gatsby-plugin-sharp > imagemin-pngquant > pngquant-bin > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: None given
+        expires: '2020-12-25T21:30:47.069Z'
+    - gatsby-plugin-sharp > imagemin-mozjpeg > mozjpeg > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: None given
+        expires: '2020-12-25T21:30:47.069Z'
+    - gatsby-plugin-sharp > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: None given
+        expires: '2020-12-25T21:30:47.069Z'
+    - gatsby-plugin-sharp > imagemin-mozjpeg > mozjpeg > bin-build > download > decompress > decompress-targz > decompress-tar:
+        reason: None given
+        expires: '2020-12-25T21:30:47.069Z'
+    - gatsby-plugin-sharp > imagemin-pngquant > pngquant-bin > bin-build > download > decompress > decompress-targz > decompress-tar:
+        reason: None given
+        expires: '2020-12-25T21:30:47.070Z'
+    - gatsby-plugin-sharp > imagemin-mozjpeg > mozjpeg > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
+        reason: None given
+        expires: '2020-12-25T21:30:47.070Z'
+    - gatsby-plugin-sharp > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
+        reason: None given
+        expires: '2020-12-25T21:30:47.070Z'
+  SNYK-JS-HIGHLIGHTJS-1045326:
+    - gatsby > gatsby-cli > gatsby-recipes > hicat > highlight.js:
+        reason: None given
+        expires: '2020-12-25T21:30:47.070Z'
+  SNYK-JS-NODESASS-541002:
+    - node-sass:
+        reason: Not using in production
+        expires: '2020-12-25T21:30:47.070Z'
+  SNYK-JS-TRIM-1017038:
+    - gatsby > gatsby-cli > gatsby-recipes > remark-parse > trim:
+        reason: None given
+        expires: '2020-12-25T21:30:47.070Z'
+  SNYK-JS-Y18N-1021887:
+    - gatsby > copyfiles > yargs > y18n:
+        reason: None given
+        expires: '2020-12-25T21:30:47.070Z'
+    - gatsby > gatsby-cli > yargs > y18n:
+        reason: None given
+        expires: '2020-12-25T21:30:47.070Z'
+    - gatsby > webpack-dev-server > yargs > y18n:
+        reason: None given
+        expires: '2020-12-25T21:30:47.071Z'
+    - node-sass > sass-graph > yargs > y18n:
+        reason: None given
+        expires: '2020-12-25T21:30:47.071Z'
+    - gatsby > webpack > terser-webpack-plugin > cacache > y18n:
+        reason: None given
+        expires: '2020-12-25T21:30:47.071Z'
+    - netlify-lambda > webpack > terser-webpack-plugin > cacache > y18n:
+        reason: None given
+        expires: '2020-12-25T21:30:47.071Z'
+patch: {}

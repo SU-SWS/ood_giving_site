@@ -57,6 +57,16 @@
   #   seo = 0.9
   #   pwa = 0.9
 
+
+# SNYK Security Plugin
+# https://github.com/snyk-labs/netlify-plugin-snyk#readme
+# ##############################################################################
+[[plugins]]
+  package = "netlify-plugin-snyk"
+
+  [plugins.inputs]
+    failOnPreviews = false
+
 # REDIRECTS
 # ###############################################################################
 
@@ -70,3 +80,5 @@
 #   from = "/test"
 #   to = "/stories/a-win-win-solution/"
 #   status = 301
+
+

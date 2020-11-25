@@ -31,11 +31,17 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-refresh": "^0.8.3",
-    "sanitize-html": "^1.27.5",
+    "sanitize-html": "^2.0.0",
     "storyblok-react": "^0.1.1"
   },
   "devDependencies": {
-    "prettier": "2.0.5"
+    "eslint-plugin-no-unsanitized": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-security": "^1.4.0",
+    "netlify-plugin-snyk": "^1.2.1",
+    "prettier": "2.0.5",
+    "snyk": "^1.431.1"
   },
   "keywords": [
     "Stanford"
@@ -48,7 +54,10 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "snyk:find": "snyk test",
+    "snyk:auth": "snyk auth",
+    "snyk:fix": "snyk wizard"
   },
   "repository": {
     "type": "git",
