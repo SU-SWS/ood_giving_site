@@ -80,16 +80,25 @@
     @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, $su-color-fog-light 10px, $su-color-fog-light 98%, rgba(0, 0, 0, 0.1) 100%);
     background-color: $su-color-fog-light;
     position: absolute;
-    opacity: 0;
-    visibility: hidden;
-    transform: scaleY(0);
 
-    &[aria-hidden="false"] {
+    @include grid-media-max('md') {
       position: relative;
-      display: flex;
-      opacity: 1;
-      visibility: visible;
-      transform: scaleY(1);
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden;
+      height: 0;
+      transform: scaleY(0);
+      transform-origin: center top;
+      transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+
+      &[aria-hidden="false"] {
+        //position: relative;
+        display: flex;
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+        transform: scaleY(1);
+      }
     }
 
     @include grid-media('lg') {
@@ -100,11 +109,11 @@
       opacity: 0;
       visibility: hidden;
       transform: scaleY(0);
-      transform-origin: center top;
-      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
       top: 160px;
       z-index: 220; // When menu wrap to 2nd line make sure dropdown covers up top level links
       box-shadow: rgba(0, 0, 0, 0.12) 0 34px 30px;
+      transform-origin: center top;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
       // On desktop, if aria-hidden of a mega menu section is set to "false", then it is shown
       &[aria-hidden="false"] {
@@ -124,6 +133,10 @@
 
     .ood-cta {
       @include responsive-spacing('margin', 4 null null);
+
+      @include grid-media-max('sm') {
+        font-size: 2rem;
+      }
     }
   }
 
