@@ -1,6 +1,6 @@
 {
-  parser: "@typescript-eslint/parser",
   extends: [
+    "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
@@ -14,13 +14,15 @@
   env: {
     browser: true,
     node: true,
-    es6: true
+    es6: true,
+    commonjs: true
   },
   plugins: [
     "react",
-    "prettier",
+    "react-security",
     "security",
-    "no-unsanitized"
+    "no-unsanitized",
+    "prettier"
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -31,6 +33,17 @@
   },
   rules: {
     "react/prop-types": "off",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+     // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
+     "no-danger": "warn",
+     "no-find-dom-node": "warn",
+     "jsx-no-script-url": "warn",
+     "jsx-no-target-blank": "warn",
+     "jsx-props-no-spreading": "warn",
+     // https://github.com/snyk-labs/eslint-plugin-react-security
+     "no-refs": "warn",
+     // https://github.com/mozilla/eslint-plugin-no-unsanitized
+     "no-unsanitized/method": "error",
+     "no-unsanitized/property": "error"
   }
 }

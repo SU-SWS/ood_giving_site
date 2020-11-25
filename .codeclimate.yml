@@ -30,7 +30,7 @@ plugins:
         javascript:
           mass_threshold: 50
   eslint:
-    enabled: false
+    enabled: true
   fixme:
     enabled: true
     config:
@@ -54,9 +54,10 @@ plugins:
   sass-lint:
     enabled: true
 exclude_patterns:
-  - node_modules/
+  - "node_modules"
   - "**/__tests__/"
   - "**/tests/**/*"
   - "package.json"
+  - "package-lock.json"
   - "webpack.config.js"
   - "**.min.*"
