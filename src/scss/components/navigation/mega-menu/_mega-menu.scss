@@ -214,15 +214,15 @@
       box-shadow: rgba(0, 0, 0, 0.26) 0 38px 30px;
       background-color: $su-color-white;
       display: flex;
-      width: 100vw;
       left: 0;
+      width: 100%;
     }
 
     // 1st level link and parent items
     > li {
       > a,
       > button {
-        @include padding(1.6rem 4.8rem 1.6rem 2.4rem);
+        @include padding(1.6rem 4.8rem 1.6rem null);
         position: relative;
         display: block;
         width: 100%;
@@ -262,7 +262,6 @@
           width: 33px;
           border-radius: 16px;
           top: calc(50% - 16px);
-          right: map-get($su-screen-margins, "md");
           display: block;
           content: "";
           background: $su-color-digital-red url("#{$su-image-path}/caret-down-white.svg") no-repeat center/50%;
@@ -297,6 +296,42 @@
   @include grid-media-only('md') {
     &[aria-hidden="false"] {
       top: 140px; // Height of the local header for MD
+    }
+  }
+}
+
+.ood-mega-nav__menu-lv1 {
+  > li {
+    > button,
+    > a {
+      @include grid-media-only('xs') {
+        @include padding(null null null #{map-get($su-screen-margins, 'xs')});
+      }
+
+      @include grid-media-only('sm') {
+        @include padding(null null null #{map-get($su-screen-margins, 'sm')});
+      }
+
+      @include grid-media-only('md') {
+        @include padding(null null null #{map-get($su-screen-margins, 'md')});
+      }
+    }
+
+    // The dropdown indicator on mobile/tablet
+    > button {
+      &::after {
+        @include grid-media-only('xs') {
+          right: map-get($su-screen-margins, 'xs');
+        }
+
+        @include grid-media-only('sm') {
+          right: map-get($su-screen-margins, 'sm');
+        }
+
+        @include grid-media-only('md') {
+          right: map-get($su-screen-margins, 'md');
+        }
+      }
     }
   }
 }
