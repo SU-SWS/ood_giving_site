@@ -25,6 +25,7 @@ const OodSupportPage = (props) => {
                   <h2 className="ood-interior-page__body-header-title su-serif su-bold ood-has-tab-before">{props.blok.bodyTitle}</h2>
                 </header>
               }
+              <p className={`su-sr-only-element`}>{props.blok.srText}</p>
               <CenteredContainer classes={"ood-support-page__filter-container"}>
                 <input type="radio" id="all" name="areas-to-support" defaultChecked />
                 <label htmlFor="all">All</label>
