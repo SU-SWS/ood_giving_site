@@ -2,7 +2,9 @@
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:react-hooks/recommended"
+    // "plugin:react-hooks/recommended",
+    // "plugin:security/recommended",
+    // "plugin:prettier/recommended",
   ],
   settings: {
     react: {
