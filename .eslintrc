@@ -4,7 +4,7 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
-    "plugin:security/recommended"
+    "plugin:security/recommended",
   ],
   settings: {
     react: {
@@ -19,7 +19,6 @@
   },
   plugins: [
     "react",
-    "react-security",
     "security",
     "no-unsanitized",
     "prettier"
