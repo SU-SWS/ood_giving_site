@@ -35,7 +35,7 @@ const OodMegaMenu = (props) => {
         <button className="ood-mega-nav__toggle su-mr-none su-ml-auto" aria-label="menu toggle"
                 aria-expanded={menuOpened}
                 onClick={toggleMenu}>
-          <i aria-hidden="true" className={`fas fa-${menuOpened? "times" : "bars"}`}/>{menuOpened? "Close" : "Menu"}
+          <i aria-hidden="true" className={`fas fa-${menuOpened? "times" : "bars"}`}/>{menuOpened ? "Close" : "Menu"}
         </button>
         <ul className="ood-mega-nav__menu-lv1 su-list-none" aria-hidden={!menuOpened}>
           <CreateBloks blokSection={props.blok.topLevelLinks}/>
