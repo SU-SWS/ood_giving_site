@@ -146,7 +146,7 @@
 
 .ood-mega-nav__menu-lv1 {
   @include grid-media-max('md') {
-    @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, $su-color-white 12px); // Fake drop shadow at top of dropdown
+    @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 12px); // Fake drop shadow at top of dropdown
     position: absolute;
     display: flex;
     left: 0;
