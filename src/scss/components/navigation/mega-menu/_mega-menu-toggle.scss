@@ -57,5 +57,9 @@
   @include grid-media-only('md') {
     @include padding(null null 2.5rem); // Overriding fancy-hover padding
     line-height: 1;
+
+    &::before {
+      height: 10px;
+    }
   }
 }
