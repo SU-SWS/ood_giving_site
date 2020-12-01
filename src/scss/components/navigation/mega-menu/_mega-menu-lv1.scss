@@ -90,6 +90,22 @@
           }
         }
       }
+
+      // Level 1 current link style
+      &.ood-mega-nav__link--active {
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          background-color: $su-color-black;
+          //visibility: hidden;
+          //transition: transform 0.3s ease-in, background-color 0.3s ease-in;
+          z-index: 1;
+          height: 100%;
+          width: 6px;
+          //transform: scaleY(0);
+        }
+      }
     }
 
     // Add icon after 1st level dropdown trigger buttons on mobile/tablet
