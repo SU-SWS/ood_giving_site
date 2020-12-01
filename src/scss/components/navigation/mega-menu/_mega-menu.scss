@@ -138,6 +138,12 @@
         font-size: 2rem;
       }
     }
+
+    @include grid-media-max('sm') {
+      > div {
+        @include padding(get-responsive-spacing-value(2, 'mobile') null null);
+      }
+    }
   }
 
   &__link-group {
@@ -157,6 +163,19 @@
       &-heading {
         @include padding(1em null null);
         border-top: 1px solid $su-color-black-40;
+      }
+    }
+  }
+}
+
+@include grid-media-max('sm') {
+  .ood-mega-nav__section-links {
+    .ood-mega-nav__link-group {
+      &:first-child {
+        .ood-mega-nav__link-group-heading {
+          @include padding(0 null null);
+          border-top: 0;
+        }
       }
     }
   }
