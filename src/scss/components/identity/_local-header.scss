@@ -21,11 +21,11 @@
     justify-content: space-between;
 
     @include grid-media-max('sm') {
-      @include padding(get-responsive-spacing-value(0, 'mobile') null);
+      @include padding(get-responsive-spacing-value(0, 'mobile') null null);
     }
 
     @include grid-media-only('md') {
-      @include padding(get-responsive-spacing-value(1, 'tablet') null get-responsive-spacing-value(2, 'tablet'));
+      @include padding(get-responsive-spacing-value(1, 'tablet') null get-responsive-spacing-value(1, 'tablet'));
     }
 
     @include grid-media('lg') {
