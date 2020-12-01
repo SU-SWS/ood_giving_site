@@ -25,7 +25,8 @@
     }
 
     @include grid-media-only('md') {
-      @include padding(get-responsive-spacing-value(1, 'tablet') null get-responsive-spacing-value(1, 'tablet'));
+      @include padding(get-responsive-spacing-value(1, 'tablet') null null);
+      align-items: flex-start;
     }
 
     @include grid-media('lg') {

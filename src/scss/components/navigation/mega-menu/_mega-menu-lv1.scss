@@ -162,7 +162,7 @@
   }
 
   @include grid-media-only('md') {
-    top: 140px; // Height of the local header for MD
+    top: 134px; // Height of the local header for MD minus the top border
   }
 
   @include grid-media-max('md') {
