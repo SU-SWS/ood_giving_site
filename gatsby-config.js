@@ -17,6 +17,7 @@ module.exports = {
     siteUrl: `https://giving-preview.stanford.edu`,
   },
   plugins: [
+    `gatsby-plugin-anchor-links`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
