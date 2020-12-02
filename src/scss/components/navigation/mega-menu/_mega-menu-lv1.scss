@@ -57,6 +57,27 @@
         }
       }
 
+      @include grid-media-max('md') {
+        @include fancy-hover($su-color-digital-red, $su-color-black, 'left', '6px');
+
+        &:hover,
+        &:focus,
+        &:active {
+          text-decoration: underline;
+        }
+      }
+
+
+      &::before {
+        @include grid-media-max('sm') {
+          left: 0.1rem;
+        }
+
+        @include grid-media-only('md') {
+          left: 2rem;
+        }
+      }
+
       @include grid-media('lg') {
         @include fancy-hover($su-color-digital-red, $su-color-black, 'bottom', '10px');
         @include padding (1.6rem 0 null);
@@ -91,19 +112,21 @@
         }
       }
 
-      // Level 1 current link style
+      // Level 1 current link style - thick border on the left
       &.ood-mega-nav__link--active {
         &::before {
-          content: "";
-          position: absolute;
           bottom: 0;
           background-color: $su-color-black;
-          //visibility: hidden;
-          //transition: transform 0.3s ease-in, background-color 0.3s ease-in;
-          z-index: 1;
           height: 100%;
           width: 6px;
-          //transform: scaleY(0);
+
+          @include grid-media-max('sm') {
+            left: 0.1rem;
+          }
+
+          @include grid-media-only('md') {
+            left: 3rem;
+          }
         }
       }
     }
