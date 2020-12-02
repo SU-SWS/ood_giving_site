@@ -3,22 +3,24 @@
 // Mobile/tablet hamburger button
 
 .ood-mega-nav__toggle {
+  @include margin(0);
+  @include padding(0);
+  display: none;
   border: 0;
   cursor: pointer;
+  outline: none;
+  width: 4rem;
+  background-color: transparent;
+  color: $su-color-digital-red;
+  font-size: 1.6rem;
+  font-weight: $su-font-semi-bold;
+  line-height: 0.7;
 
   @include grid-media-max('md') {
-    @include margin(0);
-    @include padding(0);
+    @include fancy-hover($color: $su-color-digital-red, $active: $su-color-black, $position: 'bottom', $thickness: '6px');
     display: flex;
     flex-direction: column;
     align-items: center;
-    outline: none;
-    width: auto;
-    background-color: transparent;
-    color: $su-color-digital-red;
-    font-size: 1.6rem;
-    font-weight: $su-font-semi-bold;
-    line-height: 0.7;
 
     // FontAwesome icon
     > i {
@@ -30,29 +32,34 @@
       &::before {
         visibility: visible;
         transform: scaleX(1);
-        background-color: color(h-border--expanded, $su-nav-colors);
+        background-color: $su-color-digital-red;
       }
 
-      &:hover::before {
-        background-color: color(h-border--hover, $su-nav-colors);
-      }
-
-      &:active::before {
-        background-color: color(h-border--active, $su-nav-colors);
+      &:hover,
+      &:focus {
+        &::before {
+          background-color: $su-color-black;
+        }
       }
     }
 
     &:hover,
     &:active,
     &:focus {
-      background-color: transparent;
-      color: color(h-link, $su-nav-colors);
-      box-shadow: none;
+      color: $su-color-black;
     }
   }
 
+  @include grid-media-max('sm') {
+    @include padding(null null 1.5rem); // Overriding fancy-hover padding
+  }
+
   @include grid-media-only('md') {
-    position: relative;
-    top: 0.6rem;
+    @include padding(null null 2.5rem); // Overriding fancy-hover padding
+    line-height: 1;
+
+    &::before {
+      height: 10px;
+    }
   }
 }
