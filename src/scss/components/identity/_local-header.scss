@@ -21,11 +21,12 @@
     justify-content: space-between;
 
     @include grid-media-max('sm') {
-      @include padding(get-responsive-spacing-value(0, 'mobile') null);
+      @include padding(get-responsive-spacing-value(0, 'mobile') null null);
     }
 
     @include grid-media-only('md') {
-      @include padding(get-responsive-spacing-value(1, 'tablet') null get-responsive-spacing-value(2, 'tablet'));
+      @include padding(get-responsive-spacing-value(1, 'tablet') null null);
+      align-items: flex-start;
     }
 
     @include grid-media('lg') {
@@ -65,8 +66,10 @@
       &__line1 {
         @include margin(0 null null 0);
         @include padding(null null null 0.4rem);
+        position: relative;
+        top: 0.1rem;
         font-size: 2.2rem;
-        line-height: 1.8rem;
+        line-height: 1.6rem;
       }
     }
 
