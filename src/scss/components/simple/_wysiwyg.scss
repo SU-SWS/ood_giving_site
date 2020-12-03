@@ -164,6 +164,18 @@
   }
 }
 
+.ood-story-media__caption {
+  > div {
+    a {
+      &[href^="http"] {
+        &::after {
+          @include size(8px);
+        }
+      }
+    }
+  }
+}
+
 // Basic cards with colored backgrounds
 .ood-basic-card {
   &.su-text-white {
