@@ -77,23 +77,6 @@
     }
 
     a {
-      &[href^="http"] {
-        @include link-icon(arrow-up-right, 10px, false); // external links in WYSIWYG
-        text-decoration: underline;
-
-        &::after {
-          @include margin(null null null 0.2em);
-          background-color: $su-color-digital-red;
-        }
-
-        &:hover,
-        &:focus {
-          &::after {
-            background-color: $su-color-sky-dark;
-          }
-        }
-      }
-
       .ood-cta__link {
         text-decoration: none;
         display: inline-block; // Only way to remove the underline due to the way the style classes are applied in the WYSIWYG
@@ -148,6 +131,55 @@
           display: block;
           color: $su-color-palo-verde-light;
           font-weight: $su-font-bold;
+        }
+      }
+    }
+  }
+}
+
+// Styles for external links in WYSIWYG
+.ood-single-column-content__wrapper,
+.ood-accordion__content,
+.ood-story-media__caption,
+.ood-basic-card__body {
+  > div {
+    a {
+      &[href^="http"] {
+        @include link-icon(arrow-up-right, 10px, false);
+        text-decoration: underline;
+
+        &::after {
+          @include margin(null null null 0.2em);
+          background-color: $su-color-digital-red;
+        }
+
+        &:hover,
+        &:focus {
+          &::after {
+            background-color: $su-color-sky-dark;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Basic cards with colored backgrounds
+.ood-basic-card {
+  &.su-text-white {
+    .ood-basic-card__body {
+      > div {
+        a[href^="http"] {
+          &::after {
+            background-color: $su-color-white;
+          }
+
+          &:hover,
+          &:focus {
+            &::after {
+              background-color: $su-color-white;
+            }
+          }
         }
       }
     }
