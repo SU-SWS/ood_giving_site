@@ -77,6 +77,23 @@
     }
 
     a {
+      &[href^="http"] {
+        @include link-icon(arrow-up-right, 10px, false); // external links in WYSIWYG
+        text-decoration: underline;
+
+        &::after {
+          @include margin(null null null 0.2em);
+          background-color: $su-color-digital-red;
+        }
+
+        &:hover,
+        &:focus {
+          &::after {
+            background-color: $su-color-sky-dark;
+          }
+        }
+      }
+
       .ood-cta__link {
         text-decoration: none;
         display: inline-block; // Only way to remove the underline due to the way the style classes are applied in the WYSIWYG
