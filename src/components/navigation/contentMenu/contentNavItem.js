@@ -1,22 +1,25 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import SbEditable from 'storyblok-react'
+import React from "react"
+import SbEditable from "storyblok-react"
+import SbLink from "../../partials/sbLink"
 
-const ContentNavItem = (props) => (
-  <SbEditable content={props.blok}>
-    <li className="su-secondary-nav__item ood-content-nav__item">
-      {props.blok.link.linktype === "story" &&
-        <Link to={props.blok.link.cached_url === "home" ? "/" : `/${props.blok.link.cached_url}${props.blok.link.cached_url.endsWith("/") ? "" : "/"}`}
-              activeClassName="ood-content-nav__link--active"
-              className="su-secondary-nav__link ood-content-nav__link">
+const ContentNavItem = props => {
+  let classes = "su-secondary-nav__link ood-content-nav__link"
+  if (props.blok.link.linktype === "url") {
+    classes = "su-secondary-nav__link su-link--external ood-content-nav__link"
+  }
+  return (
+    <SbEditable content={props.blok}>
+      <li className="su-secondary-nav__item ood-content-nav__item">
+        <SbLink
+          link={props.blok.link}
+          activeClass="ood-content-nav__link--active"
+          classes={classes}
+        >
           {props.blok.linkText}
-        </Link>
-      }
-      {props.blok.link.linktype === "url" &&
-        <a href={props.blok.link.url} className="su-secondary-nav__link su-link--external ood-content-nav__link">{props.blok.linkText}</a>
-      }
-    </li>
-  </SbEditable>
-)
+        </SbLink>
+      </li>
+    </SbEditable>
+  )
+}
 
 export default ContentNavItem
