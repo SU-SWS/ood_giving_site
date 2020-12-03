@@ -43,10 +43,15 @@
       @include responsive-spacing('padding', null null 5);
 
       &-title {
-        @include modular-typography(2);
         @include margin(null null 0);
+        letter-spacing: 0;
+        font-size: 3rem;
 
         @include grid-media('md') {
+          @include modular-typography(3);
+        }
+
+        @include grid-media('lg') {
           @include modular-typography(4);
         }
       }
