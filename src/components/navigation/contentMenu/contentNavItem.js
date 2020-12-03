@@ -9,8 +9,8 @@ const ContentNavItem = props => {
         <SbLink
           link={props.blok.link}
           activeClass="ood-content-nav__link--active"
-          internalClasses="su-secondary-nav__link ood-content-nav__link"
-          externalClasses="su-secondary-nav__link su-link--external ood-content-nav__link"
+          classes="su-secondary-nav__link ood-content-nav__link"
+          externalClasses="su-link--external"
         >
           {props.blok.linkText}
         </SbLink>
