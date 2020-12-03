@@ -14,7 +14,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Basic-Auth = "adapt:letmein2020"
+    # Basic-Auth = "adapt:letmein2020"
     Access-Control-Allow-Origin = "*"
     Content-Security-Policy = "form-action https:"
     Referrer-Policy = "origin-when-cross-origin"
