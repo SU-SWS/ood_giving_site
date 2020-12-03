@@ -3,16 +3,32 @@
 // Accordion styles
 
 .ood-accordion {
+  &__heading,
+  &__title {
+    letter-spacing: 0;
+  }
+
   &__heading {
-    @include margin(-0.16em null null);
-    @include modular-typography(3);
+    @include margin(-0.16em null 1.4em);
+    @include modular-typography(2);
+
+    @include grid-media('md') {
+      font-size: 3.2rem;
+    }
+
+    @include grid-media('lg') {
+      @include modular-typography(3);
+    }
   }
 
   &__title {
     @include modular-typography(1);
-    letter-spacing: 0;
 
     > .ood-accordion__button {
+      @include grid-media-max('sm') {
+        font-weight: $su-font-semi-bold;
+      }
+      
       &::after {
         color: $su-color-black;
       }
@@ -24,6 +40,32 @@
 
     ul {
       list-style-type: disc;
+    }
+  }
+}
+
+.su-accordion {
+  &__expand-all,
+  &__collapse-all {
+    @include grid-media-max('sm') {
+      font-size: 1.6rem;
+    }
+
+    &::after {
+      @include margin(null null null 0.3em);
+      display: inline-block;
+    }
+  }
+
+  &__expand-all {
+    &::after {
+      content: "\002B";
+    }
+  }
+
+  &__collapse-all {
+    &::after {
+      content: "\2212";
     }
   }
 }
