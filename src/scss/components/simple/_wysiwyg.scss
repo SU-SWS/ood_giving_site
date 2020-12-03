@@ -1,7 +1,69 @@
 @charset "UTF-8";
 
 // Styles for WYSIWYG Content - text, link, vertical rhythms etc.
-// Common styles for Single Column Content and Accordion item WYSYWYG.
+// Common styles for Single Column Content, Accordion, Basic Card and Story Image WYSIWYG.
+
+// Styles for external links in WYSIWYG
+.ood-single-column-content__wrapper,
+.ood-accordion__content,
+.ood-story-media__caption,
+.ood-basic-card__body {
+  > div {
+    a {
+      &[href^="http"] {
+        @include link-icon(arrow-up-right, 10px, false);
+        text-decoration: underline;
+
+        &::after {
+          @include margin(null null null 0.2em);
+          background-color: $su-color-digital-red;
+        }
+
+        &:hover,
+        &:focus {
+          &::after {
+            background-color: $su-color-sky-dark;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Make external link icon smaller for story image caption links
+.ood-story-media__caption {
+  > div {
+    a {
+      &[href^="http"] {
+        &::after {
+          @include size(8px);
+        }
+      }
+    }
+  }
+}
+
+// Icon should be white for Basic Cards with colored backgrounds
+.ood-basic-card {
+  &.su-text-white {
+    .ood-basic-card__body {
+      > div {
+        a[href^="http"] {
+          &::after {
+            background-color: $su-color-white;
+          }
+
+          &:hover,
+          &:focus {
+            &::after {
+              background-color: $su-color-white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 .ood-single-column-content__wrapper,
 .ood-accordion__content {
@@ -46,6 +108,25 @@
 
           &::after {
             background-color: $su-color-sky-dark;
+          }
+        }
+
+        // External heading links
+        &[href^="http"] {
+          text-decoration: none;
+
+          &::after {
+            @include margin(null null null 0.4em);
+            @include size(0.5em);
+          }
+
+          &:hover,
+          &:focus {
+            text-decoration: underline;
+
+            &::after {
+              transform: translate3d(0.15em, -0.15em, 0);
+            }
           }
         }
       }
@@ -131,67 +212,6 @@
           display: block;
           color: $su-color-palo-verde-light;
           font-weight: $su-font-bold;
-        }
-      }
-    }
-  }
-}
-
-// Styles for external links in WYSIWYG
-.ood-single-column-content__wrapper,
-.ood-accordion__content,
-.ood-story-media__caption,
-.ood-basic-card__body {
-  > div {
-    a {
-      &[href^="http"] {
-        @include link-icon(arrow-up-right, 10px, false);
-        text-decoration: underline;
-
-        &::after {
-          @include margin(null null null 0.2em);
-          background-color: $su-color-digital-red;
-        }
-
-        &:hover,
-        &:focus {
-          &::after {
-            background-color: $su-color-sky-dark;
-          }
-        }
-      }
-    }
-  }
-}
-
-.ood-story-media__caption {
-  > div {
-    a {
-      &[href^="http"] {
-        &::after {
-          @include size(8px);
-        }
-      }
-    }
-  }
-}
-
-// Basic cards with colored backgrounds
-.ood-basic-card {
-  &.su-text-white {
-    .ood-basic-card__body {
-      > div {
-        a[href^="http"] {
-          &::after {
-            background-color: $su-color-white;
-          }
-
-          &:hover,
-          &:focus {
-            &::after {
-              background-color: $su-color-white;
-            }
-          }
         }
       }
     }
