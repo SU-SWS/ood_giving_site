@@ -10,8 +10,8 @@
 .ood-basic-card__body {
   > div {
     a {
-      &[href^="http"] {
-        @include link-icon(arrow-up-right, 10px, false);
+      &[href^="http"]:not([href*="storyblok"]) {
+        @include link-icon(arrow-up-right, 10px, topright);
         text-decoration: underline;
 
         &::after {
@@ -30,11 +30,22 @@
   }
 }
 
+.ood-single-column-content__wrapper,
+.ood-accordion__content {
+  a[href^="http"]:not([href*="storyblok"]) {
+    .ood-cta__link {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
 // Make external link icon smaller for story image caption links
 .ood-story-media__caption {
   > div {
     a {
-      &[href^="http"] {
+      &[href^="http"]:not([href*="storyblok"]) {
         &::after {
           @include size(8px);
         }
@@ -48,7 +59,7 @@
   &.su-text-white {
     .ood-basic-card__body {
       > div {
-        a[href^="http"] {
+        a[href^="http"]:not([href*="storyblok"]) {
           &::after {
             background-color: $su-color-white;
           }
@@ -112,7 +123,7 @@
         }
 
         // External heading links
-        &[href^="http"] {
+        &[href^="http"]:not([href*="storyblok"]) {
           text-decoration: none;
 
           &::after {
