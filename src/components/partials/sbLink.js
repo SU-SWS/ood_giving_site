@@ -53,9 +53,9 @@ const SbLink = props => {
     linkUrl = linkUrl === "home" ? basePath : basePath + linkUrl
     linkUrl += linkUrl.endsWith("/") ? "" : "/"
 
-    if (linkUrl.match(/\?/)) {
+    if (linkUrl.match(/\?/) && utms.length) {
       linkUrl += "&" + utms
-    } else {
+    } else if (utms.length) {
       linkUrl += "?" + utms
     }
 
