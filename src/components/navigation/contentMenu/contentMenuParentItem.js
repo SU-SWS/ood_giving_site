@@ -4,18 +4,14 @@ import CreateBloks from "../../../utilities/createBloks"
 import SbLink from "../../partials/sbLink"
 
 const ContentMenuParentItem = props => {
-  let classes = "su-secondary-nav__link ood-content-nav__link"
-  if (props.blok.parentItemLink.linktype == "url") {
-    classes = "su-secondary-nav__link su-link--external ood-content-nav__link"
-  }
-
   return (
     <SbEditable content={props.blok}>
       <li className="su-secondary-nav__item su-secondary-nav__item--parent ood-content-nav__item ood-content-nav__item--parent">
         <SbLink
           link={props.blok.parentItemLink}
           activeClass="ood-content-nav__link--active"
-          classes={classes}
+          internalClasses="su-secondary-nav__link ood-content-nav__link"
+          externalClasses="su-secondary-nav__link su-link--external ood-content-nav__link"
         >
           {props.blok.parentItemText}
         </SbLink>
