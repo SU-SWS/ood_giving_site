@@ -7,11 +7,13 @@
 .ood-single-column-content__wrapper,
 .ood-accordion__content,
 .ood-story-media__caption,
-.ood-basic-card__body {
+.ood-interior-page__intro,
+.ood-basic-card__body,
+.ood-quote-card__quote {
   > div {
     a {
       &[href^="http"]:not([href*="storyblok"]) {
-        @include link-icon(arrow-up-right, 10px, topright);
+        @include link-icon(arrow-up-right, 0.45em, topright);
         text-decoration: underline;
 
         &::after {
@@ -30,25 +32,13 @@
   }
 }
 
+// Hide action link right caret when the Action Link style is applied to an external link in WYSIWYG
 .ood-single-column-content__wrapper,
 .ood-accordion__content {
   a[href^="http"]:not([href*="storyblok"]) {
     .ood-cta__link {
       &::after {
         display: none;
-      }
-    }
-  }
-}
-
-// Make external link icon smaller for story image caption links
-.ood-story-media__caption {
-  > div {
-    a {
-      &[href^="http"]:not([href*="storyblok"]) {
-        &::after {
-          @include size(8px);
-        }
       }
     }
   }
@@ -126,18 +116,9 @@
         &[href^="http"]:not([href*="storyblok"]) {
           text-decoration: none;
 
-          &::after {
-            @include margin(null null null 0.4em);
-            @include size(0.5em);
-          }
-
           &:hover,
           &:focus {
             text-decoration: underline;
-
-            &::after {
-              transform: translate3d(0.15em, -0.15em, 0);
-            }
           }
         }
       }
