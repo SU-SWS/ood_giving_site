@@ -1,5 +1,7 @@
 import React from "react"
-import Link from 'gatsby-link'
+import { useLocation } from "@reach/router"
+import { parse } from "query-string"
+import Link from "gatsby-link"
 import { config } from "../../utilities/config"
 
 /**
@@ -7,7 +9,7 @@ import { config } from "../../utilities/config"
  * eg: internal, external, asset
  **/
 
-const SbLink = (props) => {
+const SbLink = props => {
   const basePath = config.basePath
 
   // Storyblok link object either has a url (external links)
@@ -22,13 +24,40 @@ const SbLink = (props) => {
   const assetClasses = props.assetClasses ?? ""
   const otherAttributes = props.attributes ?? {}
 
+  // Get out of the url and keep track of specific utm parameters.
+  const location = useLocation()
+  const parsedSearch = parse(location.search)
+  // utms variable will create a string of just the valid params we want to keep.
+  let utms = ""
+  const passParams = [
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content",
+  ]
+  // Loop through the paramaters we want to continue to track and check to see
+  // if the existing page url has them.
+  passParams.forEach((i, v) => {
+    if (parsedSearch[i] !== undefined) {
+      utms += i + "=" + parsedSearch[i] + "&"
+    }
+  })
+  // Strip off the last ampersand.
+  utms = utms.replace(new RegExp("&$"), "")
+
   // Story or Internal type link.
   // ---------------------------------------------------------------------------
   if (props.link.linktype === "story") {
-
     // Handle the home slug.
-    linkUrl = (linkUrl === "home") ? basePath : basePath + linkUrl
+    linkUrl = linkUrl === "home" ? basePath : basePath + linkUrl
     linkUrl += linkUrl.endsWith("/") ? "" : "/"
+
+    if (linkUrl.match(/\?/) && utms.length) {
+      linkUrl += "&" + utms
+    } else if (utms.length) {
+      linkUrl += "?" + utms
+    }
 
     return (
       <Link
@@ -74,15 +103,10 @@ const SbLink = (props) => {
   // Default if we don't know what type this is.
   // ---------------------------------------------------------------------------
   return (
-    <a
-      href={linkUrl}
-      className={linkClasses}
-      {...otherAttributes}
-    >
+    <a href={linkUrl} className={linkClasses} {...otherAttributes}>
       {props.children}
     </a>
   )
-
-};
+}
 
 export default SbLink
