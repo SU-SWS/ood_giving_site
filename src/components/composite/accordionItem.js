@@ -1,57 +1,29 @@
-import React from 'react'
+import React, { useState } from "react"
 import SbEditable from 'storyblok-react'
 import RichTextField from '../../utilities/richTextField'
+import Heading from "../partials/heading"
 
-class AccordionItem extends React.Component {
+const AccordionItem = (props) => {
+  const [accOpened, setAccOpened] = useState(false);
 
-  // This is required.
-  constructor(props) {
-    super(props);
-    this.state = {
-      expanded: true
-    };
+  const toggleAcc = () => {
+    setAccOpened(!accOpened);
   }
 
-  // On render, collapse all the items.
-  componentDidMount() {
-    this.setState({expanded: false});
-  }
-
-  // Expand/Collapse toggle.
-  toggle = () => {
-    this.state.expanded ? this.collapse() : this.expand();
-  }
-
-  // Open the doors!
-  expand = () => {
-    this.setState({ expanded: true });
-  }
-
-  // Close the hatches!
-  collapse = () => {
-    this.setState({ expanded: false });
-  }
-
-  // RENDER!
-  render() {
-    let Heading = this.props.blok.headingLevel ? this.props.blok.headingLevel : "h4";
-    let props = this.props;
-
-    return (
-      <SbEditable content={props.blok}>
-        <li className="su-accordion__item ood-accordion__item su-border-color-palo-alto-light">
-          <Heading className={`su-accordion__title ood-accordion__title su-serif`}
-                   {...props.blok.id ? {id : props.blok.id} : {}}
-          >
-            <button className="su-accordion__button ood-accordion__button" aria-expanded={this.state.expanded} onClick={this.toggle}>{props.blok.title}</button>
-          </Heading>
-          <div className="su-accordion__content ood-accordion__content" aria-hidden={!this.state.expanded}>
-            <RichTextField data={props.blok.content}/>
-          </div>
-        </li>
-      </SbEditable>
-    )
-  }
+  return (
+    <SbEditable content={props.blok}>
+      <li className="su-accordion__item ood-accordion__item su-border-color-palo-alto-light">
+        <Heading defaultLevel={"h4"} level={props.blok.headingLevel} serif={true} classes={"su-accordion__title ood-accordion__title"}
+                 {...props.blok.id ? {id : props.blok.id} : {}}
+        >
+          <button className="su-accordion__button ood-accordion__button" aria-expanded={accOpened} onClick={toggleAcc}>{props.blok.title}</button>
+        </Heading>
+        <div className="su-accordion__content ood-accordion__content" aria-hidden={!accOpened}>
+          <RichTextField data={props.blok.content}/>
+        </div>
+      </li>
+    </SbEditable>
+  )
 }
 
 export default AccordionItem
