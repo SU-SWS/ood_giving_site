@@ -18,7 +18,7 @@ const OodTileCard = (props) => {
             <AspectRatioImage
               {...props}
               filename={props.blok.image.filename}
-              alt={props.blok.image.alt}
+              alt=""
               classPrefix={"ood-tile-card"}
               imageSize={"card"}
               aspectRatio={"3x2"}

@@ -18,7 +18,7 @@ const OodStoryCard = (props) => {
             <AspectRatioImage
               {...props}
               filename={props.blok.image.filename}
-              alt={props.blok.image.alt}
+              alt=""
               classPrefix={"ood-story-card"}
               imageSize={`${props.blok.orientation ? `${props.blok.orientation}-card` : "card"}`}
               aspectRatio={"3x2"}

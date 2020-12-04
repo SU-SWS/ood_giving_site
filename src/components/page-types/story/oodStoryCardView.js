@@ -44,11 +44,7 @@ const StoryCardView = props => {
                     ? props.blok.cardImage.filename
                     : props.blok.heroImage.filename
                 }
-                alt={
-                  props.blok.cardImage.alt
-                    ? props.blok.cardImage.alt
-                    : props.blok.heroImage.alt
-                }
+                alt=""
                 classPrefix={"ood-story-card"}
                 imageSize={`${
                   props.orientation ? `${props.orientation}-card` : "card"
