@@ -5,7 +5,8 @@
 @media print {
   .ood-header,
   .ood-local-footer,
-  .su-global-footer {
+  .su-global-footer,
+  nav {
     display: none!important;
   }
 
@@ -58,6 +59,12 @@
     display: none!important;
   }
 
+  .ood-cta,
+  .ood-icon-card,
+  .ood-support-card {
+    display: none!important;
+  }
+
   .ood-story-media__caption {
     &,
     * {
@@ -68,7 +75,6 @@
   // Hide "below content" section and CTAs for stories
   .ood-story {
     .ood-interior-page__below-body,
-    .ood-icon-card,
     .ood-story-card,
     .ood-tile-card,
     .ood-support-card,
