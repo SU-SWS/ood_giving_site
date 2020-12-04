@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+// Styles for printing
+
+@media print {
+  .ood-header,
+  .ood-local-footer,
+  .su-global-footer {
+    display: none!important;
+  }
+
+  * {
+    box-shadow: none!important;
+    text-shadow: none!important;
+    color: #000!important;
+  }
+
+  h1 {
+    font-size: 4rem!important;
+  }
+
+  h2 {
+    font-size: 3.4rem!important;
+  }
+
+  h3 {
+    font-size: 3rem!important;
+  }
+
+  h4 {
+    font-size: 2.7rem!important;
+  }
+
+  h5 {
+    font-size: 2.5rem!important;
+  }
+
+  h6 {
+    font-size: 2.3rem!important;
+  }
+
+  .intro-text {
+    font-size: 2.3rem!important;
+  }
+
+  span {
+    font-size: 1.8rem!important;
+  }
+
+  a {
+    &::after {
+      display: none!important;
+    }
+  }
+
+  *::after,
+  *::before {
+    display: none!important;
+  }
+
+  .ood-story-media__caption {
+    &,
+    * {
+      font-size: 1.6rem !important;
+    }
+  }
+
+  // Hide "below content" section and CTAs for stories
+  .ood-story {
+    .ood-interior-page__below-body,
+    .ood-icon-card,
+    .ood-story-card,
+    .ood-tile-card,
+    .ood-support-card,
+    .ood-cta__link,
+    .ood-cta__button {
+      display: none!important;
+    }
+  }
+
+  .ood-story__header--no-image {
+    border-color: transparent!important;
+  }
+
+  .ood-story__header-content-wrapper {
+    padding: 2rem!important;
+    background-color: $su-color-white!important;
+    border: 1px solid $su-color-black-20!important;
+  }
+}
