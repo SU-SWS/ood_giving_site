@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+// Styles for printing
+
+@media print {
+  .ood-header,
+  .ood-local-footer,
+  .su-global-footer {
+    display: none!important;
+  }
+}
