@@ -39,6 +39,7 @@ const StoryCardView = props => {
             props.hideImage === false && (
               <AspectRatioImage
                 {...props}
+                element={"div"}
                 filename={
                   props.blok.cardImage.filename
                     ? props.blok.cardImage.filename
