@@ -26,7 +26,7 @@ const OodTileCard = (props) => {
               visibleVertical={props.blok.visibleVertical}
             />
           )}
-          <section className="ood-tile-card__contents">
+          <div className="ood-tile-card__contents">
             {props.blok.superheadline && (
               <span className="ood-tile-card__superhead su-uppercase">{props.blok.superheadline}</span>
             )}
@@ -34,7 +34,7 @@ const OodTileCard = (props) => {
               <Heading level={props.blok.headingLevel} defaultLevel={"h3"} weight={"semibold"}
                        classes={`ood-tile-card__headline ${props.blok.link.linktype === "url" ? "su-link--external" : ""}`}>{props.blok.headline}</Heading>
             )}
-          </section>
+          </div>
         </SbLink>
       </article>
     </SbEditable>
