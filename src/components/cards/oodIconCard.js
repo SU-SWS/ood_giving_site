@@ -20,7 +20,7 @@ const OodIconCard = (props) => {
                   ${props.blok.extraIcon ? `fa-${props.blok.extraIcon}` : props.blok.icon.icon}
                   ${props.blok.backgroundColor !== "white" ? "su-text-white" : "su-text-digital-red"}`}/>
           </div>
-          <section className="ood-icon-card__contents">
+          <div className="ood-icon-card__contents">
             <Heading level={props.blok.headingLevel} defaultLevel={"h3"}
                      classes={"ood-icon-card__headline su-hocus-underline su-mb-none"}
                      weight={"semibold"}
@@ -28,7 +28,7 @@ const OodIconCard = (props) => {
                      color={props.blok.backgroundColor !== "white" ? "white" : "black"}>
               {props.blok.headline}
             </Heading>
-          </section>
+          </div>
         </SbLink>
       </article>
     </SbEditable>
