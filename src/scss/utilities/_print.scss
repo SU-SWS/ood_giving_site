@@ -12,6 +12,7 @@
   }
 
   * {
+    max-width: 100%!important;
     position: relative!important;
     top: 0;
     box-shadow: none!important;
@@ -19,7 +20,14 @@
     color: #000!important;
   }
 
+  // prevent ending up with a single line at the end of a page and a single line at the top the next page
+  p {
+    orphans: 2!important;
+    widows: 2!important;;
+  }
+
   h1 {
+    margin-top: 0!important;
     font-size: 4rem!important;
   }
 
@@ -41,6 +49,15 @@
 
   h6 {
     font-size: 2rem!important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    break-inside: avoid!important;
   }
 
   *[class*="headline"] {
@@ -65,6 +82,10 @@
     font-size: 1.6rem!important;
   }
 
+  figure {
+    max-width: 60% !important;
+  }
+
   *::after,
   *::before {
     display: none!important;
@@ -76,6 +97,14 @@
     &::after,
     &::before {
       display: block !important;
+    }
+  }
+
+  .hero {
+    border-bottom: 0!important;
+
+    &__splash-text {
+      margin-top: 2rem!important;
     }
   }
 
@@ -95,7 +124,24 @@
     }
   }
 
+  .ood-story__header--has-image {
+    .ood-story__header-content {
+      margin-top: 0!important;
+    }
+  }
+
+  .ood-story-card {
+    &--has-image {
+      border-top: 0 !important;
+    }
+
+    &__headline {
+      margin-top: 0!important;
+    }
+  }
+
   .ood-poster {
+    height: auto!important;
     border-bottom: 0!important;
 
     .centered-container {
@@ -107,9 +153,22 @@
     }
   }
 
+  .ood-quote-card {
+    &__content {
+      padding: 2rem!important;
+      min-height: 1px!important;
+    }
+
+    &__quote {
+      &::before {
+        display: block!important;
+      }
+    }
+  }
+
   .ood-interior-page {
     &__header-intro-wrapper {
-      padding-top: 2rem!important;
+      padding: 2rem 0!important;
     }
 
     &__intro {
@@ -154,11 +213,12 @@
   .ood-poster__card,
   .hero__link,
   .ood-quote-card,
-  .ood-basic-card__contents {
+  .ood-basic-card__contents,
+  .ood-story-card__contents {
     padding: 2rem!important;
     background-color: $su-color-white!important;
     border: 1px solid $su-color-black-40!important;
-    page-break-inside: avoid!important;
+    break-inside: avoid!important;
   }
 
   .su-accordion {
@@ -186,6 +246,10 @@
   .ood-quote-card {
     font-size: 1.6rem!important;
 
+    &__content {
+      margin-top: 0!important;
+    }
+
     &__media,
     &--has-image {
       margin-top: 0!important;
@@ -196,8 +260,9 @@
   .ood-quote-card,
   .ood-tile-card,
   .ood-basic-card,
-  .ood-poster {
-    page-break-inside: avoid!important;
+  .ood-poster,
+  blockquote {
+    break-inside: avoid!important;
   }
 
   *[class*="su-bg"] {
