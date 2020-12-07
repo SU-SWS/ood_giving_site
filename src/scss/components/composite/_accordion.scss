@@ -41,6 +41,12 @@
       list-style-type: disc;
     }
   }
+
+  &__content {
+    &[aria-hidden="true"] {
+      display: none;
+    }
+  }
 }
 
 .su-accordion {
