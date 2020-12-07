@@ -3,69 +3,6 @@
 // Styles for WYSIWYG Content - text, link, vertical rhythms etc.
 // Common styles for Single Column Content, Accordion, Basic Card and Story Image WYSIWYG.
 
-// Styles for external links in WYSIWYG
-.ood-single-column-content__wrapper,
-.ood-accordion__content,
-.ood-story-media__caption,
-.ood-interior-page__intro,
-.ood-basic-card__body,
-.ood-quote-card__quote {
-  > div {
-    a {
-      &[href^="http"]:not([href*="storyblok"]) {
-        @include link-icon(arrow-up-right, 0.45em, topright);
-        text-decoration: underline;
-
-        &::after {
-          @include margin(null null null 0.2em);
-          background-color: $su-color-digital-red;
-        }
-
-        &:hover,
-        &:focus {
-          &::after {
-            background-color: $su-color-sky-dark;
-          }
-        }
-      }
-    }
-  }
-}
-
-// Hide action link right caret when the Action Link style is applied to an external link in WYSIWYG
-.ood-single-column-content__wrapper,
-.ood-accordion__content {
-  a[href^="http"]:not([href*="storyblok"]) {
-    .ood-cta__link {
-      &::after {
-        display: none;
-      }
-    }
-  }
-}
-
-// Icon should be white for Basic Cards with colored backgrounds
-.ood-basic-card {
-  &.su-text-white {
-    .ood-basic-card__body {
-      > div {
-        a[href^="http"]:not([href*="storyblok"]) {
-          &::after {
-            background-color: $su-color-white;
-          }
-
-          &:hover,
-          &:focus {
-            &::after {
-              background-color: $su-color-white;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
 .ood-single-column-content__wrapper,
 .ood-accordion__content {
   width: 100%;
@@ -109,16 +46,6 @@
 
           &::after {
             background-color: $su-color-sky-dark;
-          }
-        }
-
-        // External heading links
-        &[href^="http"]:not([href*="storyblok"]) {
-          text-decoration: none;
-
-          &:hover,
-          &:focus {
-            text-decoration: underline;
           }
         }
       }
