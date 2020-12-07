@@ -14,10 +14,10 @@
   * {
     max-width: 100%!important;
     position: relative!important;
-    top: 0;
+    top: 0!important;;
     box-shadow: none!important;
     text-shadow: none!important;
-    color: #000!important;
+    color: $su-color-black-true!important;
   }
 
   // Prevent ending up with a single line at the end of a page and a single line at the top the next page
@@ -83,8 +83,8 @@
     font-size: 1.6rem!important;
   }
 
-  figure,
-  .ood-single-column-content img {
+  .ood-single-column-content img,
+  .ood-story-media {
     max-width: 60%!important;
   }
 
@@ -153,6 +153,10 @@
   .ood-poster {
     height: auto!important;
     border-bottom: 0!important;
+
+    &__media {
+      height: 24rem!important;
+    }
 
     .centered-container {
       height: auto!important;
