@@ -61,9 +61,22 @@
     }
   }
 
+  table {
+    font-size: 1.6rem!important;
+  }
+
   *::after,
   *::before {
     display: none!important;
+  }
+
+  .fa,
+  .fas,
+  .far {
+    &::after,
+    &::before {
+      display: block !important;
+    }
   }
 
   .ood-cta,
@@ -134,6 +147,23 @@
     background-color: $su-color-white!important;
     border: 1px solid $su-color-black-40!important;
     page-break-inside: avoid!important;
+  }
+
+  .su-accordion {
+    &__collapse-all,
+    &__expand-all {
+      display: none!important;
+    }
+
+    &__title {
+      font-size: 2rem!important;
+    }
+
+    &__content[aria-hidden="true"] {
+      display: block!important;
+      height: auto!important;
+      padding-top: 1rem!important;
+    }
   }
 
   .ood-basic-card {
