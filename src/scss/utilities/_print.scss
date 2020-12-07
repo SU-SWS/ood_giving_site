@@ -12,6 +12,8 @@
   }
 
   * {
+    position: relative!important;
+    top: 0;
     box-shadow: none!important;
     text-shadow: none!important;
     color: #000!important;
@@ -71,14 +73,19 @@
   }
 
   .ood-tile-card,
-  .ood-story-card {
+  .ood-story-card,
+  .ood-interior-page__header {
     .ood-media {
       display: none!important;
     }
   }
 
+  .ood-interior-page__header-intro-wrapper {
+    padding-top: 2rem!important;
+  }
+
   .su-bg-fog-light {
-    background-color: $su-color-white!important;
+    background-color: transparent!important;
   }
 
   .ood-story-media__caption {
@@ -129,5 +136,9 @@
   .ood-tile-card,
   .ood-poster {
     page-break-inside: avoid;
+  }
+
+  *[class*="su-bg"] {
+    background-color: transparent!important;
   }
 }
