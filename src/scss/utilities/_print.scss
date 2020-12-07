@@ -232,6 +232,10 @@
       font-size: 2rem!important;
     }
 
+    &__button {
+      padding-left: 0!important;
+    }
+
     // Print accordion content no matter they are collapsed or not
     &__content[aria-hidden="true"] {
       display: block!important;
