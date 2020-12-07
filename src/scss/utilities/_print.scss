@@ -68,22 +68,30 @@
 
   .ood-cta,
   .ood-icon-card,
-  .ood-support-card {
+  .ood-support-card,
+  .su-link--action {
     display: none!important;
   }
 
   .ood-tile-card,
   .ood-story-card,
+  .ood-basic-card,
   .ood-interior-page__header {
     .ood-media {
       display: none!important;
     }
   }
 
-  .ood-interior-page__header-intro-wrapper {
-    padding-top: 2rem!important;
-  }
+  .ood-interior-page {
+    &__header-intro-wrapper {
+      padding-top: 2rem!important;
+    }
 
+    &__intro {
+      padding: 0!important;
+      max-width: 100%!important;
+    }
+  }
   .su-bg-fog-light {
     background-color: transparent!important;
   }
@@ -120,22 +128,34 @@
   .ood-tile-card__contents,
   .ood-poster__card,
   .hero__link,
-  .ood-quote-card {
+  .ood-quote-card,
+  .ood-basic-card__contents {
     padding: 2rem!important;
     background-color: $su-color-white!important;
     border: 1px solid $su-color-black-40!important;
-    page-break-inside: avoid;
+    page-break-inside: avoid!important;
+  }
+
+  .ood-basic-card {
+    padding: 0!important;
+    border: 0!important;
   }
 
   .ood-quote-card {
-    font-size: 1.6rem;
+    font-size: 1.6rem!important;
+
+    &__media,
+    &--has-image {
+      margin-top: 0!important;
+    }
   }
 
   .ood-story-card,
   .ood-quote-card,
   .ood-tile-card,
+  .ood-basic-card,
   .ood-poster {
-    page-break-inside: avoid;
+    page-break-inside: avoid!important;
   }
 
   *[class*="su-bg"] {
