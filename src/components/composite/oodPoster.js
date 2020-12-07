@@ -18,7 +18,7 @@ const OodPoster = (props) => {
         {props.blok.image.filename != null && (
           <figure className={`su-hero__media ood-poster__media ${props.blok.overlay && (props.blok.overlay)}`}>
             <img src={processedImg}
-                 alt={props.blok.image.alt ? props.blok.image.alt : ""}
+                 alt=""
                  className={`ood-poster__image su-obj-position-h-center-v-${props.blok.visibleVertical}`}
             />
           </figure>

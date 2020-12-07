@@ -7,6 +7,8 @@ import SeoSocial from "../../partials/seoSocial"
 import CreateBloks from "../../../utilities/createBloks"
 import CenteredContainer from "../../partials/centeredContainer"
 import BelowContent from "../../partials/belowContent"
+import Heading from "../../partials/heading"
+import FlexCell from "../../partials/flexCell"
 
 const StoryFullView = (props) => {
   let processedHeroImg;
@@ -39,16 +41,16 @@ const StoryFullView = (props) => {
               </figure>
             )}
             <CenteredContainer flex={true} classes={"ood-story__header-content"}>
-              <div className={`ood-story__header-content-wrapper flex-md-12-of-12 flex-lg-10-of-12 flex-2xl-9-of-12
+              <FlexCell md={12} lg={10} xxl={9} classes={`ood-story__header-content-wrapper
                      su-bg-${props.blok.headerBoxColor}
                      ${(props.blok.headerBoxColor !== "white" && props.blok.headerBoxColor !== "fog-light") ? "su-text-white" : ""}
                      `}>
-                <h1 className={`ood-story__title su-semibold ood-has-tab-before su-before-bg-${props.blok.tabColor}`}>{props.blok.title}</h1>
+                <Heading level={"h1"} weight={"semibold"} classes={`ood-story__title ood-has-tab-before su-before-bg-${props.blok.tabColor}`}>{props.blok.title}</Heading>
                 {props.blok.intro && (
                   <p
                     className="intro-text ood-story__intro-text">{props.blok.intro}</p>
                 )}
-              </div>
+              </FlexCell>
             </CenteredContainer>
           </header>
           <div className="ood-story__content">
@@ -58,7 +60,7 @@ const StoryFullView = (props) => {
             {(props.blok.author || publishedDate) &&
               <div className="ood-story__metadata">
                 <CenteredContainer flex={true}>
-                  <div className="flex-lg-8-of-12 su-mx-auto">
+                  <FlexCell lg={8} classes="su-mx-auto">
                     <CreateBloks blokSection={props.blok.cta} />
                     <div className="ood-story__metadata su-pb-5">
                       {props.blok.author &&
@@ -74,7 +76,7 @@ const StoryFullView = (props) => {
                       </>
                       }
                     </div>
-                  </div>
+                  </FlexCell>
                 </CenteredContainer>
               </div>
             }
@@ -87,4 +89,5 @@ const StoryFullView = (props) => {
     </SbEditable>
   )
 };
+
 export default StoryFullView
