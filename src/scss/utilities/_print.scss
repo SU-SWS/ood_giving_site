@@ -20,7 +20,7 @@
     color: #000!important;
   }
 
-  // prevent ending up with a single line at the end of a page and a single line at the top the next page
+  // Prevent ending up with a single line at the end of a page and a single line at the top the next page
   p {
     orphans: 2!important;
     widows: 2!important;;
@@ -83,7 +83,7 @@
   }
 
   figure {
-    max-width: 60% !important;
+    max-width: 60%!important;
   }
 
   *::after,
@@ -96,7 +96,7 @@
   .far {
     &::after,
     &::before {
-      display: block !important;
+      display: block!important; // The Life Income Gift table has fontawesome checkmarks
     }
   }
 
@@ -106,8 +106,15 @@
     &__splash-text {
       margin-top: 2rem!important;
     }
+
+    &__content {
+      position: relative!important;
+      bottom: 0!important;
+      left: 0!important;
+    }
   }
 
+  // Hide these CTAs
   .ood-cta,
   .ood-icon-card,
   .ood-support-card,
@@ -115,6 +122,7 @@
     display: none!important;
   }
 
+  // Hide decorative images
   .ood-tile-card,
   .ood-story-card,
   .ood-basic-card,
@@ -176,21 +184,12 @@
       max-width: 100%!important;
     }
   }
-  .su-bg-fog-light {
-    background-color: transparent!important;
-  }
 
   .ood-story-media__caption {
     &,
     * {
       font-size: 1.6rem!important;
     }
-  }
-
-  .hero__content {
-    position: relative!important;
-    bottom: 0!important;
-    left: 0!important;
   }
 
   // Hide "below content" section and CTAs for stories
@@ -231,6 +230,7 @@
       font-size: 2rem!important;
     }
 
+    // Print accordion content no matter they are collapsed or not
     &__content[aria-hidden="true"] {
       display: block!important;
       height: auto!important;
@@ -261,10 +261,12 @@
   .ood-tile-card,
   .ood-basic-card,
   .ood-poster,
-  blockquote {
+  blockquote,
+  span {
     break-inside: avoid!important;
   }
 
+  // Take away all background colors from decorators
   *[class*="su-bg"] {
     background-color: transparent!important;
   }
