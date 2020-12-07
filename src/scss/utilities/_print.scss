@@ -95,6 +95,18 @@
     }
   }
 
+  .ood-poster {
+    border-bottom: 0!important;
+
+    .centered-container {
+      height: auto!important;
+    }
+
+    &__card {
+      bottom: 0!important;
+    }
+  }
+
   .ood-interior-page {
     &__header-intro-wrapper {
       padding-top: 2rem!important;
