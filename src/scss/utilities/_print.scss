@@ -6,6 +6,7 @@
   .ood-header,
   .ood-local-footer,
   .su-global-footer,
+  .ood-icon-card-section,
   nav {
     display: none!important;
   }
@@ -33,11 +34,15 @@
   }
 
   h5 {
-    font-size: 2.5rem!important;
+    font-size: 2.3rem!important;
   }
 
   h6 {
-    font-size: 2.3rem!important;
+    font-size: 2rem!important;
+  }
+
+  *[class*="headline"] {
+    font-size: 2.7rem!important;
   }
 
   .intro-text {
@@ -65,11 +70,28 @@
     display: none!important;
   }
 
+  .ood-tile-card,
+  .ood-story-card {
+    .ood-media {
+      display: none!important;
+    }
+  }
+
+  .su-bg-fog-light {
+    background-color: $su-color-white!important;
+  }
+
   .ood-story-media__caption {
     &,
     * {
-      font-size: 1.6rem !important;
+      font-size: 1.6rem!important;
     }
+  }
+
+  .hero__content {
+    position: relative!important;
+    bottom: 0!important;
+    left: 0!important;
   }
 
   // Hide "below content" section and CTAs for stories
@@ -77,7 +99,6 @@
     .ood-interior-page__below-body,
     .ood-story-card,
     .ood-tile-card,
-    .ood-support-card,
     .ood-cta__link,
     .ood-cta__button {
       display: none!important;
@@ -88,9 +109,25 @@
     border-color: transparent!important;
   }
 
-  .ood-story__header-content-wrapper {
+  .ood-story__header-content-wrapper,
+  .ood-tile-card__contents,
+  .ood-poster__card,
+  .hero__link,
+  .ood-quote-card {
     padding: 2rem!important;
     background-color: $su-color-white!important;
-    border: 1px solid $su-color-black-20!important;
+    border: 1px solid $su-color-black-40!important;
+    page-break-inside: avoid;
+  }
+
+  .ood-quote-card {
+    font-size: 1.6rem;
+  }
+
+  .ood-story-card,
+  .ood-quote-card,
+  .ood-tile-card,
+  .ood-poster {
+    page-break-inside: avoid;
   }
 }
