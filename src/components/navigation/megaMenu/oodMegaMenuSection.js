@@ -14,7 +14,17 @@ const OodMegaMenuSection = (props) => {
     setSectionOpened(!sectionOpened);
   }
 
-  UseEscape(() => setSectionOpened(false));
+  UseEscape(() => {
+      const openParent = document.querySelector(".ood-mega-nav__trigger[aria-expanded='true']");
+      const hamburger = document.querySelector('.ood-mega-nav__toggle');
+
+      if (openParent && !hamburger) {
+        setSectionOpened(false)
+        openParent.focus();
+      }
+    }
+  );
+
   UseOnClickOutside(ref, () => setSectionOpened(false));
 
   return (

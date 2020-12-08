@@ -17,9 +17,9 @@ const OodMegaMenu = (props) => {
   }
 
   UseEscape(() => {
-    const hamburger = document.querySelector('.ood-mega-nav__toggle');
+      const hamburger = document.querySelector('.ood-mega-nav__toggle');
 
-    if (hamburger && isExpanded(hamburger)) {
+      if (hamburger && isExpanded(hamburger)) {
         setMenuOpened(false)
         hamburger.focus();
       }
