@@ -18,6 +18,7 @@
     box-shadow: none!important;
     text-shadow: none!important;
     color: $su-color-black-true!important;
+    background-color: transparent!important;
   }
 
   div { //to keep Chrome from truncating text
@@ -69,7 +70,10 @@
   }
 
   .intro-text {
-    font-size: 2rem!important;
+    &,
+    span {
+      font-size: 2rem !important;
+    }
   }
 
   span {
@@ -85,6 +89,14 @@
   table {
     padding: 0!important;
     font-size: 1.6rem!important;
+  }
+
+  .ood-single-column-content {
+    span {
+      &.su-sans.su-semibold {
+        font-size: 2.3rem!important;
+      }
+    }
   }
 
   .ood-single-column-content img,
@@ -216,6 +228,18 @@
     &__intro {
       padding: 0!important;
       max-width: 100%!important;
+    }
+
+    &--no-image {
+      .ood-interior-page__header-title-wrapper {
+        padding-bottom: 2rem!important;
+      }
+
+      .ood-interior-page__header-intro-wrapper {
+        margin-top: 0!important;
+        padding-top: 2rem!important;
+        padding-bottom: 2rem!important;
+      }
     }
   }
 
