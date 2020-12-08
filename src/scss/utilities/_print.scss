@@ -86,6 +86,7 @@
   .ood-single-column-content img,
   .ood-story-media {
     max-width: 60%!important;
+    break-inside: avoid!important;
   }
 
   *::after,
