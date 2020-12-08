@@ -2,6 +2,7 @@ import React from 'react'
 import Components from '../components/components.js'
 import SbEditable from 'storyblok-react'
 import config from '../../gatsby-config'
+import Loader from 'react-loader-spinner'
 
 const sbConfigs = config.plugins.filter((item) => {
   return item.resolve === 'gatsby-source-storyblok'
@@ -11,7 +12,7 @@ const sbConfig = sbConfigs.length > 0 ? sbConfigs[0] : {}
 const loadStoryblokBridge = function(cb) {
   let script = document.createElement('script')
   script.type = 'text/javascript'
-  script.src = `//app.storyblok.com/f/storyblok-latest.js?t=${sbConfig.options.accessToken}`
+  script.src = `//app.storyblok.com/f/storyblok-latest.js`
   script.onload = cb
   document.getElementsByTagName('head')[0].appendChild(script)
 }
@@ -36,11 +37,42 @@ const getParam = function(val) {
 class StoryblokEntry extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {story: null}
+    this.state = {story: null, bad: false}
   }
 
+
   componentDidMount() {
-    loadStoryblokBridge(() => { this.initStoryblokEvents() })
+
+	// Storyblok Preview API access key.
+    const key = getParam("access_key")
+
+    // Must have a storyblok key.
+    if (isNaN(getParam("_storyblok"))) {
+      this.setState({bad: true})
+      return
+    }
+
+    // Must have the API Access key.
+    if (key === '') {
+      this.setState({bad: true})
+      return
+    }
+
+    loadStoryblokBridge(() => {
+
+      // If not in the iframe send error message.
+      if (!window.storyblok.inIframe()) {
+        this.setState({bad: true})
+        return
+      }
+
+      // Init with access token from url.
+      window.storyblok.init({
+        accessToken: key
+      })
+
+      this.initStoryblokEvents()
+    })
   }
 
   loadStory() {
@@ -54,6 +86,7 @@ class StoryblokEntry extends React.Component {
   }
 
   initStoryblokEvents() {
+
     this.loadStory()
 
     let sb = window.storyblok
@@ -88,8 +121,23 @@ class StoryblokEntry extends React.Component {
   }
 
   render() {
+
+    if (this.state.bad == true) {
+      return (
+        <div className="centered-container">
+          <h1>Error</h1>
+          <p>You can only access this page through https://app.storyblok.com.</p>
+        </div>
+      )
+    }
+
     if (this.state.story == null) {
-      return (<div></div>)
+      return (
+        <div className="centered-container">
+          <h1>Loading...</h1>
+          <Loader type="Oval" color="#00BFFF" height={125} width={125} />
+        </div>
+      )
     }
 
     let content = this.state.story.content
