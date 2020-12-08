@@ -32,7 +32,7 @@ const OodMegaMenu = (props) => {
   return (
     <SbEditable content={props.blok}>
       <nav className="ood-mega-nav" aria-label="Main Menu" ref={ref}>
-        <button className="ood-mega-nav__toggle su-mr-none su-ml-auto" aria-label="menu toggle"
+        <button className="ood-mega-nav__toggle su-mr-none su-ml-auto" aria-label={menuOpened ? "Close menu" : "Open Menu"}
                 aria-expanded={menuOpened}
                 onClick={toggleMenu}>
           <i aria-hidden="true" className={`fas fa-${menuOpened ? "times" : "bars"}`}/>{menuOpened ? "Close" : "Menu"}
