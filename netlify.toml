@@ -17,6 +17,7 @@
     Basic-Auth = "adapt:letmein2020"
     Access-Control-Allow-Origin = "*"
     Content-Security-Policy = "form-action https:"
+    X-Content-Type-Options = "nosniff"
     Referrer-Policy = "origin-when-cross-origin"
     Strict-Transport-Security = "max-age=2592000"
     Feature-Policy = "vibrate 'none'; geolocation 'none'; midi 'none'; notifications 'none'; push 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; vibrate 'none'; fullscreen 'none'"
@@ -63,7 +64,7 @@
 # API redirect for lambda functions.
 [[redirects]]
   from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  to = "/.netlify/lambda/:splat"
   status = 200
 
 # [[redirects]]
