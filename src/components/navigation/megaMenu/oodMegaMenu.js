@@ -15,7 +15,13 @@ const OodMegaMenu = (props) => {
     setMenuOpened(!menuOpened);
   }
 
-  UseEscape(() => setMenuOpened(false));
+  UseEscape(() => {
+      const hamburger = document.querySelector('.ood-mega-nav__toggle');
+      setMenuOpened(false)
+      hamburger.focus();
+    }
+  );
+
   UseOnClickOutside(ref, () => setMenuOpened(false));
 
   if (windowSize.width >= config.breakpoint.lg) {
