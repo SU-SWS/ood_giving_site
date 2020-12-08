@@ -11,12 +11,22 @@ const OodContentMenu = (props) => {
   let windowSize = UseWindowSize();
   const [menuOpened, setMenuOpened] = useState(false);
   const ref = useRef();
+  const isExpanded = x => x.getAttribute('aria-expanded') === 'true';
 
   const toggleMenu = () => {
     setMenuOpened(!menuOpened);
   }
 
-  UseEscape(() => setMenuOpened(false));
+  UseEscape(() => {
+      const hamburger = document.querySelector('.ood-content-nav__toggle');
+
+      if (hamburger && isExpanded(hamburger)) {
+        setMenuOpened(false);
+        hamburger.focus();
+      }
+    }
+  );
+
   UseOnClickOutside(ref, () => setMenuOpened(false));
 
   const Menus = (props) => (
