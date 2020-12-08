@@ -10,6 +10,7 @@ const OodMegaMenu = (props) => {
   let windowSize = UseWindowSize();
   const [menuOpened, setMenuOpened] = useState(false);
   const ref = useRef();
+  const isExpanded = x => x.getAttribute('aria-expanded') === 'true';
 
   const toggleMenu = () => {
     setMenuOpened(!menuOpened);
@@ -17,7 +18,8 @@ const OodMegaMenu = (props) => {
 
   UseEscape(() => {
     const hamburger = document.querySelector('.ood-mega-nav__toggle');
-      if (hamburger) {
+
+    if (hamburger && isExpanded(hamburger)) {
         setMenuOpened(false)
         hamburger.focus();
       }
