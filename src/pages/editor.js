@@ -43,6 +43,7 @@ class StoryblokEntry extends React.Component {
 
   componentDidMount() {
 
+	// Storyblok Preview API access key.
     const key = getParam("access_key")
 
     // Must have a storyblok key.
