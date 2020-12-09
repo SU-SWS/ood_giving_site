@@ -18,7 +18,6 @@ const OodPoster = (props) => {
             filename={props.blok.image.filename}
             classPrefix={"ood-poster"}
             otherClasses={props.blok.overlay ? props.blok.overlay : ""}
-            visibleHorizontal={"center"}
             visibleVertical={props.blok.visibleVertical}
           />
         }

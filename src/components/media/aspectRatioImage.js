@@ -35,7 +35,7 @@ const AspectRatioImage = (props) => {
         <div className={`su-media__wrapper su-aspect-ratio--${props.aspectRatio ? props.aspectRatio : "3x2"}`}>
           <img className={`ood-media__image
                ${props.classPrefix ? `${props.classPrefix}__image` : ""}
-               su-obj-position-h-${props.visibleHorizontal}-v-${props.visibleVertical}`}
+               su-obj-position-h-${props.visibleHorizontal ? props.visibleHorizontal : "center"}-v-${props.visibleVertical ? props.visibleVertical : "top"}`}
                src={processedImg}
                alt={props.alt ? props.alt : ""}
           />

@@ -14,7 +14,6 @@ const OodHomepageHero = (props) => {
             {...props}
             filename={props.blok.image.filename}
             classPrefix={"hero"}
-            visibleHorizontal={props.blok.visibleHorizontal}
             visibleVertical={props.blok.visibleVertical}
           />
         }
