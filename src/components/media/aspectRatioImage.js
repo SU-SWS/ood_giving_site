@@ -4,7 +4,7 @@ import transformImage from '../../utilities/transformImage'
 
 const AspectRatioImage = (props) => {
   let processedImg = "";
-  const Element = props.element ? props.element : "figure";
+  const Element = props.element ?? "figure";
 
   if (props.filename != null) {
     // Get image width from URL of storyblok image
@@ -37,7 +37,7 @@ const AspectRatioImage = (props) => {
                ${props.classPrefix ? `${props.classPrefix}__image` : ""}
                su-obj-position-h-${props.visibleHorizontal ? props.visibleHorizontal : "center"}-v-${props.visibleVertical ? props.visibleVertical : "top"}`}
                src={processedImg}
-               alt={props.alt ? props.alt : ""}
+               alt={props.alt ?? ""}
           />
         </div>
       </Element>
