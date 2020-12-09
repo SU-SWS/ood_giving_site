@@ -12,7 +12,9 @@ const FullWidthImage = (props) => {
       width: props.filename.split('/')[5].split('x')[0] // Get image width from URL of storyblok image
     };
 
-    smallImg = transformImage(props.filename, "/800x0");
+    if (dimensions.width >= 800) {
+      smallImg = transformImage(props.filename, "/800x0");
+    }
 
     if (dimensions.width >= 1200) {
       mediumImg = transformImage(props.filename, "/1200x0");
@@ -27,11 +29,14 @@ const FullWidthImage = (props) => {
     imgSrcset = smallImg ? smallImg + " 800w" : "";
     imgSrcset += mediumImg ? "," + mediumImg + " 1200w " : "";
     imgSrcset += largeImg ? "," + largeImg + " 2000w " : "";
+
+    // Set sizes attribute only if srcset is not empty
     if (imgSrcset) {
       imgSizes = "100vw";
     }
 
-    imgSrc = largeImg || originalImg; // If image is > 2000px, use the resized 2000px version for the src. Otherwise use original image.
+    // If image is > 2000px, use the resized 2000px version for the src. Otherwise use original image.
+    imgSrc = largeImg || originalImg;
   }
 
   return (
