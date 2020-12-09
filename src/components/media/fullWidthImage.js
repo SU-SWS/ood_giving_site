@@ -3,7 +3,7 @@ import SbEditable from 'storyblok-react'
 import transformImage from '../../utilities/transformImage'
 
 const FullWidthImage = (props) => {
-  const Element = props.element ? props.element : "figure";
+  const Element = props.element ?? "figure";
   let largeImg, mediumImg, smallImg, originalImg = "";
   let imgSrcset, imgSizes, imgSrc = "";
 
