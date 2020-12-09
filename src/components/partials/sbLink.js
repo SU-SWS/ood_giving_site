@@ -80,7 +80,7 @@ const SbLink = props => {
         className={linkClasses + " " + urlClasses}
         {...otherAttributes}
       >
-        {props.children}
+        {props.children}<span className={"su-sr-only-element"}> (external link)</span>
       </a>
     )
   }

@@ -10,12 +10,22 @@ const OodMegaMenu = (props) => {
   let windowSize = UseWindowSize();
   const [menuOpened, setMenuOpened] = useState(false);
   const ref = useRef();
+  const isExpanded = x => x.getAttribute('aria-expanded') === 'true';
 
   const toggleMenu = () => {
     setMenuOpened(!menuOpened);
   }
 
-  UseEscape(() => setMenuOpened(false));
+  UseEscape(() => {
+      const hamburger = document.querySelector('.ood-mega-nav__toggle');
+
+      if (hamburger && isExpanded(hamburger)) {
+        setMenuOpened(false)
+        hamburger.focus();
+      }
+    }
+  );
+
   UseOnClickOutside(ref, () => setMenuOpened(false));
 
   if (windowSize.width >= config.breakpoint.lg) {
@@ -32,7 +42,7 @@ const OodMegaMenu = (props) => {
   return (
     <SbEditable content={props.blok}>
       <nav className="ood-mega-nav" aria-label="Main Menu" ref={ref}>
-        <button className="ood-mega-nav__toggle su-mr-none su-ml-auto" aria-label="menu toggle"
+        <button className="ood-mega-nav__toggle su-mr-none su-ml-auto" aria-label={menuOpened ? "Close menu" : "Open Menu"}
                 aria-expanded={menuOpened}
                 onClick={toggleMenu}>
           <i aria-hidden="true" className={`fas fa-${menuOpened ? "times" : "bars"}`}/>{menuOpened ? "Close" : "Menu"}
