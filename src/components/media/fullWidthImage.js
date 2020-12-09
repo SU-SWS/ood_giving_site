@@ -29,6 +29,7 @@ const FullWidthImage = (props) => {
     imgSrcset += mediumImg ? "," + mediumImg + " 1200w " : "";
     imgSrcset += largeImg ? "," + largeImg + " 2000w " : "";
 
+    // Include the original image in the srcset if its width is > 800px and < 2000px
     if (imgWidth > 800 && imgWidth < 2000) {
       imgSrcset += originalImg ? "," + originalImg + " " + imgWidth + "w " : "";
     }
