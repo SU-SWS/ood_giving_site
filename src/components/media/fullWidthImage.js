@@ -10,6 +10,8 @@ const FullWidthImage = (props) => {
   if (props.filename != null) {
     // Get image width from URL of storyblok image
     const imgWidth = props.filename.split('/')[5].split('x')[0];
+    
+    originalImg = transformImage(props.filename, "");
 
     if (imgWidth >= 800) {
       smallImg = transformImage(props.filename, "/800x0");
@@ -22,8 +24,6 @@ const FullWidthImage = (props) => {
     if (imgWidth >= 2000) {
       largeImg = transformImage(props.filename, "/2000x0");
     }
-
-    originalImg = transformImage(props.filename, "");
 
     imgSrcset = smallImg ? smallImg + " 800w" : "";
     imgSrcset += mediumImg ? "," + mediumImg + " 1200w " : "";
@@ -44,8 +44,8 @@ const FullWidthImage = (props) => {
               ${props.classPrefix ? `${props.classPrefix}__media` : ""}${props.otherClasses ? ` ${props.otherClasses}` : ""}`}>
           <img className={`${props.classPrefix ? `${props.classPrefix}__image` : ""}
                su-obj-position-h-${props.visibleHorizontal ? props.visibleHorizontal : "center"}-v-${props.visibleVertical ? props.visibleVertical : "top"}`}
-               srcSet={imgSrcset}
-               sizes={imgSizes}
+               {...(imgSrcset ? {srcSet: imgSrcset} : {})}
+               {...(imgSizes ? {sizes: imgSizes} : {})}
                src={imgSrc}
                alt={props.alt ? props.alt : ""}
           />
