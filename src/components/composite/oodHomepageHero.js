@@ -4,6 +4,7 @@ import transformImage from "../../utilities/transformImage";
 import CenteredContainer from "../partials/centeredContainer"
 import Heading from "../partials/heading"
 import SbLink from "../partials/sbLink"
+import FullWidthImage from "../media/fullWidthImage"
 
 const OodHomepageHero = (props) => {
   let processedImg;
@@ -12,12 +13,15 @@ const OodHomepageHero = (props) => {
   return (
     <SbEditable content={props.blok}>
       <div className={`hero su-bg-${props.blok.backgroundColor}`}>
-        <figure className="su-media hero__media">
-            <img src={processedImg}
-                 alt={props.blok.image.alt ? props.blok.image.alt : ""}
-                 className={`hero__image su-obj-position-h-${props.blok.visibleHorizontal}-v-${props.blok.visibleVertical}`}
-            />
-        </figure>
+        {props.blok.image.filename != null &&
+          <FullWidthImage
+            {...props}
+            filename={props.blok.image.filename}
+            classPrefix={"hero"}
+            visibleHorizontal={props.blok.visibleHorizontal}
+            visibleVertical={props.blok.visibleVertical}
+          />
+        }
         <CenteredContainer flex={true} classes={"hero__content"}>
           <Heading level={"h1"} color={"white"} weight={"semibold"}
                    classes={`hero__splash-text flex-md-10-of-12 flex-lg-7-of-12 su-text-focus-in su-mod-type-${props.blok.splashTextSize} su-after-bg-${props.blok.tabColor}`}>
