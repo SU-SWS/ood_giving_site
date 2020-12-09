@@ -25,7 +25,7 @@ const AspectRatioImage = (props) => {
       processedImg = transformImage(props.filename, "/1000x0");
     }
     else {
-      processedImg = transformImage(props.blok.image.filename, "");
+      processedImg = transformImage(props.filename, "");
     }
   }
 
