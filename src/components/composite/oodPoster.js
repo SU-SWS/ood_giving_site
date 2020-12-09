@@ -17,7 +17,7 @@ const OodPoster = (props) => {
             {...props}
             filename={props.blok.image.filename}
             classPrefix={"ood-poster"}
-            otherClasses={props.blok.overlay ? props.blok.overlay : ""}
+            otherClasses={props.blok.overlay ?? ""}
             visibleVertical={props.blok.visibleVertical}
           />
         }

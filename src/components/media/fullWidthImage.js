@@ -48,7 +48,7 @@ const FullWidthImage = (props) => {
       <Element className={`su-media
               ${props.classPrefix ? `${props.classPrefix}__media` : ""}${props.otherClasses ? ` ${props.otherClasses}` : ""}`}>
           <img className={`${props.classPrefix ? `${props.classPrefix}__image` : ""}
-               su-obj-position-h-${props.visibleHorizontal ? props.visibleHorizontal : "center"}-v-${props.visibleVertical ? props.visibleVertical : "top"}`}
+               su-obj-position-h-${props.visibleHorizontal ?? "center"}-v-${props.visibleVertical ?? "top"}`}
                {...(imgSrcset ? {srcSet: imgSrcset} : {})}
                {...(imgSizes ? {sizes: imgSizes} : {})}
                src={imgSrc}
