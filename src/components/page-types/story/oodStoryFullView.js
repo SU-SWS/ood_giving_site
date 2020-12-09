@@ -2,18 +2,15 @@ import SbEditable from "storyblok-react";
 import React from "react";
 import IconCardSection from "../../partials/iconCardSection";
 import Footer from "../../partials/footer";
-import transformImage from "../../../utilities/transformImage";
 import SeoSocial from "../../partials/seoSocial"
 import CreateBloks from "../../../utilities/createBloks"
 import CenteredContainer from "../../partials/centeredContainer"
 import BelowContent from "../../partials/belowContent"
 import Heading from "../../partials/heading"
 import FlexCell from "../../partials/flexCell"
+import FullWidthImage from "../../media/fullWidthImage"
 
 const StoryFullView = (props) => {
-  let processedHeroImg;
-  processedHeroImg = transformImage(props.blok.heroImage.filename, "/2000x0");
-
   const dateOptions = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
   let publishedDate;
 
@@ -34,11 +31,14 @@ const StoryFullView = (props) => {
             "ood-story__header--has-image su-bg-white" : `ood-story__header--no-image su-bg-white su-border-color-${props.blok.headerBackgroundColor}`}
             `}>
             {(props.blok.heroImage.filename != null && props.blok.displayImage === "show-image") && (
-              <figure className={`su-media ood-story__media`}>
-                <img src={processedHeroImg} alt={props.blok.heroImage.alt ? props.blok.heroImage.alt : ""}
-                     className={`ood-story__image su-obj-position-h-center-v-${props.blok.visibleVertical}`}
-                />
-              </figure>
+              <FullWidthImage
+                {...props}
+                filename={props.blok.heroImage.filename}
+                classPrefix={"ood-story"}
+                visibleVertical={props.blok.visibleVertical}
+                visibleHorizontal={"center"}
+                alt={props.blok.heroImage.alt ? props.blok.heroImage.alt : ""}
+              />
             )}
             <CenteredContainer flex={true} classes={"ood-story__header-content"}>
               <FlexCell md={12} lg={10} xxl={9} classes={`ood-story__header-content-wrapper
@@ -46,10 +46,9 @@ const StoryFullView = (props) => {
                      ${(props.blok.headerBoxColor !== "white" && props.blok.headerBoxColor !== "fog-light") ? "su-text-white" : ""}
                      `}>
                 <Heading level={"h1"} weight={"semibold"} classes={`ood-story__title ood-has-tab-before su-before-bg-${props.blok.tabColor}`}>{props.blok.title}</Heading>
-                {props.blok.intro && (
-                  <p
-                    className="intro-text ood-story__intro-text">{props.blok.intro}</p>
-                )}
+                {props.blok.intro &&
+                  <p className="intro-text ood-story__intro-text">{props.blok.intro}</p>
+                }
               </FlexCell>
             </CenteredContainer>
           </header>

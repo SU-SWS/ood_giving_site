@@ -1,15 +1,11 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-import transformImage from "../../utilities/transformImage";
 import CenteredContainer from "../partials/centeredContainer"
 import Heading from "../partials/heading"
 import SbLink from "../partials/sbLink"
 import FullWidthImage from "../media/fullWidthImage"
 
 const OodHomepageHero = (props) => {
-  let processedImg;
-  processedImg = transformImage(props.blok.image.filename, "/2000x0");
-
   return (
     <SbEditable content={props.blok}>
       <div className={`hero su-bg-${props.blok.backgroundColor}`}>
