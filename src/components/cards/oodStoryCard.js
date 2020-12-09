@@ -27,7 +27,7 @@ const OodStoryCard = (props) => {
               visibleVertical={props.blok.visibleVertical}
             />
           )}
-          <section className={`ood-story-card__contents su-mx-auto ood-has-tab-before su-px-2 su-pb-4`}>
+          <div className={`ood-story-card__contents su-mx-auto ood-has-tab-before su-px-2 su-pb-4`}>
             {props.blok.headline && (
               <Heading level={props.blok.headingLevel} defaultLevel={"h3"} color={"black"} weight={"semibold"}
                        classes={`ood-story-card__headline su-sans ${props.blok.link.linktype === "url" ? "su-link--external su-after-bg-digital-red" +
@@ -39,7 +39,7 @@ const OodStoryCard = (props) => {
             {props.blok.teaser &&
               <p className="ood-story-card__body su-text-black su-regular">{props.blok.teaser}</p>
             }
-          </section>
+          </div>
         </SbLink>
       </article>
     </SbEditable>

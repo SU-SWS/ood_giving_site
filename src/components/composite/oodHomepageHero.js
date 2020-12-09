@@ -1,7 +1,6 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
 import transformImage from "../../utilities/transformImage";
-import { Link } from "gatsby"
 import CenteredContainer from "../partials/centeredContainer"
 import Heading from "../partials/heading"
 import SbLink from "../partials/sbLink"
