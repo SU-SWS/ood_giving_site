@@ -47,7 +47,7 @@ const FullWidthImage = (props) => {
                {...(imgSrcset ? {srcSet: imgSrcset} : {})}
                {...(imgSizes ? {sizes: imgSizes} : {})}
                src={imgSrc}
-               alt={props.alt ? props.alt : ""}
+               alt={props.alt ?? ""}
           />
       </Element>
     </SbEditable>
