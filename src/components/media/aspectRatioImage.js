@@ -7,21 +7,20 @@ const AspectRatioImage = (props) => {
   const Element = props.element ? props.element : "figure";
 
   if (props.filename != null) {
-    const dimensions = {
-      width: props.filename.split('/')[5].split('x')[0] // Get image width from URL of storyblok image
-    };
+    // Get image width from URL of storyblok image
+    const imgWidth = props.filename.split('/')[5].split('x')[0];
 
     // Only scale image if original image size is larger than intended size
-    if (props.imageSize === "card" && dimensions.width > 600) {
+    if (props.imageSize === "card" && imgWidth > 600) {
       processedImg = transformImage(props.filename, "/600x0");
     }
-    else if (props.imageSize === "thumbnail" && dimensions.width > 400) {
+    else if (props.imageSize === "thumbnail" && imgWidth > 400) {
       processedImg = transformImage(props.filename, "/400x0");
     }
-    else if ((props.imageSize === "header" || props.imageSize === "horizontal-card") && dimensions.width > 800) {
+    else if ((props.imageSize === "header" || props.imageSize === "horizontal-card") && imgWidth > 800) {
       processedImg = transformImage(props.filename, "/800x0");
     }
-    else if (dimensions.width > 1000) {
+    else if (imgWidth > 1000) {
       processedImg = transformImage(props.filename, "/1000x0");
     }
     else {

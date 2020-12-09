@@ -8,19 +8,18 @@ const FullWidthImage = (props) => {
   let imgSrcset, imgSizes, imgSrc = "";
 
   if (props.filename != null) {
-    const dimensions = {
-      width: props.filename.split('/')[5].split('x')[0] // Get image width from URL of storyblok image
-    };
+    // Get image width from URL of storyblok image
+    const imgWidth = props.filename.split('/')[5].split('x')[0];
 
-    if (dimensions.width >= 800) {
+    if (imgWidth >= 800) {
       smallImg = transformImage(props.filename, "/800x0");
     }
 
-    if (dimensions.width >= 1200) {
+    if (imgWidth >= 1200) {
       mediumImg = transformImage(props.filename, "/1200x0");
     }
 
-    if (dimensions.width >= 2000) {
+    if (imgWidth >= 2000) {
       largeImg = transformImage(props.filename, "/2000x0");
     }
 
@@ -30,7 +29,7 @@ const FullWidthImage = (props) => {
     imgSrcset += mediumImg ? "," + mediumImg + " 1200w " : "";
     imgSrcset += largeImg ? "," + largeImg + " 2000w " : "";
 
-    // Set sizes attribute only if srcset is not empty
+    // Set sizes attribute only if imgSrcset is not empty (imgSrcset is empty if image width is < 800px)
     if (imgSrcset) {
       imgSizes = "100vw";
     }
