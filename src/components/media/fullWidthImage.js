@@ -3,9 +3,9 @@ import SbEditable from 'storyblok-react'
 import transformImage from '../../utilities/transformImage'
 
 const FullWidthImage = (props) => {
-  let largeImg, mediumImg, smallImg, originalImg = "";
-  let imgSrcset = "";
   const Element = props.element ? props.element : "figure";
+  let largeImg, mediumImg, smallImg, originalImg = "";
+  let imgSrcset, imgSrc = "";
 
   if (props.filename != null) {
     const dimensions = {
@@ -13,13 +13,21 @@ const FullWidthImage = (props) => {
     };
 
     smallImg = transformImage(props.filename, "/800x0");
-    mediumImg = transformImage(props.filename, "/1200x0");
-    largeImg = transformImage(props.filename, "/2000x0");
+
+    if (dimensions.width >= 1200) {
+      mediumImg = transformImage(props.filename, "/1200x0");
+    }
+
+    if (dimensions.width >= 2000) {
+      largeImg = transformImage(props.filename, "/2000x0");
+    }
+
     originalImg = transformImage(props.filename, "");
 
     imgSrcset = smallImg ? smallImg + " 800w" : "";
     imgSrcset += mediumImg ? "," + mediumImg + " 1200w " : "";
     imgSrcset += largeImg ? "," + largeImg + " 2000w " : "";
+    imgSrc = largeImg || originalImg;
   }
 
   return (
@@ -30,7 +38,7 @@ const FullWidthImage = (props) => {
                su-obj-position-h-${props.visibleHorizontal}-v-${props.visibleVertical}`}
                srcSet={imgSrcset}
                sizes={"100vw"}
-               src={originalImg}
+               src={imgSrc}
                alt={props.alt ? props.alt : ""}
           />
       </Element>
