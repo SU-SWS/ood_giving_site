@@ -10,19 +10,20 @@ const OodMegaMenuCard = (props) => (
         {(props.blok.image.filename != null) && (
           <AspectRatioImage
             {...props}
+            element={"div"}
             filename={props.blok.image.filename}
-            alt={props.blok.image.alt}
+            alt=""
             classPrefix={"ood-mega-nav__card"}
             imageSize={"card"}
             aspectRatio={"3x2"}
           />
         )}
-        <section
+        <div
           className={`ood-mega-nav__card-content su-text-white su-bg-${props.blok.backgroundColor}`}>
           <h3 className="ood-mega-nav__card-headline su-serif su-bold">{props.blok.headline}</h3>
           <p className={`ood-mega-nav__card-cta su-after-bg-white su-after-bg-hocus-white su-mb-none
           ${props.blok.link.linktype === "url" ? "su-link--external" : "su-link--action"}`}>{props.blok.ctaText}</p>
-        </section>
+        </div>
       </SbLink>
     </article>
   </SbEditable>
