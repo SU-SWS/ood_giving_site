@@ -37,7 +37,7 @@ const StoryFullView = (props) => {
                 classPrefix={"ood-story"}
                 visibleVertical={props.blok.visibleVertical}
                 visibleHorizontal={"center"}
-                alt={props.blok.heroImage.alt ? props.blok.heroImage.alt : ""}
+                alt={props.blok.heroImage.alt ?? ""}
               />
             )}
             <CenteredContainer flex={true} classes={"ood-story__header-content"}>
