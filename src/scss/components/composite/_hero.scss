@@ -12,6 +12,7 @@
 
   &__media {
     background-color: $su-color-archway-dark;
+    width: 100%;
     height: 36rem;
 
     @include grid-media('md') {
