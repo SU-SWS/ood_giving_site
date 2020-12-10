@@ -7,6 +7,7 @@ import IconCardSection from '../partials/iconCardSection'
 import SeoSocial from "../partials/seoSocial"
 import CreateBloks from "../../utilities/createBloks"
 import CenteredContainer from "../partials/centeredContainer"
+import Heading from "../partials/heading"
 
 const OodSupportPage = (props) => {
   return (
@@ -22,14 +23,12 @@ const OodSupportPage = (props) => {
             <section className="ood-interior-page__body ood-support-page__body">
               {props.blok.bodyTitle &&
                 <header className="centered-container ood-interior-page__body-header su-text-align-left">
-                  <h2 className="ood-interior-page__body-header-title su-serif su-bold ood-has-tab-before">{props.blok.bodyTitle}</h2>
+                  <Heading level={"h2"} weight={"bold"} serif={true} classes="ood-interior-page__body-header-title ood-has-tab-before">{props.blok.bodyTitle}</Heading>
                 </header>
               }
               <p className={`su-sr-only-element`}>{props.blok.srText}</p>
               <CenteredContainer classes={"ood-support-page__filter-container"}>
-                <input type="radio" id="all" name="areas-to-support" defaultChecked />
-                <label htmlFor="all">All</label>
-                <input type="radio" id="undergraduate" name="areas-to-support"/>
+                <input type="radio" id="undergraduate" name="areas-to-support" defaultChecked />
                 <label htmlFor="undergraduate">Undergraduate Education</label>
                 <input type="radio" id="grad" name="areas-to-support"/>
                 <label htmlFor="grad">Graduate Education</label>
@@ -51,7 +50,9 @@ const OodSupportPage = (props) => {
                 <label htmlFor="sustainability">Sustainability</label>
                 <input type="radio" id="teaching" name="areas-to-support"/>
                 <label htmlFor="teaching">Teaching + Learning</label>
-                <div className={`grid-3-column su-mt-6 su-mb-4`}>
+                <input type="radio" id="all" name="areas-to-support" />
+                <label htmlFor="all">All</label>
+                <div className={`grid-3-column su-mt-2 su-mb-4`}>
                   <CreateBloks blokSection={props.blok.undergraduate} />
                   <CreateBloks blokSection={props.blok.graduate} />
                   <CreateBloks blokSection={props.blok.arts} />
