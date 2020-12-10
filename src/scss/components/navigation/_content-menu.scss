@@ -129,6 +129,13 @@
   &[aria-expanded="true"] {
     background-color: $su-color-fog-light;
     color: $su-color-black;
+
+    &:hover,
+    &:focus {
+      box-shadow: inset 0 0 0 1px $su-color-black-40;
+      background-color: $su-color-black-10;
+      color: $su-color-black-true;
+    }
   }
 
   @include grid-media-only('md') {
