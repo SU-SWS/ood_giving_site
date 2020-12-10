@@ -34,9 +34,13 @@
   }
 
   &__link {
-    @include padding(1.2rem null);
+    @include padding(0.8rem null);
     color: $su-color-digital-red;
     border-top: 0;
+
+    @include grid-media('lg') {
+      @include padding(1.2rem null);
+    }
 
     &::after {
       background-color: $su-color-digital-red;
@@ -68,7 +72,6 @@
         width: 6px;
         bottom: 0;
         left: 0;
-        //background-color: $su-color-digital-red;
         transition: transform 0.3s ease-in, background-color 0.3s ease-in;
       }
 
