@@ -19,7 +19,7 @@ const OodMegaMenu = (props) => {
 
   // Close menu if escape key is pressed and return focus to the menu button
   UseEscape(() => {
-      if (burgerRef && isExpanded(burgerRef.current)) {
+      if (burgerRef.current && isExpanded(burgerRef.current)) {
         setMenuOpened(false)
         burgerRef.current.focus();
       }
