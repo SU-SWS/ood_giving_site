@@ -10,19 +10,19 @@ import { config } from "../../../utilities/config"
 const OodContentMenu = (props) => {
   let windowSize = UseWindowSize();
   const [menuOpened, setMenuOpened] = useState(false);
-  const ref = useRef();
+  const ref = useRef(null);
+  const burgerRef = useRef(null);
   const isExpanded = x => x.getAttribute('aria-expanded') === 'true';
 
   const toggleMenu = () => {
     setMenuOpened(!menuOpened);
   }
 
+  // Close menu if escape key is pressed and return focus to the menu button
   UseEscape(() => {
-      const hamburger = document.querySelector('.ood-content-nav__toggle');
-
-      if (hamburger && isExpanded(hamburger)) {
-        setMenuOpened(false);
-        hamburger.focus();
+      if (burgerRef.current && isExpanded(burgerRef.current)) {
+        setMenuOpened(false)
+        burgerRef.current.focus();
       }
     }
   );
@@ -70,7 +70,9 @@ const OodContentMenu = (props) => {
       <nav className="su-secondary-nav ood-content-nav" aria-label="Section Content Menu" ref={ref}>
         <button className={`ood-content-nav__toggle`}
                 aria-expanded={menuOpened}
-                onClick={toggleMenu}>{menuOpened ? "Close" : "Section Menu"} <i aria-hidden="true" className={`fas fa-${menuOpened ? "times" : "bars"}`} /></button>
+                onClick={toggleMenu}
+                ref={burgerRef}
+        >{menuOpened ? "Close" : "Section Menu"} <i aria-hidden="true" className={`fas fa-${menuOpened ? "times" : "bars"}`} /></button>
         <div className={`ood-content-nav__menus`} aria-hidden={!menuOpened}>
           <Menus {...props} />
         </div>

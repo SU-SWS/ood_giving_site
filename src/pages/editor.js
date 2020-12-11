@@ -60,12 +60,6 @@ class StoryblokEntry extends React.Component {
 
     loadStoryblokBridge(() => {
 
-      // If not in the iframe send error message.
-      if (!window.storyblok.inIframe()) {
-        this.setState({bad: true})
-        return
-      }
-
       // Init with access token from url.
       window.storyblok.init({
         accessToken: key
