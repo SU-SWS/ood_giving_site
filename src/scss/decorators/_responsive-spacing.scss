@@ -39,6 +39,42 @@
   }
 }
 
+// negative values for the modular spacing multiplier are for smaller amounts (NOT negative padding)
+@for $i from -4 through -1 {
+  .su-pt-small#{$i} {  // top
+    @include modular-spacing('padding', $i null null null);
+  }
+
+  .su-pr-small#{$i} {  // right
+    @include modular-spacing('padding', null $i null null);
+
+  }
+
+  .su-pb-small#{$i} {  // bottom
+    @include modular-spacing('padding', null null $i null);
+
+  }
+
+  .su-pl-small#{$i} {  // left
+    @include modular-spacing('padding', null null null $i);
+  }
+
+  // horizontal padding
+  .su-px-small#{$i} {
+    @include modular-spacing('padding', null $i null $i);
+  }
+
+  // vertical padding
+  .su-py-small#{$i} {
+    @include modular-spacing('padding', $i null $i null);
+  }
+
+  // auto-generate for all sides padding
+  .su-p-small#{$i} {
+    @include modular-spacing('padding', $i $i $i $i);
+  }
+}
+
 // .su-p-0 will set padding to 0, as tailwind documentation says, so we don't confuse.
 // 0 neutral spacing decanter multiplier value - NOT setting padding to "0"
 
@@ -108,6 +144,42 @@
   // auto-generate for all sides margin
   .su-m-#{$i} {
     @include responsive-spacing('margin', $i);
+  }
+}
+
+// negative values for the modular spacing multiplier are for smaller amounts (NOT negative margin)
+@for $i from -4 through -1 {
+  .su-mt-small#{$i} {  // top
+    @include modular-spacing('margin', $i null null null);
+  }
+
+  .su-mr-small#{$i} {  // right
+    @include modular-spacing('margin', null $i null null);
+
+  }
+
+  .su-mb-small#{$i} {  // bottom
+    @include modular-spacing('margin', null null $i null);
+
+  }
+
+  .su-ml-small#{$i} {  // left
+    @include modular-spacing('margin', null null null $i);
+  }
+
+  // horizontal padding
+  .su-mx-small#{$i} {
+    @include modular-spacing('margin', null $i null $i);
+  }
+
+  // vertical padding
+  .su-my-small#{$i} {
+    @include modular-spacing('margin', $i null $i null);
+  }
+
+  // auto-generate for all sides padding
+  .su-m-small#{$i} {
+    @include modular-spacing('margin', $i $i $i $i);
   }
 }
 
