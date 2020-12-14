@@ -55,7 +55,7 @@ import EmbedScript from './simple/embedScript'
 import StoryImage from './media/storyImage'
 import StoryPicker from './page-types/story/storyPicker'
 // Composite Components
-import Accordion from './composite/accordion'
+import { Accordion } from './composite/accordion'
 import AccordionItem from './composite/accordionItem'
 
 const ComponentList = {
