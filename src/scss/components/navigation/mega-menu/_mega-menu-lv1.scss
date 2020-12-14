@@ -28,6 +28,8 @@
   > li {
     > button,
     > a {
+      color: $su-color-black;
+
       @include grid-media-only('xs') {
         @include padding(null null null #{map-get($su-screen-margins, 'xs')});
       }
@@ -82,7 +84,6 @@
         @include padding (1.6rem 0 null);
         @include margin(0 3.8rem 0 0);
         display: inline-block;
-        color: $su-color-black;
         transition: color 0.3s ease-in;
         font-size: 2.1rem;
 

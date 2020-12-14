@@ -27,10 +27,6 @@
     > .ood-accordion__button {
       @include padding(1.5rem 4rem 1.5rem 1.5rem);
 
-      @include grid-media-max('sm') {
-        font-weight: $su-font-semi-bold;
-      }
-
       &::after {
         right: 1.5rem;
         color: $su-color-black;
@@ -43,6 +39,12 @@
 
     ul {
       list-style-type: disc;
+    }
+  }
+
+  &__content {
+    &[aria-hidden="true"] {
+      display: none;
     }
   }
 }

@@ -1,28 +1,26 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
 import RichTextField from '../../utilities/richTextField'
-import transformImage from '../../utilities/transformImage'
 import CreateBloks from "../../utilities/createBloks"
 import CenteredContainer from "../partials/centeredContainer"
 import FlexCell from "../partials/flexCell"
 import Heading from "../partials/heading"
+import FullWidthImage from "../media/fullWidthImage"
 
 const OodPoster = (props) => {
-  let processedImg;
-  processedImg = transformImage(props.blok.image.filename, "/2000x0");
-
   return (
     <SbEditable content={props.blok}>
       <div className={`ood-poster su-bg-${props.blok.backgroundColor}`
       }>
-        {props.blok.image.filename != null && (
-          <figure className={`su-hero__media ood-poster__media ${props.blok.overlay && (props.blok.overlay)}`}>
-            <img src={processedImg}
-                 alt={props.blok.image.alt ? props.blok.image.alt : ""}
-                 className={`ood-poster__image su-obj-position-h-center-v-${props.blok.visibleVertical}`}
-            />
-          </figure>
-        )}
+        {props.blok.image.filename != null &&
+          <FullWidthImage
+            {...props}
+            filename={props.blok.image.filename}
+            classPrefix={"ood-poster"}
+            otherClasses={props.blok.overlay ?? ""}
+            visibleVertical={props.blok.visibleVertical}
+          />
+        }
         <CenteredContainer classes={"ood-poster__container"}>
           <div className={`flex-container ood-poster__row
              ${props.blok.cardPosition === "right" ? "su-flex-row-reverse" : ""}`
