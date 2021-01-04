@@ -31,8 +31,8 @@ const SeoSocial = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <Helmet>
-        <title>{`${props.blok.title} | ${title}`}</title>
+      <Helmet titleTemplate={`%s | ${title}`}>
+        <title>{props.blok.title}</title>
         {(props.blok.seo.description || props.blok.teaser) &&
           <meta name="description"
               content={props.blok.seo.description || props.blok.teaser} />
