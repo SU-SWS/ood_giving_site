@@ -1,0 +1,6 @@
+# Redirects from what the browser requests to what we serve
+/api/*    /.netlify/lambda/:splat    200
+/the-stanford-fund/stories/how-donors-support-first-gen-students   /stories/your-support-empowers-a-community/   301
+/node/961   /    301
+/node/946   /    301
+/stanford-benefactor/stories/emmett-eiper   /stories   301

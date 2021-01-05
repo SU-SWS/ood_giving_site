@@ -62,10 +62,10 @@
 # ###############################################################################
 
 # API redirect for lambda functions.
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/lambda/:splat"
-  status = 200
+#   [[redirects]]
+#     from = "/api/*"
+#     to = "/.netlify/lambda/:splat"
+#     status = 200
 
 # [[redirects]]
 #   from = "/test"
