@@ -86,3 +86,28 @@
   from = "/stanford-benefactor/stories/emmett-eiper"
   to = "/stories"
   status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/angela-nomellini-ken-olivier-gift-for-education-technology"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/grants-prison-reform-research"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/rashes-scholarship"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/100-championships"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/the-stanford-fund/programs/reunion-campaigns/10th-reunion-campaign"
+  to = "https://web.stanford.edu/dept/OOD/cgi-bin/tsf/reunion-campaigns/reunions/class-of-2009/?utm_source=g2s&utm_medium=rc--class-page&utm_campaign=reunion-campaigns-2019"
+  status = 301
