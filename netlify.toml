@@ -71,3 +71,9 @@
   from = "/test"
   to = "/stories"
   status = 301
+
+[[redirects]]
+  from = "/the-stanford-fund/stories/how-donors-support-first-gen-students"
+  to = "/stories/your-support-empowers-a-community"
+  status = 301
+
