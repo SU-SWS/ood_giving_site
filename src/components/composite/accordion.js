@@ -2,15 +2,25 @@ import React, { useState } from "react"
 import SbEditable from 'storyblok-react'
 import Components from "../components"
 import Heading from "../partials/heading"
-const AccContext = React.createContext(null)
+
+const AccContext = React.createContext(null);
 
 const Accordion = (props) => {
   const [allAccOpened, setAllAccOpened] = useState(false);
-  const expandAll = () => setAllAccOpened(true);
-  const collapseAll = () => setAllAccOpened(false);
+  const [count, setCount] = useState(0);
+
+  const expandAll = () => {
+    setAllAccOpened(true);
+    setCount(count + 1); // Update count which can trigger a useEffect re-render for the child accordion item
+  }
+
+  const collapseAll = () => {
+    setAllAccOpened(false);
+    setCount(count - 1);
+  }
 
   return (
-    <AccContext.Provider value={[allAccOpened, setAllAccOpened]}>
+    <AccContext.Provider value={[allAccOpened, count]}>
       <SbEditable content={props.blok}>
           <div className={`su-accordion
               ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
