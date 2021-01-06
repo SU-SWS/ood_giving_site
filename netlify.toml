@@ -67,6 +67,16 @@
   to = "/.netlify/lambda/:splat"
   status = 200
 
+[[redirects]]
+  from = "/cdn/assets/*"
+  to = "https://a.storyblok.com/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/cdn/img/*"
+  to = "https://img2.storyblok.com/:splat"
+  status = 200
+
 # [[redirects]]
 #   from = "/test"
 #   to = "/stories/a-win-win-solution/"
