@@ -68,7 +68,7 @@
   status = 200
 
 [[redirects]]
-  from = "/cdn/assets/*"
+  from = "/cdn/asset/*"
   to = "https://a.storyblok.com/:splat"
   status = 200
 
