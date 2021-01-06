@@ -90,8 +90,8 @@ const SbLink = props => {
   if (props.link.linktype === "asset") {
 
     // Rewrite the URL to the redirect link to mask the API endpoint.
-    linkUrl = linkUrl.replace("http://a.storyblok.com", "/cdn/asset")
-    linkUrl = linkUrl.replace("https://a.storyblok.com", "/cdn/asset")
+    linkUrl = linkUrl.replace(/http\:\/\/a\.storyblok\.com/ig, "/cdn/asset")
+    linkUrl = linkUrl.replace(/https\:\/\/a\.storyblok\.com/ig, "/cdn/asset")
 
     return (
       <a

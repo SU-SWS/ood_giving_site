@@ -17,8 +17,8 @@ function createMarkup(storyblokHTML) {
   )
 
   // Rewrite the URL to the redirect link to mask the API endpoint.
-  markup = markup.replace("http://a.storyblok.com", "/cdn/asset")
-  markup = markup.replace("https://a.storyblok.com", "/cdn/asset")
+  markup = markup.replace(/http\:\/\/a\.storyblok\.com/ig, "/cdn/asset")
+  markup = markup.replace(/https\:\/\/a\.storyblok\.com/ig, "/cdn/asset")
 
   // Return object for setting inner html.
   return { __html: markup }
