@@ -1,9 +1,12 @@
-import React, { useContext, useEffect, useRef } from "react"
+import React, { useContext, useEffect, useRef, useState } from "react"
 import "./searchOverlay.scss"
 import { SearchOverlayOpenContext } from "../../context/searchOverlayStatusProvider"
+import { navigate } from "gatsby"
 
 const SearchOverlay = () => {
   const { isOpen, toggleSearchOverlay } = useContext(SearchOverlayOpenContext)
+  const [term, setTerm] = useState("")
+  const [isEmptyErrorVisible, setIsEmptyErrorVisible] = useState(false)
   const inputRef = useRef(null)
 
   useEffect(() => {
@@ -12,6 +15,24 @@ const SearchOverlay = () => {
       inputRef.current.focus()
     }
   }, [isOpen, inputRef])
+
+  const handleKeyDown = event => {
+    if (event.key === "Enter") {
+      submitTerm()
+    } else if (isEmptyErrorVisible) {
+      setIsEmptyErrorVisible(false)
+    }
+  }
+
+  const submitTerm = () => {
+    if (term.length > 0) {
+      navigate(`/search-results?term=${term}`)
+      toggleSearchOverlay()
+      setTerm("")
+    } else {
+      setIsEmptyErrorVisible(true)
+    }
+  }
 
   return (
     <div
@@ -34,14 +55,21 @@ const SearchOverlay = () => {
             id="search-field"
             required
             ref={inputRef}
+            value={term}
+            onChange={event => setTerm(event.target.value)}
+            onKeyDown={handleKeyDown}
           />
-          <span className="search-icon">Icon</span>
+          <span className="search-icon" onClick={submitTerm}>
+            Icon
+          </span>
         </div>
-        <div className="search-error">
-          Error message
-          <br />
-          Second Line
-        </div>
+        {isEmptyErrorVisible && (
+          <div className="search-error">
+            Error message
+            <br />
+            Second Line
+          </div>
+        )}
         <div className="search-footer">
           <div className="search-footer-col">eins</div>
           <div className="search-footer-col">zwei</div>
