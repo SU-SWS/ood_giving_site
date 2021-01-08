@@ -1,9 +1,18 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useRef } from "react"
 import "./searchOverlay.scss"
 import { searchOverlayOpenContext } from "../../context/searchOverlayStatusProvider"
 
 const SearchOverlay = () => {
   const { isOpen, toggleSearchOverlay } = useContext(searchOverlayOpenContext)
+  const inputRef = useRef(null)
+
+  useEffect(() => {
+    if (isOpen && inputRef) {
+      // when the search overlay opens, immediately give focus to the input
+      inputRef.current.focus()
+    }
+  }, [isOpen, inputRef])
+
   return (
     <div
       id="search-overlay"
@@ -24,6 +33,7 @@ const SearchOverlay = () => {
             name="search-field"
             id="search-field"
             required
+            ref={inputRef}
           />
           <span className="search-icon">Icon</span>
         </div>
