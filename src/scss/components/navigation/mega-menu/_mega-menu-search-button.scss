@@ -13,6 +13,15 @@ $ood-search-button-size: 40px;
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  margin-right: 16px;
+
+  @include grid-media("md") {
+    margin-right: 24px;
+  }
+
+  @include grid-media("lg") {
+    margin-right: 0;
+  }
 
   &-icon {
     background: url("#{$su-image-path}/icon-search.svg") no-repeat 0 0;
@@ -23,7 +32,8 @@ $ood-search-button-size: 40px;
     width: 17px;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.1);
   }

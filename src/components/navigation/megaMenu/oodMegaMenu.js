@@ -44,6 +44,7 @@ const OodMegaMenu = (props) => {
   return (
     <SbEditable content={props.blok}>
       <nav className="ood-mega-nav" aria-label="Main Menu" ref={ref}>
+        <OodMegaMenuSearchButton />
         <button className="ood-mega-nav__toggle su-mr-none su-ml-auto" aria-label={menuOpened ? "Close Menu" : "Open Menu"}
                 aria-expanded={menuOpened}
                 onClick={toggleMenu}

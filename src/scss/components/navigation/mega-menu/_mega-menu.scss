@@ -4,8 +4,11 @@
 
 .ood-mega-nav {
   display: flex;
-  align-items: center;
   z-index: 200;
+  
+  @include grid-media('lg') {
+    align-items: center;
+  }
 
   // Top level trigger button to open each dropdown panel
   &__trigger {
