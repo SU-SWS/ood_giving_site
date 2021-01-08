@@ -4,7 +4,6 @@ import Footer from "../partials/footer";
 import IconCardSection from '../partials/iconCardSection'
 import SeoSocial from "../partials/seoSocial"
 import CreateBloks from "../../utilities/createBloks"
-import SearchOverlay from "../search/searchOverlay"
 
 const OodLandingPage = (props) => {
   return (
@@ -21,7 +20,6 @@ const OodLandingPage = (props) => {
               <CreateBloks blokSection={props.blok.sections} />
             </section>
           </article>
-          <SearchOverlay />
           <footer className="ood-landing-page__main-footer">
             <IconCardSection {...props}/>
           </footer>

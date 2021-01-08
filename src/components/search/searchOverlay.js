@@ -1,10 +1,14 @@
-import React, {useContext} from 'react'
-import './searchOverlay.scss'
-import {searchOverlayOpenContext} from '../../context/searchOverlayStatusProvider'
+import React, { useContext } from "react"
+import "./searchOverlay.scss"
+import { searchOverlayOpenContext } from "../../context/searchOverlayStatusProvider"
+
 const SearchOverlay = () => {
-  const {isOpen, toggleSearchOverlay} = useContext(searchOverlayOpenContext)
+  const { isOpen, toggleSearchOverlay } = useContext(searchOverlayOpenContext)
   return (
-    <div id="search-overlay" style={{display: `${isOpen ? 'block' : 'none'}`}}>
+    <div
+      id="search-overlay"
+      style={{ display: `${isOpen ? "block" : "none"}` }}
+    >
       <div className="search-container">
         <div className="search-header">
           <span className="search-close-button" onClick={toggleSearchOverlay}>
@@ -21,12 +25,11 @@ const SearchOverlay = () => {
             id="search-field"
             required
           />
-          <span className="search-icon">
-            Icon
-          </span>
+          <span className="search-icon">Icon</span>
         </div>
         <div className="search-error">
-          Error message<br />
+          Error message
+          <br />
           Second Line
         </div>
         <div className="search-footer">
