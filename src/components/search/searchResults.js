@@ -1,20 +1,30 @@
-import React, { useEffect, useState } from "react"
 import { useLocation } from "@reach/router"
-import qs from "query-string"
 import algoliasearch from "algoliasearch/lite"
+import qs from "query-string"
+import React, { useEffect, useState } from "react"
 import {
+  Configure,
+  connectStateResults,
   InstantSearch,
-  connectHits,
-  connectSearchBox,
 } from "react-instantsearch-dom"
+import Hits from "./hits"
+import SearchBox from "./searchBox"
+import Pagination from "./pagination"
 
 const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,
   process.env.GATSBY_ALGOLIA_SEARCH_API_KEY
 )
 
+const StateResults = connectStateResults(({ searchState, children }) => {
+  return searchState?.query ? children : "no query - fallback"
+})
+
 const SearchResults = props => {
   const [initialTerm, setInitialTerm] = useState("")
+  // page is 1-based here, for better readability in the URL query parameter
+  const [initialPage, setInitialPage] = useState(1)
+
   const { search } = useLocation()
 
   useEffect(() => {
@@ -23,54 +33,28 @@ const SearchResults = props => {
     if (params.term) {
       setInitialTerm(params.term)
     }
+
+    if (params.page) {
+      setInitialPage(params.page)
+    }
   }, [search])
 
   return (
     <InstantSearch
       searchClient={searchClient}
       indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME}
+      onSearchStateChange={({ page, query }) => {
+        // TODO: (debounced) save to URL params
+        // console.log({ page, query })
+      }}
     >
+      <Configure hitsPerPage={10} />
       <SearchBox initialTerm={initialTerm} />
-      <Hits {...props} />
+      <StateResults>
+        <Hits {...props} />
+        <Pagination initialPage={initialPage} />
+      </StateResults>
     </InstantSearch>
   )
 }
 export default SearchResults
-
-const SearchBox = props => {
-  const AlgoliaSearchBox = connectSearchBox(({ refine }) => {
-    const [value, setValue] = useState(props.initialTerm)
-
-    useEffect(() => {
-      if (value) refine(value)
-    }, [value])
-
-    return (
-      <input
-        type="search"
-        value={value}
-        onChange={event => setValue(event.currentTarget.value)}
-      />
-    )
-  })
-
-  return <AlgoliaSearchBox />
-}
-
-const Hits = props => {
-  const AlgoliaHits = connectHits(({ hits }) => {
-    if (!hits.length) {
-      return <div className="error">{props.blok.noResultsErrorTitle}</div>
-    }
-
-    return (
-      <div>
-        {hits.map(hit => (
-          <div key={hit.objectID}>{JSON.stringify(hit)}</div>
-        ))}
-      </div>
-    )
-  })
-
-  return <AlgoliaHits />
-}
