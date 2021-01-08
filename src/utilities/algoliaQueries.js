@@ -1,5 +1,3 @@
-const indexName = `Giving to Stanford`
-
 const query = `{
   pages: allStoryblokEntry(filter: {full_slug: {regex: "/^(?!(test-items/)|(global-components/))([a-z0-9]+)/"}, field_component: {ne: "storyOverview"}}) {
     nodes {
@@ -46,7 +44,7 @@ const queries = [
         // For now, we ignore the content property
         return node
       }),
-    indexName,
+    indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
     enablePartialUpdates: true,
     // settings: { attributesToSnippet: [`excerpt:20`], },
     // matchFields: ["slug", "modified"],

@@ -26,7 +26,10 @@ const SearchResults = props => {
   }, [search])
 
   return (
-    <InstantSearch searchClient={searchClient} indexName="Giving to Stanford">
+    <InstantSearch
+      searchClient={searchClient}
+      indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME}
+    >
       <SearchBox initialTerm={initialTerm} />
       <Hits {...props} />
     </InstantSearch>
