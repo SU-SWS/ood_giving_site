@@ -2,7 +2,28 @@
 
 .search-hits {
   &-item {
-    margin-bottom: 10px;
-    border: 1px solid black;
+    padding-bottom: 46px;
+    margin-bottom: 46px;
+    border-bottom: 1px solid $su-color-black-40;
+
+    // the search hit title
+    > a {
+      @include serif;
+      font-size: 24px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 16px;
+      display: block;
+      @include link-icon(caret-right, 12px, right, 0.06em);
+
+      &::after {
+        background-color: $su-color-digital-red;
+      }
+    }
+
+    // the search hit snippet
+    > div {
+      color: inherit;
+    }
   }
 }

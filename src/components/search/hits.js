@@ -11,9 +11,10 @@ const Hits = props => {
       {hits.length > 0 && <Stats />}
 
       {hits.map(hit => (
-        <div className="search-hits-item" key={hit.objectID}>
-          <Link to={`/${hit.slug}`}>{hit.title}</Link>
-        </div>
+        <article className="search-hits-item" key={hit.objectID}>
+          <Link to={`/${hit.slug}`}>{hit.title} </Link>
+          <div>{hit.intro || hit.teaser || hit.description}</div>
+        </article>
       ))}
     </div>
   ))
