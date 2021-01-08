@@ -1,6 +1,7 @@
 import React from 'react';
 import StoryblokClient from 'storyblok-js-client';
 import sanitizeHtml from 'sanitize-html';
+import { config } from "./config"
 
 // Storyblok is now available as variable which contains the richTextResolver functionality
 const Storyblok = new StoryblokClient({});
@@ -17,8 +18,8 @@ function createMarkup(storyblokHTML) {
   )
 
   // Rewrite the URL to the redirect link to mask the API endpoint.
-  markup = markup.replace(/http\:\/\/a\.storyblok\.com/ig, "/cdn/asset")
-  markup = markup.replace(/https\:\/\/a\.storyblok\.com/ig, "/cdn/asset")
+  markup = markup.replace(/http\:\/\/a\.storyblok\.com/ig, config.basePath + "cdn/asset")
+  markup = markup.replace(/https\:\/\/a\.storyblok\.com/ig, config.basePath + "cdn/asset")
 
   // Return object for setting inner html.
   return { __html: markup }
