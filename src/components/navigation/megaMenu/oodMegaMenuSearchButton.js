@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { SearchOverlayOpenContext } from "../../../context/searchOverlayStatusProvider"
 
-const OodMegaMenuSearchButton = props => {
+const OodMegaMenuSearchButton = () => {
   const { toggleSearchOverlay } = useContext(SearchOverlayOpenContext)
 
   return (
