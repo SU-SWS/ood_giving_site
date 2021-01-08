@@ -101,7 +101,7 @@ module.exports = {
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         // indexName: process.env.ALGOLIA_INDEX_NAME,
         // enablePartialUpdates: true,
-        queries: require("./src/utilities/algolia-queries"),
+        queries: require("./src/utilities/algoliaQueries"),
       },
     },
   ],
