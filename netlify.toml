@@ -1573,6 +1573,11 @@
   status = 301
 
 [[redirects]]
+  from = "/node/296"
+  to = "/the-stanford-fund"
+  status = 301
+
+[[redirects]]
   from = "/node/268"
   to = "/the-stanford-fund"
   status = 301
@@ -2039,7 +2044,7 @@
 
 [[redirects]]
   from = "/content/tsf-rc-reunion-campaign"
-  to = "/dept/OOD/cgi-bin/tsf/reunion-campaigns"
+  to = "https://web.stanford.edu/dept/OOD/cgi-bin/tsf/reunion-campaigns"
   status = 301
 
 [[redirects]]
