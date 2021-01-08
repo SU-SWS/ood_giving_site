@@ -10,11 +10,13 @@ const SearchBox = props => {
     }, [value])
 
     return (
-      <input
-        type="search"
-        value={value}
-        onChange={event => setValue(event.currentTarget.value)}
-      />
+      <div className="search-input">
+        <input
+          type="text"
+          value={value}
+          onChange={event => setValue(event.currentTarget.value)}
+        />
+      </div>
     )
   })
 

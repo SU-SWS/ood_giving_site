@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.search-input {
+  // TODO: add search & clear buttons
+
+  > input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #767674;
+    font-size: 30px;
+    font-weight: $su-font-semi-bold;
+    padding: 0 0 12px 24px;
+    margin-bottom: 90px;
+    outline: none;
+    color: inherit;
+
+    &:focus {
+      border-bottom-color: $su-color-digital-red;
+    }
+  }
+}
