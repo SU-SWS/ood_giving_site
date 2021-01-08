@@ -68,6 +68,16 @@
   status = 200
 
 [[redirects]]
+  from = "/cdn/asset/*"
+  to = "https://a.storyblok.com/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/cdn/img/*"
+  to = "https://img2.storyblok.com/:splat"
+  status = 200
+  
+[[redirects]]
   from = "/the-stanford-fund/stories/how-donors-support-first-gen-students"
   to = "/stories/your-support-empowers-a-community"
   status = 301
