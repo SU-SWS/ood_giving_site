@@ -63,9 +63,9 @@
 
 # API redirect for lambda functions.
 [[redirects]]
-   from = "/api/*"
-   to = "/.netlify/lambda/:splat"
-   status = 200
+  from = "/api/*"
+  to = "/.netlify/lambda/:splat"
+  status = 200
 
 [[redirects]]
   from = "/the-stanford-fund/stories/how-donors-support-first-gen-students"
