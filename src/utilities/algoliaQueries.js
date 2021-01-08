@@ -39,10 +39,23 @@ const queries = [
   {
     query,
     transformer: ({ data }) =>
-      data.pages.nodes.map(({ content: _, ...node }) => {
+      data.pages.nodes.map(({ content, ...node }) => {
         // TODO: parse text context of each page from node.content and index as attribute
         // For now, we ignore the content property
-        return node
+        let description
+
+        try {
+          const parsed = JSON.parse(content)
+          description = parsed.seo.description
+        } catch (error) {
+          console.error(
+            `Failed to parse SEO description from content JSON`,
+            error
+          )
+          description = null
+        }
+
+        return { description, ...node }
       }),
     indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
     enablePartialUpdates: true,
