@@ -5,6 +5,7 @@ import UseEscape from "../../../hooks/useEscape"
 import UseOnClickOutside from "../../../hooks/useOnClickOutside"
 import UseWindowSize from "../../../hooks/useWindowSize"
 import { config } from "../../../utilities/config"
+import OodMegaMenuSearchButton from "./oodMegaMenuSearchButton"
 
 const OodMegaMenu = (props) => {
   let windowSize = UseWindowSize();
@@ -35,6 +36,7 @@ const OodMegaMenu = (props) => {
           <ul className="ood-mega-nav__menu-lv1 su-list-none">
             <CreateBloks blokSection={props.blok.topLevelLinks}/>
           </ul>
+          <OodMegaMenuSearchButton />
         </nav>
       </SbEditable>
     )

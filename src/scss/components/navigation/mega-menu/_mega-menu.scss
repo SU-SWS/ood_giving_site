@@ -3,7 +3,8 @@
 // Mega Menu styles - including styles of the child components, e.g, Mega Menu Card
 
 .ood-mega-nav {
-  display: block;
+  display: flex;
+  align-items: center;
   z-index: 200;
 
   // Top level trigger button to open each dropdown panel

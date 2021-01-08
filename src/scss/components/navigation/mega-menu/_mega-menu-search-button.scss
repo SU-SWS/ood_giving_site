@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+// Mega Menu search button styles
+
+$ood-search-button-size: 40px;
+
+.ood-mega-nav__search-button {
+  height: $ood-search-button-size;
+  width: $ood-search-button-size;
+  border-radius: 50%;
+  border: 1px solid #c0c0bf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+
+  &-icon {
+    background: url("#{$su-image-path}/icon-search.svg") no-repeat 0 0;
+    background-size: contain;
+    background-position: center;
+    background-size: 100%;
+    height: 17px;
+    width: 17px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}

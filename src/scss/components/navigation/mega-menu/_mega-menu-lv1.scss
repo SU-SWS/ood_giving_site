@@ -2,12 +2,15 @@
 
 // Mega Menu 1st level styles
 
+$ood-search-button-size: 40px;
+
+
 .ood-mega-nav__menu-lv1 {
   @include margin(0 null);
   @include padding(1.2em null 4em);
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% - #{$ood-search-button-size});
 
   @include grid-media('lg') {
     @include padding(0 null 0 0);
