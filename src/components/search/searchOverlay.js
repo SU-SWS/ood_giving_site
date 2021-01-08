@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useRef } from "react"
 import "./searchOverlay.scss"
-import { searchOverlayOpenContext } from "../../context/searchOverlayStatusProvider"
+import { SearchOverlayOpenContext } from "../../context/searchOverlayStatusProvider"
 
 const SearchOverlay = () => {
-  const { isOpen, toggleSearchOverlay } = useContext(searchOverlayOpenContext)
+  const { isOpen, toggleSearchOverlay } = useContext(SearchOverlayOpenContext)
   const inputRef = useRef(null)
 
   useEffect(() => {
