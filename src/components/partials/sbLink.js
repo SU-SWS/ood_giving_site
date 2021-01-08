@@ -90,8 +90,10 @@ const SbLink = props => {
   if (props.link.linktype === "asset") {
 
     // Rewrite the URL to the redirect link to mask the API endpoint.
-    linkUrl = linkUrl.replace(/http?(s)\:\/\/a\.storyblok\.com/ig, config.basePath + "cdn/asset")
-    linkUrl = linkUrl.replace(/http?(s)\:\/\/img?[0-9]\.storyblok\.com/ig, config.basePath + "cdn/img")
+    if (config.isNetlify) {
+      linkUrl = linkUrl.replace(/http?(s)\:\/\/a\.storyblok\.com/ig, config.basePath + "cdn/asset")
+      linkUrl = linkUrl.replace(/http?(s)\:\/\/img?[0-9]\.storyblok\.com/ig, config.basePath + "cdn/img")
+    }
 
     return (
       <a

@@ -5,7 +5,11 @@
 import { config } from "./config"
 
 const transformImage = (image, param = null) => {
-  const imageService = config.basePath + "cdn/img";
+  let imageService = "https://img2.storyblok.com";
+
+  if (config.isNetlify) {
+    imageService = config.basePath + "cdn/img";
+  }
 
   if (image === null) {
     return "";

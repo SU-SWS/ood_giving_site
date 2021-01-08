@@ -18,8 +18,10 @@ function createMarkup(storyblokHTML) {
   )
 
   // Rewrite the URL to the redirect link to mask the API endpoint.
-  markup = markup.replace(/http?(s)\:\/\/a\.storyblok\.com/ig, config.basePath + "cdn/asset")
-  markup = markup.replace(/http?(s)\:\/\/img?[0-9]\.storyblok\.com/ig, config.basePath + "cdn/img")
+  if (config.isNetlify) {
+    markup = markup.replace(/http?(s)\:\/\/a\.storyblok\.com/ig, config.basePath + "cdn/asset")
+    markup = markup.replace(/http?(s)\:\/\/img?[0-9]\.storyblok\.com/ig, config.basePath + "cdn/img")
+  }
 
   // Return object for setting inner html.
   return { __html: markup }
