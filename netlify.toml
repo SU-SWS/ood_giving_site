@@ -62,30 +62,30 @@
 # ###############################################################################
 
 # API redirect for lambda functions.
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/lambda/:splat"
-  status = 200
+# [[redirects]]
+#   from = "/api/*"
+#   to = "/.netlify/lambda/:splat"
+#   status = 200
 
-[[redirects]]
-  from = "/the-stanford-fund/stories/how-donors-support-first-gen-students"
-  to = "/stories/your-support-empowers-a-community"
-  status = 301
+# [[redirects]]
+#   from = "/the-stanford-fund/stories/how-donors-support-first-gen-students"
+#   to = "/stories/your-support-empowers-a-community"
+#   status = 301
 
-[[redirects]]
-  from = "/node/961"
-  to = "/"
-  status = 301
+# [[redirects]]
+#   from = "/node/961"
+#   to = "/"
+#   status = 301
 
-[[redirects]]
-  from = "/node/946"
-  to = "/"
-  status = 301
+# [[redirects]]
+#   from = "/node/946"
+#   to = "/"
+#   status = 301
 
-[[redirects]]
-  from = "/stanford-benefactor/stories/emmett-eiper"
-  to = "/stories"
-  status = 301
+# [[redirects]]
+#   from = "/stanford-benefactor/stories/emmett-eiper"
+#   to = "/stories"
+#   status = 301
 
 [[redirects]]
   from = "/stanford-benefactor/stories/angela-nomellini-ken-olivier-gift-for-education-technology"
