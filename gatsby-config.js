@@ -14,7 +14,7 @@ module.exports = {
     title: `Giving to Stanford`,
     description: `Giving to Stanford.`,
     author: `Stanford University Office of Development`,
-    siteUrl: `https://giving-preview.stanford.edu`,
+    siteUrl: `https://giving.stanford.edu`,
   },
   plugins: [
     `gatsby-plugin-anchor-links`,
@@ -25,7 +25,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
-        siteUrl: 'https://giving-preview.stanford.edu',
+        siteUrl: 'https://giving.stanford.edu',
       },
     },
     {
