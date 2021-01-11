@@ -16,24 +16,30 @@ const searchClient = algoliasearch(
 )
 
 const StateResults = props => {
-  const AlgoliaStateResults = connectStateResults(({ searchState }) => {
-    return (
-      <>
-        {searchState?.query ? (
-          props.children
-        ) : (
-          <div className="search-hits-no-hits">
-            <strong className="search-hits-no-hits-title">
-              {props.blok.emptySearchTitle}
-            </strong>
-            <p className="search-hits-no-hits-text">
-              {props.blok.emptySearchText}
-            </p>
-          </div>
-        )}
-      </>
-    )
-  })
+  const AlgoliaStateResults = connectStateResults(
+    ({ searchState, isSearchStalled }) => {
+      return (
+        <>
+          {searchState?.query ? (
+            isSearchStalled ? (
+              <>Loading... </>
+            ) : (
+              props.children
+            )
+          ) : (
+            <div className="search-hits-no-hits">
+              <strong className="search-hits-no-hits-title">
+                {props.blok.emptySearchTitle}
+              </strong>
+              <p className="search-hits-no-hits-text">
+                {props.blok.emptySearchText}
+              </p>
+            </div>
+          )}
+        </>
+      )
+    }
+  )
 
   return <AlgoliaStateResults />
 }
