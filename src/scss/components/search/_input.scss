@@ -2,21 +2,74 @@
 
 .search-input {
   // TODO: add search & clear buttons
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-bottom: 90px;
 
   > input {
-    width: 100%;
+    flex-grow: 1;
     background: transparent;
     border: none;
-    border-bottom: 1px solid #767674;
     font-size: 30px;
     font-weight: $su-font-semi-bold;
-    padding: 0 0 12px 24px;
-    margin-bottom: 90px;
+    padding: 0 48px 12px 24px;
+    border-bottom: 1px solid #767674;
     outline: none;
     color: inherit;
+    min-width: 0;
 
     &:focus {
       border-bottom-color: $su-color-digital-red;
+    }
+  }
+
+  &-clear-button {
+    position: absolute;
+    right: 64px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: -5px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &-clear-icon {
+    background: url("#{$su-image-path}/close-black.svg") no-repeat center/50%;
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+
+  &-submit-button {
+    height: 40px;
+    width: 40px;
+    margin-left: 16px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: $su-color-digital-red;
+    flex-shrink: 0;
+
+    &-icon {
+      background: url("#{$su-image-path}/icon-search-white.svg") no-repeat 0 0;
+      background-size: contain;
+      background-position: center;
+      background-size: 100%;
+      height: 17px;
+      width: 17px;
     }
   }
 }

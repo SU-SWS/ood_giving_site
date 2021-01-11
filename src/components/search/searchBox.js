@@ -16,6 +16,25 @@ const SearchBox = props => {
           value={value}
           onChange={event => setValue(event.currentTarget.value)}
         />
+        {value && (
+          <button
+            className="search-input-clear-button"
+            onClick={() => setValue("")}
+            title="Clear input"
+          >
+            <span className="search-input-clear-icon" />
+          </button>
+        )}
+
+        <button
+          className="search-input-submit-button"
+          title="Submit search"
+          onClick={() => {
+            if (!value) props.onEmptySearch()
+          }}
+        >
+          <span className="search-input-submit-button-icon" />
+        </button>
       </div>
     )
   })
