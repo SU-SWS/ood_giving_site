@@ -27,6 +27,7 @@
     "gatsby-source-storyblok": "^1.1.1",
     "gatsby-transformer-sharp": "^2.5.16",
     "netlify-lambda": "^2.0.1",
+    "netlify-plugin-submit-sitemap": "^0.2.3",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

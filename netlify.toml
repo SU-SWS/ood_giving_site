@@ -14,7 +14,6 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Basic-Auth = "adapt:letmein2020"
     Access-Control-Allow-Origin = "*"
     Content-Security-Policy = "form-action https:"
     X-Content-Type-Options = "nosniff"
@@ -58,6 +57,12 @@
   #   seo = 0.9
   #   pwa = 0.9
 
+# SUBMIT SITEMAP PLUGIN
+# https://www.npmjs.com/package/netlify-plugin-submit-sitemap
+# ###############################################################################
+[[plugins]]
+  package = "netlify-plugin-submit-sitemap"
+
 # REDIRECTS
 # ###############################################################################
 
@@ -76,7 +81,7 @@
   from = "/cdn/img/*"
   to = "https://img2.storyblok.com/:splat"
   status = 200
-  
+
 [[redirects]]
   from = "/the-stanford-fund/stories/how-donors-support-first-gen-students"
   to = "/stories/your-support-empowers-a-community"
