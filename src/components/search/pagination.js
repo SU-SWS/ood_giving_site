@@ -20,6 +20,8 @@ const Pagination = ({ initialPage }) => {
           ? [currentPage - 2, currentPage - 1]
           : [currentPage - 1]
         : []
+      const isFirstPageVisible = currentPage > 3
+
       const isLastPageVisible = nextPages[nextPages.length - 1] < nbPages
 
       const handlePageChange = newPage => {
@@ -38,6 +40,22 @@ const Pagination = ({ initialPage }) => {
             >
               Previous
             </li>
+          )}
+          {isFirstPageVisible && (
+            <>
+              <li
+                onClick={() => handlePageChange(1)}
+                role="button"
+                title={`Go to page 1`}
+                tabIndex={0}
+                className="search-pagination-item"
+              >
+                1
+              </li>
+              <li className="search-pagination-item search-pagination-item--placeholder">
+                ...
+              </li>
+            </>
           )}
           {previousPages.map(page => {
             return (
