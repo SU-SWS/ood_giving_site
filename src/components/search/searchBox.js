@@ -15,6 +15,7 @@ const SearchBox = props => {
           type="text"
           value={value}
           onChange={event => setValue(event.currentTarget.value)}
+          placeholder="Search..."
         />
         {value && (
           <button
