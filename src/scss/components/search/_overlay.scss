@@ -1,0 +1,158 @@
+.search-container {
+  width: 100%;
+  max-width: 82rem;
+  padding: 4rem 1rem 0;
+  margin: 0 auto;
+}
+
+#search-overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: all 0.5s;
+  color: white;
+  visibility: hidden;
+  pointer-events: none;
+  background-color: rgba(0, 41, 44, 0.9);
+  opacity: 0;
+
+  &.visible {
+    visibility: visible;
+    pointer-events: all;
+    backdrop-filter: blur(5px);
+    opacity: 1;
+  }
+}
+
+.search-close-x {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  left: 15px;
+  top: 2px;
+}
+
+.search-close-x:before {
+  content: "";
+  height: 18px;
+  border-left: 3px solid #fff;
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+.search-close-x:after {
+  content: "";
+  height: 18px;
+  border-left: 3px solid #fff;
+  transform: rotate(-45deg);
+  position: absolute;
+}
+
+.search-header {
+  display: flex;
+  justify-content: flex-end;
+
+  @include grid-media("sm") {
+    margin-bottom: 20rem;
+  }
+}
+
+.search-body {
+  width: 100%;
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+
+  .search-input {
+    > input {
+      border-bottom-color: #fff;
+
+      @include grid-media("sm") {
+        font-size: 4.4rem;
+        padding-bottom: 0.6rem;
+      }
+    }
+
+    &-clear-button {
+      @include grid-media("sm") {
+        right: 9.3rem;
+      }
+    }
+
+    &-clear-icon {
+      background: url("#{$su-image-path}/close-white.svg") no-repeat center/50%;
+    }
+
+    @include grid-media("sm") {
+      &-submit-button {
+        height: 6.9rem;
+        width: 6.9rem;
+
+        &-icon {
+          height: 3.2rem;
+          width: 3.2rem;
+        }
+      }
+    }
+  }
+}
+
+.search-field {
+  font-family: inherit;
+  font-size: 4rem;
+  width: 90%;
+  border: 0;
+  color: white;
+  border-bottom: 2px solid white;
+  background: transparent;
+}
+
+.search-field::placeholder {
+  color: white;
+}
+
+.search-icon {
+  width: 10%;
+}
+
+.search-close-button {
+  padding: 8px 35px 8px 12px;
+  cursor: pointer;
+}
+
+.search-error {
+  padding: 20px 0;
+  font-size: 2.2rem;
+}
+
+.search-footer {
+  padding-top: 50px;
+}
+
+.search-footer-headline {
+  font-size: 2.5rem;
+  padding-bottom: 20px;
+}
+
+.search-footer-cols {
+  display: flex;
+}
+
+.search-footer-col {
+  width: 45%;
+}
+
+.search-heading {
+  display: block;
+  font-weight: $su-font-bold;
+  font-size: 3.6rem;
+  @include serif;
+  text-align: center;
+  color: white;
+  margin-bottom: 6rem;
+}

@@ -30,15 +30,23 @@
   &-no-hits {
     &-title {
       display: block;
-      font-size: 3.6rem;
+      font-size: 2.4rem;
       font-weight: $su-font-bold;
       margin-bottom: 1.2rem;
       white-space: pre-line;
       @include serif;
+
+      @include grid-media("sm") {
+        font-size: 3.6rem;
+      }
     }
 
     &-text {
-      font-size: 2.3rem;
+      font-size: 1.8rem;
+
+      @include grid-media("sm") {
+        font-size: 2.3rem;
+      }
     }
 
     + .search-pagination {

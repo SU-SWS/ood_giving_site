@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react"
-import "./searchOverlay.scss"
 import { SearchOverlayOpenContext } from "../../context/searchOverlayStatusProvider"
 import { navigate } from "gatsby"
+import SearchBox from "./searchBox"
 
 const SearchOverlay = () => {
   const { isOpen, toggleSearchOverlay } = useContext(SearchOverlayOpenContext)
@@ -16,10 +16,10 @@ const SearchOverlay = () => {
     }
   }, [isOpen, inputRef])
 
-  const handleKeyDown = event => {
-    if (event.key === "Enter") {
-      submitTerm()
-    } else if (isEmptyErrorVisible) {
+  const handleChange = value => {
+    setTerm(value)
+
+    if (isEmptyErrorVisible) {
       setIsEmptyErrorVisible(false)
     }
   }
@@ -35,46 +35,39 @@ const SearchOverlay = () => {
   }
 
   return (
-    <div
-      id="search-overlay"
-      style={{ display: `${isOpen ? "block" : "none"}` }}
-    >
-      <div className="search-container">
-        <div className="search-header">
-          <span className="search-close-button" onClick={toggleSearchOverlay}>
-            Close
-            <span className="search-close-x"></span>
-          </span>
-        </div>
-        <div className="search-body">
-          <input
-            type="input"
-            className="search-field"
-            placeholder="  Search"
-            name="search-field"
-            id="search-field"
-            required
-            ref={inputRef}
-            value={term}
-            onChange={event => setTerm(event.target.value)}
-            onKeyDown={handleKeyDown}
-          />
-          <span className="search-icon" onClick={submitTerm}>
-            Icon
-          </span>
-        </div>
-        {isEmptyErrorVisible && (
-          <div className="search-error">
-            Error message
-            <br />
-            Second Line
+    <div id="search-overlay" className={isOpen ? "visible" : "hidden"}>
+      {isOpen && (
+        <div className="search-container">
+          <div className="search-header">
+            <span className="search-close-button" onClick={toggleSearchOverlay}>
+              Close
+              <span className="search-close-x"></span>
+            </span>
           </div>
-        )}
-        <div className="search-footer">
-          <div className="search-footer-col">eins</div>
-          <div className="search-footer-col">zwei</div>
+          <div className="search-body">
+            <strong className="search-heading">
+              Hello, what can we help you find today?
+            </strong>
+            <SearchBox
+              initialTerm={""}
+              onChange={handleChange}
+              onSubmit={submitTerm}
+              ref={inputRef}
+            />
+          </div>
+          {isEmptyErrorVisible && (
+            <div className="search-error">
+              Error message
+              <br />
+              Second Line
+            </div>
+          )}
+          <div className="search-footer">
+            <div className="search-footer-col">Lorem ipsum</div>
+            <div className="search-footer-col">doluit</div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

@@ -8,7 +8,7 @@ import {
   InstantSearch,
 } from "react-instantsearch-dom"
 import Hits from "./hits"
-import SearchBox from "./searchBox"
+import { AlgoliaSearchBox } from "./searchBox"
 
 const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,
@@ -68,7 +68,12 @@ const SearchResults = props => {
   const handleSearchStateChange = ({ page, query }) => {
     const params = qs.parse(search)
 
-    if (query && (params.term !== query || parseInt(params.page) !== page)) {
+    if (
+      query &&
+      (params.term !== query ||
+        parseInt(params.page) !== page ||
+        urlParamsSaveTimeout.current)
+    ) {
       clearTimeout(urlParamsSaveTimeout.current)
       urlParamsSaveTimeout.current = setTimeout(() => {
         window.history.replaceState(
@@ -101,7 +106,7 @@ const SearchResults = props => {
       onSearchStateChange={handleSearchStateChange}
     >
       <Configure hitsPerPage={10} />
-      <SearchBox
+      <AlgoliaSearchBox
         initialTerm={initialTerm}
         onEmptySearch={() => {
           // TODO: implement some behaviour when user tries to submit an empty search

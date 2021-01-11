@@ -1,46 +1,56 @@
 import React, { useEffect, useState } from "react"
 import { connectSearchBox } from "react-instantsearch-dom"
 
-const SearchBox = props => {
-  const AlgoliaSearchBox = connectSearchBox(({ refine }) => {
-    const [value, setValue] = useState(props.initialTerm)
+const SearchBox = React.forwardRef((props, ref) => {
+  const [value, setValue] = useState(props.initialTerm)
 
-    useEffect(() => {
-      refine(value)
-    }, [value])
+  const handleKeyDown = event => {
+    if (event.key === "Enter") {
+      props.onSubmit?.()
+    }
+  }
 
-    return (
-      <div className="search-input">
-        <input
-          type="text"
-          value={value}
-          onChange={event => setValue(event.currentTarget.value)}
-          placeholder="Search..."
-        />
-        {value && (
-          <button
-            className="search-input-clear-button"
-            onClick={() => setValue("")}
-            title="Clear input"
-          >
-            <span className="search-input-clear-icon" />
-          </button>
-        )}
+  useEffect(() => {
+    props.onChange?.(value)
+  }, [value])
 
+  return (
+    <div className="search-input">
+      <input
+        type="text"
+        value={value}
+        onChange={event => setValue(event.currentTarget.value)}
+        onKeyDown={handleKeyDown}
+        placeholder="Search"
+        ref={ref}
+      />
+      {value && (
         <button
-          className="search-input-submit-button"
-          title="Submit search"
-          onClick={() => {
-            if (!value) props.onEmptySearch()
-          }}
+          className="search-input-clear-button"
+          onClick={() => setValue("")}
+          title="Clear input"
         >
-          <span className="search-input-submit-button-icon" />
+          <span className="search-input-clear-icon" />
         </button>
-      </div>
-    )
-  })
+      )}
 
-  return <AlgoliaSearchBox />
-}
+      <button
+        className="search-input-submit-button"
+        title="Submit search"
+        onClick={props.onSubmit}
+      >
+        <span className="search-input-submit-button-icon" />
+      </button>
+    </div>
+  )
+})
 
 export default SearchBox
+
+export const AlgoliaSearchBox = props => {
+  const InnerAlgoliaSearchBox = connectSearchBox(({ refine }) => (
+    <SearchBox initialTerm={props.initialTerm} onChange={refine} />
+  ))
+
+  return <InnerAlgoliaSearchBox />
+}
