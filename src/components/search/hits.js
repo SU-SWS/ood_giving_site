@@ -2,11 +2,21 @@ import { Link } from "gatsby"
 import React from "react"
 import { connectHits } from "react-instantsearch-dom"
 import Stats from "./stats"
+import Pagination from "./pagination"
 
 const Hits = props => {
   const AlgoliaHits = connectHits(({ hits }) => (
     <div className="search-hits">
-      {!hits.length && <div>{props.blok.noResultsErrorTitle}</div>}
+      {!hits.length && (
+        <div className="search-hits-no-hits">
+          <strong className="search-hits-no-hits-title">
+            {props.blok.noResultsErrorTitle}
+          </strong>
+          <p className="search-hits-no-hits-text">
+            {props.blok.noResultsErrorText}
+          </p>
+        </div>
+      )}
 
       {hits.length > 0 && <Stats />}
 
@@ -16,6 +26,8 @@ const Hits = props => {
           <div>{hit.intro || hit.teaser || hit.description}</div>
         </article>
       ))}
+
+      <Pagination initialPage={props.initialPage} />
     </div>
   ))
 

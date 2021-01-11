@@ -9,7 +9,6 @@ import {
 } from "react-instantsearch-dom"
 import Hits from "./hits"
 import SearchBox from "./searchBox"
-import Pagination from "./pagination"
 
 const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,
@@ -83,8 +82,7 @@ const SearchResults = props => {
         }}
       />
       <StateResults>
-        <Hits {...props} />
-        <Pagination initialPage={initialPage} />
+        <Hits {...props} initialPage={initialPage} />
       </StateResults>
     </InstantSearch>
   )

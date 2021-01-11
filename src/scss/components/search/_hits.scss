@@ -2,17 +2,17 @@
 
 .search-hits {
   &-item {
-    padding-bottom: 46px;
-    margin-bottom: 46px;
+    padding: 0 2.4rem 4.6rem;
+    margin-bottom: 4.6rem;
     border-bottom: 1px solid $su-color-black-40;
 
     // the search hit title
     > a {
       @include serif;
-      font-size: 24px;
+      font-size: 2.4rem;
       font-weight: 700;
       text-decoration: none;
-      margin-bottom: 16px;
+      margin-bottom: 1.6rem;
       display: block;
       @include link-icon(caret-right, 12px, right, 0.06em);
 
@@ -24,6 +24,24 @@
     // the search hit snippet
     > div {
       color: inherit;
+    }
+  }
+
+  &-no-hits {
+    &-title {
+      display: block;
+      font-size: 3.6rem;
+      font-weight: $su-font-bold;
+      margin-bottom: 1.2rem;
+      @include serif;
+    }
+
+    &-text {
+      font-size: 2.3rem;
+    }
+
+    + .search-pagination {
+      display: none;
     }
   }
 }

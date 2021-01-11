@@ -1,11 +1,11 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useMemo } from "react"
 import { connectPagination } from "react-instantsearch-dom"
 
 const Pagination = ({ initialPage }) => {
-  const AlgoliaPagination = connectPagination(
-    ({ nbPages, currentRefinement: currentPage, refine }) => {
+  const AlgoliaPagination = useMemo(
+    connectPagination(({ nbPages, currentRefinement: currentPage, refine }) => {
       useEffect(() => {
-        if (initialPage) refine(initialPage)
+        if (initialPage && initialPage !== currentPage) refine(initialPage)
       }, [])
 
       const isPreviousVisible = currentPage > 1
@@ -117,10 +117,11 @@ const Pagination = ({ initialPage }) => {
           )}
         </ul>
       )
-    }
+    }),
+    []
   )
 
-  return <AlgoliaPagination />
+  return AlgoliaPagination
 }
 
 export default Pagination
