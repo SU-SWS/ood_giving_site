@@ -12,7 +12,7 @@ const Hits = props => {
 
       {hits.map(hit => (
         <article className="search-hits-item" key={hit.objectID}>
-          <Link to={`/${hit.slug}`}>{hit.title} </Link>
+          <Link to={`/${hit.slug}`}>{hit.title}</Link>
           <div>{hit.intro || hit.teaser || hit.description}</div>
         </article>
       ))}
