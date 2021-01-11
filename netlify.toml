@@ -2189,3 +2189,9 @@
   from = "/planned-giving/giving-options/planned-giving-calculator"
   to = "/planned-giving/calculator"
   status = 301
+  
+[[redirects]]
+  from = "/goto/cantormembership"
+  to = "https://makeagift.stanford.edu/get/page/makeagift?stp=3&gdso=1&mop=CC&gfty=G&tgso=1&pgnTPC=401&olc=06414&cturl=close"
+  status = 301
+  
