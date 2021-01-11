@@ -6,7 +6,7 @@ import Pagination from "./pagination"
 
 const Hits = props => {
   const AlgoliaHits = connectHits(({ hits }) => (
-    <div className="search-hits">
+    <div className="search-hits" id="search-hits">
       {!hits.length && (
         <div className="search-hits-no-hits">
           <strong className="search-hits-no-hits-title">

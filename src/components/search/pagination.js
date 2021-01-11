@@ -26,6 +26,7 @@ const Pagination = ({ initialPage }) => {
 
       const handlePageChange = newPage => {
         refine(newPage)
+        document.querySelector("#search-hits")?.scrollIntoView()
       }
 
       return (

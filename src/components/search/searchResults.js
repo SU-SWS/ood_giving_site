@@ -15,9 +15,28 @@ const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_SEARCH_API_KEY
 )
 
-const StateResults = connectStateResults(({ searchState, children }) => {
-  return searchState?.query ? children : "no query - fallback"
-})
+const StateResults = props => {
+  const AlgoliaStateResults = connectStateResults(({ searchState }) => {
+    return (
+      <>
+        {searchState?.query ? (
+          props.children
+        ) : (
+          <div className="search-hits-no-hits">
+            <strong className="search-hits-no-hits-title">
+              {props.blok.emptySearchTitle}
+            </strong>
+            <p className="search-hits-no-hits-text">
+              {props.blok.emptySearchText}
+            </p>
+          </div>
+        )}
+      </>
+    )
+  })
+
+  return <AlgoliaStateResults />
+}
 
 const SearchResults = props => {
   const [initialTerm, setInitialTerm] = useState("")
@@ -56,6 +75,7 @@ const SearchResults = props => {
         )
       }, 400)
     } else if (!query && (params.term || params.page)) {
+      clearTimeout(urlParamsSaveTimeout.current)
       urlParamsSaveTimeout.current = setTimeout(() => {
         window.history.replaceState(
           null,
@@ -81,7 +101,7 @@ const SearchResults = props => {
           // TODO: implement some behaviour when user tries to submit an empty search
         }}
       />
-      <StateResults>
+      <StateResults {...props}>
         <Hits {...props} initialPage={initialPage} />
       </StateResults>
     </InstantSearch>
