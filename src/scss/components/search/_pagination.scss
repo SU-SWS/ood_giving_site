@@ -4,7 +4,7 @@
   list-style-type: none;
   display: flex;
   width: 100%;
-  max-width: 530px;
+  max-width: 55rem;
   padding: 0;
   margin: 0 auto;
   justify-content: center;
@@ -12,23 +12,35 @@
 
   &-item {
     @include serif;
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 2.4rem;
+    font-weight: $su-font-bold;
     color: $su-color-digital-red;
-    padding: 4px;
+    padding: 0.4rem;
     display: inline-block;
     margin: 0;
     position: relative;
+
+    &:not(:last-child) {
+      margin-right: 0.8rem;
+
+      @include grid-media("sm") {
+        margin-right: 1.6rem;
+      }
+
+      @include grid-media("md") {
+        margin-right: 3.6rem;
+      }
+    }
 
     &::after {
       content: "";
       display: block;
       position: absolute;
       pointer-events: none;
-      bottom: -4px;
+      bottom: -0.4rem;
       left: 0;
       width: 100%;
-      height: 4px;
+      height: 0.4rem;
     }
 
     &:hover {
@@ -40,8 +52,8 @@
     }
 
     &--text {
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 1.6rem;
+      font-weight: $su-font-semi-bold;
       text-transform: uppercase;
       @include sans;
     }
@@ -63,6 +75,12 @@
 
       &::after {
         background-color: currentColor;
+      }
+    }
+
+    &--mobile-hidden {
+      @include grid-media-max("sm") {
+        display: none;
       }
     }
   }

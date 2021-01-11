@@ -48,11 +48,11 @@ const Pagination = ({ initialPage }) => {
                 role="button"
                 title={`Go to page 1`}
                 tabIndex={0}
-                className="search-pagination-item"
+                className="search-pagination-item search-pagination-item--mobile-hidden"
               >
                 1
               </li>
-              <li className="search-pagination-item search-pagination-item--placeholder">
+              <li className="search-pagination-item search-pagination-item--placeholder search-pagination-item--mobile-hidden">
                 ...
               </li>
             </>
@@ -90,7 +90,7 @@ const Pagination = ({ initialPage }) => {
           })}
           {isLastPageVisible && (
             <>
-              <li className="search-pagination-item search-pagination-item--placeholder">
+              <li className="search-pagination-item search-pagination-item--placeholder search-pagination-item--mobile-hidden">
                 ...
               </li>
               <li
@@ -98,7 +98,7 @@ const Pagination = ({ initialPage }) => {
                 role="button"
                 title={`Go to page ${nbPages}`}
                 tabIndex={0}
-                className="search-pagination-item"
+                className="search-pagination-item search-pagination-item--mobile-hidden"
               >
                 {nbPages}
               </li>
