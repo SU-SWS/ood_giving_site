@@ -21,7 +21,10 @@ function deepSearchByKey(object, originalKey, matches = []) {
       for (let arrayItem of object) {
         deepSearchByKey(arrayItem, originalKey, matches)
       }
-    } else if (typeof object == "object") {
+    } else if (
+      typeof object === "object" &&
+      !Object.keys(object).includes("slug")
+    ) {
       for (let key of Object.keys(object)) {
         if (key == originalKey) {
           matches.push(object[originalKey])
@@ -38,29 +41,57 @@ function deepSearchByKey(object, originalKey, matches = []) {
 const queries = [
   {
     query,
-    transformer: ({ data }) =>
-      data.pages.nodes.map(({ content, ...node }) => {
-        // TODO: parse text context of each page from node.content and index as attribute
-        // For now, we ignore the content property
+    transformer: ({ data }) => {
+      const nestedNodes = data.pages.nodes.map(({ content, ...node }) => {
         let description
-
+        let textContent = []
         try {
           const parsed = JSON.parse(content)
+
+          // also index seo description
           description = parsed.seo.description
+
+          // parse text context of each page from node.content
+          const contentKeys = ["storyContent", "pageContent"]
+          contentKeys.forEach(key => {
+            if (Array.isArray(parsed[key])) {
+              parsed[key].forEach(pagePart => {
+                deepSearchByKey(pagePart, "text", textContent)
+              })
+            }
+          })
         } catch (error) {
           console.error(
-            `Failed to parse SEO description from content JSON`,
+            `Failed to parse SEO description and text content from content JSON`,
             error
           )
           description = null
         }
 
-        return { description, ...node }
-      }),
+        // even when NO text content is found, index all other information
+        if (!textContent.length) {
+          return [{ description, ...node, text: null }]
+        }
+
+        // when text content is found, we want to index every single paragraph as a record
+        // we can then collate the records by matching their IDs / slugs in Algolia
+        return textContent.map((paragraph, idx) => ({
+          description,
+          ...node,
+          objectID: `${node.objectID}-${idx}`,
+          text: paragraph,
+        }))
+      })
+
+      return nestedNodes.flat()
+    },
     indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
     enablePartialUpdates: true,
-    // settings: { attributesToSnippet: [`excerpt:20`], },
     // matchFields: ["slug", "modified"],
+    settings: {
+      distinct: true,
+      attributeForDistinct: "slug",
+    },
   },
 ]
 
