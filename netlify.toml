@@ -2211,6 +2211,6 @@
   status = 301
 
 [[redirects]]
-from = "/get/layout/g2s/PlannedGiving"
-to = "/planned-giving"
-status = 301
+  from = "/get/layout/g2s/PlannedGiving"
+  to = "/planned-giving"
+  status = 301
