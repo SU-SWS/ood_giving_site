@@ -1,5 +1,7 @@
 # Redirects from what the browser requests to what we serve
 /api/*    /.netlify/lambda/:splat    200
+/cdn/asset/*   https://a.storyblok.com/:splat   200
+/cdn/img/*   https://img2.storyblok.com/:splat   200
 /the-stanford-fund/stories/how-donors-support-first-gen-students   /stories/your-support-empowers-a-community/   301
 /node/961   /    301
 /node/946   /    301
@@ -424,3 +426,8 @@ stanford-benefactor/stories/annual-giving-buck-cardinal-club   /areas-to-support
 /how-to-give/appreciated-securities-transfer   /how-to-make-a-gift/transfers/securities   301
 /how-to-give/federal-funds-wire-transfer   /how-to-make-a-gift/transfers/wire   301
 /planned-giving/giving-options/planned-giving-calculator   /planned-giving/calculator   301
+/goto/cantormembership   https://makeagift.stanford.edu/get/page/makeagift?stp=3&gdso=1&mop=CC&gfty=G&tgso=1&pgnTPC=401&olc=06414&cturl=close   301
+/goto/chembiogift   https://pgnet.stanford.edu/get/page/makeagift?pgnTPC=399&stp=221&olc=18308&cturl=close   301
+/goto/piegift   https://makeagift.stanford.edu/get/page/makeagift?noLoopSecure=y&pgnTPC=399&stp=195&olc=16117&cturl=close   301
+/goto/jasperridgegift   https://makeagift.stanford.edu/get/page/makeagift?noLoopSecure=y&pgnTPC=399&stp=211&olc=17958&cturl=close   301
+/get/layout/g2s/PlannedGiving   /planned-giving   301
