@@ -38,6 +38,8 @@ function deepSearchByKey(object, originalKey, matches = []) {
   return matches
 }
 
+const MAX_TEXT_LENGTH_PER_RECORD = 500
+
 const queries = [
   {
     query,
@@ -68,14 +70,35 @@ const queries = [
           description = null
         }
 
+        // concatenate text content items, so that they are not too short
+        let concatContent = []
+        let canBeConcatenated = false
+        for (let idx = 0; idx < textContent.length; idx++) {
+          const current = textContent[idx]
+          if (!canBeConcatenated) {
+            concatContent.push(current)
+          } else if (canBeConcatenated) {
+            let latest = concatContent[concatContent.length - 1]
+            // add a white space if necessary
+            if (!latest.endsWith(" ") && !current.startsWith(" ")) {
+              latest = `${latest} `
+            }
+            concatContent[concatContent.length - 1] = latest.concat(current)
+          }
+
+          canBeConcatenated =
+            concatContent[concatContent.length - 1].length <
+            MAX_TEXT_LENGTH_PER_RECORD
+        }
+
         // even when NO text content is found, index all other information
-        if (!textContent.length) {
+        if (!concatContent.length) {
           return [{ description, ...node, text: null }]
         }
 
-        // when text content is found, we want to index every single paragraph as a record
+        // when text content is found, we want to index every single (concatenated) paragraph as a record
         // we can then collate the records by matching their IDs / slugs in Algolia
-        return textContent.map((paragraph, idx) => ({
+        return concatContent.map((paragraph, idx) => ({
           description,
           ...node,
           objectID: `${node.objectID}-${idx}`,
