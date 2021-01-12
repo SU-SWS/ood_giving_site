@@ -2199,3 +2199,9 @@
   from = "/goto/chembiogift"
   to = "https://pgnet.stanford.edu/get/page/makeagift?pgnTPC=399&stp=221&olc=18308&cturl=close"
   status = 301
+  
+[[redirects]]
+  from = "/goto/piegift"
+  to = "https://makeagift.stanford.edu/get/page/makeagift?noLoopSecure=y&pgnTPC=399&stp=195&olc=16117&cturl=close"
+  status = 301
+  
