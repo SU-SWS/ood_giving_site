@@ -21,28 +21,6 @@
     Strict-Transport-Security = "max-age=2592000"
     Feature-Policy = "vibrate 'none'; geolocation 'none'; midi 'none'; notifications 'none'; push 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; vibrate 'none'; fullscreen 'none'"
 
-# PLUGIN A11Y
-# https://github.com/netlify-labs/netlify-plugin-a11y#readme
-# ##############################################################################
-# [[plugins]]
-  # package = "netlify-plugin-a11y"
-
-  # all inputs are optional, we just show you the defaults below
-  # [plugins.inputs]
-
-  # required config
-  # checkPaths = ['/'] # you can give an array of directories or paths to html files, that you want to run a11y checks on
-
-  ## optional config
-  # ignoreDirectories = ['/editor']  # explicitly ignore these directories
-  # resultMode = "warn" # is "error" by default
-
-# PLUGIN GATSBY CACHE
-# https://github.com/jlengstorf/netlify-plugin-gatsby-cache#readme
-# ##############################################################################
-[[plugins]]
-  package = "netlify-plugin-gatsby-cache"
-
 # PLUGIN LIGHTHOUSE
 # https://github.com/netlify-labs/netlify-plugin-lighthouse#readme
 # ##############################################################################
@@ -82,4 +60,304 @@
   to = "https://img2.storyblok.com/:splat"
   status = 200
   to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/remember-stanford/stories/abcs-life-income-gifts"
+  to = "/life-income"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/award-winning-class-1961"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/remember-stanford/stories/cares-act-and-charitable-contributions"
+  to = "/stories/cares-act-and-charitable-contributions"
+  status = 301
+
+[[redirects]]
+  from = "/the-stanford-fund/stories/full-stanford-experience"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/norman-fellowship"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/planned-giving/overview/founding-grant-society/doug-brown"
+  to = "/founding-grant-society"
+  status = 301
+
+[[redirects]]
+  from = "/remember-stanford/stories/impact-of-the-new-tax-act"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/chuck-feeney"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/remember-stanford/stories/rewards-of-retirement"
+  to = "/stories/the-rewards-of-retirement"
+  status = 301
+
+[[redirects]]
+  from = "/planned-giving/overview/charitable-trust-program"
+  to = "/planned-giving/charitable-trust-program"
+  status = 301
+
+#  [[redirects]]
+#    from = "/the-stanford-fund"
+#    to = "/the-stanford-fund"
+#    status = 301
+
+[[redirects]]
+  from = "/content/annual-giving-home"
+  to = "/the-stanford-fund"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/the-virtue-of-cardinal-service"
+  to = "/stories/virtues-of-cardinal-service"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/sagan-lamsam"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/they-did-it-their-way-two-alums-help-students-follow-their-own-paths"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/lamont"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/not-real-story"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/remember-stanford/stories/gift-help-pays-for-retirement"
+  to = "/stories/this-old-house"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/arrillaga-gift-to-help-eliminate-medical-school-debt"
+  to = "/stories/transformational-gift-helps-eliminate-medical-school-debt"
+  status = 301
+
+[[redirects]]
+  from = "/node/771"
+  to = "/the-stanford-fund"
+  status = 301
+
+[[redirects]]
+  from = "/content/tsf-hub-annual-report"
+  to = "/the-stanford-fund"
+  status = 301
+
+[[redirects]]
+  from = "/node/766"
+  to = "/the-stanford-fund"
+  status = 301
+
+[[redirects]]
+  from = "/content/tsf-hub-leadership-giving"
+  to = "/the-stanford-fund/leadership"
+  status = 301
+
+[[redirects]]
+  from = "/content/tsf-rc-make-gift"
+  to = "/the-stanford-fund"
+  status = 301
+
+[[redirects]]
+  from = "/content/tsf-rc-reunion-campaign"
+  to = "https://web.stanford.edu/dept/OOD/cgi-bin/tsf/reunion-campaigns"
+  status = 301
+
+[[redirects]]
+  from = "/the-stanford-fund/stories/crowley-dreamcatchers"
+  to = "/stories/tutoring-low-income-students"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/meier-hall-and-norcliffe-hall-open-in-lagunita-court"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/planned-giving/overview/types-planned-gifts"
+  to = "/life-income"
+  status = 301
+
+[[redirects]]
+  from = "/content/types-planned-gifts-hightlight"
+  to = "/life-income"
+  status = 301
+
+[[redirects]]
+  from = "/information/undergraduate-alumni"
+  to = "/alumni"
+  status = 301
+
+[[redirects]]
+  from = "/remember-stanford/stories/mccaul-unitrust-supports-students"
+  to = "/planned-giving/remainder-unitrusts"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/kodesh-woods-environment"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/law-veterans"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/the-stanford-fund/programs/volunteers"
+  to = "/get-involved/volunteer"
+  status = 301
+
+[[redirects]]
+  from = "/what-to-support"
+  to = "/areas-to-support"
+  status = 301
+
+[[redirects]]
+  from = "/what-to-support/support-schools-graduate-education/priorities-schools"
+  to = "/areas-to-support"
+  status = 301
+
+[[redirects]]
+  from = "/why-giving-matters/why-does-stanford-need-money"
+  to = "/why-give/seven-reasons-why-giving-matters"
+  status = 301
+
+[[redirects]]
+  from = "/why-giving-matters-0"
+  to = "/why-give/seven-reasons-why-giving-matters"
+  status = 301
+
+[[redirects]]
+  from = "/why-giving-matters"
+  to = "/why-give/seven-reasons-why-giving-matters"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/gatherings-winter-2013"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/highlights-in-giving-winter-2013"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/gatherings-2014-winter"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/highlights-in-giving-2014-winter"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/how-to-give/wire-transfer-securities"
+  to = "/how-to-make-a-gift/transfers"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/wu-tsai-gift-for-neurosciences"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/remember-stanford/stories/women-bequests"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/stanford-benefactor/stories/work-art-internships"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/workbench-test"
+  to = "/stories"
+  status = 301
+
+[[redirects]]
+  from = "/the-stanford-fund/stories/tsf-annual-summary"
+  to = "/the-stanford-fund"
+  status = 301
+
+[[redirects]]
+  from = "/the-stanford-fund/programs/young-alumni"
+  to = "/the-stanford-fund/recent-grads"
+  status = 301
+
+[[redirects]]
+  from = "/the-stanford-fund/stories/opportunity-fund"
+  to = "/stories/your-support-empowers-a-community"
+  status = 301
+
+[[redirects]]
+  from = "/planned-giving/overview/founding-grant-society"
+  to = "/founding-grant-society"
+  status = 301
+
+[[redirects]]
+  from = "/how-to-give/appreciated-securities-transfer"
+  to = "/how-to-make-a-gift/transfers/securities"
+  status = 301
+
+[[redirects]]
+  from = "/how-to-give/federal-funds-wire-transfer"
+  to = "/how-to-make-a-gift/transfers/wire"
+  status = 301
+
+[[redirects]]
+  from = "/planned-giving/giving-options/planned-giving-calculator"
+  to = "/planned-giving/calculator"
+  status = 301
+
+[[redirects]]
+  from = "/goto/cantormembership"
+  to = "https://makeagift.stanford.edu/get/page/makeagift?stp=3&gdso=1&mop=CC&gfty=G&tgso=1&pgnTPC=401&olc=06414&cturl=close"
+  status = 301
+
+[[redirects]]
+  from = "/goto/chembiogift"
+  to = "https://pgnet.stanford.edu/get/page/makeagift?pgnTPC=399&stp=221&olc=18308&cturl=close"
+  status = 301
+
+[[redirects]]
+  from = "/goto/piegift"
+  to = "https://makeagift.stanford.edu/get/page/makeagift?noLoopSecure=y&pgnTPC=399&stp=195&olc=16117&cturl=close"
+  status = 301
+
+[[redirects]]
+  from = "/goto/jasperridgegift"
+  to = "https://makeagift.stanford.edu/get/page/makeagift?noLoopSecure=y&pgnTPC=399&stp=211&olc=17958&cturl=close"
+  status = 301
+
+[[redirects]]
+  from = "/get/layout/g2s/PlannedGiving"
+  to = "/planned-giving"
   status = 301

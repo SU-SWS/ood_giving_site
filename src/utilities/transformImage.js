@@ -17,6 +17,11 @@ const transformImage = (image, param = null) => {
   else {
     const path = image.replace("https://a.storyblok.com", "");
 
+    // If the image is a jpg, optimize it by changing the quality to 60% (quality loss is mostly unnoticeable)
+    if (image.endsWith(".jpg")) {
+      param += "/filters:quality(60)";
+    }
+
     if (param === null) {
       return imageService + path;
     }
