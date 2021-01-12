@@ -2204,4 +2204,8 @@
   from = "/goto/piegift"
   to = "https://makeagift.stanford.edu/get/page/makeagift?noLoopSecure=y&pgnTPC=399&stp=195&olc=16117&cturl=close"
   status = 301
-  
+
+[[redirects]]
+  from = "/goto/jasperridgegift"
+  to = "https://makeagift.stanford.edu/get/page/makeagift?noLoopSecure=y&pgnTPC=399&stp=211&olc=17958&cturl=close"
+  status = 301
