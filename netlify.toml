@@ -2195,3 +2195,17 @@
   to = "https://makeagift.stanford.edu/get/page/makeagift?stp=3&gdso=1&mop=CC&gfty=G&tgso=1&pgnTPC=401&olc=06414&cturl=close"
   status = 301
   
+[[redirects]]
+  from = "/goto/chembiogift"
+  to = "https://pgnet.stanford.edu/get/page/makeagift?pgnTPC=399&stp=221&olc=18308&cturl=close"
+  status = 301
+  
+[[redirects]]
+  from = "/goto/piegift"
+  to = "https://makeagift.stanford.edu/get/page/makeagift?noLoopSecure=y&pgnTPC=399&stp=195&olc=16117&cturl=close"
+  status = 301
+
+[[redirects]]
+  from = "/goto/jasperridgegift"
+  to = "https://makeagift.stanford.edu/get/page/makeagift?noLoopSecure=y&pgnTPC=399&stp=211&olc=17958&cturl=close"
+  status = 301
