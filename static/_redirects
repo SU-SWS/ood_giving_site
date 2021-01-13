@@ -1,7 +1,11 @@
-# Redirects from what the browser requests to what we serve
-/api/*    /.netlify/lambda/:splat    200
+# DYNAMIC REDIRECTS
+# ###############################################################################################
+/api/*   /.netlify/lambda/:splat   200
 /cdn/asset/*   https://a.storyblok.com/:splat   200
 /cdn/img/*   https://img2.storyblok.com/:splat   200
+
+# STATIC REDIRECTS
+# ###############################################################################################
 /the-stanford-fund/stories/how-donors-support-first-gen-students   /stories/your-support-empowers-a-community/   301
 /node/961   /    301
 /node/946   /    301
