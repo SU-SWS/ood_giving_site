@@ -1,11 +1,24 @@
 @charset "UTF-8";
 
 .su {
-  // Media container aspect ratio
+  // Media container aspect ratio with object-fit
   &-aspect-ratio {
     &--3x2 {
       @include aspect-ratio(3, 2);
     }
+  }
+
+  // Embed container aspect ratio
+  &-embed-container--16x9 {
+    @include embed-container(9, 16);
+  }
+
+  &-embed-container--4x3 {
+    @include embed-container(3, 4);
+  }
+
+  &-embed-container--1x1 {
+    @include embed-container(1, 1);
   }
 
   // Image object position options

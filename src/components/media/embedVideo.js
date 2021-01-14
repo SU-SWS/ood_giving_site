@@ -7,8 +7,6 @@ const EmbedVideo = props => {
   let embedUrl = "";
   const videoProvider = props.blok.provider ?? "youtube";
 
-  embedUrl = `https://www.youtube-nocookie.com/embed/${props.blok.videoId}`;
-
   if (videoProvider === "youtube") {
     embedUrl = `https://www.youtube-nocookie.com/embed/${props.blok.videoId}`;
   }
@@ -28,7 +26,7 @@ const EmbedVideo = props => {
       )}
       <figure className="su-media">
         <div
-          className={`su-media__wrapper su-embed-container su-aspect-ratio--${props.blok.aspectRatio}`}
+          className={`su-media__wrapper su-embed-container--${props.blok.aspectRatio}`}
         >
           <iframe
             src={embedUrl}
