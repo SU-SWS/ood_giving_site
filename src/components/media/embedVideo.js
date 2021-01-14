@@ -1,10 +1,11 @@
 import React from "react";
 import SbEditable from "storyblok-react";
 import RichTextField from "../../utilities/richTextField";
+import Heading from "../partials/heading";
 
 const EmbedVideo = props => {
   let embedUrl = "";
-  const videoProvider = props.provider ?? "youtube";
+  const videoProvider = props.blok.provider ?? "youtube";
 
   embedUrl = `https://www.youtube-nocookie.com/embed/${props.blok.videoId}`;
 
@@ -14,9 +15,20 @@ const EmbedVideo = props => {
 
   return (
     <SbEditable content={props.blok}>
+      {props.blok.heading && (
+        <Heading
+          level={props.blok.headingLevel}
+          serif={true}
+          weight={"bold"}
+          align={"left"}
+          classes={`section__title`}
+        >
+          {props.blok.heading}
+        </Heading>
+      )}
       <figure className="su-media">
         <div
-          className={`su-media__wrapper su-aspect-ratio--${props.blok.aspectRatio}`}
+          className={`su-media__wrapper su-embed-container su-aspect-ratio--${props.blok.aspectRatio}`}
         >
           <iframe
             src={embedUrl}
