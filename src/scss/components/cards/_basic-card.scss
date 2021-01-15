@@ -52,7 +52,7 @@
     @include grid-media('md') {
       &:not(.ood-basic-card--horizontal) {
         @include margin($card-overhang null null); // Same rem value to offset image overhang below
-        height: auto;
+        height: calc(100% - #{$card-overhang});
 
         .su-media {
           @include margin(#{-$card-overhang} null null); // Image overhang

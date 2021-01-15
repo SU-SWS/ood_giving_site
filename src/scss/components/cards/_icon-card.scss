@@ -25,9 +25,12 @@
 
   &__link {
     @include responsive-spacing("padding", 4 3 5);
+    box-shadow: $ood-shadow--shallow;
 
     &:hover,
     &:focus {
+      box-shadow: $ood-shadow--medium;
+
       .ood-icon-card__headline {
         text-decoration: underline;
 

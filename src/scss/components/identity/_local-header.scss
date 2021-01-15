@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-// Styles for OOD Local Header
+// Styles for OOD Local Header which includes the submenu (eyebrow nav), logo lockup and the mega menu
 
 .ood-header {
   @include box-shadow($depth: 'shallow', $stroke: 0);
@@ -9,7 +9,78 @@
   max-width: 100%;
   z-index: 130;
 
+  @include grid-media('md') {
+    border-top-width: 10px;
+    border-top-style: solid;
+  }
+
+  // Lock up + mega menu region
+  &__masthead {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include grid-media-max('sm') {
+      @include padding(get-responsive-spacing-value(0, 'mobile') null null);
+    }
+
+    @include grid-media-only('md') {
+      @include padding(get-responsive-spacing-value(1, 'tablet') null null);
+      align-items: flex-start;
+    }
+
+    @include grid-media('lg') {
+      flex-direction: column;
+    }
+  }
+
+  // Scale logo down for mobile
   .su-lockup {
-    @include responsive-spacing('padding', null null 0);
+    @include grid-media-max('sm') {
+      @include margin(0.6rem null null);
+
+      > a {
+        display: flex;
+        flex-direction: row;
+      }
+
+      &__cell1 {
+        min-height: 2.1rem;
+        border-right: 1px solid $su-color-black;
+      }
+
+      &__cell2 {
+        align-self: flex-end;
+      }
+
+      &__wordmark {
+        font-size: 3rem;
+        line-height: 1.3rem;
+
+        &-wrapper {
+          @include padding(null 0.4rem null null);
+          line-height: 2.1rem;
+        }
+      }
+
+      &__line1 {
+        @include margin(0 null null 0);
+        @include padding(null null null 0.4rem);
+        position: relative;
+        top: 0.1rem;
+        font-size: 2.2rem;
+        line-height: 1.6rem;
+      }
+    }
+
+    // Make the logo 20% larger for SM breakpoint (compared to XS)
+    @include grid-media-only('sm') {
+      transform: scale(1.2);
+      transform-origin: left top;
+    }
+
+    @include grid-media('lg') {
+      @include padding(null null get-responsive-spacing-value(1, 'mobile'));
+    }
   }
 }

@@ -3,6 +3,7 @@ import SbEditable from 'storyblok-react'
 import RichTextField from '../../utilities/richTextField'
 import CreateBloks from "../../utilities/createBloks"
 import CenteredContainer from "../partials/centeredContainer"
+import FlexCell from "../partials/flexCell"
 
 const Section = (props) => {
 
@@ -36,7 +37,7 @@ const Section = (props) => {
               </Heading>
             }
             {props.blok.intro &&
-              <div className={`intro-text flex-lg-7-of-12 section__intro su-mr-none`}><RichTextField data={props.blok.intro}/></div>
+              <FlexCell lg={7} classes={"intro-text section__intro su-mr-none"}><RichTextField data={props.blok.intro}/></FlexCell>
             }
           </CenteredContainer>
         )}

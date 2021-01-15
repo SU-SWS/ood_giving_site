@@ -1,7 +1,7 @@
-// Create nested components in Storyblok
-
 import React from "react"
 import Components from "../components/components"
+
+// Create nested components in Storyblok
 
 const CreateBloks = (props) => {
   if (props.blokSection) {

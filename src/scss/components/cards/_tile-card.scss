@@ -156,6 +156,8 @@
 
   &:hover,
   &:focus {
+    box-shadow: $ood-shadow--medium;
+
     .ood-tile-card__headline {
       color: $su-color-black;
       text-decoration: underline;
@@ -174,6 +176,19 @@
 
   // All cards with dark background + white text will have white hover/focus text colors
   &:not(.su-bg-white):not(.su-bg-fog-light) {
+    @include add-shade;
+
+    &::after {
+      z-index: 1;
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+    }
+
     .ood-tile-card__headline,
     .ood-tile-card__superhead {
       color: $su-color-white;
@@ -201,26 +216,6 @@
       .ood-tile-card__headline,
       .ood-tile-card__superhead {
         color: $su-color-white;
-      }
-    }
-
-    &::after {
-      display: block;
-      content: "";
-      position: absolute;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0);
-      transition: background-color 0.25s ease-in;
-    }
-
-    &:hover,
-    &:focus {
-      &::after {
-        background-color: rgba(0, 0, 0, 0.4);
       }
     }
   }

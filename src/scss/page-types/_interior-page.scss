@@ -43,22 +43,29 @@
       @include responsive-spacing('padding', null null 5);
 
       &-title {
-        @include modular-typography(2);
         @include margin(null null 0);
+        letter-spacing: 0;
+        font-size: 3rem;
 
         @include grid-media('md') {
+          @include modular-typography(3);
+        }
+
+        @include grid-media('lg') {
           @include modular-typography(4);
         }
       }
     }
 
-    &-content {
-      color: $su-color-black-true;
-    }
-
     &-sidebar {
-      @include grid-media-max('md') {
-        @include margin(null null 4em);
+      > *:last-child {
+        @include grid-media-max('sm') {
+          @include margin(null null get-responsive-spacing-value(6, mobile));
+        }
+
+        @include grid-media-only('md') {
+          @include margin(null null get-responsive-spacing-value(5, tablet));
+        }
       }
     }
   }
@@ -67,14 +74,18 @@
 // Interior page with minimal header option
 .ood-interior-page--minimal {
   .ood-interior-page__header--minimal {
-    @include padding(3.8rem null);
+    @include padding(null null 3.8rem);
 
     @include grid-media('md') {
-      @include padding(7.2rem null);
+      @include padding(null null 7.2rem);
     }
 
     @include grid-media('lg') {
       @include padding(11.4rem null);
+    }
+
+    > .centered-container {
+      position: relative;
     }
   }
 }
@@ -84,6 +95,14 @@
   .ood-interior-page__header {
     &-title-wrapper {
       @include responsive-spacing('padding', null null 9);
+
+      @include grid-media('lg') {
+        @include padding(get-responsive-spacing-value(7, 'tablet') null null);
+      }
+
+      @include grid-media('2xl') {
+        @include padding(get-responsive-spacing-value(7, 'desktop') null null);
+      }
     }
 
     &-intro-wrapper {
@@ -125,6 +144,7 @@
       }
 
       @include grid-media('lg') {
+        @include padding(get-responsive-spacing-value(6, 'tablet') null null);
         min-height: 26vw;
       }
 
@@ -133,6 +153,7 @@
       }
 
       @include grid-media('2xl') {
+        @include padding(get-responsive-spacing-value(6, 'desktop') null null);
         min-height: 48rem;
       }
     }
@@ -163,13 +184,20 @@
   }
 }
 
-.ood-interior-page--has-image,
-.ood-interior-page--no-image {
-  .ood-interior-page__header {
-    &-title-wrapper {
-      @include grid-media-max('sm') {
-        @include padding(3em null null);
-      }
+.ood-interior-page__title {
+  @include grid-media-max('sm') {
+    @include margin(get-responsive-spacing-value(5, 'mobile') null null);
+  }
+
+  @include grid-media-only('md') {
+    @include margin(get-responsive-spacing-value(5, 'tablet') null null);
+  }
+}
+
+.ood-content-nav {
+  + .ood-interior-page__title {
+    @include grid-media-max('md') {
+      @include margin(get-responsive-spacing-value(2, 'tablet') null null);
     }
   }
 }

@@ -8,11 +8,9 @@ const OodStory = (props) => {
       <StoryCardView {...props} />
     )
   }
-  else {
-    return (
-      <StoryFullView {...props} />
-    )
-  }
+  return (
+    <StoryFullView {...props} />
+  )
 };
 
 export default OodStory

@@ -1,0 +1,181 @@
+@charset "UTF-8";
+
+// Mega Menu styles - including styles of the child components, e.g, Mega Menu Card
+
+.ood-mega-nav {
+  display: block;
+  z-index: 200;
+
+  // Top level trigger button to open each dropdown panel
+  &__trigger {
+    display: inline-block;
+    cursor: pointer;
+    font-weight: $su-font-semi-bold;
+    line-height: 1.4;
+    background-color: transparent;
+    border: 0;
+
+    // The caret indicator
+    &::after {
+      @include grid-media('lg') {
+        @include margin(null null 1px 6px);
+        display: inline-block;
+        content: " ";
+        background: url("#{$su-image-path}/caret-down-black.svg") no-repeat 0 0;
+        background-size: 100%;
+        position: relative;
+        right: 0;
+        top: 0;
+        height: 11px; // Small svg gets chopped off if use em instead of px
+        width: 11px;
+        transition: transform 0.3s ease-in;
+      }
+    }
+
+    &[aria-expanded="true"] {
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__link {
+    font-size: 1.8rem;
+    font-weight: $su-font-semi-bold;
+    color: $su-color-black;
+    text-decoration: none;
+  }
+
+  // 2nd level menu (inside dropdowns)
+  &__menu-lv2 {
+    @include margin(null null 0);
+
+    .ood-mega-nav__item {
+      @include margin(null null 2rem);
+
+      &:last-of-type {
+        @include margin(null null 0);
+      }
+    }
+
+    .ood-mega-nav__link {
+      font-size: 1.9rem;
+      font-weight: $su-font-regular;
+      line-height: 1.2;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+        color: $su-color-digital-red;
+      }
+
+      &::after {
+        background-color: $su-color-digital-red;
+      }
+    }
+  }
+
+  // Mega menu dropdown panel for 2nd level links
+  &__section {
+    @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 10px, transparent 99%, rgba(0, 0, 0, 0.1) 100%);
+    background-color: $su-color-fog-light;
+    position: absolute;
+
+    @include grid-media-max('md') {
+      position: relative;
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden;
+      height: 0;
+      transform: scaleY(0);
+      transform-origin: center top;
+      transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+
+      &[aria-hidden="false"] {
+        display: flex;
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+        transform: scaleY(1);
+      }
+    }
+
+    @include grid-media('lg') {
+      @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 12px); // Fake the drop shadow at the top of the drop down panels
+      background-color: $su-color-white;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transform: scaleY(0);
+      top: 160px;
+      z-index: 220; // When menu wrap to 2nd line make sure dropdown covers up top level links
+      box-shadow: rgba(0, 0, 0, 0.12) 0 34px 30px;
+      transform-origin: center top;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+      // On desktop, if aria-hidden of a mega menu section is set to "false", then it is shown
+      &[aria-hidden="false"] {
+        position: absolute;
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+        transform: scaleY(1);
+      }
+    }
+
+    &-links {
+      @include grid-media-max('sm') {
+        @include margin(null null -2em);
+      }
+    }
+
+    .ood-cta {
+      @include responsive-spacing('margin', 4 null null);
+
+      @include grid-media-max('sm') {
+        font-size: 2rem;
+      }
+    }
+
+    @include grid-media-max('sm') {
+      > div {
+        @include padding(get-responsive-spacing-value(2, 'mobile') null null);
+      }
+    }
+  }
+
+  &__link-group {
+    &-heading {
+      @include margin(null null 1.4em);
+      font-size: 1.7rem;
+      letter-spacing: 0.1em;
+    }
+
+    @include grid-media-max('sm') {
+      @include margin(null null 2em);
+
+      &:empty {
+        @include margin(null null 0);
+      }
+
+      &-heading {
+        @include padding(1em null null);
+        border-top: 1px solid $su-color-black-40;
+      }
+    }
+  }
+}
+
+@include grid-media-max('sm') {
+  .ood-mega-nav__section-links {
+    .ood-mega-nav__link-group {
+      &:first-child {
+        .ood-mega-nav__link-group-heading {
+          @include padding(0 null null);
+          border-top: 0;
+        }
+      }
+    }
+  }
+}
