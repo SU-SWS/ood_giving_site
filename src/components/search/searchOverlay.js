@@ -3,6 +3,9 @@ import { SearchOverlayOpenContext } from "../../context/searchOverlayStatusProvi
 import { navigate } from "gatsby"
 import SearchBox from "./searchBox"
 import UseEscape from "../../hooks/useEscape"
+import UseSearchOverlayData from "../../hooks/useSearchOverlayData"
+import { LocationProvider } from "@reach/router"
+import CtaLink from "../simple/ctaLink"
 
 const SearchOverlay = () => {
   const { isOpen, toggleSearchOverlay } = useContext(SearchOverlayOpenContext)
@@ -39,9 +42,18 @@ const SearchOverlay = () => {
 
   UseEscape(() => isOpen && toggleSearchOverlay())
 
+  const {
+    introduction,
+    categoriesLeftHeadline,
+    categoriesLeftBox,
+    categoriesRightHeadline,
+    categoriesRightBox,
+    categoriesHeadline,
+    emptySearchMessage,
+  } = UseSearchOverlayData()
+
   return (
     <div id="search-overlay" className={isOpen ? "visible" : "hidden"}>
-      {/* {isOpen && ( */}
       <div className="search-container">
         <div className="search-header">
           <span className="search-close-button" onClick={toggleSearchOverlay}>
@@ -50,9 +62,7 @@ const SearchOverlay = () => {
           </span>
         </div>
         <div className="search-body">
-          <strong className="search-heading">
-            Hello, what can we help you find today?
-          </strong>
+          <strong className="search-heading">{introduction}</strong>
           <SearchBox
             initialTerm={""}
             onChange={handleChange}
@@ -60,19 +70,55 @@ const SearchOverlay = () => {
             ref={inputRef}
           />
         </div>
-        {isEmptyErrorVisible && (
-          <div className="search-error">
-            Error message
-            <br />
-            Second Line
-          </div>
-        )}
+        <div
+          className={`search-error ${
+            isEmptyErrorVisible ? "search-error--visible" : ""
+          }`}
+        >
+          {emptySearchMessage}
+        </div>
         <div className="search-footer">
-          <div className="search-footer-col">Lorem ipsum</div>
-          <div className="search-footer-col">doluit</div>
+          <strong className="search-categories-headline">
+            {categoriesHeadline}
+          </strong>
+          <div className="search-footer-cols">
+            <LocationProvider>
+              <div className="search-footer-col">
+                <span className="search-category-title">
+                  {categoriesLeftHeadline}
+                </span>
+                <ul className="search-categories">
+                  {categoriesLeftBox.map((link, idx) => (
+                    <li
+                      className="search-category-link"
+                      key={idx}
+                      onClick={toggleSearchOverlay}
+                    >
+                      <CtaLink blok={link} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="search-footer-col">
+                <span className="search-category-title">
+                  {categoriesRightHeadline}
+                </span>
+                <ul className="search-categories">
+                  {categoriesRightBox.map((link, idx) => (
+                    <li
+                      className="search-category-link"
+                      key={idx}
+                      onClick={toggleSearchOverlay}
+                    >
+                      <CtaLink blok={link} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </LocationProvider>
+          </div>
         </div>
       </div>
-      {/* )} */}
     </div>
   )
 }
