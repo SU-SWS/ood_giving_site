@@ -119,6 +119,8 @@ module.exports = {
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         // enablePartialUpdates: true,
         queries: require("./src/utilities/algoliaQueries"),
+        // we skip the indexing completely when not in netlify build environment
+        skipIndexing: !process.env.NETLIFY,
       },
     },
   ],
