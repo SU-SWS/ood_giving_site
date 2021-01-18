@@ -88,6 +88,13 @@ const SbLink = props => {
   // A link to a file or other asset.
   // ---------------------------------------------------------------------------
   if (props.link.linktype === "asset") {
+
+    // Rewrite the URL to the redirect link to mask the API endpoint.
+    if (config.isNetlify) {
+      linkUrl = linkUrl.replace(/http?(s)\:\/\/a\.storyblok\.com/ig, config.basePath + "cdn/asset")
+      linkUrl = linkUrl.replace(/http?(s)\:\/\/img?[0-9]\.storyblok\.com/ig, config.basePath + "cdn/img")
+    }
+
     return (
       <a
         href={linkUrl}
