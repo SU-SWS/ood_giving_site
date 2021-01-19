@@ -1,7 +1,7 @@
-import { Link } from "gatsby"
 import React from "react"
 import { connectHits } from "react-instantsearch-dom"
 import Stats from "./stats"
+import SbLink from "../partials/sbLink"
 import Pagination from "./pagination"
 
 const Hits = props => {
@@ -22,7 +22,7 @@ const Hits = props => {
 
       {hits.map(hit => (
         <article className="search-hits-item" key={hit.objectID}>
-          <Link to={`/${hit.slug}`}>{hit.title}</Link>
+          <SbLink link={{ cached_url: `/${hit.slug}` }}>{hit.title}</SbLink>
           <div>{hit.intro || hit.teaser || hit.description}</div>
         </article>
       ))}
