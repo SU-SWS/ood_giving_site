@@ -1,3 +1,9 @@
+/** All Algolia index related code is in this file. Used in the plugin config in gatsby-config.js */
+
+/** This is the query we use to find all pages relevant for thea Algoli index.
+ *
+ * All /test-items/ and /global-components/ pages are filtered out, as these do not belong in the index.
+ */
 const query = `{
   pages: allStoryblokEntry(filter: {full_slug: {regex: "/^(?!(test-items/)|(global-components/))([a-z0-9]+)/"}, field_component: {ne: "storyOverview"}}) {
     nodes {
@@ -15,6 +21,7 @@ const query = `{
   }
 }`
 
+// Searches a nested object for a specific key and returns all matched values
 function deepSearchByKey(object, originalKey, matches = []) {
   if (object != null) {
     if (Array.isArray(object)) {
@@ -44,6 +51,10 @@ const queries = [
   {
     query,
     transformer: ({ data }) => {
+      /** Because the gatsby storyblok source plugin unfortunately returns the plain-text content of the pages
+       * inside a nested JSON structure, in this transformer we map over all pages and try to extract all relevant
+       * plain text inside the JSON.
+       */
       const nestedNodes = data.pages.nodes.map(({ content, ...node }) => {
         let description
         let textContent = []
@@ -53,9 +64,11 @@ const queries = [
           // also index seo description
           description = parsed.seo.description
 
-          // parse text context of each page from node.content
+          // These contentKeys are the JSON properties in which relevant plain-text content resides in
+          // Might need to be updated, should the storyblok schema of the page type components change
           const contentKeys = ["storyContent", "pageContent"]
           contentKeys.forEach(key => {
+            // parse text context of each page from node.content
             if (Array.isArray(parsed[key])) {
               parsed[key].forEach(pagePart => {
                 deepSearchByKey(pagePart, "text", textContent)
@@ -112,6 +125,9 @@ const queries = [
     enablePartialUpdates: true,
     // matchFields: ["slug", "modified"],
     settings: {
+      // These two settings allow multiple records to be collated. Because we are indexing plain-text content
+      // and that content might be too big for a single record, we index each paragraph as a single record
+      // and then collate these records by their slug property.
       distinct: true,
       attributeForDistinct: "slug",
     },
