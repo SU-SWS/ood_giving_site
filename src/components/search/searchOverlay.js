@@ -56,10 +56,10 @@ const SearchOverlay = () => {
     <div id="search-overlay" className={isOpen ? "visible" : "hidden"}>
       <div className="search-container">
         <div className="search-header">
-          <span className="search-close-button" onClick={toggleSearchOverlay}>
+          <button className="search-close-button" onClick={toggleSearchOverlay}>
             Close
             <span className="search-close-x"></span>
-          </span>
+          </button>
         </div>
         <div className="search-body">
           <strong className="search-heading">{introduction}</strong>
