@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
-// Mega Menu search button styles
+@import "./sizes";
 
-$ood-search-button-size: 40px;
+// Mega Menu search button styles
 
 .ood-mega-nav__search-button {
   height: $ood-search-button-size;
