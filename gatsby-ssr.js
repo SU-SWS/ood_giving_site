@@ -3,6 +3,3 @@
  *
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
-
-import SearchOverlayProvider from './src/context/searchOverlayStatusProvider';
-export const wrapRootElement = SearchOverlayProvider;
