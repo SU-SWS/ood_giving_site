@@ -80,6 +80,10 @@
       }
     }
 
+    &-clear-text {
+      color: white;
+    }
+
     &-clear-button {
       @include grid-media("sm") {
         right: 9.3rem;

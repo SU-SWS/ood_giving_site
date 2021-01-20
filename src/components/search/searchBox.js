@@ -30,6 +30,7 @@ const SearchBox = React.forwardRef((props, ref) => {
           onClick={() => setValue("")}
           title="Clear input"
         >
+          <span className="search-input-clear-text">Clear</span>
           <span className="search-input-clear-icon" />
         </button>
       )}
