@@ -28,7 +28,9 @@ const SearchOverlay = () => {
     }
   }
 
-  const submitTerm = () => {
+  const submitTerm = $event => {
+    $event.preventDefault()
+
     if (term.length > 0) {
       navigate(`/search-results?term=${term}`)
       toggleSearchOverlay()

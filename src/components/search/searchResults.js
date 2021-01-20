@@ -99,6 +99,10 @@ const SearchResults = props => {
     }
   }
 
+  const handleSubmit = $event => {
+    $event.preventDefault()
+  }
+
   return (
     <InstantSearch
       searchClient={searchClient}
@@ -106,12 +110,7 @@ const SearchResults = props => {
       onSearchStateChange={handleSearchStateChange}
     >
       <Configure hitsPerPage={10} />
-      <AlgoliaSearchBox
-        initialTerm={initialTerm}
-        onEmptySearch={() => {
-          // TODO: implement some behaviour when user tries to submit an empty search
-        }}
-      />
+      <AlgoliaSearchBox initialTerm={initialTerm} onSubmit={handleSubmit} />
       <StateResults {...props}>
         <Hits {...props} initialPage={initialPage} />
       </StateResults>

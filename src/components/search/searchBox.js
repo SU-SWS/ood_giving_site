@@ -15,7 +15,7 @@ const SearchBox = React.forwardRef((props, ref) => {
   }, [value])
 
   return (
-    <div className="search-input">
+    <form role="search" className="search-input">
       <input
         type="text"
         value={value}
@@ -38,10 +38,11 @@ const SearchBox = React.forwardRef((props, ref) => {
         className="search-input-submit-button"
         title="Submit search"
         onClick={props.onSubmit}
+        type="submit"
       >
         <span className="search-input-submit-button-icon" />
       </button>
-    </div>
+    </form>
   )
 })
 
@@ -49,7 +50,11 @@ export default SearchBox
 
 export const AlgoliaSearchBox = props => {
   const InnerAlgoliaSearchBox = connectSearchBox(({ refine }) => (
-    <SearchBox initialTerm={props.initialTerm} onChange={refine} />
+    <SearchBox
+      initialTerm={props.initialTerm}
+      onChange={refine}
+      onSubmit={props.onSubmit}
+    />
   ))
 
   return <InnerAlgoliaSearchBox />
