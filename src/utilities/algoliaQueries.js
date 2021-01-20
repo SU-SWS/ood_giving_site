@@ -22,21 +22,21 @@ const query = `{
 }`
 
 // Searches a nested object for a specific key and returns all matched values
-function deepSearchByKey(object, originalKey, matches = []) {
-  if (object != null) {
+function deepSearchByKeys(object, searchKeys, matches = []) {
+  if (object !== null) {
     if (Array.isArray(object)) {
       for (let arrayItem of object) {
-        deepSearchByKey(arrayItem, originalKey, matches)
+        deepSearchByKeys(arrayItem, searchKeys, matches)
       }
     } else if (
       typeof object === "object" &&
       !Object.keys(object).includes("slug")
     ) {
       for (let key of Object.keys(object)) {
-        if (key == originalKey) {
-          matches.push(object[originalKey])
-        } else {
-          deepSearchByKey(object[key], originalKey, matches)
+        if (searchKeys.includes(key) && typeof object[key] === "string") {
+          matches.push(object[key])
+        } else if (typeof object[key] === "object") {
+          deepSearchByKeys(object[key], searchKeys, matches)
         }
       }
     }
@@ -66,12 +66,22 @@ const queries = [
 
           // These contentKeys are the JSON properties in which relevant plain-text content resides in
           // Might need to be updated, should the storyblok schema of the page type components change
-          const contentKeys = ["storyContent", "pageContent"]
+          const contentKeys = [
+            "storyContent",
+            "pageContent",
+            "aboveContent",
+            "belowContent",
+            "sections",
+          ]
+
+          // These textKeys are the JSON properties that contain the actual text strings that we want to index
+          // These also might need to be changed / added to based on changes to the storyblok schema
+          const textKeys = ["text", "headline"]
           contentKeys.forEach(key => {
             // parse text context of each page from node.content
             if (Array.isArray(parsed[key])) {
               parsed[key].forEach(pagePart => {
-                deepSearchByKey(pagePart, "text", textContent)
+                deepSearchByKeys(pagePart, textKeys, textContent)
               })
             }
           })
