@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react"
+import React, { useEffect, useState, useMemo, useRef } from "react"
 import AutoSuggest from "react-autosuggest"
 import { connectAutoComplete } from "react-instantsearch-dom"
 import { useLocation } from "@reach/router"
@@ -18,9 +18,12 @@ const Autocomplete = React.forwardRef((props, ref) => {
   }, [search])
 
   const AlgoliaAutocomplete = useMemo(
-    connectAutoComplete(({ refine, hits }) => {
+    connectAutoComplete(({ refine, hits, currentRefinement }) => {
       const [value, setValue] = useState(initialTerm)
       const [currentSuggestions, setCurrentSuggestions] = useState([])
+      const [shouldRenderSuggestions, setShouldRenderSuggestions] = useState(
+        false
+      )
 
       const handleSubmit = ($event, data) => {
         $event?.preventDefault()
@@ -52,6 +55,7 @@ const Autocomplete = React.forwardRef((props, ref) => {
         placeholder: "Search",
         onChange,
         onKeyDown,
+        onFocus: () => setShouldRenderSuggestions(true),
       }
 
       const handleSuggestionsFetch = data => {
@@ -64,10 +68,32 @@ const Autocomplete = React.forwardRef((props, ref) => {
         if (initialTerm) props.onSubmit(initialTerm)
       }, [initialTerm])
 
+      useEffect(() => {
+        if (value && value === currentRefinement) {
+          setCurrentSuggestions(hits)
+        } else if (!value && currentSuggestions.length) {
+          setCurrentSuggestions([])
+        }
+      }, [currentSuggestions, hits, value, currentRefinement])
+
+      // The following useEffect's are necessary to never show stale suggestions
+      useEffect(() => {
+        setShouldRenderSuggestions(!!value)
+      }, [value])
+
+      const prevHitsRef = useRef(hits)
+
+      useEffect(() => {
+        setShouldRenderSuggestions(
+          JSON.stringify(hits) !== JSON.stringify(prevHitsRef.current)
+        )
+        prevHitsRef.current = hits
+      }, [hits])
+
       return (
         <form role="search" className="search-input">
           <AutoSuggest
-            suggestions={hits}
+            suggestions={shouldRenderSuggestions ? currentSuggestions : []}
             onSuggestionsFetchRequested={handleSuggestionsFetch}
             onSuggestionsClearRequested={() => {}}
             onSuggestionSelected={handleSubmit}
