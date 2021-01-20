@@ -9,9 +9,9 @@ const Hits = props => {
     <div className="search-hits" id="search-hits">
       {!hits.length && (
         <div className="search-hits-no-hits">
-          <strong className="search-hits-no-hits-title">
+          <h2 className="search-hits-no-hits-title">
             {props.blok.noResultsErrorTitle}
-          </strong>
+          </h2>
           <p className="search-hits-no-hits-text">
             {props.blok.noResultsErrorText}
           </p>
@@ -22,8 +22,10 @@ const Hits = props => {
 
       {hits.map(hit => (
         <article className="search-hits-item" key={hit.objectID}>
-          <SbLink link={{ cached_url: `/${hit.slug}` }}>{hit.title}</SbLink>
-          <div>{hit.intro || hit.teaser || hit.description}</div>
+          <h2>
+            <SbLink link={{ cached_url: `/${hit.slug}` }}>{hit.title}</SbLink>
+          </h2>
+          <p>{hit.intro || hit.teaser || hit.description}</p>
         </article>
       ))}
 
