@@ -20,6 +20,12 @@
     margin: 0;
     position: relative;
 
+    a {
+      text-decoration: none;
+      font-weight: $su-font-bold;
+      font-size: 2.4rem;
+    }
+
     &:not(:last-child) {
       margin-right: 0.8rem;
 
@@ -52,10 +58,13 @@
     }
 
     &--text {
-      font-size: 1.6rem;
-      font-weight: $su-font-semi-bold;
       text-transform: uppercase;
       @include sans;
+
+      a {
+        font-weight: $su-font-semi-bold;
+        font-size: 1.6rem;
+      }
     }
 
     &--placeholder {
