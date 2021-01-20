@@ -37,11 +37,11 @@ const SearchBox = React.forwardRef((props, ref) => {
 
       <button
         className="search-input-submit-button"
-        title="Submit search"
         onClick={props.onSubmit}
         type="submit"
       >
-        <span className="search-input-submit-button-icon" />
+        <span className="search-input-submit-button-icon" aria-hidden="true" />
+        <span className="su-sr-only-element">Submit search</span>
       </button>
     </form>
   )
