@@ -11,7 +11,7 @@ const AspectRatioImage = props => {
 
     if (props.filename?.startsWith("http")) {
       // Get image width from URL of storyblok image
-      imgWidth = props.filename?.split("/")[5].split("x")[0];
+      imgWidth = props.filename.split("/")[5].split("x")[0];
     }
 
     // Only scale image if original image size is larger than intended size

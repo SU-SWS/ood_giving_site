@@ -1,15 +1,24 @@
-import React from 'react'
-import SbEditable from 'storyblok-react'
-import transformImage from '../../utilities/transformImage'
+import React from "react";
+import SbEditable from "storyblok-react";
+import transformImage from "../../utilities/transformImage";
 
-const FullWidthImage = (props) => {
+const FullWidthImage = props => {
   const Element = props.element ?? "figure";
-  let largeImg, mediumImg, smallImg, originalImg = "";
-  let imgSrcset, imgSizes, imgSrc = "";
+  let largeImg,
+    mediumImg,
+    smallImg,
+    originalImg = "";
+  let imgSrcset,
+    imgSizes,
+    imgSrc = "";
 
   if (props.filename != null) {
+    let imgWidth = "";
+
     // Get image width from URL of storyblok image
-    const imgWidth = props.filename.split('/')[5].split('x')[0];
+    if (props.filename?.startsWith("http")) {
+      imgWidth = props.filename.split("/")[5].split("x")[0];
+    }
 
     originalImg = transformImage(props.filename, "");
 
@@ -45,18 +54,25 @@ const FullWidthImage = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <Element className={`su-media
-              ${props.classPrefix ? `${props.classPrefix}__media` : ""}${props.otherClasses ? ` ${props.otherClasses}` : ""}`}>
-          <img className={`${props.classPrefix ? `${props.classPrefix}__image` : ""}
-               su-obj-position-h-${props.visibleHorizontal ?? "center"}-v-${props.visibleVertical ?? "top"}`}
-               {...(imgSrcset ? {srcSet: imgSrcset} : {})}
-               {...(imgSizes ? {sizes: imgSizes} : {})}
-               src={imgSrc}
-               alt={props.alt ?? ""}
-          />
+      <Element
+        className={`su-media
+              ${props.classPrefix ? `${props.classPrefix}__media` : ""}${
+          props.otherClasses ? ` ${props.otherClasses}` : ""
+        }`}
+      >
+        <img
+          className={`${props.classPrefix ? `${props.classPrefix}__image` : ""}
+               su-obj-position-h-${props.visibleHorizontal ?? "center"}-v-${
+            props.visibleVertical ?? "top"
+          }`}
+          {...(imgSrcset ? { srcSet: imgSrcset } : {})}
+          {...(imgSizes ? { sizes: imgSizes } : {})}
+          src={imgSrc}
+          alt={props.alt ?? ""}
+        />
       </Element>
     </SbEditable>
-  )
-}
+  );
+};
 
-export default FullWidthImage
+export default FullWidthImage;
