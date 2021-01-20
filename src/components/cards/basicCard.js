@@ -51,7 +51,7 @@ const BasicCard = props => {
                 props.blok.imageAspectRatio === "1x1" &&
                 props.blok.orientation === "horizontal"
                   ? "thumbnail"
-                  : "card"
+                  : "large-card"
               }
               visibleHorizontal={props.blok.visibleHorizontal}
               visibleVertical={props.blok.visibleVertical}

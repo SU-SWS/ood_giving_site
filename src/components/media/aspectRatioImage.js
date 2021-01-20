@@ -20,7 +20,9 @@ const AspectRatioImage = props => {
     } else if (props.imageSize === "thumbnail" && imgWidth > 400) {
       processedImg = transformImage(props.filename, "/400x0");
     } else if (
-      (props.imageSize === "header" || props.imageSize === "horizontal-card") &&
+      (props.imageSize === "header" ||
+        props.imageSize === "horizontal-card" ||
+        props.imageSize === "large-card") &&
       imgWidth > 800
     ) {
       processedImg = transformImage(props.filename, "/800x0");
