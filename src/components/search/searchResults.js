@@ -4,29 +4,37 @@ import qs from "query-string"
 import React, { useEffect, useRef, useState } from "react"
 import {
   Configure,
+  connectSearchBox,
   connectStateResults,
   InstantSearch,
 } from "react-instantsearch-dom"
 import Hits from "./hits"
-import { AlgoliaSearchBox } from "./searchBox"
+import Autocomplete from "./autocomplete"
 
 const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,
   process.env.GATSBY_ALGOLIA_SEARCH_API_KEY
 )
 
+const VirtualSearchBox = ({ query }) => {
+  const AlgoliaVirtualSearchBox = connectSearchBox(
+    ({ refine, currentRefinement }) => {
+      useEffect(() => {
+        if (query !== currentRefinement) refine(query)
+      }, [query, currentRefinement, refine])
+
+      return null
+    }
+  )
+
+  return <AlgoliaVirtualSearchBox />
+}
 const StateResults = props => {
   const AlgoliaStateResults = connectStateResults(
     ({ searchState, isSearchStalled }) => {
       return (
         <>
-          {searchState?.query ? (
-            isSearchStalled ? (
-              <>Loading... </>
-            ) : (
-              props.children
-            )
-          ) : (
+          {props.isEmptySearchVisible ? (
             <div className="search-hits-no-hits">
               <strong className="search-hits-no-hits-title">
                 {props.blok.emptySearchTitle}
@@ -35,6 +43,10 @@ const StateResults = props => {
                 {props.blok.emptySearchText}
               </p>
             </div>
+          ) : !searchState.query ? null : isSearchStalled ? (
+            <>Loading... </>
+          ) : (
+            props.children
           )}
         </>
       )
@@ -45,18 +57,16 @@ const StateResults = props => {
 }
 
 const SearchResults = props => {
-  const [initialTerm, setInitialTerm] = useState("")
   // page is 1-based here, for better readability in the URL query parameter
   const [initialPage, setInitialPage] = useState(1)
+
+  const [query, setQuery] = useState("")
+  const [isEmptySearchVisible, setIsEmptySearchVisible] = useState(false)
 
   const { search } = useLocation()
 
   useEffect(() => {
     const params = qs.parse(search)
-
-    if (params.term) {
-      setInitialTerm(params.term)
-    }
 
     if (params.page) {
       setInitialPage(parseInt(params.page))
@@ -99,22 +109,40 @@ const SearchResults = props => {
     }
   }
 
-  const handleSubmit = $event => {
-    $event.preventDefault()
+  const handleSubmit = value => {
+    setQuery(value)
+    setIsEmptySearchVisible(!value)
+  }
+  const handleSuggestionCleared = () => {
+    setQuery("")
+    setIsEmptySearchVisible(false)
   }
 
   return (
-    <InstantSearch
-      searchClient={searchClient}
-      indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME}
-      onSearchStateChange={handleSearchStateChange}
-    >
-      <Configure hitsPerPage={10} />
-      <AlgoliaSearchBox initialTerm={initialTerm} onSubmit={handleSubmit} />
-      <StateResults {...props}>
-        <Hits {...props} initialPage={initialPage} />
-      </StateResults>
-    </InstantSearch>
+    <>
+      <InstantSearch
+        searchClient={searchClient}
+        indexName={process.env.GATSBY_ALGOLIA_SUGGESTIONS_INDEX_NAME}
+      >
+        <Autocomplete
+          onSubmit={handleSubmit}
+          onSuggestionCleared={handleSuggestionCleared}
+        />
+        <Configure hitsPerPage={parseInt(props.blok.suggestionsAmount) ?? 10} />
+      </InstantSearch>
+
+      <InstantSearch
+        searchClient={searchClient}
+        indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME}
+        onSearchStateChange={handleSearchStateChange}
+      >
+        <VirtualSearchBox query={query} />
+        <Configure hitsPerPage={10} />
+        <StateResults {...props} isEmptySearchVisible={isEmptySearchVisible}>
+          <Hits {...props} initialPage={initialPage} />
+        </StateResults>
+      </InstantSearch>
+    </>
   )
 }
 export default SearchResults

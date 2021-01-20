@@ -45,8 +45,9 @@ Connecting to Algolia
 The content of this site is indexed with Algolia. When the search is used, Algolia is queried by the frontend for results. In order to do that, the frontend needs several environment variables: 
 
 * `GATSBY_ALGOLIA_APP_ID`,
-* `GATSBY_ALGOLIA_SEARCH_API_KEY` and
-* `GATSBY_ALGOLIA_INDEX_NAME`.
+* `GATSBY_ALGOLIA_SEARCH_API_KEY`,
+* `GATSBY_ALGOLIA_INDEX_NAME` and
+* `GATSBY_ALGOLIA_SUGGESTIONS_INDEX_NAME`.
 
 Set these in your `.env.development`/`.env.production` files in order for the search to work. 
 

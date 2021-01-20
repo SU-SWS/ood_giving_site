@@ -32,12 +32,95 @@
     }
   }
 
+  .react-autosuggest {
+    &__container {
+      display: flex;
+      flex-direction: column;
+      width: calc(100% - 56px);
+      position: relative;
+    }
+
+    &__input {
+      flex-grow: 1;
+      background: transparent;
+      border: none;
+      font-weight: $su-font-semi-bold;
+      font-size: 24px;
+      padding: 0 64px 12px 12px;
+      border-bottom: 1px solid #767674;
+      outline: none;
+      color: inherit;
+      min-width: 0;
+
+      &:focus {
+        border-bottom-color: $su-color-digital-red;
+      }
+
+      @include grid-media("sm") {
+        padding: 0 80px 12px 24px;
+        font-size: 30px;
+      }
+    }
+
+    &__suggestions-container {
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      left: 0;
+      background-color: white;
+      z-index: 100;
+      border: 1px solid $su-color-digital-red;
+      border-top: none;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      display: none;
+      box-shadow: $ood-shadow--medium;
+
+      &--open {
+        display: block;
+      }
+    }
+
+    &__suggestions-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 8px;
+    }
+
+    &__suggestion {
+      margin: 0;
+      border-radius: 16px;
+      padding: 8px 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      user-select: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &--highlighted {
+        color: $su-color-digital-red;
+        background-color: $su-color-black-10;
+      }
+    }
+
+    + .search-input-clear-button {
+      right: 56px;
+      top: 0;
+      transform: none;
+
+      @include grid-media("sm") {
+        top: 4px;
+      }
+    }
+  }
+
   &-clear-button {
     position: absolute;
     right: 48px;
     top: 50%;
     transform: translateY(-50%);
-    margin-top: -5px;
     display: flex;
     align-items: center;
     justify-content: center;
