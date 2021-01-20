@@ -29,7 +29,7 @@ const SearchOverlay = () => {
   }
 
   const submitTerm = $event => {
-    $event.preventDefault()
+    $event?.preventDefault()
 
     if (term.length > 0) {
       navigate(`/search-results?term=${term}`)
