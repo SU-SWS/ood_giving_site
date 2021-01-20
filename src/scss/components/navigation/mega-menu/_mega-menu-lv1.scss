@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-@import "./sizes";
 
 // Mega Menu 1st level styles
 .ood-mega-nav__menu-lv1 {
@@ -8,7 +7,6 @@
   @include padding(1.2em null 4em);
   display: flex;
   flex-direction: column;
-  width: calc(100% - #{$ood-search-button-size});
 
   @include grid-media('lg') {
     @include padding(0 null 0 0);
@@ -83,7 +81,7 @@
       @include grid-media('lg') {
         @include fancy-hover($su-color-digital-red, $su-color-black, 'bottom', '10px');
         @include padding (1.6rem 0 null);
-        @include margin(0 3.8rem 0 0);
+        @include margin(0 3.4rem 0 0);
         display: inline-block;
         transition: color 0.3s ease-in;
         font-size: 2.1rem;

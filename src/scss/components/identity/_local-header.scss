@@ -3,13 +3,13 @@
 // Styles for OOD Local Header which includes the submenu (eyebrow nav), logo lockup and the mega menu
 
 .ood-header {
-  @include box-shadow($depth: 'shallow', $stroke: 0);
+  @include box-shadow($depth: "shallow", $stroke: 0);
   position: relative;
   display: block;
   max-width: 100%;
   z-index: 130;
 
-  @include grid-media('md') {
+  @include grid-media("md") {
     border-top-width: 10px;
     border-top-style: solid;
   }
@@ -20,23 +20,23 @@
     flex-direction: row;
     justify-content: space-between;
 
-    @include grid-media-max('sm') {
-      @include padding(get-responsive-spacing-value(0, 'mobile') null null);
+    @include grid-media-max("sm") {
+      @include padding(get-responsive-spacing-value(0, "mobile") null null);
     }
 
-    @include grid-media-only('md') {
-      @include padding(get-responsive-spacing-value(1, 'tablet') null null);
+    @include grid-media-only("md") {
+      @include padding(get-responsive-spacing-value(1, "tablet") null null);
       align-items: flex-start;
     }
 
-    @include grid-media('lg') {
+    @include grid-media("lg") {
       flex-direction: column;
     }
   }
 
   // Scale logo down for mobile
   .su-lockup {
-    @include grid-media-max('sm') {
+    @include grid-media-max("sm") {
       @include margin(0.6rem null null);
 
       > a {
@@ -74,13 +74,27 @@
     }
 
     // Make the logo 20% larger for SM breakpoint (compared to XS)
-    @include grid-media-only('sm') {
+    @include grid-media-only("sm") {
       transform: scale(1.2);
       transform-origin: left top;
     }
 
-    @include grid-media('lg') {
-      @include padding(null null get-responsive-spacing-value(1, 'mobile'));
+    @include grid-media("lg") {
+      @include padding(null null get-responsive-spacing-value(1, "mobile"));
+    }
+  }
+
+  &__megamenu-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+
+    @include grid-media("lg") {
+      align-items: center;
+      flex-direction: row;
+    }
+
+    > :first-child {
+      flex-grow: 1;
     }
   }
 }

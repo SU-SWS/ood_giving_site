@@ -1,12 +1,10 @@
 @charset "UTF-8";
 
-@import "./sizes";
+// Header search button styles
 
-// Mega Menu search button styles
-
-.ood-mega-nav__search-button {
-  height: $ood-search-button-size;
-  width: $ood-search-button-size;
+.ood-header-search-button {
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   border: 1px solid #c0c0bf;
   display: flex;
