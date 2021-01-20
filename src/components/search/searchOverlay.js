@@ -6,6 +6,7 @@ import UseEscape from "../../hooks/useEscape"
 import UseSearchOverlayData from "../../hooks/useSearchOverlayData"
 import { LocationProvider } from "@reach/router"
 import CtaLink from "../simple/ctaLink"
+import { config } from "../../utilities/config"
 
 const SearchOverlay = () => {
   const { isOpen, toggleSearchOverlay } = useContext(SearchOverlayOpenContext)
@@ -22,25 +23,20 @@ const SearchOverlay = () => {
 
   const handleChange = value => {
     setTerm(value)
-
-    if (isEmptyErrorVisible) {
-      setIsEmptyErrorVisible(false)
-    }
+    setIsEmptyErrorVisible(isEmptyErrorVisible)
   }
 
   const submitTerm = $event => {
     $event?.preventDefault()
 
     if (term.length > 0) {
-      navigate(`/search-results?term=${term}`)
+      navigate(`${config.basePath}search-results?term=${term}`)
       toggleSearchOverlay()
       setTerm("")
     } else {
       setIsEmptyErrorVisible(true)
     }
   }
-
-  useRef()
 
   UseEscape(() => isOpen && toggleSearchOverlay())
 
@@ -55,7 +51,7 @@ const SearchOverlay = () => {
   } = UseSearchOverlayData()
 
   return (
-    <div id="search-overlay" className={isOpen ? "visible" : "hidden"}>
+    <div className={`search-overlay ${isOpen ? "visible" : "hidden"}`}>
       <div className="search-container">
         <div className="search-header">
           <button className="search-close-button" onClick={toggleSearchOverlay}>
