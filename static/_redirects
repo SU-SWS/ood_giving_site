@@ -1,8 +1,8 @@
 # DYNAMIC REDIRECTS
 # ###############################################################################################
 /api/*   /.netlify/lambda/:splat   200
-https://assets.stanford.edu/a/*   https://a.storyblok.com/:splat   200
-https://assets.stanford.edu/i/*   https://img2.storyblok.com/:splat   200
+/cdn/asset/*   https://assets.stanford.edu/a/:splat   301
+/cdn/img/*   https://assets.stanford.edu/i/:splat   301
 
 # STATIC REDIRECTS
 # ###############################################################################################
