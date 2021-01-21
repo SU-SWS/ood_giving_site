@@ -3,7 +3,7 @@ import React from "react";
 import SbLink from "../../partials/sbLink";
 import AspectRatioImage from "../../media/aspectRatioImage";
 
-const StoryCardView = props => {
+const StoryCardView = (props) => {
   const Heading = props.headingLevel ? props.headingLevel : "h3";
   const theLink = { linktype: "story", url: props.storyLink + "/" };
   return (
