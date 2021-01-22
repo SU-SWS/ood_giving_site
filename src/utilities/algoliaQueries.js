@@ -140,6 +140,16 @@ const queries = [
       // and then collate these records by their slug property.
       distinct: true,
       attributeForDistinct: "slug",
+      // These configure which record attributes are searched and also give them a priority
+      // Priority is ranked from top to bottom: most important first
+      searchableAttributes: [
+        "title",
+        "shortTitle",
+        "slug",
+        "author",
+        "intro,description,teaser",
+        "text",
+      ],
     },
   },
 ]
