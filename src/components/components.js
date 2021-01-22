@@ -67,7 +67,6 @@ import AccordionItem from './composite/accordionItem'
 
 const ComponentList = {
   page: Page,
-  aspectRatioImage: AspectRatioImage,
   embedScript: EmbedScript,
   giveGabForm: GiveGabForm,
   storyImage: StoryImage,

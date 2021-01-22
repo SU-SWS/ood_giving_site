@@ -1,0 +1,220 @@
+@charset "UTF-8";
+
+// Mega Menu 1st level styles
+
+.ood-mega-nav__menu-lv1 {
+  @include margin(0 null);
+  @include padding(1.2em null 4em);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include grid-media('lg') {
+    @include padding(0 null 0 0);
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    > li {
+      > .ood-mega-nav__link--active {
+        &::before {
+          transform: scaleX(1);
+          background-color: $su-color-black-40;
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  > li {
+    > button,
+    > a {
+      color: $su-color-black;
+
+      @include grid-media-only('xs') {
+        @include padding(null null null #{map-get($su-screen-margins, 'xs')});
+      }
+
+      @include grid-media-only('sm') {
+        @include padding(null null null #{map-get($su-screen-margins, 'sm')});
+      }
+
+      @include grid-media-only('md') {
+        @include padding(null null null #{map-get($su-screen-margins, 'md')});
+      }
+
+      @include grid-media-max('md') {
+        @include padding(1.6rem 4.8rem 1.6rem null);
+        position: relative;
+        display: block;
+        width: 100%;
+        font-size: 2rem;
+        border-bottom: 1px solid $su-color-black-20;
+        text-align: left;
+
+        &:hover,
+        &:focus {
+          outline: none;
+          color: $su-color-digital-red;
+          text-decoration: underline;
+        }
+      }
+
+      @include grid-media-max('md') {
+        @include fancy-hover($su-color-digital-red, $su-color-black, 'left', '6px');
+
+        &:hover,
+        &:focus,
+        &:active {
+          text-decoration: underline;
+        }
+      }
+
+      &::before {
+        @include grid-media-max('sm') {
+          left: 0.1rem;
+        }
+
+        @include grid-media-only('md') {
+          left: 2rem;
+        }
+      }
+
+      @include grid-media('lg') {
+        @include fancy-hover($su-color-digital-red, $su-color-black, 'bottom', '10px');
+        @include padding (1.6rem 0 null);
+        @include margin(0 3.8rem 0 0);
+        display: inline-block;
+        transition: color 0.3s ease-in;
+        font-size: 2.1rem;
+
+        &:hover,
+        &:focus {
+          color: $su-color-digital-red;
+          outline: none;
+        }
+      }
+    }
+
+    > a {
+      @include grid-media-max('md') {
+        // Add icon after 1st level links on mobile
+        @include link-icon(caret-right, 10px, right, 0.06em);
+
+        &::after {
+          background-color: $su-color-digital-red;
+        }
+
+        &:hover,
+        &:focus {
+          &::after {
+            background-color: $su-color-digital-red;
+          }
+        }
+
+        // Level 1 current link style - thick border on the left
+        &.ood-mega-nav__link--active {
+          &::before {
+            visibility: visible;
+            transform: scaleY(1);
+            background-color: $su-color-black;
+          }
+
+          &:hover,
+          &:focus {
+            &::before {
+              background-color: $su-color-digital-red;
+            }
+          }
+        }
+      }
+    }
+
+    // Add icon after 1st level dropdown trigger buttons on mobile/tablet
+    > button {
+      @include grid-media-max('md') {
+        &::after {
+          position: absolute;
+          height: 33px;
+          width: 33px;
+          border-radius: 16px;
+          top: calc(50% - 16px);
+          display: block;
+          content: "";
+          background: $su-color-digital-red url("#{$su-image-path}/caret-down-white.svg") no-repeat center/50%;
+          background-size: 14px;
+          color: $su-color-white;
+          transition: background 0.25s ease-in, transform 0.25s ease-in;
+        }
+
+        &:hover,
+        &:focus {
+          &::after {
+            background: $su-color-black url("#{$su-image-path}/caret-down-white.svg") no-repeat center/50%;
+            background-size: 14px; // SVG quirk - have to keep this even though it's unchanged from normal state
+          }
+        }
+
+        &[aria-expanded="true"] {
+          &::after {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+
+    // set position of dropdown indicator on mobile/tablet
+    > button {
+      &::after {
+        @include grid-media-only('xs') {
+          right: map-get($su-screen-margins, 'xs');
+        }
+
+        @include grid-media-only('sm') {
+          right: map-get($su-screen-margins, 'sm');
+        }
+
+        @include grid-media-only('md') {
+          right: map-get($su-screen-margins, 'md');
+        }
+      }
+    }
+  }
+}
+
+.ood-mega-nav__menu-lv1 {
+  @include grid-media-max('md') {
+    @include linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, transparent 12px); // Fake drop shadow at top of dropdown
+    position: absolute;
+    display: flex;
+    left: 0;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.26) 0 38px 30px;
+    background-color: $su-color-white;
+    transform-origin: center top;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s;
+  }
+
+  @include grid-media-max('sm') {
+    top: 105px; // Height of the local header for XS-SM
+  }
+
+  @include grid-media-only('md') {
+    top: 134px; // Height of the local header for MD minus the top border
+  }
+
+  @include grid-media-max('md') {
+    // When mobile mega menu is collapsed
+    &[aria-hidden="true"] {
+      opacity: 0;
+      visibility: hidden;
+      transform: scaleY(0);
+    }
+
+    // When mobile mega menu is expanded
+    &[aria-hidden="false"] {
+      opacity: 1;
+      visibility: visible;
+      transform: scaleY(1);
+    }
+  }
+}

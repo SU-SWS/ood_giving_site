@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 // Styles for WYSIWYG Content - text, link, vertical rhythms etc.
-// Common styles for Single Column Content and Accordion item WYSYWYG.
+// Common styles for Single Column Content, Accordion, Basic Card and Story Image WYSIWYG.
 
 .ood-single-column-content__wrapper,
 .ood-accordion__content {
@@ -14,6 +14,7 @@
     ul {
       @include ood-big-paragraph;
       @include margin(null null 1.6em);
+      color: $su-color-black-true;
     }
 
     li {

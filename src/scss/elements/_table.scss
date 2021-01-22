@@ -27,28 +27,37 @@ table {
   }
 
   // Specific for the Compare Life Income Gifts table
-  &#compare-life-income-gifts-table {
+  &.life-income-gifts {
     @include responsive-spacing('padding', 2);
     background-color: $su-color-white;
 
-    tbody {
-      .table-top-headers-row {
-        th {
-          text-align: center;
-        }
+    thead {
+      th {
+        text-align: center;
       }
 
-      tr {
-        td {
-          border: 1px solid $su-color-white;
-          border-top: 1px solid $su-color-black-40;
-          @include responsive-spacing('padding', null 0);
+      td {
+        &.empty {
+          border: 0;
         }
+      }
+    }
 
-        // first columns and header rows
-        td:first-of-type {
+    tbody {
+      td,
+      th[scope="row"] {
+        @include responsive-spacing('padding', null 0);
+        border: 1px solid $su-color-white;
+        border-top: 1px solid $su-color-black-40;
+      }
+
+      // first columns and header rows
+      th[scope="row"] {
+        font-weight: $su-font-semi-bold;
+        min-width: 20rem;
+
+        @include grid-media('lg') {
           min-width: 30rem;
-          font-weight: $su-font-semi-bold;
         }
       }
     }
@@ -56,11 +65,11 @@ table {
     .fas.fa-check::before {
       color: $su-color-black;
     }
+  }
 
-    #best-type-of-gift-label {
-      @include responsive-spacing('padding-top', 2);
-      border-top: 1px solid $su-color-white;
-      font-weight: $su-font-regular;
+  tfoot {
+    .footnote {
+      @include responsive-spacing('padding', 2 0 null);
     }
   }
 }

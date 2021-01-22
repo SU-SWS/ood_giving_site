@@ -5,17 +5,14 @@
 .ood-content-nav {
   background-color: transparent;
 
-  @include grid-media('lg') {
-    max-width: 400px;
-  }
-
   &__menu-group {
-    @include responsive-spacing('padding', 0 null 1);
-    border-top: 1px solid $su-color-black-40;
+    @include responsive-spacing('padding', null null 1);
   }
 
   &__title {
     @include responsive-spacing('margin', null null 1);
+    @include responsive-spacing('padding', 0 null null);
+    border-top: 1px solid $su-color-black-40;
     font-size: 1.6rem;
     font-weight: $su-font-bold;
     text-transform: uppercase;
@@ -37,9 +34,13 @@
   }
 
   &__link {
-    @include padding(1.2rem null);
+    @include padding(0.8rem null);
     color: $su-color-digital-red;
     border-top: 0;
+
+    @include grid-media('lg') {
+      @include padding(1.2rem null);
+    }
 
     &::after {
       background-color: $su-color-digital-red;
@@ -71,7 +72,6 @@
         width: 6px;
         bottom: 0;
         left: 0;
-        //background-color: $su-color-digital-red;
         transition: transform 0.3s ease-in, background-color 0.3s ease-in;
       }
 
@@ -94,5 +94,107 @@
         }
       }
     }
+  }
+}
+
+// The toggle button when the nav appears in the header for mobile/tablet
+.ood-content-nav__toggle {
+  @include padding(1.2rem 3rem);
+  position: relative;
+  cursor: pointer;
+  color: $su-color-white;
+  background-color: transparent;
+  border: 0;
+  box-shadow: inset 0 0 0 1px $su-color-white;
+  font-size: 1.5rem;
+  font-weight: $su-font-semi-bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  width: 100%;
+  transition: box-shadow 0.25s ease-in;
+
+  // Icon position
+  i {
+    position: absolute;
+    right: 3rem;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 0 0 3px $su-color-white;
+    outline: none;
+  }
+
+  &[aria-expanded="true"] {
+    background-color: $su-color-fog-light;
+    color: $su-color-black;
+
+    &:hover,
+    &:focus {
+      background-color: $su-color-black-10;
+      color: $su-color-cardinal-red;
+    }
+  }
+
+  @include grid-media-only('md') {
+    font-size: 1.6rem;
+  }
+}
+
+// Mobile/Tablet styles for the content nav (in the header)
+.ood-content-nav {
+  @include grid-media-max('md') {
+    @include margin(get-responsive-spacing-value(2, 'mobile') auto null);
+    position: relative;
+    z-index: 30;
+
+    &__menus {
+      @include padding(get-responsive-spacing-value(2, 'mobile') null null);
+      position: absolute;
+      display: block;
+      background-color: $su-color-white;
+      transform-origin: center top;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+      // Add menu expansion animation
+      &[aria-hidden="true"] {
+        opacity: 0;
+        visibility: hidden;
+        transform: scaleY(0);
+      }
+
+      &[aria-hidden="false"] {
+        opacity: 1;
+        visibility: visible;
+        transform: scaleY(1);
+        box-shadow: rgba(0, 0, 0, 0.32) 0 34px 30px;
+      }
+    }
+
+    &__title {
+      @include margin(null 2.4rem);
+      color: $su-color-black;
+    }
+  }
+
+  @include grid-media-only('xs') {
+    width: 90%;
+
+    &__menus {
+      width: 100%;
+    }
+  }
+
+  @include grid-media-between('sm', 'md') {
+    &,
+    &__menus {
+      width: 40rem;
+    }
+  }
+
+  // Tablet only styles
+  @include grid-media-only('md') {
+    @include margin(get-responsive-spacing-value(3, 'tablet') null get-responsive-spacing-value(0, 'tablet'));
   }
 }

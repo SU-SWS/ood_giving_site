@@ -59,6 +59,8 @@
 
     &:hover,
     &:focus {
+      box-shadow: $ood-shadow--medium;
+
       .ood-story-card__headline {
         color: $su-color-digital-red;
         text-decoration: underline;

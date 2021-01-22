@@ -14,9 +14,10 @@ module.exports = {
     title: `Giving to Stanford`,
     description: `Giving to Stanford.`,
     author: `Stanford University Office of Development`,
-    siteUrl: `https://giving-preview.stanford.edu`,
+    siteUrl: `https://giving.stanford.edu`,
   },
   plugins: [
+    `gatsby-plugin-anchor-links`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
@@ -24,7 +25,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
-        siteUrl: 'https://giving-preview.stanford.edu',
+        siteUrl: 'https://giving.stanford.edu',
       },
     },
     {
@@ -35,6 +36,23 @@ module.exports = {
           { userAgent: '*', disallow: '/editor/' }
         ]
       }
+    },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-5RGQ5DD",
+
+        // Include GTM in development.
+        //
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: false,
+
+        // datalayer to be set before GTM is loaded
+        // should be an object or a function that is executed in the browser
+        //
+        // Defaults to null
+        defaultDataLayer: { platform: "gatsby" },
+      },
     },
     {
       resolve: `gatsby-plugin-sitemap`,

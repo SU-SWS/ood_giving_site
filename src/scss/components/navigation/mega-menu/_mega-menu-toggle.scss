@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+// Mobile/tablet hamburger button
+
+.ood-mega-nav__toggle {
+  @include margin(0);
+  @include padding(0);
+  display: none;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+  width: 4rem;
+  background-color: transparent;
+  color: $su-color-digital-red;
+  font-size: 1.6rem;
+  font-weight: $su-font-semi-bold;
+  line-height: 0.7;
+
+  @include grid-media-max('md') {
+    @include fancy-hover($color: $su-color-digital-red, $active: $su-color-black, $position: 'bottom', $thickness: '6px');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // FontAwesome icon
+    > i {
+      @include margin(null null 0.6rem);
+      font-size: 1.8rem;
+    }
+
+    &[aria-expanded="true"] {
+      &::before {
+        visibility: visible;
+        transform: scaleX(1);
+        background-color: $su-color-digital-red;
+      }
+
+      &:hover,
+      &:focus {
+        &::before {
+          background-color: $su-color-black;
+        }
+      }
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $su-color-black;
+    }
+  }
+
+  @include grid-media-max('sm') {
+    @include padding(null null 1.5rem); // Overriding fancy-hover padding
+  }
+
+  @include grid-media-only('md') {
+    @include padding(null null 2.5rem); // Overriding fancy-hover padding
+    line-height: 1;
+
+    &::before {
+      height: 10px;
+    }
+  }
+}

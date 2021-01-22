@@ -14,7 +14,17 @@ const OodMegaMenuSection = (props) => {
     setSectionOpened(!sectionOpened);
   }
 
-  UseEscape(() => setSectionOpened(false));
+  UseEscape(() => {
+      const openParent = document.querySelector(".ood-mega-nav__trigger[aria-expanded='true']");
+      const hamburger = document.querySelector('.ood-mega-nav__toggle');
+
+      if (openParent && !hamburger) {
+        setSectionOpened(false)
+        openParent.focus();
+      }
+    }
+  );
+
   UseOnClickOutside(ref, () => setSectionOpened(false));
 
   return (
@@ -23,10 +33,10 @@ const OodMegaMenuSection = (props) => {
         <button className="ood-mega-nav__trigger"
                 aria-expanded={sectionOpened}
                 onClick={toggleSection}>{props.blok.linkText}</button>
-        <div className="ood-mega-nav__section su-bg-white" aria-hidden={!sectionOpened}>
+        <div className="ood-mega-nav__section" aria-hidden={!sectionOpened}>
           <CenteredContainer flex={true} classes={"su-pt-4 su-pb-5"}>
             <FlexCell lg={8} classes={"su-flex su-flex-col"}>
-              <div className="flex-container">
+              <div className="flex-container ood-mega-nav__section-links">
                 <CreateBloks blokSection={props.blok.linkGroups} />
               </div>
               <CreateBloks blokSection={props.blok.sectionCtaLink} />
