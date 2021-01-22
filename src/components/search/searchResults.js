@@ -11,7 +11,7 @@ import {
 import Hits from "./hits"
 import Autocomplete from "./autocomplete"
 
-const searchClient = algoliasearch(
+export const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,
   process.env.GATSBY_ALGOLIA_SEARCH_API_KEY
 )

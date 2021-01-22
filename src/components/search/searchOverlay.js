@@ -1,17 +1,18 @@
 import React, { useContext, useEffect, useRef, useState } from "react"
 import { SearchOverlayOpenContext } from "../../context/searchOverlayStatusProvider"
 import { navigate } from "gatsby"
-import SearchBox from "./searchBox"
 import UseEscape from "../../hooks/useEscape"
 import UseSearchOverlayData from "../../hooks/useSearchOverlayData"
 import { LocationProvider } from "@reach/router"
 import CtaLink from "../simple/ctaLink"
 import { config } from "../../utilities/config"
 import UseFocusTrap from "../../hooks/useFocusTrap"
+import { searchClient } from "./searchResults"
+import { Configure, InstantSearch } from "react-instantsearch-dom"
+import Autocomplete from "./autocomplete"
 
 const SearchOverlay = () => {
-  const { isOpen, toggleSearchOverlay } = useContext(SearchOverlayOpenContext)
-  const [term, setTerm] = useState("")
+  const { isOpen, closeSearchOverlay } = useContext(SearchOverlayOpenContext)
   const [isEmptyErrorVisible, setIsEmptyErrorVisible] = useState(false)
   const inputRef = useRef(null)
 
@@ -22,24 +23,20 @@ const SearchOverlay = () => {
     }
   }, [isOpen, inputRef])
 
-  const handleChange = value => {
-    setTerm(value)
-    setIsEmptyErrorVisible(isEmptyErrorVisible)
-  }
-
-  const submitTerm = $event => {
-    $event?.preventDefault()
-
+  const submitTerm = term => {
     if (term.length > 0) {
       navigate(`${config.basePath}search-results?term=${term}`)
-      toggleSearchOverlay()
-      setTerm("")
+      closeSearchOverlay()
     } else {
       setIsEmptyErrorVisible(true)
     }
   }
 
-  UseEscape(() => isOpen && toggleSearchOverlay())
+  const handleSuggestionCleared = () => {
+    setIsEmptyErrorVisible(false)
+  }
+
+  UseEscape(() => isOpen && closeSearchOverlay())
 
   const {
     introduction,
@@ -49,6 +46,7 @@ const SearchOverlay = () => {
     categoriesRightBox,
     categoriesHeadline,
     emptySearchMessage,
+    suggestionsAmount,
   } = UseSearchOverlayData()
 
   // collect refs of both the first and last tabbable element of the overlay
@@ -59,39 +57,44 @@ const SearchOverlay = () => {
 
   return (
     <div className={`search-overlay ${isOpen ? "visible" : "hidden"}`}>
-      <div className="search-container">
-        <div className="search-header">
-          <button
-            className="search-close-button"
-            onClick={toggleSearchOverlay}
-            ref={firstTabbableRef}
+      <LocationProvider>
+        <div className="search-container">
+          <div className="search-header">
+            <button
+              className="search-close-button"
+              onClick={closeSearchOverlay}
+              ref={firstTabbableRef}
+            >
+              Close
+              <span className="search-close-x"></span>
+            </button>
+          </div>
+          <div className="search-body">
+            <strong className="search-heading">{introduction}</strong>
+            <InstantSearch
+              searchClient={searchClient}
+              indexName={process.env.GATSBY_ALGOLIA_SUGGESTIONS_INDEX_NAME}
+            >
+              <Autocomplete
+                onSubmit={submitTerm}
+                onSuggestionCleared={handleSuggestionCleared}
+                ref={inputRef}
+              />
+              <Configure hitsPerPage={parseInt(suggestionsAmount) ?? 10} />
+            </InstantSearch>
+          </div>
+          <div
+            className={`search-error ${
+              isEmptyErrorVisible ? "search-error--visible" : ""
+            }`}
           >
-            Close
-            <span className="search-close-x"></span>
-          </button>
-        </div>
-        <div className="search-body">
-          <strong className="search-heading">{introduction}</strong>
-          <SearchBox
-            initialTerm={""}
-            onChange={handleChange}
-            onSubmit={submitTerm}
-            ref={inputRef}
-          />
-        </div>
-        <div
-          className={`search-error ${
-            isEmptyErrorVisible ? "search-error--visible" : ""
-          }`}
-        >
-          {emptySearchMessage}
-        </div>
-        <div className="search-footer">
-          <strong className="search-categories-headline">
-            {categoriesHeadline}
-          </strong>
-          <div className="search-footer-cols">
-            <LocationProvider>
+            {emptySearchMessage}
+          </div>
+          <div className="search-footer">
+            <strong className="search-categories-headline">
+              {categoriesHeadline}
+            </strong>
+            <div className="search-footer-cols">
               <div className="search-footer-col">
                 <span className="search-category-title">
                   {categoriesLeftHeadline}
@@ -101,7 +104,7 @@ const SearchOverlay = () => {
                     <li
                       className="search-category-link"
                       key={idx}
-                      onClick={toggleSearchOverlay}
+                      onClick={closeSearchOverlay}
                     >
                       <CtaLink blok={link} />
                     </li>
@@ -117,7 +120,7 @@ const SearchOverlay = () => {
                     <li
                       className="search-category-link"
                       key={idx}
-                      onClick={toggleSearchOverlay}
+                      onClick={closeSearchOverlay}
                     >
                       <CtaLink
                         {...(idx + 1 === categoriesRightBox.length
@@ -129,10 +132,10 @@ const SearchOverlay = () => {
                   ))}
                 </ul>
               </div>
-            </LocationProvider>
+            </div>
           </div>
         </div>
-      </div>
+      </LocationProvider>
     </div>
   )
 }

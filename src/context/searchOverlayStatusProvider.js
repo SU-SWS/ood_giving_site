@@ -20,6 +20,8 @@ const SearchOverlayOpenContextProvider = props => {
       value={{
         isOpen,
         toggleSearchOverlay: () => setIsOpen(!isOpen),
+        openSearchOverlay: () => setIsOpen(true),
+        closeSearchOverlay: () => setIsOpen(false),
       }}
     >
       {props.children}

@@ -10,28 +10,6 @@
     margin-bottom: 9rem;
   }
 
-  > input {
-    flex-grow: 1;
-    background: transparent;
-    border: none;
-    font-weight: $su-font-semi-bold;
-    font-size: 24px;
-    padding: 0 60px 12px 12px;
-    border-bottom: 1px solid #767674;
-    outline: none;
-    color: inherit;
-    min-width: 0;
-
-    &:focus {
-      border-bottom-color: $su-color-digital-red;
-    }
-
-    @include grid-media("sm") {
-      padding: 0 80px 12px 24px;
-      font-size: 30px;
-    }
-  }
-
   .react-autosuggest {
     &__container {
       display: flex;

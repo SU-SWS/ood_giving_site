@@ -9,6 +9,7 @@ import { useStaticQuery, graphql } from "gatsby"
  *  categoriesRightHeadline: string,
  *  introduction: string,
  *  emptySearchMessage: string,
+ *  suggestionsAmount?: number,
  * }},
  */
 const UseSearchOverlayData = () => {
