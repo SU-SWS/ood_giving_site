@@ -9,7 +9,7 @@ import { config } from "../../utilities/config"
  * eg: internal, external, asset
  **/
 
-const SbLink = props => {
+const SbLink = React.forwardRef((props, ref) => {
   const basePath = config.basePath
 
   // Storyblok link object either has a url (external links)
@@ -61,6 +61,7 @@ const SbLink = props => {
 
     return (
       <Link
+        ref={ref}
         to={linkUrl}
         className={linkClasses + " " + storyClasses}
         activeClassName={activeClass}
@@ -76,11 +77,13 @@ const SbLink = props => {
   if (props.link.linktype === "url") {
     return (
       <a
+        ref={ref}
         href={linkUrl}
         className={linkClasses + " " + urlClasses}
         {...otherAttributes}
       >
-        {props.children}<span className={"su-sr-only-element"}> (external link)</span>
+        {props.children}
+        <span className={"su-sr-only-element"}> (external link)</span>
       </a>
     )
   }
@@ -88,15 +91,21 @@ const SbLink = props => {
   // A link to a file or other asset.
   // ---------------------------------------------------------------------------
   if (props.link.linktype === "asset") {
-
     // Rewrite the URL to the redirect link to mask the API endpoint.
     if (config.isNetlify) {
-      linkUrl = linkUrl.replace(/http?(s)\:\/\/a\.storyblok\.com/ig, config.basePath + "cdn/asset")
-      linkUrl = linkUrl.replace(/http?(s)\:\/\/img?[0-9]\.storyblok\.com/ig, config.basePath + "cdn/img")
+      linkUrl = linkUrl.replace(
+        /http?(s)\:\/\/a\.storyblok\.com/gi,
+        config.basePath + "cdn/asset"
+      )
+      linkUrl = linkUrl.replace(
+        /http?(s)\:\/\/img?[0-9]\.storyblok\.com/gi,
+        config.basePath + "cdn/img"
+      )
     }
 
     return (
       <a
+        ref={ref}
         href={linkUrl}
         className={linkClasses + " " + assetClasses}
         target={`_blank`}
@@ -110,10 +119,10 @@ const SbLink = props => {
   // Default if we don't know what type this is.
   // ---------------------------------------------------------------------------
   return (
-    <a href={linkUrl} className={linkClasses} {...otherAttributes}>
+    <a ref={ref} href={linkUrl} className={linkClasses} {...otherAttributes}>
       {props.children}
     </a>
   )
-}
+})
 
 export default SbLink

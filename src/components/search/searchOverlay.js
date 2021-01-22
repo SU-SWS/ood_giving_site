@@ -7,6 +7,7 @@ import UseSearchOverlayData from "../../hooks/useSearchOverlayData"
 import { LocationProvider } from "@reach/router"
 import CtaLink from "../simple/ctaLink"
 import { config } from "../../utilities/config"
+import UseFocusTrap from "../../hooks/useFocusTrap"
 
 const SearchOverlay = () => {
   const { isOpen, toggleSearchOverlay } = useContext(SearchOverlayOpenContext)
@@ -50,11 +51,21 @@ const SearchOverlay = () => {
     emptySearchMessage,
   } = UseSearchOverlayData()
 
+  // collect refs of both the first and last tabbable element of the overlay
+  // we need these refs to trap the focus inside the overlay
+  const firstTabbableRef = useRef()
+  const lastTabbableRef = useRef()
+  UseFocusTrap(firstTabbableRef, lastTabbableRef, isOpen)
+
   return (
     <div className={`search-overlay ${isOpen ? "visible" : "hidden"}`}>
       <div className="search-container">
         <div className="search-header">
-          <button className="search-close-button" onClick={toggleSearchOverlay}>
+          <button
+            className="search-close-button"
+            onClick={toggleSearchOverlay}
+            ref={firstTabbableRef}
+          >
             Close
             <span className="search-close-x"></span>
           </button>
@@ -108,7 +119,12 @@ const SearchOverlay = () => {
                       key={idx}
                       onClick={toggleSearchOverlay}
                     >
-                      <CtaLink blok={link} />
+                      <CtaLink
+                        {...(idx + 1 === categoriesRightBox.length
+                          ? { ref: lastTabbableRef }
+                          : {})}
+                        blok={link}
+                      />
                     </li>
                   ))}
                 </ul>
