@@ -21,7 +21,7 @@ const UseSearchOverlayData = () => {
       query {
         allStoryblokEntry(
           filter: {
-            full_slug: { eq: "global-components/content-menus/search-overlay" }
+            full_slug: { eq: "global-components/search-overlay/search-overlay" }
           }
         ) {
           nodes {
