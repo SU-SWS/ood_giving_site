@@ -40,10 +40,3 @@
 # ###############################################################################
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
-
-# REDIRECTS are located in static/_redirects
-# ###############################################################################
-[[redirects]]
-  from = "/api/*"
-  to = ".netlify/functions/:splat"
-  status = 200
