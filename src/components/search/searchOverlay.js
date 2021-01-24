@@ -11,6 +11,8 @@ import { searchClient } from "./searchResults";
 import { Configure, InstantSearch } from "react-instantsearch-dom";
 import Autocomplete from "./autocomplete";
 import Heading from "../partials/heading";
+import CenteredContainer from "../partials/centeredContainer";
+import FlexCell from "../partials/flexCell";
 
 const SearchOverlay = () => {
   const { isOpen, closeSearchOverlay } = useContext(SearchOverlayOpenContext);
@@ -59,109 +61,111 @@ const SearchOverlay = () => {
   return (
     <div className={`search-overlay ${isOpen ? "visible" : "hidden"}`}>
       <LocationProvider>
-        <div className="search-container">
-          <div className="search-header">
-            <button
-              className="search-close-button"
-              onClick={closeSearchOverlay}
-              ref={firstTabbableRef}
-              aria-label="Close Search"
+        <CenteredContainer classes="search-container su-pt-1" flex={true}>
+          <FlexCell lg={10} xl={8} classes="su-mx-auto">
+            <div className="search-header">
+              <button
+                className="search-close-button"
+                onClick={closeSearchOverlay}
+                ref={firstTabbableRef}
+                aria-label="Close Search"
+              >
+                Close
+                <i aria-hidden="true" className="fas fa-times" />
+              </button>
+            </div>
+            <div className="search-body">
+              <Heading
+                level={"h2"}
+                classes="search-heading su-mb-4"
+                serif={true}
+                weight={"bold"}
+                color={"white"}
+                align={"center"}
+              >
+                {introduction}
+              </Heading>
+              <InstantSearch
+                searchClient={searchClient}
+                indexName={process.env.GATSBY_ALGOLIA_SUGGESTIONS_INDEX_NAME}
+              >
+                <Autocomplete
+                  onSubmit={submitTerm}
+                  onSuggestionCleared={handleSuggestionCleared}
+                  ref={inputRef}
+                />
+                <Configure hitsPerPage={parseInt(suggestionsAmount) ?? 10} />
+              </InstantSearch>
+            </div>
+            <div
+              className={`search-error ${
+                isEmptyErrorVisible ? "search-error--visible" : ""
+              }`}
             >
-              Close
-              <i aria-hidden="true" className="fas fa-times" />
-            </button>
-          </div>
-          <div className="search-body">
-            <Heading
-              level={"h2"}
-              classes="search-heading su-mb-4"
-              serif={true}
-              weight={"bold"}
-              color={"white"}
-              align={"center"}
-            >
-              {introduction}
-            </Heading>
-            <InstantSearch
-              searchClient={searchClient}
-              indexName={process.env.GATSBY_ALGOLIA_SUGGESTIONS_INDEX_NAME}
-            >
-              <Autocomplete
-                onSubmit={submitTerm}
-                onSuggestionCleared={handleSuggestionCleared}
-                ref={inputRef}
-              />
-              <Configure hitsPerPage={parseInt(suggestionsAmount) ?? 10} />
-            </InstantSearch>
-          </div>
-          <div
-            className={`search-error ${
-              isEmptyErrorVisible ? "search-error--visible" : ""
-            }`}
-          >
-            {emptySearchMessage}
-          </div>
-          <div className="search-footer">
-            <Heading
-              level={"h3"}
-              classes="search-categories-headline su-mb-2"
-              serif={true}
-              weight={"bold"}
-              color={"white"}
-            >
-              {categoriesHeadline}
-            </Heading>
-            <div className="search-footer-cols">
-              <div className="search-footer-col">
-                <Heading
-                  level={"h4"}
-                  weight={"semibold"}
-                  color={"white"}
-                  classes="search-category-title"
-                >
-                  {categoriesLeftHeadline}
-                </Heading>
-                <ul className="search-categories">
-                  {categoriesLeftBox.map((link, idx) => (
-                    <li
-                      className="search-category-link"
-                      key={idx}
-                      onClick={closeSearchOverlay}
-                    >
-                      <CtaLink blok={link} />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="search-footer-col">
-                <Heading
-                  level={"h4"}
-                  weight={"semibold"}
-                  color={"white"}
-                  classes="search-category-title"
-                >
-                  {categoriesRightHeadline}
-                </Heading>
-                <ul className="search-categories">
-                  {categoriesRightBox.map((link, idx) => (
-                    <li
-                      className="search-category-link"
-                      key={idx}
-                      onClick={closeSearchOverlay}
-                    >
-                      <CtaLink
-                        {...(idx + 1 === categoriesRightBox.length
-                          ? { ref: lastTabbableRef }
-                          : {})}
-                        blok={link}
-                      />
-                    </li>
-                  ))}
-                </ul>
+              {emptySearchMessage}
+            </div>
+            <div className="search-footer">
+              <Heading
+                level={"h3"}
+                classes="search-categories-headline su-mb-2"
+                serif={true}
+                weight={"bold"}
+                color={"white"}
+              >
+                {categoriesHeadline}
+              </Heading>
+              <div className="search-footer-cols">
+                <div className="search-footer-col">
+                  <Heading
+                    level={"h4"}
+                    weight={"semibold"}
+                    color={"white"}
+                    classes="search-category-title"
+                  >
+                    {categoriesLeftHeadline}
+                  </Heading>
+                  <ul className="search-categories">
+                    {categoriesLeftBox.map((link, idx) => (
+                      <li
+                        className="search-category-link"
+                        key={idx}
+                        onClick={closeSearchOverlay}
+                      >
+                        <CtaLink blok={link} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="search-footer-col">
+                  <Heading
+                    level={"h4"}
+                    weight={"semibold"}
+                    color={"white"}
+                    classes="search-category-title"
+                  >
+                    {categoriesRightHeadline}
+                  </Heading>
+                  <ul className="search-categories">
+                    {categoriesRightBox.map((link, idx) => (
+                      <li
+                        className="search-category-link"
+                        key={idx}
+                        onClick={closeSearchOverlay}
+                      >
+                        <CtaLink
+                          {...(idx + 1 === categoriesRightBox.length
+                            ? { ref: lastTabbableRef }
+                            : {})}
+                          blok={link}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </FlexCell>
+        </CenteredContainer>
       </LocationProvider>
     </div>
   );

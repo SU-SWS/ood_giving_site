@@ -1,12 +1,5 @@
 @charset "UTF-8";
 
-.search-container {
-  width: 100%;
-  max-width: 82rem;
-  padding: 4rem 1rem 0;
-  margin: 0 auto;
-}
-
 .search-overlay {
   height: 100%;
   width: 100%;
@@ -53,9 +46,13 @@
       &__input {
         border-bottom-color: #fff;
 
-        @include grid-media("sm") {
-          font-size: 4.4rem;
+        @include grid-media("md") {
+          @include modular-typography(4);
           padding-bottom: 0.6rem;
+        }
+
+        &::placeholder {
+          color: $su-color-black-40;
         }
       }
 
@@ -99,20 +96,6 @@
       }
     }
   }
-}
-
-.search-field {
-  font-family: inherit;
-  font-size: 4rem;
-  width: 90%;
-  border: 0;
-  color: white;
-  border-bottom: 2px solid white;
-  background: transparent;
-}
-
-.search-field::placeholder {
-  color: white;
 }
 
 .search-icon {
