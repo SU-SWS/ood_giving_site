@@ -1,21 +1,15 @@
-import React, { useContext } from "react"
-import { SearchOverlayOpenContext } from "../../context/searchOverlayStatusProvider"
+import React, { useContext } from "react";
+import { SearchOverlayOpenContext } from "../../context/searchOverlayStatusProvider";
 
-const OoodHeaderSearchButton = () => {
-  const { toggleSearchOverlay } = useContext(SearchOverlayOpenContext)
+const HeaderSearchButton = () => {
+  const { toggleSearchOverlay } = useContext(SearchOverlayOpenContext);
 
   return (
-    <button
-      className="ood-header-search-button"
-      onClick={toggleSearchOverlay}
-      title="Search site"
-    >
-      <span
-        className="ood-header-search-button-icon"
-        aria-label="Search icon"
-      />
+    <button className="ood-header__search-button" onClick={toggleSearchOverlay}>
+      <span className={"su-sr-only-element"}>Search this site</span>
+      <span className="ood-header__search-button-icon" aria-hidden="true" />
     </button>
-  )
-}
+  );
+};
 
-export default OoodHeaderSearchButton
+export default HeaderSearchButton;

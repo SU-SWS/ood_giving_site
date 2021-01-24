@@ -2,9 +2,11 @@
 
 // Header search button styles
 
-.ood-header-search-button {
+.ood-header__search-button {
+  position: relative;
   height: 40px;
   width: 40px;
+  cursor: pointer;
   border-radius: 50%;
   border: 1px solid #c0c0bf;
   display: flex;
@@ -18,6 +20,7 @@
   }
 
   @include grid-media("lg") {
+    top: -0.6rem;
     margin-right: 0;
   }
 
@@ -32,7 +35,6 @@
 
   &:hover,
   &:focus {
-    cursor: pointer;
     background-color: $su-color-black-10;
   }
 }

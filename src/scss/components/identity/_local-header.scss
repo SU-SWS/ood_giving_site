@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 // Styles for OOD Local Header which includes the submenu (eyebrow nav), logo lockup and the mega menu
+// Search button styles is in /search/search-button.scss
 
 .ood-header {
   @include box-shadow($depth: "shallow", $stroke: 0);

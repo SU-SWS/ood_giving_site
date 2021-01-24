@@ -1,8 +1,8 @@
-import React from "react"
-import SbEditable from "storyblok-react"
-import CreateBloks from "../../utilities/createBloks"
-import CenteredContainer from "../partials/centeredContainer"
-import OoodHeaderSearchButton from "../search/headerSearchButton"
+import React from "react";
+import SbEditable from "storyblok-react";
+import CreateBloks from "../../utilities/createBloks";
+import CenteredContainer from "../partials/centeredContainer";
+import HeaderSearchButton from "../search/headerSearchButton";
 
 const OodLocalHeader = props => (
   <SbEditable content={props.blok}>
@@ -19,11 +19,11 @@ const OodLocalHeader = props => (
         <CreateBloks blokSection={props.blok.lockup} />
         <div className={`ood-header__megamenu-wrapper`}>
           <CreateBloks blokSection={props.blok.megaMenu} />
-          <OoodHeaderSearchButton />
+          <HeaderSearchButton />
         </div>
       </CenteredContainer>
     </header>
   </SbEditable>
-)
+);
 
-export default OodLocalHeader
+export default OodLocalHeader;
