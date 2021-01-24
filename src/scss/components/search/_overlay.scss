@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .search-container {
   width: 100%;
   max-width: 82rem;
@@ -27,30 +29,6 @@
     backdrop-filter: blur(5px);
     opacity: 1;
   }
-}
-
-.search-close-x {
-  width: 18px;
-  height: 18px;
-  position: relative;
-  left: 15px;
-  top: 2px;
-}
-
-.search-close-x:before {
-  content: "";
-  height: 18px;
-  border-left: 3px solid #fff;
-  transform: rotate(45deg);
-  position: absolute;
-}
-
-.search-close-x:after {
-  content: "";
-  height: 18px;
-  border-left: 3px solid #fff;
-  transform: rotate(-45deg);
-  position: absolute;
 }
 
 .search-header {
@@ -142,11 +120,21 @@
 }
 
 .search-close-button {
+  @include padding(0.8rem 1.2rem);
+  @include modular-typography(1);
   background-color: transparent;
+  color: $su-color-white;
   border: none;
-  padding: 8px 35px 8px 12px;
   cursor: pointer;
-  color: white;
+
+  // FontAwesome Icon X
+  i {
+    @include margin(null null null 1rem);
+    position: relative;
+    top: 0.2rem;
+    font-size: 1.1em;
+  }
+
 }
 
 .search-error {
@@ -196,31 +184,10 @@
   }
 }
 
-.search-heading {
-  display: block;
-  font-weight: $su-font-bold;
-  font-size: 3.6rem;
-  @include serif;
-  text-align: center;
-  color: white;
-  margin-bottom: 6rem;
-}
-
-.search-categories-headline {
-  display: block;
-  font-size: 2.4rem;
-  font-weight: $su-font-bold;
-  @include serif;
-  margin-bottom: 3rem;
-}
-
 .search-category-title {
-  display: block;
   text-transform: uppercase;
-  font-size: 1.6rem;
-  font-weight: $su-font-semi-bold;
-  letter-spacing: 0.05em;
-  margin-bottom: 3rem;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
 }
 
 .search-categories {
@@ -234,9 +201,5 @@
 
   a {
     color: white;
-
-    &::after {
-      display: none;
-    }
   }
 }

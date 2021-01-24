@@ -1,42 +1,43 @@
-import React, { useContext, useEffect, useRef, useState } from "react"
-import { SearchOverlayOpenContext } from "../../context/searchOverlayStatusProvider"
-import { navigate } from "gatsby"
-import UseEscape from "../../hooks/useEscape"
-import UseSearchOverlayData from "../../hooks/useSearchOverlayData"
-import { LocationProvider } from "@reach/router"
-import CtaLink from "../simple/ctaLink"
-import { config } from "../../utilities/config"
-import UseFocusTrap from "../../hooks/useFocusTrap"
-import { searchClient } from "./searchResults"
-import { Configure, InstantSearch } from "react-instantsearch-dom"
-import Autocomplete from "./autocomplete"
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { SearchOverlayOpenContext } from "../../context/searchOverlayStatusProvider";
+import { navigate } from "gatsby";
+import UseEscape from "../../hooks/useEscape";
+import UseSearchOverlayData from "../../hooks/useSearchOverlayData";
+import { LocationProvider } from "@reach/router";
+import CtaLink from "../simple/ctaLink";
+import { config } from "../../utilities/config";
+import UseFocusTrap from "../../hooks/useFocusTrap";
+import { searchClient } from "./searchResults";
+import { Configure, InstantSearch } from "react-instantsearch-dom";
+import Autocomplete from "./autocomplete";
+import Heading from "../partials/heading";
 
 const SearchOverlay = () => {
-  const { isOpen, closeSearchOverlay } = useContext(SearchOverlayOpenContext)
-  const [isEmptyErrorVisible, setIsEmptyErrorVisible] = useState(false)
-  const inputRef = useRef(null)
+  const { isOpen, closeSearchOverlay } = useContext(SearchOverlayOpenContext);
+  const [isEmptyErrorVisible, setIsEmptyErrorVisible] = useState(false);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     if (isOpen && inputRef.current) {
       // when the search overlay opens, immediately give focus to the input
-      setTimeout(() => inputRef.current.focus(), 100)
+      setTimeout(() => inputRef.current.focus(), 100);
     }
-  }, [isOpen, inputRef])
+  }, [isOpen, inputRef]);
 
   const submitTerm = term => {
     if (term.length > 0) {
-      navigate(`${config.basePath}search-results?term=${term}`)
-      closeSearchOverlay()
+      navigate(`${config.basePath}search-results?term=${term}`);
+      closeSearchOverlay();
     } else {
-      setIsEmptyErrorVisible(true)
+      setIsEmptyErrorVisible(true);
     }
-  }
+  };
 
   const handleSuggestionCleared = () => {
-    setIsEmptyErrorVisible(false)
-  }
+    setIsEmptyErrorVisible(false);
+  };
 
-  UseEscape(() => isOpen && closeSearchOverlay())
+  UseEscape(() => isOpen && closeSearchOverlay());
 
   const {
     introduction,
@@ -47,13 +48,13 @@ const SearchOverlay = () => {
     categoriesHeadline,
     emptySearchMessage,
     suggestionsAmount,
-  } = UseSearchOverlayData()
+  } = UseSearchOverlayData();
 
   // collect refs of both the first and last tabbable element of the overlay
   // we need these refs to trap the focus inside the overlay
-  const firstTabbableRef = useRef()
-  const lastTabbableRef = useRef()
-  UseFocusTrap(firstTabbableRef, lastTabbableRef, isOpen)
+  const firstTabbableRef = useRef();
+  const lastTabbableRef = useRef();
+  UseFocusTrap(firstTabbableRef, lastTabbableRef, isOpen);
 
   return (
     <div className={`search-overlay ${isOpen ? "visible" : "hidden"}`}>
@@ -64,13 +65,23 @@ const SearchOverlay = () => {
               className="search-close-button"
               onClick={closeSearchOverlay}
               ref={firstTabbableRef}
+              aria-label="Close Search"
             >
               Close
-              <span className="search-close-x"></span>
+              <i aria-hidden="true" className="fas fa-times" />
             </button>
           </div>
           <div className="search-body">
-            <strong className="search-heading">{introduction}</strong>
+            <Heading
+              level={"h2"}
+              classes="search-heading su-mb-4"
+              serif={true}
+              weight={"bold"}
+              color={"white"}
+              align={"center"}
+            >
+              {introduction}
+            </Heading>
             <InstantSearch
               searchClient={searchClient}
               indexName={process.env.GATSBY_ALGOLIA_SUGGESTIONS_INDEX_NAME}
@@ -91,14 +102,25 @@ const SearchOverlay = () => {
             {emptySearchMessage}
           </div>
           <div className="search-footer">
-            <strong className="search-categories-headline">
+            <Heading
+              level={"h3"}
+              classes="search-categories-headline su-mb-2"
+              serif={true}
+              weight={"bold"}
+              color={"white"}
+            >
               {categoriesHeadline}
-            </strong>
+            </Heading>
             <div className="search-footer-cols">
               <div className="search-footer-col">
-                <span className="search-category-title">
+                <Heading
+                  level={"h4"}
+                  weight={"semibold"}
+                  color={"white"}
+                  classes="search-category-title"
+                >
                   {categoriesLeftHeadline}
-                </span>
+                </Heading>
                 <ul className="search-categories">
                   {categoriesLeftBox.map((link, idx) => (
                     <li
@@ -112,9 +134,14 @@ const SearchOverlay = () => {
                 </ul>
               </div>
               <div className="search-footer-col">
-                <span className="search-category-title">
+                <Heading
+                  level={"h4"}
+                  weight={"semibold"}
+                  color={"white"}
+                  classes="search-category-title"
+                >
                   {categoriesRightHeadline}
-                </span>
+                </Heading>
                 <ul className="search-categories">
                   {categoriesRightBox.map((link, idx) => (
                     <li
@@ -137,6 +164,6 @@ const SearchOverlay = () => {
         </div>
       </LocationProvider>
     </div>
-  )
-}
-export default SearchOverlay
+  );
+};
+export default SearchOverlay;
