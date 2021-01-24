@@ -1,19 +1,20 @@
-import React, { useEffect, useRef, useState } from "react"
-import SearchOverlay from "../components/search/searchOverlay"
+import React, { useEffect, useRef, useState } from "react";
+import SearchOverlay from "../components/search/searchOverlay";
 
-export const SearchOverlayOpenContext = React.createContext()
+export const SearchOverlayOpenContext = React.createContext();
 const SearchOverlayOpenContextProvider = props => {
-  const [isOpen, setIsOpen] = useState(false)
-  const previousBodyOverflowProperty = useRef("")
+  const [isOpen, setIsOpen] = useState(false);
+  const previousBodyOverflowProperty = useRef("");
 
   useEffect(() => {
     if (isOpen) {
-      previousBodyOverflowProperty.current = document.body.style.overflow
-      document.body.style.overflow = "hidden"
+      previousBodyOverflowProperty.current = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      document.getElementsByTagName("html")[0].style.overflow = "hidden";
     } else {
-      document.body.style.overflow = previousBodyOverflowProperty.current
+      document.body.style.overflow = previousBodyOverflowProperty.current;
     }
-  }, [isOpen])
+  }, [isOpen]);
 
   return (
     <SearchOverlayOpenContext.Provider
@@ -26,11 +27,11 @@ const SearchOverlayOpenContextProvider = props => {
     >
       {props.children}
     </SearchOverlayOpenContext.Provider>
-  )
-}
+  );
+};
 export default ({ element }) => (
   <SearchOverlayOpenContextProvider>
     {element}
     <SearchOverlay />
   </SearchOverlayOpenContextProvider>
-)
+);
