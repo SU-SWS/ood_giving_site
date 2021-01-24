@@ -2,19 +2,18 @@
 // See all the "param" options on the website
 // https://www.storyblok.com/docs/image-service
 
-import { config } from "./config"
+import { config } from "./config";
 
 const transformImage = (image, param = null) => {
   let imageService = "https://img2.storyblok.com";
 
   if (config.isNetlify) {
-    imageService = config.basePath + "cdn/img";
+    imageService = config.assetCdn + "i";
   }
 
   if (image === null) {
     return "";
-  }
-  else {
+  } else {
     const path = image.replace("https://a.storyblok.com", "");
 
     // If the image is a jpg, optimize it by changing the quality to 60% (quality loss is mostly unnoticeable)
@@ -24,11 +23,10 @@ const transformImage = (image, param = null) => {
 
     if (param === null) {
       return imageService + path;
-    }
-    else {
+    } else {
       return imageService + param + path;
     }
   }
 };
 
-export default transformImage
+export default transformImage;
