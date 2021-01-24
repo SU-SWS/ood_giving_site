@@ -1,18 +1,23 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchOverlay from "../components/search/searchOverlay";
 
-export const SearchOverlayOpenContext = React.createContext();
+export const SearchOverlayOpenContext = React.createContext(null);
+
 const SearchOverlayOpenContextProvider = props => {
   const [isOpen, setIsOpen] = useState(false);
-  const previousBodyOverflowProperty = useRef("");
+  let scrollbarWidth = window.innerWidth - document.body.clientWidth + "px";
 
   useEffect(() => {
     if (isOpen) {
-      previousBodyOverflowProperty.current = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      document.getElementsByTagName("html")[0].style.overflow = "hidden";
+      document.getElementsByTagName("html")[0].style.overflowY = "hidden";
+      document.getElementsByTagName("body")[0].style.position = "fixed";
+      document.getElementsByTagName(
+        "body"
+      )[0].style.paddingRight = scrollbarWidth;
     } else {
-      document.body.style.overflow = previousBodyOverflowProperty.current;
+      document.getElementsByTagName("body")[0].style.position = "relative";
+      document.getElementsByTagName("html")[0].style.overflowY = "scroll";
+      document.getElementsByTagName("body")[0].style.paddingRight = "0";
     }
   }, [isOpen]);
 
@@ -29,6 +34,7 @@ const SearchOverlayOpenContextProvider = props => {
     </SearchOverlayOpenContext.Provider>
   );
 };
+
 export default ({ element }) => (
   <SearchOverlayOpenContextProvider>
     {element}

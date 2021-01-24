@@ -1,23 +1,22 @@
 @charset "UTF-8";
 
 .search-overlay {
+  display: none;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   position: fixed;
-  display: flex;
   z-index: 998;
   top: 0;
   left: 0;
   overflow-x: hidden;
-  transition: all 0.5s;
-  color: white;
-  visibility: hidden;
+  overflow-y: scroll;
+  color: $su-color-white;
   pointer-events: none;
   background-color: rgba(0, 41, 44, 0.9);
   opacity: 0;
 
   &.visible {
-    visibility: visible;
+    display: flex;
     pointer-events: all;
     backdrop-filter: blur(5px);
     opacity: 1;
