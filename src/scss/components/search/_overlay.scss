@@ -52,7 +52,7 @@
 
     .react-autosuggest {
       &__input {
-        border-bottom-color: #fff;
+        border-bottom-color: $su-color-white;
 
         @include grid-media("md") {
           @include modular-typography(4);
@@ -201,8 +201,4 @@
 
 .search-category-link {
   margin-bottom: 1rem;
-
-  a {
-    color: white;
-  }
 }

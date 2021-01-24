@@ -6,6 +6,10 @@ html {
   overflow-y: scroll;
 }
 
+body {
+  width: 100%;
+}
+
 a {
   color: $su-color-digital-red;
   transition: color 0.25s ease-out;
