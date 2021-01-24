@@ -5,10 +5,13 @@ export const SearchOverlayOpenContext = React.createContext(null);
 
 const SearchOverlayOpenContextProvider = props => {
   const [isOpen, setIsOpen] = useState(false);
-  let scrollbarWidth = window.innerWidth - document.body.clientWidth + "px";
 
   useEffect(() => {
     if (isOpen) {
+      const searchOverlay = document.querySelector(".search-overlay");
+      let scrollbarWidth =
+        searchOverlay.offsetWidth - searchOverlay.clientWidth + "px";
+
       document.getElementsByTagName("html")[0].style.overflowY = "hidden";
       document.getElementsByTagName("body")[0].style.position = "fixed";
       document.getElementsByTagName(
