@@ -98,6 +98,7 @@
     position: absolute;
     right: 48px;
     top: 50%;
+    cursor: pointer;
     transform: translateY(-50%);
     display: flex;
     align-items: center;
@@ -106,8 +107,9 @@
     border: none;
     background-color: transparent;
 
-    &:hover {
-      cursor: pointer;
+    &:hover,
+    &:focus {
+      color: $su-color-digital-red;
     }
 
     @include grid-media("sm") {
@@ -125,6 +127,7 @@
   &-submit-button {
     height: 40px;
     width: 40px;
+    cursor: pointer;
     margin-left: 16px;
     border-radius: 50%;
     display: flex;
@@ -143,8 +146,9 @@
       width: 17px;
     }
 
-    &:hover {
-      cursor: pointer;
+    &:hover,
+    &:focus {
+      background-color: $su-color-plum-dark;
     }
   }
 }

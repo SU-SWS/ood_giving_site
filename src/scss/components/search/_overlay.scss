@@ -42,6 +42,15 @@
   .search-input {
     margin-bottom: 3rem;
 
+    &-submit-button {
+      transition: background-color 0.25s ease-out;
+
+      &:hover,
+      &:focus {
+        background-color: $su-color-plum;
+      }
+    }
+
     .react-autosuggest {
       &__input {
         border-bottom-color: #fff;
@@ -71,12 +80,20 @@
     }
 
     &-clear-text {
-      color: white;
+      color: $su-color-white;
+      transition: color 0.25s ease-out;
     }
 
     &-clear-button {
       @include grid-media("sm") {
         right: 9.3rem;
+      }
+
+      &:hover,
+      &:focus {
+        .search-input-clear-text {
+          color: $su-color-digital-red-light;
+        }
       }
     }
 
@@ -110,6 +127,11 @@
   border: none;
   cursor: pointer;
 
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
   // FontAwesome Icon X
   i {
     @include margin(null null null 1rem);
@@ -117,7 +139,6 @@
     top: 0.2rem;
     font-size: 1.1em;
   }
-
 }
 
 .search-error {

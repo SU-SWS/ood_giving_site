@@ -1,52 +1,52 @@
-import React, { useEffect, useState, useMemo, useRef } from "react"
-import AutoSuggest from "react-autosuggest"
-import { connectAutoComplete } from "react-instantsearch-dom"
-import { useLocation } from "@reach/router"
-import qs from "query-string"
+import React, { useEffect, useState, useMemo, useRef } from "react";
+import AutoSuggest from "react-autosuggest";
+import { connectAutoComplete } from "react-instantsearch-dom";
+import { useLocation } from "@reach/router";
+import qs from "query-string";
 
 const Autocomplete = React.forwardRef((props, ref) => {
-  const [initialTerm, setInitialTerm] = useState("")
+  const [initialTerm, setInitialTerm] = useState("");
 
-  const { search } = useLocation()
+  const { search } = useLocation();
 
   useEffect(() => {
-    const params = qs.parse(search)
+    const params = qs.parse(search);
 
     if (params.term) {
-      setInitialTerm(params.term)
+      setInitialTerm(params.term);
     }
-  }, [search])
+  }, [search]);
 
   const AlgoliaAutocomplete = useMemo(
     connectAutoComplete(({ refine, hits, currentRefinement }) => {
-      const [value, setValue] = useState(initialTerm)
-      const [currentSuggestions, setCurrentSuggestions] = useState([])
+      const [value, setValue] = useState(initialTerm);
+      const [currentSuggestions, setCurrentSuggestions] = useState([]);
       const [shouldRenderSuggestions, setShouldRenderSuggestions] = useState(
         false
-      )
+      );
 
       const handleSubmit = ($event, data) => {
-        $event?.preventDefault()
+        $event?.preventDefault();
 
         if (data) {
           // submission by selecting a suggestion
-          props.onSubmit(data.suggestionValue)
+          props.onSubmit(data.suggestionValue);
         } else {
           // submission by pressing Enter key or clicking submit button
-          props.onSubmit(value)
+          props.onSubmit(value);
         }
-      }
+      };
 
       const onChange = (_, { newValue }) => {
-        if (!newValue) props.onSuggestionCleared()
-        setValue(newValue)
-      }
+        if (!newValue) props.onSuggestionCleared();
+        setValue(newValue);
+      };
 
       const onKeyDown = event => {
         if (event.key === "Enter") {
-          handleSubmit(event)
+          handleSubmit(event);
         }
-      }
+      };
 
       const inputProps = {
         ref,
@@ -56,39 +56,39 @@ const Autocomplete = React.forwardRef((props, ref) => {
         onChange,
         onKeyDown,
         onFocus: () => setShouldRenderSuggestions(true),
-      }
+      };
 
       const handleSuggestionsFetch = data => {
-        const newValue = data?.value ?? ""
+        const newValue = data?.value ?? "";
 
-        refine(newValue)
-      }
+        refine(newValue);
+      };
 
       useEffect(() => {
-        if (initialTerm) props.onSubmit(initialTerm)
-      }, [initialTerm])
+        if (initialTerm) props.onSubmit(initialTerm);
+      }, [initialTerm]);
 
       useEffect(() => {
         if (value && value === currentRefinement) {
-          setCurrentSuggestions(hits)
+          setCurrentSuggestions(hits);
         } else if (!value && currentSuggestions.length) {
-          setCurrentSuggestions([])
+          setCurrentSuggestions([]);
         }
-      }, [currentSuggestions, hits, value, currentRefinement])
+      }, [currentSuggestions, hits, value, currentRefinement]);
 
       // The following useEffect's are necessary to never show stale suggestions
       useEffect(() => {
-        setShouldRenderSuggestions(!!value)
-      }, [value])
+        setShouldRenderSuggestions(!!value);
+      }, [value]);
 
-      const prevHitsRef = useRef(hits)
+      const prevHitsRef = useRef(hits);
 
       useEffect(() => {
         setShouldRenderSuggestions(
           JSON.stringify(hits) !== JSON.stringify(prevHitsRef.current)
-        )
-        prevHitsRef.current = hits
-      }, [hits])
+        );
+        prevHitsRef.current = hits;
+      }, [hits]);
 
       return (
         <form role="search" className="search-input">
@@ -105,13 +105,13 @@ const Autocomplete = React.forwardRef((props, ref) => {
             <button
               className="search-input-clear-button"
               onClick={() => {
-                setValue("")
-                props.onSuggestionCleared()
+                setValue("");
+                props.onSuggestionCleared();
               }}
-              title="Clear input"
+              aria-label="Clear search input"
             >
               <span className="search-input-clear-text">Clear</span>
-              <span className="search-input-clear-icon" />
+              <span aria-hidden="true" className="search-input-clear-icon" />
             </button>
           )}
 
@@ -120,19 +120,19 @@ const Autocomplete = React.forwardRef((props, ref) => {
             onClick={handleSubmit}
             type="submit"
           >
+            <span className="su-sr-only-element">Submit search</span>
             <span
               className="search-input-submit-button-icon"
               aria-hidden="true"
             />
-            <span className="su-sr-only-element">Submit search</span>
           </button>
         </form>
-      )
+      );
     }),
     [initialTerm]
-  )
+  );
 
-  return AlgoliaAutocomplete
-})
+  return AlgoliaAutocomplete;
+});
 
-export default Autocomplete
+export default Autocomplete;
