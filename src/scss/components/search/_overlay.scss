@@ -143,20 +143,20 @@
 }
 
 .search-error {
-  display: none;
   font-size: 1.8rem;
   visibility: hidden;
+
+  @include grid-media-max('sm') {
+    display: none;
+  }
 
   @include grid-media('md') {
     @include modular-typography(1);
   }
 
   &--visible {
+    display: block;
     visibility: visible;
-
-    @include grid-media-max('sm') {
-      display: block;
-    }
   }
 }
 
