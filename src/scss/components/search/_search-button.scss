@@ -29,8 +29,9 @@
   }
 
   &-icon {
-    background-size: 100%;
+    background-size: contain;
     background-image: url("#{$su-image-path}/icon-search.svg");
+    background-position: 50%;
     background-repeat: no-repeat;
     height: 18px;
     width: 18px;
