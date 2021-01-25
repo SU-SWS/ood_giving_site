@@ -7,7 +7,10 @@ const HeaderSearchButton = () => {
   return (
     <button className="ood-header__search-button" onClick={toggleSearchOverlay}>
       <span className="su-sr-only-element">Search this site</span>
-      <span className="ood-header__search-button-icon" aria-hidden="true" />
+      <i
+        className="ood-header__search-button-icon fas fa-search fa-flip-horizontal"
+        aria-hidden="true"
+      />
     </button>
   );
 };

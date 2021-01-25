@@ -29,12 +29,8 @@
   }
 
   &-icon {
-    background-size: contain;
-    background-image: url("#{$su-image-path}/icon-search.svg");
-    background-position: 50%;
-    background-repeat: no-repeat;
-    height: 18px;
-    width: 18px;
+    font-size: 1.7rem;
+    color: $su-color-digital-red;
   }
 
   &:hover,
