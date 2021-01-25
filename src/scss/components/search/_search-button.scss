@@ -30,7 +30,8 @@
 
   &-icon {
     background-size: 100%;
-    background: url("#{$su-image-path}/icon-search.svg") no-repeat center center;
+    background-image: url("#{$su-image-path}/icon-search.svg");
+    background-repeat: no-repeat;
     height: 18px;
     width: 18px;
   }
