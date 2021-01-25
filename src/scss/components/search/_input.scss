@@ -126,8 +126,8 @@
   }
 
   &-submit-button {
-    height: 40px;
-    width: 40px;
+    height: 4rem;
+    width: 4rem;
     cursor: pointer;
     margin-left: 16px;
     border-radius: 50%;
@@ -139,11 +139,8 @@
     flex-shrink: 0;
 
     &-icon {
-      background-size: 100%;
-      background-image: url("#{$su-image-path}/icon-search-white.svg");
-      background-repeat: no-repeat;
-      height: 18px;
-      width: 18px;
+      font-size: 1.7rem;
+      color: $su-color-white;
     }
 
     &:hover,

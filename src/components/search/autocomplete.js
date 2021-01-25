@@ -121,8 +121,8 @@ const Autocomplete = React.forwardRef((props, ref) => {
             type="submit"
           >
             <span className="su-sr-only-element">Submit search</span>
-            <span
-              className="search-input-submit-button-icon"
+            <i
+              className="search-input-submit-button-icon fas fa-search fa-flip-horizontal"
               aria-hidden="true"
             />
           </button>

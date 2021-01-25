@@ -107,10 +107,16 @@
         width: 6.9rem;
 
         &-icon {
-          height: 32px;
-          width: 32px;
-          background-size: 100%;
+          font-size: 1.7rem;
+          color: $su-color-white;
         }
+      }
+    }
+
+    &-submit-button-icon {
+      @include grid-media('md') {
+        font-size: 3rem;
+        line-height: 4rem;
       }
     }
   }
