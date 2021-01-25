@@ -15,6 +15,10 @@
   background-color: transparent;
   margin-right: 16px;
 
+  @include grid-media-max('sm') {
+    top: -0.2rem;
+  }
+
   @include grid-media("md") {
     margin-right: 24px;
   }
@@ -26,11 +30,10 @@
 
   &-icon {
     background: url("#{$su-image-path}/icon-search.svg") no-repeat 0 0;
-    background-size: contain;
     background-position: center;
-    background-size: 100%;
-    height: 17px;
-    width: 17px;
+    background-size: 18px;
+    height: 18px;
+    width: 18px;
   }
 
   &:hover,

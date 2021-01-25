@@ -53,6 +53,7 @@
     .react-autosuggest {
       &__input {
         border-bottom-color: $su-color-white;
+        border-radius: 0;
 
         @include grid-media("md") {
           @include modular-typography(4);
