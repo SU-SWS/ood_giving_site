@@ -26,10 +26,6 @@
 .search-header {
   display: flex;
   justify-content: flex-end;
-
-  @include grid-media("sm") {
-    margin-bottom: 20rem;
-  }
 }
 
 .search-body {
@@ -101,22 +97,20 @@
       background: url("#{$su-image-path}/close-white.svg") no-repeat center/50%;
     }
 
-    @include grid-media("sm") {
-      &-submit-button {
+    &-submit-button {
+      @include grid-media('sm') {
         height: 6.9rem;
         width: 6.9rem;
-
-        &-icon {
-          font-size: 1.7rem;
-          color: $su-color-white;
-        }
       }
-    }
 
-    &-submit-button-icon {
-      @include grid-media('md') {
-        font-size: 3rem;
-        line-height: 4rem;
+      &-icon {
+        font-size: 1.7rem;
+        color: $su-color-white;
+
+        @include grid-media('sm') {
+          font-size: 3rem;
+          line-height: 4rem;
+        }
       }
     }
   }
@@ -149,16 +143,20 @@
 }
 
 .search-error {
-  font-size: 2.4rem;
-  font-weight: $su-font-bold;
-  @include serif;
+  display: none;
+  font-size: 1.8rem;
   visibility: hidden;
-  pointer-events: none;
-  margin-bottom: 4.5rem;
+
+  @include grid-media('md') {
+    @include modular-typography(1);
+  }
 
   &--visible {
     visibility: visible;
-    pointer-events: all;
+
+    @include grid-media-max('sm') {
+      display: block;
+    }
   }
 }
 
@@ -172,26 +170,16 @@
 }
 
 .search-footer-cols {
+  flex-direction: column;
+
   @include grid-media("md") {
-    display: flex;
+    flex-direction: row;
   }
 }
 
 .search-footer-col {
   &:first-child {
     margin-bottom: 4rem;
-  }
-
-  @include grid-media("md") {
-    flex-grow: 1;
-
-    &:first-child {
-      margin-right: 1rem;
-    }
-
-    &:last-child {
-      margin-left: 1rem;
-    }
   }
 }
 

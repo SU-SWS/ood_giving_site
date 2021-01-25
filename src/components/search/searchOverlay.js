@@ -62,7 +62,7 @@ const SearchOverlay = () => {
     <div className={`search-overlay ${isOpen ? "visible" : "hidden"}`}>
       <LocationProvider>
         <CenteredContainer classes="search-container su-pt-1" flex={true}>
-          <FlexCell lg={10} xl={8} classes="su-mx-auto">
+          <FlexCell lg={11} xl={9} xxl={8} classes="su-mx-auto">
             <div className="search-header">
               <button
                 className="search-close-button"
@@ -97,14 +97,14 @@ const SearchOverlay = () => {
                 <Configure hitsPerPage={parseInt(suggestionsAmount) ?? 10} />
               </InstantSearch>
             </div>
-            <div
-              className={`search-error ${
+            <p
+              className={`search-error su-serif su-bold ${
                 isEmptyErrorVisible ? "search-error--visible" : ""
               }`}
             >
               {emptySearchMessage}
-            </div>
-            <div className="search-footer">
+            </p>
+            <div className="search-footer su-mt-3">
               <Heading
                 level={"h3"}
                 classes="search-categories-headline su-mb-2"
@@ -114,8 +114,8 @@ const SearchOverlay = () => {
               >
                 {categoriesHeadline}
               </Heading>
-              <div className="search-footer-cols">
-                <div className="search-footer-col">
+              <div className="su-flex search-footer-cols">
+                <FlexCell md={6} classes="search-footer-col">
                   <Heading
                     level={"h4"}
                     weight={"semibold"}
@@ -135,8 +135,8 @@ const SearchOverlay = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
-                <div className="search-footer-col">
+                </FlexCell>
+                <FlexCell md={6} classes="search-footer-col">
                   <Heading
                     level={"h4"}
                     weight={"semibold"}
@@ -161,7 +161,7 @@ const SearchOverlay = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </FlexCell>
               </div>
             </div>
           </FlexCell>
