@@ -61,7 +61,7 @@ const SearchOverlay = () => {
   return (
     <div className={`search-overlay ${isOpen ? "visible" : "hidden"}`}>
       <LocationProvider>
-        <CenteredContainer classes="search-container su-pt-1" flex={true}>
+        <CenteredContainer classes="search-container su-pt-5" flex={true}>
           <FlexCell lg={11} xl={9} xxl={8} classes="su-mx-auto">
             <div className="search-header">
               <button
@@ -120,7 +120,7 @@ const SearchOverlay = () => {
                     level={"h4"}
                     weight={"semibold"}
                     color={"white"}
-                    classes="search-category-title"
+                    classes="search-category-title su-mb-1"
                   >
                     {categoriesLeftHeadline}
                   </Heading>
@@ -141,7 +141,7 @@ const SearchOverlay = () => {
                     level={"h4"}
                     weight={"semibold"}
                     color={"white"}
-                    classes="search-category-title"
+                    classes="search-category-title su-mb-1"
                   >
                     {categoriesRightHeadline}
                   </Heading>
