@@ -81,7 +81,7 @@
       @include grid-media('lg') {
         @include fancy-hover($su-color-digital-red, $su-color-black, 'bottom', '10px');
         @include padding (1.6rem 0 null);
-        @include margin(0 3.4rem 0 0);
+        @include margin(0 3rem 0 0);
         display: inline-block;
         transition: color 0.3s ease-in;
         font-size: 2.1rem;
@@ -91,6 +91,10 @@
           color: $su-color-digital-red;
           outline: none;
         }
+      }
+
+      @include grid-media('xl') {
+        @include margin(0 3.8rem 0 0);
       }
     }
 
