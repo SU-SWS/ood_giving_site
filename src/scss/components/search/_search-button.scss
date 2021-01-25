@@ -8,7 +8,7 @@
   width: 40px;
   cursor: pointer;
   border-radius: 50%;
-  border: 1px solid #c0c0bf;
+  border: 1px solid $su-color-black-30;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,9 +29,8 @@
   }
 
   &-icon {
-    background: url("#{$su-image-path}/icon-search.svg") no-repeat 0 0;
-    background-position: center;
-    background-size: 18px;
+    background-size: 100%;
+    background: url("#{$su-image-path}/icon-search.svg") no-repeat center center;
     height: 18px;
     width: 18px;
   }

@@ -107,8 +107,9 @@
         width: 6.9rem;
 
         &-icon {
-          height: 3.2rem;
-          width: 3.2rem;
+          height: 32px;
+          width: 32px;
+          background-size: 100%;
         }
       }
     }
@@ -124,7 +125,7 @@
   @include modular-typography(1);
   background-color: transparent;
   color: $su-color-white;
-  border: none;
+  border: 0;
   cursor: pointer;
 
   &:hover,

@@ -49,7 +49,7 @@
       background-color: $su-color-white;
       z-index: 100;
       border: 1px solid $su-color-digital-red;
-      border-top: none;
+      border-top: 0;
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
       display: none;
@@ -139,12 +139,10 @@
     flex-shrink: 0;
 
     &-icon {
-      background: url("#{$su-image-path}/icon-search-white.svg") no-repeat 0 0;
-      background-size: contain;
-      background-position: center;
       background-size: 100%;
-      height: 17px;
-      width: 17px;
+      background: url("#{$su-image-path}/icon-search-white.svg") no-repeat center center;
+      height: 18px;
+      width: 18px;
     }
 
     &:hover,
