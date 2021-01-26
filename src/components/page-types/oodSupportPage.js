@@ -39,7 +39,7 @@ const OodSupportPage = (props) => {
                 <input type="radio" id="business" name="areas-to-support"/>
                 <label htmlFor="business">Business + Economics</label>
                 <input type="radio" id="culture" name="areas-to-support"/>
-                <label htmlFor="culture">Culture + Ethics</label>
+                <label htmlFor="culture">Culture, Ethics, + Service</label>
                 <input type="radio" id="law" name="areas-to-support"/>
                 <label htmlFor="law">Law, Policy, + Government</label>
                 <input type="radio" id="medicine" name="areas-to-support"/>
