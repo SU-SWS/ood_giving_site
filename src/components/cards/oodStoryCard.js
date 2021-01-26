@@ -10,8 +10,7 @@ const OodStoryCard = props => {
       <article
         className={`ood-story-card
                ${props.blok.orientation ? "ood-story-card--horizontal" : ""}
-               ${
-                 props.blok.image.filename != null &&
+               ${props.blok.image.filename?.startsWith("http") &&
                  props.blok.showImage === true
                    ? "ood-story-card--has-image"
                    : "ood-story-card--no-image"
