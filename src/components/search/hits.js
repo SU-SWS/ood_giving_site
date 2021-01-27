@@ -27,7 +27,10 @@ const Hits = props => {
       {hits.length > 0 && <Stats />}
 
       {hits.map(hit => (
-        <article className="search-hits-item su-mb-3" key={hit.objectID}>
+        <article
+          className="search-hits-item su-mb-2 su-pb-2 su-px-default"
+          key={hit.objectID}
+        >
           <Heading level={"h2"} serif={true} weight={"bold"}>
             <SbLink link={{ cached_url: `/${hit.slug}` }}>{hit.title}</SbLink>
           </Heading>
