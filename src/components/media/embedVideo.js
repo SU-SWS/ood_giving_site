@@ -35,7 +35,7 @@ const VideoWrapper = (props) => {
   } else if (props.blok.videoWidth === "inset") {
     return (
       <CenteredContainer flex={true} classes={videoWrapperClasses}>
-        <FlexCell sm={10} md={8} lg={7} xl={6} xxl={5} classes={"su-mx-auto"}>
+        <FlexCell sm={10} md={8} lg={7} xl={6} classes={"su-mx-auto"}>
           {props.children}
         </FlexCell>
       </CenteredContainer>
@@ -83,11 +83,13 @@ const EmbedVideo = (props) => {
               allowFullScreen
             />
           </div>
-          <figcaption
-            className={`su-media__caption ood-story-media__caption su-text-align-${props.blok.captionAlign}`}
-          >
-            <RichTextField data={props.blok.caption} />
-          </figcaption>
+          {props.blok.caption && (
+            <figcaption
+              className={`su-media__caption ood-story-media__caption su-text-align-${props.blok.captionAlign}`}
+            >
+              <RichTextField data={props.blok.caption} />
+            </figcaption>
+          )}
         </figure>
       </VideoWrapper>
     </SbEditable>
