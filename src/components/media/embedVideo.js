@@ -1,7 +1,50 @@
 import React from "react";
 import SbEditable from "storyblok-react";
 import RichTextField from "../../utilities/richTextField";
-import Heading from "../partials/heading";
+import CenteredContainer from "../partials/centeredContainer";
+import FlexCell from "../partials/flexCell";
+
+// Wrapper that sets the size of the video depending on Storyblok option selected
+const VideoWrapper = (props) => {
+  const videoWrapperClasses = `video-embed
+        ${
+          props.blok.spacingTop !== "none"
+            ? `su-pt-${props.blok.spacingTop}`
+            : ""
+        }
+        ${
+          props.blok.spacingBottom !== "none"
+            ? `su-pb-${props.blok.spacingBottom}`
+            : ""
+        }`;
+
+  if (props.blok.videoWidth === "site") {
+    return (
+      <CenteredContainer classes={videoWrapperClasses}>
+        {props.children}
+      </CenteredContainer>
+    );
+  } else if (props.blok.videoWidth === "story") {
+    return (
+      <CenteredContainer flex={true} classes={videoWrapperClasses}>
+        <FlexCell lg={8} classes={"su-mx-auto"}>
+          {props.children}
+        </FlexCell>
+      </CenteredContainer>
+    );
+  } else if (props.blok.videoWidth === "inset") {
+    return (
+      <CenteredContainer flex={true} classes={videoWrapperClasses}>
+        <FlexCell sm={10} md={8} lg={7} xl={6} xxl={5} classes={"su-mx-auto"}>
+          {props.children}
+        </FlexCell>
+      </CenteredContainer>
+    );
+  } else {
+    // This is for fitting to any parent container width so we don't want centered container
+    return <div className={videoWrapperClasses}>{props.children}</div>;
+  }
+};
 
 const EmbedVideo = (props) => {
   let embedUrl = "";
@@ -28,7 +71,7 @@ const EmbedVideo = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <div className="video-embed">
+      <VideoWrapper {...props}>
         <figure className="su-media">
           <div
             className={`su-media__wrapper su-embed-container--${props.blok.aspectRatio}`}
@@ -46,7 +89,7 @@ const EmbedVideo = (props) => {
             <RichTextField data={props.blok.caption} />
           </figcaption>
         </figure>
-      </div>
+      </VideoWrapper>
     </SbEditable>
   );
 };
