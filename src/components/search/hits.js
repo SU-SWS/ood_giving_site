@@ -38,7 +38,7 @@ const Hits = props => {
         </article>
       ))}
 
-      <Pagination initialPage={props.initialPage} />
+      {hits.length > 0 && <Pagination initialPage={props.initialPage} />}
     </div>
   ));
 
