@@ -3,18 +3,16 @@
 .search-hits {
   &-item {
     padding: 0 2.4rem 4.6rem;
-    margin-bottom: 4.6rem;
+    //margin-bottom: 4.6rem;
     border-bottom: 1px solid $su-color-black-40;
 
     // the search hit title
     > h2 {
-      @include serif;
-      font-size: 2.4rem;
-      font-weight: 700;
-      text-decoration: none;
-      margin-bottom: 1.6rem;
-      display: block;
       @include link-icon(caret-right, 12px, right, 0.06em);
+      @include modular-typography(1);
+      @include margin(null null 0.8em);
+      display: block;
+      text-decoration: none;
 
       &::after {
         background-color: $su-color-digital-red;
@@ -29,12 +27,10 @@
 
   &-no-hits {
     &-title {
+      @include modular-typography(1);
       display: block;
-      font-size: 2.4rem;
-      font-weight: $su-font-bold;
       margin-bottom: 1.2rem;
       white-space: pre-line;
-      @include serif;
 
       @include grid-media("sm") {
         font-size: 3.6rem;
@@ -45,7 +41,7 @@
       font-size: 1.8rem;
 
       @include grid-media("sm") {
-        font-size: 2.3rem;
+        @include modular-typography(1);
       }
     }
 
