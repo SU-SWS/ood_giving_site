@@ -29,17 +29,6 @@ const EmbedVideo = (props) => {
   return (
     <SbEditable content={props.blok}>
       <div className="video-embed">
-        {props.blok.heading && (
-          <Heading
-            level={props.blok.headingLevel}
-            serif={true}
-            weight={"bold"}
-            align={"left"}
-            classes={`section__title`}
-          >
-            {props.blok.heading}
-          </Heading>
-        )}
         <figure className="su-media">
           <div
             className={`su-media__wrapper su-embed-container--${props.blok.aspectRatio}`}
