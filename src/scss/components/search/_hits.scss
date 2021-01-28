@@ -6,14 +6,24 @@
 
     // the search hit title
     > h2 {
-      @include link-icon(caret-right, 12px, right, 0.06em);
       @include modular-typography(1);
       @include margin(null null 0.8em);
       display: block;
       text-decoration: none;
 
-      &::after {
-        background-color: $su-color-digital-red;
+      > a {
+        @include link-icon(caret-right, 12px, right, 0.06em);
+
+        &::after {
+          background-color: $su-color-digital-red;
+        }
+
+        &:hover,
+        &:focus {
+          &::after {
+            background-color: $su-color-sky-dark;
+          }
+        }
       }
     }
 
@@ -30,17 +40,17 @@
       margin-bottom: 1.2rem;
       white-space: pre-line;
 
-      @include grid-media("sm") {
-        font-size: 3.6rem;
+      @include grid-media('md') {
+        @include modular-typography(2);
+      }
+
+      @include grid-media('lg') {
+        @include modular-typography(3);
       }
     }
 
     &-text {
-      font-size: 1.8rem;
-
-      @include grid-media("sm") {
-        @include modular-typography(1);
-      }
+      @include ood-big-paragraph;
     }
 
     + .search-pagination {
