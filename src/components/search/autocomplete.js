@@ -65,7 +65,9 @@ const Autocomplete = React.forwardRef((props, ref) => {
       };
 
       useEffect(() => {
-        if (initialTerm) props.onSubmit(initialTerm);
+        if (initialTerm) { 
+          props.onSubmit(initialTerm);
+        }
       }, [initialTerm]);
 
       useEffect(() => {
