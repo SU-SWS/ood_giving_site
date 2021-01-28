@@ -44,7 +44,7 @@
 
     &--text {
       @include sans;
-      @include margin(-0.4rem null null);
+      @include margin(-0.8rem null null);
       text-transform: uppercase;
       letter-spacing: 0.05em;
 
@@ -56,22 +56,11 @@
 
     &--placeholder {
       color: $su-color-black-true;
-
-      &::after {
-        display: none;
-      }
-
-      &:hover {
-        cursor: default;
-      }
     }
 
     &--current {
       color: $su-color-black-true;
-
-      &::after {
-        background-color: currentColor;
-      }
+      border-bottom: 4px solid currentColor;
     }
 
     &--mobile-hidden {
