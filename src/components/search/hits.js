@@ -34,7 +34,9 @@ const Hits = props => {
           <Heading level={"h2"} serif={true} weight={"bold"}>
             <SbLink link={{ cached_url: `/${hit.slug}` }}>{hit.title}</SbLink>
           </Heading>
-          <p>{hit.intro || hit.teaser || hit.description}</p>
+          <p className="su-mb-none">
+            {hit.intro || hit.teaser || hit.description}
+          </p>
         </article>
       ))}
 

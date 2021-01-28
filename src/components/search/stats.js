@@ -1,10 +1,10 @@
-import React from "react"
-import { connectStats } from "react-instantsearch-dom"
+import React from "react";
+import { connectStats } from "react-instantsearch-dom";
 
 const Stats = connectStats(({ nbHits }) => (
-  <div className="search-stats">
+  <p className="search-stats">
     <strong>{nbHits}</strong>&nbsp;{nbHits !== 1 ? "results" : "result"} found:
-  </div>
-))
+  </p>
+));
 
-export default Stats
+export default Stats;
