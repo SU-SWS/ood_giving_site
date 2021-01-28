@@ -111,7 +111,10 @@ const Autocomplete = React.forwardRef((props, ref) => {
               aria-label="Clear search input"
             >
               <span className="search-input-clear-text">Clear</span>
-              <span aria-hidden="true" className="search-input-clear-icon" />
+              <i
+                aria-hidden="true"
+                className="search-input-clear-icon fas fa-times"
+              />
             </button>
           )}
 

@@ -88,14 +88,15 @@
 
       &:hover,
       &:focus {
-        .search-input-clear-text {
+        .search-input-clear-text,
+        .search-input-clear-icon {
           color: $su-color-digital-red-light;
         }
       }
     }
 
     &-clear-icon {
-      background: url("#{$su-image-path}/close-white.svg") no-repeat center/50%;
+      color: $su-color-white;
     }
 
     &-submit-button {

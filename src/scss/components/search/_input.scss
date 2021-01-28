@@ -99,7 +99,7 @@
 
   &-clear-button {
     position: absolute;
-    right: 48px;
+    right: 56px;
     top: 50%;
     cursor: pointer;
     transform: translateY(-50%);
@@ -121,10 +121,7 @@
   }
 
   &-clear-icon {
-    background: url("#{$su-image-path}/close-black.svg") no-repeat center/50%;
-    height: 30px;
-    width: 30px;
-    display: block;
+    @include margin(null null null 0.4em);
   }
 
   &-submit-button {
