@@ -10,7 +10,7 @@ const SearchOverlayOpenContextProvider = props => {
     if (isOpen) {
       const searchOverlay = document.querySelector(".search-overlay");
       let scrollbarWidth =
-        searchOverlay.offsetWidth - searchOverlay.clientWidth + "px";
+        window.offsetWidth - searchOverlay.clientWidth + "px";
 
       document.getElementsByTagName("html")[0].style.overflowY = "hidden";
       document.getElementsByTagName("body")[0].style.position = "fixed";
