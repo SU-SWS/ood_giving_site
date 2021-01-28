@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+.search-input {
+  @include responsive-spacing('margin', null null 5);
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  .react-autosuggest {
+    &__container {
+      display: flex;
+      flex-direction: column;
+      width: calc(100% - 56px);
+      position: relative;
+    }
+
+    &__input {
+      @include modular-typography(2);
+      @include padding(null 6.4rem 0.7rem null);
+      @include responsive-spacing('padding', null null null 0);
+      flex-grow: 1;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      font-weight: $su-font-semi-bold;
+      line-height: 1.2; // So descenders don't get slightly chopped off
+      border-bottom: 1px solid $su-color-black-60;
+      outline: none;
+      color: inherit;
+      min-width: 0;
+
+      &:focus {
+        border-bottom-color: $su-color-digital-red;
+      }
+
+      @include grid-media('sm') {
+        @include padding(null 8rem 0.7rem null);
+        flex-grow: 1;
+      }
+
+      @include grid-media('md') {
+        @include padding(null null 1.2rem null);
+      }
+    }
+
+    &__suggestions-container {
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      left: 0;
+      background-color: $su-color-white;
+      z-index: 100;
+      border: 1px solid $su-color-digital-red;
+      border-top: 0;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      display: none;
+      box-shadow: $ood-shadow--medium;
+
+      &--open {
+        display: block;
+      }
+    }
+
+    &__suggestions-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 8px;
+    }
+
+    &__suggestion {
+      margin: 0;
+      border-radius: 16px;
+      padding: 8px 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      user-select: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &--highlighted {
+        color: $su-color-digital-red;
+        background-color: $su-color-black-10;
+      }
+    }
+
+    + .search-input-clear-button {
+      right: 56px;
+      top: 0;
+      transform: none;
+
+      @include grid-media("sm") {
+        top: 4px;
+      }
+    }
+  }
+
+  &-clear-button {
+    position: absolute;
+    right: 56px;
+    top: 50%;
+    cursor: pointer;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+      color: $su-color-digital-red;
+    }
+
+    @include grid-media("sm") {
+      right: 64px;
+    }
+  }
+
+  &-clear-icon {
+    @include margin(null null null 0.4em);
+  }
+
+  &-submit-button {
+    height: 4rem;
+    width: 4rem;
+    cursor: pointer;
+    margin-left: 16px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background-color: $su-color-digital-red;
+    flex-shrink: 0;
+    transition: background-color 0.25s ease-out;
+
+    &-icon {
+      font-size: 1.7rem;
+      color: $su-color-white;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $su-color-plum-dark;
+    }
+  }
+}
