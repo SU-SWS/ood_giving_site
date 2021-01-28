@@ -115,7 +115,6 @@ const ComponentList = {
 const Components = (type) => {
   if (typeof ComponentList[type] === 'undefined') {
     return ComponentNotFound
-  }
   return ComponentList[type]
 }
 
