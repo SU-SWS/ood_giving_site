@@ -20,7 +20,7 @@
     position: relative;
 
     a {
-      @include padding(0.4rem);
+      @include padding(null 0.4rem null);
       text-decoration: none;
       font-weight: $su-font-bold;
 
@@ -59,6 +59,7 @@
     }
 
     &--current {
+      @include margin(0.4rem null null);
       color: $su-color-black-true;
       border-bottom: 4px solid currentColor;
     }
