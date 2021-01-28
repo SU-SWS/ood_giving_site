@@ -12,18 +12,22 @@
 
   &-item {
     @include serif;
-    font-size: 2.4rem;
     font-weight: $su-font-bold;
     color: $su-color-digital-red;
-    padding: 0.4rem;
     display: inline-block;
     margin: 0;
     position: relative;
 
     a {
+      @include padding(0.4rem);
+      @include modular-typography(1);
       text-decoration: none;
       font-weight: $su-font-bold;
-      font-size: 2.4rem;
+
+      &:hover,
+      &:focus {
+        border: 4px solid currentColor;
+      }
     }
 
     &:not(:last-child) {
@@ -35,25 +39,6 @@
 
       @include grid-media("md") {
         margin-right: 3.6rem;
-      }
-    }
-
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      pointer-events: none;
-      bottom: -0.4rem;
-      left: 0;
-      width: 100%;
-      height: 0.4rem;
-    }
-
-    &:hover {
-      cursor: pointer;
-
-      &::after {
-        background-color: currentColor;
       }
     }
 

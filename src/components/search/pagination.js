@@ -1,43 +1,40 @@
-import React, { useEffect, useMemo } from "react"
-import { connectPagination } from "react-instantsearch-dom"
+import React, { useEffect, useMemo } from "react";
+import { connectPagination } from "react-instantsearch-dom";
 
 const Pagination = ({ initialPage }) => {
   const AlgoliaPagination = useMemo(
     connectPagination(({ nbPages, currentRefinement: currentPage, refine }) => {
       useEffect(() => {
-        if (initialPage && initialPage !== currentPage) refine(initialPage)
-      }, [])
+        if (initialPage && initialPage !== currentPage) refine(initialPage);
+      }, []);
 
-      const isPreviousVisible = currentPage > 1
-      const isNextVisible = currentPage < nbPages
+      const isPreviousVisible = currentPage > 1;
+      const isNextVisible = currentPage < nbPages;
       const nextPages = isNextVisible
         ? currentPage + 1 < nbPages
           ? [currentPage + 1, currentPage + 2]
           : [currentPage + 1]
-        : []
+        : [];
       const previousPages = isPreviousVisible
         ? currentPage - 1 > 1
           ? [currentPage - 2, currentPage - 1]
           : [currentPage - 1]
-        : []
-      const isFirstPageVisible = currentPage > 3
+        : [];
+      const isFirstPageVisible = currentPage > 3;
 
-      const isLastPageVisible = nextPages[nextPages.length - 1] < nbPages
+      const isLastPageVisible = nextPages[nextPages.length - 1] < nbPages;
 
       const handlePageChange = (newPage, $event) => {
-        $event.preventDefault()
-        refine(newPage)
-        document.querySelector(".search-hits")?.scrollIntoView()
-      }
+        $event.preventDefault();
+        refine(newPage);
+        document.querySelector(".search-hits")?.scrollIntoView();
+      };
 
       return (
-        <nav role="navigation" aria-label="Pagination Navigation">
+        <nav role="navigation" aria-label="Search Results Pagination">
           <ul className="search-pagination">
             {isPreviousVisible && (
-              <li
-                className="search-pagination-item search-pagination-item--text"
-                tabIndex={0}
-              >
+              <li className="search-pagination-item search-pagination-item--text">
                 <a
                   onClick={$event => handlePageChange(currentPage - 1, $event)}
                   href={`/search-results?page=${currentPage - 1}`}
@@ -77,12 +74,12 @@ const Pagination = ({ initialPage }) => {
                     {page}
                   </a>
                 </li>
-              )
+              );
             })}
             <li
               className="search-pagination-item search-pagination-item--current"
               aria-label={`Page ${currentPage}, current page`}
-              aria-current="true"
+              aria-current="page"
             >
               {currentPage}
             </li>
@@ -97,7 +94,7 @@ const Pagination = ({ initialPage }) => {
                     {page}
                   </a>
                 </li>
-              )
+              );
             })}
             {isLastPageVisible && (
               <>
@@ -128,12 +125,12 @@ const Pagination = ({ initialPage }) => {
             )}
           </ul>
         </nav>
-      )
+      );
     }),
     []
-  )
+  );
 
-  return AlgoliaPagination
-}
+  return AlgoliaPagination;
+};
 
-export default Pagination
+export default Pagination;
