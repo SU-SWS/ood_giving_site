@@ -1,11 +1,11 @@
-import SbEditable from "storyblok-react"
-import React from "react"
-import SbLink from "../../partials/sbLink"
-import AspectRatioImage from "../../media/aspectRatioImage"
+import SbEditable from "storyblok-react";
+import React from "react";
+import SbLink from "../../partials/sbLink";
+import AspectRatioImage from "../../media/aspectRatioImage";
 
-const StoryCardView = props => {
-  const Heading = props.headingLevel ? props.headingLevel : "h3"
-  const theLink = { linktype: "story", url: props.storyLink + "/" }
+const StoryCardView = (props) => {
+  const Heading = props.headingLevel ? props.headingLevel : "h3";
+  const theLink = { linktype: "story", url: props.storyLink + "/" };
   return (
     <SbEditable content={props.blok}>
       <article
@@ -16,8 +16,8 @@ const StoryCardView = props => {
                      : ""
                  }
                  ${
-                   (props.blok.cardImage.filename != null ||
-                     props.blok.heroImage.filename != null) &&
+                   (props.blok.cardImage.filename?.startsWith("http") ||
+                     props.blok.heroImage.filename?.startsWith("http")) &&
                    props.hideImage === false
                      ? "ood-story-card--has-image"
                      : "ood-story-card--no-image"
@@ -34,8 +34,8 @@ const StoryCardView = props => {
                 : "su-border-color-black-11"
             }`}
         >
-          {(props.blok.cardImage.filename != null ||
-            props.blok.heroImage.filename != null) &&
+          {(props.blok.cardImage.filename?.startsWith("http") ||
+            props.blok.heroImage.filename?.startsWith("http")) &&
             props.hideImage === false && (
               <AspectRatioImage
                 {...props}
@@ -76,7 +76,7 @@ const StoryCardView = props => {
         </SbLink>
       </article>
     </SbEditable>
-  )
-}
+  );
+};
 
-export default StoryCardView
+export default StoryCardView;
