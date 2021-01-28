@@ -20,7 +20,7 @@
     position: relative;
 
     a {
-      @include padding(null 0.4rem null);
+      @include padding(null 0.6rem 0.2rem);
       text-decoration: none;
       font-weight: $su-font-bold;
 
@@ -44,9 +44,13 @@
 
     &--text {
       @include sans;
-      @include margin(-0.8rem null null);
+      @include margin(-0.6rem null null);
       text-transform: uppercase;
       letter-spacing: 0.05em;
+
+      @include grid-media('md') {
+        @include margin(-0.8rem null null);
+      }
 
       a {
         font-weight: $su-font-semi-bold;
@@ -60,6 +64,7 @@
 
     &--current {
       @include margin(0.4rem null null);
+      @include padding(null 0.6rem null null);
       color: $su-color-black-true;
       border-bottom: 4px solid currentColor;
     }
