@@ -53,6 +53,7 @@
       }
 
       a {
+        @include padding(null null 0.8rem);
         font-weight: $su-font-semi-bold;
         font-size: 1.6rem;
       }
@@ -64,7 +65,7 @@
 
     &--current {
       @include margin(0.4rem null null);
-      @include padding(null 0.6rem null null);
+      @include padding(null 0.6rem);
       color: $su-color-black-true;
       border-bottom: 4px solid currentColor;
     }
