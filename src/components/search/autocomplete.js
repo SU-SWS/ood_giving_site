@@ -12,10 +12,10 @@ const Autocomplete = React.forwardRef((props, ref) => {
   useEffect(() => {
     const params = qs.parse(search);
 
-    if (params.term) {
+    if (params.term && !props.skipInitialTermFromParam) {
       setInitialTerm(params.term);
     }
-  }, [search]);
+  }, [search, props]);
 
   const AlgoliaAutocomplete = useMemo(
     connectAutoComplete(({ refine, hits, currentRefinement }) => {

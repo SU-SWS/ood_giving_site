@@ -26,13 +26,17 @@ const SearchOverlay = () => {
     }
   }, [isOpen, inputRef]);
 
+  const previousSubmittedTermRef = useRef("");
+
   const submitTerm = term => {
-    if (term.length > 0) {
+    if (term.length > 0 && term !== previousSubmittedTermRef.current) {
       navigate(`${config.basePath}search-results?term=${term}`);
+
       closeSearchOverlay();
     } else {
       setIsEmptyErrorVisible(true);
     }
+    previousSubmittedTermRef.current = term;
   };
 
   const handleSuggestionCleared = () => {
@@ -89,11 +93,14 @@ const SearchOverlay = () => {
                 searchClient={searchClient}
                 indexName={process.env.GATSBY_ALGOLIA_SUGGESTIONS_INDEX_NAME}
               >
-                <Autocomplete
-                  onSubmit={submitTerm}
-                  onSuggestionCleared={handleSuggestionCleared}
-                  ref={inputRef}
-                />
+                {isOpen && (
+                  <Autocomplete
+                    onSubmit={submitTerm}
+                    onSuggestionCleared={handleSuggestionCleared}
+                    ref={inputRef}
+                    skipInitialTermFromParam
+                  />
+                )}
                 <Configure hitsPerPage={parseInt(suggestionsAmount) ?? 10} />
               </InstantSearch>
             </div>
