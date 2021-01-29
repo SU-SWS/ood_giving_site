@@ -39,6 +39,20 @@ Connecting to Storyblok
 
 You will need an access token to connect to a storyblok space. Contact a member on the project team to get one. Once you have obtained a key you will need to add it to your local environment file. In `.env.development` and/or `.env.production` add the value of the access key to the `GATSBY_STORYBLOK_ACCESS_TOKEN` variable. `Development` builds can use the `preview` access tokens from Storyblok, but `Production` builds should only ever use the `public` access tokens. This is to ensure no unpublished content is accidentally revealed to the public.
 
+Connecting to Algolia
+---
+
+The content of this site is indexed with Algolia. When the search is used, Algolia is queried by the frontend for results. In order to do that, the frontend needs several environment variables: 
+
+* `GATSBY_ALGOLIA_APP_ID`,
+* `GATSBY_ALGOLIA_SEARCH_API_KEY`,
+* `GATSBY_ALGOLIA_INDEX_NAME` and
+* `GATSBY_ALGOLIA_SUGGESTIONS_INDEX_NAME`.
+
+Set these in your `.env.development`/`.env.production` files in order for the search to work. 
+
+When building a production build, the Algolia index is also rebuilt, if and only if the environment variable `NETLIFY` is set to `true`. This is so local test builds do not trigger a index rebuild. The re-indexing needs an additional environment variable - the private Algolia admin API key `ALGOLIA_ADMIN_KEY`.
+
 Development vs Production builds.
 ---
 

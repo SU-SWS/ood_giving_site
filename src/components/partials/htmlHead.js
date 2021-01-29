@@ -10,7 +10,6 @@ const HtmlHead = props => {
   return (
     <>
       <title>Giving to Stanford</title>
-
       <link
         rel="apple-touch-icon"
         sizes="57x57"
