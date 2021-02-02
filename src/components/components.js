@@ -57,6 +57,7 @@ import StoryPicker from "./page-types/story/storyPicker";
 // Composite Components
 import Accordion from "./composite/accordion";
 import AccordionItem from "./composite/accordionItem";
+import SearchResults from "./search/searchResults";
 
 const ComponentList = {
   page: Page,
@@ -109,9 +110,10 @@ const ComponentList = {
   storyPicker: StoryPicker,
   oodSupportPage: OodSupportPage,
   gridThreeColumns: GridThreeColumns,
+  searchResults: SearchResults,
 };
 
-const Components = type => {
+const Components = (type) => {
   if (typeof ComponentList[type] === "undefined") {
     return ComponentNotFound;
   }

@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+// Header search button styles
+
+.ood-header__search-button {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid $su-color-black-30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  margin-right: 16px;
+
+  @include grid-media-max('sm') {
+    top: -0.2rem;
+  }
+
+  @include grid-media("md") {
+    margin-right: 24px;
+  }
+
+  @include grid-media("lg") {
+    top: -0.6rem;
+    margin-right: 0;
+  }
+
+  &-icon {
+    font-size: 1.7rem;
+    color: $su-color-digital-red;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $su-color-black-10;
+  }
+}
