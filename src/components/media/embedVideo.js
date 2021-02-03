@@ -3,6 +3,7 @@ import SbEditable from "storyblok-react";
 import RichTextField from "../../utilities/richTextField";
 import CenteredContainer from "../partials/centeredContainer";
 import FlexCell from "../partials/flexCell";
+import { extract } from "oembed-parser";
 
 // Wrapper that sets the size of the video depending on Storyblok option selected
 const VideoWrapper = (props) => {
@@ -69,7 +70,7 @@ const EmbedVideo = (props) => {
     embedUrl += `?start=${convertToSecond(startMin, startSec)}`;
   }*/
 
-  async function getVid() {
+  /*  async function getVid() {
     try {
       const res = await fetch(
         `https://www.youtube.com/oembed?url=${props.blok.videoId}&format=json`
@@ -80,16 +81,31 @@ const EmbedVideo = (props) => {
     } catch (err) {
       console.error("err", err);
     }
-  }
+  }*/
+
+  const getOembed = async (url) => {
+    try {
+      const oembed = await extract(url);
+      console.log(oembed);
+      return oembed;
+    } catch (err) {
+      console.trace(err);
+    }
+  };
 
   return (
     <SbEditable content={props.blok}>
-      <h2>{getVid().title}</h2>
       <VideoWrapper {...props}>
         <figure className="su-media">
           <div
             className={`su-media__wrapper su-embed-container--${props.blok.aspectRatio}`}
-          ></div>
+          >
+            <div
+              dangerouslySetInnerHTML={{
+                __html: getOembed(props.blok.videoId),
+              }}
+            />
+          </div>
           {props.blok.caption && (
             <figcaption
               className={`su-media__caption ood-story-media__caption su-text-align-${props.blok.captionAlign}`}
