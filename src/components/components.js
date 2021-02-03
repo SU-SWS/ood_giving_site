@@ -49,9 +49,9 @@ import OodStory from "./page-types/story/oodStory";
 import OodSupportPage from "./page-types/oodSupportPage";
 import StoryOverview from "./page-types/storyOverview";
 // Simple Components
-import AspectRatioImage from "./media/aspectRatioImage";
 import CtaLink from "./simple/ctaLink";
 import EmbedScript from "./simple/embedScript";
+import EmbedVideo from "./media/embedVideo";
 import StoryImage from "./media/storyImage";
 import StoryPicker from "./page-types/story/storyPicker";
 // Composite Components
@@ -62,6 +62,7 @@ import SearchResults from "./search/searchResults";
 const ComponentList = {
   page: Page,
   embedScript: EmbedScript,
+  embedVideo: EmbedVideo,
   storyImage: StoryImage,
   ctaLink: CtaLink,
   accordionItem: AccordionItem,
@@ -112,7 +113,7 @@ const ComponentList = {
   searchResults: SearchResults,
 };
 
-const Components = type => {
+const Components = (type) => {
   if (typeof ComponentList[type] === "undefined") {
     return ComponentNotFound;
   }
