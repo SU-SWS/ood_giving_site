@@ -26,7 +26,7 @@ const VideoWrapper = (props) => {
       </CenteredContainer>
     );
   }
-  
+
   if (props.blok.videoWidth === "story") {
     return (
       <CenteredContainer flex={true} classes={videoWrapperClasses}>
@@ -44,15 +44,15 @@ const VideoWrapper = (props) => {
         </FlexCell>
       </CenteredContainer>
     );
-  } 
-  
+  }
+
   // This is for fitting to any parent container width so we don't want centered container
   return <div className={videoWrapperClasses}>{props.children}</div>;
-  
 };
 
 const EmbedVideo = (props) => {
   let videoUrl = props.blok.videoUrl;
+
   const startMin = props.blok.startMinute
     ? parseInt(props.blok.startMinute)
     : 0;
@@ -60,13 +60,7 @@ const EmbedVideo = (props) => {
     ? parseInt(props.blok.startSecond)
     : 0;
 
-  // Youtube only option with a start time
-  if (
-    props.blok.videoUrl.includes("youtube") &&
-    (startMin > 0 || startSec > 0)
-  ) {
-    videoUrl += videoUrl + `?start=${startMin}m${startSec}s`;
-  }
+  const convertToSecond = (min, sec) => min * 60 + sec;
 
   return (
     <SbEditable content={props.blok}>
@@ -75,7 +69,15 @@ const EmbedVideo = (props) => {
           <div
             className={`su-media__wrapper su-embed-container--${props.blok.aspectRatio}`}
           >
-            <ReactPlayer url={videoUrl} controls={true} />
+            <ReactPlayer
+              url={videoUrl}
+              controls={true}
+              config={{
+                youtube: {
+                  playerVars: { start: convertToSecond(startMin, startSec) },
+                },
+              }}
+            />
           </div>
           {props.blok.caption && (
             <figcaption
