@@ -25,7 +25,9 @@ const VideoWrapper = (props) => {
         {props.children}
       </CenteredContainer>
     );
-  } else if (props.blok.videoWidth === "story") {
+  }
+  
+  if (props.blok.videoWidth === "story") {
     return (
       <CenteredContainer flex={true} classes={videoWrapperClasses}>
         <FlexCell lg={8} classes={"su-mx-auto"}>
