@@ -77,7 +77,7 @@ const EmbedVideo = (props) => {
           <div
             className={`su-media__wrapper su-embed-container--${props.blok.aspectRatio}`}
           >
-            <ReactPlayer url={props.blok.videoId} controls={true} />
+            <ReactPlayer url={props.blok.videoUrl} controls={true} />
           </div>
           {props.blok.caption && (
             <figcaption
