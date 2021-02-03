@@ -1,5 +1,6 @@
 import React from "react";
 import SbEditable from "storyblok-react";
+import ReactPlayer from "react-player";
 import RichTextField from "../../utilities/richTextField";
 import CenteredContainer from "../partials/centeredContainer";
 import FlexCell from "../partials/flexCell";
@@ -47,7 +48,7 @@ const VideoWrapper = (props) => {
 };
 
 const EmbedVideo = (props) => {
-  let embedUrl = "";
+  /*  let embedUrl = "";
   const videoProvider = props.blok.provider ?? "youtube";
   const startMin = props.blok.startMinute
     ? parseInt(props.blok.startMinute)
@@ -67,7 +68,7 @@ const EmbedVideo = (props) => {
   // Youtube only option with a start time
   if (videoProvider === "youtube" && (startMin > 0 || startSec > 0)) {
     embedUrl += `?start=${convertToSecond(startMin, startSec)}`;
-  }
+  }*/
 
   return (
     <SbEditable content={props.blok}>
@@ -76,12 +77,7 @@ const EmbedVideo = (props) => {
           <div
             className={`su-media__wrapper su-embed-container--${props.blok.aspectRatio}`}
           >
-            <iframe
-              src={embedUrl}
-              frameBorder="0"
-              allow="accelerometer; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <ReactPlayer url={props.blok.videoId} controls={true} />
           </div>
           {props.blok.caption && (
             <figcaption
