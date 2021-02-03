@@ -35,7 +35,8 @@ const VideoWrapper = (props) => {
         </FlexCell>
       </CenteredContainer>
     );
-  } else if (props.blok.videoWidth === "inset") {
+  }
+  if (props.blok.videoWidth === "inset") {
     return (
       <CenteredContainer flex={true} classes={videoWrapperClasses}>
         <FlexCell sm={10} md={8} lg={7} xl={6} classes={"su-mx-auto"}>
