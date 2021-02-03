@@ -47,7 +47,7 @@ const VideoWrapper = (props) => {
 };
 
 const EmbedVideo = (props) => {
-  let embedUrl = "";
+  /*  let embedUrl = "";
   const videoProvider = props.blok.provider ?? "youtube";
   const startMin = props.blok.startMinute
     ? parseInt(props.blok.startMinute)
@@ -67,22 +67,29 @@ const EmbedVideo = (props) => {
   // Youtube only option with a start time
   if (videoProvider === "youtube" && (startMin > 0 || startSec > 0)) {
     embedUrl += `?start=${convertToSecond(startMin, startSec)}`;
+  }*/
+
+  async function getVid() {
+    try {
+      const res = await fetch(
+        `https://www.youtube.com/oembed?url=${props.blok.videoId}&format=json`
+      );
+      const json = await res.json();
+      console.log("json", json);
+      return json;
+    } catch (err) {
+      console.error("err", err);
+    }
   }
 
   return (
     <SbEditable content={props.blok}>
+      <h2>{getVid().title}</h2>
       <VideoWrapper {...props}>
         <figure className="su-media">
           <div
             className={`su-media__wrapper su-embed-container--${props.blok.aspectRatio}`}
-          >
-            <iframe
-              src={embedUrl}
-              frameBorder="0"
-              allow="accelerometer; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
+          ></div>
           {props.blok.caption && (
             <figcaption
               className={`su-media__caption ood-story-media__caption su-text-align-${props.blok.captionAlign}`}
