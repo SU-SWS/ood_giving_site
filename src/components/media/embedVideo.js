@@ -1,5 +1,6 @@
 import React from "react";
 import SbEditable from "storyblok-react";
+import ReactPlayer from "react-player";
 import RichTextField from "../../utilities/richTextField";
 import CenteredContainer from "../partials/centeredContainer";
 import FlexCell from "../partials/flexCell";
@@ -47,8 +48,7 @@ const VideoWrapper = (props) => {
 };
 
 const EmbedVideo = (props) => {
-  let embedUrl = "";
-  const videoProvider = props.blok.provider ?? "youtube";
+  let videoUrl = props.blok.videoUrl;
   const startMin = props.blok.startMinute
     ? parseInt(props.blok.startMinute)
     : 0;
@@ -56,17 +56,12 @@ const EmbedVideo = (props) => {
     ? parseInt(props.blok.startSecond)
     : 0;
 
-  const convertToSecond = (min, sec) => min * 60 + sec;
-
-  if (videoProvider === "youtube") {
-    embedUrl = `https://www.youtube-nocookie.com/embed/${props.blok.videoId}`;
-  } else if (videoProvider === "vimeo") {
-    embedUrl = `https://player.vimeo.com/video/${props.blok.videoId}?title=0&byline=0&portrait=0&badge=0`;
-  }
-
   // Youtube only option with a start time
-  if (videoProvider === "youtube" && (startMin > 0 || startSec > 0)) {
-    embedUrl += `?start=${convertToSecond(startMin, startSec)}`;
+  if (
+    props.blok.videoUrl.includes("youtube") &&
+    (startMin > 0 || startSec > 0)
+  ) {
+    videoUrl += videoUrl + `?start=${startMin}m${startSec}s`;
   }
 
   return (
@@ -76,12 +71,7 @@ const EmbedVideo = (props) => {
           <div
             className={`su-media__wrapper su-embed-container--${props.blok.aspectRatio}`}
           >
-            <iframe
-              src={embedUrl}
-              frameBorder="0"
-              allow="accelerometer; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <ReactPlayer url={videoUrl} controls={true} />
           </div>
           {props.blok.caption && (
             <figcaption
