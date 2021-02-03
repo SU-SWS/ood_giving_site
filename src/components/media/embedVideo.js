@@ -44,10 +44,11 @@ const VideoWrapper = (props) => {
         </FlexCell>
       </CenteredContainer>
     );
-  } else {
-    // This is for fitting to any parent container width so we don't want centered container
-    return <div className={videoWrapperClasses}>{props.children}</div>;
-  }
+  } 
+  
+  // This is for fitting to any parent container width so we don't want centered container
+  return <div className={videoWrapperClasses}>{props.children}</div>;
+  
 };
 
 const EmbedVideo = (props) => {
