@@ -2,7 +2,7 @@
   "name": "giving-to-stanford",
   "private": true,
   "description": "Giving to Stanford",
-  "version": "1.1.0-dev.0",
+  "version": "1.1.0-dev.1",
   "author": "Stanford University Office of Development",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
@@ -63,7 +63,6 @@
     "release:changelog": "auto-changelog -p && git add CHANGELOG.md",
     "release:bump": "npm version prerelease",
     "release:bump-release": "npm version release"
-
   },
   "repository": {
     "type": "git",
