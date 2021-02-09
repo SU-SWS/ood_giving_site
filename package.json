@@ -66,7 +66,7 @@
     "release:bump-minor": "npm version minor",
     "release:bump-major": "npm version major",
     "release:changelog": "auto-changelog -p --tag-prefix && git add CHANGELOG.md",
-    "release": "release-it --dry-run --ci patch"
+    "release": "release-it --dry-run"
   },
   "release-it": {
     "git": {
