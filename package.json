@@ -60,7 +60,10 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "release:changelog": "auto-changelog -p && git add CHANGELOG.md"
+    "release:changelog": "auto-changelog -p && git add CHANGELOG.md",
+    "release:bump": "npm version prerelease",
+    "release:bump-release": "npm version release"
+
   },
   "repository": {
     "type": "git",
