@@ -46,7 +46,8 @@
   },
   "devDependencies": {
     "auto-changelog": "^2.2.1",
-    "prettier": "2.0.5"
+    "prettier": "2.0.5",
+    "release-it": "^14.3.0"
   },
   "keywords": [
     "Stanford"
@@ -60,9 +61,17 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "release:changelog": "auto-changelog -p && git add CHANGELOG.md",
     "release:bump": "npm version prerelease",
-    "release:bump-release": "npm version release"
+    "release:bump-patch": "npm version patch",
+    "release:bump-minor": "npm version minor",
+    "release:bump-major": "npm version major",
+    "release:changelog": "auto-changelog -p && git add CHANGELOG.md",
+    "release": "release-it --dry-run --ci patch"
+  },
+  "release-it": {
+    "github": {
+      "release": true
+    }
   },
   "repository": {
     "type": "git",
