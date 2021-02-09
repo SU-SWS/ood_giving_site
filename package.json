@@ -65,12 +65,19 @@
     "release:bump-patch": "npm version patch",
     "release:bump-minor": "npm version minor",
     "release:bump-major": "npm version major",
-    "release:changelog": "auto-changelog -p && git add CHANGELOG.md",
+    "release:changelog": "auto-changelog -p --tag-prefix && git add CHANGELOG.md",
     "release": "release-it --dry-run --ci patch"
   },
   "release-it": {
+    "git": {
+      "changelog": "auto-changelog --unreleased-only --stdout"
+    },
     "github": {
-      "release": true
+      "release": true,
+      "releaseNotes": "auto-changelog --unreleased-only --stdout"
+    },
+    "npm": {
+      "publish": false
     }
   },
   "repository": {
