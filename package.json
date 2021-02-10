@@ -2,7 +2,7 @@
   "name": "giving-to-stanford",
   "private": true,
   "description": "Giving to Stanford",
-  "version": "2.3.2-dev.0",
+  "version": "2.3.2",
   "author": "Stanford University Office of Development",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
