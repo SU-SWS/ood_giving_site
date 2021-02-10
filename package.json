@@ -61,7 +61,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "release:bump": "npm version prerelease",
+    "release:bump": "npm version prerelease --preid=dev",
     "release:bump-patch": "npm version patch",
     "release:bump-minor": "npm version minor",
     "release:bump-major": "npm version major",
