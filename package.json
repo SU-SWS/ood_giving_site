@@ -67,7 +67,7 @@
     "release:bump-major": "npm version major",
     "release:changelog": "auto-changelog -p --tag-prefix && git add CHANGELOG.md",
     "release": "release-it --ci",
-    "release:dev": "release-it --ci --github.preRelease --preReleaseId=dev --npm.tag=dev --npm.ignoreVersion=${true}",
+    "release:dev": "release-it --ci --github.preRelease --preReleaseId=dev --npm.tag=dev",
     "release:manual": "release-it"
   },
   "release-it": {
@@ -80,8 +80,7 @@
       "releaseNotes": "auto-changelog --unreleased-only --stdout"
     },
     "npm": {
-      "publish": false,
-      "ignoreVersion": true
+      "publish": false
     }
   },
   "repository": {
