@@ -65,7 +65,7 @@
     "release:bump-patch": "npm version patch",
     "release:bump-minor": "npm version minor",
     "release:bump-major": "npm version major",
-    "release:changelog": "auto-changelog -p --tag-prefix && git add CHANGELOG.md",
+    "release:changelog": "auto-changelog -p --tag-prefix && git commit -am \"Updated Changelog\"",
     "release": "release-it --ci",
     "release:dev": "release-it --ci --github.preRelease --preReleaseId=dev --npm.tag=dev",
     "release:manual": "release-it"
