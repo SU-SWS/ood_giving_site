@@ -1,0 +1,26 @@
+name: "Auto Release"
+
+# Trigger the workflow on merge of pull request or direct push,
+# but only for the main branch
+on:
+  push:
+    branches:
+    - $default-branch
+    - ADAPT-1459
+
+jobs:
+  releaseit:
+    name: 'Release It'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set Node Version
+        uses: actions/setup-node@v1
+        with:
+          node-version: 15.x
+      - run: npm ci
+      - run: npm release:changelog
+      - run: npm release:bump
+      - run: npm release:ev
+
