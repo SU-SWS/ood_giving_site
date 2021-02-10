@@ -70,7 +70,8 @@
   },
   "release-it": {
     "git": {
-      "changelog": "auto-changelog --unreleased-only --stdout"
+      "changelog": "auto-changelog --unreleased-only --stdout",
+      "requireUpstream": false
     },
     "github": {
       "release": true,
