@@ -2,11 +2,10 @@ import React from "react"
 import SbEditable from "storyblok-react"
 import SbLink from "../partials/sbLink"
 
-const CtaLink = React.forwardRef((props, ref) => {
-  return (
+const CtaLink = React.forwardRef((props, ref) => (
     <SbEditable content={props.blok}>
       {props.blok.linkText && (
-        <div className={`ood-cta su-text-align-${props.blok.align}`}>
+        <div className={`ood-cta su-block su-text-align-${props.blok.align}`}>
           <SbLink
             ref={ref}
             link={props.blok.link}
@@ -25,7 +24,6 @@ const CtaLink = React.forwardRef((props, ref) => {
         </div>
       )}
     </SbEditable>
-  )
-})
+  ))
 
 export default CtaLink
