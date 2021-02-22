@@ -5,7 +5,7 @@ import SbLink from "../partials/sbLink"
 const CtaLink = React.forwardRef((props, ref) => (
   <SbEditable content={props.blok}>
     {props.blok.linkText && (
-      <div className={`ood-cta su-block su-text-align-${props.blok.align}`}>
+      <div className={`ood-cta ${props.display === 'inline-block' ? 'su-inline-block' : 'su-block'} su-text-align-${props.blok.align}`}>
         <SbLink
           ref={ref}
           link={props.blok.link}
