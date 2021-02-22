@@ -22,6 +22,18 @@
   }
 }
 
+.su-justify {
+  &-content {
+    &-start {
+      justify-content: flex-start;
+    }
+
+    &-center {
+      justify-content: center;
+    }
+  }
+}
+
 .su-width {
   @include grid-media('lg') {
     &-100 {
@@ -39,8 +51,16 @@
 }
 
 .su-flex {
+  &-row {
+    flex-direction: row;
+  }
+
   &-row-reverse {
     flex-direction: row-reverse;
+  }
+
+  &-wrap {
+    flex-wrap: wrap;
   }
 
   &-col {

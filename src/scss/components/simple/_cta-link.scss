@@ -126,3 +126,13 @@
     }
   }
 }
+
+// CTA Link Group
+.cta-group {
+  // Add margin only for the "adjacent to each other" option
+  &.su-flex-row {
+    .ood-cta {
+      @include margin(null 0.4em 1em);
+    }
+  }
+}
