@@ -20,9 +20,9 @@
     }
 
     label {
-      @include padding(0.7em 1.4em);
+      @include padding(1.1rem 3rem 1.2rem);
       @include margin(null 0.4em 1em);
-      font-size: 0.9em;
+      font-size: 1.8rem;
       display: inline-block;
       background-color: $su-color-white;
       color: $su-color-bay-dark;
@@ -47,6 +47,7 @@
         @include padding(0.7em 0.2em);
         @include margin(null 2% null 0);
         width: 49%;
+        font-size: 0.9em;
 
         &:nth-of-type(2n) {
           @include margin(null 0 null null);
