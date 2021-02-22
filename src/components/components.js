@@ -57,6 +57,7 @@ import StoryPicker from "./page-types/story/storyPicker";
 // Composite Components
 import Accordion from "./composite/accordion";
 import AccordionItem from "./composite/accordionItem";
+import CtaGroup from "./composite/ctaGroup";
 import SearchResults from "./search/searchResults";
 
 const ComponentList = {
@@ -65,6 +66,7 @@ const ComponentList = {
   embedVideo: EmbedVideo,
   storyImage: StoryImage,
   ctaLink: CtaLink,
+  ctaGroup: CtaGroup,
   accordionItem: AccordionItem,
   accordion: Accordion,
   richTextField: RichTextField,

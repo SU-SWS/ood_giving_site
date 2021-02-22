@@ -8,7 +8,8 @@ const CreateBloks = (props) => {
     return (
       props.blokSection.map((blok) => React.createElement(Components(blok.component), {
         key: blok._uid,
-        blok: blok
+        blok: blok,
+        ...props
       }))
     )
   }

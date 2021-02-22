@@ -126,3 +126,36 @@
     }
   }
 }
+
+// CTA Link Group
+.cta-group {
+  .ood-cta {
+    @include grid-media-max('sm') {
+      font-size: 0.9em;
+    }
+
+    &__button {
+      @include grid-media-max('sm') {
+        @include padding(0.7em);
+
+        &::after {
+          width: 10px; // Use exact pixel unit to avoid jaggedness for SVG
+          height: 10px;
+        }
+      }
+    }
+  }
+
+  // Add margin-right only for the "adjacent to each other" option
+  &.su-flex-row {
+    .ood-cta {
+      @include margin(null 0.4em 1em);
+    }
+  }
+
+  &.su-flex-col {
+    .ood-cta {
+      @include margin(null null 1em);
+    }
+  }
+}
