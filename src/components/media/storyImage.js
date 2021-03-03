@@ -23,7 +23,9 @@ const StoryImage = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <div className={`ood-story-media su-bg-transparent
+      <div className={`ood-story-media
+                     ${(props.blok.isCard ? "ood-shadow-shallow" : "")}
+                     ${(props.blok.backgroundColor? `su-bg-${props.blok.backgroundColor}` : "su-bg-transparent")}
                      ${(props.blok.imageWidth === "su-w-full" || props.blok.imageWidth === "fit-container") ? props.blok.imageWidth : ""}
                      ${props.blok.spacingTop !== "none" ? `su-pt-${props.blok.spacingTop}` : ""}
                      ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}
@@ -40,6 +42,7 @@ const StoryImage = (props) => {
             </div>
             {props.blok.caption && (
               <figcaption className={`su-media__caption ood-story-media__caption su-text-align-${props.blok.captionAlign}
+                          ${(props.blok.isCard ? "su-px-default su-pb-2" : "")}
                           ${props.blok.imageWidth === "su-w-full" ? "centered-container" : ""}`}>
                 <RichTextField data={props.blok.caption}/>
               </figcaption>
