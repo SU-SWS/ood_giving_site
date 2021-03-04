@@ -13,7 +13,6 @@ export default class HTML extends React.Component {
         />
         <HtmlHead />
         {this.props.headComponents}
-
       </head>
       <body>
 
