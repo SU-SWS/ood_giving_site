@@ -7,7 +7,7 @@ const StoryImage = (props) => {
   let processedImg = "";
 
   if (props.blok.image.filename != null) {
-    let originalWidth = "";
+    let originalWidth = 0;
 
     // Get image width from URL of storyblok image
     if (props.blok.image.filename?.startsWith("http")) {
