@@ -24,7 +24,7 @@ const StoryImage = (props) => {
       else if ((props.blok.imageWidth === "su-w-story" || props.blok.imageWidth === "fit-container") && originalWidth > 1000) {
         processedImg = transformImage(props.blok.image.filename, "/1000x0");
       }
-      else if (props.blok.imageWidth === "su-w-inset" && originalWidth > 800) {
+      else if (props.blok.imageWidth === "su-w-inset" && originalWidth > 700) {
         processedImg = transformImage(props.blok.image.filename, "/700x0");
       }
       // If no downsizing is needed, just run it through transformImage to reduce jpg quality to 60%
