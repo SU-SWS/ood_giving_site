@@ -18,6 +18,8 @@ const Section = (props) => {
     return titleStyleArray.toString().replace(/,/g, " ");
   };
 
+  const isE2E = (props.blok.contentWidth === "edge-to-edge");
+
   return (
     <SbEditable content={props.blok}>
       <div className={`section su-bg-${props.blok.backgroundColor}
@@ -25,11 +27,11 @@ const Section = (props) => {
                    ${props.blok.spacingBottom !== "none" ? `su-pb-${props.blok.spacingBottom}` : ""}`}
            id={props.blok.id}
       >
-        {(props.blok.contentWidth === "edge-to-edge") ? (props.blok.title || props.blok.intro) && (
-          <CenteredContainer flex={true} centered_disabled={true} srOnly={props.blok.srOnlyHeader} classes={"section__header"}>
+        {(props.blok.title || props.blok.intro) && (
+          <CenteredContainer flex={true} centered_disabled={isE2E} srOnly={props.blok.srOnlyHeader} classes={"section__header"}>
             {props.blok.title &&
               <Heading
-                className={`section__title flex-lg-12-of-12 su-serif su-bold su-text-align-left
+                className={`section__title ${isE2E ? 'flex-lg-12-of-12' : 'flex-lg-5-of-12'} su-serif su-bold su-text-align-left
                   ${props.blok.titleSize}
                   su-before-bg-${props.blok.tabColor}
                   ${titleStyleClassList(props.blok.titleStyle)}`}>
@@ -37,22 +39,7 @@ const Section = (props) => {
               </Heading>
             }
             {props.blok.intro &&
-              <FlexCell lg={12} classes={"intro-text section__intro su-mr-none"}><RichTextField data={props.blok.intro}/></FlexCell>
-            }
-          </CenteredContainer>
-        ) : (props.blok.title || props.blok.intro) && (
-          <CenteredContainer flex={true} srOnly={props.blok.srOnlyHeader} classes={"section__header"}>
-            {props.blok.title &&
-              <Heading
-                className={`section__title flex-lg-5-of-12 su-serif su-bold su-text-align-left
-                  ${props.blok.titleSize}
-                  su-before-bg-${props.blok.tabColor}
-                  ${titleStyleClassList(props.blok.titleStyle)}`}>
-                {props.blok.title}
-              </Heading>
-            }
-            {props.blok.intro &&
-              <FlexCell lg={7} classes={"intro-text section__intro su-mr-none"}><RichTextField data={props.blok.intro}/></FlexCell>
+              <FlexCell lg={isE2E ? 12 : 7} classes={"intro-text section__intro su-mr-none"}><RichTextField data={props.blok.intro}/></FlexCell>
             }
           </CenteredContainer>
         )}
