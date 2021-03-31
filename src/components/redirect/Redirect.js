@@ -21,10 +21,11 @@ const Redirect = (props) => {
               {redirects && redirects.map(function(data) {
                 return (
                   <tr>
-                    <td>{data.body[0].value}</td>
-                    <td>{data.body[1].value}</td>
-                    <td>{data.body[2].value}</td>
-                    <td>{data.body[3].value}</td>
+                    {data.body && data.body.map(function(item) {
+                      return (
+                        <td>{item.value}</td>
+                      )
+                    })}
                   </tr>
                 )
               })}
