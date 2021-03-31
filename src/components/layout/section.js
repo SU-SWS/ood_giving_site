@@ -37,7 +37,7 @@ const Section = (props) => {
               </Heading>
             }
             {props.blok.intro &&
-              <FlexCell lg={12} classes={"intro-text section__intro su-mr-none"}><RichTextField data={props.blok.intro}/></FlexCell>
+              <FlexCell classes={"intro-text section__intro su-ml-none"}><RichTextField data={props.blok.intro}/></FlexCell>
             }
           </CenteredContainer>
         )}
