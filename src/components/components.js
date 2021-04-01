@@ -9,6 +9,8 @@ import OodLocalFooter from "./identity/oodLocalFooter";
 import LocalFooterPicker from "./identity/localFooterPicker";
 import LocalHeaderPicker from "./identity/localHeaderPicker";
 import Lockup from "./identity/lockup";
+import Alert from "./identity/alert";
+import AlertPicker from "./identity/alertPicker";
 // Cards
 import BasicCard from "./cards/basicCard";
 import OodIconCard from "./cards/oodIconCard";
@@ -113,6 +115,8 @@ const ComponentList = {
   oodSupportPage: OodSupportPage,
   gridThreeColumns: GridThreeColumns,
   searchResults: SearchResults,
+  alert: Alert,
+  alertPicker: AlertPicker,
 };
 
 const Components = (type) => {
