@@ -2,7 +2,12 @@ import React from "react";
 import SbEditable from "storyblok-react";
 
 const Redirect = (props) => {
-  const redirects = props.blok.redirects ? props.blok.redirects.tbody : "";
+  const mapping = {
+    'From Path': props.blok.from ? props.blok.from : "N/A",
+    'To Path': props.blok.to ? props.blok.to : "N/A",
+    'Status Code': props.blok.statusCode ? props.blok.statusCode : "301",
+    'Enabled': props.blok.enabled ? "TRUE" : "FALSE"
+  };
 
   return (
     <SbEditable content={props.blok}>
@@ -11,24 +16,17 @@ const Redirect = (props) => {
           <table>
             <thead>
               <tr>
-                <th>From Path</th>
-                <th>To Path</th>
-                <th>Status Code</th>
-                <th>Enabled</th>
+                {Object.keys(mapping).map(function(data) {
+                  return (<th>{data}</th>)
+                })}
               </tr>
             </thead>
             <tbody>
-              {redirects && redirects.map(function(data) {
-                return (
-                  <tr>
-                    {data.body && data.body.map(function(item) {
-                      return (
-                        <td>{item.value}</td>
-                      )
-                    })}
-                  </tr>
-                )
-              })}
+              <tr>
+                {Object.values(mapping).map(function(data) {
+                  return (<td>{data}</td>)
+                })}
+              </tr>
             </tbody>
           </table>
         </section>

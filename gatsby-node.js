@@ -35,24 +35,6 @@ exports.createPages = ({ graphql, actions }) => {
         const entries = result.data.allStoryblokEntry.edges
         entries.forEach((entry, index) => {
           let slug = `${entry.node.full_slug}`
-          // Add Redirects pre-configured in Storyblok.
-          if (slug === 'redirects') {
-            const redirects = JSON.parse(entry.node.content);
-            if (redirects) {
-              redirects.redirects.tbody.forEach((data) => {
-                if (data.body[3].value === '1') {
-                  createRedirect({
-                    fromPath: data.body[0].value,
-                    toPath: data.body[1].value,
-                    isPermanent: true,
-                    force: true,
-                    redirectInBrowser: true,
-                    statusCode: data.body[2].value,
-                  })
-                }
-              })
-            }
-          }
 
           slug = slug.replace(/^\/|\/$/g, '')
           let pagePath = entry.node.full_slug == 'home' ? '' : slug + '/'
@@ -74,6 +56,45 @@ exports.createPages = ({ graphql, actions }) => {
               story: entry.node
             }
           })
+        })
+      })
+    )
+
+    resolve(
+      graphql(
+        `{
+          allStoryblokEntry {
+            edges {
+              node {
+                full_slug
+                content
+              }
+            }
+          }
+        }`
+      ).then(result => {
+        if (result.errors) {
+          console.log(result.errors)
+          reject(result.errors)
+        }
+
+        const entries = result.data.allStoryblokEntry.edges
+        entries.forEach((entry, index) => {
+          let slug = `${entry.node.full_slug}`
+          // Add Redirects pre-configured in Storyblok.
+          if (slug.indexOf('global-components/redirects/') > -1) {
+            const redirect = JSON.parse(entry.node.content);
+            if (redirect && redirect.enabled) {
+              createRedirect({
+                fromPath: redirect.from,
+                toPath: redirect.to,
+                isPermanent: true,
+                force: true,
+                redirectInBrowser: true,
+                statusCode: redirect.statusCode,
+              })
+            }
+          }
         })
       })
     )

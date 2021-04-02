@@ -101,7 +101,7 @@ const ComponentList = {
   contentMenuParentItem: ContentMenuParentItems,
   contentNestedMenu: ContentNestedMenu,
   basicCard: BasicCard,
-  Redirect: Redirect,
+  redirect: Redirect,
   oodTileCard: OodTileCard,
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,
