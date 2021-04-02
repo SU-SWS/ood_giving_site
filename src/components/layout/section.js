@@ -26,18 +26,18 @@ const Section = (props) => {
            id={props.blok.id}
       >
         {(props.blok.title || props.blok.intro) && (
-          <CenteredContainer flex={true} srOnly={props.blok.srOnlyHeader} classes={"section__header"}>
+          <CenteredContainer flex={true} centered_disabled={props.blok.disableWrapping} srOnly={props.blok.srOnlyHeader} classes={"section__header"}>
             {props.blok.title &&
               <Heading
-                className={`section__title flex-lg-5-of-12 su-serif su-bold su-text-align-left
-                            ${props.blok.titleSize}
-                            su-before-bg-${props.blok.tabColor}
-                            ${titleStyleClassList(props.blok.titleStyle)}`}>
+                className={`section__title su-serif su-bold su-text-align-left
+                  ${props.blok.titleSize}
+                  su-before-bg-${props.blok.tabColor}
+                  ${titleStyleClassList(props.blok.titleStyle)}`}>
                 {props.blok.title}
               </Heading>
             }
             {props.blok.intro &&
-              <FlexCell lg={7} classes={"intro-text section__intro su-mr-none"}><RichTextField data={props.blok.intro}/></FlexCell>
+              <FlexCell classes={"intro-text section__intro su-ml-none"}><RichTextField data={props.blok.intro}/></FlexCell>
             }
           </CenteredContainer>
         )}
