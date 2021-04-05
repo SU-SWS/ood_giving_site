@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SbEditable from 'storyblok-react'
 import HeaderNoImage from '../partials/headerNoImage'
 import Footer from "../partials/footer"
@@ -8,8 +8,21 @@ import SeoSocial from "../partials/seoSocial"
 import CreateBloks from "../../utilities/createBloks"
 import CenteredContainer from "../partials/centeredContainer"
 import Heading from "../partials/heading"
+import { navigate } from "@reach/router"
+import { useSideEffect } from "react"
 
 const OodSupportPage = (props) => {
+  // Set the initial filter state from URL fragment.
+  useEffect(() => {
+    if (window.location.hash) {
+      // Grab the id from the hash.
+      const activeId = window.location.hash.substr(1);
+      // Simulate click to set the initial filter state.
+      const filterButton = document.getElementById(activeId);
+      filterButton.click();
+    }
+  }, []) // Empty array ensures this effect is only called once on page load.
+
   return (
     <>
       <SbEditable content={props.blok}>
@@ -28,29 +41,29 @@ const OodSupportPage = (props) => {
               }
               <p className={`su-sr-only-element`}>{props.blok.srText}</p>
               <CenteredContainer classes={"ood-support-page__filter-container"}>
-                <input type="radio" id="undergraduate" name="areas-to-support" defaultChecked />
+                <input type="radio" id="undergraduate" name="areas-to-support" onClick={updateHash} defaultChecked />
                 <label htmlFor="undergraduate">Undergraduate Education</label>
-                <input type="radio" id="grad" name="areas-to-support"/>
+                <input type="radio" id="grad" name="areas-to-support" onClick={updateHash}/>
                 <label htmlFor="grad">Graduate Education</label>
-                <input type="radio" id="arts" name="areas-to-support"/>
+                <input type="radio" id="arts" name="areas-to-support" onClick={updateHash}/>
                 <label htmlFor="arts">Arts + Humanities</label>
-                <input type="radio" id="athletics" name="areas-to-support"/>
+                <input type="radio" id="athletics" name="areas-to-support" onClick={updateHash}/>
                 <label htmlFor="athletics">Athletics</label>
-                <input type="radio" id="business" name="areas-to-support"/>
+                <input type="radio" id="business" name="areas-to-support" onClick={updateHash}/>
                 <label htmlFor="business">Business + Economics</label>
-                <input type="radio" id="culture" name="areas-to-support"/>
+                <input type="radio" id="culture" name="areas-to-support" onClick={updateHash}/>
                 <label htmlFor="culture">Culture, Ethics, + Service</label>
-                <input type="radio" id="law" name="areas-to-support"/>
+                <input type="radio" id="law" name="areas-to-support" onClick={updateHash}/>
                 <label htmlFor="law">Law, Policy, + Government</label>
-                <input type="radio" id="medicine" name="areas-to-support"/>
+                <input type="radio" id="medicine" name="areas-to-support" onClick={updateHash}/>
                 <label htmlFor="medicine">Medicine + Health Care</label>
-                <input type="radio" id="science" name="areas-to-support"/>
+                <input type="radio" id="science" name="areas-to-support" onClick={updateHash}/>
                 <label htmlFor="science">Science + Technology</label>
-                <input type="radio" id="sustainability" name="areas-to-support"/>
+                <input type="radio" id="sustainability" name="areas-to-support" onClick={updateHash}/>
                 <label htmlFor="sustainability">Sustainability</label>
-                <input type="radio" id="teaching" name="areas-to-support"/>
+                <input type="radio" id="teaching" name="areas-to-support" onClick={updateHash}/>
                 <label htmlFor="teaching">Teaching + Learning</label>
-                <input type="radio" id="all" name="areas-to-support" />
+                <input type="radio" id="all" name="areas-to-support" onClick={updateHash}/>
                 <label htmlFor="all">All</label>
                 <div className={`grid-3-column su-mt-2 su-mb-4`}>
                   <CreateBloks blokSection={props.blok.undergraduate} />
@@ -78,5 +91,8 @@ const OodSupportPage = (props) => {
     </>
   )
 };
+function updateHash(e) {
+  navigate(`#${e.target.id}`)
+}
 
 export default OodSupportPage
