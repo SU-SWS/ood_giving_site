@@ -35,7 +35,6 @@ exports.createPages = ({ graphql, actions }) => {
         const entries = result.data.allStoryblokEntry.edges
         entries.forEach((entry, index) => {
           let slug = `${entry.node.full_slug}`
-
           slug = slug.replace(/^\/|\/$/g, '')
           let pagePath = entry.node.full_slug == 'home' ? '' : slug + '/'
 
@@ -60,6 +59,7 @@ exports.createPages = ({ graphql, actions }) => {
       })
     )
 
+    // Add Redirects pre-configured in Storyblok.
     resolve(
       graphql(
         `{
@@ -81,7 +81,6 @@ exports.createPages = ({ graphql, actions }) => {
         const entries = result.data.allStoryblokEntry.edges
         entries.forEach((entry, index) => {
           let slug = `${entry.node.full_slug}`
-          // Add Redirects pre-configured in Storyblok.
           if (slug.indexOf('global-components/redirects/') > -1) {
             const redirect = JSON.parse(entry.node.content);
             if (redirect && redirect.enabled) {

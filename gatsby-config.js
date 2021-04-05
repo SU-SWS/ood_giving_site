@@ -123,5 +123,6 @@ module.exports = {
         skipIndexing: !process.env.NETLIFY,
       },
     },
+    `gatsby-plugin-netlify-redirect`
   ],
 }
