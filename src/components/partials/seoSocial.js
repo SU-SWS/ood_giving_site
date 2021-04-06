@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet"
 import SbEditable from "storyblok-react"
 import UseSiteMetadata from "../../hooks/useSiteMetadata"
 import transformImage from "../../utilities/transformImage"
-
 /*
 ** If no Twitter specific metadata is provided,
 * Twitter can still read the generic OG metadata.
@@ -12,12 +11,11 @@ import transformImage from "../../utilities/transformImage"
 */
 
 const SeoSocial = (props) => {
-
   if (props.blok.seo == null) {
     return null;
   }
 
-  const { title } = UseSiteMetadata();
+  const { title, siteUrl } = UseSiteMetadata();
   let ogImage = props.blok.seo.og_image ?? "";
   let twitterImage = props.blok.seo.twitter_image ?? "";
 
@@ -28,10 +26,14 @@ const SeoSocial = (props) => {
   if (twitterImage !== "") {
     twitterImage = transformImage(twitterImage, "/1200x600");
   }
+  const canonicalUrl = getCanonicalUrl(props.blok, siteUrl)
 
   return (
     <SbEditable content={props.blok}>
       <Helmet titleTemplate={`%s | ${title}`} title={props.blok.title}>
+        {canonicalUrl &&
+          <link rel="canonical" href={canonicalUrl} />
+        }
         {(props.blok.seo.description || props.blok.teaser) &&
           <meta name="description"
               content={props.blok.seo.description || props.blok.teaser} />
@@ -63,6 +65,24 @@ const SeoSocial = (props) => {
       </Helmet>
     </SbEditable>
   )
+}
+
+function getCanonicalUrl(blok, siteUrl) {
+  if (!blok.canonicalURL) return;
+
+  // Default: Use the current path as the canonical URL
+  let canonicalUrl = siteUrl + location.pathname;
+
+  // If an absolute URL was specified...
+  if (blok.canonicalURL.linktype == 'url') {
+    canonicalUrl = blok.canonicalURL.url;
+  }
+  // If the user referenced another page within Storyblok...
+  else if (blok.canonicalURL.linktype == 'story' && blok.canonicalURL.cached_url) {
+    canonicalUrl = siteUrl + '/' + blok.canonicalURL.cached_url;
+  }
+
+  return canonicalUrl;
 }
 
 export default SeoSocial
