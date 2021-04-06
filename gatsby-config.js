@@ -123,6 +123,13 @@ module.exports = {
         skipIndexing: !process.env.NETLIFY,
       },
     },
-    `gatsby-plugin-netlify-redirect`
+    {
+      resolve: `gatsby-plugin-netlify-redirect`,
+      options: {
+        mergeSecurityHeaders: false,
+        mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
+        mergeCachingHeaders: true, // boolean to turn off the default caching headers
+      },
+    },
   ],
 }
