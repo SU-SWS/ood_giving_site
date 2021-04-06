@@ -87,7 +87,6 @@ exports.createPages = ({ graphql, actions }) => {
         entries.forEach((entry, index) => {
           if (entry.node) {
             let redirect = entry.node;
-            console.log(redirect);
             createRedirect({
               fromPath: redirect.field_from_string,
               toPath: redirect.field_to_string,
