@@ -68,10 +68,10 @@ const SeoSocial = (props) => {
 }
 
 function getCanonicalUrl(blok, siteUrl) {
-  if (!blok.canonicalURL) return;
-
   // Default: Use the current path as the canonical URL
   let canonicalUrl = siteUrl + location.pathname;
+
+  if (!blok.canonicalURL) return canonicalUrl;
 
   // If an absolute URL was specified...
   if (blok.canonicalURL.linktype == 'url') {
