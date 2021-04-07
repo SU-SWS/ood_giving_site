@@ -8,8 +8,7 @@ import SeoSocial from "../partials/seoSocial"
 import CreateBloks from "../../utilities/createBloks"
 import CenteredContainer from "../partials/centeredContainer"
 import Heading from "../partials/heading"
-import { navigate } from "@reach/router"
-import { useSideEffect } from "react"
+import { navigate } from 'gatsby'
 
 const OodSupportPage = (props) => {
   // Set the initial filter state from URL fragment.
