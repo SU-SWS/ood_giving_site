@@ -26,7 +26,7 @@ const SeoSocial = (props) => {
   if (twitterImage !== "") {
     twitterImage = transformImage(twitterImage, "/1200x600");
   }
-  const canonicalUrl = getCanonicalUrl(props.blok, siteUrl)
+  const canonicalUrl = getCanonicalUrl(props.blok, siteUrl, props.location)
 
   return (
     <SbEditable content={props.blok}>
@@ -67,7 +67,7 @@ const SeoSocial = (props) => {
   )
 }
 
-function getCanonicalUrl(blok, siteUrl) {
+function getCanonicalUrl(blok, siteUrl, location) {
   // Default: Use the current path as the canonical URL
   let canonicalUrl = siteUrl + location.pathname;
 
