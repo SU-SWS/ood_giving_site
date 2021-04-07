@@ -3,62 +3,12 @@
 // Styles for Alert component.
 
 div {
-  &.alert {
+  &.su-alert {
     &.closed {
       display: none;
     }
-    ul {
-      li {
-        &:first-child {
-          position: absolute;
-          left: 2%;
-        }
-        &:nth-child(2) {
-          font-size: large;
-          margin-left: 2%;
-        }
-        &:nth-child(3) {
-          font-size: large;
-        }
-        &:nth-child(4) {
-          font-size: large;
-          position: absolute;
-          right: 5%;
-        }
-        &:last-child {
-          position: absolute;
-          right: 0;
-          top: 0;
-          a {
-            &.close {
-              position: absolute;
-              right: 32px;
-              top: 32px;
-              width: 32px;
-              height: 32px;
-              opacity: 0.3;
-              &:hover {
-                opacity: 1;
-              }
-              &:before,
-              &:after {
-                position: absolute;
-                left: -20px;
-                content: ' ';
-                height: 9px;
-                width: 3px;
-                background-color: white;
-              }
-              &:before {
-                transform: rotate(45deg);
-              }
-              &:after {
-                transform: rotate(-45deg);
-              }
-            }
-          }
-        }
-      }
+    .su-alert__body {
+      margin-top: 1em;
     }
   }
 }

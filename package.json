@@ -42,7 +42,8 @@
     "react-player": "^2.8.2",
     "react-refresh": "^0.8.3",
     "sanitize-html": "^1.27.5",
-    "storyblok-react": "^0.1.1"
+    "storyblok-react": "^0.1.1",
+    "storyblok-rich-text-react-renderer": "^2.3.1"
   },
   "devDependencies": {
     "prettier": "2.0.5"
