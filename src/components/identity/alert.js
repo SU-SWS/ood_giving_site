@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import RichTextField from '../../utilities/richTextField'
 import SbLink from '../partials/sbLink';
 
 const Alert = (props) => {
-  const [closed, setState] = React.useState(false);
+  const [closed, setState] = useState(false);
 
   const color = props.blok.backgroundColor;
   const icon = props.blok.fontAwesomeIcon;
