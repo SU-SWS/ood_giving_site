@@ -27,7 +27,7 @@ const Pagination = ({ initialPage }) => {
       const handlePageChange = (newPage, $event) => {
         $event.preventDefault();
         refine(newPage);
-        //document.querySelector(".search-hits")?.scrollIntoView();
+        document.querySelector(".search-hits")?.scrollIntoView();
       };
 
       return (
