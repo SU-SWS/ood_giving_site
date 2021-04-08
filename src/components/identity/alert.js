@@ -1,5 +1,5 @@
 import React from 'react'
-import {render} from 'storyblok-rich-text-react-renderer';
+import RichTextField from '../../utilities/richTextField'
 
 const Alert = (props) => {
   const [closed, setState] = React.useState(false);
@@ -29,7 +29,7 @@ const Alert = (props) => {
   }
 
   if (color === 'green' || color === 'red' || color === 'blue') {
-    classList = 'su-bg-digital-' + color + ' su-text-white su-link-white su-alert--' + colorsMapping[color];
+    classList = 'su-alert--text-light su-bg-digital-' + color + ' su-text-white su-link-white su-alert--' + colorsMapping[color];
   }
   if (color === 'yellow') {
     classList = 'su-bg-illuminating-dark su-alert--warning';
@@ -79,7 +79,7 @@ const Alert = (props) => {
         </div>
         <div className="su-alert__body su-order-2 su-flex-1 su-flex-grow">
           <div className={"su-text-normal hover:su-link-no-underline " + linkBlack + " " + textBlack}>
-            {render(text)}
+            <RichTextField data={text}/>
           </div>
           {alertFooter()}
         </div>
