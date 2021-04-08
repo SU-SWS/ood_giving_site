@@ -101,6 +101,14 @@ const OodSupportPage = (props) => {
     </>
   )
 };
+
+/**
+ * Update the page url hash through gatsby's navigate.
+ * 
+ * @param {object} e 
+ *   Browser event object.
+ *
+ **/
 function updateHash(e) {
   navigate(`#${e.target.id}`)
 }
