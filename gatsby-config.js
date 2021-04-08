@@ -78,10 +78,8 @@ module.exports = {
         `,
         exclude: [
           `/editor/*`,
-          `/editor/`,
-          `/editor`,
           `/global-components/*`,
-          `/global-components`,
+          `/test/*`
         ],
       },
     },
