@@ -63,11 +63,15 @@ exports.createPages = ({ graphql, actions }) => {
     resolve(
       graphql(
         `{
-          allStoryblokEntry {
+          allStoryblokEntry(filter: {field_enabled_boolean: {eq: true}, field_component: {eq: "redirect"}}) {
             edges {
               node {
                 full_slug
-                content
+                field_to_string
+                field_from_string
+                field_enabled_boolean
+                field_statusCode_string
+                field_component
               }
             }
           }
@@ -80,20 +84,14 @@ exports.createPages = ({ graphql, actions }) => {
 
         const entries = result.data.allStoryblokEntry.edges
         entries.forEach((entry, index) => {
-          let slug = `${entry.node.full_slug}`
-          if (slug.indexOf('global-components/redirects/') > -1) {
-            const redirect = JSON.parse(entry.node.content);
-            if (redirect && redirect.enabled) {
-              createRedirect({
-                fromPath: redirect.from,
-                toPath: redirect.to,
-                isPermanent: true,
-                force: true,
-                redirectInBrowser: true,
-                statusCode: redirect.statusCode,
-              })
-            }
-          }
+          createRedirect({
+            fromPath: entry.node.field_from_string,
+            toPath: entry.node.field_to_string,
+            isPermanent: true,
+            force: true,
+            redirectInBrowser: true,
+            statusCode: entry.node.field_statusCode_string,
+          })
         })
       })
     )
