@@ -1,5 +1,6 @@
 import React from 'react'
 import RichTextField from '../../utilities/richTextField'
+import SbLink from '../partials/sbLink';
 
 const Alert = (props) => {
   const [closed, setState] = React.useState(false);
@@ -8,7 +9,6 @@ const Alert = (props) => {
   const icon = props.blok.fontAwesomeIcon;
   const label = props.blok.label;
   const text = props.blok.alertBodyText;
-  const link = props.blok.ctaLink[0];
 
   const dismissSVGPath = 'M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z';
 
@@ -31,28 +31,16 @@ const Alert = (props) => {
   if (color === 'green' || color === 'red' || color === 'blue') {
     classList = 'su-alert--text-light su-bg-digital-' + color + ' su-text-white su-link-white su-alert--' + colorsMapping[color];
   }
-  if (color === 'yellow') {
+  else if (color === 'yellow') {
     classList = 'su-bg-illuminating-dark su-alert--warning';
     linkBlack = 'su-link-black-true';
     textBlack = 'su-text-black';
     hocus = 'hocus:su-text-black';
   }
-  if (color === 'light-grey') {
+  else {
     linkBlack = 'su-link-black-true';
     textBlack = 'su-text-black';
     hocus = 'hocus:su-text-black';
-  }
-
-  function alertFooter() {
-    if (link && link.link) {
-      return <div className="su-alert__footer">
-        <a href={link.link.url} className="su-link su-link--action">
-          {link.linkText ? link.linkText : link.link.url}
-        </a>
-      </div>;
-    }
-
-    return '';
   }
 
   return (
@@ -73,7 +61,7 @@ const Alert = (props) => {
         </div>
         <div className="su-alert__header">
           <span className="su-alert__icon">
-            <i className={iconClass}> </i>
+            <i className={iconClass} />
           </span>
           <span className="su-alert__label">{label}</span>
         </div>
@@ -81,7 +69,11 @@ const Alert = (props) => {
           <div className={"su-text-normal hover:su-link-no-underline " + linkBlack + " " + textBlack}>
             <RichTextField data={text}/>
           </div>
-          {alertFooter()}
+          {props.blok.ctaText &&
+            <div className="su-alert__footer">
+              <SbLink link={props.blok.cta} classes={'su-link su-link--action'}>{props.blok.ctaText}</SbLink>
+            </div>
+          }
         </div>
       </div>
     </div>
