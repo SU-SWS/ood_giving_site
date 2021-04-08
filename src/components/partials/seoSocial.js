@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet"
 import SbEditable from "storyblok-react"
 import UseSiteMetadata from "../../hooks/useSiteMetadata"
 import transformImage from "../../utilities/transformImage"
-
 /*
 ** If no Twitter specific metadata is provided,
 * Twitter can still read the generic OG metadata.
@@ -12,12 +11,11 @@ import transformImage from "../../utilities/transformImage"
 */
 
 const SeoSocial = (props) => {
-
   if (props.blok.seo == null) {
     return null;
   }
 
-  const { title } = UseSiteMetadata();
+  const { title, siteUrl } = UseSiteMetadata();
   let ogImage = props.blok.seo.og_image ?? "";
   let twitterImage = props.blok.seo.twitter_image ?? "";
 
@@ -28,10 +26,13 @@ const SeoSocial = (props) => {
   if (twitterImage !== "") {
     twitterImage = transformImage(twitterImage, "/1200x600");
   }
+  const canonicalUrl = getCanonicalUrl(props.blok, siteUrl, props.location)
 
   return (
     <SbEditable content={props.blok}>
       <Helmet titleTemplate={`%s | ${title}`} title={props.blok.title}>
+        <link rel="canonical" href={canonicalUrl} />
+        
         {(props.blok.seo.description || props.blok.teaser) &&
           <meta name="description"
               content={props.blok.seo.description || props.blok.teaser} />
@@ -63,6 +64,31 @@ const SeoSocial = (props) => {
       </Helmet>
     </SbEditable>
   )
+}
+/**
+ * Get the canonical URL for the current page.
+ * 
+ * @param {Object} blok Content object from Storyblok.
+ * @param {string} siteUrl Full base URL for the site. i.e. https://giving.stanford.edu
+ * @param {Object} location Gatsby location object.
+ * @returns {string} URL to be used for canonical URL metatag.
+ */
+function getCanonicalUrl(blok, siteUrl, location) {
+  // Default: Use the current path as the canonical URL
+  let canonicalUrl = siteUrl + location.pathname;
+
+  if (!blok.canonicalURL) return canonicalUrl;
+
+  // If an absolute URL was specified...
+  if (blok.canonicalURL.linktype == 'url') {
+    canonicalUrl = blok.canonicalURL.url;
+  }
+  // If the user referenced another page within Storyblok...
+  else if (blok.canonicalURL.linktype == 'story' && blok.canonicalURL.cached_url) {
+    canonicalUrl = siteUrl + '/' + blok.canonicalURL.cached_url;
+  }
+
+  return canonicalUrl;
 }
 
 export default SeoSocial
