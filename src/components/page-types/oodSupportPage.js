@@ -11,15 +11,22 @@ import Heading from "../partials/heading"
 import { navigate } from 'gatsby'
 
 const OodSupportPage = (props) => {
-  // Set the initial filter state from URL fragment.
+  /**
+   * Sets filter state from URL fragment.
+   */
+  const setActiveFilter = () => {
+    const activeId = window.location.hash.substr(1);
+    // Simulate click to set the initial filter state.
+    const filterButton = document.getElementById(activeId);
+    if (filterButton) filterButton.click();
+  }
+
   useEffect(() => {
-    if (window.location.hash) {
-      // Grab the id from the hash.
-      const activeId = window.location.hash.substr(1);
-      // Simulate click to set the initial filter state.
-      const filterButton = document.getElementById(activeId);
-      filterButton.click();
-    }
+    // Set the initial filter state from URL fragment.
+    if (window.location.hash) setActiveFilter();
+
+    // Event listener used for 'back button' nagivation.
+    window.addEventListener('hashchange', setActiveFilter);
   }, []) // Empty array ensures this effect is only called once on page load.
 
   return (
