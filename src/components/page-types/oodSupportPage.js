@@ -18,12 +18,16 @@ const OodSupportPage = (props) => {
     const activeId = window.location.hash.substr(1);
     // Simulate click to set the initial filter state.
     const filterButton = document.getElementById(activeId);
-    if (filterButton) filterButton.click();
+    if (filterButton) {
+      filterButton.click();
+    }
   }
 
   useEffect(() => {
     // Set the initial filter state from URL fragment.
-    if (window.location.hash) setActiveFilter();
+    if (window.location.hash) {
+      setActiveFilter();
+    }
 
     // Event listener used for 'back button' nagivation.
     window.addEventListener('hashchange', setActiveFilter);
