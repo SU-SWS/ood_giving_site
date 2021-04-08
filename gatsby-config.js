@@ -120,7 +120,7 @@ module.exports = {
         // enablePartialUpdates: true,
         queries: require("./src/utilities/algoliaQueries"),
         // we skip the indexing completely when not in netlify build environment
-        skipIndexing: !process.env.NETLIFY || !process.env.ALGOLIA_DISABLE,
+        skipIndexing: !process.env.NETLIFY || process.env.ALGOLIA_DISABLE,
       },
     },
   ],
