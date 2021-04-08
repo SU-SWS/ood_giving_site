@@ -67,7 +67,7 @@ module.exports = {
           allSitePage(filter: {context: {isCanonical: {eq: true}}}) {
             edges {
               node {
-                full_slug
+                path
                 context {
                   isCanonical
                 }
@@ -77,9 +77,15 @@ module.exports = {
         }
         `,
         exclude: [
+          '/editor',
           '/editor/*',
           '/global-components/*',
-          '/test-items/*'
+          '/test-items/*',
+          `/dev-404-page`,
+          `/404`,
+          `/403`,
+          `/404.html`,
+          `/offline-plugin-app-shell-fallback`,
         ],
       },
     },
