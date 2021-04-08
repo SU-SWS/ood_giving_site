@@ -67,7 +67,7 @@ module.exports = {
           allSitePage(filter: {context: {isCanonical: {eq: true}}}) {
             edges {
               node {
-                path
+                full_slug
                 context {
                   isCanonical
                 }
