@@ -124,7 +124,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-netlify-redirect`,
+      resolve: `gatsby-plugin-netlify`,
       options: {
         mergeSecurityHeaders: false,
       }
