@@ -8,5 +8,12 @@
 import "./src/scss/index.scss";
 import "./src/js/index.js";
 
+export const shouldUpdateScroll = ({routerProps: { location }}) => {
+  if (location.hash) {
+    return false;
+  }
+  return true;
+}
+
 import SearchOverlayProvider from './src/context/searchOverlayStatusProvider';
 export const wrapRootElement = SearchOverlayProvider;
