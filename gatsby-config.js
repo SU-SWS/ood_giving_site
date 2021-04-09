@@ -142,5 +142,11 @@ module.exports = {
         skipIndexing: !process.env.NETLIFY,
       },
     },
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        mergeSecurityHeaders: false,
+      }
+    }
   ],
 }
