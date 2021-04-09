@@ -88,7 +88,7 @@ exports.createPages = ({ graphql, actions }) => {
             fromPath: entry.node.field_from_string,
             toPath: entry.node.field_to_string,
             force: true,
-            redirectInBrowser: true,
+            redirectInBrowser: false,
             statusCode: Number(entry.node.field_statusCode_string),
           })
         })
