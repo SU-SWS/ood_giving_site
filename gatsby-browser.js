@@ -8,6 +8,10 @@
 import "./src/scss/index.scss";
 import "./src/js/index.js";
 
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+
 export const shouldUpdateScroll = ({routerProps: { location }}) => {
   if (location.hash) {
     return false;
