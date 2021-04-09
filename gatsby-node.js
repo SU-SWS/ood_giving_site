@@ -48,11 +48,19 @@ exports.createPages = ({ graphql, actions }) => {
             pagePath = "403"
           }
 
+          // Determine if the page is canonical, or is using a custom canonical URL.
+          const content = JSON.parse(entry.node.content);
+          let isCanonical = true;
+          if (content.canonicalURL && (content.canonicalURL.url || content.canonicalURL.cached_url)) {
+            isCanonical = false;
+          }
+
           createPage({
             path: '/' + pagePath,
             component: storyblokEntry,
             context: {
-              story: entry.node
+              story: entry.node,
+              isCanonical: isCanonical
             }
           })
         })
