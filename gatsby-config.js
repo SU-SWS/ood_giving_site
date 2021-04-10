@@ -77,11 +77,11 @@ module.exports = {
         }
         `,
         exclude: [
-          `/editor/*`,
-          `/editor/`,
-          `/editor`,
-          `/global-components/*`,
-          `/global-components`,
+          '/editor',
+          '/editor/**',
+          '/global-components/**',
+          '/test-items/**',
+          '/403',
         ],
       },
     },
