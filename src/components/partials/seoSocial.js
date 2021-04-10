@@ -32,7 +32,7 @@ const SeoSocial = (props) => {
     <SbEditable content={props.blok}>
       <Helmet titleTemplate={`%s | ${title}`} title={props.blok.title}>
         <link rel="canonical" href={canonicalUrl} />
-        
+
         {(props.blok.seo.description || props.blok.teaser) &&
           <meta name="description"
               content={props.blok.seo.description || props.blok.teaser} />
@@ -67,15 +67,15 @@ const SeoSocial = (props) => {
 }
 /**
  * Get the canonical URL for the current page.
- * 
+ *
  * @param {Object} blok Content object from Storyblok.
  * @param {string} siteUrl Full base URL for the site. i.e. https://giving.stanford.edu
  * @param {Object} location Gatsby location object.
  * @returns {string} URL to be used for canonical URL metatag.
  */
-function getCanonicalUrl(blok, siteUrl, location) {
+function getCanonicalUrl(blok, siteUrl, location = {}) {
   // Default: Use the current path as the canonical URL
-  let canonicalUrl = siteUrl + location.pathname;
+  let canonicalUrl = siteUrl + location?.pathname;
 
   if (!blok.canonicalURL) return canonicalUrl;
 

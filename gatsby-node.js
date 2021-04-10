@@ -1,10 +1,10 @@
 const path = require('path')
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions;
 
   return new Promise((resolve, reject) => {
-    const storyblokEntry = path.resolve('src/templates/storyblok-entry.js')
+    const storyblokEntry = path.resolve('src/templates/storyblok-entry.js');
 
     resolve(
       graphql(
@@ -62,6 +62,42 @@ exports.createPages = ({ graphql, actions }) => {
               story: entry.node,
               isCanonical: isCanonical
             }
+          })
+        })
+      })
+    )
+
+    // Add Redirects pre-configured in Storyblok.
+    resolve(
+      graphql(
+        `{
+          allStoryblokEntry(filter: {field_enabled_boolean: {eq: true}, field_component: {eq: "redirect"}}) {
+            edges {
+              node {
+                name
+                field_to_string
+                field_from_string
+                field_enabled_boolean
+                field_statusCode_string
+                field_component
+              }
+            }
+          }
+        }`
+      ).then(result => {
+        if (result.errors) {
+          console.log(result.errors)
+          reject(result.errors)
+        }
+
+        const entries = result.data.allStoryblokEntry.edges;
+        entries.forEach((entry, index) => {
+          createRedirect({
+            fromPath: entry.node.field_from_string,
+            toPath: entry.node.field_to_string,
+            force: true,
+            redirectInBrowser: false,
+            statusCode: Number(entry.node.field_statusCode_string),
           })
         })
       })

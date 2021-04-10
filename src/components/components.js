@@ -13,6 +13,7 @@ import Alert from "./identity/alert";
 import AlertPicker from "./identity/alertPicker";
 // Cards
 import BasicCard from "./cards/basicCard";
+import Redirect from "./redirect/Redirect";
 import OodIconCard from "./cards/oodIconCard";
 import OodSupportCard from "./cards/oodSupportCard";
 import OodQuoteCard from "./cards/oodQuoteCard";
@@ -102,6 +103,7 @@ const ComponentList = {
   contentMenuParentItem: ContentMenuParentItems,
   contentNestedMenu: ContentNestedMenu,
   basicCard: BasicCard,
+  redirect: Redirect,
   oodTileCard: OodTileCard,
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,
