@@ -86,7 +86,9 @@ export default Alert
 
 // Prop Types.
 Alert.propTypes = {
-  hasDismiss: PropTypes.bool
+  hasDismiss: PropTypes.bool,
+  dismissBtn: PropTypes.element,
+  blok: PropTypes.object,
 };
 
 // Default Props.
