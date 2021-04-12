@@ -10,3 +10,10 @@ import "./src/js/index.js";
 
 import SearchOverlayProvider from './src/context/searchOverlayStatusProvider';
 export const wrapRootElement = SearchOverlayProvider;
+
+export const shouldUpdateScroll = ({routerProps: {location}}) => {
+  // Prevent scrolling when user clicks on filters on Areas to Support page.
+  if (location.pathname == '/areas-to-support/' && location.hash) {
+    return false;
+  }
+}

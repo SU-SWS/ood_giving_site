@@ -17,7 +17,6 @@ module.exports = {
     siteUrl: `https://giving.stanford.edu`,
   },
   plugins: [
-    `gatsby-plugin-anchor-links`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
@@ -57,31 +56,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        query: `
-        {
-          site {
-            siteMetadata {
-              siteUrl
-            }
-          }
-          allSitePage(filter: {context: {isCanonical: {eq: true}}}) {
-            edges {
-              node {
-                path
-                context {
-                  isCanonical
-                }
-              }
-            }
-          }
-        }
-        `,
         exclude: [
-          '/editor',
-          '/editor/**',
-          '/global-components/**',
-          '/test-items/**',
-          '/403',
+          `/editor/*`,
+          `/editor/`,
+          `/editor`,
+          `/global-components/*`,
+          `/global-components`,
         ],
       },
     },
@@ -142,11 +122,5 @@ module.exports = {
         skipIndexing: !process.env.NETLIFY,
       },
     },
-    {
-      resolve: `gatsby-plugin-netlify`,
-      options: {
-        mergeSecurityHeaders: false,
-      }
-    }
   ],
 }
