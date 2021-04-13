@@ -9,8 +9,6 @@ import OodLocalFooter from "./identity/oodLocalFooter";
 import LocalFooterPicker from "./identity/localFooterPicker";
 import LocalHeaderPicker from "./identity/localHeaderPicker";
 import Lockup from "./identity/lockup";
-import Alert from "./identity/alert";
-import AlertPicker from "./identity/alertPicker";
 // Cards
 import BasicCard from "./cards/basicCard";
 import Redirect from "./redirect/Redirect";
@@ -23,6 +21,8 @@ import OodTileCard from "./cards/oodTileCard";
 import OodHomepageHero from "./composite/oodHomepageHero";
 import OodPoster from "./composite/oodPoster";
 import OodQuoteSlider from "./composite/oodQuoteSlider";
+import Alert from "./composite/alert";
+import AlertPicker from "./composite/alertPicker";
 // Navigation Components
 import NavItem from "./navigation/navItem";
 import ContentNavItem from "./navigation/contentMenu/contentNavItem";

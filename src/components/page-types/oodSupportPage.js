@@ -37,6 +37,7 @@ const OodSupportPage = (props) => {
     <>
       <SbEditable content={props.blok}>
         <SeoSocial {...props}/>
+        <CreateBloks blokSection={props.blok.alertPicker} />
         <CreateBloks blokSection={props.blok.localHeader} />
         <main id="main-content"
               className="ood-interior-page--no-image ood-support-page"
@@ -104,8 +105,8 @@ const OodSupportPage = (props) => {
 
 /**
  * Update the page url hash through gatsby's navigate.
- * 
- * @param {object} e 
+ *
+ * @param {object} e
  *   Browser event object.
  *
  **/

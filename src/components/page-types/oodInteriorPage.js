@@ -16,6 +16,7 @@ const OodInteriorPage = (props) => {
   return (
       <SbEditable content={props.blok}>
         <SeoSocial {...props}/>
+        <CreateBloks blokSection={props.blok.alertPicker} />
         <CreateBloks blokSection={props.blok.localHeader} />
         <main id="main-content"
               className={`ood-interior-page ood-interior-page--${props.blok.headerStyle}`}
