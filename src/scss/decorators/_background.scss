@@ -16,6 +16,13 @@
         }
       }
     }
+
+    &-transparent {
+      &:hover,
+      &:focus {
+        background-color: transparent;
+      }
+    }
   }
 
   &-transparent {

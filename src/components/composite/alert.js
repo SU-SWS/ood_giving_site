@@ -34,7 +34,7 @@ const Alert = (props) => {
 
   const DefaultDismiss = (
     <button aria-label="Dismiss alert"
-            className={'su-alert__dismiss-button su-button su-bg-transparent hocus:su-bg-transparent'}
+            className={'su-alert__dismiss-button su-button su-bg-transparent su-bg-hocus-transparent su-text-hocus-black'}
             type="button"
             onClick={() => {setDismissed(true);
     }}>
@@ -62,7 +62,7 @@ const Alert = (props) => {
           <span className="su-alert__label">{label}</span>
         </div>
         <div className="su-alert__body">
-          <div className={'su-alert__text su-text-normal'}>
+          <div className={'su-alert__text'}>
             <RichTextField data={text} />
           </div>
           {props.blok.cta && props.blok.ctaText &&
