@@ -21,6 +21,8 @@ import OodTileCard from "./cards/oodTileCard";
 import OodHomepageHero from "./composite/oodHomepageHero";
 import OodPoster from "./composite/oodPoster";
 import OodQuoteSlider from "./composite/oodQuoteSlider";
+import Alert from "./composite/alert";
+import AlertPicker from "./composite/alertPicker";
 // Navigation Components
 import NavItem from "./navigation/navItem";
 import ContentNavItem from "./navigation/contentMenu/contentNavItem";
@@ -115,6 +117,8 @@ const ComponentList = {
   oodSupportPage: OodSupportPage,
   gridThreeColumns: GridThreeColumns,
   searchResults: SearchResults,
+  alert: Alert,
+  alertPicker: AlertPicker,
 };
 
 const Components = (type) => {

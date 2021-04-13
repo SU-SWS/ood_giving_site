@@ -100,6 +100,7 @@ class StoryblokEntry extends React.Component {
             'localHeaderPicker.localHeader',
             'contentMenuPicker.contentMenu',
             'storyPicker.story',
+            'alertPicker.alert',
           ],
           () => {
           this.setState({story: payload.story})
