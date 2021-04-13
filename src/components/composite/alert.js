@@ -56,7 +56,7 @@ const Alert = (props) => {
           <div className="su-alert__dismiss">{dismissBtn}</div>
         )}
         <div className="su-alert__header">
-          <span className="su-alert__icon">
+          <span className="su-alert__icon" aria-hidden='true'>
             <i className={iconClass} />
           </span>
           <span className="su-alert__label">{label}</span>
