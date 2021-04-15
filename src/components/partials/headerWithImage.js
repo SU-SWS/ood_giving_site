@@ -16,13 +16,20 @@ const HeaderWithImage = (props) => {
   return (
     <SbEditable content={props.blok}>
       <header className={`ood-interior-page__header ood-interior-page__header--has-image`}>
-        <div className={`ood-interior-page__header-title-wrapper su-pb-5 su-bg-${props.blok.headerBackgroundColor}`}>
-          <CenteredContainer flex={true}>
+        <div className={`ood-interior-page__header-title-wrapper su-pb-5 su-bg-white`}>
+          <CenteredContainer flex={false}>
             {(windowSize.width < config.breakpoint.lg && props.blok.layout !== "no-sidebar") &&
               <CreateBloks blokSection={props.blok.contentMenu}/>
             }
-            <Heading level={"h1"} serif={true} color={"white"}
+            <Heading level={"h1"} serif={true} color={"black"}
                      classes={"ood-interior-page__title flex-lg-6-of-12 flex-xl-5-of-12 flex-2xl-6-of-12"}>{props.blok.title}</Heading>
+            <div className={`ood-interior-page__header-intro-wrapper`}>
+              {props.blok.intro && (
+                <div className="flex-lg-6-of-12 flex-xl-5-of-12 flex-2xl-6-of-12">
+                  <RichTextField data={props.blok.intro}/>
+                </div>
+              )}
+            </div>
             <AspectRatioImage
               {...props}
               filename={props.blok.headerImage.filename}
@@ -33,15 +40,7 @@ const HeaderWithImage = (props) => {
               aspectRatio={"3x2"}
             />
           </CenteredContainer>
-        </div>
-        <div className={`ood-interior-page__header-intro-wrapper su-py-6 su-bg-white`}>
-          <CenteredContainer flex={true}>
-            {props.blok.intro && (
-              <div className="intro-text ood-interior-page__intro flex-xl-8-of-12">
-                <RichTextField data={props.blok.intro}/>
-              </div>
-            )}
-          </CenteredContainer>
+          <div className={"ood-interior-page__rectangle flex-md-9-of-12 flex-lg-6-of-12 flex-xl-7-of-12 flex-2xl-6-of-12 su-ml-auto su-mr-none"} />
         </div>
       </header>
     </SbEditable>

@@ -37,7 +37,7 @@
   }
 
   &__body {
-    @include responsive-spacing('padding', 6 null);
+    @include padding(9rem null 9rem);
 
     &-header {
       @include responsive-spacing('padding', null null 5);
@@ -67,6 +67,31 @@
           @include margin(null null get-responsive-spacing-value(5, tablet));
         }
       }
+    }
+  }
+
+  &__rectangle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #F4F4F4;
+    @include grid-media-max('sm') {
+      top: 51%;
+      height: 44%;
+      width: 87%;
+    }
+    @include grid-media-only('md') {
+      top: 38%;
+      height: 55%;
+      width: 66%;
+    }
+    @include grid-media('lg') {
+      height: 75%;
+      width: 41%;
+    }
+    @include grid-media('xl') {
+      height: 64%;
+      width: 49%;
     }
   }
 }
@@ -128,8 +153,19 @@
 .ood-interior-page--has-image {
   .ood-interior-page__header {
     .ood-interior-page__title {
+      color: #2E2D29;
+      @include grid-media-max('sm') {
+        font-size: 42px;
+      }
       @include grid-media('md') {
         text-align: left;
+        font-size: 46px;
+      }
+      @include grid-media('lg') {
+        font-size: 50px;
+      }
+      @include grid-media('xl') {
+        font-size: 68px;
       }
     }
 
@@ -159,18 +195,26 @@
     }
 
     &-intro-wrapper {
+      border-top: 0;
+      color: #2E2D29;
       @include grid-media-max('sm') {
-        @include padding(7rem null 3.6rem);
-        border-top: 1.4em solid transparent;
+        font-size: 20px;
+        margin: 12px 0;
       }
 
       @include grid-media-only('md') {
-        @include padding(null null 3.6em);
-        border-top: 2.6em solid transparent;
+        font-size: 25px;
+        margin: 20px 0;
       }
 
       @include grid-media('lg') {
-        border-top: 4em solid transparent;
+        font-size: 25px;
+        margin: 20px 0;
+      }
+
+      @include grid-media('xl') {
+        font-size: 25px;
+        margin: 20px 0;
       }
     }
   }
