@@ -49,6 +49,9 @@ const SeoSocial = (props) => {
           <meta property="og:image"
               content={ogImage} />
         }
+
+        <meta name="twitter:card" content="summary" />
+
         {props.blok.seo.twitter_title &&
           <meta name="twitter:title"
               content={props.blok.seo.twitter_title} />

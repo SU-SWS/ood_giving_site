@@ -31,6 +31,7 @@ const StoryFullView = props => {
   return (
     <SbEditable content={props.blok}>
       <SeoSocial {...props} />
+      <CreateBloks blokSection={props.blok.alertPicker} />
       <CreateBloks blokSection={props.blok.localHeader} />
       <main id="main-content">
         <article className={`ood-story su-bg-white`}>

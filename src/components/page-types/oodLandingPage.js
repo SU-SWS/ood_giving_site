@@ -10,6 +10,7 @@ const OodLandingPage = (props) => {
     <SbEditable content={props.blok}>
       <SeoSocial {...props}/>
       <div className={`ood-landing-page su-bg-fog-light`}>
+        <CreateBloks blokSection={props.blok.alertPicker} />
         <CreateBloks blokSection={props.blok.localHeader} />
         <main id="main-content" className={`ood-landing-page__main`}>
           <article className={`su-bg-fog-light`}>

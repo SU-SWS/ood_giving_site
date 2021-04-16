@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+// Styles for Alert component.
+
+div {
+  &.su-alert {
+    .su-alert__footer {
+      @media only screen and (min-width: 768px) {
+        margin-top: 1.8rem;
+      }
+      @media only screen and (min-width: 0) {
+        margin-top: 1.6rem;
+      }
+    }
+
+    .su-alert__text {
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
