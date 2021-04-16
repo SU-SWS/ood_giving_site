@@ -74,9 +74,8 @@
     position: absolute;
     right: 0;
     top: 0;
-    background: #F4F4F4;
     @include grid-media-max('sm') {
-      top: 51%;
+      top: 53%;
       height: 44%;
       width: 87%;
     }
@@ -90,8 +89,8 @@
       width: 41%;
     }
     @include grid-media('xl') {
-      height: 64%;
-      width: 49%;
+      height: 58%;
+      width: 48%;
     }
   }
 }
@@ -172,6 +171,9 @@
     &-title-wrapper {
       > .centered-container {
         position: relative;
+        .header-and-intro {
+          padding-bottom: 5%;
+        }
       }
 
       @include grid-media-max('md') {
