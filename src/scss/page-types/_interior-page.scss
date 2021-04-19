@@ -70,6 +70,19 @@
     }
   }
 
+  &__section-menu {
+    @include grid-media-max('sm') {
+      position: absolute;
+      height: 98px;
+      background: $su-color-palo-alto-dark;
+    }
+    @include grid-media-only('md') {
+      position: absolute;
+      height: 132px;
+      background: $su-color-palo-alto-dark;
+    }
+  }
+
   &__rectangle {
     position: absolute;
     right: 0;

@@ -17,6 +17,7 @@ const HeaderWithImage = (props) => {
     <SbEditable content={props.blok}>
       <header className={`ood-interior-page__header ood-interior-page__header--has-image`}>
         <div className={`ood-interior-page__header-title-wrapper su-pb-5 su-bg-white`}>
+          <div className={"ood-interior-page__section-menu flex-lg-6-of-12 flex-xl-7-of-12 flex-2xl-6-of-12 su-ml-auto su-mr-none"} />
           <CenteredContainer flex={true}>
             {(windowSize.width < config.breakpoint.lg && props.blok.layout !== "no-sidebar") &&
               <CreateBloks blokSection={props.blok.contentMenu}/>
@@ -37,7 +38,7 @@ const HeaderWithImage = (props) => {
               filename={props.blok.headerImage.filename}
               alt={props.blok.headerImage.alt}
               classPrefix={"ood-interior-page__header"}
-              otherClasses={"flex-md-9-of-12 flex-lg-6-of-12 flex-xl-7-of-12 flex-2xl-6-of-12 su-ml-auto su-mr-none"}
+              otherClasses={"flex-lg-6-of-12 flex-xl-7-of-12 flex-2xl-6-of-12 su-ml-auto su-mr-none"}
               imageSize={"header"}
               aspectRatio={"3x2"}
             />
