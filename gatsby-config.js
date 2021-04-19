@@ -17,7 +17,6 @@ module.exports = {
     siteUrl: `https://giving.stanford.edu`,
   },
   plugins: [
-    `gatsby-plugin-anchor-links`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
