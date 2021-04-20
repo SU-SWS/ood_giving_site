@@ -61,19 +61,6 @@
       }
     }
   }
-
-  &__section-menu {
-    @include grid-media-max('sm') {
-      position: absolute;
-      height: 98px;
-      background: $su-color-palo-alto-dark;
-    }
-    @include grid-media-only('md') {
-      position: absolute;
-      height: 132px;
-      background: $su-color-palo-alto-dark;
-    }
-  }
 }
 
 // Interior page with minimal header option
@@ -133,7 +120,7 @@
 .ood-interior-page--has-image {
   .ood-interior-page__header {
     .ood-interior-page__title {
-      @include margin(0 null null);
+      @include margin(0 null 0.4em);
       color: $su-color-black;
 
       @include grid-media-max('sm') {
@@ -151,55 +138,15 @@
       }
     }
 
-    &-title-wrapper {
-      > .centered-container {
-        position: relative;
-        .header-and-intro {
-          padding-bottom: 5%;
-        }
-      }
-
-      @include grid-media-max('md') {
-        @include padding(null null 0);
-        @include margin(null null -4em);
-      }
-
-      @include grid-media('lg') {
-        @include padding(get-responsive-spacing-value(6, 'tablet') null null);
-        min-height: 26vw;
-      }
-
-      @include grid-media('xl') {
-        min-height: 30vw;
-      }
-
-      @include grid-media('2xl') {
-        @include padding(get-responsive-spacing-value(6, 'desktop') null null);
-        min-height: 48rem;
-      }
+    .ood-interior-page__header-title-wrapper {
+      position: relative;
     }
 
     &-intro-wrapper {
-      border-top: 0;
-      color: #2E2D29;
-      @include grid-media-max('sm') {
-        font-size: 20px;
-        margin: 12px 0;
-      }
+      font-size: 20px;
 
-      @include grid-media-only('md') {
+      @include grid-media('md') {
         font-size: 25px;
-        margin: 20px 0;
-      }
-
-      @include grid-media('lg') {
-        font-size: 25px;
-        margin: 20px 0;
-      }
-
-      @include grid-media('xl') {
-        font-size: 25px;
-        margin: 20px 0;
       }
     }
   }
@@ -218,7 +165,6 @@
       @include responsive-spacing('padding', 2 null);
     }
   }
-
 
   .ood-interior-page__rectangle {
     @include grid-media('md') {

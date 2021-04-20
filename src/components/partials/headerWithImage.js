@@ -16,20 +16,25 @@ const HeaderWithImage = (props) => {
   return (
     <SbEditable content={props.blok}>
       <header className={`ood-interior-page__header ood-interior-page__header--has-image`}>
-        <div className={`ood-interior-page__header-title-wrapper su-pb-5 su-bg-white`}>
-          {(windowSize.width < config.breakpoint.lg && props.blok.layout !== "no-sidebar") &&
-            <div className='su-bg-palo-alto-dark'>
-              <CreateBloks blokSection={props.blok.contentMenu}/>
-            </div>
-          }
+        {(windowSize.width < config.breakpoint.lg && props.blok.layout !== "no-sidebar") &&
+        <div className='su-bg-palo-alto-dark'>
+          <CreateBloks blokSection={props.blok.contentMenu}/>
+        </div>
+        }
+        <div className={`ood-interior-page__header-title-wrapper su-bg-white`}>
           <div
             className={`ood-interior-page__rectangle flex-md-5-of-12 flex-lg-6-of-12 su-bg-${props.blok.headerBackgroundColor}`}
             aria-hidden='true'
           />
-          <CenteredContainer flex={true}>
+          <CenteredContainer flex={true} classes='su-pt-6 su-pb-5'>
             <div className={"header-and-intro flex-md-7-of-12 flex-lg-6-of-12"}>
-              <Heading level={"h1"} serif={true} color={"black"}
-                       classes={"ood-interior-page__title "}>{props.blok.title}</Heading>
+              <Heading level={"h1"}
+                       serif={true}
+                       color={"black"}
+                       classes={"ood-interior-page__title "}
+              >
+                {props.blok.title}
+              </Heading>
               <div className={`ood-interior-page__header-intro-wrapper`}>
                 {props.blok.intro && (
                   <div>
