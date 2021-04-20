@@ -17,17 +17,22 @@ const HeaderWithImage = (props) => {
     <SbEditable content={props.blok}>
       <header className={`ood-interior-page__header ood-interior-page__header--has-image`}>
         <div className={`ood-interior-page__header-title-wrapper su-pb-5 su-bg-white`}>
-          <div className={"ood-interior-page__section-menu flex-lg-6-of-12 flex-xl-7-of-12 flex-2xl-6-of-12 su-ml-auto su-mr-none"} />
-          <CenteredContainer flex={true}>
-            {(windowSize.width < config.breakpoint.lg && props.blok.layout !== "no-sidebar") &&
+          {(windowSize.width < config.breakpoint.lg && props.blok.layout !== "no-sidebar") &&
+            <div className='su-bg-palo-alto-dark'>
               <CreateBloks blokSection={props.blok.contentMenu}/>
-            }
-            <div className={"header-and-intro"}>
-              <Heading level={"h1"} serif={false} color={"black"}
-                       classes={"ood-interior-page__title flex-lg-6-of-12 flex-xl-5-of-12 flex-2xl-6-of-12"}>{props.blok.title}</Heading>
+            </div>
+          }
+          <div
+            className={`ood-interior-page__rectangle flex-md-5-of-12 flex-lg-6-of-12 su-bg-${props.blok.headerBackgroundColor}`}
+            aria-hidden='true'
+          />
+          <CenteredContainer flex={true}>
+            <div className={"header-and-intro flex-md-7-of-12 flex-lg-6-of-12"}>
+              <Heading level={"h1"} serif={true} color={"black"}
+                       classes={"ood-interior-page__title "}>{props.blok.title}</Heading>
               <div className={`ood-interior-page__header-intro-wrapper`}>
                 {props.blok.intro && (
-                  <div className="flex-lg-6-of-12 flex-xl-5-of-12 flex-2xl-6-of-12">
+                  <div>
                     <RichTextField data={props.blok.intro}/>
                   </div>
                 )}
@@ -38,12 +43,11 @@ const HeaderWithImage = (props) => {
               filename={props.blok.headerImage.filename}
               alt={props.blok.headerImage.alt}
               classPrefix={"ood-interior-page__header"}
-              otherClasses={"flex-lg-6-of-12 flex-xl-7-of-12 flex-2xl-6-of-12 su-ml-auto su-mr-none"}
+              otherClasses={"flex-md-5-of-12 flex-lg-6-of-12 su-ml-auto su-mr-none"}
               imageSize={"header"}
               aspectRatio={"3x2"}
             />
           </CenteredContainer>
-          <div className={`ood-interior-page__rectangle flex-md-9-of-12 flex-lg-6-of-12 flex-xl-7-of-12 flex-2xl-6-of-12 su-ml-auto su-mr-none su-bg-${props.blok.headerBackgroundColor}`} />
         </div>
       </header>
     </SbEditable>
