@@ -139,6 +139,19 @@
 
     .ood-interior-page__header-title-wrapper {
       position: relative;
+
+      @include grid-media-max('sm') {
+        .header-and-intro {
+          padding-bottom: 75%;
+        }
+        figure.su-media--image {
+          position: absolute;
+          top: 48%;
+          left: 0;
+          right: 5%;
+          width: 95%;
+        }
+      }
     }
 
     &-intro-wrapper {
@@ -178,21 +191,28 @@
 
     @include grid-media-max('sm') {
       //top: 53%;
-      height: 44%;
       //width: 87%;
+      position: absolute;
+      right: 0;
+      top: 44%;
+      left: 10%;
+      height: 47%;
     }
     @include grid-media-only('md') {
       //top: 38%;
-      height: 55%;
       //width: 66%;
+      height: 64%;
+      width: calc(43% - 100px);
     }
     @include grid-media('lg') {
-      height: 75%;
       //width: 41%;
+      height: 68%;
+      width: calc(49% - 100px);
     }
     @include grid-media('xl') {
-      height: 58%;
       //width: 48%;
+      height: 66%;
+      width: calc(49% - 100px);
     }
 
     @include grid-media('2xl') {
