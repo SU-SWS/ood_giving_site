@@ -123,18 +123,17 @@
       @include margin(0 null 0.4em);
       color: $su-color-black;
 
-      @include grid-media-max('sm') {
-        font-size: 42px;
-      }
       @include grid-media('md') {
+        @include modular-typography(4);
         text-align: left;
-        font-size: 46px;
       }
+
       @include grid-media('lg') {
-        font-size: 50px;
+        @include modular-typography(5);
       }
+
       @include grid-media('xl') {
-        font-size: 68px;
+        @include modular-typography(6);
       }
     }
 
@@ -147,6 +146,10 @@
 
       @include grid-media('md') {
         font-size: 25px;
+
+        > div > p:last-child {
+          @include margin(null null 0);
+        }
       }
     }
   }

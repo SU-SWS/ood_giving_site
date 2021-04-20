@@ -37,9 +37,7 @@ const HeaderWithImage = (props) => {
               </Heading>
               <div className={`ood-interior-page__header-intro-wrapper`}>
                 {props.blok.intro && (
-                  <div>
-                    <RichTextField data={props.blok.intro}/>
-                  </div>
+                  <RichTextField data={props.blok.intro}/>
                 )}
               </div>
             </div>
