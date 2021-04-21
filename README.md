@@ -98,3 +98,6 @@ Example viewmode components: PrimaryComponentFullView  PrimaryComponentCardView 
 * These "viewmode" components should end with 'View' so it's like OodInteriorPageCardView or OodInteriorPageView, and contain the type of viewmode: like 'Full' 'Card' or 'Feature'.
 We use 'Full' instead of 'Page' for the full page viewmode because some component types include the word 'page' in their name already.
 For example, "OodInteriorPageFullView" and "OodInteriorPageCardView"
+
+
+Testing Algolia indexing...
