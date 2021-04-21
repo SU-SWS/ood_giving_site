@@ -16,7 +16,7 @@ const HeaderWithImage = (props) => {
   return (
     <SbEditable content={props.blok}>
       <header className={`ood-interior-page__header ood-interior-page__header--has-image`}>
-        {(windowSize.width < config.breakpoint.lg && props.blok.layout !== "no-sidebar") &&
+        {(windowSize.width < config.breakpoint.md && props.blok.layout !== "no-sidebar") &&
         <div className='su-bg-palo-alto-dark'>
           <CreateBloks blokSection={props.blok.contentMenu}/>
         </div>
