@@ -139,7 +139,7 @@ module.exports = {
         // enablePartialUpdates: true,
         queries: require("./src/utilities/algoliaQueries"),
         // we skip the indexing completely on non-prod builds.
-        skipIndexing: process.env.CONTEXT == 'production',
+        skipIndexing: process.env.CONTEXT != 'production',
       },
     },
     {
