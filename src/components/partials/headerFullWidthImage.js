@@ -8,16 +8,28 @@ import Heading from "./heading"
 import { config } from "../../utilities/config"
 import FullWidthImage from "../media/fullWidthImage";
 import FlexCell from "./flexCell";
+import AspectRatioImage from "../media/aspectRatioImage";
 
 /* The Header with Image component is referenced by the Interior Page type. */
 
 const HeaderFullWidthImage = (props) => {
   let windowSize = UseWindowSize();
 
+  const full_width_image = props.blok.headerImage.filename ? (
+    <FullWidthImage
+      {...props}
+      filename={props.blok.headerImage.filename}
+      classPrefix={"ood-interior-page"}
+      visibleVertical={"center"}
+      visibleHorizontal={"center"}
+      alt={props.blok.headerImage.alt ?? ""}
+    />
+  ) : (<div className={'full-width-image-placeholder'} />);
+
   return (
     <SbEditable content={props.blok}>
       <main id="main-content">
-        <article className={`ood-story su-bg-white`}>
+        <article className={`ood-story su-bg-white ood-shadow-shallow`}>
           <header
             className={`ood-interior-page__header ood-interior-page__header--has-image fullwidth su-bg-white su-border-color-${props.blok.headerBackgroundColor}`}
           >
@@ -26,14 +38,18 @@ const HeaderFullWidthImage = (props) => {
                 <CreateBloks blokSection={props.blok.contentMenu}/>
               </div>
             }
-            <FullWidthImage
-              {...props}
-              filename={props.blok.headerImage.filename}
-              classPrefix={"ood-interior-page"}
-              visibleVertical={"center"}
-              visibleHorizontal={"center"}
-              alt={props.blok.headerImage.alt ?? ""}
-            />
+            {full_width_image}
+            {props.blok.headerLogo.filename &&
+              <div className={'headerLogo'}>
+                <AspectRatioImage
+                  {...props}
+                  filename={props.blok.headerLogo.filename}
+                  alt={props.blok.headerLogo.alt}
+                  imageSize={"thumbnail"}
+                  aspectRatio={"2x2"}
+                />
+              </div>
+            }
             <CenteredContainer
               flex={true}
               classes={"ood-interior-page__header-content"}

@@ -260,16 +260,21 @@
 
     &__header {
       &-content {
-        @include margin(-8em null null);
+        @include grid-media-min('md') {
+          @include margin(-8em null null);
+        }
         &-wrapper {
           @include margin(null auto);
           @include responsive-spacing('padding', null 4 4);
           box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
+          background-color: white;
         }
       }
       &--has-image {
         .ood-interior-page__header-content {
-          @include margin(-8em null null);
+          @include grid-media-min('md') {
+            @include margin(-8em null null);
+          }
           padding-bottom: 60px;
         }
       }
@@ -348,6 +353,42 @@
           }
         }
       }
+    }
+  }
+
+  .centered-container {
+    @include grid-media-max('sm') {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  .full-width-image-placeholder {
+    height: 50rem;
+    width: 100%;
+    overflow: hidden;
+    background-color: $su-color-fog-light;
+  }
+
+  .ood-has-tab-before::before {
+    background-color: white;
+  }
+
+  .headerLogo {
+    position: absolute;
+    border: 1px solid #D5D5D4;
+    box-sizing: border-box;
+    border-radius: 260px;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    height: 260px;
+    @include grid-media-max('sm') {
+      top: 34%;
+    }
+    @include grid-media-only('md') {
+      top: 19%;
     }
   }
 }
