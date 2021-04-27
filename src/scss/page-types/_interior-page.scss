@@ -140,7 +140,7 @@
     .ood-interior-page__header-title-wrapper {
       position: relative;
 
-      @include grid-media-max('sm') {
+      @include grid-media-max('xs') {
         .header-and-intro {
           padding-bottom: 75%;
         }
@@ -190,27 +190,21 @@
     }
 
     @include grid-media-max('sm') {
-      //top: 53%;
-      //width: 87%;
       position: absolute;
       right: 0;
-      top: 44%;
+      top: 39%;
       left: 10%;
       height: 47%;
     }
     @include grid-media-only('md') {
-      //top: 38%;
-      //width: 66%;
-      height: 64%;
+      height: calc(64% - 100px);
       width: calc(43% - 100px);
     }
     @include grid-media('lg') {
-      //width: 41%;
-      height: 68%;
+      height: calc(68% - 100px);
       width: calc(49% - 100px);
     }
     @include grid-media('xl') {
-      //width: 48%;
       height: 66%;
       width: calc(49% - 100px);
     }
@@ -218,7 +212,6 @@
     @include grid-media('2xl') {
       width: calc(49% - 100px);
       height: 73%;
-      //width: 48%;
     }
   }
 }
@@ -249,12 +242,6 @@
 
       @include grid-media-max('sm') {
         @include modular-typography(3);
-      }
-
-      &.ood-has-tab-before {
-        &::before {
-          @include responsive-spacing('margin', null null 3);
-        }
       }
     }
 
@@ -356,13 +343,6 @@
     }
   }
 
-  .centered-container {
-    @include grid-media-max('sm') {
-      max-width: 100%;
-      width: 100%;
-    }
-  }
-
   .full-width-image-placeholder {
     height: 50rem;
     width: 100%;
@@ -382,13 +362,22 @@
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 260px;
-    height: 260px;
+    max-height: 260px;
+    max-width: 260px;
     @include grid-media-max('sm') {
-      top: 34%;
+      top: 35%;
+      max-height: 115px;
+      max-width: 115px;
     }
     @include grid-media-only('md') {
-      top: 19%;
+      top: 20%;
+      max-height: 137px;
+      max-width: 137px;
+    }
+    @include grid-media-only('lg') {
+      top: 20%;
+      max-height: 176px;
+      max-width: 176px;
     }
   }
 }
