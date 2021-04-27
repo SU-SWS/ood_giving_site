@@ -5,70 +5,52 @@
   }
 }
 
-.gallery-slideshow--thumbnails {
-  --button-size: 5rem;
+.gallery-slideshow--controls {
+  position: relative;
+}
 
-  .prev-button,
-  .next-button {  
-    --icon-size: 2rem;
-    top: calc(50% - (var(--button-size) / 2));
-    position: absolute;
-    font-size: var(--button-size);
-    z-index: 1;
-    color: $su-color-palo-verde-dark;
-    width: 5rem;
-    height: 5rem;
-    border: $su-color-palo-verde-dark 2px solid;
-    border-radius: 100%;
+.gallery-slideshow--pager {
+  list-style: none;
+  padding-left: 5rem;
 
-    & svg {
-      position: absolute;
-      width: var(--icon-size);
-      height: var(--icon-size);
-      top: calc(50% - (var(--icon-size) / 2));
-      left: calc(50% - (var(--icon-size) / 2));
-    }
-  }
-  .prev-button {
-    left: 0;
-  }
-  .next-button {
-    right: 0;
-  }
-  .slick-list {
-    margin-left: calc(var(--button-size) + 2.6rem);
-    margin-right: var(--button-size);
-  }
-  .slick-track {
-    display: flex;
-    justify-items: center;
-    &::before {
-      content: '';
-      background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 1) 50%);
-      position: absolute;
-      right: 0;
-      width: 15rem;
-      height: 100%;
-      z-index: 1;
-      pointer-events: all;
-    }
-  }
-
-  .slick-slide {
-    position: relative;
-    margin-right: 2.6rem;
+  & > li {
+    display: inline-block;
+    margin-left: 2.6rem;
   }
 }
 
 .gallery-slideshow--thumbnail {
+  box-sizing: content-box;
+  width: 10rem;
+  height: 5.625rem;
   opacity: 0.4;
+  display: inline-block;
+}
+.slick-active .gallery-slideshow--thumbnail {
+  opacity: 1;
+  border: $su-color-palo-verde-dark 5px solid;
 }
 
-.slick-current {
-  .gallery-slideshow--thumbnail {
-    border: 6px solid $su-color-palo-verde-dark;
-    opacity: 1;
-  }
+.gallery-slideshow--prev,
+.gallery-slideshow--next {
+  top: 0;
+  position: absolute;
+  z-index: 1;
+  color: $su-color-palo-verde-dark;
+  width: 5.5rem;
+  height: 5.5rem;
+  border: $su-color-palo-verde-dark 3px solid;
+  border-radius: 100%;
+  line-height: 0;
+  padding: 1.5rem;
+  background: transparent;
+}
+
+.gallery-slideshow--prev {
+  left: 0;
+}
+.gallery-slideshow--next {
+  right: 0;
 }
 
 

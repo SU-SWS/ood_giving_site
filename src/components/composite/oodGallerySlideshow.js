@@ -6,39 +6,64 @@ import 'slick-carousel/slick/slick.css';
 
 const oodGallerySlideshow = (props) => {
   const [slideshow, setSlideshow] = useState(null);
-  const [thumbnails, setThumbnails] = useState(null);
 
   const sliderSettings = {
     arrows: false,
-    asNavFor: thumbnails,
-    fade: true,
+    
     lazyLoad: true,
+    appendDots: (dots) => {
+      return (
+        <div>
+          <PrevArrow className="gallery-slideshow--prev" />
+          <ul className="gallery-slideshow--pager">
+            {dots}
+          </ul>
+          <NextArrow />
+        </div>
+      )
+    },
+    customPaging: (i) => {
+      const slide = props.blok.slides[i];
+      return (
+        <div className="gallery-slideshow--thumbnail" key={slide._uid}>
+          <AspectRatioImage
+            {...props}
+            filename={slide.image.filename}
+            alt={slide.image.alt}
+            classPrefix={"ood-gallery-slide"}
+            aspectRatio="16x9"
+            imageSize="thumbnail"
+          />
+        </div>
+      )
+    },
+    dots: true,
+    dotsClass: 'gallery-slideshow--controls'
   }
 
-  const PrevArrow = ({onClick}) => (
-    <div className="prev-button" onClick={onClick}>
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-      </svg>
-    </div>
-  )
-
-  const NextArrow = ({onClick}) => (
-    <div className="next-button" onClick={onClick}>
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-      </svg>
-    </div>
-  )
-
-  const thumbnailSettings = {
-    slidesToShow: 6,
-    asNavFor: slideshow,
-    focusOnSelect: true,
-    infinite: true,
-    prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />
+  const clickPrev = () => {
+    slideshow.slickPrev();
   }
+
+  const clickNext = () => {
+    slideshow.slickNext();
+  }
+
+  const PrevArrow = () => (
+    <button className="gallery-slideshow--prev" onClick={clickPrev}>
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+  )
+
+  const NextArrow = () => (
+    <button className="gallery-slideshow--next" onClick={clickNext}>
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  )
 
   return (
     <SbEditable content={props.blok}>
@@ -58,26 +83,6 @@ const oodGallerySlideshow = (props) => {
                   </div>
                 )
               })}
-            </Slider>
-            <Slider 
-              className="gallery-slideshow--thumbnails" 
-              ref={slider => setThumbnails(slider)} 
-              {...thumbnailSettings}
-            >
-              {props.blok.slides.map((slide) => {
-                  return (
-                    <div className="gallery-slideshow--thumbnail"key={slide._uid}>
-                      <AspectRatioImage
-                        {...props}
-                        filename={slide.image.filename}
-                        alt={slide.image.alt}
-                        classPrefix={"ood-gallery-slide"}
-                        aspectRatio="16x9"
-                        imageSize="thumbnail"
-                      />
-                    </div>
-                  )
-                })}
             </Slider>
         </div>
       </div>
