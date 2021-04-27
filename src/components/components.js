@@ -17,6 +17,7 @@ import OodSupportCard from "./cards/oodSupportCard";
 import OodQuoteCard from "./cards/oodQuoteCard";
 import OodStoryCard from "./cards/oodStoryCard";
 import OodTileCard from "./cards/oodTileCard";
+import OodGallerySlide from './cards/oodGallerySlide';
 // OOD Specific Components
 import OodHomepageHero from "./composite/oodHomepageHero";
 import OodPoster from "./composite/oodPoster";
@@ -62,6 +63,7 @@ import Accordion from "./composite/accordion";
 import AccordionItem from "./composite/accordionItem";
 import CtaGroup from "./composite/ctaGroup";
 import SearchResults from "./search/searchResults";
+import oodGallerySlideshow from './composite/oodGallerySlideshow';
 
 const ComponentList = {
   page: Page,
@@ -119,6 +121,8 @@ const ComponentList = {
   searchResults: SearchResults,
   alert: Alert,
   alertPicker: AlertPicker,
+  oodGallerySlideshow: oodGallerySlideshow,
+  oodGallerySlide: OodGallerySlide,
 };
 
 const Components = (type) => {
