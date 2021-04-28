@@ -31,7 +31,7 @@ const HeaderFullWidthImage = (props) => {
       <main id="main-content">
         <article className={`ood-story su-bg-white ood-shadow-shallow`}>
           <header
-            className={`ood-interior-page__header ood-interior-page__header--has-image fullwidth su-bg-white su-border-color-${props.blok.headerBackgroundColor}`}
+            className={`ood-interior-page__header ood-interior-page__header--has-image fullwidth su-bg-fog-light su-border-color-${props.blok.headerBackgroundColor}`}
           >
             {(windowSize.width < config.breakpoint.md && props.blok.layout !== "no-sidebar") &&
               <div className='su-bg-palo-alto-dark'>
@@ -58,18 +58,12 @@ const HeaderFullWidthImage = (props) => {
                 md={12}
                 lg={10}
                 xxl={9}
-                classes={`ood-interior-page__header-content-wrapper
-                         su-bg-${props.blok.headerBackgroundColor}
-                         ${
-                            props.blok.headerBackgroundColor !== "white"
-                            && props.blok.headerBackgroundColor !== "fog-light" ? "su-text-white" : ""
-                          }
-                       `}
+                classes={`ood-interior-page__header-content-wrapper su-bg-${props.blok.headerBackgroundColor}`}
               >
                 <Heading
                   level={"h1"}
                   weight={"semibold"}
-                  classes={`ood-story__title ood-has-tab-before su-before-bg-${props.blok.headerBackgroundColor}`}
+                  classes={"ood-story__title ood-has-tab-before"}
                 >
                   {props.blok.title}
                 </Heading>
