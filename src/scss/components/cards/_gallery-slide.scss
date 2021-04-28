@@ -5,17 +5,60 @@
   }
 }
 
+.gallery-slideshow--infobar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gallery-slideshow--caption {
+  text-align: right;
+}
+
+.gallery-slideshow--counter {
+  margin-top: 1rem;
+}
+
+.gallery-slideshow--expand a {
+  color: $su-color-palo-alto-light;
+  text-decoration: none;
+}
+.gallery-slideshow--expand a:hover {
+  color: $su-color-palo-verde-dark;
+  text-decoration: underline;
+}
+
 .gallery-slideshow--controls {
   position: relative;
+  display: flex;
+  align-items: center;
+}
+.gallery-slideshow--pager-window {
+  overflow: hidden;
+  margin: 1rem 1rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 10rem;
+    height: 100%;
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 1) 30%);
+    z-index: 1;
+  }
 }
 
 .gallery-slideshow--pager {
-  list-style: none;
-  padding-left: 5rem;
+  list-style: none;  
+  position: relative;
+  height: 7rem;
+  margin: 0;
+  padding-left: 0;
+  width: max-content;
+  transition: all 200ms ease-in-out;
 
   & > li {
     display: inline-block;
-    margin-left: 2.6rem;
+    margin-right: 2.6rem;
   }
 }
 
@@ -26,6 +69,11 @@
   opacity: 0.4;
   display: inline-block;
 }
+
+.gallery-slideshow--thumbnail:hover {
+  opacity: 1;
+}
+
 .slick-active .gallery-slideshow--thumbnail {
   opacity: 1;
   border: $su-color-palo-verde-dark 5px solid;
@@ -33,24 +81,20 @@
 
 .gallery-slideshow--prev,
 .gallery-slideshow--next {
-  top: 0;
-  position: absolute;
   z-index: 1;
-  color: $su-color-palo-verde-dark;
+  color: $su-color-palo-verde-light;
   width: 5.5rem;
   height: 5.5rem;
-  border: $su-color-palo-verde-dark 3px solid;
+  border: $su-color-palo-verde-light 3px solid;
   border-radius: 100%;
   line-height: 0;
-  padding: 1.5rem;
+  padding: 1rem;
   background: transparent;
+  flex-shrink: 0;
 }
 
-.gallery-slideshow--prev {
-  left: 0;
+.gallery-slideshow--prev:hover,
+.gallery-slideshow--next:hover {
+  color: $su-color-palo-verde-dark;
+  border: $su-color-palo-verde-dark 3px solid;
 }
-.gallery-slideshow--next {
-  right: 0;
-}
-
-

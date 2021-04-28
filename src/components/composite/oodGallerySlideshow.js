@@ -2,23 +2,57 @@ import React, { useState, useEffect } from 'react'
 import SbEditable from 'storyblok-react'
 import AspectRatioImage from '../media/aspectRatioImage';
 import Slider from 'react-slick';
+import RichTextField from '../../utilities/richTextField';
 import 'slick-carousel/slick/slick.css';
 
 const oodGallerySlideshow = (props) => {
   const [slideshow, setSlideshow] = useState(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [pagerOffset, setPagerOffset] = useState(0);
+  const pagerWindow = React.createRef();
+  const pager = React.createRef();
 
   const sliderSettings = {
     arrows: false,
-    
     lazyLoad: true,
     appendDots: (dots) => {
       return (
         <div>
-          <PrevArrow className="gallery-slideshow--prev" />
-          <ul className="gallery-slideshow--pager">
-            {dots}
-          </ul>
-          <NextArrow />
+          <div className='gallery-slideshow--infobar'>
+            {props.blok.showCounter && 
+              <div className='gallery-slideshow--counter'>
+                {`${activeSlide + 1}/${props.blok.slides.length}`}
+              </div>
+            }
+
+            {props.blok.showExpandLink &&
+              <div className='gallery-slideshow--expand'>
+                <a href='return javascript:void(0);'>Expand <span className="fas fa-expand"></span></a>
+              </div>
+            }
+          </div>
+          
+          {props.blok.captionPlacement == 'beforeThumbnails' &&
+            <div className="gallery-slideshow--caption">
+              <RichTextField data={props.blok.slides[activeSlide]['caption']}  />
+            </div>
+          }
+          
+          <div className='gallery-slideshow--controls'>
+            <PrevArrow className="gallery-slideshow--prev" />
+            <div className="gallery-slideshow--pager-window" ref={pagerWindow}>
+              <ul className="gallery-slideshow--pager" ref={pager} style={{transform: `translateX(${pagerOffset}px)`}}>
+                {dots}
+              </ul>
+            </div>
+            <NextArrow />
+          </div>
+
+          {props.blok.captionPlacement == 'afterThumbnails' &&
+            <div className="gallery-slideshow--caption">
+              <RichTextField data={props.blok.slides[activeSlide]['caption']}  />
+            </div>
+          }
         </div>
       )
     },
@@ -37,8 +71,30 @@ const oodGallerySlideshow = (props) => {
         </div>
       )
     },
+    afterChange: (i) => {
+      setActiveSlide(i);
+      const windowBox = pagerWindow.current.getBoundingClientRect();
+      const pagerBox = pager.current.getBoundingClientRect();
+      const activeItem = pagerWindow.current.getElementsByClassName('slick-active')[0];
+      const activeItemBox = activeItem.getBoundingClientRect();
+      
+
+      if (activeItemBox.right > windowBox.right) {
+        const rightGutter = 26;
+        const currentOffset = pagerBox.left - windowBox.left;
+        const newOffset = currentOffset + (windowBox.right - activeItemBox.right) - rightGutter;
+        setPagerOffset(newOffset);
+      }
+      else if (activeItemBox.left < windowBox.left) {
+        const currentOffset = pagerBox.left - windowBox.left;
+        const newOffset = currentOffset + (windowBox.left - activeItemBox.left);
+        console.log('newOffset', newOffset);
+        setPagerOffset(newOffset);
+      }
+      
+    },
     dots: true,
-    dotsClass: 'gallery-slideshow--controls'
+    dotsClass: 'gallery-slideshow--bottom'
   }
 
   const clickPrev = () => {
