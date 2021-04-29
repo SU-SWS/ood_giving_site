@@ -316,29 +316,6 @@
           width: 100%;
           object-fit: cover;
         }
-
-        .ood-interior-page-media__caption {
-          @include grid-media('xl') {
-            text-align: center;
-          }
-        }
-      }
-
-      &__caption {
-        @include margin(0.8em null null);
-        font-size: 1.6rem;
-
-        @include grid-media('xl') {
-          font-size: 1.8rem;
-        }
-
-        > div {
-          > * {
-            &:last-child {
-              @include margin(null null 0);
-            }
-          }
-        }
       }
     }
   }
@@ -350,34 +327,31 @@
     background-color: $su-color-fog-light;
   }
 
-  .ood-has-tab-before::before {
-    background-color: white;
-  }
-
   .headerLogo {
     position: absolute;
-    border: 1px solid #D5D5D4;
-    box-sizing: border-box;
-    border-radius: 260px;
-    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-height: 260px;
-    max-width: 260px;
-    @include grid-media-max('sm') {
+    top: 20%;
+    max-height: 176px;
+
+    @include grid-media('sm') {
       top: 35%;
       max-height: 115px;
-      max-width: 115px;
     }
-    @include grid-media-only('md') {
+
+    @include grid-media('md') {
       top: 20%;
       max-height: 137px;
-      max-width: 137px;
     }
-    @include grid-media-only('lg') {
+
+    @include grid-media('lg') {
       top: 20%;
       max-height: 176px;
-      max-width: 176px;
+    }
+
+    @include grid-media('2xl') {
+      top: 30%;
+      max-height: 260px;
     }
   }
 }
