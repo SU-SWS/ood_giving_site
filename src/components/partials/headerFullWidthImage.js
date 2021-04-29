@@ -20,7 +20,7 @@ const HeaderFullWidthImage = (props) => {
       {...props}
       filename={props.blok.headerImage.filename}
       classPrefix={"ood-interior-page"}
-      visibleVertical={"center"}
+      visibleVertical={props.blok.visibleVertical}
       visibleHorizontal={"center"}
       alt={props.blok.headerImage.alt ?? ""}
     />

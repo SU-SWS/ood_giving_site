@@ -243,6 +243,20 @@
       @include grid-media-max('sm') {
         @include modular-typography(3);
       }
+
+      text-align: left;
+      @include grid-media-max('sm') {
+        font-size: 36px;
+      }
+      @include grid-media-only('md') {
+        font-size: 40px;
+      }
+      @include grid-media('lg') {
+        font-size: 50px;
+      }
+      @include grid-media('xl') {
+        font-size: 68px;
+      }
     }
 
     &__header {
@@ -256,6 +270,12 @@
           @include responsive-spacing('padding', 4);
           box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
           background-color: white;
+        }
+      }
+      &-intro {
+        font-size: 25px;
+        @include grid-media-max('md') {
+          font-size: 20px;
         }
       }
     }
@@ -379,6 +399,13 @@
     @include grid-media('2xl') {
       top: 32rem;
       max-height: 260px;
+    }
+  }
+
+  .centered-container {
+    @include grid-media-max('sm') {
+      max-width: 100%;
+      width: 100%;
     }
   }
 }
