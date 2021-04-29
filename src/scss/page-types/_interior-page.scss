@@ -237,7 +237,7 @@
 .ood-interior-page--full-width-image {
   .ood-interior-page {
     &__title {
-      @include margin(null null 0.4em);
+      @include margin(0 null 0.4em);
       @include modular-typography(5);
 
       @include grid-media-max('sm') {
@@ -250,19 +250,20 @@
         @include grid-media-min('md') {
           @include margin(-8em null null);
         }
+
         &-wrapper {
           @include margin(null auto);
-          @include responsive-spacing('padding', null 4 4);
+          @include responsive-spacing('padding', 4);
           box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
           background-color: white;
         }
       }
+
       &--has-image {
         .ood-interior-page__header-content {
           @include grid-media-min('md') {
             @include margin(-8em null null);
           }
-          padding-bottom: 60px;
         }
       }
     }
@@ -270,10 +271,10 @@
     &__media {
       width: 100%;
       overflow: hidden;
-      height: 30rem;
+      height: 16rem;
 
       @include grid-media('md') {
-        height: 40rem;
+        height: 33rem;
       }
 
       @include grid-media('xl') {
@@ -281,7 +282,7 @@
       }
 
       @include grid-media('2xl') {
-        height: 64rem;
+        height: 60rem;
       }
     }
 

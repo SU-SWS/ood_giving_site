@@ -28,53 +28,52 @@ const HeaderFullWidthImage = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <main id="main-content">
-        <article className={`ood-story su-bg-white ood-shadow-shallow`}>
-          <header
-            className={`ood-interior-page__header ood-interior-page__header--has-image fullwidth su-bg-fog-light su-border-color-${props.blok.headerBackgroundColor}`}
+      <header
+        className={`ood-interior-page__header ood-interior-page__header--has-image fullwidth`}
+      >
+        {(windowSize.width < config.breakpoint.md && props.blok.layout !== "no-sidebar") &&
+          <div className='su-bg-palo-alto-dark'>
+            <CreateBloks blokSection={props.blok.contentMenu}/>
+          </div>
+        }
+        {full_width_image}
+        {props.blok.headerLogo.filename &&
+          <div className={'headerLogo'}>
+            <img
+              className={`ood-media__image
+           ${props.classPrefix ? `${props.classPrefix}__image` : ""}
+           su-obj-position-h-center-v-top`}
+              src={props.blok.headerLogo.filename}
+              alt={props.blok.headerLogo.alt}
+            />
+          </div>
+        }
+        <CenteredContainer
+          flex={true}
+          classes={"ood-interior-page__header-content"}
+        >
+          <FlexCell
+            md={12}
+            lg={10}
+            xxl={9}
+            classes={`ood-interior-page__header-content-wrapper`}
           >
-            {(windowSize.width < config.breakpoint.md && props.blok.layout !== "no-sidebar") &&
-              <div className='su-bg-palo-alto-dark'>
-                <CreateBloks blokSection={props.blok.contentMenu}/>
-              </div>
-            }
-            {full_width_image}
-            {props.blok.headerLogo.filename &&
-              <div className={'headerLogo'}>
-                <img
-                  className={`ood-media__image
-               ${props.classPrefix ? `${props.classPrefix}__image` : ""}
-               su-obj-position-h-center-v-top`}
-                  src={props.blok.headerLogo.filename}
-                  alt={props.blok.headerLogo.alt}
-                />
-              </div>
-            }
-            <CenteredContainer
-              flex={true}
-              classes={"ood-interior-page__header-content"}
+            <Heading
+              level={"h1"}
+              weight={"bold"}
+              serif={true}
+              classes={"ood-interior-page__title"}
             >
-              <FlexCell
-                md={12}
-                lg={10}
-                xxl={9}
-                classes={`ood-interior-page__header-content-wrapper su-bg-${props.blok.headerBackgroundColor}`}
-              >
-                <Heading
-                  level={"h1"}
-                  weight={"semibold"}
-                  classes={"ood-story__title ood-has-tab-before"}
-                >
-                  {props.blok.title}
-                </Heading>
-                {props.blok.intro && (
-                  <RichTextField data={props.blok.intro}/>
-                )}
-              </FlexCell>
-            </CenteredContainer>
-          </header>
-        </article>
-      </main>
+              {props.blok.title}
+            </Heading>
+            {props.blok.intro &&
+              <div className='ood-interior-page__header-intro'>
+                <RichTextField data={props.blok.intro}/>
+              </div>
+            }
+          </FlexCell>
+        </CenteredContainer>
+      </header>
     </SbEditable>
   );
 }
