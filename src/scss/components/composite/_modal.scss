@@ -1,0 +1,41 @@
+.su-modal {
+  backdrop-filter: blur(5px);
+  height: 100%;
+  width: 100vw;
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  color: #ffffff;
+  pointer-events: none;
+  background-color: rgba(0, 41, 44, 0.9);
+  opacity: 0;
+}
+
+.su-modal.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.su-modal--close {
+  padding: 0.8rem 1.2rem;
+  font-size: 1.25em;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  border: 0px;
+  cursor: pointer;
+
+  i {
+    margin-left: 1rem;
+    position: relative;
+    top: 0.2rem;
+    font-size: 1.1em;
+  }
+}
+
+.su-modal--header {
+  display: flex;
+  justify-content: flex-end;
+}

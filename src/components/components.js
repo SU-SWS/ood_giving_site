@@ -17,7 +17,6 @@ import OodSupportCard from "./cards/oodSupportCard";
 import OodQuoteCard from "./cards/oodQuoteCard";
 import OodStoryCard from "./cards/oodStoryCard";
 import OodTileCard from "./cards/oodTileCard";
-import OodGallerySlide from './cards/oodGallerySlide';
 // OOD Specific Components
 import OodHomepageHero from "./composite/oodHomepageHero";
 import OodPoster from "./composite/oodPoster";
@@ -122,7 +121,6 @@ const ComponentList = {
   alert: Alert,
   alertPicker: AlertPicker,
   oodGallerySlideshow: oodGallerySlideshow,
-  oodGallerySlide: OodGallerySlide,
 };
 
 const Components = (type) => {
