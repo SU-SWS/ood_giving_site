@@ -265,8 +265,16 @@
       overflow: hidden;
       height: 16rem;
 
+      @include grid-media('sm') {
+        height: 24rem;
+      }
+
       @include grid-media('md') {
         height: 33rem;
+      }
+
+      @include grid-media('lg') {
+        height: 40rem;
       }
 
       @include grid-media('xl') {
@@ -314,10 +322,30 @@
   }
 
   .full-width-image-placeholder {
-    height: 50rem;
+    height: 16rem;
     width: 100%;
     overflow: hidden;
     background-color: $su-color-fog-light;
+
+    @include grid-media('sm') {
+      height: 24rem;
+    }
+
+    @include grid-media('md') {
+      height: 33rem;
+    }
+
+    @include grid-media('lg') {
+      height: 40rem;
+    }
+
+    @include grid-media('xl') {
+      height: 50rem;
+    }
+
+    @include grid-media('2xl') {
+      height: 60rem;
+    }
   }
 
   .header-logo {
@@ -327,18 +355,29 @@
     top: 16rem;
     max-height: 115px;
 
+    @include grid-media('sm') {
+      top: 20rem;
+      max-height: 125px;
+    }
+
     @include grid-media('md') {
-      top: 23%;
+      top: 15rem;
       max-height: 137px;
     }
 
     @include grid-media('lg') {
-      top: 30%;
+      top: 19rem;
       max-height: 176px;
     }
 
+    @include grid-media('xl') {
+      top: 25rem;
+      max-height: 220px;
+    }
+
+
     @include grid-media('2xl') {
-      top: 40%;
+      top: 32rem;
       max-height: 260px;
     }
   }

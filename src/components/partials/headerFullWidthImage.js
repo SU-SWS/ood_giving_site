@@ -24,7 +24,7 @@ const HeaderFullWidthImage = (props) => {
       visibleHorizontal={"center"}
       alt={props.blok.headerImage.alt ?? ""}
     />
-  ) : (<div className={'full-width-image-placeholder'} />);
+  ) : (<div className={'full-width-image-placeholder'} aria-hidden='true' />);
 
   return (
     <SbEditable content={props.blok}>
