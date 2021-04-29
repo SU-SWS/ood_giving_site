@@ -248,7 +248,7 @@
     &__header {
       &-content {
         @include grid-media-min('md') {
-          @include margin(-8em null null);
+          @include margin(-5em null null);
         }
 
         &-wrapper {
@@ -256,14 +256,6 @@
           @include responsive-spacing('padding', 4);
           box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
           background-color: white;
-        }
-      }
-
-      &--has-image {
-        .ood-interior-page__header-content {
-          @include grid-media-min('md') {
-            @include margin(-8em null null);
-          }
         }
       }
     }
@@ -328,30 +320,25 @@
     background-color: $su-color-fog-light;
   }
 
-  .headerLogo {
+  .header-logo {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
-    top: 20%;
-    max-height: 176px;
-
-    @include grid-media('sm') {
-      top: 35%;
-      max-height: 115px;
-    }
+    top: 16rem;
+    max-height: 115px;
 
     @include grid-media('md') {
-      top: 20%;
+      top: 23%;
       max-height: 137px;
     }
 
     @include grid-media('lg') {
-      top: 20%;
+      top: 30%;
       max-height: 176px;
     }
 
     @include grid-media('2xl') {
-      top: 30%;
+      top: 40%;
       max-height: 260px;
     }
   }

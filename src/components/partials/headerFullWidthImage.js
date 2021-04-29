@@ -38,15 +38,11 @@ const HeaderFullWidthImage = (props) => {
         }
         {full_width_image}
         {props.blok.headerLogo.filename &&
-          <div className={'headerLogo'}>
-            <img
-              className={`ood-media__image
-           ${props.classPrefix ? `${props.classPrefix}__image` : ""}
-           su-obj-position-h-center-v-top`}
-              src={props.blok.headerLogo.filename}
-              alt={props.blok.headerLogo.alt}
-            />
-          </div>
+          <img
+            className={'header-logo'}
+            src={props.blok.headerLogo.filename}
+            alt={props.blok.headerLogo.alt}
+          />
         }
         <CenteredContainer
           flex={true}
