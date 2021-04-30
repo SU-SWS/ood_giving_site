@@ -194,6 +194,13 @@
       right: 0;
       top: 39%;
       left: 10%;
+      height: 53%;
+    }
+    @include grid-media-max('xs') {
+      position: absolute;
+      right: 0;
+      top: 44%;
+      left: 10%;
       height: 47%;
     }
     @include grid-media-only('md') {
@@ -402,7 +409,7 @@
     }
   }
 
-  .centered-container {
+  .ood-interior-page__header-content {
     @include grid-media-max('sm') {
       max-width: 100%;
       width: 100%;
