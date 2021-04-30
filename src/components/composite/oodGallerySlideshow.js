@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import SbEditable from 'storyblok-react'
 import AspectRatioImage from '../media/aspectRatioImage';
 import Slider from 'react-slick';
@@ -11,6 +11,7 @@ const oodGallerySlideshow = (props) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [pagerOffset, setPagerOffset] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(true);
   const pagerWindow = React.createRef();
   const pager = React.createRef();
 
@@ -21,38 +22,40 @@ const oodGallerySlideshow = (props) => {
     appendDots: (dots) => {
       return (
         <div>
-          <div className='gallery-slideshow--infobar'>
-            {props.blok.showCounter && 
-              <div className='gallery-slideshow--counter' aria-label={`Slide ${activeSlide + 1} of ${props.blok.slides.length}`}>
-                {`${activeSlide + 1}/${props.blok.slides.length}`}
-              </div>
-            }
+          {(props.blok.showCounter || props.blok.showExpandLink) &&
+            <div className='gallery-slideshow--infobar'>
+              {props.blok.showCounter && 
+                <div className='gallery-slideshow--counter' aria-label={`Slide ${activeSlide + 1} of ${props.blok.slides.length}`}>
+                  {`${activeSlide + 1}/${props.blok.slides.length}`}
+                </div>
+              }
 
-            {props.blok.showExpandLink &&
-              <div className='gallery-slideshow--expand'>
-                <a href='javascript:void(0);' onClick={() => setModalOpen(true)}>Expand <i className="fas fa-expand"></i></a>
-              </div>
-            }
-          </div>
-          
+              {props.blok.showExpandLink &&
+                <div className='gallery-slideshow--expand'>
+                  <button onClick={() => setModalOpen(true)}>Expand <i className="fas fa-expand"></i></button>
+                </div>
+              }
+            </div>   
+          }
+
           {props.blok.captionPlacement == 'beforeThumbnails' &&
-            <div className="gallery-slideshow--caption">
+            <div className="gallery-slideshow--caption gallery-slideshow--caption--before">
               <RichTextField data={props.blok.slides[activeSlide]['caption']}  />
             </div>
           }
           
           <div className='gallery-slideshow--controls'>
-            <PrevArrow className="gallery-slideshow--prev" />
-            <div className="gallery-slideshow--pager-window" ref={pagerWindow}>
+            <PrevArrow />
+            <div className={`gallery-slideshow--pager-window ${showOverlay ? 'overlay' : ''}`} ref={pagerWindow}>
               <ul className="gallery-slideshow--pager" ref={pager} style={{transform: `translateX(${pagerOffset}px)`}}>
                 {dots}
               </ul>
             </div>
-            <NextArrow />
+            <NextArrow  />
           </div>
 
           {props.blok.captionPlacement == 'afterThumbnails' &&
-            <div className="gallery-slideshow--caption">
+            <div className="gallery-slideshow--caption gallery-slideshow--caption--after">
               <RichTextField data={props.blok.slides[activeSlide]['caption']}  />
             </div>
           }
@@ -115,11 +118,13 @@ const oodGallerySlideshow = (props) => {
       const currentOffset = pagerBox.left - windowBox.left;
       const newOffset = currentOffset + (windowBox.right - activeItemBox.right) - rightGutter;
       setPagerOffset(newOffset);
+      setShowOverlay(false);
     }
     else if (activeItemBox.left < windowBox.left) {
       const currentOffset = pagerBox.left - windowBox.left;
       const newOffset = currentOffset + (windowBox.left - activeItemBox.left);
       setPagerOffset(newOffset);
+      setShowOverlay(true);
     }
   }
 
@@ -174,7 +179,7 @@ const oodGallerySlideshow = (props) => {
         isOpen={modalOpen} 
         onClose={() => setModalOpen(false)} 
         outerContainerClasses="centered-container flex-container su-pt-1"
-        innerContainerClasses="su-mx-auto flex-2xl-10-of-12"
+        innerContainerClasses="su-mx-auto flex-xl-10-of-12"
       >
         <div className="gallery-slideshow--modal-wrapper">
           <Slider className="gallery-slideshow--modal" {...modalSliderSettings} >
@@ -192,8 +197,10 @@ const oodGallerySlideshow = (props) => {
               )
             })}
           </Slider>
-          <div className='gallery-slideshow--counter' aria-label={`Slide ${activeSlide + 1} of ${props.blok.slides.length}`}>
-            {`${activeSlide + 1}/${props.blok.slides.length}`}
+          <div className='gallery-slideshow--infobar'>
+            <div className='gallery-slideshow--counter' aria-label={`Slide ${activeSlide + 1} of ${props.blok.slides.length}`}>
+              {`${activeSlide + 1}/${props.blok.slides.length}`}
+            </div>
           </div>
         </div>
         <div className="gallery-slideshow--caption">
