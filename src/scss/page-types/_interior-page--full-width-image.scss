@@ -47,7 +47,10 @@
     &__title {
       @include margin(0 null 0.4em);
       @include interior-page-with-image-h1-fontsize;
-      text-align: left;
+      
+      @include grid-media('md') {
+        text-align: left;
+      }
     }
 
     &__media {
