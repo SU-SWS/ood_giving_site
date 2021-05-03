@@ -27,8 +27,8 @@ const HeaderFullWidthImage = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <header
-        className={`ood-interior-page__header ood-interior-page__header--full-width-image fullwidth`}
+      <header className={`ood-interior-page__header ood-interior-page__header--full-width-image fullwidth
+              ${props.blok.headerSpacingBottom !== "none" ? `su-mb-${props.blok.headerSpacingBottom}` : ""}`}
       >
         {(windowSize.width < config.breakpoint.lg && props.blok.layout !== "no-sidebar") &&
           <div className='ood-content-nav__wrapper'>

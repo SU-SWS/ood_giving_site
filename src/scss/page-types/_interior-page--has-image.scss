@@ -41,11 +41,15 @@
       font-size: 2rem;
 
       @include grid-media('md') {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
 
         > div > p:last-child {
           @include margin(null null 0);
         }
+      }
+
+      @include grid-media('lg') {
+        font-size: 2.5rem;
       }
     }
   }
