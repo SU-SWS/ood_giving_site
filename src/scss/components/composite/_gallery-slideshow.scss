@@ -16,7 +16,11 @@
 }
 
 .gallery-slideshow--caption {
+  max-width: 64rem;
   text-align: right;
+  margin-left: auto;
+  font-style: italic;
+  user-select: text;
 }
 
 .gallery-slideshow--caption--before {
@@ -76,7 +80,7 @@
     width: 5rem;
     height: 100%;
     pointer-events: none;
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 1) 30%);
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 30%);
     z-index: 1;
   }
 }

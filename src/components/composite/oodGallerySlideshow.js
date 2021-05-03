@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SbEditable from 'storyblok-react'
 import AspectRatioImage from '../media/aspectRatioImage';
 import Slider from 'react-slick';
@@ -19,6 +19,7 @@ const oodGallerySlideshow = (props) => {
     arrows: false,
     accessibility: true,
     lazyLoad: true,
+    // This provides the JSX template for the lower half of the slider.
     appendDots: (dots) => {
       return (
         <div>
@@ -45,13 +46,20 @@ const oodGallerySlideshow = (props) => {
           }
           
           <div className='gallery-slideshow--controls'>
-            <PrevArrow />
+            <button className="gallery-slideshow--prev" onClick={clickPrev}>
+              <span className="sr-only">Previous Slide</span>
+              <i className="fas fa-chevron-left"></i>
+              
+            </button>
             <div className={`gallery-slideshow--pager-window ${showOverlay ? 'overlay' : ''}`} ref={pagerWindow}>
               <ul className="gallery-slideshow--pager" ref={pager} style={{transform: `translateX(${pagerOffset}px)`}}>
                 {dots}
               </ul>
             </div>
-            <NextArrow  />
+            <button className="gallery-slideshow--next" onClick={clickNext}>
+              <span className="sr-only">Next Slide</span>
+              <i className="fas fa-chevron-right"></i>
+            </button>
           </div>
 
           {props.blok.captionPlacement == 'afterThumbnails' &&
@@ -89,17 +97,13 @@ const oodGallerySlideshow = (props) => {
     nextArrow: (
       <button>
         <span className="sr-only">Next Slide</span>
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-        </svg>
+        <i className="fas fa-chevron-right"></i>
       </button>
     ),
     prevArrow: (
       <button>
         <span className="sr-only">Previous Slide</span>
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
-        </svg>
+        <i className="fas fa-chevron-left"></i>
       </button>
     ),
     afterChange: (i) => {
@@ -136,27 +140,9 @@ const oodGallerySlideshow = (props) => {
     slideshow.slickNext();
   }
 
-  const PrevArrow = () => (
-    <button className="gallery-slideshow--prev" onClick={clickPrev}>
-      <span className="sr-only">Previous Slide</span>
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
-  )
-
-  const NextArrow = () => (
-    <button className="gallery-slideshow--next" onClick={clickNext}>
-      <span className="sr-only">Next Slide</span>
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
-  )
-
   return (
     <SbEditable content={props.blok}>
-      <div className='centered-container'>
+      <div className='gallery-slideshow centered-container su-pt-1 su-pb-1'>
         <div className='su-mx-auto flex-xl-10-of-12'>
           <Slider className="gallery-slideshow--slides" ref={(slider => setSlideshow(slider))} {...sliderSettings} >
               {props.blok.slides.map((slide, index) => {
