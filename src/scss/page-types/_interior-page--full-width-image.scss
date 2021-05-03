@@ -76,37 +76,17 @@
     }
 
     &__image {
+      position: absolute;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top;
     }
 
     // Interior page Image Component
     .ood-interior-page-media {
-      &__figure {
-        @include margin(null auto);
-        width: 100%;
-      }
-
-      // Edge-to-edge
-      &.su-w-full {
-        display: flex;
-
-        > div {
-          width: 100%;
-        }
-
-        .ood-interior-page-media__wrapper {
-          height: 30vw;
-        }
-
-        .ood-interior-page-media__image {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-        }
-      }
+      @include margin(null auto);
+      width: 100%;
+      position: relative;
     }
   }
 
