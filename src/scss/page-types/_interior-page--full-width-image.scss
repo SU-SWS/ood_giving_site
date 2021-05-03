@@ -15,29 +15,6 @@
   }
 
   .ood-interior-page {
-    &__title {
-      @include margin(0 null 0.4em);
-      @include modular-typography(5);
-
-      @include grid-media-max('sm') {
-        @include modular-typography(3);
-      }
-
-      text-align: left;
-      @include grid-media-max('sm') {
-        font-size: 36px;
-      }
-      @include grid-media-only('md') {
-        font-size: 40px;
-      }
-      @include grid-media('lg') {
-        font-size: 50px;
-      }
-      @include grid-media('xl') {
-        font-size: 68px;
-      }
-    }
-
     &__header {
       &-content {
         @include grid-media-min('md') {
@@ -48,11 +25,12 @@
           @include margin(null auto);
           @include responsive-spacing('padding', 4);
           box-shadow: rgba(0,0,0,0.1) 0 3px 4px;
-          background-color: white;
+          background-color: $su-color-white;
         }
       }
+
       &-intro {
-        font-size: 25px;
+        font-size: 2rem;
 
         > div {
           *:last-child {
@@ -60,10 +38,15 @@
           }
         }
 
-        @include grid-media-max('md') {
-          font-size: 20px;
+        @include grid-media('lg') {
+          font-size: 2.5rem;
         }
       }
+    }
+
+    &__title {
+      @include margin(0 null 0.4em);
+      text-align: left;
     }
 
     &__media {
