@@ -8,9 +8,8 @@ import Heading from "./heading"
 import { config } from "../../utilities/config"
 import FullWidthImage from "../media/fullWidthImage";
 import FlexCell from "./flexCell";
-import AspectRatioImage from "../media/aspectRatioImage";
 
-/* The Header with Image component is referenced by the Interior Page type. */
+/* The Header with Fullwidth Image component is referenced by the Interior Page type. */
 
 const HeaderFullWidthImage = (props) => {
   let windowSize = UseWindowSize();
@@ -29,7 +28,7 @@ const HeaderFullWidthImage = (props) => {
   return (
     <SbEditable content={props.blok}>
       <header
-        className={`ood-interior-page__header ood-interior-page__header--has-image fullwidth`}
+        className={`ood-interior-page__header ood-interior-page__header--full-width-image fullwidth`}
       >
         {(windowSize.width < config.breakpoint.md && props.blok.layout !== "no-sidebar") &&
           <div className='su-bg-palo-alto-dark'>

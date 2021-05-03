@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+// Interior page header variant with non-fullwidth image with fixed aspect ratio
+
+.ood-interior-page--has-image {
+  .ood-interior-page__header {
+    .ood-interior-page__title {
+      @include margin(0 null 0.4em);
+      color: $su-color-black;
+
+      @include grid-media('md') {
+        @include modular-typography(4);
+        text-align: left;
+      }
+
+      @include grid-media('lg') {
+        @include modular-typography(5);
+      }
+
+      @include grid-media('xl') {
+        @include modular-typography(6);
+      }
+    }
+
+    .ood-interior-page__header-title-wrapper {
+      position: relative;
+
+      @include grid-media-max('xs') {
+        .header-and-intro {
+          padding-bottom: 75%;
+        }
+        figure.su-media--image {
+          position: absolute;
+          top: 48%;
+          left: 0;
+          right: 5%;
+          width: 95%;
+        }
+      }
+    }
+
+    &-intro-wrapper {
+      font-size: 20px;
+
+      @include grid-media('md') {
+        font-size: 25px;
+
+        > div > p:last-child {
+          @include margin(null null 0);
+        }
+      }
+    }
+  }
+
+  .ood-interior-page__title {
+    @include margin(null null null 0);
+
+    @include grid-media-max('md') {
+      @include margin(null null 0.6em);
+    }
+  }
+
+  .ood-content-nav {
+    @include grid-media-max('md') {
+      @include margin(0 null);
+      @include responsive-spacing('padding', 2 null);
+    }
+  }
+
+  .ood-interior-page__rectangle {
+    @include grid-media('md') {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    @include grid-media-max('sm') {
+      position: absolute;
+      right: 0;
+      top: 39%;
+      left: 10%;
+      height: 53%;
+    }
+    @include grid-media-max('xs') {
+      position: absolute;
+      right: 0;
+      top: 44%;
+      left: 10%;
+      height: 47%;
+    }
+
+    @include grid-media-only('md') {
+      height: calc(64% - 100px);
+      width: calc(43% - 100px);
+    }
+
+    @include grid-media('lg') {
+      height: calc(68% - 100px);
+      width: calc(49% - 100px);
+    }
+
+    @include grid-media('xl') {
+      height: 66%;
+      width: calc(49% - 100px);
+    }
+
+    @include grid-media('2xl') {
+      width: calc(49% - 100px);
+      height: 73%;
+    }
+  }
+}
