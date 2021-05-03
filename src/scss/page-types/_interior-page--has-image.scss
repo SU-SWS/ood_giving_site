@@ -25,16 +25,23 @@
     .ood-interior-page__header-title-wrapper {
       position: relative;
 
-      @include grid-media-max('xs') {
-        .header-and-intro {
-          padding-bottom: 75%;
+      > .centered-container {
+        @include padding(get-responsive-spacing-value(4, 'mobile') null null);
+
+        @include grid-media('md') {
+          @include padding(get-responsive-spacing-value(4, 'tablet') null null);
         }
-        figure.su-media--image {
-          position: absolute;
-          top: 48%;
-          left: 0;
-          right: 5%;
-          width: 95%;
+
+        @include grid-media('lg') {
+          @include padding(get-responsive-spacing-value(5, 'tablet') null null);
+        }
+
+        @include grid-media('xl') {
+          @include padding(get-responsive-spacing-value(5, 'desktop') null null);
+        }
+
+        @include grid-media('2xl') {
+          @include padding(get-responsive-spacing-value(6, 'desktop') null null);
         }
       }
     }
@@ -90,23 +97,18 @@
     }
 
     @include grid-media-only('md') {
-      height: calc(64% - 100px);
-      width: calc(43% - 100px);
+      width: calc(41vw - 6rem);
+      height: calc((41vw - 6rem) * 2 /3);
     }
 
     @include grid-media('lg') {
-      height: calc(68% - 100px);
-      width: calc(49% - 100px);
+      width: calc(48vw - 10rem);
+      height: calc((48vw - 10rem) * 2 /3);
     }
 
-    @include grid-media('xl') {
-      height: 66%;
-      width: calc(49% - 100px);
-    }
-
-    @include grid-media('2xl') {
-      width: calc(49% - 100px);
-      height: 73%;
+    // Height of triangle doesn't expand beyond 2XL breakpoint + 200px (screen edge padding)
+    @media screen and (min-width: 1700px) {
+      height: 48rem;
     }
   }
 }

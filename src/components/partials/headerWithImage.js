@@ -22,11 +22,7 @@ const HeaderWithImage = (props) => {
           </div>
         }
         <div className={`ood-interior-page__header-title-wrapper su-bg-white`}>
-          <div
-            className={`ood-interior-page__rectangle flex-md-5-of-12 flex-lg-6-of-12 su-bg-${props.blok.headerBackgroundColor}`}
-            aria-hidden='true'
-          />
-          <CenteredContainer flex={true} classes='su-pt-6 su-pb-5'>
+          <CenteredContainer flex={true} classes='su-pb-5'>
             <div className={"header-and-intro flex-md-7-of-12 flex-lg-6-of-12"}>
               <Heading level={"h1"}
                        serif={true}
@@ -41,6 +37,10 @@ const HeaderWithImage = (props) => {
                 )}
               </div>
             </div>
+            <div
+              className={`ood-interior-page__rectangle su-bg-${props.blok.headerBackgroundColor}`}
+              aria-hidden='true'
+            />
             <AspectRatioImage
               {...props}
               filename={props.blok.headerImage.filename}
