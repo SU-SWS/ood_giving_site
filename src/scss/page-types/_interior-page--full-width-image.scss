@@ -3,6 +3,17 @@
 // Interior page header variant with fullwidth image and optional logo
 
 .ood-interior-page--full-width-image {
+  .ood-content-nav {
+    @include grid-media-max('md') {
+      @include margin(0 auto);
+      @include responsive-spacing('padding', 1 null);
+    }
+
+    &__wrapper {
+      background-color: $su-color-palo-alto-dark;
+    }
+  }
+
   .ood-interior-page {
     &__title {
       @include margin(0 null 0.4em);
@@ -146,33 +157,33 @@
   .header-logo {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -50%);
-    top: 16rem;
+    transform: translateX(-50%);
+    bottom: 2.2rem;
     max-height: 115px;
 
     @include grid-media('sm') {
-      top: 20rem;
+      bottom: 5.8rem;
       max-height: 125px;
     }
 
     @include grid-media('md') {
-      top: 15rem;
+      bottom: 12rem;
       max-height: 137px;
     }
 
     @include grid-media('lg') {
-      top: 19rem;
+      bottom: 13rem;
       max-height: 176px;
     }
 
     @include grid-media('xl') {
-      top: 25rem;
+      bottom: 14rem;
       max-height: 220px;
     }
 
 
     @include grid-media('2xl') {
-      top: 32rem;
+      bottom: 15rem;
       max-height: 260px;
     }
   }
@@ -183,4 +194,8 @@
       width: 100%;
     }
   }
+}
+
+.ood-interior-page__image-logo-wrapper {
+  position: relative;
 }

@@ -30,19 +30,21 @@ const HeaderFullWidthImage = (props) => {
       <header
         className={`ood-interior-page__header ood-interior-page__header--full-width-image fullwidth`}
       >
-        {(windowSize.width < config.breakpoint.md && props.blok.layout !== "no-sidebar") &&
-          <div className='su-bg-palo-alto-dark'>
+        {(windowSize.width < config.breakpoint.lg && props.blok.layout !== "no-sidebar") &&
+          <div className='ood-content-nav__wrapper'>
             <CreateBloks blokSection={props.blok.contentMenu}/>
           </div>
         }
-        {full_width_image}
-        {props.blok.headerLogo.filename &&
-          <img
-            className={'header-logo'}
-            src={props.blok.headerLogo.filename}
-            alt={props.blok.headerLogo.alt}
-          />
-        }
+        <div className='ood-interior-page__image-logo-wrapper'>
+          {full_width_image}
+          {props.blok.headerLogo.filename &&
+            <img
+              className={'header-logo'}
+              src={props.blok.headerLogo.filename}
+              alt={props.blok.headerLogo.alt}
+            />
+          }
+        </div>
         <CenteredContainer
           flex={true}
           classes={"ood-interior-page__header-content"}

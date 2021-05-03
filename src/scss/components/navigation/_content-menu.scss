@@ -198,13 +198,3 @@
     @include margin(get-responsive-spacing-value(3, 'tablet') null get-responsive-spacing-value(0, 'tablet'));
   }
 }
-
-.ood-interior-page--full-width-image {
-  .ood-content-nav {
-    @include grid-media-max('sm') {
-      margin-top: 0;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-    }
-  }
-}
