@@ -52,7 +52,6 @@ const HeaderFullWidthImage = (props) => {
           <FlexCell
             md={12}
             lg={10}
-            xxl={9}
             classes={`ood-interior-page__header-content-wrapper`}
           >
             <Heading
