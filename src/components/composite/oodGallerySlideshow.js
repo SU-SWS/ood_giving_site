@@ -6,7 +6,7 @@ import Modal from './modal';
 import RichTextField from '../../utilities/richTextField';
 import 'slick-carousel/slick/slick.css';
 
-const oodGallerySlideshow = (props) => {
+const oodGallerySlideshow = ({blok}) => {
   const [slideshow, setSlideshow] = useState(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [pagerOffset, setPagerOffset] = useState(0);
@@ -14,6 +14,7 @@ const oodGallerySlideshow = (props) => {
   const [showOverlay, setShowOverlay] = useState(true);
   const pagerWindow = React.createRef();
   const pager = React.createRef();
+  const expandButton = React.createRef();
 
   const sliderSettings = {
     arrows: false,
@@ -23,25 +24,27 @@ const oodGallerySlideshow = (props) => {
     appendDots: (dots) => {
       return (
         <div>
-          {(props.blok.showCounter || props.blok.showExpandLink) &&
+          {(blok.showCounter || blok.showExpandLink) &&
             <div className='gallery-slideshow--infobar'>
-              {props.blok.showCounter && 
-                <div className='gallery-slideshow--counter' aria-label={`Slide ${activeSlide + 1} of ${props.blok.slides.length}`}>
-                  {`${activeSlide + 1}/${props.blok.slides.length}`}
+              {blok.showCounter && 
+                <div className='gallery-slideshow--counter' aria-label={`Slide ${activeSlide + 1} of ${blok.slides.length}`}>
+                  {`${activeSlide + 1}/${blok.slides.length}`}
                 </div>
               }
 
-              {props.blok.showExpandLink &&
+              {blok.showExpandLink &&
                 <div className='gallery-slideshow--expand'>
-                  <button onClick={() => setModalOpen(true)}>Expand <i className="fas fa-expand" aria-hidden="true"></i></button>
+                  <button onClick={() => setModalOpen(true)} className="gallery-slideshow--expand-btn" ref={expandButton}>
+                    Expand <i className="fas fa-expand" aria-hidden="true"></i>
+                  </button>
                 </div>
               }
             </div>
           }
 
-          {props.blok.captionPlacement == 'beforeThumbnails' &&
+          {blok.captionPlacement == 'beforeThumbnails' &&
             <div className="gallery-slideshow--caption gallery-slideshow--caption--before">
-              <RichTextField data={props.blok.slides[activeSlide]['caption']} />
+              <RichTextField data={blok.slides[activeSlide]['caption']} />
             </div>
           }
           
@@ -62,20 +65,20 @@ const oodGallerySlideshow = (props) => {
             </button>
           </div>
 
-          {props.blok.captionPlacement == 'afterThumbnails' &&
+          {blok.captionPlacement == 'afterThumbnails' &&
             <div className="gallery-slideshow--caption gallery-slideshow--caption--after">
-              <RichTextField data={props.blok.slides[activeSlide]['caption']} />
+              <RichTextField data={blok.slides[activeSlide]['caption']} />
             </div>
           }
         </div>
       )
     },
     customPaging: (i) => {
-      const slide = props.blok.slides[i];
+      const slide = blok.slides[i];
       return (
         <div className="gallery-slideshow--thumbnail" key={slide._uid}>
           <AspectRatioImage
-            {...props}
+            blok={blok}
             filename={slide.image.filename}
             alt={slide.image.alt}
             classPrefix={"ood-gallery-slide"}
@@ -140,20 +143,28 @@ const oodGallerySlideshow = (props) => {
     slideshow.slickNext();
   }
 
+  const closeModal = () => {
+    setModalOpen(false);
+    if (expandButton.current) {
+      expandButton.current.focus();
+    }
+  }
+
   return (
-    <SbEditable content={props.blok}>
+    <SbEditable content={blok}>
       <div className='gallery-slideshow centered-container su-pt-1 su-pb-1'>
         <div className='su-mx-auto flex-xl-10-of-12'>
           <Slider className="gallery-slideshow--slides" ref={(slider => setSlideshow(slider))} {...sliderSettings} >
-              {props.blok.slides.map((slide, index) => {
+              {blok.slides.map((slide, index) => {
                 return (
                   <div className="gallery-slideshow--slide" index={index} key={slide._uid}>
                     <AspectRatioImage
-                      {...props}
+                      blok={blok}
                       filename={slide.image.filename}
                       alt={slide.image.alt}
                       classPrefix={"ood-gallery-slide"}
                       aspectRatio="16x9"
+                      imageSize="gallery-slide"
                     />
                   </div>
                 )
@@ -163,34 +174,35 @@ const oodGallerySlideshow = (props) => {
       </div>
       <Modal 
         isOpen={modalOpen} 
-        onClose={() => setModalOpen(false)} 
+        onClose={closeModal} 
         outerContainerClasses="centered-container flex-container su-pt-1"
         innerContainerClasses="su-mx-auto flex-xl-10-of-12"
       >
         <div className="gallery-slideshow--modal-wrapper">
           <Slider className="gallery-slideshow--modal" {...modalSliderSettings} >
-            {props.blok.slides.map((slide, index) => {
+            {blok.slides.map((slide, index) => {
               return (
                 <div className="gallery-slideshow--slide" index={index} key={slide._uid}>
                   <AspectRatioImage
-                    {...props}
+                    blok={blok}
                     filename={slide.image.filename}
                     alt={slide.image.alt}
                     classPrefix={"ood-gallery-slide"}
                     aspectRatio="16x9"
+                    imageSize="gallery-slide"
                   />
                 </div>
               )
             })}
           </Slider>
           <div className='gallery-slideshow--infobar'>
-            <div className='gallery-slideshow--counter' aria-label={`Slide ${activeSlide + 1} of ${props.blok.slides.length}`}>
-              {`${activeSlide + 1}/${props.blok.slides.length}`}
+            <div className='gallery-slideshow--counter' aria-label={`Slide ${activeSlide + 1} of ${blok.slides.length}`}>
+              {`${activeSlide + 1}/${blok.slides.length}`}
             </div>
           </div>
         </div>
         <div className="gallery-slideshow--caption">
-          <RichTextField data={props.blok.slides[activeSlide]['caption']} />
+          <RichTextField data={blok.slides[activeSlide]['caption']} />
         </div>
       </Modal>
     </SbEditable>

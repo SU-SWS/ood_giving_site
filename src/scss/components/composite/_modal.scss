@@ -26,7 +26,8 @@
   border: 0px;
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:active {
     text-decoration: underline;
   }
 

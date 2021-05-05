@@ -44,7 +44,8 @@
   text-decoration: none;
   cursor: pointer;
 }
-.gallery-slideshow--expand button:hover {
+.gallery-slideshow--expand button:hover,
+.gallery-slideshow--expand button:active {
   color: $su-color-palo-verde-dark;
   text-decoration: underline;
 }
@@ -114,7 +115,8 @@
   }
 }
 
-.gallery-slideshow--thumbnail:hover {
+.gallery-slideshow--thumbnail:hover,
+.gallery-slideshow--thumbnail:active {
   opacity: 1;
 }
 
@@ -148,7 +150,9 @@
 }
 
 .gallery-slideshow--prev:hover,
-.gallery-slideshow--next:hover {
+.gallery-slideshow--next:hover,
+.gallery-slideshow--prev:active,
+.gallery-slideshow--next:active {
   color: $su-color-palo-verde;
   border: $su-color-palo-verde 3px solid;
 }
@@ -185,7 +189,9 @@
     }
   }
   .slick-prev:hover,
-  .slick-next:hover {
+  .slick-next:hover,
+  .slick-prev:active,
+  .slick-next:active {
     color: $su-color-black-20;
     border-color: $su-color-black-20;
   }

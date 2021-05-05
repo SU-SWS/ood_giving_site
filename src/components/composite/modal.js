@@ -1,4 +1,4 @@
-import React, {useEffect, useContext} from 'react';
+import React, {useEffect} from 'react';
 import UseEscape from '../../hooks/useEscape';
 
 export const Modal = ({children, isOpen, onClose, outerContainerClasses, innerContainerClasses}) => {
@@ -23,14 +23,12 @@ export const Modal = ({children, isOpen, onClose, outerContainerClasses, innerCo
       overlay.offsetWidth - overlay.clientWidth + "px";
 
     document.getElementsByTagName("html")[0].style.overflowY = "hidden";
-    document.getElementsByTagName("body")[0].style.position = "fixed";
     document.getElementsByTagName(
       "body"
     )[0].style.paddingRight = scrollbarWidth;
   }
 
   const unlockScroll = () => {
-    document.getElementsByTagName("body")[0].style.position = "relative";
     document.getElementsByTagName("html")[0].style.overflowY = "scroll";
     document.getElementsByTagName("body")[0].style.paddingRight = "0";
   }
