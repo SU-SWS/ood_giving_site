@@ -1,15 +1,40 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useContext} from 'react';
+import UseEscape from '../../hooks/useEscape';
 
 export const Modal = ({children, isOpen, onClose, outerContainerClasses, innerContainerClasses}) => {
   const defaultOuterContainerClasses = 'centered-container flex-container su-pt-5';
   const defaultInnerContainerClasses = 'su-mx-auto flex-lg-11-of-12 flex-xl-9-of-12 flex-2xl-8-of-12';
-  useEffect(()=> {
-    document.addEventListener('keydown', (e) => {
-      if (e.key == 'Escape') {
-        onClose();
-      }
-    })
-  }, [])
+
+  UseEscape(() => {
+    onClose();
+  });
+
+  useEffect(() => {
+    if (isOpen) {
+      lockScroll();
+    } else {
+      unlockScroll();
+    }
+  }, [isOpen]);
+
+  const lockScroll = () => {
+    const overlay = document.querySelector(".su-modal");
+    let scrollbarWidth =
+      overlay.offsetWidth - overlay.clientWidth + "px";
+
+    document.getElementsByTagName("html")[0].style.overflowY = "hidden";
+    document.getElementsByTagName("body")[0].style.position = "fixed";
+    document.getElementsByTagName(
+      "body"
+    )[0].style.paddingRight = scrollbarWidth;
+  }
+
+  const unlockScroll = () => {
+    document.getElementsByTagName("body")[0].style.position = "relative";
+    document.getElementsByTagName("html")[0].style.overflowY = "scroll";
+    document.getElementsByTagName("body")[0].style.paddingRight = "0";
+  }
+
   return (
     <div className={`su-modal ${isOpen ? "visible" : "hidden"}`} aria-hidden={isOpen ? 'false' : 'true'} role='dialog' tabindex="-1">
       <div className={outerContainerClasses ? outerContainerClasses : defaultOuterContainerClasses}>

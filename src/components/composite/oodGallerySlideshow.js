@@ -33,22 +33,22 @@ const oodGallerySlideshow = (props) => {
 
               {props.blok.showExpandLink &&
                 <div className='gallery-slideshow--expand'>
-                  <button onClick={() => setModalOpen(true)}>Expand <i className="fas fa-expand"></i></button>
+                  <button onClick={() => setModalOpen(true)}>Expand <i className="fas fa-expand" aria-hidden="true"></i></button>
                 </div>
               }
-            </div>   
+            </div>
           }
 
           {props.blok.captionPlacement == 'beforeThumbnails' &&
             <div className="gallery-slideshow--caption gallery-slideshow--caption--before">
-              <RichTextField data={props.blok.slides[activeSlide]['caption']}  />
+              <RichTextField data={props.blok.slides[activeSlide]['caption']} />
             </div>
           }
           
           <div className='gallery-slideshow--controls'>
             <button className="gallery-slideshow--prev" onClick={clickPrev}>
               <span className="sr-only">Previous Slide</span>
-              <i className="fas fa-chevron-left"></i>
+              <i className="fas fa-chevron-left" aria-hidden="true"></i>
               
             </button>
             <div className={`gallery-slideshow--pager-window ${showOverlay ? 'overlay' : ''}`} ref={pagerWindow}>
@@ -58,13 +58,13 @@ const oodGallerySlideshow = (props) => {
             </div>
             <button className="gallery-slideshow--next" onClick={clickNext}>
               <span className="sr-only">Next Slide</span>
-              <i className="fas fa-chevron-right"></i>
+              <i className="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
 
           {props.blok.captionPlacement == 'afterThumbnails' &&
             <div className="gallery-slideshow--caption gallery-slideshow--caption--after">
-              <RichTextField data={props.blok.slides[activeSlide]['caption']}  />
+              <RichTextField data={props.blok.slides[activeSlide]['caption']} />
             </div>
           }
         </div>
@@ -97,13 +97,13 @@ const oodGallerySlideshow = (props) => {
     nextArrow: (
       <button>
         <span className="sr-only">Next Slide</span>
-        <i className="fas fa-chevron-right"></i>
+        <i className="fas fa-chevron-right" aria-hidden="true"></i>
       </button>
     ),
     prevArrow: (
       <button>
         <span className="sr-only">Previous Slide</span>
-        <i className="fas fa-chevron-left"></i>
+        <i className="fas fa-chevron-left" aria-hidden="true"></i>
       </button>
     ),
     afterChange: (i) => {
@@ -147,7 +147,7 @@ const oodGallerySlideshow = (props) => {
           <Slider className="gallery-slideshow--slides" ref={(slider => setSlideshow(slider))} {...sliderSettings} >
               {props.blok.slides.map((slide, index) => {
                 return (
-                  <div className="gallery-slideshow--slide" index={1} key={slide._uid}>
+                  <div className="gallery-slideshow--slide" index={index} key={slide._uid}>
                     <AspectRatioImage
                       {...props}
                       filename={slide.image.filename}
@@ -171,7 +171,7 @@ const oodGallerySlideshow = (props) => {
           <Slider className="gallery-slideshow--modal" {...modalSliderSettings} >
             {props.blok.slides.map((slide, index) => {
               return (
-                <div className="gallery-slideshow--slide" index={1} key={slide._uid}>
+                <div className="gallery-slideshow--slide" index={index} key={slide._uid}>
                   <AspectRatioImage
                     {...props}
                     filename={slide.image.filename}
@@ -190,7 +190,7 @@ const oodGallerySlideshow = (props) => {
           </div>
         </div>
         <div className="gallery-slideshow--caption">
-          <RichTextField data={props.blok.slides[activeSlide]['caption']}  />
+          <RichTextField data={props.blok.slides[activeSlide]['caption']} />
         </div>
       </Modal>
     </SbEditable>

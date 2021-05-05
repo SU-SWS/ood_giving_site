@@ -26,6 +26,10 @@
   border: 0px;
   cursor: pointer;
 
+  &:hover {
+    text-decoration: underline;
+  }
+
   i {
     margin-left: 1rem;
     position: relative;
