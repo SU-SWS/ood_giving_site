@@ -1,4 +1,5 @@
-const path = require('path')
+const path = require('path');
+const webpack = require('webpack');
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
@@ -114,8 +115,16 @@ exports.onCreateWebpackConfig = ({
   actions,
 }) => {
   actions.setWebpackConfig({
-    node: {
-      fs: "empty"
-    }
+    resolve: {
+      fallback: {
+        path: require.resolve("path-browserify"),
+        fs: false,
+      }
+    },
+    plugins: [
+      new webpack.ProvidePlugin({
+        process: 'process/browser',
+      }),
+    ]
   })
 }

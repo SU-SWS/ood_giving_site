@@ -9,12 +9,29 @@ require("dotenv").config({
   path: `.env.${activeEnv}`,
 })
 
+/**
+ * Resolve relations for storyblok.
+ */
+const storyblokRelations = [
+  "oodQuoteSlider.quotes",
+  "globalFooterPicker.globalFooter",
+  "localFooterPicker.localFooter",
+  "localHeaderPicker.localHeader",
+  "contentMenuPicker.contentMenu",
+  "storyPicker.story",
+  "alertPicker.alert",
+];
+
 module.exports = {
   siteMetadata: {
     title: `Giving to Stanford`,
     description: `Giving to Stanford.`,
     author: `Stanford University Office of Development`,
     siteUrl: `https://giving.stanford.edu`,
+    // This key is for metadata only and can be statically queried
+    storyblok: {
+      resolveRelations: storyblokRelations,
+    }
   },
   plugins: [
     `gatsby-plugin-postcss`,
@@ -96,15 +113,7 @@ module.exports = {
       options: {
         accessToken: process.env.GATSBY_STORYBLOK_ACCESS_TOKEN,
         homeSlug: "home",
-        resolveRelations: [
-          "oodQuoteSlider.quotes",
-          "globalFooterPicker.globalFooter",
-          "localFooterPicker.localFooter",
-          "localHeaderPicker.localHeader",
-          "contentMenuPicker.contentMenu",
-          "storyPicker.story",
-          "alertPicker.alert",
-        ],
+        resolveRelations: storyblokRelations,
         version: process.env.NODE_ENV == "production" ? "published" : "draft", // show only published on the front end site
         // version: 'draft'  // would show any including drafts
       },
@@ -112,7 +121,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        includePaths: [path.resolve(__dirname, "node_modules")],
+        sassOptions: {
+          includePaths: [
+            path.resolve(__dirname, "node_modules")
+          ],
+        },
         cssLoaderOptions: {
           camelCase: false,
         },
