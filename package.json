@@ -45,7 +45,8 @@
     "react-slick": "^0.28.1",
     "sanitize-html": "^1.27.5",
     "slick-carousel": "^1.8.1",
-    "storyblok-react": "^0.1.1"
+    "storyblok-react": "^0.1.1",
+    "tabbable": "^5.2.0"
   },
   "devDependencies": {
     "prettier": "2.0.5"

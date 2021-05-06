@@ -27,7 +27,7 @@ const AspectRatioImage = props => {
     ) {
       processedImg = transformImage(props.filename, "/800x0");
     } else if (props.imageSize === "gallery-slide") {
-      processedImg = transformImage(props.filename, "/1242x0");
+      processedImg = transformImage(props.filename, "/1400x0");
     } 
     else if (imgWidth > 1000) {
       processedImg = transformImage(props.filename, "/1000x0");

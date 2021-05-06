@@ -1,17 +1,34 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import UseEscape from '../../hooks/useEscape';
+import UseFocusTrap from '../../hooks/useFocusTrap';
+import { tabbable } from 'tabbable';
 
 export const Modal = ({children, isOpen, onClose, outerContainerClasses, innerContainerClasses}) => {
   const defaultOuterContainerClasses = 'centered-container flex-container su-pt-5';
   const defaultInnerContainerClasses = 'su-mx-auto flex-lg-11-of-12 flex-xl-9-of-12 flex-2xl-8-of-12';
+  const closeButton = useRef();
+  const modalBodyRef = useRef();
+  
+  // Find the last tabbable item within the modal body.
+  const getLastTabbableItem = () => {
+    if (!modalBodyRef.current) return null;
+    const focusableItems = tabbable(modalBodyRef.current);
+    return focusableItems[focusableItems.length - 1];
+  }
+
+  // Mimick the structure of a React ref so it works with UseFocusTrap hook.
+  const lastTabbableRef = {current: getLastTabbableItem()}
+
+  UseFocusTrap(closeButton, lastTabbableRef, isOpen);
 
   UseEscape(() => {
-    onClose();
+    closeButton.current.click();
   });
 
   useEffect(() => {
     if (isOpen) {
       lockScroll();
+      closeButton.current.focus();
     } else {
       unlockScroll();
     }
@@ -34,13 +51,13 @@ export const Modal = ({children, isOpen, onClose, outerContainerClasses, innerCo
   }
 
   return (
-    <div className={`su-modal ${isOpen ? "visible" : "hidden"}`} aria-hidden={isOpen ? 'false' : 'true'} role='dialog' tabindex="-1">
+    <div className={`su-modal ${isOpen ? "visible" : "hidden"}`} aria-hidden={isOpen ? 'false' : 'true'} role='dialog' tabIndex="-1">
       <div className={outerContainerClasses ? outerContainerClasses : defaultOuterContainerClasses}>
         <div className={innerContainerClasses ? innerContainerClasses : defaultInnerContainerClasses}>
           <div className="su-modal--header">
-            <button className="su-modal--close" onClick={onClose}>Close <i aria-hidden="true" className="fas fa-times"></i></button>
+            <button ref={closeButton} className="su-modal--close" onClick={onClose}>Close <i aria-hidden="true" className="fas fa-times"></i></button>
           </div>
-          <div className="modal--body">
+          <div className="modal--body" ref={modalBodyRef}>
             {children}
           </div>
         </div>
