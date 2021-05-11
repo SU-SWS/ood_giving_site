@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+// Interior page header variant with non-fullwidth image with fixed aspect ratio
+
+.ood-interior-page--has-image {
+  .ood-interior-page__title {
+    @include interior-page-with-image-h1-fontsize;
+    @include margin(0 null 0.4em);
+
+    @include grid-media('md') {
+      text-align: left;
+    }
+  }
+
+  .ood-interior-page__header-title-wrapper {
+    position: relative;
+
+    > .centered-container {
+      @include padding(get-responsive-spacing-value(4, 'mobile') null null);
+
+      @include grid-media('md') {
+        @include padding(get-responsive-spacing-value(4, 'tablet') null null);
+      }
+
+      @include grid-media('lg') {
+        @include padding(get-responsive-spacing-value(5, 'tablet') null null);
+      }
+
+      @include grid-media('xl') {
+        @include padding(get-responsive-spacing-value(5, 'desktop') null null);
+      }
+
+      @include grid-media('2xl') {
+        @include padding(get-responsive-spacing-value(6, 'desktop') null null);
+      }
+    }
+  }
+
+  .ood-interior-page__header {
+    &-intro-wrapper {
+      font-size: 2rem;
+
+      @include grid-media('md') {
+        font-size: 2.3rem;
+
+        > div > p:last-child {
+          @include margin(null null 0);
+        }
+      }
+
+      @include grid-media('lg') {
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  .ood-content-nav {
+    @include grid-media-max('md') {
+      @include margin(0 null);
+      @include responsive-spacing('padding', 2 null);
+    }
+  }
+
+  .ood-interior-page__header__media {
+    @include margin(null null null -2rem);
+    width: calc(100% + 2rem);
+
+    @include grid-media-only('sm') {
+      @include margin(null null null -3rem);
+      width: calc(100% + 3rem);
+    }
+
+    @include grid-media-max('sm') {
+      @include margin(-56vw null null);
+    }
+  }
+
+  .ood-interior-page__rectangle {
+    display: block;
+    width: 100%;
+    height: 61vw;
+
+    @include grid-media-max('sm') {
+      @include margin(get-responsive-spacing-value(-1, 'mobile') null null);
+    }
+
+    @include grid-media-only('xs') {
+      transform: translateX(2rem);
+    }
+
+    @include grid-media-only('sm') {
+      transform: translateX(3rem);
+    }
+
+    @include grid-media('md') {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: calc(41vw - 6rem);
+      height: calc((41vw - 6rem) * 2 /3); // Assuming aspect ratio of rectangle is same as image 3x2
+    }
+
+    @include grid-media('lg') {
+      width: calc(48vw - 10rem);
+      height: calc((48vw - 10rem) * 2 /3);
+    }
+
+    // Height of triangle doesn't expand beyond 2XL breakpoint + 200px (screen edge padding)
+    @media screen and (min-width: 1700px) {
+      height: 48rem;
+    }
+  }
+}

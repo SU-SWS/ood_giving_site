@@ -14,7 +14,9 @@ const HeaderNoImage = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <header className={`ood-interior-page__header ood-interior-page__header--no-image`}>
+      <header className={`ood-interior-page__header ood-interior-page__header--no-image
+              ${props.blok.headerSpacingBottom !== "none" ? `su-mb-${props.blok.headerSpacingBottom}` : ""}`}
+      >
         <div className={`ood-interior-page__header-title-wrapper su-bg-${props.blok.headerBackgroundColor}`}>
           <CenteredContainer flex={true}>
             {(windowSize.width < config.breakpoint.lg && props.blok.layout !== "no-sidebar") &&

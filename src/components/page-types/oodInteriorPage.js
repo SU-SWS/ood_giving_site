@@ -3,6 +3,7 @@ import SbEditable from 'storyblok-react'
 import HeaderMinimal from '../partials/headerMinimal'
 import HeaderNoImage from '../partials/headerNoImage'
 import HeaderWithImage from '../partials/headerWithImage'
+import HeaderFullWidthImage from '../partials/headerFullWidthImage'
 import BodyLeftSidebar from '../partials/bodyLeftSidebar'
 import BodyNoSidebar from '../partials/bodyNoSidebar'
 import BelowContent from '../partials/belowContent'
@@ -30,6 +31,9 @@ const OodInteriorPage = (props) => {
             }
             {props.blok.headerStyle === "minimal" &&
               <HeaderMinimal {...props}/>
+            }
+            {props.blok.headerStyle === "full-width-image" &&
+              <HeaderFullWidthImage {...props}/>
             }
             {(props.blok.aboveContent != null && Object.keys(props.blok.aboveContent).length > 0) && (
               <div className="ood-interior-page__above-body">
