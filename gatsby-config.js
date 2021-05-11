@@ -1,4 +1,5 @@
-const path = require("path")
+const path = require("path");
+const siteUrl = process.env.URL || `https://giving.stanford.edu`
 
 const activeEnv =
   process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
@@ -92,7 +93,15 @@ module.exports = {
           }
         }
         `,
-        exclude: [
+        resolvePages: ({
+          allSitePage: { edges: allPages }
+        }) => {
+          return allPages.map(page => {
+            return { ...page.node }
+          })
+        },
+        resolveSiteUrl: () => siteUrl,
+        excludes: [
           '/editor',
           '/editor/**',
           '/global-components/**',
