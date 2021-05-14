@@ -1,11 +1,12 @@
 import React, {useEffect, useRef} from 'react';
 import UseEscape from '../../hooks/useEscape';
 import UseFocusTrap from '../../hooks/useFocusTrap';
+import CenteredContainer from '../partials/centeredContainer';
 import { tabbable } from 'tabbable';
 
 export const Modal = ({children, isOpen, onClose, outerContainerClasses, innerContainerClasses}) => {
   const defaultOuterContainerClasses = 'centered-container flex-container su-pt-5';
-  const defaultInnerContainerClasses = 'su-mx-auto flex-lg-11-of-12 flex-xl-9-of-12 flex-2xl-8-of-12';
+  const defaultInnerContainerClasses = '';
   const closeButton = useRef();
   const modalBodyRef = useRef();
   
@@ -52,7 +53,7 @@ export const Modal = ({children, isOpen, onClose, outerContainerClasses, innerCo
 
   return (
     <div className={`su-modal ${isOpen ? "visible" : "hidden"}`} aria-hidden={isOpen ? 'false' : 'true'} role='dialog' tabIndex="-1">
-      <div className={outerContainerClasses ? outerContainerClasses : defaultOuterContainerClasses}>
+      <CenteredContainer className={outerContainerClasses ? outerContainerClasses : defaultOuterContainerClasses}>
         <div className={innerContainerClasses ? innerContainerClasses : defaultInnerContainerClasses}>
           <div className="su-modal--header">
             <button ref={closeButton} className="su-modal--close" onClick={onClose}>Close <i aria-hidden="true" className="fas fa-times"></i></button>
@@ -61,7 +62,7 @@ export const Modal = ({children, isOpen, onClose, outerContainerClasses, innerCo
             {children}
           </div>
         </div>
-      </div>
+      </CenteredContainer>
     </div>
   )
 }

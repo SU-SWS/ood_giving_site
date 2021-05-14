@@ -15,6 +15,12 @@ const oodGallerySlideshow = ({blok}) => {
   const pagerWindow = React.createRef();
   const pager = React.createRef();
   const expandButton = React.createRef();
+  
+  let containerWidthClasses = '';
+
+  if (blok.containerWidth == "constrain-max-width") {
+    containerWidthClasses = 'flex-xs-12-of-12 flex-lg-10-of-12 flex-xl-8-of-12'
+  }
 
   const sliderSettings = {
     arrows: false,
@@ -153,7 +159,7 @@ const oodGallerySlideshow = ({blok}) => {
   return (
     <SbEditable content={blok}>
       <div className='gallery-slideshow centered-container su-pt-1 su-pb-1'>
-        <div className='su-mx-auto flex-xl-10-of-12'>
+        <div className={'su-mx-auto ' + containerWidthClasses}>
           <Slider className="gallery-slideshow--slides" ref={(slider => setSlideshow(slider))} {...sliderSettings} >
               {blok.slides.map((slide, index) => {
                 return (
@@ -176,7 +182,6 @@ const oodGallerySlideshow = ({blok}) => {
         isOpen={modalOpen} 
         onClose={closeModal} 
         outerContainerClasses="centered-container flex-container su-pt-1"
-        innerContainerClasses="su-mx-auto flex-xl-10-of-12"
       >
         <div className="gallery-slideshow--modal-wrapper">
           <Slider className="gallery-slideshow--modal" {...modalSliderSettings} >
