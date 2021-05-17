@@ -47,6 +47,7 @@ import Section from "./layout/section";
 import SingleColumnContent from "./layout/singleColumnContent";
 // Page Type Components
 import OodInteriorPage from "./page-types/oodInteriorPage";
+import OodCampaignPage from "./page-types/oodCampaignPage";
 import OodLandingPage from "./page-types/oodLandingPage";
 import OodStory from "./page-types/story/oodStory";
 import OodSupportPage from "./page-types/oodSupportPage";
@@ -108,6 +109,7 @@ const ComponentList = {
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,
   oodHomepageHero: OodHomepageHero,
+  oodCampaignPage: OodCampaignPage,
   oodInteriorPage: OodInteriorPage,
   oodLandingPage: OodLandingPage,
   oodStory: OodStory,
