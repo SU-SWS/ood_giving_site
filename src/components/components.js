@@ -1,5 +1,6 @@
 import Page from "./page";
 import RichTextField from "../utilities/richTextField";
+import Redirect from "./redirect/Redirect";
 import ComponentNotFound from "./component_not_found";
 // Site Identity Elements
 import GlobalFooter from "./identity/globalFooter";
@@ -11,7 +12,7 @@ import LocalHeaderPicker from "./identity/localHeaderPicker";
 import Lockup from "./identity/lockup";
 // Cards
 import BasicCard from "./cards/basicCard";
-import Redirect from "./redirect/Redirect";
+import CampaignCard from './cards/campaignCard';
 import OodIconCard from "./cards/oodIconCard";
 import OodSupportCard from "./cards/oodSupportCard";
 import OodQuoteCard from "./cards/oodQuoteCard";
@@ -105,6 +106,7 @@ const ComponentList = {
   contentNestedMenu: ContentNestedMenu,
   basicCard: BasicCard,
   redirect: Redirect,
+  campaignCard: CampaignCard,
   oodTileCard: OodTileCard,
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,
