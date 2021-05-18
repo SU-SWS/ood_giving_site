@@ -23,7 +23,7 @@ const OodCampaignPage = (props) => {
             <CampaignFullWidthHero {...props}/>
           }
           <section className="ood-campaign-page__main-body">
-            <CreateBloks blokSection={props.blok.sections} />
+            <CreateBloks blokSection={props.blok.content} />
           </section>
           <footer className="ood-campaign-page__main-footer">
             <IconCardSection {...props}/>

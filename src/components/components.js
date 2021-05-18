@@ -12,7 +12,7 @@ import LocalHeaderPicker from "./identity/localHeaderPicker";
 import Lockup from "./identity/lockup";
 // Cards
 import BasicCard from "./cards/basicCard";
-import CampaignCard from './cards/campaignCard';
+import OodCampaignCard from './cards/oodCampaignCard';
 import OodIconCard from "./cards/oodIconCard";
 import OodSupportCard from "./cards/oodSupportCard";
 import OodQuoteCard from "./cards/oodQuoteCard";
@@ -106,7 +106,7 @@ const ComponentList = {
   contentNestedMenu: ContentNestedMenu,
   basicCard: BasicCard,
   redirect: Redirect,
-  campaignCard: CampaignCard,
+  oodCampaignCard: OodCampaignCard,
   oodTileCard: OodTileCard,
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,

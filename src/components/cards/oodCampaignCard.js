@@ -4,11 +4,11 @@ import AspectRatioImage from "../media/aspectRatioImage";
 import SbLink from "../partials/sbLink";
 import Heading from "../partials/heading";
 
-const CampaignCard = props => {
+const OodCampaignCard = props => {
   return (
     <SbEditable content={props.blok}>
       <article
-        className={`campaign-card`}
+        className={`ood-campaign-card`}
       >
         <SbLink
           link={props.blok.link}
@@ -21,16 +21,16 @@ const CampaignCard = props => {
               element={"div"}
               filename={props.blok.image.filename}
               alt=""
-              classPrefix={"campaign-card"}
+              classPrefix={"ood-campaign-card"}
               imageSize={"card"}
               aspectRatio={"3x2"}
               visibleHorizontal={props.blok.visibleHorizontal}
               visibleVertical={props.blok.visibleVertical}
             />
           )}
-          <div className="campaign-card__contents">
+          <div className="ood-campaign-card__contents">
             {props.blok.superheadline && (
-              <span className="campaign-card__superhead su-uppercase">
+              <span className="ood-campaign-card__superhead su-uppercase">
                 {props.blok.superheadline}
               </span>
             )}
@@ -39,12 +39,17 @@ const CampaignCard = props => {
                 level={props.blok.headingLevel}
                 defaultLevel={"h3"}
                 weight={"semibold"}
-                classes={`campaign-card__headline ${
+                classes={`ood-campaign-card__headline ${
                   props.blok.link.linktype === "url" ? "su-link--external" : ""
                 }`}
               >
                 {props.blok.headline}
               </Heading>
+            )}
+            {props.blok.description && (
+              <p className="ood-campaign-card__description su-mb-none">
+                {props.blok.description}
+              </p>
             )}
           </div>
         </SbLink>
@@ -53,4 +58,5 @@ const CampaignCard = props => {
   );
 };
 
-export default CampaignCard;
+export default OodCampaignCard;
+

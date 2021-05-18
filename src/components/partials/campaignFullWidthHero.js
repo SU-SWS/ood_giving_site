@@ -34,15 +34,8 @@ const CampaignFullWidthHero = (props) => {
           />
           }
         </div>
-        <div
-          flex={true}
-          classes={"campaign-page__header-content"}
-        >
-          <FlexCell
-            md={12}
-            lg={10}
-            classes={`campaign-page__header-content-wrapper`}
-          >
+        <div className={"campaign-page__header-content"}>
+          <div className={`campaign-page__header-content-wrapper`}>
             <Heading
               level={"h1"}
               weight={"regular"}
@@ -59,7 +52,7 @@ const CampaignFullWidthHero = (props) => {
             {props.blok.heroCta &&
               <CreateBloks blokSection={props.blok.heroCta} />
             }
-          </FlexCell>
+          </div>
         </div>
       </header>
     </SbEditable>

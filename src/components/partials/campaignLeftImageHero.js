@@ -34,9 +34,7 @@ const CampaignLeftImageHero = (props) => {
           }
         </div>
         <div className={"campaign-page__header-content"}>
-          <div
-            classes={`campaign-page__header-content-wrapper`}
-          >
+          <div classes={`campaign-page__header-content-wrapper`}>
             <Heading
               level={"h1"}
               weight={"semibold"}
