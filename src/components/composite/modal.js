@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import UseEscape from '../../hooks/useEscape';
 import UseFocusTrap from '../../hooks/useFocusTrap';
 import CenteredContainer from '../partials/centeredContainer';
@@ -18,7 +18,12 @@ export const Modal = ({children, isOpen, onClose, outerContainerClasses, innerCo
   }
 
   // Mimick the structure of a React ref so it works with UseFocusTrap hook.
-  const lastTabbableRef = {current: getLastTabbableItem()}
+  const [lastTabbableRef, setLastTabbableRef] = useState({current: getLastTabbableItem()})
+
+  // Update focus trap when child content changes.
+  useEffect(() => {
+    setLastTabbableRef({current: getLastTabbableItem()});
+  }, [children])
 
   UseFocusTrap(closeButton, lastTabbableRef, isOpen);
 
