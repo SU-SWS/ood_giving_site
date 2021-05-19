@@ -113,7 +113,30 @@ exports.onCreateWebpackConfig = ({
   loaders,
   plugins,
   actions,
+  getConfig
 }) => {
+
+  // override config only during
+  // production JS & CSS build
+  if (stage === 'build-javascript') {
+    // get current webpack config
+    const config = getConfig()
+
+    // find CSS minimizer
+    const minifyCssIndex = config.optimization.minimizer.findIndex(
+      minimizer => minimizer.constructor.name ===
+        'CssMinimizerPlugin'
+    )
+
+    // if found, overwrite existing CSS minimizer with the new one
+    if (minifyCssIndex > -1) {
+      delete config.optimization.minimizer[minifyCssIndex].options.minimizerOptions.preset[1];
+    }
+    // replace webpack config with the modified object
+    actions.replaceWebpackConfig(config)
+  }
+
+
   actions.setWebpackConfig({
     resolve: {
       fallback: {

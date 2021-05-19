@@ -34,7 +34,9 @@ module.exports = {
     }
   },
   plugins: [
-    `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-postcss`,
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -110,13 +112,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    {
       resolve: "gatsby-source-storyblok",
       options: {
         accessToken: process.env.GATSBY_STORYBLOK_ACCESS_TOKEN,
@@ -129,6 +124,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
+        implementation: require("node-sass"),
         sassOptions: {
           includePaths: [
             path.resolve(__dirname, "node_modules")
