@@ -128,10 +128,11 @@ exports.onCreateWebpackConfig = ({
         'CssMinimizerPlugin'
     )
 
-    // if found, overwrite existing CSS minimizer with the new one
+    // if found, overwrite existing CSS minimizer preset svgo plugin options.
     if (minifyCssIndex > -1) {
-      delete config.optimization.minimizer[minifyCssIndex].options.minimizerOptions.preset[1];
+      delete config.optimization.minimizer[minifyCssIndex].options.minimizerOptions.preset[1].svgo.plugins;
     }
+
     // replace webpack config with the modified object
     actions.replaceWebpackConfig(config)
   }
