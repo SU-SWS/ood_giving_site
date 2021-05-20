@@ -4,7 +4,7 @@ import UseFocusTrap from '../../hooks/useFocusTrap';
 import CenteredContainer from '../partials/centeredContainer';
 import { tabbable } from 'tabbable';
 
-export const Modal = ({children, isOpen, onClose, outerContainerClasses, innerContainerClasses}) => {
+export const Modal = ({children, isOpen, onClose, outerContainerClasses, innerContainerClasses, ariaLabel}) => {
   const defaultOuterContainerClasses = 'centered-container flex-container su-pt-5';
   const defaultInnerContainerClasses = '';
   const closeButton = useRef();
@@ -57,7 +57,7 @@ export const Modal = ({children, isOpen, onClose, outerContainerClasses, innerCo
   }
 
   return (
-    <div className={`su-modal ${isOpen ? "visible" : "hidden"}`} aria-hidden={isOpen ? 'false' : 'true'} role='dialog' tabIndex="-1">
+    <div className={`su-modal ${isOpen ? "visible" : "hidden"}`} aria-label={ariaLabel} aria-hidden={isOpen ? 'false' : 'true'} role='dialog' tabIndex="-1">
       <CenteredContainer className={outerContainerClasses ? outerContainerClasses : defaultOuterContainerClasses}>
         <div className={innerContainerClasses ? innerContainerClasses : defaultInnerContainerClasses}>
           <div className="su-modal--header">

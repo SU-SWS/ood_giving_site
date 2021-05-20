@@ -13,8 +13,11 @@
   background-color: rgba(0, 41, 44, 0.9);
   opacity: 0;
 }
-
+.su-modal.hidden {
+  display: none;
+}
 .su-modal.visible {
+  display: block;
   opacity: 1;
   pointer-events: all;
 }

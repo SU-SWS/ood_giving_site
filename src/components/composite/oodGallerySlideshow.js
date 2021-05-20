@@ -33,14 +33,15 @@ const oodGallerySlideshow = ({blok}) => {
           {(blok.showCounter || blok.showExpandLink) &&
             <div className='gallery-slideshow--infobar'>
               {blok.showCounter && 
-                <div className='gallery-slideshow--counter' aria-label={`Slide ${activeSlide + 1} of ${blok.slides.length}`}>
+                <div className='gallery-slideshow--counter'>
                   {`${activeSlide + 1}/${blok.slides.length}`}
+                  <span className="sr-only">{`Slide ${activeSlide + 1} of ${blok.slides.length}`}</span>
                 </div>
               }
 
               {blok.showExpandLink &&
                 <div className='gallery-slideshow--expand'>
-                  <button onClick={() => setModalOpen(true)} className="gallery-slideshow--expand-btn" ref={expandButton}>
+                  <button onClick={() => setModalOpen(true)} className="gallery-slideshow--expand-btn" aria-label="Expand gallery" ref={expandButton}>
                     Expand <i className="fas fa-expand" aria-hidden="true"></i>
                   </button>
                 </div>
@@ -158,7 +159,7 @@ const oodGallerySlideshow = ({blok}) => {
 
   return (
     <SbEditable content={blok}>
-      <div className='gallery-slideshow centered-container su-pt-1 su-pb-1'>
+      <section aria-label={blok.ariaLabel} className='gallery-slideshow centered-container su-pt-1 su-pb-1'>
         <div className={'su-mx-auto ' + containerWidthClasses}>
           <Slider className="gallery-slideshow--slides" ref={(slider => setSlideshow(slider))} {...sliderSettings} >
               {blok.slides.map((slide, index) => {
@@ -177,11 +178,12 @@ const oodGallerySlideshow = ({blok}) => {
               })}
             </Slider>
         </div>
-      </div>
+      </section>
       <Modal 
         isOpen={modalOpen} 
         onClose={closeModal} 
         outerContainerClasses="centered-container flex-container su-pt-1"
+        ariaLabel={blok.ariaLabel + ' full screen view'}
       >
         <div className="gallery-slideshow--modal-wrapper">
           <Slider className="gallery-slideshow--modal" {...modalSliderSettings} >
