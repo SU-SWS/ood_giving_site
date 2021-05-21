@@ -21,19 +21,14 @@
   margin-left: auto;
   font-style: italic;
   user-select: text;
-}
 
-.gallery-slideshow--caption--before {
   @include margin(get-responsive-spacing-value(1, 'tablet') null);
   @include grid-media-max('sm') {
     @include margin(get-responsive-spacing-value(1, 'mobile') null);
   }
-}
 
-.gallery-slideshow--caption--after {
-  @include margin(get-responsive-spacing-value(1, 'tablet') null null null);
-  @include grid-media-max('sm') {
-    @include margin(get-responsive-spacing-value(1, 'mobile') null null null);
+  p {
+    margin-bottom: 0;
   }
 }
 

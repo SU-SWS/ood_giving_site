@@ -48,12 +48,6 @@ const oodGallerySlideshow = ({blok}) => {
               }
             </div>
           }
-
-          {blok.captionPlacement == 'beforeThumbnails' &&
-            <div className="gallery-slideshow--caption gallery-slideshow--caption--before">
-              <RichTextField data={blok.slides[activeSlide]['caption']} />
-            </div>
-          }
           
           <div className='gallery-slideshow--controls'>
             <button className="gallery-slideshow--prev" onClick={clickPrev}>
@@ -71,12 +65,6 @@ const oodGallerySlideshow = ({blok}) => {
               <i className="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
-
-          {blok.captionPlacement == 'afterThumbnails' &&
-            <div className="gallery-slideshow--caption gallery-slideshow--caption--after">
-              <RichTextField data={blok.slides[activeSlide]['caption']} />
-            </div>
-          }
         </div>
       )
     },
@@ -173,6 +161,9 @@ const oodGallerySlideshow = ({blok}) => {
                       aspectRatio="16x9"
                       imageSize="gallery-slide"
                     />
+                    <div className="gallery-slideshow--caption">
+                      <RichTextField data={blok.slides[index]['caption']} />
+                    </div>
                   </div>
                 )
               })}
