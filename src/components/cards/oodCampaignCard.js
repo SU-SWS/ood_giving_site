@@ -12,7 +12,7 @@ const OodCampaignCard = props => {
       >
         <SbLink
           link={props.blok.link}
-          classes={``}
+          classes={`ood-campaign-card__link su-block`}
         >
           {props.blok.image.filename?.startsWith("http") &&
           props.blok.showImage === true && (
@@ -30,24 +30,26 @@ const OodCampaignCard = props => {
           )}
           <div className="ood-campaign-card__contents">
             {props.blok.superheadline && (
-              <span className="ood-campaign-card__superhead su-uppercase">
+              <span className="ood-campaign-card__superhead su-uppercase su-semibold su-block">
                 {props.blok.superheadline}
               </span>
             )}
             {props.blok.headline && (
               <Heading
+                color={props.blok.headlineColor}
                 level={props.blok.headingLevel}
                 defaultLevel={"h3"}
                 weight={"semibold"}
-                classes={`ood-campaign-card__headline ${
+                classes={`ood-campaign-card__headline su-type-b ${
                   props.blok.link.linktype === "url" ? "su-link--external" : ""
                 }`}
               >
                 {props.blok.headline}
               </Heading>
             )}
+
             {props.blok.description && (
-              <p className="ood-campaign-card__description su-mb-none">
+              <p className="ood-campaign-card__description su-mb-none su-regular">
                 {props.blok.description}
               </p>
             )}

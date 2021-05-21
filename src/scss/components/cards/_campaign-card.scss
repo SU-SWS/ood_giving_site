@@ -1,7 +1,76 @@
 @charset "UTF-8";
 
 // Campaign Cards
-
 .ood-campaign-card {
+  &__media {
+    margin-bottom: 36px;
+  }
 
+  &__image {
+    transition: transform 0.25s ease-in;
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      box-shadow: $ood-shadow--medium;
+    }
+
+    @include grid-media-only('md') {
+      @include padding(get-responsive-spacing-value(1, 'mobile'));
+    }
+
+    @include grid-media('lg') {
+      @include padding(get-responsive-spacing-value(2, 'tablet'));
+    }
+
+    @include grid-media('2xl') {
+      @include padding(get-responsive-spacing-value(2, 'desktop'));
+    }
+  }
+
+  &__superhead {
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+    color: $su-color-black-80;
+    margin-bottom: 13px;
+  }
+
+  &__headline {
+    @include link-icon(arrow-right, 0.8em, right, -0.18em);
+    margin-bottom: 26px;
+
+    &::after {
+      background-color: currentColor;
+    }
+  }
+
+  &__description {
+    font-size: 20px;
+    color: $su-color-black-80;
+    line-height: 125%;
+  }
+
+  &__link:hover,
+  &__link:focus {
+    .ood-campaign-card__image {
+      transform: scale(1.03);
+    }
+
+    .ood-campaign-card__headline {
+      &::after {
+        transform: translateX(0.2em);
+      }
+
+      &:hover,
+      &:focus{
+        &::after {
+          background-color: currentColor;
+        }
+      }
+    }
+  }
 }
