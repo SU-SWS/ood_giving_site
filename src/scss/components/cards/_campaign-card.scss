@@ -42,9 +42,12 @@
   &__headline {
     @include link-icon(arrow-right, 0.8em, right, -0.18em);
     margin-bottom: 26px;
+    display: flex;
+    align-items: center;
 
     &::after {
       background-color: currentColor;
+      height: 17px;
     }
   }
 
