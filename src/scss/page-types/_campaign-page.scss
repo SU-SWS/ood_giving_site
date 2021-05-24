@@ -3,5 +3,35 @@
 // Campaign page content type
 
 .campaign-page {
+  &__header {
+    position: relative;
+    @include grid-media('sm') {
+      display: flex;
+    }
+    @include grid-media('lg') {
+      min-height: 750px;
+    }
+  }
 
+  &__header-content {
+
+  }
+
+  &__image-wrapper {
+    .campaign-page__media {
+      height: 100%;
+    }
+    .campaign-page__image {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__header-content-logo {
+    max-width: 220px;
+    @include grid-media('xl') {
+      max-width: 410px;
+    }
+  }
 }

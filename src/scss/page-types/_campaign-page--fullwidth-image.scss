@@ -3,5 +3,17 @@
 // Campaign page with fullwidth image Hero
 
 .campaign-page {
+  &__header--fullwidth-image {
+    .campaign-page__header-content {
+      @include padding(4.5rem null);
+    }
 
+    .campaign-page__image-wrapper {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
 }

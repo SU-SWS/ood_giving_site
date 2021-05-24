@@ -3,5 +3,78 @@
 // Campaign page with Hero image on the left
 
 .campaign-page {
+  &__header--left-image {
+    @include grid-media('sm') {
+      > * {
+        width: 50%;
+      }
+    }
 
+    .campaign-page__header-content {
+      @include padding(4.5rem 2rem);
+    }
+
+    .campaign-page__header-content-wrapper {
+      max-width: 530px;
+      > * {
+        margin: 0;
+      }
+
+      > * + .campaign-page__title,
+      > * + .ood-cta {
+        margin-top: 3rem;
+      }
+
+      > * + .campaign-page__header-intro {
+        margin-top: 1.5rem;
+      }
+
+      @include grid-media('sm') {
+        > * + .campaign-page__title,
+        > * + .ood-cta {
+          margin-top: 3.4rem;
+        }
+
+        > * + .campaign-page__header-intro {
+          margin-top: 3rem;
+        }
+      }
+
+      @include grid-media('md') {
+        > * + .campaign-page__title,
+        > * + .ood-cta {
+          margin-top: 5.8rem;
+        }
+
+        > * + .campaign-page__header-intro {
+          margin-top: 3.6rem;
+        }
+
+        .campaign-page__header-intro {
+          padding-right: 15%;
+        }
+      }
+    }
+
+    .campaign-page__header-content {
+      display: flex;
+      align-items: center;
+
+      @include grid-media('sm') {
+        @include padding(11.5rem 3rem 6rem 7.65%);
+      }
+      @include grid-media('md') {
+        padding-right: 6rem;
+      }
+      @include grid-media('lg') {
+        padding-right: 8rem;
+      }
+    }
+
+    .campaign-page__header-content-logo {
+      @include grid-media('xl') {
+        max-width: 330px;
+      }
+    }
+  }
 }
