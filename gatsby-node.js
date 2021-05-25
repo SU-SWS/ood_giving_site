@@ -1,5 +1,4 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require('path')
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
@@ -113,42 +112,10 @@ exports.onCreateWebpackConfig = ({
   loaders,
   plugins,
   actions,
-  getConfig
 }) => {
-
-  // override config only during
-  // production JS & CSS build
-  if (stage === 'build-javascript') {
-    // get current webpack config
-    const config = getConfig()
-
-    // find CSS minimizer
-    const minifyCssIndex = config.optimization.minimizer.findIndex(
-      minimizer => minimizer.constructor.name ===
-        'CssMinimizerPlugin'
-    )
-
-    // if found, overwrite existing CSS minimizer preset svgo plugin options.
-    if (minifyCssIndex > -1) {
-      delete config.optimization.minimizer[minifyCssIndex].options.minimizerOptions.preset[1].svgo.plugins;
-    }
-
-    // replace webpack config with the modified object
-    actions.replaceWebpackConfig(config)
-  }
-
-
   actions.setWebpackConfig({
-    resolve: {
-      fallback: {
-        path: require.resolve("path-browserify"),
-        fs: false,
-      }
-    },
-    plugins: [
-      new webpack.ProvidePlugin({
-        process: 'process/browser',
-      }),
-    ]
+    node: {
+      fs: "empty"
+    }
   })
 }

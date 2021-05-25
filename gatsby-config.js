@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require("path")
 
 const activeEnv =
   process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
@@ -9,34 +9,15 @@ require("dotenv").config({
   path: `.env.${activeEnv}`,
 })
 
-/**
- * Resolve relations for storyblok.
- */
-const storyblokRelations = [
-  "oodQuoteSlider.quotes",
-  "globalFooterPicker.globalFooter",
-  "localFooterPicker.localFooter",
-  "localHeaderPicker.localHeader",
-  "contentMenuPicker.contentMenu",
-  "storyPicker.story",
-  "alertPicker.alert",
-];
-
 module.exports = {
   siteMetadata: {
     title: `Giving to Stanford`,
     description: `Giving to Stanford.`,
     author: `Stanford University Office of Development`,
     siteUrl: `https://giving.stanford.edu`,
-    // This key is for metadata only and can be statically queried
-    storyblok: {
-      resolveRelations: storyblokRelations,
-    }
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-postcss`,
-    },
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -94,15 +75,7 @@ module.exports = {
           }
         }
         `,
-        resolvePages: ({
-          allSitePage: { edges: allPages }
-        }) => {
-          return allPages.map(page => {
-            return { ...page.node }
-          })
-        },
-        resolveSiteUrl: () => 'https://giving.stanford.edu',
-        excludes: [
+        exclude: [
           '/editor',
           '/editor/**',
           '/global-components/**',
@@ -112,11 +85,26 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
       resolve: "gatsby-source-storyblok",
       options: {
         accessToken: process.env.GATSBY_STORYBLOK_ACCESS_TOKEN,
         homeSlug: "home",
-        resolveRelations: storyblokRelations,
+        resolveRelations: [
+          "oodQuoteSlider.quotes",
+          "globalFooterPicker.globalFooter",
+          "localFooterPicker.localFooter",
+          "localHeaderPicker.localHeader",
+          "contentMenuPicker.contentMenu",
+          "storyPicker.story",
+          "alertPicker.alert",
+        ],
         version: process.env.NODE_ENV == "production" ? "published" : "draft", // show only published on the front end site
         // version: 'draft'  // would show any including drafts
       },
@@ -124,12 +112,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        implementation: require("node-sass"),
-        sassOptions: {
-          includePaths: [
-            path.resolve(__dirname, "node_modules")
-          ],
-        },
+        includePaths: [path.resolve(__dirname, "node_modules")],
         cssLoaderOptions: {
           camelCase: false,
         },
