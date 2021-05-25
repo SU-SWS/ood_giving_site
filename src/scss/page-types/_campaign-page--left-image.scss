@@ -16,37 +16,38 @@
 
     .campaign-page__header-content-wrapper {
       max-width: 530px;
-      > * {
-        margin: 0;
-      }
 
-      > * + .campaign-page__title,
-      > * + .ood-cta {
+      > .campaign-page__header-content-logo + *,
+      * + .ood-cta {
         margin-top: 3rem;
       }
 
-      > * + .campaign-page__header-intro {
+      * + .campaign-page__header-intro {
         margin-top: 1.5rem;
       }
 
       @include grid-media('sm') {
-        > * + .campaign-page__title,
-        > * + .ood-cta {
+        @include padding(11.5rem 3rem 6rem 7.65%);
+
+        > .campaign-page__header-content-logo + *,
+        * + .ood-cta {
           margin-top: 3.4rem;
         }
 
-        > * + .campaign-page__header-intro {
+        * + .campaign-page__header-intro {
           margin-top: 3rem;
         }
       }
 
       @include grid-media('md') {
-        > * + .campaign-page__title,
-        > * + .ood-cta {
+        padding-right: 6rem;
+
+        > .campaign-page__header-content-logo + *,
+        * + .ood-cta {
           margin-top: 5.8rem;
         }
 
-        > * + .campaign-page__header-intro {
+        * + .campaign-page__header-intro {
           margin-top: 3.6rem;
         }
 
@@ -54,21 +55,15 @@
           padding-right: 15%;
         }
       }
+
+      @include grid-media('lg') {
+        padding-right: 8rem;
+      }
     }
 
     .campaign-page__header-content {
       display: flex;
       align-items: center;
-
-      @include grid-media('sm') {
-        @include padding(11.5rem 3rem 6rem 7.65%);
-      }
-      @include grid-media('md') {
-        padding-right: 6rem;
-      }
-      @include grid-media('lg') {
-        padding-right: 8rem;
-      }
     }
 
     .campaign-page__header-content-logo {

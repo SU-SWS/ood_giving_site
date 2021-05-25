@@ -14,7 +14,11 @@
   }
 
   &__header-content {
-
+    &-body {
+      > * {
+        margin: 0;
+      }
+    }
   }
 
   &__image-wrapper {
@@ -33,5 +37,10 @@
     @include grid-media('xl') {
       max-width: 410px;
     }
+  }
+
+  &__header-bar {
+    width: 97px;
+    height: 10px;
   }
 }

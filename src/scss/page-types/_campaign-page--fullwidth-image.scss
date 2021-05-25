@@ -4,8 +4,13 @@
 
 .campaign-page {
   &__header--fullwidth-image {
+    @include padding(4.5rem null);
+
+    @include grid-media('md') {
+      @include padding(9rem null);
+    }
     .campaign-page__header-content {
-      @include padding(4.5rem null);
+
     }
 
     .campaign-page__image-wrapper {
@@ -14,6 +19,61 @@
       bottom: 0;
       right: 0;
       left: 0;
+    }
+
+    .campaign-page__header-content-wrapper {
+      background: inherit;
+    }
+
+    .campaign-page__header-content-logo {
+      width: 100%;
+      max-width: 430px;
+    }
+
+    .campaign-page__header-content {
+      &-wrapper {
+        @include padding(3.4rem 2rem);
+
+        > .campaign-page__header-content-logo + * {
+          margin-top: 3rem;
+        }
+
+        * + .ood-cta {
+          margin-top: 2rem;
+        }
+
+        * + .campaign-page__header-bar,
+        * + .campaign-page__header-intro {
+          margin-top: 2rem;
+        }
+
+        @include grid-media('sm') {
+          @include padding(3.4rem);
+        }
+
+        @include grid-media('md') {
+          @include padding(5.8rem);
+
+          > .campaign-page__header-content-logo + * {
+            margin-top: 4.5rem;
+          }
+
+          * + .campaign-page__header-bar,
+          * + .ood-cta {
+            margin-top: 2.6rem;
+          }
+
+          * + .campaign-page__header-intro {
+            margin-top: 3.6rem;
+          }
+        }
+      }
+
+      &-body {
+        @include grid-media-max('xs') {
+          @include padding(null 1.4rem);
+        }
+      }
     }
   }
 }
