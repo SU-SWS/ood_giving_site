@@ -1,155 +1,150 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Components from '../components/components.js'
 import SbEditable from 'storyblok-react'
+import config from '../../gatsby-config'
 import Loader from 'react-loader-spinner'
-import { useStaticQuery, graphql } from "gatsby"
 
-/**
- *
- * @param {*} val
- * @returns
- */
+const sbConfigs = config.plugins.filter((item) => {
+  return item.resolve === 'gatsby-source-storyblok'
+})
+const sbConfig = sbConfigs.length > 0 ? sbConfigs[0] : {}
+
+const loadStoryblokBridge = function(cb) {
+  let script = document.createElement('script')
+  script.type = 'text/javascript'
+  script.src = `//app.storyblok.com/f/storyblok-latest.js`
+  script.onload = cb
+  document.getElementsByTagName('head')[0].appendChild(script)
+}
+
 const getParam = function(val) {
-  var result = '';
-  var tmp = [];
+  var result = ''
+  var tmp = []
 
   window.location.search
     .substr(1)
     .split('&')
     .forEach(function (item) {
-      tmp = item.split('=');
+      tmp = item.split('=')
       if (tmp[0] === val) {
-        result = decodeURIComponent(tmp[1]);
+        result = decodeURIComponent(tmp[1])
       }
     })
 
-  return result;
+  return result
 }
 
-/**
- * This is Sparta
- */
-const initBridge = function(key, sbResolveRelations, setStory) {
+class StoryblokEntry extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {story: null, bad: false}
+  }
 
-  // Initialize the Storyblok JS Bridge
-  window.storyblok.init({
-    resolveRelations: sbResolveRelations,
-    accessToken: key
-  });
 
-  // Ping the Visual Editor and enter Editmode manually
-  window.storyblok.pingEditor(function() {
-    window.storyblok.enterEditmode();
-  });
+  componentDidMount() {
 
-  // Listens on multiple events and does a basic website refresh
-  window.storyblok.on(['change', 'published', 'unpublished'], () => {
-    window.location.reload();
-  })
+	// Storyblok Preview API access key.
+    const key = getParam("access_key")
 
-  // When the content author does stuff.
-  window.storyblok.on('input', (payload) => {
-    // Add _editable properties to keep the Storyblok JS Bridge active after the content updates.
-    window.storyblok.addComments(payload.story.content, payload.story.id)
-    window.storyblok.resolveRelations(payload.story, sbResolveRelations, () => {
-      setStory(payload.story.content);
-    });
-  });
-
-  loadStory(sbResolveRelations, setStory);
-}
-
-/**
- *
- */
-const loadStory = (sbResolveRelations, setStory) => {
-  window.storyblok.get({
-      slug: window.storyblok.getParam('path'),
-      version: 'draft',
-      resolve_relations: sbResolveRelations || []
-    },
-    (data) => {
-      setStory(data.story.content)
-    })
-}
-
-/**
- * This is another try.
- */
-const StoryblokEntry = (props) => {
-
-  const [myStory, setStory] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  /**
-   * Get resolveRelations
-   */
-  const { site: { siteMetadata: { storyblok: { resolveRelations }}}} = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            storyblok {
-              resolveRelations
-            }
-          }
-        }
-      }
-    `
-  );
-
-  const sbResolveRelations = resolveRelations;
-
-  /**
-   *
-   */
-  useEffect(() => {
-
-    // One time load only.
-    if (!mounted) {
-      // Storyblok Preview API access key.
-      const key = getParam("access_key");
-
-      // Must have the API Access key.
-      if (key.length === 0 || typeof key !== "string") {
-        return;
-      }
-
-      let script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = '//app.storyblok.com/f/storyblok-latest.js';
-      script.onload = () => {
-        initBridge(key, sbResolveRelations, setStory);
-      };
-      document.getElementsByTagName('head')[0].appendChild(script);
+    // Must have a storyblok key.
+    if (isNaN(getParam("_storyblok"))) {
+      this.setState({bad: true})
+      return
     }
 
-    setMounted(true);
+    // Must have the API Access key.
+    if (key === '') {
+      this.setState({bad: true})
+      return
+    }
 
-    // Ready to go.
-  }, [sbResolveRelations, mounted, setMounted, myStory]);
+    loadStoryblokBridge(() => {
 
-  /**
-   * Show the content!
-   */
-  if (myStory && myStory.component) {
+      // Init with access token from url.
+      window.storyblok.init({
+        accessToken: key
+      })
+
+      this.initStoryblokEvents()
+    })
+  }
+
+  loadStory() {
+    window.storyblok.get({
+      slug: window.storyblok.getParam('path'),
+      version: 'draft',
+      resolve_relations: sbConfig.options.resolveRelations || []
+    }, (data) => {
+      this.setState({story: data.story})
+    })
+  }
+
+  initStoryblokEvents() {
+
+    this.loadStory()
+
+    let sb = window.storyblok
+
+    sb.on(['change', 'published'], (payload) => {
+      this.loadStory()
+    })
+
+    sb.on('input', (payload) => {
+      if (this.state.story && payload.story.id === this.state.story.id) {
+        payload.story.content = sb.addComments(payload.story.content, payload.story.id)
+        sb.resolveRelations(payload.story, sbConfig.options.resolveRelations ||
+          [
+            'oodQuoteSlider.quotes',
+            'globalFooterPicker.globalFooter',
+            'localFooterPicker.localFooter',
+            'localHeaderPicker.localHeader',
+            'contentMenuPicker.contentMenu',
+            'storyPicker.story',
+            'alertPicker.alert',
+          ],
+          () => {
+          this.setState({story: payload.story})
+        })
+      }
+    })
+
+    sb.pingEditor(() => {
+      if (sb.inEditor) {
+        sb.enterEditmode()
+      }
+    })
+  }
+
+  render() {
+
+    if (this.state.bad == true) {
+      return (
+        <div className="centered-container">
+          <h1>Error</h1>
+          <p>You can only access this page through https://app.storyblok.com.</p>
+        </div>
+      )
+    }
+
+    if (this.state.story == null) {
+      return (
+        <div className="centered-container">
+          <h1>Loading...</h1>
+          <Loader type="Oval" color="#00BFFF" height={125} width={125} />
+        </div>
+      )
+    }
+
+    let content = this.state.story.content
+
     return (
-      <SbEditable content={myStory}>
+      <SbEditable content={content}>
         <div>
-          {React.createElement(Components(myStory.component), {key: myStory._uid, blok: myStory})}
+          {React.createElement(Components(content.component), {key: content._uid, blok: content})}
         </div>
       </SbEditable>
     )
   }
-
-  // Loading...
-  return (
-    <div className="su-cc">
-      <h1>Loading...</h1>
-      <Loader type="Oval" color="#00BFFF" height={125} width={125} />
-    </div>
-  )
-
 }
 
-export default StoryblokEntry;
+export default StoryblokEntry
