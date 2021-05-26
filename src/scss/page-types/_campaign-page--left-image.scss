@@ -5,7 +5,8 @@
 .campaign-page {
   &__header--left-image {
     @include grid-media('sm') {
-      > * {
+      > .campaign-page__image-wrapper,
+      > .campaign-page__header-content {
         width: 50%;
       }
     }
@@ -22,6 +23,7 @@
         margin-top: 3rem;
       }
 
+      * + .campaign-page__header-bar,
       * + .campaign-page__header-intro {
         margin-top: 1.5rem;
       }
@@ -34,6 +36,7 @@
           margin-top: 3.4rem;
         }
 
+        * + .campaign-page__header-bar,
         * + .campaign-page__header-intro {
           margin-top: 3rem;
         }

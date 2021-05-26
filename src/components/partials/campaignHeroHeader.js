@@ -34,6 +34,13 @@ const CampaignHeroHeader = (props) => {
       <header
         className={`campaign-page__header campaign-page__header--${blok.heroStyle}`}
       >
+        <div className={`campaign-page__header-lockup ${blok.headerColor}`}>
+          <div className="flex-container centered-container su-align-items-center su-justify-content">
+            <CreateBloks blokSection={blok.lockup} />
+
+            <div className="campaign-page__header-icon">Home</div>
+          </div>
+        </div>
         <div className='campaign-page__image-wrapper'>
           {full_width_image}
         </div>

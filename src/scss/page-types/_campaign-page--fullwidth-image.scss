@@ -4,10 +4,10 @@
 
 .campaign-page {
   &__header--fullwidth-image {
-    @include padding(4.5rem null);
+    @include padding(10.7rem null 4.5rem);
 
     @include grid-media('md') {
-      @include padding(9rem null);
+      @include padding(15.7rem null 9rem);
     }
     .campaign-page__header-content {
 
@@ -59,12 +59,9 @@
           }
 
           * + .campaign-page__header-bar,
+          * + .campaign-page__header-intro,
           * + .ood-cta {
             margin-top: 2.6rem;
-          }
-
-          * + .campaign-page__header-intro {
-            margin-top: 3.6rem;
           }
         }
       }
