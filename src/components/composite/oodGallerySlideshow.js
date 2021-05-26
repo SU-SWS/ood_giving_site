@@ -174,6 +174,7 @@ const oodGallerySlideshow = ({blok}) => {
         isOpen={modalOpen} 
         onClose={closeModal} 
         outerContainerClasses="centered-container flex-container su-pt-1"
+        innerContainerClasses="su-pt-5"
         ariaLabel={blok.ariaLabel + ' full screen view'}
       >
         <div className="gallery-slideshow--modal-wrapper">
