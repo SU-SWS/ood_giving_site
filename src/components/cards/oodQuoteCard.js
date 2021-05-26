@@ -16,9 +16,11 @@ const OodQuoteCard = props => (
                  : "ood-quote-card--no-image"
              }
              ${
-               props.blok.backgroundColor === "white"
-                 ? "su-border-color-black-10"
-                 : "su-border-color-black-11"
+               props.blok.borderColor
+                 ? `su-border-gr-${props.blok.borderColor}`
+                 : props.blok.backgroundColor === "white"
+                     ? "su-border-color-black-10"
+                     : "su-border-color-black-11"
              }
              su-text-align-${props.blok.textAlign}`}
     >
@@ -57,6 +59,7 @@ const OodQuoteCard = props => (
             alt={props.blok.image.alt}
             classPrefix={"ood-quote-card"}
             imageSize={"thumbnail"}
+            otherClasses={props.blok.imageShape === 'round' && "ood-quote-card__media--rounded"}
             aspectRatio={"1x1"}
             visibleHorizontal={props.blok.visibleHorizontal}
             visibleVertical={props.blok.visibleVertical}

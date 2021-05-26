@@ -1,0 +1,53 @@
+.ood-quote-slider {
+  .ood-quote-slider__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .slick-arrow {
+    z-index: 1;
+    color: $su-color-palo-verde-dark;
+    width: 52px;
+    height: 52px;
+    border: $su-color-palo-verde-dark 3px solid;
+    border-radius: 100%;
+    line-height: 0;
+    padding: 1rem;
+    background: transparent;
+    flex-shrink: 0;
+    cursor: pointer;
+
+    @include grid-media-max('sm') {
+      border-width: 2px;
+
+      svg > path {
+        stroke-width: 2;
+      }
+    }
+
+    margin-left: 15px;
+    margin-right: 15px;
+
+    @include grid-media('md') {
+      margin-left: 60px;
+      margin-right: 60px;
+    }
+
+    &:hover,
+    &:focus {
+      color: $su-color-palo-verde;
+      border: $su-color-palo-verde 3px solid;
+    }
+  }
+
+  .slick-slide {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  &__current-position {
+    display: flex;
+    justify-content: center;
+    margin: 26px 0;
+  }
+}
