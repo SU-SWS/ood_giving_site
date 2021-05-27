@@ -24,8 +24,8 @@ const CampaignHeroHeader = (props) => {
       {...props}
       filename={blok.image?.filename}
       classPrefix={"campaign-page"}
-      visibleVertical={blok.visibleVertical}
-      visibleHorizontal={"center"}
+      visibleVertical={"center"}
+      visibleHorizontal={blok.visibleHorizontal}
       alt={blok.image?.alt ?? ""}
     />
   ) : (<div className={'full-width-image-placeholder'} aria-hidden='true' />);
