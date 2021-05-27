@@ -96,7 +96,27 @@
   }
 
   &__header-icon {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+
+    &:hover {
+      color: inherit;
+    }
+
+    > .home-icon {
+      width: 1.8rem;
+    }
+
+    @include grid-media('md') {
+      font-size: 1.6rem;
+
+      > .home-icon {
+        width: 2.2rem;
+      }
+    }
   }
 }
