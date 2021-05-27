@@ -19,7 +19,11 @@ const oodGallerySlideshow = ({blok}) => {
   let containerWidthClasses = '';
 
   if (blok.containerWidth == "constrain-max-width") {
-    containerWidthClasses = 'flex-xs-12-of-12 flex-lg-10-of-12 flex-xl-8-of-12'
+    containerWidthClasses += 'flex-xs-12-of-12 flex-lg-10-of-12 flex-xl-8-of-12'
+  }
+  let minimalClass = '';
+  if (!blok.showCounter && !blok.showExpandLink) {
+    minimalClass = 'gallery-slideshow--minimal'
   }
 
   const sliderSettings = {
@@ -48,6 +52,10 @@ const oodGallerySlideshow = ({blok}) => {
               }
             </div>
           }
+
+          <div className="gallery-slideshow--caption">
+            <RichTextField data={blok.slides[activeSlide]['caption']} />
+          </div>
           
           <div className='gallery-slideshow--controls'>
             <button className="gallery-slideshow--prev" onClick={clickPrev}>
@@ -147,7 +155,7 @@ const oodGallerySlideshow = ({blok}) => {
 
   return (
     <SbEditable content={blok}>
-      <section aria-label={blok.ariaLabel} className='gallery-slideshow centered-container su-pt-1 su-pb-1'>
+      <section aria-label={blok.ariaLabel} className={'gallery-slideshow centered-container su-pt-1 su-pb-1 ' + minimalClass}>
         <div className={'su-mx-auto ' + containerWidthClasses}>
           <Slider className="gallery-slideshow--slides" ref={(slider => setSlideshow(slider))} {...sliderSettings} >
               {blok.slides.map((slide, index) => {
@@ -161,9 +169,6 @@ const oodGallerySlideshow = ({blok}) => {
                       aspectRatio="16x9"
                       imageSize="gallery-slide"
                     />
-                    <div className="gallery-slideshow--caption">
-                      <RichTextField data={blok.slides[index]['caption']} />
-                    </div>
                   </div>
                 )
               })}
@@ -199,9 +204,9 @@ const oodGallerySlideshow = ({blok}) => {
               {`${activeSlide + 1}/${blok.slides.length}`}
             </div>
           </div>
-        </div>
-        <div className="gallery-slideshow--caption">
-          <RichTextField data={blok.slides[activeSlide]['caption']} />
+          <div className="gallery-slideshow--caption">
+            <RichTextField data={blok.slides[activeSlide]['caption']} />
+          </div>
         </div>
       </Modal>
     </SbEditable>
