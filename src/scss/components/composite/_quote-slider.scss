@@ -25,18 +25,26 @@
       }
     }
 
-    margin-left: 15px;
-    margin-right: 15px;
-
-    @include grid-media('md') {
-      margin-left: 60px;
-      margin-right: 60px;
-    }
-
     &:hover,
     &:focus {
       color: $su-color-palo-verde;
       border: $su-color-palo-verde 3px solid;
+    }
+  }
+
+  .slick-prev {
+    margin-right: 15px;
+
+    @include grid-media('xl') {
+      margin-right: 60px;
+    }
+  }
+
+  .slick-next {
+    margin-left: 15px;
+
+    @include grid-media('xl') {
+      margin-left: 60px;
     }
   }
 
