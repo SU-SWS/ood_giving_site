@@ -11,11 +11,14 @@
   }
 
   &__link {
+    margin-bottom: 10px;
     text-decoration: none;
 
     &:hover,
     &:focus {
-      box-shadow: $ood-shadow--medium;
+      @include grid-media('md') {
+        box-shadow: $ood-shadow--medium;
+      }
     }
 
     @include grid-media-only('md') {
@@ -41,9 +44,17 @@
 
   &__headline {
     @include link-icon(arrow-right, 0.8em, right, -0.18em);
-    margin-bottom: 26px;
     display: flex;
     align-items: center;
+    margin: 0;
+
+    @include grid-media-only('lg') {
+      font-size: 26px;
+    }
+
+    @include grid-media-only('xl') {
+      font-size: 26px;
+    }
 
     &::after {
       background-color: currentColor;
@@ -53,8 +64,13 @@
 
   &__description {
     font-size: 20px;
+    margin-top: 16px;
     color: $su-color-black-80;
     line-height: 125%;
+
+    @include grid-media-only('md') {
+      margin-top: 26px;
+    }
   }
 
   &__link:hover,
