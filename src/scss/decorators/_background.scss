@@ -35,7 +35,7 @@
       background-clip: padding-box;
       border: solid 5px transparent;
 
-      &:before {
+      &::before {
         content: '';
         position: absolute;
         top: 0;
