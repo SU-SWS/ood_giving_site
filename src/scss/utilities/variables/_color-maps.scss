@@ -37,6 +37,7 @@ $ood-colors: (
     "palo-alto-dark-to-palo-verde-dark": linear-gradient(45deg, $su-color-palo-alto-dark 10%, $su-color-palo-verde-dark 90%),
     "sky-dark-to-olive-dark":            linear-gradient(45deg, $su-color-sky-dark 10%, $su-color-olive-dark 90%),
     "sky-dark-to-bay-dark":              linear-gradient(45deg, $su-color-sky-dark 10%, $su-color-bay-dark 90%),
+    "sky-dark-to-transparent":           linear-gradient(180deg, rgba($su-color-sky-dark, 0.8) 0, rgba($su-color-sky-dark, 0) 100%),
 ) !default;
 
 $ood-text-colors: (

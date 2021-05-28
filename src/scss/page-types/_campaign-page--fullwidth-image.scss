@@ -6,10 +6,6 @@
   &__header--fullwidth-image {
     @include padding(10.7rem null 4.5rem);
 
-    @include grid-media('md') {
-      @include padding(15.7rem null 9rem);
-    }
-
     .campaign-page__image-wrapper {
       position: absolute;
       top: 0;
@@ -20,6 +16,8 @@
 
     .campaign-page__header-content-wrapper {
       background: inherit;
+      position: relative;
+      z-index: 1;
     }
 
     .campaign-page__header-content-logo {
@@ -67,6 +65,18 @@
         @include grid-media-max('xs') {
           @include padding(null 1.4rem);
         }
+      }
+    }
+
+    .campaign-page__header-lockup.su-text-white::before {
+      height: 140px;
+    }
+
+    @include grid-media('md') {
+      @include padding(15.7rem null 9rem);
+
+      .campaign-page__header-lockup.su-text-white::before {
+        height: 215px;
       }
     }
   }

@@ -50,8 +50,12 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 10;
+    z-index: 1;
     @include padding(2.3rem null);
+
+    > * {
+      position: relative;
+    }
 
     .su-lockup > a {
       display: flex;
@@ -62,6 +66,16 @@
       [class*='su-lockup__'] {
         color: $su-color-white;
         border-color: $su-color-white;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        @extend .su-bg-sky-dark-to-transparent
       }
     }
 

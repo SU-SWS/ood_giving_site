@@ -57,7 +57,7 @@ const CampaignHeroHeader = (props) => {
           {full_width_image}
         </div>
         <div className={campaignContentClasses}>
-          <div className={`campaign-page__header-content-wrapper ${isFullWidthImage ? 'flex-md-6-of-12 column-grid__column' : ''}`}>
+          <div className={`campaign-page__header-content-wrapper ${isFullWidthImage ? 'flex-md-9-of-12 flex-lg-6-of-12 column-grid__column' : ''}`}>
             {blok.logo?.filename &&
               <img
                 className={`campaign-page__header-content-logo ${blok.logoAlignment}`}
