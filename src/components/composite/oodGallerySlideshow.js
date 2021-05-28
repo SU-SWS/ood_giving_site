@@ -15,16 +15,6 @@ const oodGallerySlideshow = ({blok}) => {
   const pagerWindow = React.createRef();
   const pager = React.createRef();
   const expandButton = React.createRef();
-  
-  let containerWidthClasses = '';
-
-  if (blok.containerWidth == "constrain-max-width") {
-    containerWidthClasses += 'flex-xs-12-of-12 flex-lg-10-of-12 flex-xl-8-of-12'
-  }
-  let minimalClass = '';
-  if (!blok.showCounter && !blok.showExpandLink) {
-    minimalClass = 'gallery-slideshow--minimal'
-  }
 
   const sliderSettings = {
     arrows: false,
@@ -155,8 +145,15 @@ const oodGallerySlideshow = ({blok}) => {
 
   return (
     <SbEditable content={blok}>
-      <section aria-label={blok.ariaLabel} className={'gallery-slideshow centered-container su-pt-1 su-pb-1 ' + minimalClass}>
-        <div className={'su-mx-auto ' + containerWidthClasses}>
+      <section aria-label={blok.ariaLabel} className={`gallery-slideshow
+        ${(!blok.showCounter && !blok.showExpandLink) ? 'gallery-slideshow--minimal' : ''}
+        ${blok.spacingTop !== "none" ? `su-pt-${blok.spacingTop}` : ""}
+        ${blok.spacingBottom !== "none" ? `su-pb-${blok.spacingBottom}` : ""}
+        ${(blok.backgroundColor? `su-bg-${blok.backgroundColor}` : "su-bg-transparent")}
+      `}>
+        <div className={`su-mx-auto 
+          ${blok.containerWidth == 'constrain-max-width' ? 'centered-container flex-xs-12-of-12 flex-lg-10-of-12 flex-xl-8-of-12' : ''}
+        `}>
           <Slider className="gallery-slideshow--slides" ref={(slider => setSlideshow(slider))} {...sliderSettings} >
               {blok.slides.map((slide, index) => {
                 return (
@@ -179,7 +176,7 @@ const oodGallerySlideshow = ({blok}) => {
         isOpen={modalOpen} 
         onClose={closeModal} 
         outerContainerClasses="centered-container flex-container su-pt-1"
-        innerContainerClasses="su-pt-5"
+        innerContainerClasses="su-pt-2"
         ariaLabel={blok.ariaLabel + ' full screen view'}
       >
         <div className="gallery-slideshow--modal-wrapper">

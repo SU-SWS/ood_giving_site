@@ -230,3 +230,12 @@
     right: 2rem;
   }
 }
+
+// Overrides when using fog-light background.
+.gallery-slideshow.su-bg-fog-light {
+  .gallery-slideshow--pager-window {
+    &.overlay::before {
+      background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, $su-color-fog-light 30%);
+    }
+  }
+}
