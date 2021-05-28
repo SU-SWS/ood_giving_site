@@ -18,8 +18,8 @@
     "gatsby-plugin-react-helmet": "^4.5.0",
     "gatsby-plugin-react-helmet-canonical-urls": "^1.4.0",
     "gatsby-plugin-robots-txt": "^1.6.2",
-    "gatsby-plugin-sharp": "^3.5.0",
     "gatsby-plugin-sass": "^4.5.0",
+    "gatsby-plugin-sharp": "^3.5.0",
     "gatsby-plugin-sitemap": "^4.1.0",
     "gatsby-source-filesystem": "^3.5.0",
     "gatsby-source-storyblok": "^3.0.1",
@@ -41,9 +41,9 @@
   "devDependencies": {
     "netlify-cli": "^3.29.17",
     "node-sass": "^6.0.0",
-    "prettier": "2.3.0",
-    "react-refresh": "^0.10.0",
     "postcss": "^8.2.15",
+    "prettier": "2.3.0",
+    "react-refresh": "^0.10.0"
   },
   "keywords": [
     "Stanford"
