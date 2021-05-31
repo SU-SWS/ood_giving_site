@@ -71,7 +71,16 @@
       }
 
       @include grid-media('lg') {
-        padding-right: 8rem;
+        padding-right: 6rem;
+      }
+
+      @include grid-media('xl') {
+        max-width: 700px;
+        margin-left: 0;
+      }
+
+      @include grid-media('2xl') {
+        padding-left: 8.8rem;
       }
     }
 

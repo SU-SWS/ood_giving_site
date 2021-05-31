@@ -5,7 +5,8 @@
 .campaign-page {
   &__header {
     position: relative;
-    @include grid-media('sm') {
+
+    @include grid-media('md') {
       display: flex;
     }
 
