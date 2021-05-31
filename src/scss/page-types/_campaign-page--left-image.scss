@@ -6,9 +6,14 @@
   &__header--left-image {
     @include grid-media('sm') {
       > .campaign-page__image-wrapper,
-      > .campaign-page__header-content,
-      .campaign-page__header-lockup.su-text-white::before {
+      > .campaign-page__header-content {
         width: 50%;
+      }
+
+      .campaign-page__header-lockup {
+        &.su-text-white::before {
+          width: 50%;
+        }
       }
     }
 

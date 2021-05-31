@@ -75,7 +75,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        @extend .su-bg-sky-dark-to-transparent
+        background: map-get($ood-colors, 'sky-dark-to-transparent');
       }
     }
 
