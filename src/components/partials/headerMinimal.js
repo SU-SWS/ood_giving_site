@@ -13,7 +13,10 @@ const HeaderMinimal = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <header className={`ood-interior-page__header ood-interior-page__header--minimal su-text-white su-bg-${props.blok.headerBackgroundColor}`}>
+      <header className={`ood-interior-page__header ood-interior-page__header--minimal su-text-white
+              su-bg-${props.blok.headerBackgroundColor}
+              ${props.blok.headerSpacingBottom !== "none" ? `su-mb-${props.blok.headerSpacingBottom}` : ""}`}
+      >
         <CenteredContainer flex={true}>
           {(windowSize.width < config.breakpoint.lg && props.blok.layout !== "no-sidebar") &&
           <CreateBloks blokSection={props.blok.contentMenu}/>
