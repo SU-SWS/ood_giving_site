@@ -17,7 +17,7 @@ const CampaignHeroHeader = (props) => {
   su-bg-${blok.heroBgColor}
   su-${blok.heroContentColor}
   ${isFullWidthImage ? 'flex-container column-grid centered-container su-align-items-center' : ''}
-  ${blok.heroContentPosition === 'right' ? 'su-flex-row-reverse' : ''}`
+  ${blok.heroContentPosition === 'right' && isFullWidthImage ? 'su-flex-row-reverse' : ''}`;
 
   const full_width_image = blok.image?.filename != null ? (
     <FullWidthImage
