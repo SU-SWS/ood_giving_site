@@ -12,7 +12,6 @@ const OodCampaignCard = props => {
       >
         <SbLink
           link={props.blok.link}
-          classes={``}
         >
           {props.blok.image.filename?.startsWith("http") &&
           props.blok.showImage === true && (
