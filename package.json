@@ -51,6 +51,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "crawl": "node ./scripts/crawler.js",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
