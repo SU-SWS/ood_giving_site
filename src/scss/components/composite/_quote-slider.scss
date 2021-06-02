@@ -1,61 +1,92 @@
 .ood-quote-slider {
   .ood-quote-slider__wrapper {
-    display: flex;
-    align-items: center;
+    @include grid-media('xl') {
+      display: flex;
+      align-items: center;
+    }
   }
 
   .slick-arrow {
     z-index: 1;
     color: $su-color-palo-verde-dark;
-    width: 52px;
-    height: 52px;
-    border: $su-color-palo-verde-dark 3px solid;
+    border: $su-color-palo-verde-dark 2px solid;
     border-radius: 100%;
     line-height: 0;
-    padding: 1rem;
     background: transparent;
-    flex-shrink: 0;
     cursor: pointer;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 100%;
+    margin-top: 10px;
 
-    @include grid-media-max('sm') {
-      border-width: 2px;
+    @include grid-media('md') {
+      width: 52px;
+      height: 52px;
+      margin-top: 16px;
+    }
 
-      svg > path {
-        stroke-width: 2;
-      }
+    @include grid-media('xl') {
+      flex-shrink: 0;
+      position: static;
+    }
+
+    svg > path {
+      stroke-width: 2;
     }
 
     &:hover,
     &:focus {
       color: $su-color-palo-verde;
-      border: $su-color-palo-verde 3px solid;
+      border: $su-color-palo-verde 2px solid;
     }
   }
 
   .slick-prev {
-    margin-right: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: -55px;
+
+    @include grid-media('md') {
+      margin-left: -65px;
+    }
 
     @include grid-media('xl') {
-      margin-right: 60px;
+      margin: 0 60px 0;
+      transform: none;
     }
   }
 
   .slick-next {
-    margin-left: 15px;
+    right: 50%;
+    transform: translateX(50%);
+    margin-right: -55px;
+
+    @include grid-media('md') {
+      margin-right: -65px;
+    }
 
     @include grid-media('xl') {
-      margin-left: 60px;
+      margin: 0 0 0 60px;
+      transform: none;
     }
   }
 
   .slick-slide {
     padding-left: 5px;
     padding-right: 5px;
+    padding-bottom: 10px;
   }
 
   &__current-position {
     display: flex;
     justify-content: center;
-    margin: 26px 0;
+    margin-top: 14px;
+    margin-bottom: 26px;
+
+    @include grid-media('md') {
+      margin-top: 28px;
+      margin-bottom: 40px;
+    }
   }
 }
