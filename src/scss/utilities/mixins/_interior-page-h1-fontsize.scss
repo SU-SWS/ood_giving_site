@@ -21,3 +21,24 @@
     @include modular-typography(6);
   }
 }
+
+// The variants with images call for slightly smaller h1 font sizes
+@mixin interior-page-with-image-h1-fontsize {
+  font-size: 3.6rem;
+
+  @include grid-media('sm') {
+    font-size: 4.2rem;
+  }
+
+  @include grid-media('md') {
+    font-size: 4.6rem;
+  }
+
+  @include grid-media-between('lg', 'xl') {
+    @include fluid-type(46px, 68px, $su-screen-lg, 1499px);
+  }
+
+  @include grid-media('2xl') {
+    font-size: 6.8rem;
+  }
+}

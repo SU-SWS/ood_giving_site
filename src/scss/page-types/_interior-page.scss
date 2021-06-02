@@ -28,14 +28,6 @@
     }
   }
 
-  &__header__media {
-    @include grid-media('lg') {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-  }
-
   &__body {
     @include responsive-spacing('padding', 6 null);
 
@@ -67,119 +59,6 @@
           @include margin(null null get-responsive-spacing-value(5, tablet));
         }
       }
-    }
-  }
-}
-
-// Interior page with minimal header option
-.ood-interior-page--minimal {
-  .ood-interior-page__header--minimal {
-    @include padding(null null 3.8rem);
-
-    @include grid-media('md') {
-      @include padding(null null 7.2rem);
-    }
-
-    @include grid-media('lg') {
-      @include padding(11.4rem null);
-    }
-
-    > .centered-container {
-      position: relative;
-    }
-  }
-}
-
-// Interior page with colored header option
-.ood-interior-page--no-image {
-  .ood-interior-page__header {
-    &-title-wrapper {
-      @include responsive-spacing('padding', null null 9);
-
-      @include grid-media('lg') {
-        @include padding(get-responsive-spacing-value(7, 'tablet') null null);
-      }
-
-      @include grid-media('2xl') {
-        @include padding(get-responsive-spacing-value(7, 'desktop') null null);
-      }
-    }
-
-    &-intro-wrapper {
-      @include margin(-6em auto null);
-      @include responsive-spacing('padding', 4);
-      box-shadow: $ood-shadow--shallow;
-      background-color: $su-color-white;
-
-      @include grid-media-max('sm') {
-        @include margin(-3em null null);
-      }
-    }
-  }
-
-  @include grid-media('md') {
-    .ood-interior-page__intro {
-      text-align: center;
-    }
-  }
-}
-
-// Interior page with image header option
-.ood-interior-page--has-image {
-  .ood-interior-page__header {
-    .ood-interior-page__title {
-      @include grid-media('md') {
-        text-align: left;
-      }
-    }
-
-    &-title-wrapper {
-      > .centered-container {
-        position: relative;
-      }
-
-      @include grid-media-max('md') {
-        @include padding(null null 0);
-        @include margin(null null -4em);
-      }
-
-      @include grid-media('lg') {
-        @include padding(get-responsive-spacing-value(6, 'tablet') null null);
-        min-height: 26vw;
-      }
-
-      @include grid-media('xl') {
-        min-height: 30vw;
-      }
-
-      @include grid-media('2xl') {
-        @include padding(get-responsive-spacing-value(6, 'desktop') null null);
-        min-height: 48rem;
-      }
-    }
-
-    &-intro-wrapper {
-      @include grid-media-max('sm') {
-        @include padding(7rem null 3.6rem);
-        border-top: 1.4em solid transparent;
-      }
-
-      @include grid-media-only('md') {
-        @include padding(null null 3.6em);
-        border-top: 2.6em solid transparent;
-      }
-
-      @include grid-media('lg') {
-        border-top: 4em solid transparent;
-      }
-    }
-  }
-
-  .ood-interior-page__title {
-    @include margin(null null null 0);
-
-    @include grid-media-max('md') {
-      @include margin(null null 0.6em);
     }
   }
 }

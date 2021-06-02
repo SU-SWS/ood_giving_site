@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+// Interior page header variant with fullwidth image and optional logo
+
+.ood-interior-page--full-width-image {
+  .ood-content-nav {
+    @include grid-media-max('md') {
+      @include margin(0 auto);
+      @include responsive-spacing('padding', 1 null);
+    }
+
+    &__wrapper {
+      background-color: $su-color-palo-alto-dark;
+    }
+  }
+
+  .ood-interior-page {
+    &__header {
+      &-content {
+        @include grid-media-min('md') {
+          @include margin(-5em null null);
+        }
+
+        &-wrapper {
+          @include margin(null auto);
+          @include responsive-spacing('padding', 4);
+          box-shadow: rgba(0, 0, 0, 0.1) 0 3px 4px;
+          background-color: $su-color-white;
+        }
+      }
+
+      &-intro {
+        font-size: 2rem;
+
+        > div {
+          *:last-child {
+            @include margin(null null 0);
+          }
+        }
+
+        @include grid-media('md') {
+          font-size: 2.3rem;
+        }
+
+        @include grid-media('lg') {
+          font-size: 2.5rem;
+        }
+      }
+    }
+
+    &__title {
+      @include margin(0 null 0.4em);
+      @include interior-page-with-image-h1-fontsize;
+
+      @include grid-media('md') {
+        text-align: left;
+      }
+    }
+
+    &__media {
+      width: 100%;
+      overflow: hidden;
+      height: 16rem;
+
+      @include grid-media('sm') {
+        height: 24rem;
+      }
+
+      @include grid-media('md') {
+        height: 33rem;
+      }
+
+      @include grid-media('lg') {
+        height: 40rem;
+      }
+
+      @include grid-media('xl') {
+        height: 50rem;
+      }
+
+      @include grid-media('2xl') {
+        height: 60rem;
+      }
+    }
+
+    &__image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ood-interior-page-media {
+      @include margin(null auto);
+      width: 100%;
+      position: relative;
+    }
+  }
+
+  .full-width-image-placeholder {
+    height: 16rem;
+    width: 100%;
+    overflow: hidden;
+    background-color: $su-color-fog-light;
+
+    @include grid-media('sm') {
+      height: 24rem;
+    }
+
+    @include grid-media('md') {
+      height: 33rem;
+    }
+
+    @include grid-media('lg') {
+      height: 40rem;
+    }
+
+    @include grid-media('xl') {
+      height: 50rem;
+    }
+
+    @include grid-media('2xl') {
+      height: 60rem;
+    }
+  }
+
+  .header-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2.2rem;
+    max-height: 115px; // max-height for the logo specified by designer
+
+    @include grid-media('sm') {
+      bottom: 5.8rem;
+      max-height: 125px;
+    }
+
+    @include grid-media('md') {
+      bottom: 12rem;
+      max-height: 137px;
+    }
+
+    @include grid-media('lg') {
+      bottom: 13rem;
+      max-height: 176px;
+    }
+
+    @include grid-media('xl') {
+      bottom: 14rem;
+      max-height: 220px;
+    }
+
+
+    @include grid-media('2xl') {
+      bottom: 15rem;
+      max-height: 260px;
+    }
+  }
+
+  .ood-interior-page__header-content {
+    @include grid-media-max('sm') {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.ood-interior-page__image-logo-wrapper {
+  position: relative;
+}
