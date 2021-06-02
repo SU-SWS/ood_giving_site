@@ -34,11 +34,11 @@
     "react-instantsearch-dom": "^6.11.0",
     "react-loader-spinner": "^4.0.0",
     "react-player": "^2.9.0",
+    "react-slick": "^0.28.1",
     "sanitize-html": "^2.3.3",
-    "storyblok-react": "^0.1.2",
-    "trim": "^1.0.1",
     "slick-carousel": "^1.8.1",
-    "react-slick": "^0.28.1"
+    "storyblok-react": "^0.1.2",
+    "trim": "^1.0.1"
   },
   "devDependencies": {
     "netlify-cli": "^3.29.17",
