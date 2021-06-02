@@ -201,10 +201,10 @@ const oodGallerySlideshow = ({blok}) => {
             <div className='gallery-slideshow--counter' aria-label={`Slide ${activeSlide + 1} of ${blok.slides.length}`}>
               {`${activeSlide + 1}/${blok.slides.length}`}
             </div>
-          </div>
-          <div className="gallery-slideshow--caption">
-            <RichTextField data={blok.slides[activeSlide]['caption']} />
-          </div>
+            <div className="gallery-slideshow--caption">
+              <RichTextField data={blok.slides[activeSlide]['caption']} />
+            </div>
+          </div>        
         </div>
       </Modal>
     </SbEditable>
