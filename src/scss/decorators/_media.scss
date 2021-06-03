@@ -3,6 +3,9 @@
 .su {
   // Media container aspect ratio with object-fit
   &-aspect-ratio {
+    &--16x9 {
+      @include aspect-ratio(16, 9);
+    }
     &--3x2 {
       @include aspect-ratio(3, 2);
     }
