@@ -152,8 +152,8 @@ const oodGallerySlideshow = ({blok}) => {
         ${(blok.backgroundColor? `su-bg-${blok.backgroundColor}` : "su-bg-transparent")}
         ${blok.containerWidth == 'constrain-max-width' ? 'centered-container' : ''}
       `}>
-        <div className={`su-mx-auto 
-          ${blok.containerWidth == 'constrain-max-width' ? 'flex-xs-12-of-12 flex-lg-10-of-12 flex-xl-8-of-12' : ''}
+        <div className={`gallery-slideshow--inner su-mx-auto 
+          ${blok.containerWidth == 'constrain-max-width' ? 'flex-md-10-of-12 flex-xl-8-of-12' : ''}
         `}>
           <Slider className="gallery-slideshow--slides" ref={(slider => setSlideshow(slider))} {...sliderSettings} >
               {blok.slides.map((slide, index) => {

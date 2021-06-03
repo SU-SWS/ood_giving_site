@@ -24,6 +24,12 @@
   }
 }
 
+.gallery-slideshow--inner {
+  @include grid-media-max('sm') {
+    max-width: 20rem;
+  }
+}
+
 .gallery-slideshow--caption {
   max-width: 64rem;
   text-align: right;
@@ -180,8 +186,17 @@
     color: #ffffff;
   }
   .gallery-slideshow--infobar {
+    margin-left: 3.2rem;
+    margin-right: 3.2rem;
+
     @include grid-media('md') {
       flex-direction: column;
+      margin-left: 6rem;
+      margin-right: 6rem;
+    }
+    @include grid-media('lg') {
+      margin-left: 7.2rem;
+      margin-right: 7.2rem;
     }
   }
   .gallery-slideshow--caption {
