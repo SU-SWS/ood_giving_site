@@ -6,13 +6,13 @@ import FullWidthImage from "../media/fullWidthImage";
 
 /* The Hero section with fullwidth image is referenced by the Campaign Page type. */
 
-const CampaignHeroHeader = (props) => {
+const CampaignHero = (props) => {
   const { blok } = props;
 
   const isFullWidthImage = blok.heroStyle === 'fullwidth-image';
 
-  const campaignContentClasses = `campaign-page__header-content
-  campaign-page__header-${blok.heroContentPosition}
+  const campaignContentClasses = `campaign-page__hero-content
+  campaign-page__hero-${blok.heroContentPosition}
   su-bg-${blok.heroBgColor}
   su-${blok.heroContentColor}
   ${isFullWidthImage ? 'flex-container column-grid centered-container su-align-items-center' : ''}
@@ -32,21 +32,21 @@ const CampaignHeroHeader = (props) => {
   return (
     <SbEditable content={blok}>
       <header
-        className={`campaign-page__header campaign-page__header--${blok.heroStyle}`}
+        className={`campaign-page__hero campaign-page__hero--${blok.heroStyle}`}
       >
         <div className='campaign-page__image-wrapper'>
           {full_width_image}
         </div>
         <div className={campaignContentClasses}>
-          <div className={`campaign-page__header-content-wrapper ${isFullWidthImage ? 'flex-md-9-of-12 flex-lg-6-of-12 column-grid__column' : ''}`}>
+          <div className={`campaign-page__hero-content-wrapper ${isFullWidthImage ? 'flex-md-9-of-12 flex-lg-6-of-12 column-grid__column' : ''}`}>
             {blok.logo?.filename &&
               <img
-                className={`campaign-page__header-content-logo ${blok.logoAlignment}`}
+                className={`campaign-page__hero-content-logo ${blok.logoAlignment}`}
                 src={blok.logo?.filename}
                 alt={blok.logo?.alt}
               />
             }
-            <div className={`campaign-page__header-content-body ${blok.heroContentAlignment}`}>
+            <div className={`campaign-page__hero-content-body ${blok.heroContentAlignment}`}>
               <Heading
                 level={"h1"}
                 weight={`${isFullWidthImage  ? 'regular' : 'semibold'}`}
@@ -56,10 +56,10 @@ const CampaignHeroHeader = (props) => {
                 {blok.title}
               </Heading>
               {blok.bar &&
-                <div className={`campaign-page__header-bar su-bg-${blok.barBgColor} ${blok.barAlignment}`} />
+                <div className={`campaign-page__hero-bar su-bg-${blok.barBgColor} ${blok.barAlignment}`} />
               }
               {blok.intro &&
-                <p className='campaign-page__header-intro su-mb-none'>
+                <p className='campaign-page__hero-intro su-mb-none'>
                   {blok.intro}
                 </p>
               }
@@ -74,4 +74,4 @@ const CampaignHeroHeader = (props) => {
   );
 }
 
-export default CampaignHeroHeader
+export default CampaignHero

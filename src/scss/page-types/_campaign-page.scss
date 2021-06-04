@@ -3,7 +3,7 @@
 // Campaign page content type
 
 .campaign-page {
-  &__header {
+  &__hero {
     position: relative;
 
     @include grid-media('md') {
@@ -15,7 +15,7 @@
     }
   }
 
-  &__header-content {
+  &__hero-content {
     &-body {
       > * {
         margin: 0;
@@ -35,25 +35,24 @@
     }
   }
 
-  &__header-content-logo {
+  &__hero-content-logo {
     max-width: 220px;
     @include grid-media('xl') {
       max-width: 410px;
     }
   }
 
-  &__header-bar {
+  &__hero-bar {
     width: 97px;
     height: 10px;
   }
 
-  &__header-lockup {
+  &__header {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1;
-    @include padding(2.3rem null);
 
     > * {
       position: relative;
@@ -62,23 +61,6 @@
     .su-lockup > a {
       display: flex;
       align-items: center;
-    }
-
-    &.su-text-white {
-      [class*='su-lockup__'] {
-        color: $su-color-white;
-        border-color: $su-color-white;
-      }
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: map-get($ood-colors, 'sky-dark-to-transparent');
-      }
     }
 
     @include grid-media-max('sm') {
@@ -104,7 +86,28 @@
         font-size: 2.3rem;
         line-height: 0.9em;
       }
+    }
+  }
 
+  &__header-inner {
+    @include padding(2.3rem null);
+
+    &.su-text-white {
+      [class*='su-lockup__'] {
+        color: $su-color-white;
+        border-color: $su-color-white;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: map-get($ood-colors, 'sky-dark-to-transparent');
+      }
     }
 
     @include grid-media('md') {
@@ -120,8 +123,10 @@
     align-items: center;
     text-decoration: none;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: inherit;
+      text-decoration: underline;
     }
 
     > .home-icon {

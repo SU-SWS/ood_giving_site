@@ -3,10 +3,10 @@
 // Campaign page with Hero image on the left
 
 .campaign-page {
-  &__header--left-image {
+  &__hero--left-image {
     @include grid-media('md') {
       > .campaign-page__image-wrapper,
-      > .campaign-page__header-content {
+      > .campaign-page__hero-content {
         width: 50%;
       }
 
@@ -17,7 +17,7 @@
       }
     }
 
-    .campaign-page__header-content {
+    .campaign-page__hero-content {
       @include padding(4.5rem 2rem);
 
       @include grid-media('md') {
@@ -25,29 +25,29 @@
       }
     }
 
-    .campaign-page__header-content-wrapper {
+    .campaign-page__hero-content-wrapper {
       max-width: 425px;
       margin-left: auto;
       margin-right: auto;
 
-      > .campaign-page__header-content-logo + *,
+      > .campaign-page__hero-content-logo + *,
       * + .ood-cta {
         margin-top: 3rem;
       }
 
-      * + .campaign-page__header-bar,
-      * + .campaign-page__header-intro {
+      * + .campaign-page__hero-bar,
+      * + .campaign-page__hero-intro {
         margin-top: 1.5rem;
       }
 
       @include grid-media('sm') {
-        > .campaign-page__header-content-logo + *,
+        > .campaign-page__hero-content-logo + *,
         * + .ood-cta {
           margin-top: 3.4rem;
         }
 
-        * + .campaign-page__header-bar,
-        * + .campaign-page__header-intro {
+        * + .campaign-page__hero-bar,
+        * + .campaign-page__hero-intro {
           margin-top: 3rem;
         }
       }
@@ -56,16 +56,16 @@
         max-width: 100%;
         @include padding(9rem 3rem 0 9%);
 
-        > .campaign-page__header-content-logo + *,
+        > .campaign-page__hero-content-logo + *,
         * + .ood-cta {
           margin-top: 5.8rem;
         }
 
-        * + .campaign-page__header-intro {
+        * + .campaign-page__hero-intro {
           margin-top: 3.6rem;
         }
 
-        .campaign-page__header-intro {
+        .campaign-page__hero-intro {
           padding-right: 15%;
         }
       }
@@ -84,12 +84,12 @@
       }
     }
 
-    .campaign-page__header-content {
+    .campaign-page__hero-content {
       display: flex;
       align-items: center;
     }
 
-    .campaign-page__header-content-logo {
+    .campaign-page__hero-content-logo {
       @include grid-media('xl') {
         max-width: 330px;
       }

@@ -3,7 +3,7 @@
 // Campaign page with fullwidth image Hero
 
 .campaign-page {
-  &__header--fullwidth-image {
+  &__hero--fullwidth-image {
     @include padding(10.7rem null 4.5rem);
 
     .campaign-page__image-wrapper {
@@ -14,22 +14,22 @@
       left: 0;
     }
 
-    .campaign-page__header-content-wrapper {
+    .campaign-page__hero-content-wrapper {
       background: inherit;
       position: relative;
       z-index: 1;
     }
 
-    .campaign-page__header-content-logo {
+    .campaign-page__hero-content-logo {
       width: 100%;
       max-width: 430px;
     }
 
-    .campaign-page__header-content {
+    .campaign-page__hero-content {
       &-wrapper {
         @include padding(3.4rem 2rem);
 
-        > .campaign-page__header-content-logo + * {
+        > .campaign-page__hero-content-logo + * {
           margin-top: 3rem;
         }
 
@@ -37,8 +37,8 @@
           margin-top: 2rem;
         }
 
-        * + .campaign-page__header-bar,
-        * + .campaign-page__header-intro {
+        * + .campaign-page__hero-bar,
+        * + .campaign-page__hero-intro {
           margin-top: 2rem;
         }
 
@@ -49,12 +49,12 @@
         @include grid-media('md') {
           @include padding(5.8rem);
 
-          > .campaign-page__header-content-logo + * {
+          > .campaign-page__hero-content-logo + * {
             margin-top: 4.5rem;
           }
 
-          * + .campaign-page__header-bar,
-          * + .campaign-page__header-intro,
+          * + .campaign-page__hero-bar,
+          * + .campaign-page__hero-intro,
           * + .ood-cta {
             margin-top: 2.6rem;
           }
