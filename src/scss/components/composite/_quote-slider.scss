@@ -1,4 +1,8 @@
 .ood-quote-slider {
+  &:not(.ood-quote-slider--progress) .slick-slide[aria-hidden="true"] {
+    visibility: hidden;
+  }
+
   .ood-quote-slider__wrapper {
     @include grid-media('xl') {
       display: flex;

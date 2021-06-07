@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick.css';
 
 const OodQuoteSlider = ({blok}) => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [slideInProgress, setSlideInProgress] = useState(false);
 
   const modalSliderSettings = {
     nextArrow: (
@@ -20,15 +21,20 @@ const OodQuoteSlider = ({blok}) => {
         <i className="fas fa-chevron-left" aria-hidden="true"></i>
       </button>
     ),
+    beforeChange: () => {
+      setSlideInProgress(true);
+
+    },
     afterChange: (i) => {
       setActiveSlide(i);
+      setSlideInProgress(false);
     },
   }
 
   return (
     <SbEditable content={blok}>
-      <div className="ood-quote-slider su-flex su-flex--column su-pt-2">
-        {blok.title && <h2>{blok.title}</h2>  }
+      <div className={`ood-quote-slider su-flex su-flex--column su-pt-2 ${slideInProgress ? 'ood-quote-slider--progress' : ''}`}>
+        {blok.title && <h2>{blok.title} {slideInProgress}</h2>  }
         <Slider className={"ood-quote-slider__wrapper"} {...modalSliderSettings}>
           {blok.quotes && blok.quotes.map((story) => React.createElement(Components(story.content.component), {
             key: story.content._uid,
