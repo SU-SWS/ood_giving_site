@@ -7,7 +7,6 @@ import CampaignHero from '../partials/CampaignHero';
 import CampaignHeader from "../partials/campaignHeader";
 
 const OodCampaignPage = (props) => {
-  console.log(props.blok, '!!!!!');
   return (
     <SbEditable content={props.blok}>
       <CampaignHeader {...props} />

@@ -9,12 +9,6 @@
       > .campaign-page__hero-content {
         width: 50%;
       }
-
-      .campaign-page__header-lockup {
-        &.su-text-white::before {
-          width: 50%;
-        }
-      }
     }
 
     .campaign-page__hero-content {
@@ -64,10 +58,6 @@
         * + .campaign-page__hero-intro {
           margin-top: 3.6rem;
         }
-
-        .campaign-page__hero-intro {
-          padding-right: 15%;
-        }
       }
 
       @include grid-media('lg') {
@@ -92,6 +82,16 @@
     .campaign-page__hero-content-logo {
       @include grid-media('xl') {
         max-width: 330px;
+      }
+    }
+  }
+}
+
+.campaign-page__header--left-image {
+  .campaign-page__header-inner {
+    @include grid-media('md') {
+      &.su-text-white::before {
+        width: 50%;
       }
     }
   }

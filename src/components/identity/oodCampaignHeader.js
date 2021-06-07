@@ -28,7 +28,6 @@ const OodCampaignHeader = (props) => {
             Home
           </SbLink>
         </div>
-
       </div>
     </SbEditable>
   );
