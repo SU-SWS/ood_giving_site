@@ -8,8 +8,7 @@ import FlexCell from './flexCell';
 /* The Hero section with image on the left is referenced by the Campaign Page type. */
 
 const CampaignLeftImageHero = (props) => {
-
-  const full_width_image = props.blok.image.filename ? (
+  const full_width_image = props.blok.image?.filename ? (
     <FullWidthImage
       {...props}
       filename={props.blok.image.filename}
@@ -34,7 +33,7 @@ const CampaignLeftImageHero = (props) => {
           }
         </div>
         <div className={"campaign-page__header-content"}>
-          <div classes={`campaign-page__header-content-wrapper`}>
+          <div className={`campaign-page__header-content-wrapper`}>
             <Heading
               level={"h1"}
               weight={"semibold"}

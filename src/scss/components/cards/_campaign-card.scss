@@ -3,7 +3,11 @@
 // Campaign Cards
 .ood-campaign-card {
   &__media {
-    margin-bottom: 36px;
+    margin-bottom: 20px;
+
+    @include grid-media('md') {
+      margin-bottom: 26px;
+    }
   }
 
   &__image {
@@ -13,25 +17,6 @@
   &__link {
     margin-bottom: 10px;
     text-decoration: none;
-
-    &:hover,
-    &:focus {
-      @include grid-media('md') {
-        box-shadow: $ood-shadow--medium;
-      }
-    }
-
-    @include grid-media-only('md') {
-      @include padding(get-responsive-spacing-value(1, 'mobile'));
-    }
-
-    @include grid-media('lg') {
-      @include padding(get-responsive-spacing-value(2, 'tablet'));
-    }
-
-    @include grid-media('2xl') {
-      @include padding(get-responsive-spacing-value(2, 'desktop'));
-    }
   }
 
   &__superhead {
@@ -39,12 +24,15 @@
     line-height: 19px;
     letter-spacing: 0.05em;
     color: $su-color-black-80;
-    margin-bottom: 13px;
+    margin-bottom: 8px;
+
+    @include grid-media-only('md') {
+      margin-bottom: 13px;
+    }
   }
 
   &__headline {
-    @include link-icon(arrow-right, 0.8em, right, -0.18em);
-    display: flex;
+    display: inline-block;
     align-items: center;
     margin: 0;
 
@@ -58,13 +46,19 @@
 
     &::after {
       background-color: currentColor;
-      height: 17px;
+      height: .4em;
+      width: .4em;
+      vertical-align: middle;
+    }
+
+    &--internal {
+      @include link-icon(arrow-right, 0.6em, right, -0.18em);
     }
   }
 
   &__description {
     font-size: 20px;
-    margin-top: 16px;
+    margin-top: 11px;
     color: $su-color-black-80;
     line-height: 125%;
 
@@ -73,21 +67,23 @@
     }
   }
 
-  &__link:hover,
-  &__link:focus {
-    .ood-campaign-card__image {
-      transform: scale(1.03);
-    }
-
-    .ood-campaign-card__headline {
-      &::after {
-        transform: translateX(0.2em);
+  &__link {
+    &:hover,
+    &:focus {
+      .ood-campaign-card__image {
+        transform: scale(1.03);
       }
 
-      &:hover,
-      &:focus{
+      .ood-campaign-card__headline {
         &::after {
-          background-color: currentColor;
+          transform: translateX(0.2em);
+        }
+
+        &:hover,
+        &:focus{
+          &::after {
+            background-color: currentColor;
+          }
         }
       }
     }
