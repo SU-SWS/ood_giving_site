@@ -7,7 +7,7 @@ const OodCampaignHeader = (props) => {
   return (
     <SbEditable content={props.blok}>
       <div className={`campaign-page__header-inner ${props.blok.headerColor}`}>
-        <a href="#main-content" className="su-skiplinks">
+        <a href="#campaign-hero" className="su-skiplinks">
           Skip to main content
         </a>
 

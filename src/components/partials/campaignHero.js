@@ -31,7 +31,8 @@ const CampaignHero = (props) => {
 
   return (
     <SbEditable content={blok}>
-      <header
+      <div
+        id="campaign-hero"
         className={`campaign-page__hero campaign-page__hero--${blok.heroStyle}`}
       >
         <div className='campaign-page__image-wrapper'>
@@ -69,7 +70,7 @@ const CampaignHero = (props) => {
             </div>
           </div>
         </div>
-      </header>
+      </div>
     </SbEditable>
   );
 }
