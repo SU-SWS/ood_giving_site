@@ -65,6 +65,7 @@ import AccordionItem from "./composite/accordionItem";
 import CtaGroup from "./composite/ctaGroup";
 import SearchResults from "./search/searchResults";
 import oodGallerySlideshow from './composite/oodGallerySlideshow';
+import OodCampaignImpact from './composite/oodCampaignImpact';
 
 const ComponentList = {
   page: Page,
@@ -108,6 +109,7 @@ const ComponentList = {
   basicCard: BasicCard,
   redirect: Redirect,
   oodCampaignCard: OodCampaignCard,
+  oodCampaignImpact: OodCampaignImpact,
   oodTileCard: OodTileCard,
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,

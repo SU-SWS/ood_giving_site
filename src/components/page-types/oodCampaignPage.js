@@ -13,7 +13,7 @@ const OodCampaignPage = (props) => {
       <SeoSocial {...props}/>
       <CreateBloks blokSection={props.blok.alertPicker} />
       <main id="main-content"
-            className={`ood-campaign-page ood-campaign-page--${props.blok.headerStyle}`}
+            className={`ood-campaign-page ${props.blok.headerStyle ? `ood-campaign-page--${props.blok.headerStyle}` : ''}`}
       >
         <article className={`su-bg-white`}>
           {props.blok.heroStyle === "left-image" &&
