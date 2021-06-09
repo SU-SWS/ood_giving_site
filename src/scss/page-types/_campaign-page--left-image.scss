@@ -20,7 +20,6 @@
     }
 
     .campaign-page__hero-content-wrapper {
-      max-width: 425px;
       margin-left: auto;
       margin-right: auto;
 
@@ -35,6 +34,7 @@
       }
 
       @include grid-media('sm') {
+        max-width: 425px;
         > .campaign-page__hero-content-logo + *,
         * + .ood-cta {
           margin-top: 3.4rem;
