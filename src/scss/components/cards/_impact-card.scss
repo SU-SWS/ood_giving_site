@@ -57,6 +57,8 @@ $default-size: 1em;
   }
 
   &__label {
+    @include serif;
+    font-weight: $su-font-bold;
     position: absolute;
     top: 50%;
     left: 50%;
