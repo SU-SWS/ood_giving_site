@@ -82,6 +82,7 @@
         left: 0;
         right: 0;
         bottom: 0;
+        backface-visibility:hidden;
         background: map-get($ood-colors, 'sky-dark-to-transparent');
       }
     }
