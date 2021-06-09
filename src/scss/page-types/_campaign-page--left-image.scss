@@ -34,7 +34,7 @@
       }
 
       @include grid-media('sm') {
-        max-width: 425px;
+        max-width: 42.5rem;
         > .campaign-page__hero-content-logo + *,
         * + .ood-cta {
           margin-top: 3.4rem;
@@ -65,7 +65,7 @@
       }
 
       @include grid-media('xl') {
-        max-width: 700px;
+        max-width: 70rem;
         margin-left: 0;
       }
 
@@ -81,7 +81,7 @@
 
     .campaign-page__hero-content-logo {
       @include grid-media('xl') {
-        max-width: 330px;
+        max-width: 33rem;
       }
     }
   }

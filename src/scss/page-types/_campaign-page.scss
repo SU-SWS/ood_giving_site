@@ -11,7 +11,7 @@
     }
 
     @include grid-media('lg') {
-      min-height: 750px;
+      min-height: 75rem;
     }
   }
 
@@ -36,15 +36,15 @@
   }
 
   &__hero-content-logo {
-    max-width: 220px;
+    max-width: 22rem;
     @include grid-media('xl') {
-      max-width: 410px;
+      max-width: 41rem;
     }
   }
 
   &__hero-bar {
-    width: 97px;
-    height: 10px;
+    width: 9.7rem;
+    height: 1rem;
   }
 
   &__header--container {
@@ -89,7 +89,7 @@
 
     @include grid-media-max('sm') {
       .su-lockup__cell1 {
-        padding-right: 7px;
+        padding-right: 0.7rem;
         padding-bottom: 0;
         align-self: flex-end;
         border-right: solid 1px $su-color-black;
@@ -97,7 +97,7 @@
 
       .su-lockup__cell2 {
         padding-top: 0;
-        padding-left: 7px;
+        padding-left: 0.7rem;
         align-self: flex-end;
         flex-grow: 1;
       }
