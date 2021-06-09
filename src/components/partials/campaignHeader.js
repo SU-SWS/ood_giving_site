@@ -7,6 +7,9 @@ const CampaignHeader = (props) => {
   return (
     <header className="campaign-page__header">
       <CreateBloks blokSection={props.blok.alertPicker} />
+      <a href="#campaign-hero" className="su-skiplinks">
+        Skip to main content
+      </a>
       <div className={`campaign-page__header--container campaign-page__header--${props.blok.heroStyle}`}>
         <CreateBloks blokSection={props.blok.oodCampaignHeader} />
         <CampaignHero {...props} />
