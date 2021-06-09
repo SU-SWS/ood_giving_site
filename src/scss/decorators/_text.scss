@@ -15,7 +15,7 @@
         color: map-get($ood-header-icon, $key);
         // Fallback for the solid colors.
         background-color: $color;
-        // Gradient colo
+        // Gradient color
         background-image: $color;
       }
     }
