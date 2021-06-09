@@ -7,7 +7,7 @@ import FullWidthImage from "../media/fullWidthImage";
 /* The Hero section with fullwidth image is referenced by the Campaign Page type. */
 
 const CampaignHero = (props) => {
-  const { blok } = props;
+  const { blok, htmlId } = props;
 
   const isFullWidthImage = blok.heroStyle === 'fullwidth-image';
 
@@ -32,7 +32,7 @@ const CampaignHero = (props) => {
   return (
     <SbEditable content={blok}>
       <div
-        id="campaign-hero"
+        id={htmlId}
         className={`campaign-page__hero campaign-page__hero--${blok.heroStyle}`}
       >
         <div className='campaign-page__image-wrapper'>
