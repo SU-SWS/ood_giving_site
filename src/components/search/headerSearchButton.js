@@ -6,7 +6,7 @@ const HeaderSearchButton = () => {
 
   return (
     <button className="ood-header__search-button" onClick={toggleSearchOverlay}>
-      Search
+      <span className="ood-header__search-button-text">Search</span>
       <span className="su-sr-only-element"> this site</span>
       <i
         className="ood-header__search-button-icon fa-flip-horizontal"
