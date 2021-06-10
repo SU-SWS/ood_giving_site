@@ -42,10 +42,10 @@
   }
 
   &__search-button-text {
-    display: none;
+    @include hide-visually;
 
     @include grid-media("xl") {
-      display: flex;
+      @include hide-visually("unhide");
     }
   }
 
