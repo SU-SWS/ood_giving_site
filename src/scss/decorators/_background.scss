@@ -1,5 +1,3 @@
-@charset "UTF-8";
-
 .su-bg {
   @each $key, $color in $ood-colors {
     &-#{$key} {
@@ -34,14 +32,17 @@
   @each $key, $color in $ood-colors {
     &-#{$key} {
       background-clip: padding-box;
-      border: solid .5rem transparent;
+      border: solid 0.5rem transparent;
 
       &:before {
-        content: '';
+        content: "";
         position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
         z-index: -1;
-        margin: -.5rem;
+        margin: -0.5rem;
         border-radius: inherit;
         background: $color;
       }

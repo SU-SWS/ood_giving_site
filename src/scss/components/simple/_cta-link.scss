@@ -40,6 +40,12 @@
     &:focus {
       color: $su-color-sky-dark;
     }
+
+    &.ood-cta__link-gradient {
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-background-clip: text;
+    }
   }
 
   &__button {
