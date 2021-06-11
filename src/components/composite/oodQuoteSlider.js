@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Components from '../components.js'
 import SbEditable from 'storyblok-react'
 import Slider from 'react-slick';
@@ -34,7 +34,6 @@ const OodQuoteSlider = ({blok}) => {
   return (
     <SbEditable content={blok}>
       <div className={`ood-quote-slider su-flex su-flex--column su-pt-2 ${slideInProgress ? 'ood-quote-slider--progress' : ''}`}>
-        {blok.title && <h2>{blok.title} {slideInProgress}</h2>  }
         <Slider className={"ood-quote-slider__wrapper"} {...modalSliderSettings}>
           {blok.quotes && blok.quotes.map((story) => React.createElement(Components(story.content.component), {
             key: story.content._uid,
