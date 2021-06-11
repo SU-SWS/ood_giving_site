@@ -18,12 +18,6 @@ const OodCampaignPage = (props) => {
             className={`ood-campaign-page ood-campaign-page--${props.blok.headerStyle}`}
       >
         <article className={`su-bg-white`}>
-          {props.blok.heroStyle === "left-image" &&
-            <CampaignLeftImageHero {...props}/>
-          }
-          {props.blok.heroStyle === "fullwidth-image" &&
-            <CampaignFullWidthHero {...props}/>
-          }
           <section className="ood-campaign-page__main-body">
             <CreateBloks blokSection={props.blok.content} />
           </section>

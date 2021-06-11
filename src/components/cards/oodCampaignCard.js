@@ -36,15 +36,16 @@ const OodCampaignCard = props => {
             )}
             {props.blok.headline && (
               <Heading
-                color={props.blok.headlineColor}
                 level={props.blok.headingLevel}
                 defaultLevel={"h3"}
                 weight={"semibold"}
-                classes={`ood-campaign-card__headline su-type-b ${
-                  props.blok.link.linktype === "url" ? "su-link--external" : "ood-campaign-card__headline--internal"
-                }`}
+                classes="su-type-b"
               >
-                {props.blok.headline}
+                <div className={`ood-campaign-card__headline su-gradient-text-${props.blok.headlineColor} ${
+                  props.blok.link.linktype === "url" ? "su-link--external" : "ood-campaign-card__headline--internal"
+                }`}>
+                  {props.blok.headline}
+                </div>
               </Heading>
             )}
 
@@ -61,4 +62,3 @@ const OodCampaignCard = props => {
 };
 
 export default OodCampaignCard;
-

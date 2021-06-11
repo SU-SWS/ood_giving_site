@@ -5,18 +5,7 @@
     // Text Color
     @each $key, $color in $ood-text-colors {
       &-#{$key} {
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        // Fallback if the key is not found in $ood-header-icon
         color: $color;
-        // The color will affect the arrow in the headline, while the rest will only add color to the headline text.
-        // $ood-header-icon maps the gradient colors to the top-right color of the gradient to use for the arrow.
-        color: map-get($ood-header-icon, $key);
-        // Fallback for the solid colors.
-        background-color: $color;
-        // Gradient color
-        background-image: $color;
       }
     }
 
@@ -87,6 +76,46 @@
       &:hover,
       &:focus {
         text-decoration: none;
+      }
+    }
+  }
+}
+
+.su-gradient-text {
+  // Text Color
+  @each $key, $color in $ood-text-colors {
+    &-#{$key} {
+      background-size: 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      // Fallback if the key is not found in $ood-gradient-to-solid
+      color: $color;
+      // $ood-gradient-to-solid maps the gradient colors to the top-right color of the gradient to use for the arrow.
+      color: map-get($ood-gradient-to-solid, $key);
+      //// Fallback for the solid colors.
+      background-color: $color;
+      // Gradient color
+      background-image: $color;
+    }
+  }
+}
+
+.su-gradient-text-hocus {
+  @each $key, $color in $ood-text-colors {
+    &-#{$key} {
+      &:hover,
+      &:focus {
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        // Fallback if the key is not found in $ood-gradient-to-solid
+        color: $color;
+        // $ood-gradient-to-solid maps the gradient colors to the top-right color of the gradient to use for the arrow.
+        color: map-get($ood-gradient-to-solid, $key);
+        //// Fallback for the solid colors.
+        background-color: $color;
+        // Gradient color
+        background-image: $color;
       }
     }
   }
