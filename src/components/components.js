@@ -1,5 +1,6 @@
 import Page from "./page";
 import RichTextField from "../utilities/richTextField";
+import Redirect from "./redirect/Redirect";
 import ComponentNotFound from "./component_not_found";
 // Site Identity Elements
 import GlobalFooter from "./identity/globalFooter";
@@ -9,9 +10,10 @@ import OodLocalFooter from "./identity/oodLocalFooter";
 import LocalFooterPicker from "./identity/localFooterPicker";
 import LocalHeaderPicker from "./identity/localHeaderPicker";
 import Lockup from "./identity/lockup";
+import OodCampaignHeader from "./identity/oodCampaignHeader";
 // Cards
 import BasicCard from "./cards/basicCard";
-import Redirect from "./redirect/Redirect";
+import OodCampaignCard from "./cards/oodCampaignCard";
 import OodIconCard from "./cards/oodIconCard";
 import OodSupportCard from "./cards/oodSupportCard";
 import OodQuoteCard from "./cards/oodQuoteCard";
@@ -47,6 +49,7 @@ import Section from "./layout/section";
 import SingleColumnContent from "./layout/singleColumnContent";
 // Page Type Components
 import OodInteriorPage from "./page-types/oodInteriorPage";
+import OodCampaignPage from "./page-types/oodCampaignPage";
 import OodLandingPage from "./page-types/oodLandingPage";
 import OodStory from "./page-types/story/oodStory";
 import OodSupportPage from "./page-types/oodSupportPage";
@@ -62,7 +65,7 @@ import Accordion from "./composite/accordion";
 import AccordionItem from "./composite/accordionItem";
 import CtaGroup from "./composite/ctaGroup";
 import SearchResults from "./search/searchResults";
-import oodGallerySlideshow from './composite/oodGallerySlideshow';
+import oodGallerySlideshow from "./composite/oodGallerySlideshow";
 
 const ComponentList = {
   page: Page,
@@ -105,10 +108,13 @@ const ComponentList = {
   contentNestedMenu: ContentNestedMenu,
   basicCard: BasicCard,
   redirect: Redirect,
+  oodCampaignCard: OodCampaignCard,
   oodTileCard: OodTileCard,
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,
   oodHomepageHero: OodHomepageHero,
+  oodCampaignHeader: OodCampaignHeader,
+  oodCampaignPage: OodCampaignPage,
   oodInteriorPage: OodInteriorPage,
   oodLandingPage: OodLandingPage,
   oodStory: OodStory,
