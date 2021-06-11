@@ -6,12 +6,14 @@ import SeoSocial from "../partials/seoSocial"
 import CreateBloks from "../../utilities/createBloks"
 import CampaignLeftImageHero from '../partials/campaignLeftImageHero';
 import CampaignFullWidthHero from '../partials/campaignFullWidthHero';
+import CampaignHeader from "../partials/campaignHeader";
 
 const OodCampaignPage = (props) => {
   return (
     <SbEditable content={props.blok}>
       <SeoSocial {...props}/>
       <CreateBloks blokSection={props.blok.alertPicker} />
+      <CampaignHeader {...props} />
       <main id="main-content"
             className={`ood-campaign-page ood-campaign-page--${props.blok.headerStyle}`}
       >

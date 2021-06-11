@@ -13,6 +13,7 @@ $ood-colors: (
     "black-11":                   $su-color-black-11,
     "cardinal-red":               $su-color-cardinal-red,
     "digital-red":                $su-color-digital-red,
+    "brick":                      $su-color-brick,
     "fog":                        $su-color-fog,
     "fog-light":                  $su-color-fog-light,
     "lagunita":                   $su-color-lagunita,
@@ -30,6 +31,13 @@ $ood-colors: (
     "sky-light":                  $su-color-sky-light,
     "sky-dark":                   $su-color-sky-dark,
     "white":                      $su-color-white,
+    "cardinal-dark-to-spirited-dark":    linear-gradient(45deg, $su-color-cardinal-red-dark 10%, $su-color-spirited-dark 90%),
+    "plum-to-digital-red":               linear-gradient(45deg, $su-color-plum 10%, $su-color-digital-red 90%),
+    "plum-to-spirited-dark":             linear-gradient(45deg, $su-color-plum 10%, $su-color-spirited-dark 90%),
+    "palo-alto-dark-to-palo-verde-dark": linear-gradient(45deg, $su-color-palo-alto-dark 10%, $su-color-palo-verde-dark 90%),
+    "sky-dark-to-olive-dark":            linear-gradient(45deg, $su-color-sky-dark 10%, $su-color-olive-dark 90%),
+    "sky-dark-to-bay-dark":              linear-gradient(45deg, $su-color-sky-dark 10%, $su-color-bay-dark 90%),
+    "sky-dark-to-transparent":           linear-gradient(180deg, rgba($su-color-sky-dark, 0.8) 0, rgba($su-color-sky-dark, 0) 100%),
 ) !default;
 
 $ood-text-colors: (
@@ -38,6 +46,7 @@ $ood-text-colors: (
   "bay-dark":                   $su-color-bay-dark,
   "black":                      $su-color-black,
   "black-true":                 $su-color-black-true,
+  "brick":                      $su-color-brick,
   "cardinal-red":               $su-color-cardinal-red,
   "cool-grey":                  $su-color-cool-grey,
   "digital-red":                $su-color-digital-red,
@@ -47,6 +56,8 @@ $ood-text-colors: (
   "palo-alto":                  $su-color-palo-alto,
   "palo-alto-dark":             $su-color-palo-alto-dark,
   "palo-verde-dark":            $su-color-palo-verde-dark,
+  "palo-verde":                 $su-color-palo-verde,
+  "plum":                       $su-color-plum,
   "sky-dark":                   $su-color-sky-dark,
   "white":                      $su-color-white,
   "cardinal-dark-to-spirited-dark":    linear-gradient(45deg, $su-color-cardinal-red-dark 10%, $su-color-spirited-dark 90%),

@@ -10,6 +10,7 @@ import OodLocalFooter from "./identity/oodLocalFooter";
 import LocalFooterPicker from "./identity/localFooterPicker";
 import LocalHeaderPicker from "./identity/localHeaderPicker";
 import Lockup from "./identity/lockup";
+import OodCampaignHeader from "./identity/oodCampaignHeader";
 // Cards
 import BasicCard from "./cards/basicCard";
 import OodCampaignCard from './cards/oodCampaignCard';
@@ -64,7 +65,7 @@ import Accordion from "./composite/accordion";
 import AccordionItem from "./composite/accordionItem";
 import CtaGroup from "./composite/ctaGroup";
 import SearchResults from "./search/searchResults";
-import oodGallerySlideshow from './composite/oodGallerySlideshow';
+import oodGallerySlideshow from "./composite/oodGallerySlideshow";
 
 const ComponentList = {
   page: Page,
@@ -113,6 +114,7 @@ const ComponentList = {
   oodQuoteSlider: OodQuoteSlider,
   oodHomepageHero: OodHomepageHero,
   oodCampaignPage: OodCampaignPage,
+  oodCampaignHeader: OodCampaignHeader,
   oodInteriorPage: OodInteriorPage,
   oodLandingPage: OodLandingPage,
   oodStory: OodStory,
