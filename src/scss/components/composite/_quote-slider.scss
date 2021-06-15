@@ -1,0 +1,96 @@
+.ood-quote-slider {
+  &:not(.ood-quote-slider--progress) .slick-slide[aria-hidden="true"] {
+    visibility: hidden;
+  }
+
+  .ood-quote-slider__wrapper {
+    @include grid-media('xl') {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .slick-arrow {
+    z-index: 1;
+    color: $su-color-palo-verde-dark;
+    border: $su-color-palo-verde-dark .2rem solid;
+    border-radius: 100%;
+    line-height: 0;
+    background: transparent;
+    cursor: pointer;
+    width: 3.5rem;
+    height: 3.5rem;
+    position: absolute;
+    top: 100%;
+    margin-top: 1rem;
+
+    @include grid-media('md') {
+      width: 5.2rem;
+      height: 5.2rem;
+      margin-top: 1.6rem;
+    }
+
+    @include grid-media('xl') {
+      flex-shrink: 0;
+      position: static;
+    }
+
+    svg > path {
+      stroke-width: 2;
+    }
+
+    &:hover,
+    &:focus {
+      color: $su-color-palo-verde;
+      border: $su-color-palo-verde .2rem solid;
+    }
+  }
+
+  .slick-prev {
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: -5.5rem;
+
+    @include grid-media('md') {
+      margin-left: -6.5rem;
+    }
+
+    @include grid-media('xl') {
+      margin: 0 6rem 0 0;
+      transform: none;
+    }
+  }
+
+  .slick-next {
+    right: 50%;
+    transform: translateX(50%);
+    margin-right: -5.5rem;
+
+    @include grid-media('md') {
+      margin-right: -6.5rem;
+    }
+
+    @include grid-media('xl') {
+      margin: 0 0 0 6rem;
+      transform: none;
+    }
+  }
+
+  .slick-slide {
+    padding-left: .5rem;
+    padding-right: .5rem;
+    padding-bottom: 1rem;
+  }
+
+  &__current-position {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.4rem;
+    margin-bottom: 2.6rem;
+
+    @include grid-media('md') {
+      margin-top: 2.8rem;
+      margin-bottom: 4rem;
+    }
+  }
+}

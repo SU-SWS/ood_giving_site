@@ -20,7 +20,10 @@ const StoryFullView = props => {
   let publishedDate;
 
   if (props.blok.publishedDate) {
-    publishedDate = new Date(props.blok.publishedDate).toLocaleDateString(
+    const startJsDateString = props.blok.publishedDate.replace(" ", "T");
+    const startUTCDate = new Date(`${startJsDateString}:00Z`);
+
+    publishedDate = new Date(startUTCDate).toLocaleDateString(
       "en-US",
       dateOptions
     );
