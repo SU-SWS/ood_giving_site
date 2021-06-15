@@ -87,6 +87,11 @@
       width: 30rem;
       max-width: 30rem;
     }
+
+    &--rounded {
+      border-radius: 50%;
+      overflow: hidden;
+    }
   }
 
   // Styles for version showing image
