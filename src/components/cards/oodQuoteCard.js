@@ -36,6 +36,8 @@ const OodQuoteCard = props => (
                       }
           `}
           >
+
+            <span aria-hidden="true" className="ood-quote-card__quote-icon su-before-color-bay"></span>
             <RichTextField data={props.blok.quoteText} />
           </blockquote>
         )}
