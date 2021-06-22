@@ -6,7 +6,7 @@ const OodCampaignImpact = (props) => {
     <SbEditable content={props.blok}>
       <div className="impact-cards su-flex">
         {
-          props.blok.graph_item.map((number) => {
+          props.blok.items.map((number) => {
               const percent = `${(number.percent * 3.6) + 180}deg`;
               return (
               <div className="impact-card">
@@ -21,7 +21,7 @@ const OodCampaignImpact = (props) => {
                            style={{'--percent': percent}}></div>
                     }
                   </div>
-                  <div className="impact-card__label su-mod-type-6">{number.percent}%</div>
+                  <div className="impact-card__label su-mod-type-6">{number.percent}%<span className="sr-only"> </span></div>
                 </div>
 
                 <div className="su-mod-type-1">{number.description}</div>
