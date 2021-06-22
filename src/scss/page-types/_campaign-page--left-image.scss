@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+// Campaign page with Hero image on the left
+
+.campaign-page {
+  &__hero--left-image {
+    @include grid-media('md') {
+      > .campaign-page__image-wrapper,
+      > .campaign-page__hero-content {
+        width: 50%;
+      }
+    }
+
+    .campaign-page__hero-content {
+      @include padding(4.5rem 2rem);
+
+      @include grid-media('md') {
+        @include padding(8rem 2rem 12.6rem);
+      }
+    }
+
+    .campaign-page__hero-content-wrapper {
+      margin-left: auto;
+      margin-right: auto;
+
+      > .campaign-page__hero-content-logo + *,
+      * + .ood-cta {
+        margin-top: 3rem;
+      }
+
+      * + .campaign-page__hero-bar,
+      * + .campaign-page__hero-intro {
+        margin-top: 1.5rem;
+      }
+
+      @include grid-media('sm') {
+        max-width: 42.5rem;
+        > .campaign-page__hero-content-logo + *,
+        * + .ood-cta {
+          margin-top: 3.4rem;
+        }
+
+        * + .campaign-page__hero-bar,
+        * + .campaign-page__hero-intro {
+          margin-top: 3rem;
+        }
+      }
+
+      @include grid-media('md') {
+        max-width: 100%;
+        @include padding(9rem 3rem 0 9%);
+
+        > .campaign-page__hero-content-logo + *,
+        * + .ood-cta {
+          margin-top: 5.8rem;
+        }
+
+        * + .campaign-page__hero-intro {
+          margin-top: 3.6rem;
+        }
+      }
+
+      @include grid-media('lg') {
+        padding-right: 6rem;
+      }
+
+      @include grid-media('xl') {
+        max-width: 70rem;
+        margin-left: 0;
+      }
+
+      @include grid-media('2xl') {
+        padding-left: 8.8rem;
+      }
+    }
+
+    .campaign-page__hero-content {
+      display: flex;
+      align-items: center;
+    }
+
+    .campaign-page__hero-content-logo {
+      @include grid-media('xl') {
+        max-width: 33rem;
+      }
+    }
+  }
+}
+
+.campaign-page__header--left-image {
+  .campaign-page__header-inner {
+    @include grid-media('md') {
+      &.su-text-white::before {
+        width: 50%;
+      }
+    }
+  }
+}
