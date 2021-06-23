@@ -1,9 +1,7 @@
-@charset "UTF-8";
-
 .su-bg {
   @each $key, $color in $ood-colors {
     &-#{$key} {
-      background-color: $color;
+      background: $color;
     }
   }
 
@@ -12,7 +10,7 @@
       &-#{$key} {
         &:hover,
         &:focus {
-          background-color: $color;
+          background: $color;
         }
       }
     }
@@ -20,12 +18,34 @@
     &-transparent {
       &:hover,
       &:focus {
-        background-color: transparent;
+        background: transparent;
       }
     }
   }
 
   &-transparent {
-    background-color: transparent;
+    background: transparent;
+  }
+}
+
+.su-border-gr {
+  @each $key, $color in $ood-colors {
+    &-#{$key} {
+      background-clip: padding-box;
+      border: solid 0.5rem transparent;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        margin: -0.5rem;
+        border-radius: inherit;
+        background: $color;
+      }
+    }
   }
 }

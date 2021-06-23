@@ -3,5 +3,165 @@
 // Campaign page content type
 
 .campaign-page {
+  &__hero {
+    position: relative;
 
+    @include grid-media('md') {
+      display: flex;
+    }
+
+    @include grid-media('lg') {
+      min-height: 75rem;
+    }
+  }
+
+  &__hero-content {
+    &-body {
+      > * {
+        margin: 0;
+      }
+    }
+  }
+
+  &__image-wrapper {
+    .campaign-page__media {
+      height: 100%;
+    }
+
+    .campaign-page__image {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__hero-content-logo {
+    max-width: 22rem;
+    @include grid-media('xl') {
+      max-width: 41rem;
+    }
+  }
+
+  &__hero-bar {
+    width: 9.7rem;
+    height: 1rem;
+  }
+
+  &__header--container {
+    position: relative;
+  }
+
+  &__header-inner {
+    @include padding(2.3rem null);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    > * {
+      position: relative;
+    }
+
+    .su-lockup > a {
+      display: flex;
+      align-items: center;
+    }
+
+    &.su-text-white {
+      [class*='su-lockup__'] {
+        color: $su-color-white;
+        border-color: $su-color-white;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        backface-visibility:hidden;
+        background: map-get($ood-colors, 'sky-dark-to-transparent');
+      }
+    }
+
+    @include grid-media-max('sm') {
+      .su-lockup__cell1 {
+        padding-right: 0.7rem;
+        padding-bottom: 0;
+        align-self: flex-end;
+        border-right: solid 1px $su-color-black;
+      }
+
+      .su-lockup__cell2 {
+        padding-top: 0;
+        padding-left: 0.7rem;
+        align-self: flex-end;
+        flex-grow: 1;
+      }
+
+      .su-lockup__wordmark {
+        font-size: 2.9rem;
+      }
+
+      .su-lockup__line1 {
+        font-size: 2.3rem;
+        line-height: 0.9em;
+      }
+    }
+
+    @include grid-media('md') {
+      @include padding(3.5rem null);
+    }
+  }
+
+  &__header-icon {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    > .home-icon {
+      width: 1.8rem;
+    }
+
+    @include grid-media('md') {
+      font-size: 1.6rem;
+
+      > .home-icon {
+        width: 2.2rem;
+      }
+    }
+  }
+
+  &__hero-intro {
+    font-size: 2rem;
+    line-height: 1.2;
+
+    @include grid-media('md') {
+      font-size: 2.5rem;
+      line-height: 1.4;
+    }
+  }
+
+  &__title {
+    &.su-mod-type-6 {
+      @include grid-media-only('xs') {
+        font-size: 3.2rem;
+      }
+      @include grid-media-between('xs', 'md') {
+        font-size: 4.4rem;
+      }
+    }
+  }
 }

@@ -10,6 +10,7 @@ import OodLocalFooter from "./identity/oodLocalFooter";
 import LocalFooterPicker from "./identity/localFooterPicker";
 import LocalHeaderPicker from "./identity/localHeaderPicker";
 import Lockup from "./identity/lockup";
+import OodCampaignHeader from "./identity/oodCampaignHeader";
 // Cards
 import BasicCard from "./cards/basicCard";
 import OodCampaignCard from './cards/oodCampaignCard';
@@ -114,6 +115,7 @@ const ComponentList = {
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,
   oodHomepageHero: OodHomepageHero,
+  oodCampaignHeader: OodCampaignHeader,
   oodCampaignPage: OodCampaignPage,
   oodInteriorPage: OodInteriorPage,
   oodLandingPage: OodLandingPage,
