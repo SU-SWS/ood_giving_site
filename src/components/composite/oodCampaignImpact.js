@@ -22,7 +22,7 @@ const OodCampaignImpact = (props) => {
                     <div className="impact-card__shadow"></div>
                     <div className="impact-card__label">
                       <div className="su-mod-type-6">
-                        {number.percent}%
+                        {number.percent}%<span className="sr-only"> </span>
                       </div>
                     </div>
                   </div>
