@@ -32,7 +32,7 @@
     @each $key, $color in $ood-colors {
       &-#{$key} {
         &::before {
-          background-color: $color;
+          background: $color;
         }
       }
     }
@@ -43,7 +43,7 @@
           &:hover,
           &:focus {
             &::before {
-              background-color: $color;
+              background: $color;
             }
           }
         }
