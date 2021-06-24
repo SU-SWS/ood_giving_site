@@ -12,11 +12,11 @@
     @include margin(-0.16em null 1.4em);
     @include modular-typography(2);
 
-    @include grid-media('md') {
+    @include grid-media("md") {
       font-size: 3.2rem;
     }
 
-    @include grid-media('lg') {
+    @include grid-media("lg") {
       @include modular-typography(3);
     }
   }
@@ -26,10 +26,21 @@
 
     > .ood-accordion__button {
       @include padding(1.5rem 4rem 1.5rem 1.5rem);
+      font-weight: inherit;
 
       &::after {
         right: 1.5rem;
-        color: $su-color-black;
+        color: $su-color-palo-alto-light;
+      }
+    }
+
+    > .ood-accordion__button--digital-red {
+      @include padding(1.5rem 4rem 1.5rem 1.5rem);
+      font-weight: inherit;
+
+      &::after {
+        right: 1.5rem;
+        color: $su-color-digital-red;
       }
     }
   }
@@ -52,7 +63,7 @@
 .su-accordion {
   &__expand-all,
   &__collapse-all {
-    @include grid-media-max('sm') {
+    @include grid-media-max("sm") {
       font-size: 1.6rem;
     }
 
