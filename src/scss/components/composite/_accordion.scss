@@ -26,6 +26,7 @@
 
     > .ood-accordion__button {
       @include padding(1.5rem 4rem 1.5rem 1.5rem);
+      font-weight: inherit;
 
       &::after {
         right: 1.5rem;
@@ -35,6 +36,7 @@
 
     > .ood-accordion__button--digital-red {
       @include padding(1.5rem 4rem 1.5rem 1.5rem);
+      font-weight: inherit;
 
       &::after {
         right: 1.5rem;

@@ -39,10 +39,7 @@ class AccordionItem extends React.Component {
     return (
       <SbEditable content={props.blok}>
         <li
-          className={
-            "su-accordion__item ood-accordion__item " +
-            props.accordionBorderColor
-          }
+          className={`su-accordion__item ood-accordion__item ${props.accordionBorderColor}`}
         >
           <Heading
             level={props.blok.headingLevel}
@@ -53,7 +50,7 @@ class AccordionItem extends React.Component {
             {...(props.blok.id ? { id: props.blok.id } : {})}
           >
             <button
-              className={"su-accordion__button " + props.accordionAfterColor}
+              className={`su-accordion__button ${props.accordionAfterColor} su-${props.accordionFontWeight}`}
               aria-expanded={this.state.expanded}
               onClick={this.toggle}
             >

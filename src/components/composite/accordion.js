@@ -87,17 +87,13 @@ class Accordion extends React.Component {
           {props.blok.accordionItems.length > 1 && (
             <>
               <button
-                className={
-                  "su-accordion__collapse-all su-button " + accordionButtonColor
-                }
+                className={`su-accordion__collapse-all su-button ${accordionButtonColor}`}
                 onClick={this.collapseAll}
               >
                 Collapse all
               </button>
               <button
-                className={
-                  "su-accordion__expand-all su-button " + accordionButtonColor
-                }
+                className={`su-accordion__expand-all su-button ${accordionButtonColor}`}
                 onClick={this.expandAll}
               >
                 Expand all
@@ -105,9 +101,7 @@ class Accordion extends React.Component {
             </>
           )}
           <ul
-            className={
-              "su-accordion__list ood-accordion__list " + accordionBorderColor
-            }
+            className={`su-accordion__list ood-accordion__list ${accordionBorderColor}`}
           >
             {props.blok.accordionItems &&
               props.blok.accordionItems.map((blok, index) =>
