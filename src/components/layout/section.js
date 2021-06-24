@@ -47,9 +47,9 @@ const Section = (props) => {
           >
             {props.blok.title && (
               <Heading
-                className={`section__title su-serif
+                className={`section__title
                   ${props.blok.titleSize}
-                  ${props.blok.titleWeight}
+                  ${props.blok.titleFontWeight}
                   su-before-bg-${props.blok.tabColor}
                   ${titleStyleClassList(props.blok.titleStyle)}`}
               >
