@@ -4,16 +4,12 @@ $default-size: 1em;
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  font-size: 25rem;
+  font-size: 19rem;
 
   @include grid-media('md') {
     flex-direction: row;
     align-items: unset;
-    font-size: 15.5rem;
-  }
-
-  @include grid-media('lg') {
-    font-size: 19rem;
+    flex-wrap: wrap;
   }
 
   @include grid-media('xl') {
@@ -27,6 +23,10 @@ $default-size: 1em;
   // Set a static spacing if there are ledd than 4 items.
   &--not-maxed {
     @include grid-media('md') {
+      justify-content: flex-start;
+    }
+
+    @include grid-media('lg') {
       justify-content: center;
     }
   }
@@ -36,17 +36,19 @@ $default-size: 1em;
   text-align: center;
   width: 100%;
   max-width: $default-size;
-  margin-bottom: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 
   @include grid-media('md') {
-    margin-bottom: 0;
+    margin-bottom: 3rem;
+    max-width: 33.3%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 
-  &--not-maxed {
-    @include grid-media('md') {
-      margin-left: 5.6rem;
-      margin-right: 5.6rem;
-    }
+  @include grid-media('lg') {
+    max-width: 25%;
   }
 
   &__wrapper {
@@ -70,15 +72,21 @@ $default-size: 1em;
     justify-content: center;
     background: $su-color-white;
     border-radius: 50%;
-    font-size: 1.6rem;
 
-    @include grid-media-between('md', 'xl') {
-      font-size: 1rem;
+    .section.su-bg-fog-light & {
+      background: $su-color-foggy-light;
+    }
+  }
+
+  &__label-text {
+    font-size: 3rem;
+
+    @include grid-media('lg') {
+      font-size: 5rem;
     }
 
-    @include grid-media-between('md', 'lg') {
-      width: calc(100% - 2rem);
-      height: calc(100% - 2rem);
+    @include grid-media('xl') {
+      font-size: 6.8rem;
     }
   }
 
@@ -87,6 +95,10 @@ $default-size: 1em;
     height: 100%;
     border-radius: 50%;
     background: $su-color-foggy-light;
+
+    .section.su-bg-fog-light & {
+      background: $su-color-white;
+    }
   }
 
   &__circle {
@@ -122,5 +134,6 @@ $default-size: 1em;
 
   &__description {
     font-size: 1.6rem;
+    max-width: 19rem;
   }
 }
