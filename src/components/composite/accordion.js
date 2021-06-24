@@ -48,11 +48,13 @@ class Accordion extends React.Component {
     let accordionButtonColor = "ood-cta__button--secondary";
     let accordionAfterColor = "ood-accordion__button";
     let accordionFont = true;
+    let accordionFontWeight = "bold";
     if (props.blok.accordionColor === "digital-red") {
       accordionBorderColor = "su-border-color-digital-red su-sans";
       accordionButtonColor = "ood-cta__button--secondary-digital-red";
       accordionAfterColor = "ood-accordion__button--digital-red";
       accordionFont = false;
+      accordionFontWeight = "semibold";
     }
 
     return (
@@ -76,6 +78,7 @@ class Accordion extends React.Component {
               defaultLevel={"h3"}
               level={props.blok.headingLevel}
               serif={accordionFont}
+              weight={accordionFontWeight}
               classes={"ood-accordion__heading"}
             >
               {props.blok.title}
@@ -115,6 +118,7 @@ class Accordion extends React.Component {
                   accordionBorderColor: accordionBorderColor,
                   accordionAfterColor: accordionAfterColor,
                   accordionFont: accordionFont,
+                  accordionFontWeight: accordionFontWeight,
                 })
               )}
           </ul>

@@ -48,6 +48,7 @@ class AccordionItem extends React.Component {
             level={props.blok.headingLevel}
             defaultLevel={"h4"}
             serif={props.accordionFont}
+            weight={props.accordionFontWeight}
             classes="su-accordion__title ood-accordion__title"
             {...(props.blok.id ? { id: props.blok.id } : {})}
           >
