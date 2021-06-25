@@ -32,12 +32,18 @@
   }
 
   &__headline {
+    @include modular-typography(2);
     display: inline-block;
     align-items: center;
-    margin: 0;
+    margin-bottom: 1.8rem;
 
-    @include grid-media-only('lg') {
-      font-size: 2.6rem;
+    @include grid-media-only('md') {
+      margin-bottom: 2.6rem;
+    }
+
+    @include grid-media('xl') {
+      font-size: 3.6rem;
+      margin-bottom: 3rem;
     }
 
     &::after {
@@ -47,19 +53,14 @@
     }
 
     &--internal {
-      @include link-icon(arrow-right, 0.6em, right, -0.18em);
+      @include link-icon(arrow-right, 0.6em, right, -0.1em);
     }
   }
 
   &__description {
     font-size: 2rem;
-    margin-top: 1.1rem;
     color: $su-color-black-80;
     line-height: 125%;
-
-    @include grid-media-only('md') {
-      margin-top: 2.6rem;
-    }
   }
 
   &__link {
@@ -75,6 +76,8 @@
       }
 
       .ood-campaign-card__headline {
+        text-decoration: underline;
+
         &::after {
           transform: translate3d(0.15em, -0.15em, 0);
         }
