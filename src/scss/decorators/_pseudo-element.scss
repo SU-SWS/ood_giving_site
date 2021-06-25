@@ -2,15 +2,34 @@
 
 // To style ::before and ::after elements
 // Add decorative colored tab as ::before element
-.ood {
-  &-has-tab-before {
+.ood-has-tab-before {
+  &::before {
+    @include margin(null null 0.3em);
+    display: block;
+    content: "";
+    height: 10px;
+    width: 80px;
+    background-color: $su-color-cardinal-red;
+  }
+
+  &--v2 {
     &::before {
-      @include margin(null null 0.3em);
-      display: block;
-      content: "";
-      height: 10px;
-      width: 80px;
-      background-color: $su-color-cardinal-red;
+      background-color: $su-color-bay-dark;
+    }
+  }
+
+  &--v2,
+  &--v3 {
+    font-family: $su-font-sans;
+    font-weight: $su-font-semi-bold;
+
+    @include grid-media('lg') {
+      font-size: 4.4rem;
+    }
+
+    &::before {
+      @include margin(null null 0.75em);
+      width: 60px;
     }
   }
 }
