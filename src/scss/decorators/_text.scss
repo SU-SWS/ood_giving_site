@@ -80,3 +80,20 @@
     }
   }
 }
+
+.su-text-gradient {
+  // Text Color
+  @each $key, $color in $ood-gradient-colors {
+    &-#{$key} {
+      background-size: 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      // $ood-gradient-to-solid maps the gradient colors to the top-right color of the gradient to use for the arrow.
+      color: map-get($ood-gradient-to-solid, $key);
+      // Fallback for the solid colors.
+      background-color: $color;
+      // Gradient color
+      background-image: $color;
+    }
+  }
+}
