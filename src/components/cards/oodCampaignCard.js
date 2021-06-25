@@ -39,7 +39,7 @@ const OodCampaignCard = props => {
                 level={props.blok.headingLevel}
                 defaultLevel={"h3"}
                 weight={"semibold"}
-                classes={`ood-campaign-card__headline su-mb-none su-gradient-text-${props.blok.headlineColor} ${
+                classes={`ood-campaign-card__headline su-mb-none su-text-${props.blok.headlineColor} ${
                   props.blok.link.linktype === "url" ? "su-link--external" : "ood-campaign-card__headline--internal"
                 }`}
               >

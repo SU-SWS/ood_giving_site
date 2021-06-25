@@ -72,7 +72,10 @@
 
       .ood-campaign-card__headline {
         text-decoration: underline;
-        text-decoration-color: $su-color-black-60;
+
+        &.su-text-gradient {
+          text-decoration-color: $su-color-black-40;
+        }
 
         &::after {
           transform: translate3d(0.15em, -0.15em, 0);
