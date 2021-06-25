@@ -12,18 +12,10 @@
     background-color: $su-color-cardinal-red;
   }
 
-  &--v2 {
-    &::before {
-      background-color: $su-color-bay-dark;
-    }
-  }
+  &.su-sans {
+    letter-spacing: -0.016em;
 
-  &--v2,
-  &--v3 {
-    font-family: $su-font-sans;
-    font-weight: $su-font-semi-bold;
-
-    @include grid-media('lg') {
+    @include grid-media('xl') {
       font-size: 4.4rem;
     }
 
