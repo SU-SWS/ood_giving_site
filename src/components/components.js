@@ -13,7 +13,7 @@ import Lockup from "./identity/lockup";
 import OodCampaignHeader from "./identity/oodCampaignHeader";
 // Cards
 import BasicCard from "./cards/basicCard";
-import OodCampaignCard from "./cards/oodCampaignCard";
+import OodCampaignCard from './cards/oodCampaignCard';
 import OodIconCard from "./cards/oodIconCard";
 import OodSupportCard from "./cards/oodSupportCard";
 import OodQuoteCard from "./cards/oodQuoteCard";
@@ -113,8 +113,8 @@ const ComponentList = {
   oodQuoteCard: OodQuoteCard,
   oodQuoteSlider: OodQuoteSlider,
   oodHomepageHero: OodHomepageHero,
-  oodCampaignHeader: OodCampaignHeader,
   oodCampaignPage: OodCampaignPage,
+  oodCampaignHeader: OodCampaignHeader,
   oodInteriorPage: OodInteriorPage,
   oodLandingPage: OodLandingPage,
   oodStory: OodStory,
