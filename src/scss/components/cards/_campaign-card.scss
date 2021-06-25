@@ -33,7 +33,7 @@
 
   &__headline {
     @include modular-typography(2);
-    display: inline;
+    display: inline-block;
     align-items: center;
     letter-spacing: -.016em;
 
