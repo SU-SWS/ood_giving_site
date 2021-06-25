@@ -27,7 +27,8 @@ $default-size: 1em;
     }
 
     @include grid-media('lg') {
-      justify-content: center;
+      //justify-content: center;
+      justify-content: space-evenly;
     }
   }
 }
@@ -79,13 +80,17 @@ $default-size: 1em;
   }
 
   &__label-text {
-    font-size: 3rem;
+    font-size: 3.6rem;
 
     @include grid-media('lg') {
-      font-size: 5rem;
+      font-size: 4rem;
     }
 
     @include grid-media('xl') {
+      font-size: 5rem;
+    }
+
+    @include grid-media('2xl') {
       font-size: 6.8rem;
     }
   }
@@ -133,7 +138,16 @@ $default-size: 1em;
   }
 
   &__description {
-    font-size: 1.6rem;
-    max-width: 19rem;
+    font-size: 1.9rem;
+    max-width: 20rem;
+
+    @include grid-media("lg") {
+      font-size: 2.2rem;
+    }
+
+    @include grid-media("2xl") {
+      font-size: 2.4rem;
+      max-width: 30rem;
+    }
   }
 }

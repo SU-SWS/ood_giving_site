@@ -6,28 +6,27 @@ const OodCampaignImpact = (props) => {
     <SbEditable content={props.blok}>
       <div className={`impact-cards su-flex ${props.blok.items.length !== 4 ? 'impact-cards--not-maxed' : ''}`}>
         {
-          props.blok.items.map((number) => {
-              const percent = `${(number.percent * 3.6) + 180}deg`;
+          props.blok.items.map((item) => {
               return (
                 <div className={`impact-card ${props.blok.items.length !== 4 ? 'impact-card--not-maxed' : ''}`}>
                   <div className="impact-card__wrapper">
-                    <div className={`impact-card__circle ${number.percent > 50 ? 'impact-card__circle--more-than-half' : ''}`}>
-                      <div className={`impact-card__circle--left-side impact-card__half-circle su-bg-${number.graph_line_color}`}
-                           style={{'--percent': `${number.percent * 3.6}deg`}}></div>
+                    <div className={`impact-card__circle ${item.percent > 50 ? 'impact-card__circle--more-than-half' : ''}`} aria-hidden="true">
+                      <div className={`impact-card__circle--left-side impact-card__half-circle su-bg-${item.graph_line_color}`}
+                           style={{'--percent': `${item.percent * 3.6}deg`}} />
                       {
-                        number.percent > 50 &&
-                        <div className={`impact-card__circle--right-side impact-card__half-circle su-bg-${number.graph_line_color}`}></div>
+                        item.percent > 50 &&
+                        <div className={`impact-card__circle--right-side impact-card__half-circle su-bg-${item.graph_line_color}`} />
                       }
                     </div>
-                    <div className="impact-card__shadow"></div>
+                    <div className="impact-card__shadow" aria-hidden="true" />
                     <div className="impact-card__label">
                       <div className="impact-card__label-text">
-                        {number.percent}%<span className="sr-only"> </span>
+                        {item.percent}%<span className="sr-only"> </span>
                       </div>
                     </div>
                   </div>
-                  <div className="impact-card__description">
-                    <div className="su-mod-type-1">{number.description}</div>
+                  <div className="impact-card__description su-semibold">
+                    {item.description}
                   </div>
                 </div>
             )
@@ -38,6 +37,6 @@ const OodCampaignImpact = (props) => {
   );
 }
 
-export default OodCampaignImpact
+export default OodCampaignImpact;
 
 
