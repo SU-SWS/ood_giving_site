@@ -10,6 +10,13 @@ const Section = (props) => {
     return null;
   }
 
+  let alignmentWrapper = "su-text-align-left";
+  let alignmentTab = "";
+  if (props.blok.isCenterAlign) {
+    alignmentWrapper = "su-text-align-center su-w-full su-max-w-80";
+    alignmentTab = "su-center-tab";
+  }
+
   const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h2";
 
   const titleStyleClassList = (titleStyleArray) => {
@@ -38,11 +45,7 @@ const Section = (props) => {
             centered_disabled={props.blok.disableWrapping}
             srOnly={props.blok.srOnlyHeader}
             classes={`section__header
-              ${
-                props.blok.isCenterAlign
-                  ? "su-text-align-center su-w-full su-max-w-80"
-                  : "su-text-align-left"
-              }
+              ${alignmentWrapper}
             `}
           >
             {props.blok.title && (
@@ -51,7 +54,9 @@ const Section = (props) => {
                   ${props.blok.titleSize}
                   ${props.blok.titleFontWeight}
                   su-before-bg-${props.blok.tabColor}
-                  ${titleStyleClassList(props.blok.titleStyle)}`}
+                  ${titleStyleClassList(props.blok.titleStyle)}
+                  ${alignmentTab}
+                `}
               >
                 {props.blok.title}
               </Heading>

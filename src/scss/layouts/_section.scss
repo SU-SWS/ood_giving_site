@@ -4,9 +4,6 @@
   &__title {
     @include responsive-spacing("margin", null null 3);
     letter-spacing: 0; // Don't need to tighten up spacing for serif titles
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
 
     @include grid-media("lg") {
       &.ood-has-tab-before {
@@ -49,5 +46,11 @@
 
   .su-max-w-80 {
     max-width: 80rem;
+  }
+
+  .su-center-tab {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
