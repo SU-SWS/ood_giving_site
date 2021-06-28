@@ -5,7 +5,7 @@
   &__search-button {
     position: relative;
     height: 4rem;
-    min-width: 4rem;
+    width: 4rem;
     cursor: pointer;
     border-radius: 5rem;
     border: .1rem solid $su-color-black-30;
@@ -28,6 +28,7 @@
     }
 
     @include grid-media('xl') {
+      width: auto;
       top: -0.6rem;
       font-size: 1.8rem;
       padding-right: 2rem;
