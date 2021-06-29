@@ -6,8 +6,6 @@ import CreateBloks from "../../utilities/createBloks";
 import Heading from '../partials/heading';
 
 const BasicCard = props => {
-  //const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h3";
-
   return (
     <SbEditable content={props.blok}>
       <article
