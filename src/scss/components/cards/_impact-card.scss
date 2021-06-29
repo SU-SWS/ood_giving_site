@@ -1,0 +1,145 @@
+$default-size: 1em;
+
+.impact-cards {
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  font-size: 19rem;
+
+  @include grid-media('md') {
+    flex-direction: row;
+    align-items: unset;
+    flex-wrap: wrap;
+  }
+
+  @include grid-media('xl') {
+    font-size: 20rem;
+  }
+
+  @include grid-media('2xl') {
+    font-size: 25rem;
+  }
+
+  &--not-maxed {
+    justify-content: space-evenly;
+  }
+}
+
+.impact-card {
+  text-align: center;
+  width: 100%;
+  max-width: $default-size;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  @include grid-media('md') {
+    margin-bottom: 3rem;
+    max-width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  @include grid-media('xl') {
+    max-width: 25%;
+  }
+
+  &__wrapper {
+    width: $default-size;
+    height: $default-size;
+    position: relative;
+    margin-bottom: 1.7rem;
+  }
+
+  &__label {
+    @include serif;
+    font-weight: $su-font-bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 4rem);
+    height: calc(100% - 4rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $su-color-white;
+    border-radius: 50%;
+
+    .section.su-bg-fog-light & {
+      background: $su-color-foggy-light;
+    }
+  }
+
+  &__label-text {
+    font-size: 3.6rem;
+
+    @include grid-media('lg') {
+      font-size: 4rem;
+    }
+
+    @include grid-media('xl') {
+      font-size: 5rem;
+    }
+
+    @include grid-media('2xl') {
+      font-size: 6.8rem;
+    }
+  }
+
+  &__shadow {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: $su-color-foggy-light;
+
+    .section.su-bg-fog-light & {
+      background: $su-color-white;
+    }
+  }
+
+  &__circle {
+    width: 100%;
+    height: 100%;
+    clip: rect(0, $default-size, $default-size, $default-size / 2);
+    left: 0;
+    position: absolute;
+    top: 0;
+
+    &--more-than-half {
+      clip: rect(auto, auto, auto, auto);
+    }
+
+    &--left-side {
+      transform: rotate(var(--percent));
+    }
+
+    &--right-side {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__half-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    clip: rect(0, $default-size / 2, $default-size, 0);
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+
+  &__description {
+    font-size: 1.9rem;
+    max-width: 20rem;
+
+    @include grid-media("lg") {
+      font-size: 2.2rem;
+    }
+
+    @include grid-media("2xl") {
+      font-size: 2.4rem;
+      max-width: 30rem;
+    }
+  }
+}
