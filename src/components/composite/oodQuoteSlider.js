@@ -34,7 +34,7 @@ const OodQuoteSlider = ({blok}) => {
 
   return (
     <SbEditable content={blok}>
-      <div className={`ood-quote-slider su-flex su-flex--column su-pt-2 ${slideInProgress ? 'ood-quote-slider--progress' : ''}`} ref={slider}>
+      <div className={`ood-quote-slider su-flex su-flex--column ${slideInProgress ? 'ood-quote-slider--progress' : ''}`} ref={slider}>
         <Slider className={"ood-quote-slider__wrapper"} {...sliderSettings}>
           {blok.quotes && blok.quotes.map((story) => React.createElement(Components(story.content.component), {
             key: story.content._uid,
