@@ -3,6 +3,7 @@ import SbEditable from "storyblok-react";
 import RichTextField from "../../utilities/richTextField";
 import CreateBloks from "../../utilities/createBloks";
 import CenteredContainer from "../partials/centeredContainer";
+import Heading from '../partials/heading';
 
 const Section = (props) => {
   // Hide and don't return nothing.
@@ -16,8 +17,6 @@ const Section = (props) => {
     alignmentWrapper = "su-text-align-center su-w-full su-max-w-80";
     alignmentTab = "su-center-tab";
   }
-
-  const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h2";
 
   const titleStyleClassList = (titleStyleArray) => {
     return titleStyleArray.toString().replace(/,/g, " ");
@@ -50,13 +49,16 @@ const Section = (props) => {
           >
             {props.blok.title && (
               <Heading
-                className={`section__title
+                classes={`section__title
                   ${props.blok.titleSize}
-                  ${props.blok.titleFontWeight}
                   su-before-bg-${props.blok.tabColor}
                   ${titleStyleClassList(props.blok.titleStyle)}
                   ${alignmentTab}
                 `}
+                level={props.blok.headingLevel}
+                defaultLevel="h2"
+                weight={props.blok.isSansSemibold ? "semibold" : "bold"}
+                serif={!props.blok.isSansSemibold}
               >
                 {props.blok.title}
               </Heading>
