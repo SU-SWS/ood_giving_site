@@ -2,10 +2,10 @@
 
 .section {
   &__title {
-    @include responsive-spacing('margin', null null 3);
+    @include responsive-spacing("margin", null null 3);
     letter-spacing: 0; // Don't need to tighten up spacing for serif titles
 
-    @include grid-media('lg') {
+    @include grid-media("lg") {
       &.ood-has-tab-before {
         &.su-mod-type-3 {
           + .section__intro {
@@ -29,14 +29,20 @@
   }
 
   &__header {
-    @include responsive-spacing('margin', null null 3);
+    @include responsive-spacing("margin", null null 3);
 
-    @include grid-media-max('sm') {
+    @include grid-media-max("sm") {
       @include margin(null null 1rem);
     }
 
-    @include grid-media-only('md') {
+    @include grid-media-only("md") {
       @include margin(null null 2rem);
     }
+  }
+
+  .su-center-tab {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

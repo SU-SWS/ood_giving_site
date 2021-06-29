@@ -3,10 +3,9 @@ import SbEditable from "storyblok-react";
 import AspectRatioImage from "../media/aspectRatioImage";
 import RichTextField from "../../utilities/richTextField";
 import CreateBloks from "../../utilities/createBloks";
+import Heading from '../partials/heading';
 
 const BasicCard = props => {
-  const Heading = props.blok.headingLevel ? props.blok.headingLevel : "h3";
-
   return (
     <SbEditable content={props.blok}>
       <article
@@ -65,12 +64,16 @@ const BasicCard = props => {
           )}
           {props.blok.headline && (
             <Heading
-              className={`ood-basic-card__headline su-serif
+              classes={`ood-basic-card__headline
                      ${
                        props.blok.largeHeading === true
                          ? "ood-basic-card__headline--large"
                          : ""
                      }`}
+              level={props.blok.headingLevel}
+              defaultLevel="h3"
+              weight={props.blok.isSansHeading ? "semibold" : "bold"}
+              serif={!props.blok.isSansHeading}
             >
               {props.blok.headline}
             </Heading>
