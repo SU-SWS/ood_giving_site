@@ -11,10 +11,12 @@ const Section = (props) => {
     return null;
   }
 
+  let titleWidth = "";
   let alignmentWrapper = "su-text-align-left";
   let alignmentTab = "";
   if (props.blok.isCenterAlign) {
-    alignmentWrapper = "su-text-align-center su-w-full su-max-w-80";
+    titleWidth = "su-max-w-900"
+    alignmentWrapper = "su-text-align-center su-w-full su-max-w-800";
     alignmentTab = "su-center-tab";
   }
 
@@ -54,6 +56,7 @@ const Section = (props) => {
                   su-before-bg-${props.blok.tabColor}
                   ${titleStyleClassList(props.blok.titleStyle)}
                   ${alignmentTab}
+                  ${titleWidth}
                 `}
                 level={props.blok.headingLevel}
                 defaultLevel="h2"
