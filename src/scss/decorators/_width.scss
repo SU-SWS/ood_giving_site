@@ -4,10 +4,12 @@
   width: 100%;
 }
 
-.su-max-w-800 {
-  max-width: 80rem;
-}
+@include grid-media("lg") {
+  .su-max-w-800 {
+    max-width: 80rem;
+  }
 
-.su-max-w-900 {
-  max-width: 90rem;
+  .su-max-w-900 {
+    max-width: 90rem;
+  }
 }

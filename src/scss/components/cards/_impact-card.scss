@@ -13,23 +13,15 @@ $default-size: 1em;
   }
 
   @include grid-media('xl') {
-    font-size: 24rem;
+    font-size: 20rem;
   }
 
   @include grid-media('2xl') {
     font-size: 25rem;
   }
 
-  // Set a static spacing if there are ledd than 4 items.
   &--not-maxed {
-    @include grid-media('md') {
-      justify-content: flex-start;
-    }
-
-    @include grid-media('lg') {
-      //justify-content: center;
-      justify-content: space-evenly;
-    }
+    justify-content: space-evenly;
   }
 }
 
@@ -42,13 +34,13 @@ $default-size: 1em;
 
   @include grid-media('md') {
     margin-bottom: 3rem;
-    max-width: 33.3%;
+    max-width: 50%;
     display: flex;
     align-items: center;
     flex-direction: column;
   }
 
-  @include grid-media('lg') {
+  @include grid-media('xl') {
     max-width: 25%;
   }
 

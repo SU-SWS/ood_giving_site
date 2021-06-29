@@ -2,6 +2,12 @@
 
 // Campaign Cards
 .ood-campaign-card {
+  @include margin(null auto);
+
+  @include grid-media('sm') {
+    max-width: 42rem;
+  }
+
   &__media {
     margin-bottom: 2rem;
 
