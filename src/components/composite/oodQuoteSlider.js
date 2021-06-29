@@ -13,13 +13,13 @@ const OodQuoteSlider = ({blok}) => {
     nextArrow: (
       <button>
         <span className="sr-only">Next Slide: {`${activeSlide + 1 === blok.quotes.length ? '1' : activeSlide + 2} of ${blok.quotes.length}`}</span>
-        <i className="fas fa-chevron-right" aria-hidden="true"></i>
+        <i className="fas fa-chevron-right" aria-hidden="true" />
       </button>
     ),
     prevArrow: (
       <button>
         <span className="sr-only">Previous Slide: {`${activeSlide === 0 ? blok.quotes.length : activeSlide} of ${blok.quotes.length}`}</span>
-        <i className="fas fa-chevron-left" aria-hidden="true"></i>
+        <i className="fas fa-chevron-left" aria-hidden="true" />
       </button>
     ),
     beforeChange: () => {
