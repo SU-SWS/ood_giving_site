@@ -28,7 +28,6 @@ const OodQuoteCard = props => (
         {props.blok.quoteText && (
           <blockquote
             className={`ood-quote-card__quote su-serif
-                      su-before-color-${props.blok.quotationMarkColor}
                       ${
                         props.blok.smallText === true
                           ? "su-mod-type-1"
@@ -36,6 +35,9 @@ const OodQuoteCard = props => (
                       }
           `}
           >
+
+            <span aria-hidden="true" className={`ood-quote-card__quote-icon
+                      su-before-color-${props.blok.quotationMarkColor}`}></span>
             <RichTextField data={props.blok.quoteText} />
           </blockquote>
         )}

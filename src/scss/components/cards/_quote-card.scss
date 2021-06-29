@@ -27,6 +27,14 @@
     @include padding(2em null null);
     line-height: $su-base-line-height;
 
+    &.su-mod-type-2 {
+      @include grid-media-max('md') {
+        @include modular-typography(1);
+      }
+    }
+  }
+
+  &__quote-icon {
     &::before {
       @include margin(null null null -2px);
       font-size: 5em;
@@ -35,12 +43,6 @@
       display: block;
       color: $su-color-palo-verde-light;
       font-weight: $su-font-bold;
-    }
-
-    &.su-mod-type-2 {
-      @include grid-media-max('md') {
-        @include modular-typography(1);
-      }
     }
   }
 
