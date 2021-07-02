@@ -14,25 +14,30 @@ const AspectRatioImage = props => {
       imgWidth = props.filename.split("/")[5].split("x")[0];
     }
 
+    let focus;
+    if (props.blok.image) {
+      focus = props.blok.image && props.blok.image.focus ? props.blok.image.focus : undefined;
+    }
+
     // Only scale image if original image size is larger than intended size
     if (props.imageSize === "card" && imgWidth > 600) {
-      processedImg = transformImage(props.filename, "/600x0");
+      processedImg = transformImage(props.filename, "/600x0", focus);
     } else if (props.imageSize === "thumbnail" && imgWidth > 400) {
-      processedImg = transformImage(props.filename, "/400x0");
+      processedImg = transformImage(props.filename, "/400x0", focus);
     } else if (
       (props.imageSize === "header" ||
         props.imageSize === "horizontal-card" ||
         props.imageSize === "large-card") &&
       imgWidth > 800
     ) {
-      processedImg = transformImage(props.filename, "/800x0");
+      processedImg = transformImage(props.filename, "/800x0", focus);
     } else if (props.imageSize === "gallery-slide") {
-      processedImg = transformImage(props.filename, "/1400x0");
-    } 
+      processedImg = transformImage(props.filename, "/1400x0", focus);
+    }
     else if (imgWidth > 1000) {
-      processedImg = transformImage(props.filename, "/1000x0");
+      processedImg = transformImage(props.filename, "/1000x0", focus);
     } else {
-      processedImg = transformImage(props.filename, "");
+      processedImg = transformImage(props.filename, "", focus);
     }
   }
 

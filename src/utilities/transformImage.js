@@ -4,7 +4,7 @@
 
 import { config } from "./config";
 
-const transformImage = (image, param = null) => {
+const transformImage = (image, param = null, imageFocus) => {
   let imageService = "https://img2.storyblok.com";
 
   if (config.isNetlify) {
@@ -17,8 +17,12 @@ const transformImage = (image, param = null) => {
     const path = image.replace("https://a.storyblok.com", "");
 
     // If the image is a jpg, optimize it by changing the quality to 60% (quality loss is mostly unnoticeable)
-    if (image.endsWith(".jpg")) {
+    if (image.endsWith(".jpg") || image.endsWith(".jpeg")) {
+      param += !imageFocus ? "/smart" : "";
       param += "/filters:quality(60)";
+      param += imageFocus ? `:focal(${imageFocus})` : "";
+    } else {
+      param += imageFocus ? `/filters:focal(${imageFocus})` : "";
     }
 
     if (param === null) {

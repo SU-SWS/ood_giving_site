@@ -20,18 +20,18 @@ const FullWidthImage = props => {
       imgWidth = props.filename.split("/")[5].split("x")[0];
     }
 
-    originalImg = transformImage(props.filename, "");
+    originalImg = transformImage(props.filename, "", props.blok.image.focus);
 
     if (imgWidth >= 800) {
-      smallImg = transformImage(props.filename, "/800x0");
+      smallImg = transformImage(props.filename, "/800x0", props.blok.image.focus);
     }
 
     if (imgWidth >= 1200) {
-      mediumImg = transformImage(props.filename, "/1200x0");
+      mediumImg = transformImage(props.filename, "/1200x0", props.blok.image.focus);
     }
 
     if (imgWidth >= 2000) {
-      largeImg = transformImage(props.filename, "/2000x0");
+      largeImg = transformImage(props.filename, "/2000x0", props.blok.image.focus);
     }
 
     imgSrcset = smallImg ? smallImg + " 800w" : "";
