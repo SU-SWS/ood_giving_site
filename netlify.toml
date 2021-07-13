@@ -25,7 +25,9 @@
 # https://www.npmjs.com/package/netlify-plugin-submit-sitemap
 # ###############################################################################
 [[plugins]]
-  package = "netlify-plugin-submit-sitemap"
-
+package = "netlify-plugin-submit-sitemap"
+  [plugins.inputs]
+    # Path to the sitemap URL (optional, default = /sitemap.xml)
+    sitemapPath = "/sitemap/sitemap-index.xml"
 # REDIRECTS are located in static/_redirects
 # ###############################################################################
