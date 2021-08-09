@@ -20,7 +20,7 @@
     Referrer-Policy = "origin-when-cross-origin"
     Strict-Transport-Security = "max-age=2592000"
     Permissions-Policy = "vibrate=(), geolocation=(), midi=(), notifications=(), push=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), speaker=()"
-    Basic-Auth = "YWRhcHQ6bGV0bWVpbjIwMjE="
+    Basic-Auth = "adapt:letmein2021"
 # SUBMIT SITEMAP PLUGIN
 # https://www.npmjs.com/package/netlify-plugin-submit-sitemap
 # ###############################################################################
