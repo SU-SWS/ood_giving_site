@@ -154,7 +154,7 @@ module.exports = {
         // enablePartialUpdates: true,
         queries: require("./src/utilities/algoliaQueries"),
         // we skip the indexing completely on non-prod builds.
-        skipIndexing: true,
+        skipIndexing: !!process.env.ALGOLIA_SKIP_INDEXING,
       },
     },
     {
