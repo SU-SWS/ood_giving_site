@@ -28,7 +28,7 @@ const SearchOverlay = () => {
 
   const previousSubmittedTermRef = useRef("");
 
-  const submitTerm = term => {
+  const submitTerm = (term) => {
     if (term.length > 0 && term !== previousSubmittedTermRef.current) {
       navigate(`${config.basePath}search-results?term=${term}`);
 

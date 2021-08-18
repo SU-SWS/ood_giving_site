@@ -1,90 +1,96 @@
-import React, { useState, useEffect } from 'react'
-import Components from '../components/components.js'
-import SbEditable from 'storyblok-react'
-import Loader from 'react-loader-spinner'
-import { useStaticQuery, graphql } from "gatsby"
+import React, { useState, useEffect } from "react";
+import Components from "../components/components.js";
+import SbEditable from "storyblok-react";
+import Loader from "react-loader-spinner";
+import { useStaticQuery, graphql } from "gatsby";
 
 /**
  *
  * @param {*} val
  * @returns
  */
-const getParam = function(val) {
-  var result = '';
+const getParam = function (val) {
+  var result = "";
   var tmp = [];
 
   window.location.search
     .substr(1)
-    .split('&')
+    .split("&")
     .forEach(function (item) {
-      tmp = item.split('=');
+      tmp = item.split("=");
       if (tmp[0] === val) {
         result = decodeURIComponent(tmp[1]);
       }
-    })
+    });
 
   return result;
-}
+};
 
 /**
  * This is Sparta
  */
-const initBridge = function(key, sbResolveRelations, setStory) {
-
+const initBridge = function (key, sbResolveRelations, setStory) {
   // Initialize the Storyblok JS Bridge
   window.storyblok.init({
     resolveRelations: sbResolveRelations,
-    accessToken: key
+    accessToken: key,
   });
 
   // Ping the Visual Editor and enter Editmode manually
-  window.storyblok.pingEditor(function() {
+  window.storyblok.pingEditor(function () {
     window.storyblok.enterEditmode();
   });
 
   // Listens on multiple events and does a basic website refresh
-  window.storyblok.on(['change', 'published', 'unpublished'], () => {
+  window.storyblok.on(["change", "published", "unpublished"], () => {
     window.location.reload();
-  })
+  });
 
   // When the content author does stuff.
-  window.storyblok.on('input', (payload) => {
+  window.storyblok.on("input", (payload) => {
     // Add _editable properties to keep the Storyblok JS Bridge active after the content updates.
-    window.storyblok.addComments(payload.story.content, payload.story.id)
+    window.storyblok.addComments(payload.story.content, payload.story.id);
     window.storyblok.resolveRelations(payload.story, sbResolveRelations, () => {
       setStory(payload.story.content);
     });
   });
 
   loadStory(sbResolveRelations, setStory);
-}
+};
 
 /**
  *
  */
 const loadStory = (sbResolveRelations, setStory) => {
-  window.storyblok.get({
-      slug: window.storyblok.getParam('path'),
-      version: 'draft',
-      resolve_relations: sbResolveRelations || []
+  window.storyblok.get(
+    {
+      slug: window.storyblok.getParam("path"),
+      version: "draft",
+      resolve_relations: sbResolveRelations || [],
     },
     (data) => {
-      setStory(data.story.content)
-    })
-}
+      setStory(data.story.content);
+    }
+  );
+};
 
 /**
  * This is another try.
  */
 const StoryblokEntry = (props) => {
-
   const [myStory, setStory] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   /**
    * Get resolveRelations
    */
-  const { site: { siteMetadata: { storyblok: { resolveRelations }}}} = useStaticQuery(
+  const {
+    site: {
+      siteMetadata: {
+        storyblok: { resolveRelations },
+      },
+    },
+  } = useStaticQuery(
     graphql`
       query {
         site {
@@ -104,7 +110,6 @@ const StoryblokEntry = (props) => {
    *
    */
   useEffect(() => {
-
     // One time load only.
     if (!mounted) {
       // Storyblok Preview API access key.
@@ -115,13 +120,13 @@ const StoryblokEntry = (props) => {
         return;
       }
 
-      let script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = '//app.storyblok.com/f/storyblok-latest.js';
+      let script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "//app.storyblok.com/f/storyblok-latest.js";
       script.onload = () => {
         initBridge(key, sbResolveRelations, setStory);
       };
-      document.getElementsByTagName('head')[0].appendChild(script);
+      document.getElementsByTagName("head")[0].appendChild(script);
     }
 
     setMounted(true);
@@ -136,10 +141,13 @@ const StoryblokEntry = (props) => {
     return (
       <SbEditable content={myStory}>
         <div>
-          {React.createElement(Components(myStory.component), {key: myStory._uid, blok: myStory})}
+          {React.createElement(Components(myStory.component), {
+            key: myStory._uid,
+            blok: myStory,
+          })}
         </div>
       </SbEditable>
-    )
+    );
   }
 
   // Loading...
@@ -148,8 +156,7 @@ const StoryblokEntry = (props) => {
       <h1>Loading...</h1>
       <Loader type="Oval" color="#00BFFF" height={125} width={125} />
     </div>
-  )
-
-}
+  );
+};
 
 export default StoryblokEntry;

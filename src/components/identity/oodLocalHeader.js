@@ -4,7 +4,7 @@ import CreateBloks from "../../utilities/createBloks";
 import CenteredContainer from "../partials/centeredContainer";
 import HeaderSearchButton from "../search/headerSearchButton";
 
-const OodLocalHeader = props => (
+const OodLocalHeader = (props) => (
   <SbEditable content={props.blok}>
     <header
       className={`ood-header su-bg-white su-border-color-${props.blok.topBarColor}`}

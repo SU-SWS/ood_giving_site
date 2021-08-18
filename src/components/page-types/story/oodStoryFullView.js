@@ -10,7 +10,7 @@ import Heading from "../../partials/heading";
 import FlexCell from "../../partials/flexCell";
 import FullWidthImage from "../../media/fullWidthImage";
 
-const StoryFullView = props => {
+const StoryFullView = (props) => {
   const dateOptions = {
     weekday: "long",
     year: "numeric",

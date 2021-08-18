@@ -1,31 +1,34 @@
-import React from 'react'
-import SbEditable from 'storyblok-react'
-import HeaderNoImage from '../partials/headerNoImage'
-import BelowContent from '../partials/belowContent'
-import IconCardSection from '../partials/iconCardSection'
-import Footer from '../partials/footer'
-import SeoSocial from '../partials/seoSocial'
-import CreateBloks from "../../utilities/createBloks"
+import React from "react";
+import SbEditable from "storyblok-react";
+import HeaderNoImage from "../partials/headerNoImage";
+import BelowContent from "../partials/belowContent";
+import IconCardSection from "../partials/iconCardSection";
+import Footer from "../partials/footer";
+import SeoSocial from "../partials/seoSocial";
+import CreateBloks from "../../utilities/createBloks";
 
 const StoryOverview = (props) => {
   return (
     <SbEditable content={props.blok}>
-      <SeoSocial {...props}/>
+      <SeoSocial {...props} />
       <CreateBloks blokSection={props.blok.alertPicker} />
       <CreateBloks blokSection={props.blok.localHeader} />
-      <main id="main-content" className={`ood-interior-page ood-interior-page--no-image story-overview-page`}>
+      <main
+        id="main-content"
+        className={`ood-interior-page ood-interior-page--no-image story-overview-page`}
+      >
         <article className={`su-bg-white`}>
-          <HeaderNoImage {...props}/>
+          <HeaderNoImage {...props} />
           <CreateBloks blokSection={props.blok.stories} />
-          <BelowContent {...props}/>
+          <BelowContent {...props} />
           <footer className={`ood-interior-page__main-footer`}>
-            <IconCardSection {...props}/>
+            <IconCardSection {...props} />
           </footer>
         </article>
       </main>
-      <Footer {...props}/>
+      <Footer {...props} />
     </SbEditable>
-  )
+  );
 };
 
-export default StoryOverview
+export default StoryOverview;

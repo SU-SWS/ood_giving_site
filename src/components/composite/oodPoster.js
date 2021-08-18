@@ -7,7 +7,7 @@ import FlexCell from "../partials/flexCell";
 import Heading from "../partials/heading";
 import FullWidthImage from "../media/fullWidthImage";
 
-const OodPoster = props => {
+const OodPoster = (props) => {
   return (
     <SbEditable content={props.blok}>
       <div className={`ood-poster su-bg-${props.blok.backgroundColor}`}>

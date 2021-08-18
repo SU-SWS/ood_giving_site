@@ -5,7 +5,7 @@ import Heading from "../partials/heading";
 import SbLink from "../partials/sbLink";
 import FullWidthImage from "../media/fullWidthImage";
 
-const OodHomepageHero = props => {
+const OodHomepageHero = (props) => {
   return (
     <SbEditable content={props.blok}>
       <div className={`hero su-bg-${props.blok.backgroundColor}`}>

@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 /*
  ** The HtmlHead component is included into the html.js file, to always be loaded.
@@ -6,7 +6,7 @@ import React from "react"
  * ensure that favicons are provided from Stanford's media source, particularly for browser tab and phone home screens.
  */
 
-const HtmlHead = props => {
+const HtmlHead = (props) => {
   return (
     <>
       <link
@@ -113,20 +113,22 @@ const HtmlHead = props => {
         name="msapplication-square310x310logo"
         content="https://www-media.stanford.edu/assets/favicon/mstile-310x310.png"
       />
-      <meta 
-        name="google-site-verification" 
-        content="tUJ214wF9k79KCsAn5wIOyOFR2eH0RlBANimm5MCFfU" />
+      <meta
+        name="google-site-verification"
+        content="tUJ214wF9k79KCsAn5wIOyOFR2eH0RlBANimm5MCFfU"
+      />
       <script
         key="stripe"
         src="https://js.stripe.com/v3"
-        type="text/javascript" />
+        type="text/javascript"
+      />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
         href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
         rel="stylesheet"
       />
     </>
-  )
-}
+  );
+};
 
-export default HtmlHead
+export default HtmlHead;

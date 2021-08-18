@@ -1,14 +1,14 @@
-import React from 'react'
-import SbEditable from 'storyblok-react'
+import React from "react";
+import SbEditable from "storyblok-react";
 import Footer from "../partials/footer";
-import IconCardSection from '../partials/iconCardSection'
-import SeoSocial from "../partials/seoSocial"
-import CreateBloks from "../../utilities/createBloks"
+import IconCardSection from "../partials/iconCardSection";
+import SeoSocial from "../partials/seoSocial";
+import CreateBloks from "../../utilities/createBloks";
 
 const OodLandingPage = (props) => {
   return (
     <SbEditable content={props.blok}>
-      <SeoSocial {...props}/>
+      <SeoSocial {...props} />
       <div className={`ood-landing-page su-bg-fog-light`}>
         <CreateBloks blokSection={props.blok.alertPicker} />
         <CreateBloks blokSection={props.blok.localHeader} />
@@ -22,13 +22,13 @@ const OodLandingPage = (props) => {
             </section>
           </article>
           <footer className="ood-landing-page__main-footer">
-            <IconCardSection {...props}/>
+            <IconCardSection {...props} />
           </footer>
         </main>
-        <Footer {...props}/>
+        <Footer {...props} />
       </div>
     </SbEditable>
-  )
+  );
 };
 
-export default OodLandingPage
+export default OodLandingPage;

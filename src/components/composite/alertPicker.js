@@ -1,10 +1,8 @@
-import React from 'react'
-import CreateStories from '../../utilities/createStories'
+import React from "react";
+import CreateStories from "../../utilities/createStories";
 
 const AlertPicker = (props) => {
-  return (
-    <CreateStories stories={props.blok.alert} />
-  )
-}
+  return <CreateStories stories={props.blok.alert} />;
+};
 
-export default AlertPicker
+export default AlertPicker;

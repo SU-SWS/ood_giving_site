@@ -4,7 +4,7 @@ import AspectRatioImage from "../media/aspectRatioImage";
 import SbLink from "../partials/sbLink";
 import Heading from "../partials/heading";
 
-const OodTileCard = props => {
+const OodTileCard = (props) => {
   return (
     <SbEditable content={props.blok}>
       <article

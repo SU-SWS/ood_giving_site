@@ -36,7 +36,9 @@ const Pagination = ({ initialPage }) => {
             {isPreviousVisible && (
               <li className="search-pagination-item search-pagination-item--text">
                 <a
-                  onClick={$event => handlePageChange(currentPage - 1, $event)}
+                  onClick={($event) =>
+                    handlePageChange(currentPage - 1, $event)
+                  }
                   href={`/search-results?page=${currentPage - 1}`}
                   aria-label={`Go to previous page`}
                 >
@@ -51,7 +53,7 @@ const Pagination = ({ initialPage }) => {
                   className="search-pagination-item search-pagination-item--mobile-hidden"
                 >
                   <a
-                    onClick={$event => handlePageChange(1, $event)}
+                    onClick={($event) => handlePageChange(1, $event)}
                     href={`/search-results?page=1`}
                     aria-label={`Go to page 1`}
                   >
@@ -63,11 +65,11 @@ const Pagination = ({ initialPage }) => {
                 </li>
               </>
             )}
-            {previousPages.map(page => {
+            {previousPages.map((page) => {
               return (
                 <li className="search-pagination-item" key={page}>
                   <a
-                    onClick={$event => handlePageChange(page, $event)}
+                    onClick={($event) => handlePageChange(page, $event)}
                     href={`/search-results?page=${page}`}
                     aria-label={`Go to page ${page}`}
                   >
@@ -83,11 +85,11 @@ const Pagination = ({ initialPage }) => {
             >
               {currentPage}
             </li>
-            {nextPages.map(page => {
+            {nextPages.map((page) => {
               return (
                 <li key={page} className="search-pagination-item">
                   <a
-                    onClick={$event => handlePageChange(page, $event)}
+                    onClick={($event) => handlePageChange(page, $event)}
                     href={`/search-results?page=${page}`}
                     aria-label={`Go to page ${page}`}
                   >
@@ -103,7 +105,7 @@ const Pagination = ({ initialPage }) => {
                 </li>
                 <li className="search-pagination-item search-pagination-item--mobile-hidden">
                   <a
-                    onClick={$event => handlePageChange(nbPages, $event)}
+                    onClick={($event) => handlePageChange(nbPages, $event)}
                     href={`/search-results?page=${nbPages}`}
                     aria-label={`Go to page ${nbPages}`}
                   >
@@ -115,7 +117,9 @@ const Pagination = ({ initialPage }) => {
             {isNextVisible && (
               <li className="search-pagination-item search-pagination-item--text">
                 <a
-                  onClick={$event => handlePageChange(currentPage + 1, $event)}
+                  onClick={($event) =>
+                    handlePageChange(currentPage + 1, $event)
+                  }
                   href={`/search-results?page=${currentPage + 1}`}
                   aria-label={`Go to next page`}
                 >

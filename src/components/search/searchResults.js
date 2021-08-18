@@ -30,7 +30,7 @@ const VirtualSearchBox = ({ query }) => {
 
   return <AlgoliaVirtualSearchBox />;
 };
-const StateResults = props => {
+const StateResults = (props) => {
   const AlgoliaStateResults = connectStateResults(
     ({ searchState, isSearchStalled }) => {
       return (
@@ -62,7 +62,7 @@ const StateResults = props => {
   return <AlgoliaStateResults />;
 };
 
-const SearchResults = props => {
+const SearchResults = (props) => {
   // page is 1-based here, for better readability in the URL query parameter
   const [initialPage, setInitialPage] = useState(1);
 
@@ -115,7 +115,7 @@ const SearchResults = props => {
     }
   };
 
-  const handleSubmit = value => {
+  const handleSubmit = (value) => {
     setQuery(value);
     setIsEmptySearchVisible(!value);
   };

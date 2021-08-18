@@ -4,13 +4,14 @@ import AspectRatioImage from "../media/aspectRatioImage";
 import Heading from "../partials/heading";
 import SbLink from "../partials/sbLink";
 
-const OodStoryCard = props => {
+const OodStoryCard = (props) => {
   return (
     <SbEditable content={props.blok}>
       <article
         className={`ood-story-card
                ${props.blok.orientation ? "ood-story-card--horizontal" : ""}
-               ${props.blok.image.filename?.startsWith("http") &&
+               ${
+                 props.blok.image.filename?.startsWith("http") &&
                  props.blok.showImage === true
                    ? "ood-story-card--has-image"
                    : "ood-story-card--no-image"

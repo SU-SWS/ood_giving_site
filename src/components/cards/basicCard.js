@@ -3,9 +3,9 @@ import SbEditable from "storyblok-react";
 import AspectRatioImage from "../media/aspectRatioImage";
 import RichTextField from "../../utilities/richTextField";
 import CreateBloks from "../../utilities/createBloks";
-import Heading from '../partials/heading';
+import Heading from "../partials/heading";
 
-const BasicCard = props => {
+const BasicCard = (props) => {
   return (
     <SbEditable content={props.blok}>
       <article

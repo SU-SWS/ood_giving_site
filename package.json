@@ -43,6 +43,8 @@
     "trim": "^1.0.1"
   },
   "devDependencies": {
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "netlify-cli": "^3.29.17",
     "node-sass": "^6.0.0",
     "postcss": "^8.2.15",
@@ -60,6 +62,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {

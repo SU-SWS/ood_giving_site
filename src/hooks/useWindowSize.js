@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 
-/** 
- * @see: https://usehooks.com/ 
+/**
+ * @see: https://usehooks.com/
  **/
 
 function UseWindowSize() {

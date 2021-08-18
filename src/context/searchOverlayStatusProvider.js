@@ -3,7 +3,7 @@ import SearchOverlay from "../components/search/searchOverlay";
 
 export const SearchOverlayOpenContext = React.createContext(null);
 
-const SearchOverlayOpenContextProvider = props => {
+const SearchOverlayOpenContextProvider = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -14,9 +14,8 @@ const SearchOverlayOpenContextProvider = props => {
 
       document.getElementsByTagName("html")[0].style.overflowY = "hidden";
       document.getElementsByTagName("body")[0].style.position = "fixed";
-      document.getElementsByTagName(
-        "body"
-      )[0].style.paddingRight = scrollbarWidth;
+      document.getElementsByTagName("body")[0].style.paddingRight =
+        scrollbarWidth;
     } else {
       document.getElementsByTagName("body")[0].style.position = "relative";
       document.getElementsByTagName("html")[0].style.overflowY = "scroll";
@@ -38,9 +37,11 @@ const SearchOverlayOpenContextProvider = props => {
   );
 };
 
-export default ({ element }) => (
+const SearchOverlayStatusProvider = ({ element }) => (
   <SearchOverlayOpenContextProvider>
     {element}
     <SearchOverlay />
   </SearchOverlayOpenContextProvider>
 );
+
+export default SearchOverlayStatusProvider;

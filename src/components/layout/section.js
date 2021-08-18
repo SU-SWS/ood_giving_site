@@ -3,7 +3,7 @@ import SbEditable from "storyblok-react";
 import RichTextField from "../../utilities/richTextField";
 import CreateBloks from "../../utilities/createBloks";
 import CenteredContainer from "../partials/centeredContainer";
-import Heading from '../partials/heading';
+import Heading from "../partials/heading";
 
 const Section = (props) => {
   // Hide and don't return nothing.
@@ -15,7 +15,7 @@ const Section = (props) => {
   let alignmentWrapper = "su-text-align-left";
   let alignmentTab = "";
   if (props.blok.isCenterAlign) {
-    titleWidth = "su-max-w-900"
+    titleWidth = "su-max-w-900";
     alignmentWrapper = "su-text-align-center su-w-full su-max-w-800";
     alignmentTab = "su-center-tab";
   }
