@@ -5,6 +5,8 @@ const activeEnv =
 
 console.log(`Using environment config: '${activeEnv}'`);
 
+const siteUrl = "https://giving-dev.netlify.app";
+
 require("dotenv").config({
   path: `.env.${activeEnv}`,
 });
@@ -27,7 +29,7 @@ module.exports = {
     title: `Giving to Stanford`,
     description: `Giving to Stanford.`,
     author: `Stanford University Office of Development`,
-    siteUrl: `https://giving-dev.netlify.app`,
+    siteUrl,
     // This key is for metadata only and can be statically queried
     storyblok: {
       resolveRelations: storyblokRelations,
@@ -43,7 +45,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
-        siteUrl: "https://giving-dev.netlify.app",
+        siteUrl,
       },
     },
     {
@@ -99,7 +101,7 @@ module.exports = {
             return { ...page.node };
           });
         },
-        resolveSiteUrl: () => "https://giving-dev.netlify.app",
+        resolveSiteUrl: () => siteUrl,
         excludes: [
           "/editor",
           "/editor/**",

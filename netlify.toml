@@ -20,14 +20,13 @@
     Referrer-Policy = "origin-when-cross-origin"
     Strict-Transport-Security = "max-age=2592000"
     Permissions-Policy = "vibrate=(), geolocation=(), midi=(), notifications=(), push=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), speaker=()"
-    Basic-Auth = "adapt:letmein2021"
 # SUBMIT SITEMAP PLUGIN
 # https://www.npmjs.com/package/netlify-plugin-submit-sitemap
 # ###############################################################################
-# [[plugins]]
-# package = "netlify-plugin-submit-sitemap"
-#   [plugins.inputs]
-#     # Path to the sitemap URL (optional, default = /sitemap.xml)
-#     sitemapPath = "/sitemap/sitemap-index.xml"
+[[plugins]]
+package = "netlify-plugin-submit-sitemap"
+  [plugins.inputs]
+    # Path to the sitemap URL (optional, default = /sitemap.xml)
+    sitemapPath = "/sitemap/sitemap-index.xml"
 # REDIRECTS are located in static/_redirects
 # ###############################################################################
