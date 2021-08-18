@@ -5,7 +5,7 @@ const activeEnv =
 
 console.log(`Using environment config: '${activeEnv}'`);
 
-const siteUrl = "https://giving-dev.netlify.app";
+const siteUrl = process.env.GATSBY_SITE_URL || "https://giving.stanford.edu";
 
 require("dotenv").config({
   path: `.env.${activeEnv}`,
