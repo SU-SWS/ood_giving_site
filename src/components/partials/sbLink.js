@@ -7,10 +7,10 @@ import { config } from "../../utilities/config";
 /**
  * Reusable Storyblok Link component for various link types
  * eg: internal, external, asset
- * */
+ **/
 
 const SbLink = React.forwardRef((props, ref) => {
-  const { basePath } = config;
+  const basePath = config.basePath;
 
   // Storyblok link object either has a url (external links)
   // or cached_url (internal or asset links)
@@ -40,7 +40,7 @@ const SbLink = React.forwardRef((props, ref) => {
   // if the existing page url has them.
   passParams.forEach((i, v) => {
     if (parsedSearch[i] !== undefined) {
-      utms += `${i}=${parsedSearch[i]}&`;
+      utms += i + "=" + parsedSearch[i] + "&";
     }
   });
   // Strip off the last ampersand.
@@ -54,16 +54,16 @@ const SbLink = React.forwardRef((props, ref) => {
     linkUrl += linkUrl.endsWith("/") ? "" : "/";
 
     if (linkUrl.match(/\?/) && utms.length) {
-      linkUrl += `&${utms}`;
+      linkUrl += "&" + utms;
     } else if (utms.length) {
-      linkUrl += `?${utms}`;
+      linkUrl += "?" + utms;
     }
 
     return (
       <Link
         ref={ref}
         to={linkUrl}
-        className={`${linkClasses} ${storyClasses}`}
+        className={linkClasses + " " + storyClasses}
         activeClassName={activeClass}
         {...otherAttributes}
       >
@@ -79,11 +79,11 @@ const SbLink = React.forwardRef((props, ref) => {
       <a
         ref={ref}
         href={linkUrl}
-        className={`${linkClasses} ${urlClasses}`}
+        className={linkClasses + " " + urlClasses}
         {...otherAttributes}
       >
         {props.children}
-        <span className="su-sr-only-element"> (external link)</span>
+        <span className={"su-sr-only-element"}> (external link)</span>
       </a>
     );
   }
@@ -95,11 +95,11 @@ const SbLink = React.forwardRef((props, ref) => {
     if (config.isNetlify) {
       linkUrl = linkUrl.replace(
         /http?(s)\:\/\/a\.storyblok\.com/gi,
-        `${config.assetCdn}a`
+        config.assetCdn + "a"
       );
       linkUrl = linkUrl.replace(
         /http?(s)\:\/\/img?[0-9]\.storyblok\.com/gi,
-        `${config.assetCdn}i`
+        config.assetCdn + "i"
       );
     }
 
@@ -107,8 +107,8 @@ const SbLink = React.forwardRef((props, ref) => {
       <a
         ref={ref}
         href={linkUrl}
-        className={`${linkClasses} ${assetClasses}`}
-        target="_blank"
+        className={linkClasses + " " + assetClasses}
+        target={`_blank`}
         {...otherAttributes}
       >
         {props.children}

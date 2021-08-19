@@ -21,8 +21,9 @@ const Autocomplete = React.forwardRef((props, ref) => {
     connectAutoComplete(({ refine, hits, currentRefinement }) => {
       const [value, setValue] = useState(initialTerm);
       const [currentSuggestions, setCurrentSuggestions] = useState([]);
-      const [shouldRenderSuggestions, setShouldRenderSuggestions] =
-        useState(false);
+      const [shouldRenderSuggestions, setShouldRenderSuggestions] = useState(
+        false
+      );
 
       const handleSubmit = ($event, data) => {
         $event?.preventDefault();
@@ -41,7 +42,7 @@ const Autocomplete = React.forwardRef((props, ref) => {
         setValue(newValue);
       };
 
-      const onKeyDown = (event) => {
+      const onKeyDown = event => {
         if (event.key === "Enter") {
           handleSubmit(event);
         }
@@ -57,14 +58,14 @@ const Autocomplete = React.forwardRef((props, ref) => {
         onFocus: () => setShouldRenderSuggestions(true),
       };
 
-      const handleSuggestionsFetch = (data) => {
+      const handleSuggestionsFetch = data => {
         const newValue = data?.value ?? "";
 
         refine(newValue);
       };
 
       useEffect(() => {
-        if (initialTerm) {
+        if (initialTerm) { 
           props.onSubmit(initialTerm);
         }
       }, [initialTerm]);
@@ -98,8 +99,8 @@ const Autocomplete = React.forwardRef((props, ref) => {
             onSuggestionsFetchRequested={handleSuggestionsFetch}
             onSuggestionsClearRequested={() => {}}
             onSuggestionSelected={handleSubmit}
-            getSuggestionValue={(hit) => hit.query}
-            renderSuggestion={(hit) => hit.query}
+            getSuggestionValue={hit => hit.query}
+            renderSuggestion={hit => hit.query}
             inputProps={inputProps}
           />
           {value && (

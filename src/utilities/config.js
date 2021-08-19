@@ -16,6 +16,6 @@ const config = {
     xl: 1200,
     "2xl": 1500,
   },
-};
+}
 
-export { config };
+export { config }

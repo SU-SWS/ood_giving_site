@@ -17,11 +17,11 @@ function createMarkup(storyblokHTML) {
   if (config.isNetlify) {
     markup = markup.replace(
       /http?(s)\:\/\/a\.storyblok\.com/gi,
-      `${config.assetCdn}a`
+      config.assetCdn + "a"
     );
     markup = markup.replace(
       /http?(s)\:\/\/img?[0-9]\.storyblok\.com/gi,
-      `${config.assetCdn}i`
+      config.assetCdn + "i"
     );
   }
 
@@ -29,8 +29,8 @@ function createMarkup(storyblokHTML) {
   return { __html: markup };
 }
 
-const RichTextField = ({ data }) => (
-  <div dangerouslySetInnerHTML={createMarkup(data)} />
-);
+const RichTextField = ({ data }) => {
+  return <div dangerouslySetInnerHTML={createMarkup(data)} />;
+};
 
 export default RichTextField;

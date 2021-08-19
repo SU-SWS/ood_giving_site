@@ -1,51 +1,48 @@
-import React, { useRef, useState } from "react";
-import SbEditable from "storyblok-react";
-import CreateBloks from "../../../utilities/createBloks";
-import Heading from "../../partials/heading";
-import UseWindowSize from "../../../hooks/useWindowSize";
-import UseEscape from "../../../hooks/useEscape";
-import UseOnClickOutside from "../../../hooks/useOnClickOutside";
-import { config } from "../../../utilities/config";
+import React, { useRef, useState } from "react"
+import SbEditable from 'storyblok-react'
+import CreateBloks from "../../../utilities/createBloks"
+import Heading from "../../partials/heading"
+import UseWindowSize from "../../../hooks/useWindowSize"
+import UseEscape from "../../../hooks/useEscape"
+import UseOnClickOutside from "../../../hooks/useOnClickOutside"
+import { config } from "../../../utilities/config"
 
 const OodContentMenu = (props) => {
-  const windowSize = UseWindowSize();
+  let windowSize = UseWindowSize();
   const [menuOpened, setMenuOpened] = useState(false);
   const ref = useRef(null);
   const burgerRef = useRef(null);
-  const isExpanded = (x) => x.getAttribute("aria-expanded") === "true";
+  const isExpanded = x => x.getAttribute('aria-expanded') === 'true';
 
   const toggleMenu = () => {
     setMenuOpened(!menuOpened);
-  };
+  }
 
   // Close menu if escape key is pressed and return focus to the menu button
   UseEscape(() => {
-    if (burgerRef.current && isExpanded(burgerRef.current)) {
-      setMenuOpened(false);
-      burgerRef.current.focus();
+      if (burgerRef.current && isExpanded(burgerRef.current)) {
+        setMenuOpened(false)
+        burgerRef.current.focus();
+      }
     }
-  });
+  );
 
   UseOnClickOutside(ref, () => setMenuOpened(false));
 
   const Menus = (props) => (
     <>
-      <div className="ood-content-nav__menu-group">
+      <div className={`ood-content-nav__menu-group`}>
         {props.blok.menuTitle && (
-          <Heading level="h2" classes="ood-content-nav__title">
-            {props.blok.menuTitle}
-          </Heading>
+          <Heading level={'h2'} classes={`ood-content-nav__title`}>{props.blok.menuTitle}</Heading>
         )}
         <ul className="su-secondary-nav__menu su-secondary-nav__menu-lv1 ood-content-nav__menu ood-content-nav__menu-lv1">
           <CreateBloks blokSection={props.blok.menuLinks} />
         </ul>
       </div>
       {props.blok.relatedMenuLinks && (
-        <div className="ood-content-nav__menu-group">
+        <div className={`ood-content-nav__menu-group`}>
           {props.blok.relatedMenuTitle && (
-            <Heading level="h2" classes="ood-content-nav__title">
-              {props.blok.relatedMenuTitle}
-            </Heading>
+            <Heading level={'h2'} classes={`ood-content-nav__title`}>{props.blok.relatedMenuTitle}</Heading>
           )}
           <ul className="su-secondary-nav__menu su-secondary-nav__menu-lv1 ood-content-nav__menu ood-content-nav__menu-lv1 ood-content-nav__menu-related">
             <CreateBloks blokSection={props.blok.relatedMenuLinks} />
@@ -59,42 +56,28 @@ const OodContentMenu = (props) => {
   if (windowSize.width >= config.breakpoint.lg) {
     return (
       <SbEditable content={props.blok}>
-        <nav
-          className="su-secondary-nav ood-content-nav"
-          aria-label="Section Content Menu"
-        >
-          <div className="ood-content-nav__menus">
+        <nav className="su-secondary-nav ood-content-nav" aria-label="Section Content Menu">
+          <div className={`ood-content-nav__menus`}>
             <Menus {...props} />
           </div>
         </nav>
       </SbEditable>
-    );
+    )
   }
   // Mobile/tablet version of the content menu with toggle button and collapsable with aria labels
   return (
     <SbEditable content={props.blok}>
-      <nav
-        className="su-secondary-nav ood-content-nav"
-        aria-label="Section Content Menu"
-        ref={ref}
-      >
-        <button
-          className="ood-content-nav__toggle"
-          aria-expanded={menuOpened}
-          onClick={toggleMenu}
-          ref={burgerRef}
-        >
-          {menuOpened ? "Close" : "Section Menu"}{" "}
-          <i
-            aria-hidden="true"
-            className={`fas fa-${menuOpened ? "times" : "bars"}`}
-          />
-        </button>
-        <div className="ood-content-nav__menus" aria-hidden={!menuOpened}>
+      <nav className="su-secondary-nav ood-content-nav" aria-label="Section Content Menu" ref={ref}>
+        <button className={`ood-content-nav__toggle`}
+                aria-expanded={menuOpened}
+                onClick={toggleMenu}
+                ref={burgerRef}
+        >{menuOpened ? "Close" : "Section Menu"} <i aria-hidden="true" className={`fas fa-${menuOpened ? "times" : "bars"}`} /></button>
+        <div className={`ood-content-nav__menus`} aria-hidden={!menuOpened}>
           <Menus {...props} />
         </div>
       </nav>
     </SbEditable>
-  );
-};
-export default OodContentMenu;
+  )
+}
+export default OodContentMenu

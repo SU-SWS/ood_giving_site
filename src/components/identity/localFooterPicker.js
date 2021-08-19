@@ -1,8 +1,10 @@
-import React from "react";
-import CreateStories from "../../utilities/createStories";
+import React from 'react'
+import CreateStories from "../../utilities/createStories"
 
-const LocalFooterPicker = (props) => (
-  <CreateStories stories={props.blok.localFooter} />
-);
+const LocalFooterPicker = (props) => {
+  return (
+    <CreateStories stories={props.blok.localFooter} />
+  )
+}
 
-export default LocalFooterPicker;
+export default LocalFooterPicker

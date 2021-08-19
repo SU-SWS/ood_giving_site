@@ -1,6 +1,6 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import SbLink from "../partials/sbLink";
+import React from "react"
+import SbEditable from "storyblok-react"
+import SbLink from "../partials/sbLink"
 
 const CtaLink = React.forwardRef((props, ref) => (
   <SbEditable content={props.blok}>
@@ -24,6 +24,6 @@ const CtaLink = React.forwardRef((props, ref) => (
       </div>
     )}
   </SbEditable>
-));
+))
 
-export default CtaLink;
+export default CtaLink

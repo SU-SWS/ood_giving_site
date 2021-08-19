@@ -3,7 +3,7 @@ import SbEditable from "storyblok-react";
 import RichTextField from "../../utilities/richTextField";
 import AspectRatioImage from "../media/aspectRatioImage";
 
-const OodQuoteCard = (props) => (
+const OodQuoteCard = props => (
   <SbEditable content={props.blok}>
     <article
       className={`ood-quote-card su-bg-${
@@ -19,8 +19,8 @@ const OodQuoteCard = (props) => (
                props.blok.borderColor
                  ? `su-border-gr-${props.blok.borderColor}`
                  : props.blok.backgroundColor === "white"
-                 ? "su-border-color-black-10"
-                 : "su-border-color-black-11"
+                     ? "su-border-color-black-10"
+                     : "su-border-color-black-11"
              }
              su-text-align-${props.blok.textAlign}`}
     >
@@ -35,11 +35,9 @@ const OodQuoteCard = (props) => (
                       }
           `}
           >
-            <span
-              aria-hidden="true"
-              className={`ood-quote-card__quote-icon
-                      su-before-color-${props.blok.quotationMarkColor}`}
-            />
+
+            <span aria-hidden="true" className={`ood-quote-card__quote-icon
+                      su-before-color-${props.blok.quotationMarkColor}`}></span>
             <RichTextField data={props.blok.quoteText} />
           </blockquote>
         )}
@@ -61,13 +59,10 @@ const OodQuoteCard = (props) => (
             {...props}
             filename={props.blok.image.filename}
             alt={props.blok.image.alt}
-            classPrefix="ood-quote-card"
-            imageSize="thumbnail"
-            otherClasses={
-              props.blok.imageShape === "round" &&
-              "ood-quote-card__media--rounded"
-            }
-            aspectRatio="1x1"
+            classPrefix={"ood-quote-card"}
+            imageSize={"thumbnail"}
+            otherClasses={props.blok.imageShape === 'round' && "ood-quote-card__media--rounded"}
+            aspectRatio={"1x1"}
             visibleHorizontal={props.blok.visibleHorizontal}
             visibleVertical={props.blok.visibleVertical}
           />

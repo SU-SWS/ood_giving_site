@@ -1,8 +1,10 @@
-import React from "react";
-import CreateStories from "../../utilities/createStories";
+import React from 'react'
+import CreateStories from "../../utilities/createStories"
 
-const LocalHeaderPicker = (props) => (
-  <CreateStories stories={props.blok.localHeader} />
-);
+const LocalHeaderPicker = (props) => {
+  return (
+    <CreateStories stories={props.blok.localHeader} />
+  )
+}
 
-export default LocalHeaderPicker;
+export default LocalHeaderPicker

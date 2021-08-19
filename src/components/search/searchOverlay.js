@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { navigate } from "gatsby";
-import { LocationProvider } from "@reach/router";
-import { Configure, InstantSearch } from "react-instantsearch-dom";
 import { SearchOverlayOpenContext } from "../../context/searchOverlayStatusProvider";
+import { navigate } from "gatsby";
 import UseEscape from "../../hooks/useEscape";
 import UseSearchOverlayData from "../../hooks/useSearchOverlayData";
+import { LocationProvider } from "@reach/router";
 import CtaLink from "../simple/ctaLink";
 import { config } from "../../utilities/config";
 import UseFocusTrap from "../../hooks/useFocusTrap";
 import { searchClient } from "./searchResults";
+import { Configure, InstantSearch } from "react-instantsearch-dom";
 import Autocomplete from "./autocomplete";
 import Heading from "../partials/heading";
 import CenteredContainer from "../partials/centeredContainer";
@@ -28,7 +28,7 @@ const SearchOverlay = () => {
 
   const previousSubmittedTermRef = useRef("");
 
-  const submitTerm = (term) => {
+  const submitTerm = term => {
     if (term.length > 0 && term !== previousSubmittedTermRef.current) {
       navigate(`${config.basePath}search-results?term=${term}`);
 
@@ -65,7 +65,7 @@ const SearchOverlay = () => {
   return (
     <div className={`search-overlay ${isOpen ? "visible" : "hidden"}`}>
       <LocationProvider>
-        <CenteredContainer classes="search-container su-pt-5" flex>
+        <CenteredContainer classes="search-container su-pt-5" flex={true}>
           <FlexCell lg={11} xl={9} xxl={8} classes="su-mx-auto">
             <div className="search-header">
               <button
@@ -80,12 +80,12 @@ const SearchOverlay = () => {
             </div>
             <div className="search-body">
               <Heading
-                level="h2"
+                level={"h2"}
                 classes="search-heading su-mb-4"
-                serif
-                weight="bold"
-                color="white"
-                align="center"
+                serif={true}
+                weight={"bold"}
+                color={"white"}
+                align={"center"}
               >
                 {introduction}
               </Heading>
@@ -113,20 +113,20 @@ const SearchOverlay = () => {
             </p>
             <div className="search-footer su-mt-3">
               <Heading
-                level="h3"
+                level={"h3"}
                 classes="search-categories-headline su-mb-2"
-                serif
-                weight="bold"
-                color="white"
+                serif={true}
+                weight={"bold"}
+                color={"white"}
               >
                 {categoriesHeadline}
               </Heading>
               <div className="su-flex search-footer-cols">
                 <FlexCell md={6} classes="search-footer-col">
                   <Heading
-                    level="h4"
-                    weight="semibold"
-                    color="white"
+                    level={"h4"}
+                    weight={"semibold"}
+                    color={"white"}
                     classes="search-category-title su-mb-1"
                   >
                     {categoriesLeftHeadline}
@@ -145,9 +145,9 @@ const SearchOverlay = () => {
                 </FlexCell>
                 <FlexCell md={6} classes="search-footer-col">
                   <Heading
-                    level="h4"
-                    weight="semibold"
-                    color="white"
+                    level={"h4"}
+                    weight={"semibold"}
+                    color={"white"}
                     classes="search-category-title su-mb-1"
                   >
                     {categoriesRightHeadline}

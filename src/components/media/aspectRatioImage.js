@@ -2,7 +2,7 @@ import React from "react";
 import SbEditable from "storyblok-react";
 import transformImage from "../../utilities/transformImage";
 
-const AspectRatioImage = (props) => {
+const AspectRatioImage = props => {
   let processedImg = "";
   const Element = props.element ?? "figure";
 
@@ -28,7 +28,8 @@ const AspectRatioImage = (props) => {
       processedImg = transformImage(props.filename, "/800x0");
     } else if (props.imageSize === "gallery-slide") {
       processedImg = transformImage(props.filename, "/1400x0");
-    } else if (imgWidth > 1000) {
+    } 
+    else if (imgWidth > 1000) {
       processedImg = transformImage(props.filename, "/1000x0");
     } else {
       processedImg = transformImage(props.filename, "");

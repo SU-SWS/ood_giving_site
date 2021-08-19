@@ -13,7 +13,7 @@ import Lockup from "./identity/lockup";
 import OodCampaignHeader from "./identity/oodCampaignHeader";
 // Cards
 import BasicCard from "./cards/basicCard";
-import OodCampaignCard from "./cards/oodCampaignCard";
+import OodCampaignCard from './cards/oodCampaignCard';
 import OodIconCard from "./cards/oodIconCard";
 import OodSupportCard from "./cards/oodSupportCard";
 import OodQuoteCard from "./cards/oodQuoteCard";
@@ -65,8 +65,8 @@ import Accordion from "./composite/accordion";
 import AccordionItem from "./composite/accordionItem";
 import CtaGroup from "./composite/ctaGroup";
 import SearchResults from "./search/searchResults";
-import oodGallerySlideshow from "./composite/oodGallerySlideshow";
-import OodCampaignImpact from "./composite/oodCampaignImpact";
+import oodGallerySlideshow from './composite/oodGallerySlideshow';
+import OodCampaignImpact from './composite/oodCampaignImpact';
 
 const ComponentList = {
   page: Page,
@@ -128,7 +128,7 @@ const ComponentList = {
   searchResults: SearchResults,
   alert: Alert,
   alertPicker: AlertPicker,
-  oodGallerySlideshow,
+  oodGallerySlideshow: oodGallerySlideshow,
 };
 
 const Components = (type) => {

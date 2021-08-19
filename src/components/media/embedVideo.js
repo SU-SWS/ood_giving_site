@@ -29,8 +29,8 @@ const VideoWrapper = (props) => {
 
   if (props.blok.videoWidth === "story") {
     return (
-      <CenteredContainer flex classes={videoWrapperClasses}>
-        <FlexCell lg={8} classes="su-mx-auto">
+      <CenteredContainer flex={true} classes={videoWrapperClasses}>
+        <FlexCell lg={8} classes={"su-mx-auto"}>
           {props.children}
         </FlexCell>
       </CenteredContainer>
@@ -38,8 +38,8 @@ const VideoWrapper = (props) => {
   }
   if (props.blok.videoWidth === "inset") {
     return (
-      <CenteredContainer flex classes={videoWrapperClasses}>
-        <FlexCell sm={10} md={8} lg={7} xl={6} classes="su-mx-auto">
+      <CenteredContainer flex={true} classes={videoWrapperClasses}>
+        <FlexCell sm={10} md={8} lg={7} xl={6} classes={"su-mx-auto"}>
           {props.children}
         </FlexCell>
       </CenteredContainer>
@@ -51,7 +51,7 @@ const VideoWrapper = (props) => {
 };
 
 const EmbedVideo = (props) => {
-  const { videoUrl } = props.blok;
+  let videoUrl = props.blok.videoUrl;
 
   const startMin = props.blok.startMinute
     ? parseInt(props.blok.startMinute)
@@ -71,7 +71,7 @@ const EmbedVideo = (props) => {
           >
             <ReactPlayer
               url={videoUrl}
-              controls
+              controls={true}
               config={{
                 youtube: {
                   playerVars: { start: convertToSecond(startMin, startSec) },

@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby"
 
 /**
  * @returns {{
@@ -31,9 +31,9 @@ const UseSearchOverlayData = () => {
         }
       }
     `
-  );
+  )
 
-  return JSON.parse(content);
-};
+  return JSON.parse(content)
+}
 
-export default UseSearchOverlayData;
+export default UseSearchOverlayData
