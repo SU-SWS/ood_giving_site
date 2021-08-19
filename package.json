@@ -43,10 +43,18 @@
     "trim": "^1.0.1"
   },
   "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "netlify-cli": "^3.29.17",
     "node-sass": "^6.0.0",
     "postcss": "^8.2.15",
-    "prettier": "2.3.0",
+    "prettier": "^2.3.0",
     "react-refresh": "^0.10.0"
   },
   "keywords": [
@@ -60,6 +68,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
