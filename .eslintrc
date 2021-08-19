@@ -1,78 +1,29 @@
 {
-    "parser": "@babel/eslint-parser",
-    "plugins": [
-      "react",
-      "prettier"
-    ],
-    "extends": [
-      "plugin:react/recommended",
-      "airbnb",
-      "airbnb/hooks",
-      "prettier"
-    ],
-    "rules": {
-      "jsx-a11y/label-has-associated-control": [ 2, {
-        "components": [ "Label" ],
-        "required": {
-            "some": [ "nesting", "id" ]
-        }
-      }],
-      "prettier/prettier": [
-        "error",
-        {
-          "endOfLine": "lf",
-          "semi": true,
-          "singleQuote": false,
-          "tabWidth": 2,
-          "trailingComma": "es5"
-        }
-      ],
-      "space-before-function-paren": 0,
-      "react/jsx-props-no-spreading": 0,
-      "react/prop-types": 0,
-      "react/jsx-handler-names": 0,
-      "react/jsx-filename-extension": [
-        "error",
-        {
-          "extensions": [
-              ".js",
-              ".jsx"
-          ]
-        }
-      ],
-      "react/jsx-fragments": 0,
-      "react/no-unused-prop-types": 0,
-      "react/require-default-props": 0,
-      "import/prefer-default-export": 0,
-      "import/no-extraneous-dependencies": 0,
-      "import/no-cycle": 0,
-      "import/no-unresolved": 0,
-      "no-unused-vars": [
-        "warn",
-        {
-          "vars": "local",
-          "args": "none"
-        }
-      ],
-      "import/export": 0,
-      "func-names": 0,
-      "semi": [1, "always"] // 1 is for warning
-    },
-    "env": {
-      "node": true,
-      "browser": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 2020,
-      "ecmaFeatures": {
-        "legacyDecorators": true,
-        "jsx": true
-      }
-    },
-    "settings": {
-      "react": {
-        "version": "16"
-      }
+  parser: "@typescript-eslint/parser",
+  extends: [
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  settings: {
+    react: {
+      version: "detect"
     }
+  },
+  env: {
+    browser: true,
+    node: true,
+    es6: true
+  },
+  plugins: ["react", "prettier"],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true
+    },
+    ecmaVersion: 2018,
+    sourceType: "module"
+  },
+  rules: {
+    "react/prop-types": "off",
+    "prettier/prettier": "error"
   }
-  
+}
