@@ -16,10 +16,8 @@ class Accordion extends React.Component {
 
     // If there are neste accordion items we need to track them so we can call their handlers.
     if (this.props.blok.accordionItems !== undefined) {
-      this.accordionItems = this.props.blok.accordionItems.map(
-        (item, index) => {
-          return React.createRef();
-        }
+      this.accordionItems = this.props.blok.accordionItems.map((item, index) =>
+        React.createRef()
       );
     }
   }
@@ -42,7 +40,7 @@ class Accordion extends React.Component {
 
   // Render method.
   render() {
-    let props = this.props;
+    const { props } = this;
 
     let accordionBorderColor = "su-border-color-palo-alto-light";
     let accordionButtonColor = "ood-cta__button--secondary";
@@ -75,11 +73,11 @@ class Accordion extends React.Component {
         >
           {props.blok.title && (
             <Heading
-              defaultLevel={"h3"}
+              defaultLevel="h3"
               level={props.blok.headingLevel}
               serif={accordionFont}
               weight={accordionFontWeight}
-              classes={"ood-accordion__heading"}
+              classes="ood-accordion__heading"
             >
               {props.blok.title}
             </Heading>
@@ -107,12 +105,12 @@ class Accordion extends React.Component {
               props.blok.accordionItems.map((blok, index) =>
                 React.createElement(Components(blok.component), {
                   key: blok._uid,
-                  blok: blok,
+                  blok,
                   ref: this.accordionItems[index],
-                  accordionBorderColor: accordionBorderColor,
-                  accordionAfterColor: accordionAfterColor,
-                  accordionFont: accordionFont,
-                  accordionFontWeight: accordionFontWeight,
+                  accordionBorderColor,
+                  accordionAfterColor,
+                  accordionFont,
+                  accordionFontWeight,
                 })
               )}
           </ul>

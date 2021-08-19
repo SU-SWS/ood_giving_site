@@ -1,7 +1,7 @@
-import React from "react"
-import SbEditable from "storyblok-react"
-import CreateBloks from "../../utilities/createBloks"
-import Heading from "./heading"
+import React from "react";
+import SbEditable from "storyblok-react";
+import CreateBloks from "../../utilities/createBloks";
+import Heading from "./heading";
 import FullWidthImage from "../media/fullWidthImage";
 
 /* The Hero section with fullwidth image is referenced by the Campaign Page type. */
@@ -9,25 +9,36 @@ import FullWidthImage from "../media/fullWidthImage";
 const CampaignHero = (props) => {
   const { blok, htmlId } = props;
 
-  const isFullWidthImage = blok.heroStyle === 'fullwidth-image';
+  const isFullWidthImage = blok.heroStyle === "fullwidth-image";
 
   const campaignContentClasses = `campaign-page__hero-content
   campaign-page__hero-${blok.heroContentPosition}
   su-bg-${blok.heroBgColor}
   su-${blok.heroContentColor}
-  ${isFullWidthImage ? 'flex-container column-grid centered-container su-align-items-center' : ''}
-  ${blok.heroContentPosition === 'right' && isFullWidthImage ? 'su-flex-row-reverse' : ''}`;
+  ${
+    isFullWidthImage
+      ? "flex-container column-grid centered-container su-align-items-center"
+      : ""
+  }
+  ${
+    blok.heroContentPosition === "right" && isFullWidthImage
+      ? "su-flex-row-reverse"
+      : ""
+  }`;
 
-  const full_width_image = blok.image?.filename != null ? (
-    <FullWidthImage
-      {...props}
-      filename={blok.image?.filename}
-      classPrefix={"campaign-page"}
-      visibleVertical={"center"}
-      visibleHorizontal={blok.visibleHorizontal}
-      alt={blok.image?.alt ?? ""}
-    />
-  ) : (<div className={'full-width-image-placeholder'} aria-hidden='true' />);
+  const full_width_image =
+    blok.image?.filename != null ? (
+      <FullWidthImage
+        {...props}
+        filename={blok.image?.filename}
+        classPrefix="campaign-page"
+        visibleVertical="center"
+        visibleHorizontal={blok.visibleHorizontal}
+        alt={blok.image?.alt ?? ""}
+      />
+    ) : (
+      <div className="full-width-image-placeholder" aria-hidden="true" />
+    );
 
   return (
     <SbEditable content={blok}>
@@ -35,44 +46,50 @@ const CampaignHero = (props) => {
         id={htmlId}
         className={`campaign-page__hero campaign-page__hero--${blok.heroStyle}`}
       >
-        <div className='campaign-page__image-wrapper'>
-          {full_width_image}
-        </div>
+        <div className="campaign-page__image-wrapper">{full_width_image}</div>
         <div className={campaignContentClasses}>
-          <div className={`campaign-page__hero-content-wrapper ${isFullWidthImage ? 'flex-md-9-of-12 flex-lg-6-of-12 column-grid__column' : ''}`}>
-            {blok.logo?.filename &&
+          <div
+            className={`campaign-page__hero-content-wrapper ${
+              isFullWidthImage
+                ? "flex-md-9-of-12 flex-lg-6-of-12 column-grid__column"
+                : ""
+            }`}
+          >
+            {blok.logo?.filename && (
               <img
                 className={`campaign-page__hero-content-logo ${blok.logoAlignment}`}
                 src={blok.logo?.filename}
                 alt={blok.logo?.alt}
               />
-            }
-            <div className={`campaign-page__hero-content-body ${blok.heroContentAlignment}`}>
+            )}
+            <div
+              className={`campaign-page__hero-content-body ${blok.heroContentAlignment}`}
+            >
               <Heading
-                level={"h1"}
-                weight={`${isFullWidthImage  ? 'regular' : 'semibold'}`}
-                serif={blok.heroStyle === 'fullwidth-image'}
+                level="h1"
+                weight={`${isFullWidthImage ? "regular" : "semibold"}`}
+                serif={blok.heroStyle === "fullwidth-image"}
                 classes={`campaign-page__title ${blok.heroTitleType}`}
               >
                 {blok.title}
               </Heading>
-              {blok.bar &&
-                <div className={`campaign-page__hero-bar su-bg-${blok.barBgColor} ${blok.barAlignment}`} />
-              }
-              {blok.intro &&
-                <p className='campaign-page__hero-intro su-mb-none'>
+              {blok.bar && (
+                <div
+                  className={`campaign-page__hero-bar su-bg-${blok.barBgColor} ${blok.barAlignment}`}
+                />
+              )}
+              {blok.intro && (
+                <p className="campaign-page__hero-intro su-mb-none">
                   {blok.intro}
                 </p>
-              }
-              {blok.heroCta &&
-                <CreateBloks blokSection={blok.heroCta} />
-              }
+              )}
+              {blok.heroCta && <CreateBloks blokSection={blok.heroCta} />}
             </div>
           </div>
         </div>
       </div>
     </SbEditable>
   );
-}
+};
 
-export default CampaignHero
+export default CampaignHero;

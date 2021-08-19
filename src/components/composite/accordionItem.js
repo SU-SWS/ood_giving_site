@@ -34,7 +34,7 @@ class AccordionItem extends React.Component {
 
   // RENDER!
   render() {
-    let props = this.props;
+    const { props } = this;
 
     return (
       <SbEditable content={props.blok}>
@@ -43,7 +43,7 @@ class AccordionItem extends React.Component {
         >
           <Heading
             level={props.blok.headingLevel}
-            defaultLevel={"h4"}
+            defaultLevel="h4"
             serif={props.accordionFont}
             weight={props.accordionFontWeight}
             classes="su-accordion__title ood-accordion__title"

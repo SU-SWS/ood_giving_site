@@ -30,39 +30,37 @@ const VirtualSearchBox = ({ query }) => {
 
   return <AlgoliaVirtualSearchBox />;
 };
-const StateResults = props => {
+const StateResults = (props) => {
   const AlgoliaStateResults = connectStateResults(
-    ({ searchState, isSearchStalled }) => {
-      return (
-        <>
-          {props.isEmptySearchVisible ? (
-            <div className="search-hits-no-hits">
-              <Heading
-                level={"h2"}
-                serif={true}
-                weight={"bold"}
-                classes="search-hits-no-hits-title"
-              >
-                {props.blok.emptySearchTitle}
-              </Heading>
-              <p className="search-hits-no-hits-text">
-                {props.blok.emptySearchText}
-              </p>
-            </div>
-          ) : !searchState.query ? null : isSearchStalled ? (
-            <>Loading... </>
-          ) : (
-            props.children
-          )}
-        </>
-      );
-    }
+    ({ searchState, isSearchStalled }) => (
+      <>
+        {props.isEmptySearchVisible ? (
+          <div className="search-hits-no-hits">
+            <Heading
+              level="h2"
+              serif
+              weight="bold"
+              classes="search-hits-no-hits-title"
+            >
+              {props.blok.emptySearchTitle}
+            </Heading>
+            <p className="search-hits-no-hits-text">
+              {props.blok.emptySearchText}
+            </p>
+          </div>
+        ) : !searchState.query ? null : isSearchStalled ? (
+          <>Loading... </>
+        ) : (
+          props.children
+        )}
+      </>
+    )
   );
 
   return <AlgoliaStateResults />;
 };
 
-const SearchResults = props => {
+const SearchResults = (props) => {
   // page is 1-based here, for better readability in the URL query parameter
   const [initialPage, setInitialPage] = useState(1);
 
@@ -115,7 +113,7 @@ const SearchResults = props => {
     }
   };
 
-  const handleSubmit = value => {
+  const handleSubmit = (value) => {
     setQuery(value);
     setIsEmptySearchVisible(!value);
   };

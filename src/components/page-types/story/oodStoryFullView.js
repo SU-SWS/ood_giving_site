@@ -10,7 +10,7 @@ import Heading from "../../partials/heading";
 import FlexCell from "../../partials/flexCell";
 import FullWidthImage from "../../media/fullWidthImage";
 
-const StoryFullView = props => {
+const StoryFullView = (props) => {
   const dateOptions = {
     weekday: "long",
     year: "numeric",
@@ -37,7 +37,7 @@ const StoryFullView = props => {
       <CreateBloks blokSection={props.blok.alertPicker} />
       <CreateBloks blokSection={props.blok.localHeader} />
       <main id="main-content">
-        <article className={`ood-story su-bg-white`}>
+        <article className="ood-story su-bg-white">
           <header
             className={`ood-story__header
                     ${
@@ -53,16 +53,13 @@ const StoryFullView = props => {
                 <FullWidthImage
                   {...props}
                   filename={props.blok.heroImage.filename}
-                  classPrefix={"ood-story"}
+                  classPrefix="ood-story"
                   visibleVertical={props.blok.visibleVertical}
-                  visibleHorizontal={"center"}
+                  visibleHorizontal="center"
                   alt={props.blok.heroImage.alt ?? ""}
                 />
               )}
-            <CenteredContainer
-              flex={true}
-              classes={"ood-story__header-content"}
-            >
+            <CenteredContainer flex classes="ood-story__header-content">
               <FlexCell
                 md={12}
                 lg={10}
@@ -78,8 +75,8 @@ const StoryFullView = props => {
                      `}
               >
                 <Heading
-                  level={"h1"}
-                  weight={"semibold"}
+                  level="h1"
+                  weight="semibold"
                   classes={`ood-story__title ood-has-tab-before su-before-bg-${props.blok.tabColor}`}
                 >
                   {props.blok.title}
@@ -98,7 +95,7 @@ const StoryFullView = props => {
           <footer className="ood-story__main-footer">
             {(props.blok.author || publishedDate) && (
               <div className="ood-story__metadata">
-                <CenteredContainer flex={true}>
+                <CenteredContainer flex>
                   <FlexCell lg={8} classes="su-mx-auto">
                     <CreateBloks blokSection={props.blok.cta} />
                     <div className="ood-story__metadata su-pb-5">

@@ -1,1 +1,1 @@
-import 'decanter/core/src/js/decanter-no-markup.js';
+import "decanter/core/src/js/decanter-no-markup.js";

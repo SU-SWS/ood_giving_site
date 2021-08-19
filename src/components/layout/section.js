@@ -3,7 +3,7 @@ import SbEditable from "storyblok-react";
 import RichTextField from "../../utilities/richTextField";
 import CreateBloks from "../../utilities/createBloks";
 import CenteredContainer from "../partials/centeredContainer";
-import Heading from '../partials/heading';
+import Heading from "../partials/heading";
 
 const Section = (props) => {
   // Hide and don't return nothing.
@@ -15,14 +15,13 @@ const Section = (props) => {
   let alignmentWrapper = "su-text-align-left";
   let alignmentTab = "";
   if (props.blok.isCenterAlign) {
-    titleWidth = "su-max-w-900"
+    titleWidth = "su-max-w-900";
     alignmentWrapper = "su-text-align-center su-w-full su-max-w-800";
     alignmentTab = "su-center-tab";
   }
 
-  const titleStyleClassList = (titleStyleArray) => {
-    return titleStyleArray.toString().replace(/,/g, " ");
-  };
+  const titleStyleClassList = (titleStyleArray) =>
+    titleStyleArray.toString().replace(/,/g, " ");
 
   return (
     <SbEditable content={props.blok}>
@@ -67,7 +66,7 @@ const Section = (props) => {
               </Heading>
             )}
             {props.blok.intro && (
-              <div className={"intro-text section__intro su-ml-none"}>
+              <div className="intro-text section__intro su-ml-none">
                 <RichTextField data={props.blok.intro} />
               </div>
             )}
@@ -79,13 +78,13 @@ const Section = (props) => {
           </div>
         )}
         {props.blok.contentWidth === "centered-container" && (
-          <CenteredContainer classes={"section__content"}>
+          <CenteredContainer classes="section__content">
             <CreateBloks blokSection={props.blok.content} />
           </CenteredContainer>
         )}
         {props.blok.contentWidth !== "edge-to-edge" &&
           props.blok.contentWidth !== "centered-container" && (
-            <CenteredContainer classes={"section__content"}>
+            <CenteredContainer classes="section__content">
               <div className={`su-mx-auto ${props.blok.contentWidth}`}>
                 <CreateBloks blokSection={props.blok.content} />
               </div>

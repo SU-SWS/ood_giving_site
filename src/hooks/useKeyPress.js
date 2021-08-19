@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 
 function UseKeyPress(targetKey) {
   // State for keeping track of whether key is pressed
@@ -20,12 +20,12 @@ function UseKeyPress(targetKey) {
 
   // Add event listeners
   useEffect(() => {
-    window.addEventListener('keydown', downHandler);
-    window.addEventListener('keyup', upHandler);
+    window.addEventListener("keydown", downHandler);
+    window.addEventListener("keyup", upHandler);
     // Remove event listeners on cleanup
     return () => {
-      window.removeEventListener('keydown', downHandler);
-      window.removeEventListener('keyup', upHandler);
+      window.removeEventListener("keydown", downHandler);
+      window.removeEventListener("keyup", upHandler);
     };
   }, [targetKey]); // rerun the effect if the targetKey changes
 

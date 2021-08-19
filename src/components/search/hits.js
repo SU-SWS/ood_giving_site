@@ -5,15 +5,15 @@ import SbLink from "../partials/sbLink";
 import Pagination from "./pagination";
 import Heading from "../partials/heading";
 
-const Hits = props => {
+const Hits = (props) => {
   const AlgoliaHits = connectHits(({ hits }) => (
     <div className="search-hits">
       {!hits.length && (
         <div className="search-hits-no-hits">
           <Heading
-            level={"h2"}
-            serif={true}
-            weight={"bold"}
+            level="h2"
+            serif
+            weight="bold"
             classes="search-hits-no-hits-title"
           >
             {props.blok.noResultsErrorTitle}
@@ -26,12 +26,12 @@ const Hits = props => {
 
       {hits.length > 0 && <Stats />}
 
-      {hits.map(hit => (
+      {hits.map((hit) => (
         <article
           className="search-hits-item su-mb-2 su-pb-2 su-px-default"
           key={hit.objectID}
         >
-          <Heading level={"h2"} serif={true} weight={"bold"}>
+          <Heading level="h2" serif weight="bold">
             <SbLink link={{ cached_url: `/${hit.slug}` }}>{hit.title}</SbLink>
           </Heading>
           <p className="su-mb-none">

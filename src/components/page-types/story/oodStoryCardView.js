@@ -5,7 +5,7 @@ import AspectRatioImage from "../../media/aspectRatioImage";
 
 const StoryCardView = (props) => {
   const Heading = props.headingLevel ? props.headingLevel : "h3";
-  const theLink = { linktype: "story", url: props.storyLink + "/" };
+  const theLink = { linktype: "story", url: `${props.storyLink}/` };
   return (
     <SbEditable content={props.blok}>
       <article
@@ -39,29 +39,25 @@ const StoryCardView = (props) => {
             props.hideImage === false && (
               <AspectRatioImage
                 {...props}
-                element={"div"}
+                element="div"
                 filename={
                   props.blok.cardImage.filename
                     ? props.blok.cardImage.filename
                     : props.blok.heroImage.filename
                 }
                 alt=""
-                classPrefix={"ood-story-card"}
+                classPrefix="ood-story-card"
                 imageSize={`${
                   props.orientation ? `${props.orientation}-card` : "card"
                 }`}
-                aspectRatio={"3x2"}
+                aspectRatio="3x2"
                 visibleHorizontal={props.visibleHorizontal}
                 visibleVertical={props.visibleVertical}
               />
             )}
-          <section
-            className={`ood-story-card__contents su-mx-auto ood-has-tab-before su-px-2 su-pb-4`}
-          >
+          <section className="ood-story-card__contents su-mx-auto ood-has-tab-before su-px-2 su-pb-4">
             {(props.blok.shortTitle || props.blok.title) && (
-              <Heading
-                className={`ood-story-card__headline su-sans su-semibold su-text-black`}
-              >
+              <Heading className="ood-story-card__headline su-sans su-semibold su-text-black">
                 {props.blok.shortTitle
                   ? props.blok.shortTitle
                   : props.blok.title}
