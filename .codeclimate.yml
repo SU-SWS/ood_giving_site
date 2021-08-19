@@ -1,18 +1,19 @@
 version: "2"
 checks:
+  editorconfig:
+    enabled: true
   argument-count:
     enabled: false
   complex-logic:
     enabled: false
   file-lines:
-    config:
-      threshold: 300
+    enabled: false
   method-complexity:
     enabled: false
   method-count:
     enabled: false
   method-lines:
-    enabled: false
+    enabled: true
   nested-control-flow:
     enabled: false
   return-statements:
@@ -30,7 +31,7 @@ plugins:
         javascript:
           mass_threshold: 50
   eslint:
-    enabled: false
+    enabled: true
   fixme:
     enabled: true
     config:
@@ -45,6 +46,8 @@ plugins:
   markdownlint:
     enabled: false
   csslint:
+    enabled: true
+  stylelint:
     enabled: false
   coffeelint:
     enabled: false
