@@ -7,7 +7,7 @@ const OodCampaignHeader = (props) => {
   return (
     <SbEditable content={props.blok}>
       <div className={`campaign-page__header-inner ${props.blok.headerColor}`}>
-        <div className="flex-container centered-container su-align-items-baseline su-justify-content">
+        <div className="flex-container centered-container su-align-items-center su-justify-content">
           <CreateBloks blokSection={props.blok.lockup} />
 
           <SbLink link={props.blok.homeLink} classes={`campaign-page__header-icon ${props.blok.headerColor}`}>

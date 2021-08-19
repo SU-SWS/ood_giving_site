@@ -68,6 +68,12 @@
       align-items: center;
     }
 
+    .su-lockup__logo-cell1 {
+      max-width: 160px;
+      max-height: 100px;
+    }
+
+
     &.su-text-white {
       [class*='su-lockup__'] {
         color: $su-color-white;
@@ -100,6 +106,10 @@
         padding-left: 0.7rem;
         align-self: flex-end;
         flex-grow: 1;
+      }
+
+      .su-lockup__logo-cell1 {
+        max-width: 100px;
       }
 
       .su-lockup__wordmark {
