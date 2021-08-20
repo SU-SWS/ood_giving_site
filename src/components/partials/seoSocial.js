@@ -37,7 +37,6 @@ const SeoSocial = (props) => {
           <link rel="canonical" href={canonicalUrl} />
         )}
 
-
         {(props.blok.seo.description || props.blok.teaser) && (
           <meta
             name="description"
