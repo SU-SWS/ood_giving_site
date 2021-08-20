@@ -3,10 +3,8 @@ import SbEditable from "storyblok-react";
 import CreateBloks from "../../utilities/createBloks";
 import FullWidthImage from "../media/fullWidthImage";
 import SbLink from "../partials/sbLink";
-// import FullWidthImage from "../media/fullWidthImage";
 
 const OodCampaignHeader = (props) => {
-  console.log('oodCampaignHeader', props.blok);
   return (
     <SbEditable content={props.blok}>
       <div className={`campaign-page__header-inner ${props.blok.headerColor}`}>

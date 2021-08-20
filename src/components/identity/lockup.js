@@ -2,7 +2,8 @@ import React from 'react'
 import SbEditable from 'storyblok-react'
 import SbLink from "../partials/sbLink"
 
-const Lockup = (props) => {  return (
+const Lockup = (props) => {
+  return (
     <SbEditable content={props.blok}>
       <div className="su-lockup su-lockup--option-n">
         <SbLink link={props.blok.link}>
