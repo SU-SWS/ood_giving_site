@@ -1,14 +1,29 @@
 import React from "react";
 import SbEditable from "storyblok-react";
 import CreateBloks from "../../utilities/createBloks";
+import FullWidthImage from "../media/fullWidthImage";
 import SbLink from "../partials/sbLink";
+// import FullWidthImage from "../media/fullWidthImage";
 
 const OodCampaignHeader = (props) => {
+  console.log('oodCampaignHeader', props.blok);
   return (
     <SbEditable content={props.blok}>
       <div className={`campaign-page__header-inner ${props.blok.headerColor}`}>
         <div className="flex-container centered-container su-align-items-center su-justify-content">
-          <CreateBloks blokSection={props.blok.lockup} />
+          {props.blok?.logoImage?.filename ? (
+            <div className="logo-image">
+              <SbLink link={props.blok.logoLink}>
+                <FullWidthImage
+                  filename={props.blok.logoImage.filename}
+                  blok={props.blok}
+                />
+              </SbLink>
+            </div>
+          ) : (
+            <CreateBloks blokSection={props.blok.lockup} />
+          )}
+          
 
           <SbLink link={props.blok.homeLink} classes={`campaign-page__header-icon ${props.blok.headerColor}`}>
             <svg xmlns="http://www.w3.org/2000/svg" className="home-icon" fill="none" viewBox="0 0 24 24"
