@@ -1,7 +1,8 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import CreateBloks from "../../utilities/createBloks";
-import Heading from "./heading";
+import React from "react"
+import SbEditable from "storyblok-react"
+import cx from "classnames";
+import CreateBloks from "../../utilities/createBloks"
+import Heading from "./heading"
 import FullWidthImage from "../media/fullWidthImage";
 
 /* The Hero section with fullwidth image is referenced by the Campaign Page type. */
@@ -67,22 +68,20 @@ const CampaignHero = (props) => {
             >
               <Heading
                 level={"h1"}
-                weight={`${isFullWidthImage ? "regular" : "semibold"}`}
-                serif={blok.heroStyle === "fullwidth-image"}
+                weight={`${isFullWidthImage  ? 'regular' : 'semibold'}`}
+                serif={blok.heroStyle === 'fullwidth-image' || blok.heroTitleFontSerif}
                 classes={`campaign-page__title ${blok.heroTitleType}`}
               >
                 {blok.title}
               </Heading>
-              {blok.bar && (
-                <div
-                  className={`campaign-page__hero-bar su-bg-${blok.barBgColor} ${blok.barAlignment}`}
-                />
-              )}
-              {blok.intro && (
-                <p className="campaign-page__hero-intro su-mb-none">
+              {blok.bar &&
+                <div className={`campaign-page__hero-bar su-bg-${blok.barBgColor} ${blok.barAlignment}`} />
+              }
+              {blok.intro &&
+                <p className={cx('campaign-page__hero-intro su-mb-none', { 'su-serif': blok.heroIntroFontSerif })}>
                   {blok.intro}
                 </p>
-              )}
+              }
               {blok.heroCta && <CreateBloks blokSection={blok.heroCta} />}
             </div>
           </div>
