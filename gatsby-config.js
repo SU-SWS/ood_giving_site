@@ -47,12 +47,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
-      options: {
-        siteUrl,
-      },
-    },
-    {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         policy: [
@@ -88,7 +82,7 @@ module.exports = {
               siteUrl
             }
           }
-          allSitePage(filter: {context: {isCanonical: {eq: true}}}) {
+          allSitePage(filter: { context: { isCanonical: { eq: true }, noindex: { eq: false } } }) {
             edges {
               node {
                 path

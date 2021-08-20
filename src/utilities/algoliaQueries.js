@@ -5,7 +5,7 @@
  * All /test-items/ and /global-components/ pages are filtered out, as these do not belong in the index.
  */
 const query = `{
-  pages: allStoryblokEntry(filter: {full_slug: {regex: "/^(?!(test-items/)|^(404|403)|(global-components/))([a-z0-9]+)/"}, field_component: {ne: "storyOverview"}}) {
+  pages: allStoryblokEntry(filter: {full_slug: {regex: "/^(?!(test-items/)|^(404|403)|(global-components/))([a-z0-9]+)/"}, field_component: {ne: "storyOverview"}, field_noindex_boolean: { ne: true } }) {
     nodes {
       objectID: id
       slug: full_slug

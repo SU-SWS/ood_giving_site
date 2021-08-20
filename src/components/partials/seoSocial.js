@@ -31,7 +31,12 @@ const SeoSocial = (props) => {
   return (
     <SbEditable content={props.blok}>
       <Helmet titleTemplate={`%s | ${title}`} title={props.blok.title}>
-        <link rel="canonical" href={canonicalUrl} />
+        {props.blok.noindex ? (
+          <meta name="robots" content="noindex" />
+        ) : (
+          <link rel="canonical" href={canonicalUrl} />
+        )}
+
 
         {(props.blok.seo.description || props.blok.teaser) && (
           <meta
