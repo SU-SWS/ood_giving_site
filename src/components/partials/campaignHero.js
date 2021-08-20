@@ -1,5 +1,6 @@
 import React from "react"
 import SbEditable from "storyblok-react"
+import cx from "classnames";
 import CreateBloks from "../../utilities/createBloks"
 import Heading from "./heading"
 import FullWidthImage from "../media/fullWidthImage";
@@ -51,7 +52,7 @@ const CampaignHero = (props) => {
               <Heading
                 level={"h1"}
                 weight={`${isFullWidthImage  ? 'regular' : 'semibold'}`}
-                serif={blok.heroStyle === 'fullwidth-image'}
+                serif={blok.heroStyle === 'fullwidth-image' || blok.heroTitleFontSerif}
                 classes={`campaign-page__title ${blok.heroTitleType}`}
               >
                 {blok.title}
@@ -60,7 +61,7 @@ const CampaignHero = (props) => {
                 <div className={`campaign-page__hero-bar su-bg-${blok.barBgColor} ${blok.barAlignment}`} />
               }
               {blok.intro &&
-                <p className='campaign-page__hero-intro su-mb-none'>
+                <p className={cx('campaign-page__hero-intro su-mb-none', { 'su-serif': blok.heroIntroFontSerif })}>
                   {blok.intro}
                 </p>
               }
