@@ -61,7 +61,8 @@ exports.createPages = ({ graphql, actions }) => {
             component: storyblokEntry,
             context: {
               story: entry.node,
-              isCanonical: isCanonical
+              isCanonical: isCanonical,
+              noindex: !!content.noindex,
             }
           })
         })
