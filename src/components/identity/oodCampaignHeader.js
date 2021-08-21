@@ -21,7 +21,6 @@ const OodCampaignHeader = (props) => {
           ) : (
             <CreateBloks blokSection={props.blok.lockup} />
           )}
-          <CreateBloks blokSection={props.blok.lockup} />
           {!props.blok.hideHomeLink && (
             <SbLink link={props.blok.homeLink} classes={`campaign-page__header-icon ${props.blok.headerColor}`}>
               <svg xmlns="http://www.w3.org/2000/svg" className="home-icon" fill="none" viewBox="0 0 24 24"
