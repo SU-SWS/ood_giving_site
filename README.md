@@ -1,8 +1,6 @@
 # [ADAPT OOD GIVING](https://github.com/SU-SWS/ood_giving_site)
 ##### Version: 1.0.0
 
-<a href="https://codeclimate.com/repos/5f6cf2ceafd47c7359000865/maintainability"><img src="https://api.codeclimate.com/v1/badges/681fbc135f73271ae120/maintainability" /></a>
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b539dff9-d21b-4a2e-8edc-b9cb898c26b2/deploy-status)](https://app.netlify.com/sites/adapt-giving/deploys)
 
 Changelog: [Changelog.md](CHANGELOG.md)
