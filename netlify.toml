@@ -21,6 +21,12 @@
     Strict-Transport-Security = "max-age=2592000"
     Permissions-Policy = "vibrate=(), geolocation=(), midi=(), notifications=(), push=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), speaker=()"
     Basic-Auth = "adapt:letmein2021"
+    X-Frame-Options = "DENY"
+[[headers]]
+  for = "/editor"
+  [headers.values]
+    X-Frame-Options = "ALLOWALL"
+
 # SUBMIT SITEMAP PLUGIN
 # https://www.npmjs.com/package/netlify-plugin-submit-sitemap
 # ###############################################################################
