@@ -21,7 +21,6 @@ const OodCampaignHeader = (props) => {
           ) : (
             <CreateBloks blokSection={props.blok.lockup} />
           )}
-          <CreateBloks blokSection={props.blok.lockup} />
           {!props.blok.hideHomeLink && (
             <SbLink
               link={props.blok.homeLink}
