@@ -16,20 +16,20 @@ const StoryImage = (props) => {
 
     if (props.blok.image) {
       if (props.blok.imageWidth === "su-w-full" && originalWidth > 2000) {
-        processedImg = transformImage(props.blok.image.filename, "/2000x0", props.blok.image.focus);
+        processedImg = transformImage(props.blok.image.filename, "/2000x0", props.blok.image?.focus);
       }
       else if (props.blok.imageWidth === "centered-container" && originalWidth > 1500) {
-        processedImg = transformImage(props.blok.image.filename, "/1500x0", props.blok.image.focus);
+        processedImg = transformImage(props.blok.image.filename, "/1500x0", props.blok.image?.focus);
       }
       else if ((props.blok.imageWidth === "su-w-story" || props.blok.imageWidth === "fit-container") && originalWidth > 1000) {
-        processedImg = transformImage(props.blok.image.filename, "/1000x0", props.blok.image.focus);
+        processedImg = transformImage(props.blok.image.filename, "/1000x0", props.blok.image?.focus);
       }
       else if (props.blok.imageWidth === "su-w-inset" && originalWidth > 700) {
-        processedImg = transformImage(props.blok.image.filename, "/700x0", props.blok.image.focus);
+        processedImg = transformImage(props.blok.image.filename, "/700x0", props.blok.image?.focus);
       }
       // If no downsizing is needed, just run it through transformImage to reduce jpg quality to 60%
       else {
-        processedImg = transformImage(props.blok.image.filename, "", props.blok.image.focus);
+        processedImg = transformImage(props.blok.image.filename, "", props.blok.image?.focus);
       }
     }
   }
