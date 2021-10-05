@@ -1,13 +1,13 @@
 const path = require("path");
 
 const activeEnv =
-  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development";
 
-console.log(`Using environment config: '${activeEnv}'`)
+console.log(`Using environment config: '${activeEnv}'`);
 
 require("dotenv").config({
   path: `.env.${activeEnv}`,
-})
+});
 
 /**
  * Resolve relations for storyblok.
@@ -27,11 +27,11 @@ module.exports = {
     title: `Giving to Stanford`,
     description: `Giving to Stanford.`,
     author: `Stanford University Office of Development`,
-    siteUrl: `https://giving.stanford.edu`,
+    siteUrl: `https://giving-dev.netlify.app`,
     // This key is for metadata only and can be statically queried
     storyblok: {
       resolveRelations: storyblokRelations,
-    }
+    },
   },
   plugins: [
     {
@@ -88,20 +88,18 @@ module.exports = {
           }
         }
         `,
-        resolvePages: ({
-          allSitePage: { edges: allPages }
-        }) => {
-          return allPages.map(page => {
-            return { ...page.node }
-          })
+        resolvePages: ({ allSitePage: { edges: allPages } }) => {
+          return allPages.map((page) => {
+            return { ...page.node };
+          });
         },
-        resolveSiteUrl: () => 'https://giving.stanford.edu',
+        resolveSiteUrl: () => "https://giving-dev.netlify.app",
         excludes: [
-          '/editor',
-          '/editor/**',
-          '/global-components/**',
-          '/test-items/**',
-          '/403',
+          "/editor",
+          "/editor/**",
+          "/global-components/**",
+          "/test-items/**",
+          "/403",
         ],
       },
     },
@@ -120,9 +118,7 @@ module.exports = {
       options: {
         implementation: require("node-sass"),
         sassOptions: {
-          includePaths: [
-            path.resolve(__dirname, "node_modules")
-          ],
+          includePaths: [path.resolve(__dirname, "node_modules")],
         },
         cssLoaderOptions: {
           camelCase: false,
@@ -150,14 +146,14 @@ module.exports = {
         // enablePartialUpdates: true,
         queries: require("./src/utilities/algoliaQueries"),
         // we skip the indexing completely on non-prod builds.
-        skipIndexing: process.env.CONTEXT != 'production',
+        skipIndexing: true,
       },
     },
     {
       resolve: `gatsby-plugin-netlify`,
       options: {
         mergeSecurityHeaders: false,
-      }
-    }
+      },
+    },
   ],
-}
+};
