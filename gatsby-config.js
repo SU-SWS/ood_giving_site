@@ -28,12 +28,6 @@ const storyblokRelations = [
   "alertPicker.alert",
 ];
 
-console.log({
-  skipIndexing: !!(process.env.ALGOLIA_SKIP_INDEXING || process.env.CONTEXT !== 'production'),
-  context: process.env.CONTEXT,
-  ALGOLIA_SKIP_INDEXING: JSON.stringify(process.env.ALGOLIA_SKIP_INDEXING),
-});
-
 module.exports = {
   siteMetadata: {
     title: `Giving to Stanford`,
@@ -158,8 +152,7 @@ module.exports = {
         // enablePartialUpdates: true,
         queries: require("./src/utilities/algoliaQueries"),
         // we skip the indexing completely on non-prod builds.
-        skipIndexing: true,
-        // skipIndexing: !!(process.env.ALGOLIA_SKIP_INDEXING || process.env.CONTEXT !== 'production')
+        skipIndexing: !!(process.env.ALGOLIA_SKIP_INDEXING || process.env.CONTEXT !== 'production')
       },
     },
     {
