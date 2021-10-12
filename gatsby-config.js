@@ -153,8 +153,9 @@ module.exports = {
         queries: require("./src/utilities/algoliaQueries"),
         // we skip the indexing completely on non-prod builds.
         skipIndexing:
-          !!process.env.ALGOLIA_SKIP_INDEXING || // Manually skip indexing
-          process.env.CONTEXT !== "production", // Never index for non-prod
+		  process.env.NETLIFY &&
+          process.env.ALGOLIA_RUN_INDEXING &&
+          process.env.CONTEXT == "production",
       },
     },
     {
