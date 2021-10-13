@@ -1,8 +1,8 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import CreateBloks from "../../utilities/createBloks";
-import Heading from "./heading";
-import CenteredContainer from "./centeredContainer";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import CreateBloks from '../../utilities/createBloks';
+import Heading from './heading';
+import CenteredContainer from './centeredContainer';
 
 /*
  *
@@ -25,7 +25,7 @@ const IconCardSection = (props) => {
           <Heading level="h2" classes="su-sr-only-element">
             {props.blok.iconCardHeading
               ? props.blok.iconCardHeading
-              : "Links to more information"}
+              : 'Links to more information'}
           </Heading>
           <CenteredContainer
             flex={true}

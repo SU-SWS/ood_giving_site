@@ -1,9 +1,9 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import Footer from "../partials/footer";
-import IconCardSection from "../partials/iconCardSection";
-import SeoSocial from "../partials/seoSocial";
-import CreateBloks from "../../utilities/createBloks";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import Footer from '../partials/footer';
+import IconCardSection from '../partials/iconCardSection';
+import SeoSocial from '../partials/seoSocial';
+import CreateBloks from '../../utilities/createBloks';
 
 const OodLandingPage = (props) => {
   return (

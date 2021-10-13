@@ -1,72 +1,72 @@
-import Page from "./page";
-import RichTextField from "../utilities/richTextField";
-import Redirect from "./redirect/Redirect";
-import ComponentNotFound from "./component_not_found";
+import Page from './page';
+import RichTextField from '../utilities/richTextField';
+import Redirect from './redirect/Redirect';
+import ComponentNotFound from './component_not_found';
 // Site Identity Elements
-import GlobalFooter from "./identity/globalFooter";
-import GlobalFooterPicker from "./identity/globalFooterPicker";
-import OodLocalHeader from "./identity/oodLocalHeader";
-import OodLocalFooter from "./identity/oodLocalFooter";
-import LocalFooterPicker from "./identity/localFooterPicker";
-import LocalHeaderPicker from "./identity/localHeaderPicker";
-import Lockup from "./identity/lockup";
-import OodCampaignHeader from "./identity/oodCampaignHeader";
+import GlobalFooter from './identity/globalFooter';
+import GlobalFooterPicker from './identity/globalFooterPicker';
+import OodLocalHeader from './identity/oodLocalHeader';
+import OodLocalFooter from './identity/oodLocalFooter';
+import LocalFooterPicker from './identity/localFooterPicker';
+import LocalHeaderPicker from './identity/localHeaderPicker';
+import Lockup from './identity/lockup';
+import OodCampaignHeader from './identity/oodCampaignHeader';
 // Cards
-import BasicCard from "./cards/basicCard";
-import OodCampaignCard from "./cards/oodCampaignCard";
-import OodIconCard from "./cards/oodIconCard";
-import OodSupportCard from "./cards/oodSupportCard";
-import OodQuoteCard from "./cards/oodQuoteCard";
-import OodStoryCard from "./cards/oodStoryCard";
-import OodTileCard from "./cards/oodTileCard";
+import BasicCard from './cards/basicCard';
+import OodCampaignCard from './cards/oodCampaignCard';
+import OodIconCard from './cards/oodIconCard';
+import OodSupportCard from './cards/oodSupportCard';
+import OodQuoteCard from './cards/oodQuoteCard';
+import OodStoryCard from './cards/oodStoryCard';
+import OodTileCard from './cards/oodTileCard';
 // OOD Specific Components
-import OodHomepageHero from "./composite/oodHomepageHero";
-import OodPoster from "./composite/oodPoster";
-import OodQuoteSlider from "./composite/oodQuoteSlider";
-import Alert from "./composite/alert";
-import AlertPicker from "./composite/alertPicker";
+import OodHomepageHero from './composite/oodHomepageHero';
+import OodPoster from './composite/oodPoster';
+import OodQuoteSlider from './composite/oodQuoteSlider';
+import Alert from './composite/alert';
+import AlertPicker from './composite/alertPicker';
 // Navigation Components
-import NavItem from "./navigation/navItem";
-import ContentNavItem from "./navigation/contentMenu/contentNavItem";
-import ContentMenuParentItems from "./navigation/contentMenu/contentMenuParentItem";
-import ContentNestedMenu from "./navigation/contentMenu/contentNestedMenu";
-import OodContentMenu from "./navigation/contentMenu/oodContentMenu";
-import ContentMenuPicker from "./navigation/contentMenu/contentMenuPicker";
-import OodSubMenu from "./navigation/oodSubMenu";
-import OodMegaMenu from "./navigation/megaMenu/oodMegaMenu";
-import OodMegaMenuSection from "./navigation/megaMenu/oodMegaMenuSection";
-import OodMegaMenuCard from "./navigation/megaMenu/oodMegaMenuCard";
-import OodMegaMenuNavItem from "./navigation/megaMenu/oodMegaMenuNavItem";
-import OodMegaMenuLinkGroup from "./navigation/megaMenu/oodMegaMenuLinkGroup";
+import NavItem from './navigation/navItem';
+import ContentNavItem from './navigation/contentMenu/contentNavItem';
+import ContentMenuParentItems from './navigation/contentMenu/contentMenuParentItem';
+import ContentNestedMenu from './navigation/contentMenu/contentNestedMenu';
+import OodContentMenu from './navigation/contentMenu/oodContentMenu';
+import ContentMenuPicker from './navigation/contentMenu/contentMenuPicker';
+import OodSubMenu from './navigation/oodSubMenu';
+import OodMegaMenu from './navigation/megaMenu/oodMegaMenu';
+import OodMegaMenuSection from './navigation/megaMenu/oodMegaMenuSection';
+import OodMegaMenuCard from './navigation/megaMenu/oodMegaMenuCard';
+import OodMegaMenuNavItem from './navigation/megaMenu/oodMegaMenuNavItem';
+import OodMegaMenuLinkGroup from './navigation/megaMenu/oodMegaMenuLinkGroup';
 // Layout Components
-import ColumnGrid from "./layout/columnGrid";
-import CuratedStories from "./layout/curatedStories";
-import RowOneColumn from "./layout/rowOneColumn";
-import RowTwoColumns from "./layout/rowTwoColumns";
-import RowThreeColumns from "./layout/rowThreeColumns";
-import GridThreeColumns from "./layout/gridThreeColumns";
-import Section from "./layout/section";
-import SingleColumnContent from "./layout/singleColumnContent";
+import ColumnGrid from './layout/columnGrid';
+import CuratedStories from './layout/curatedStories';
+import RowOneColumn from './layout/rowOneColumn';
+import RowTwoColumns from './layout/rowTwoColumns';
+import RowThreeColumns from './layout/rowThreeColumns';
+import GridThreeColumns from './layout/gridThreeColumns';
+import Section from './layout/section';
+import SingleColumnContent from './layout/singleColumnContent';
 // Page Type Components
-import OodInteriorPage from "./page-types/oodInteriorPage";
-import OodCampaignPage from "./page-types/oodCampaignPage";
-import OodLandingPage from "./page-types/oodLandingPage";
-import OodStory from "./page-types/story/oodStory";
-import OodSupportPage from "./page-types/oodSupportPage";
-import StoryOverview from "./page-types/storyOverview";
+import OodInteriorPage from './page-types/oodInteriorPage';
+import OodCampaignPage from './page-types/oodCampaignPage';
+import OodLandingPage from './page-types/oodLandingPage';
+import OodStory from './page-types/story/oodStory';
+import OodSupportPage from './page-types/oodSupportPage';
+import StoryOverview from './page-types/storyOverview';
 // Simple Components
-import CtaLink from "./simple/ctaLink";
-import EmbedScript from "./simple/embedScript";
-import EmbedVideo from "./media/embedVideo";
-import StoryImage from "./media/storyImage";
-import StoryPicker from "./page-types/story/storyPicker";
+import CtaLink from './simple/ctaLink';
+import EmbedScript from './simple/embedScript';
+import EmbedVideo from './media/embedVideo';
+import StoryImage from './media/storyImage';
+import StoryPicker from './page-types/story/storyPicker';
 // Composite Components
-import Accordion from "./composite/accordion";
-import AccordionItem from "./composite/accordionItem";
-import CtaGroup from "./composite/ctaGroup";
-import SearchResults from "./search/searchResults";
-import oodGallerySlideshow from "./composite/oodGallerySlideshow";
-import OodCampaignImpact from "./composite/oodCampaignImpact";
+import Accordion from './composite/accordion';
+import AccordionItem from './composite/accordionItem';
+import CtaGroup from './composite/ctaGroup';
+import SearchResults from './search/searchResults';
+import oodGallerySlideshow from './composite/oodGallerySlideshow';
+import OodCampaignImpact from './composite/oodCampaignImpact';
 
 const ComponentList = {
   page: Page,
@@ -132,7 +132,7 @@ const ComponentList = {
 };
 
 const Components = (type) => {
-  if (typeof ComponentList[type] === "undefined") {
+  if (typeof ComponentList[type] === 'undefined') {
     return ComponentNotFound;
   }
   return ComponentList[type];

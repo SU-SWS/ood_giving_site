@@ -1,17 +1,17 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import HeaderMinimal from "../partials/headerMinimal";
-import HeaderNoImage from "../partials/headerNoImage";
-import HeaderWithImage from "../partials/headerWithImage";
-import HeaderFullWidthImage from "../partials/headerFullWidthImage";
-import BodyLeftSidebar from "../partials/bodyLeftSidebar";
-import BodyNoSidebar from "../partials/bodyNoSidebar";
-import BelowContent from "../partials/belowContent";
-import IconCardSection from "../partials/iconCardSection";
-import Footer from "../partials/footer";
-import SeoSocial from "../partials/seoSocial";
-import CreateBloks from "../../utilities/createBloks";
-import CenteredContainer from "../partials/centeredContainer";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import HeaderMinimal from '../partials/headerMinimal';
+import HeaderNoImage from '../partials/headerNoImage';
+import HeaderWithImage from '../partials/headerWithImage';
+import HeaderFullWidthImage from '../partials/headerFullWidthImage';
+import BodyLeftSidebar from '../partials/bodyLeftSidebar';
+import BodyNoSidebar from '../partials/bodyNoSidebar';
+import BelowContent from '../partials/belowContent';
+import IconCardSection from '../partials/iconCardSection';
+import Footer from '../partials/footer';
+import SeoSocial from '../partials/seoSocial';
+import CreateBloks from '../../utilities/createBloks';
+import CenteredContainer from '../partials/centeredContainer';
 
 const OodInteriorPage = (props) => {
   return (
@@ -24,14 +24,14 @@ const OodInteriorPage = (props) => {
         className={`ood-interior-page ood-interior-page--${props.blok.headerStyle}`}
       >
         <article className={`su-bg-fog-light`}>
-          {props.blok.headerStyle === "has-image" && (
+          {props.blok.headerStyle === 'has-image' && (
             <HeaderWithImage {...props} />
           )}
-          {props.blok.headerStyle === "no-image" && (
+          {props.blok.headerStyle === 'no-image' && (
             <HeaderNoImage {...props} />
           )}
-          {props.blok.headerStyle === "minimal" && <HeaderMinimal {...props} />}
-          {props.blok.headerStyle === "full-width-image" && (
+          {props.blok.headerStyle === 'minimal' && <HeaderMinimal {...props} />}
+          {props.blok.headerStyle === 'full-width-image' && (
             <HeaderFullWidthImage {...props} />
           )}
           {props.blok.aboveContent != null &&
@@ -55,10 +55,10 @@ const OodInteriorPage = (props) => {
                 flex={true}
                 classes={`ood-interior-page__body-container`}
               >
-                {props.blok.layout === "no-sidebar" && (
+                {props.blok.layout === 'no-sidebar' && (
                   <BodyNoSidebar {...props} />
                 )}
-                {props.blok.layout === "left-sidebar" && (
+                {props.blok.layout === 'left-sidebar' && (
                   <BodyLeftSidebar {...props} />
                 )}
               </CenteredContainer>

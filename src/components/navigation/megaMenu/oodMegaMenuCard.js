@@ -1,7 +1,7 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import AspectRatioImage from "../../media/aspectRatioImage";
-import SbLink from "../../partials/sbLink";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import AspectRatioImage from '../../media/aspectRatioImage';
+import SbLink from '../../partials/sbLink';
 
 const OodMegaMenuCard = (props) => (
   <SbEditable content={props.blok}>
@@ -13,12 +13,12 @@ const OodMegaMenuCard = (props) => (
         {props.blok.image.filename != null && (
           <AspectRatioImage
             {...props}
-            element={"div"}
+            element={'div'}
             filename={props.blok.image.filename}
             alt=""
-            classPrefix={"ood-mega-nav__card"}
-            imageSize={"card"}
-            aspectRatio={"3x2"}
+            classPrefix={'ood-mega-nav__card'}
+            imageSize={'card'}
+            aspectRatio={'3x2'}
           />
         )}
         <div
@@ -30,9 +30,9 @@ const OodMegaMenuCard = (props) => (
           <p
             className={`ood-mega-nav__card-cta su-after-bg-white su-after-bg-hocus-white su-mb-none
           ${
-            props.blok.link.linktype === "url"
-              ? "su-link--external"
-              : "su-link--action"
+            props.blok.link.linktype === 'url'
+              ? 'su-link--external'
+              : 'su-link--action'
           }`}
           >
             {props.blok.ctaText}

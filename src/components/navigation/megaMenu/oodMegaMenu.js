@@ -1,17 +1,17 @@
-import React, { useRef, useState } from "react";
-import SbEditable from "storyblok-react";
-import CreateBloks from "../../../utilities/createBloks";
-import UseEscape from "../../../hooks/useEscape";
-import UseOnClickOutside from "../../../hooks/useOnClickOutside";
-import UseWindowSize from "../../../hooks/useWindowSize";
-import { config } from "../../../utilities/config";
+import React, { useRef, useState } from 'react';
+import SbEditable from 'storyblok-react';
+import CreateBloks from '../../../utilities/createBloks';
+import UseEscape from '../../../hooks/useEscape';
+import UseOnClickOutside from '../../../hooks/useOnClickOutside';
+import UseWindowSize from '../../../hooks/useWindowSize';
+import { config } from '../../../utilities/config';
 
 const OodMegaMenu = (props) => {
   let windowSize = UseWindowSize();
   const [menuOpened, setMenuOpened] = useState(false);
   const ref = useRef(null);
   const burgerRef = useRef(null);
-  const isExpanded = (x) => x.getAttribute("aria-expanded") === "true";
+  const isExpanded = (x) => x.getAttribute('aria-expanded') === 'true';
 
   const toggleMenu = () => {
     setMenuOpened(!menuOpened);
@@ -43,16 +43,16 @@ const OodMegaMenu = (props) => {
       <nav className="ood-mega-nav" aria-label="Main Menu" ref={ref}>
         <button
           className="ood-mega-nav__toggle su-mr-none su-ml-auto"
-          aria-label={menuOpened ? "Close Menu" : "Open Menu"}
+          aria-label={menuOpened ? 'Close Menu' : 'Open Menu'}
           aria-expanded={menuOpened}
           onClick={toggleMenu}
           ref={burgerRef}
         >
           <i
             aria-hidden="true"
-            className={`fas fa-${menuOpened ? "times" : "bars"}`}
+            className={`fas fa-${menuOpened ? 'times' : 'bars'}`}
           />
-          {menuOpened ? "Close" : "Menu"}
+          {menuOpened ? 'Close' : 'Menu'}
         </button>
         <ul
           className="ood-mega-nav__menu-lv1 su-list-none"

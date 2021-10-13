@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from 'gatsby';
 
 const UseSiteMetadata = () => {
   const { site } = useStaticQuery(

@@ -1,7 +1,7 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import CreateBloks from "../../../utilities/createBloks";
-import SbLink from "../../partials/sbLink";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import CreateBloks from '../../../utilities/createBloks';
+import SbLink from '../../partials/sbLink';
 
 const ContentMenuParentItem = (props) => {
   return (

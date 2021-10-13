@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useMemo, useRef } from "react";
-import AutoSuggest from "react-autosuggest";
-import { connectAutoComplete } from "react-instantsearch-dom";
-import { useLocation } from "@reach/router";
-import qs from "query-string";
+import React, { useEffect, useState, useMemo, useRef } from 'react';
+import AutoSuggest from 'react-autosuggest';
+import { connectAutoComplete } from 'react-instantsearch-dom';
+import { useLocation } from '@reach/router';
+import qs from 'query-string';
 
 /* eslint-disable-next-line react/display-name */
 const Autocomplete = React.forwardRef((props, ref) => {
-  const [initialTerm, setInitialTerm] = useState("");
+  const [initialTerm, setInitialTerm] = useState('');
 
   const { search } = useLocation();
 
@@ -43,7 +43,7 @@ const Autocomplete = React.forwardRef((props, ref) => {
       };
 
       const onKeyDown = (event) => {
-        if (event.key === "Enter") {
+        if (event.key === 'Enter') {
           handleSubmit(event);
         }
       };
@@ -51,15 +51,15 @@ const Autocomplete = React.forwardRef((props, ref) => {
       const inputProps = {
         ref,
         value,
-        type: "text",
-        placeholder: "Search",
+        type: 'text',
+        placeholder: 'Search',
         onChange,
         onKeyDown,
         onFocus: () => setShouldRenderSuggestions(true),
       };
 
       const handleSuggestionsFetch = (data) => {
-        const newValue = data?.value ?? "";
+        const newValue = data?.value ?? '';
 
         refine(newValue);
       };
@@ -107,7 +107,7 @@ const Autocomplete = React.forwardRef((props, ref) => {
             <button
               className="search-input-clear-button"
               onClick={() => {
-                setValue("");
+                setValue('');
                 props.onSuggestionCleared();
               }}
               aria-label="Clear search input"

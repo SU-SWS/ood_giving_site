@@ -1,9 +1,9 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import RichTextField from "../../utilities/richTextField";
-import CreateBloks from "../../utilities/createBloks";
-import CenteredContainer from "../partials/centeredContainer";
-import Heading from "../partials/heading";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import RichTextField from '../../utilities/richTextField';
+import CreateBloks from '../../utilities/createBloks';
+import CenteredContainer from '../partials/centeredContainer';
+import Heading from '../partials/heading';
 
 const Section = (props) => {
   // Hide and don't return nothing.
@@ -11,17 +11,17 @@ const Section = (props) => {
     return null;
   }
 
-  let titleWidth = "";
-  let alignmentWrapper = "su-text-align-left";
-  let alignmentTab = "";
+  let titleWidth = '';
+  let alignmentWrapper = 'su-text-align-left';
+  let alignmentTab = '';
   if (props.blok.isCenterAlign) {
-    titleWidth = "su-max-w-900";
-    alignmentWrapper = "su-text-align-center su-w-full su-max-w-800";
-    alignmentTab = "su-center-tab";
+    titleWidth = 'su-max-w-900';
+    alignmentWrapper = 'su-text-align-center su-w-full su-max-w-800';
+    alignmentTab = 'su-center-tab';
   }
 
   const titleStyleClassList = (titleStyleArray) => {
-    return titleStyleArray.toString().replace(/,/g, " ");
+    return titleStyleArray.toString().replace(/,/g, ' ');
   };
 
   return (
@@ -29,14 +29,14 @@ const Section = (props) => {
       <div
         className={`section su-bg-${props.blok.backgroundColor}
                    ${
-                     props.blok.spacingTop !== "none"
+                     props.blok.spacingTop !== 'none'
                        ? `su-pt-${props.blok.spacingTop}`
-                       : ""
+                       : ''
                    }
                    ${
-                     props.blok.spacingBottom !== "none"
+                     props.blok.spacingBottom !== 'none'
                        ? `su-pb-${props.blok.spacingBottom}`
-                       : ""
+                       : ''
                    }
                   `}
         id={props.blok.id}
@@ -60,32 +60,32 @@ const Section = (props) => {
                 `}
                 level={props.blok.headingLevel}
                 defaultLevel="h2"
-                weight={props.blok.isSansSemibold ? "semibold" : "bold"}
+                weight={props.blok.isSansSemibold ? 'semibold' : 'bold'}
                 serif={!props.blok.isSansSemibold}
               >
                 {props.blok.title}
               </Heading>
             )}
             {props.blok.intro && (
-              <div className={"intro-text section__intro su-ml-none"}>
+              <div className={'intro-text section__intro su-ml-none'}>
                 <RichTextField data={props.blok.intro} />
               </div>
             )}
           </CenteredContainer>
         )}
-        {props.blok.contentWidth === "edge-to-edge" && (
+        {props.blok.contentWidth === 'edge-to-edge' && (
           <div className="section__content">
             <CreateBloks blokSection={props.blok.content} />
           </div>
         )}
-        {props.blok.contentWidth === "centered-container" && (
-          <CenteredContainer classes={"section__content"}>
+        {props.blok.contentWidth === 'centered-container' && (
+          <CenteredContainer classes={'section__content'}>
             <CreateBloks blokSection={props.blok.content} />
           </CenteredContainer>
         )}
-        {props.blok.contentWidth !== "edge-to-edge" &&
-          props.blok.contentWidth !== "centered-container" && (
-            <CenteredContainer classes={"section__content"}>
+        {props.blok.contentWidth !== 'edge-to-edge' &&
+          props.blok.contentWidth !== 'centered-container' && (
+            <CenteredContainer classes={'section__content'}>
               <div className={`su-mx-auto ${props.blok.contentWidth}`}>
                 <CreateBloks blokSection={props.blok.content} />
               </div>

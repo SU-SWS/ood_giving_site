@@ -1,6 +1,6 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import SbLink from "../partials/sbLink";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import SbLink from '../partials/sbLink';
 
 const Lockup = (props) => {
   return (

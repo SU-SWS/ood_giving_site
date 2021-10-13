@@ -1,6 +1,6 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import CreateBloks from "../../utilities/createBloks";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import CreateBloks from '../../utilities/createBloks';
 
 const RowTwoColumns = (props) => (
   <SbEditable content={props.blok}>
@@ -10,19 +10,19 @@ const RowTwoColumns = (props) => (
       >
         <div
           className={`${
-            props.blok.oneColumnMd === true ? "flex-lg" : "flex-md"
-          }${!props.blok.widthRatio ? "-6-of-12" : ""}${
-            props.blok.widthRatio === "1-to-2" ? "-4-of-12" : ""
-          }${props.blok.widthRatio === "2-to-1" ? "-8-of-12" : ""}`}
+            props.blok.oneColumnMd === true ? 'flex-lg' : 'flex-md'
+          }${!props.blok.widthRatio ? '-6-of-12' : ''}${
+            props.blok.widthRatio === '1-to-2' ? '-4-of-12' : ''
+          }${props.blok.widthRatio === '2-to-1' ? '-8-of-12' : ''}`}
         >
           <CreateBloks blokSection={props.blok.columnOneContent} />
         </div>
         <div
           className={`${
-            props.blok.oneColumnMd === true ? "flex-lg" : "flex-md"
-          }${!props.blok.widthRatio ? "-6-of-12" : ""}${
-            props.blok.widthRatio === "1-to-2" ? "-8-of-12" : ""
-          }${props.blok.widthRatio === "2-to-1" ? "-4-of-12" : ""}`}
+            props.blok.oneColumnMd === true ? 'flex-lg' : 'flex-md'
+          }${!props.blok.widthRatio ? '-6-of-12' : ''}${
+            props.blok.widthRatio === '1-to-2' ? '-8-of-12' : ''
+          }${props.blok.widthRatio === '2-to-1' ? '-4-of-12' : ''}`}
         >
           <CreateBloks blokSection={props.blok.columnTwoContent} />
         </div>

@@ -1,5 +1,5 @@
-import React from "react";
-import HtmlHead from "./components/partials/htmlHead";
+import React from 'react';
+import HtmlHead from './components/partials/htmlHead';
 
 export default class HTML extends React.Component {
   render() {

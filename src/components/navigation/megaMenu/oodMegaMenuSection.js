@@ -1,10 +1,10 @@
-import React, { useState, useRef } from "react";
-import SbEditable from "storyblok-react";
-import CreateBloks from "../../../utilities/createBloks";
-import UseOnClickOutside from "../../../hooks/useOnClickOutside";
-import CenteredContainer from "../../partials/centeredContainer";
-import UseEscape from "../../../hooks/useEscape";
-import FlexCell from "../../partials/flexCell";
+import React, { useState, useRef } from 'react';
+import SbEditable from 'storyblok-react';
+import CreateBloks from '../../../utilities/createBloks';
+import UseOnClickOutside from '../../../hooks/useOnClickOutside';
+import CenteredContainer from '../../partials/centeredContainer';
+import UseEscape from '../../../hooks/useEscape';
+import FlexCell from '../../partials/flexCell';
 
 const OodMegaMenuSection = (props) => {
   const [sectionOpened, setSectionOpened] = useState(false);
@@ -18,7 +18,7 @@ const OodMegaMenuSection = (props) => {
     const openParent = document.querySelector(
       ".ood-mega-nav__trigger[aria-expanded='true']"
     );
-    const hamburger = document.querySelector(".ood-mega-nav__toggle");
+    const hamburger = document.querySelector('.ood-mega-nav__toggle');
 
     if (openParent && !hamburger) {
       setSectionOpened(false);
@@ -39,8 +39,8 @@ const OodMegaMenuSection = (props) => {
           {props.blok.linkText}
         </button>
         <div className="ood-mega-nav__section" aria-hidden={!sectionOpened}>
-          <CenteredContainer flex={true} classes={"su-pt-4 su-pb-5"}>
-            <FlexCell lg={8} classes={"su-flex su-flex-col"}>
+          <CenteredContainer flex={true} classes={'su-pt-4 su-pb-5'}>
+            <FlexCell lg={8} classes={'su-flex su-flex-col'}>
               <div className="flex-container ood-mega-nav__section-links">
                 <CreateBloks blokSection={props.blok.linkGroups} />
               </div>

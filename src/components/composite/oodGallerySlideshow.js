@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import SbEditable from "storyblok-react";
-import AspectRatioImage from "../media/aspectRatioImage";
-import Slider from "react-slick";
-import Modal from "./modal";
-import RichTextField from "../../utilities/richTextField";
-import "slick-carousel/slick/slick.css";
+import React, { useState, useEffect } from 'react';
+import SbEditable from 'storyblok-react';
+import AspectRatioImage from '../media/aspectRatioImage';
+import Slider from 'react-slick';
+import Modal from './modal';
+import RichTextField from '../../utilities/richTextField';
+import 'slick-carousel/slick/slick.css';
 
 const oodGallerySlideshow = ({ blok }) => {
   const [slideshow, setSlideshow] = useState(null);
@@ -52,7 +52,7 @@ const oodGallerySlideshow = ({ blok }) => {
           )}
 
           <div className="gallery-slideshow--caption">
-            <RichTextField data={blok.slides[activeSlide]["caption"]} />
+            <RichTextField data={blok.slides[activeSlide]['caption']} />
           </div>
 
           <div className="gallery-slideshow--controls">
@@ -62,7 +62,7 @@ const oodGallerySlideshow = ({ blok }) => {
             </button>
             <div
               className={`gallery-slideshow--pager-window ${
-                showOverlay ? "overlay" : ""
+                showOverlay ? 'overlay' : ''
               }`}
               ref={pagerWindow}
             >
@@ -91,7 +91,7 @@ const oodGallerySlideshow = ({ blok }) => {
             blok={blok}
             filename={slide.image.filename}
             alt={slide.image.alt}
-            classPrefix={"ood-gallery-slide"}
+            classPrefix={'ood-gallery-slide'}
             aspectRatio="16x9"
             imageSize="thumbnail"
           />
@@ -103,7 +103,7 @@ const oodGallerySlideshow = ({ blok }) => {
       adjustPagerPosition();
     },
     dots: true,
-    dotsClass: "gallery-slideshow--bottom",
+    dotsClass: 'gallery-slideshow--bottom',
   };
 
   const modalSliderSettings = {
@@ -128,7 +128,7 @@ const oodGallerySlideshow = ({ blok }) => {
     const windowBox = pagerWindow.current.getBoundingClientRect();
     const pagerBox = pager.current.getBoundingClientRect();
     const activeItem =
-      pagerWindow.current.getElementsByClassName("slick-active")[0];
+      pagerWindow.current.getElementsByClassName('slick-active')[0];
     const activeItemBox = activeItem.getBoundingClientRect();
 
     if (activeItemBox.right > windowBox.right) {
@@ -168,29 +168,29 @@ const oodGallerySlideshow = ({ blok }) => {
         className={`gallery-slideshow
         ${
           !blok.showCounter && !blok.showExpandLink
-            ? "gallery-slideshow--minimal"
-            : ""
+            ? 'gallery-slideshow--minimal'
+            : ''
         }
-        ${blok.spacingTop !== "none" ? `su-pt-${blok.spacingTop}` : ""}
-        ${blok.spacingBottom !== "none" ? `su-pb-${blok.spacingBottom}` : ""}
+        ${blok.spacingTop !== 'none' ? `su-pt-${blok.spacingTop}` : ''}
+        ${blok.spacingBottom !== 'none' ? `su-pb-${blok.spacingBottom}` : ''}
         ${
           blok.backgroundColor
             ? `su-bg-${blok.backgroundColor}`
-            : "su-bg-transparent"
+            : 'su-bg-transparent'
         }
         ${
-          blok.containerWidth == "constrain-max-width"
-            ? "centered-container"
-            : ""
+          blok.containerWidth == 'constrain-max-width'
+            ? 'centered-container'
+            : ''
         }
       `}
       >
         <div
           className={`gallery-slideshow--inner su-mx-auto 
           ${
-            blok.containerWidth == "constrain-max-width"
-              ? "flex-md-10-of-12 flex-xl-8-of-12"
-              : ""
+            blok.containerWidth == 'constrain-max-width'
+              ? 'flex-md-10-of-12 flex-xl-8-of-12'
+              : ''
           }
         `}
         >
@@ -210,7 +210,7 @@ const oodGallerySlideshow = ({ blok }) => {
                     blok={blok}
                     filename={slide.image.filename}
                     alt={slide.image.alt}
-                    classPrefix={"ood-gallery-slide"}
+                    classPrefix={'ood-gallery-slide'}
                     aspectRatio="16x9"
                     imageSize="gallery-slide"
                   />
@@ -225,7 +225,7 @@ const oodGallerySlideshow = ({ blok }) => {
         onClose={closeModal}
         outerContainerClasses="centered-container flex-container su-pt-1"
         innerContainerClasses="su-pt-2"
-        ariaLabel={blok.ariaLabel + " full screen view"}
+        ariaLabel={blok.ariaLabel + ' full screen view'}
       >
         <div className="gallery-slideshow--modal-wrapper">
           <Slider className="gallery-slideshow--modal" {...modalSliderSettings}>
@@ -240,7 +240,7 @@ const oodGallerySlideshow = ({ blok }) => {
                     blok={blok}
                     filename={slide.image.filename}
                     alt={slide.image.alt}
-                    classPrefix={"ood-gallery-slide"}
+                    classPrefix={'ood-gallery-slide'}
                     aspectRatio="16x9"
                     imageSize="gallery-slide"
                   />
@@ -256,7 +256,7 @@ const oodGallerySlideshow = ({ blok }) => {
               {`${activeSlide + 1}/${blok.slides.length}`}
             </div>
             <div className="gallery-slideshow--caption">
-              <RichTextField data={blok.slides[activeSlide]["caption"]} />
+              <RichTextField data={blok.slides[activeSlide]['caption']} />
             </div>
           </div>
         </div>

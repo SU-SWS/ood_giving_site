@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 /*
  ** The HtmlHead component is included into the html.js file, to always be loaded.

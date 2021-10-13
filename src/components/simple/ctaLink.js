@@ -1,6 +1,6 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import SbLink from "../partials/sbLink";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import SbLink from '../partials/sbLink';
 
 /* eslint-disable-next-line react/display-name */
 const CtaLink = React.forwardRef((props, ref) => (

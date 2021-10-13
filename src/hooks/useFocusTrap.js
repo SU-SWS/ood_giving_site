@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 const UseFocusTrap = (firstElemRef, lastElemRef, isActive = true) => {
   useEffect(() => {
     const handleTabPress = ($event) => {
-      if ($event.key === "Tab") {
+      if ($event.key === 'Tab') {
         if ($event.shiftKey) {
           // tabbing backwards, check whether first element is focused
           if (firstElemRef.current === document.activeElement) {
@@ -20,9 +20,9 @@ const UseFocusTrap = (firstElemRef, lastElemRef, isActive = true) => {
       }
     };
     if (isActive) {
-      window.addEventListener("keydown", handleTabPress);
+      window.addEventListener('keydown', handleTabPress);
       return () => {
-        window.removeEventListener("keydown", handleTabPress);
+        window.removeEventListener('keydown', handleTabPress);
       };
     }
   }, [firstElemRef, lastElemRef, isActive]);

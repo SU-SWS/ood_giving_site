@@ -1,6 +1,6 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import CreateBloks from "../../utilities/createBloks";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import CreateBloks from '../../utilities/createBloks';
 
 const GridThreeColumns = (props) => {
   return (

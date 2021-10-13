@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import RichTextField from "../../utilities/richTextField";
-import SbLink from "../partials/sbLink";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import RichTextField from '../../utilities/richTextField';
+import SbLink from '../partials/sbLink';
+import PropTypes from 'prop-types';
 
 const Alert = (props) => {
   const [isDismissed, setDismissed] = useState(false);
@@ -12,30 +12,30 @@ const Alert = (props) => {
   const text = props.blok.alertBodyText;
 
   const colorsMapping = {
-    green: "success",
-    red: "error",
-    blue: "info",
-    yellow: "warning",
+    green: 'success',
+    red: 'error',
+    blue: 'info',
+    yellow: 'warning',
   };
 
-  let classList = "su-bg-foggy-light";
+  let classList = 'su-bg-foggy-light';
 
-  let iconClass = "fas fa-" + icon;
-  if (icon === "bell") {
-    iconClass = "far fa-bell";
+  let iconClass = 'fas fa-' + icon;
+  if (icon === 'bell') {
+    iconClass = 'far fa-bell';
   }
 
-  if (color === "green" || color === "red" || color === "blue") {
-    classList = "su-alert--text-light su-alert--" + colorsMapping[color];
-  } else if (color === "yellow") {
-    classList = "su-alert--" + colorsMapping[color];
+  if (color === 'green' || color === 'red' || color === 'blue') {
+    classList = 'su-alert--text-light su-alert--' + colorsMapping[color];
+  } else if (color === 'yellow') {
+    classList = 'su-alert--' + colorsMapping[color];
   }
 
   const DefaultDismiss = (
     <button
       aria-label="Dismiss alert"
       className={
-        "su-alert__dismiss-button su-button su-bg-transparent su-bg-hocus-transparent su-text-hocus-black"
+        'su-alert__dismiss-button su-button su-bg-transparent su-bg-hocus-transparent su-text-hocus-black'
       }
       type="button"
       onClick={() => {
@@ -54,7 +54,7 @@ const Alert = (props) => {
   }
 
   return (
-    <div className={"su-alert " + classList}>
+    <div className={'su-alert ' + classList}>
       <div className="centered-container">
         {props.hasDismiss && (
           <div className="su-alert__dismiss">{dismissBtn}</div>
@@ -66,12 +66,12 @@ const Alert = (props) => {
           <span className="su-alert__label">{label}</span>
         </div>
         <div className="su-alert__body">
-          <div className={"su-alert__text"}>
+          <div className={'su-alert__text'}>
             <RichTextField data={text} />
           </div>
           {props.blok.cta && props.blok.ctaText && (
-            <div className={"su-alert__footer"}>
-              <SbLink link={props.blok.cta} classes={"su-link su-link--action"}>
+            <div className={'su-alert__footer'}>
+              <SbLink link={props.blok.cta} classes={'su-link su-link--action'}>
                 {props.blok.ctaText}
               </SbLink>
             </div>

@@ -1,18 +1,18 @@
-import React, { useRef, useState } from "react";
-import SbEditable from "storyblok-react";
-import CreateBloks from "../../../utilities/createBloks";
-import Heading from "../../partials/heading";
-import UseWindowSize from "../../../hooks/useWindowSize";
-import UseEscape from "../../../hooks/useEscape";
-import UseOnClickOutside from "../../../hooks/useOnClickOutside";
-import { config } from "../../../utilities/config";
+import React, { useRef, useState } from 'react';
+import SbEditable from 'storyblok-react';
+import CreateBloks from '../../../utilities/createBloks';
+import Heading from '../../partials/heading';
+import UseWindowSize from '../../../hooks/useWindowSize';
+import UseEscape from '../../../hooks/useEscape';
+import UseOnClickOutside from '../../../hooks/useOnClickOutside';
+import { config } from '../../../utilities/config';
 
 const OodContentMenu = (props) => {
   let windowSize = UseWindowSize();
   const [menuOpened, setMenuOpened] = useState(false);
   const ref = useRef(null);
   const burgerRef = useRef(null);
-  const isExpanded = (x) => x.getAttribute("aria-expanded") === "true";
+  const isExpanded = (x) => x.getAttribute('aria-expanded') === 'true';
 
   const toggleMenu = () => {
     setMenuOpened(!menuOpened);
@@ -32,7 +32,7 @@ const OodContentMenu = (props) => {
     <>
       <div className={`ood-content-nav__menu-group`}>
         {props.blok.menuTitle && (
-          <Heading level={"h2"} classes={`ood-content-nav__title`}>
+          <Heading level={'h2'} classes={`ood-content-nav__title`}>
             {props.blok.menuTitle}
           </Heading>
         )}
@@ -43,7 +43,7 @@ const OodContentMenu = (props) => {
       {props.blok.relatedMenuLinks && (
         <div className={`ood-content-nav__menu-group`}>
           {props.blok.relatedMenuTitle && (
-            <Heading level={"h2"} classes={`ood-content-nav__title`}>
+            <Heading level={'h2'} classes={`ood-content-nav__title`}>
               {props.blok.relatedMenuTitle}
             </Heading>
           )}
@@ -84,10 +84,10 @@ const OodContentMenu = (props) => {
           onClick={toggleMenu}
           ref={burgerRef}
         >
-          {menuOpened ? "Close" : "Section Menu"}{" "}
+          {menuOpened ? 'Close' : 'Section Menu'}{' '}
           <i
             aria-hidden="true"
-            className={`fas fa-${menuOpened ? "times" : "bars"}`}
+            className={`fas fa-${menuOpened ? 'times' : 'bars'}`}
           />
         </button>
         <div className={`ood-content-nav__menus`} aria-hidden={!menuOpened}>

@@ -1,8 +1,8 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import CreateBloks from "../../utilities/createBloks";
-import FullWidthImage from "../media/fullWidthImage";
-import SbLink from "../partials/sbLink";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import CreateBloks from '../../utilities/createBloks';
+import FullWidthImage from '../media/fullWidthImage';
+import SbLink from '../partials/sbLink';
 
 const OodCampaignHeader = (props) => {
   return (

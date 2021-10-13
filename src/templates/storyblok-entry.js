@@ -1,5 +1,5 @@
-import React from "react";
-import Components from "../components/components.js";
+import React from 'react';
+import Components from '../components/components.js';
 
 class StoryblokEntry extends React.Component {
   static getDerivedStateFromProps(props, state) {

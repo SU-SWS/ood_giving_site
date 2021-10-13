@@ -1,6 +1,6 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import CreateBloks from "../../utilities/createBloks";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import CreateBloks from '../../utilities/createBloks';
 
 const RowThreeColumns = (props) => (
   <SbEditable content={props.blok}>
@@ -10,8 +10,8 @@ const RowThreeColumns = (props) => (
       <div
         className={`${
           props.blok.oneColumnMd === true
-            ? "flex-lg-4-of-12"
-            : "flex-md-4-of-12"
+            ? 'flex-lg-4-of-12'
+            : 'flex-md-4-of-12'
         }`}
       >
         <CreateBloks blokSection={props.blok.columnOneContent} />
@@ -19,8 +19,8 @@ const RowThreeColumns = (props) => (
       <div
         className={`${
           props.blok.oneColumnMd === true
-            ? "flex-lg-4-of-12"
-            : "flex-md-4-of-12"
+            ? 'flex-lg-4-of-12'
+            : 'flex-md-4-of-12'
         }`}
       >
         <CreateBloks blokSection={props.blok.columnTwoContent} />
@@ -28,8 +28,8 @@ const RowThreeColumns = (props) => (
       <div
         className={`${
           props.blok.oneColumnMd === true
-            ? "flex-lg-4-of-12"
-            : "flex-md-4-of-12"
+            ? 'flex-lg-4-of-12'
+            : 'flex-md-4-of-12'
         }`}
       >
         <CreateBloks blokSection={props.blok.columnThreeContent} />

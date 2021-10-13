@@ -1,6 +1,6 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import CreateBloks from "../../utilities/createBloks";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import CreateBloks from '../../utilities/createBloks';
 
 const OodSubMenu = (props) => (
   <SbEditable content={props.blok}>

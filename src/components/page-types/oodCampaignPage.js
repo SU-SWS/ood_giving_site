@@ -1,12 +1,12 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import Footer from "../partials/footer";
-import IconCardSection from "../partials/iconCardSection";
-import SeoSocial from "../partials/seoSocial";
-import CreateBloks from "../../utilities/createBloks";
-import CampaignLeftImageHero from "../partials/campaignLeftImageHero";
-import CampaignFullWidthHero from "../partials/campaignFullWidthHero";
-import CampaignHeader from "../partials/campaignHeader";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import Footer from '../partials/footer';
+import IconCardSection from '../partials/iconCardSection';
+import SeoSocial from '../partials/seoSocial';
+import CreateBloks from '../../utilities/createBloks';
+import CampaignLeftImageHero from '../partials/campaignLeftImageHero';
+import CampaignFullWidthHero from '../partials/campaignFullWidthHero';
+import CampaignHeader from '../partials/campaignHeader';
 
 const OodCampaignPage = (props) => {
   return (

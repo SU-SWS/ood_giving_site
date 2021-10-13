@@ -1,22 +1,22 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import Heading from "../partials/heading";
-import SbLink from "../partials/sbLink";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import Heading from '../partials/heading';
+import SbLink from '../partials/sbLink';
 
 const OodIconCard = (props) => {
   return (
     <SbEditable content={props.blok}>
       <article
         className={`ood-icon-card
-             ${props.blok.backgroundColor !== "white" ? "su-text-white" : ""}
+             ${props.blok.backgroundColor !== 'white' ? 'su-text-white' : ''}
              su-text-align-${props.blok.contentAlign}`}
       >
         <SbLink
           link={props.blok.link}
           classes={`ood-icon-card__link su-bg-${props.blok.backgroundColor}
             ${
-              props.blok.backgroundColor === "white"
-                ? "su-border-color-black-10"
+              props.blok.backgroundColor === 'white'
+                ? 'su-border-color-black-10'
                 : `su-border-color-${props.blok.backgroundColor}`
             }`}
         >
@@ -35,20 +35,20 @@ const OodIconCard = (props) => {
                       : props.blok.icon.icon
                   }
                   ${
-                    props.blok.backgroundColor !== "white"
-                      ? "su-text-white"
-                      : "su-text-digital-red"
+                    props.blok.backgroundColor !== 'white'
+                      ? 'su-text-white'
+                      : 'su-text-digital-red'
                   }`}
             />
           </div>
           <div className="ood-icon-card__contents">
             <Heading
               level={props.blok.headingLevel}
-              defaultLevel={"h3"}
-              classes={"ood-icon-card__headline su-hocus-underline su-mb-none"}
-              weight={"semibold"}
-              external={props.blok.link.linktype === "url"}
-              color={props.blok.backgroundColor !== "white" ? "white" : "black"}
+              defaultLevel={'h3'}
+              classes={'ood-icon-card__headline su-hocus-underline su-mb-none'}
+              weight={'semibold'}
+              external={props.blok.link.linktype === 'url'}
+              color={props.blok.backgroundColor !== 'white' ? 'white' : 'black'}
             >
               {props.blok.headline}
             </Heading>

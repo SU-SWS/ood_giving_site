@@ -1,8 +1,8 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import SbEditable from "storyblok-react";
-import UseSiteMetadata from "../../hooks/useSiteMetadata";
-import transformImage from "../../utilities/transformImage";
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import SbEditable from 'storyblok-react';
+import UseSiteMetadata from '../../hooks/useSiteMetadata';
+import transformImage from '../../utilities/transformImage';
 /*
  ** If no Twitter specific metadata is provided,
  * Twitter can still read the generic OG metadata.
@@ -16,15 +16,15 @@ const SeoSocial = (props) => {
   }
 
   const { title, siteUrl } = UseSiteMetadata();
-  let ogImage = props.blok.seo.og_image ?? "";
-  let twitterImage = props.blok.seo.twitter_image ?? "";
+  let ogImage = props.blok.seo.og_image ?? '';
+  let twitterImage = props.blok.seo.twitter_image ?? '';
 
-  if (ogImage !== "") {
-    ogImage = transformImage(ogImage, "/1200x630");
+  if (ogImage !== '') {
+    ogImage = transformImage(ogImage, '/1200x630');
   }
 
-  if (twitterImage !== "") {
-    twitterImage = transformImage(twitterImage, "/1200x600");
+  if (twitterImage !== '') {
+    twitterImage = transformImage(twitterImage, '/1200x600');
   }
   const canonicalUrl = getCanonicalUrl(props.blok, siteUrl, props.location);
 
@@ -61,7 +61,7 @@ const SeoSocial = (props) => {
             }
           />
         )}
-        {ogImage !== "" && <meta property="og:image" content={ogImage} />}
+        {ogImage !== '' && <meta property="og:image" content={ogImage} />}
 
         <meta name="twitter:card" content="summary" />
 
@@ -74,7 +74,7 @@ const SeoSocial = (props) => {
             content={props.blok.seo.twitter_description}
           />
         )}
-        {twitterImage !== "" && (
+        {twitterImage !== '' && (
           <meta name="twitter:image" content={twitterImage} />
         )}
       </Helmet>
@@ -96,15 +96,15 @@ function getCanonicalUrl(blok, siteUrl, location = {}) {
   if (!blok.canonicalURL) return canonicalUrl;
 
   // If an absolute URL was specified...
-  if (blok.canonicalURL.linktype == "url") {
+  if (blok.canonicalURL.linktype == 'url') {
     canonicalUrl = blok.canonicalURL.url;
   }
   // If the user referenced another page within Storyblok...
   else if (
-    blok.canonicalURL.linktype == "story" &&
+    blok.canonicalURL.linktype == 'story' &&
     blok.canonicalURL.cached_url
   ) {
-    canonicalUrl = siteUrl + "/" + blok.canonicalURL.cached_url;
+    canonicalUrl = siteUrl + '/' + blok.canonicalURL.cached_url;
   }
 
   return canonicalUrl;

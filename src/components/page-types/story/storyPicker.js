@@ -1,11 +1,11 @@
-import React from "react";
-import CreateStories from "../../../utilities/createStories";
+import React from 'react';
+import CreateStories from '../../../utilities/createStories';
 
 const StoryPicker = (props) => {
   return (
     <CreateStories
       stories={props.blok.story}
-      layout={"story-card"}
+      layout={'story-card'}
       orientation={props.blok.orientation}
       hideImage={props.blok.hideImage}
       backgroundColor={props.blok.backgroundColor}

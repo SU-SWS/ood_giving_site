@@ -1,11 +1,11 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import HeaderNoImage from "../partials/headerNoImage";
-import BelowContent from "../partials/belowContent";
-import IconCardSection from "../partials/iconCardSection";
-import Footer from "../partials/footer";
-import SeoSocial from "../partials/seoSocial";
-import CreateBloks from "../../utilities/createBloks";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import HeaderNoImage from '../partials/headerNoImage';
+import BelowContent from '../partials/belowContent';
+import IconCardSection from '../partials/iconCardSection';
+import Footer from '../partials/footer';
+import SeoSocial from '../partials/seoSocial';
+import CreateBloks from '../../utilities/createBloks';
 
 const StoryOverview = (props) => {
   return (

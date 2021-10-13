@@ -1,9 +1,9 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import CreateBloks from "../../utilities/createBloks";
-import Heading from "./heading";
-import FullWidthImage from "../media/fullWidthImage";
-import FlexCell from "./flexCell";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import CreateBloks from '../../utilities/createBloks';
+import Heading from './heading';
+import FullWidthImage from '../media/fullWidthImage';
+import FlexCell from './flexCell';
 
 /* The Hero section with image on the left is referenced by the Campaign Page type. */
 
@@ -12,13 +12,13 @@ const CampaignLeftImageHero = (props) => {
     <FullWidthImage
       {...props}
       filename={props.blok.image.filename}
-      classPrefix={"campaign-page"}
+      classPrefix={'campaign-page'}
       visibleVertical={props.blok.visibleVertical}
-      visibleHorizontal={"center"}
-      alt={props.blok.image.alt ?? ""}
+      visibleHorizontal={'center'}
+      alt={props.blok.image.alt ?? ''}
     />
   ) : (
-    <div className={"full-width-image-placeholder"} aria-hidden="true" />
+    <div className={'full-width-image-placeholder'} aria-hidden="true" />
   );
 
   return (
@@ -30,19 +30,19 @@ const CampaignLeftImageHero = (props) => {
           {full_width_image}
           {props.blok.logo.filename && (
             <img
-              className={"hero-logo"}
+              className={'hero-logo'}
               src={props.blok.logo.filename}
               alt={props.blok.logo.alt}
             />
           )}
         </div>
-        <div className={"campaign-page__header-content"}>
+        <div className={'campaign-page__header-content'}>
           <div className={`campaign-page__header-content-wrapper`}>
             <Heading
-              level={"h1"}
-              weight={"semibold"}
+              level={'h1'}
+              weight={'semibold'}
               serif={false}
-              classes={"campaign-page__title"}
+              classes={'campaign-page__title'}
             >
               {props.blok.title}
             </Heading>

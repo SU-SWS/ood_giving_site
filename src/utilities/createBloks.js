@@ -1,5 +1,5 @@
-import React from "react";
-import Components from "../components/components";
+import React from 'react';
+import Components from '../components/components';
 
 // Create nested components in Storyblok
 

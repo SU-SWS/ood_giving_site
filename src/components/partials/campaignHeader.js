@@ -1,11 +1,11 @@
-import React from "react";
-import CreateBloks from "../../utilities/createBloks";
-import SeoSocial from "./seoSocial";
-import CampaignHero from "./campaignHero";
-import nextId from "react-id-generator";
+import React from 'react';
+import CreateBloks from '../../utilities/createBloks';
+import SeoSocial from './seoSocial';
+import CampaignHero from './campaignHero';
+import nextId from 'react-id-generator';
 
 const CampaignHeader = (props) => {
-  const htmlId = nextId("su-campaign-hero-");
+  const htmlId = nextId('su-campaign-hero-');
   return (
     <header className="campaign-page__header">
       <CreateBloks blokSection={props.blok.alertPicker} />

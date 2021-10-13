@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo } from "react";
-import { connectPagination } from "react-instantsearch-dom";
+import React, { useEffect, useMemo } from 'react';
+import { connectPagination } from 'react-instantsearch-dom';
 
 const Pagination = ({ initialPage }) => {
   const AlgoliaPagination = useMemo(
@@ -27,7 +27,7 @@ const Pagination = ({ initialPage }) => {
       const handlePageChange = (newPage, $event) => {
         $event.preventDefault();
         refine(newPage);
-        document.querySelector(".search-hits")?.scrollIntoView();
+        document.querySelector('.search-hits')?.scrollIntoView();
       };
 
       return (

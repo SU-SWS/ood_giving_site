@@ -1,7 +1,7 @@
-import SbEditable from "storyblok-react";
-import React from "react";
-import Components from "../components";
-import CreateBloks from "../../utilities/createBloks";
+import SbEditable from 'storyblok-react';
+import React from 'react';
+import Components from '../components';
+import CreateBloks from '../../utilities/createBloks';
 
 /* The BelowContent component is referenced by the Interior Page and Support page types. */
 

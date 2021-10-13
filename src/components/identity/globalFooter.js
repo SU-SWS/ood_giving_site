@@ -1,13 +1,13 @@
-import React from "react";
-import SbEditable from "storyblok-react";
+import React from 'react';
+import SbEditable from 'storyblok-react';
 
 const globalFooter = (props) => (
   <SbEditable content={props.blok}>
     <div
       className={
         props.blok.color
-          ? "su-global-footer " + props.blok.color
-          : "su-global-footer"
+          ? 'su-global-footer ' + props.blok.color
+          : 'su-global-footer'
       }
     >
       <div className="su-global-footer__container">

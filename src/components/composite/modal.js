@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import UseEscape from "../../hooks/useEscape";
-import UseFocusTrap from "../../hooks/useFocusTrap";
-import CenteredContainer from "../partials/centeredContainer";
-import { tabbable } from "tabbable";
+import React, { useEffect, useRef, useState } from 'react';
+import UseEscape from '../../hooks/useEscape';
+import UseFocusTrap from '../../hooks/useFocusTrap';
+import CenteredContainer from '../partials/centeredContainer';
+import { tabbable } from 'tabbable';
 
 export const Modal = ({
   children,
@@ -13,8 +13,8 @@ export const Modal = ({
   ariaLabel,
 }) => {
   const defaultOuterContainerClasses =
-    "centered-container flex-container su-pt-5";
-  const defaultInnerContainerClasses = "";
+    'centered-container flex-container su-pt-5';
+  const defaultInnerContainerClasses = '';
   const closeButton = useRef();
   const modalBodyRef = useRef();
 
@@ -51,24 +51,24 @@ export const Modal = ({
   }, [isOpen]);
 
   const lockScroll = () => {
-    const overlay = document.querySelector(".su-modal");
-    let scrollbarWidth = overlay.offsetWidth - overlay.clientWidth + "px";
+    const overlay = document.querySelector('.su-modal');
+    let scrollbarWidth = overlay.offsetWidth - overlay.clientWidth + 'px';
 
-    document.getElementsByTagName("html")[0].style.overflowY = "hidden";
-    document.getElementsByTagName("body")[0].style.paddingRight =
+    document.getElementsByTagName('html')[0].style.overflowY = 'hidden';
+    document.getElementsByTagName('body')[0].style.paddingRight =
       scrollbarWidth;
   };
 
   const unlockScroll = () => {
-    document.getElementsByTagName("html")[0].style.overflowY = "scroll";
-    document.getElementsByTagName("body")[0].style.paddingRight = "0";
+    document.getElementsByTagName('html')[0].style.overflowY = 'scroll';
+    document.getElementsByTagName('body')[0].style.paddingRight = '0';
   };
 
   return (
     <div
-      className={`su-modal ${isOpen ? "visible" : "hidden"}`}
+      className={`su-modal ${isOpen ? 'visible' : 'hidden'}`}
       aria-label={ariaLabel}
-      aria-hidden={isOpen ? "false" : "true"}
+      aria-hidden={isOpen ? 'false' : 'true'}
       role="dialog"
       tabIndex="-1"
     >

@@ -1,7 +1,7 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import Heading from "../partials/heading";
-import SbLink from "../partials/sbLink";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import Heading from '../partials/heading';
+import SbLink from '../partials/sbLink';
 
 const OodSupportCard = (props) => {
   const taxonomyString = (taxonomyArray) => {
@@ -21,11 +21,11 @@ const OodSupportCard = (props) => {
           <div className="ood-support-card__contents">
             <Heading
               level={props.blok.headingLevel}
-              defaultLevel={"h3"}
-              color={"white"}
-              weight={"semibold"}
+              defaultLevel={'h3'}
+              color={'white'}
+              weight={'semibold'}
               classes={`ood-support-card__headline ${
-                props.blok.link.linktype === "url" ? "su-link--external" : ""
+                props.blok.link.linktype === 'url' ? 'su-link--external' : ''
               }`}
             >
               {props.blok.headline}

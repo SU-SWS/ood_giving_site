@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import SbEditable from "storyblok-react";
-import HeaderNoImage from "../partials/headerNoImage";
-import Footer from "../partials/footer";
-import BelowContent from "../partials/belowContent";
-import IconCardSection from "../partials/iconCardSection";
-import SeoSocial from "../partials/seoSocial";
-import CreateBloks from "../../utilities/createBloks";
-import CenteredContainer from "../partials/centeredContainer";
-import Heading from "../partials/heading";
-import { navigate } from "gatsby";
+import React, { useEffect } from 'react';
+import SbEditable from 'storyblok-react';
+import HeaderNoImage from '../partials/headerNoImage';
+import Footer from '../partials/footer';
+import BelowContent from '../partials/belowContent';
+import IconCardSection from '../partials/iconCardSection';
+import SeoSocial from '../partials/seoSocial';
+import CreateBloks from '../../utilities/createBloks';
+import CenteredContainer from '../partials/centeredContainer';
+import Heading from '../partials/heading';
+import { navigate } from 'gatsby';
 
 const OodSupportPage = (props) => {
   /**
@@ -30,7 +30,7 @@ const OodSupportPage = (props) => {
     }
 
     // Event listener used for 'back button' nagivation.
-    window.addEventListener("hashchange", setActiveFilter);
+    window.addEventListener('hashchange', setActiveFilter);
   }, []); // Empty array ensures this effect is only called once on page load.
 
   return (
@@ -49,8 +49,8 @@ const OodSupportPage = (props) => {
               {props.blok.bodyTitle && (
                 <header className="centered-container ood-interior-page__body-header su-text-align-left">
                   <Heading
-                    level={"h2"}
-                    weight={"bold"}
+                    level={'h2'}
+                    weight={'bold'}
                     serif={true}
                     classes="ood-interior-page__body-header-title ood-has-tab-before"
                   >
@@ -59,7 +59,7 @@ const OodSupportPage = (props) => {
                 </header>
               )}
               <p className={`su-sr-only-element`}>{props.blok.srText}</p>
-              <CenteredContainer classes={"ood-support-page__filter-container"}>
+              <CenteredContainer classes={'ood-support-page__filter-container'}>
                 <input
                   type="radio"
                   id="undergraduate"

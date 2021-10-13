@@ -1,16 +1,16 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import cx from "classnames";
-import CreateBloks from "../../utilities/createBloks";
-import Heading from "./heading";
-import FullWidthImage from "../media/fullWidthImage";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import cx from 'classnames';
+import CreateBloks from '../../utilities/createBloks';
+import Heading from './heading';
+import FullWidthImage from '../media/fullWidthImage';
 
 /* The Hero section with fullwidth image is referenced by the Campaign Page type. */
 
 const CampaignHero = (props) => {
   const { blok, htmlId } = props;
 
-  const isFullWidthImage = blok.heroStyle === "fullwidth-image";
+  const isFullWidthImage = blok.heroStyle === 'fullwidth-image';
 
   const campaignContentClasses = `campaign-page__hero-content
   campaign-page__hero-${blok.heroContentPosition}
@@ -18,13 +18,13 @@ const CampaignHero = (props) => {
   su-${blok.heroContentColor}
   ${
     isFullWidthImage
-      ? "flex-container column-grid centered-container su-align-items-center"
-      : ""
+      ? 'flex-container column-grid centered-container su-align-items-center'
+      : ''
   }
   ${
-    blok.heroContentPosition === "right" && isFullWidthImage
-      ? "su-flex-row-reverse"
-      : ""
+    blok.heroContentPosition === 'right' && isFullWidthImage
+      ? 'su-flex-row-reverse'
+      : ''
   }`;
 
   const full_width_image =
@@ -32,13 +32,13 @@ const CampaignHero = (props) => {
       <FullWidthImage
         {...props}
         filename={blok.image?.filename}
-        classPrefix={"campaign-page"}
-        visibleVertical={"center"}
+        classPrefix={'campaign-page'}
+        visibleVertical={'center'}
         visibleHorizontal={blok.visibleHorizontal}
-        alt={blok.image?.alt ?? ""}
+        alt={blok.image?.alt ?? ''}
       />
     ) : (
-      <div className={"full-width-image-placeholder"} aria-hidden="true" />
+      <div className={'full-width-image-placeholder'} aria-hidden="true" />
     );
 
   return (
@@ -52,8 +52,8 @@ const CampaignHero = (props) => {
           <div
             className={`campaign-page__hero-content-wrapper ${
               isFullWidthImage
-                ? "flex-md-9-of-12 flex-lg-6-of-12 column-grid__column"
-                : ""
+                ? 'flex-md-9-of-12 flex-lg-6-of-12 column-grid__column'
+                : ''
             }`}
           >
             {blok.logo?.filename && (
@@ -67,10 +67,10 @@ const CampaignHero = (props) => {
               className={`campaign-page__hero-content-body ${blok.heroContentAlignment}`}
             >
               <Heading
-                level={"h1"}
-                weight={`${isFullWidthImage ? "regular" : "semibold"}`}
+                level={'h1'}
+                weight={`${isFullWidthImage ? 'regular' : 'semibold'}`}
                 serif={
-                  blok.heroStyle === "fullwidth-image" ||
+                  blok.heroStyle === 'fullwidth-image' ||
                   blok.heroTitleFontSerif
                 }
                 classes={`campaign-page__title ${blok.heroTitleType}`}
@@ -84,8 +84,8 @@ const CampaignHero = (props) => {
               )}
               {blok.intro && (
                 <p
-                  className={cx("campaign-page__hero-intro su-mb-none", {
-                    "su-serif": blok.heroIntroFontSerif,
+                  className={cx('campaign-page__hero-intro su-mb-none', {
+                    'su-serif': blok.heroIntroFontSerif,
                   })}
                 >
                   {blok.intro}

@@ -1,8 +1,8 @@
-import React, { useState, useRef } from "react";
-import Components from "../components.js";
-import SbEditable from "storyblok-react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
+import React, { useState, useRef } from 'react';
+import Components from '../components.js';
+import SbEditable from 'storyblok-react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
 
 const OodQuoteSlider = ({ blok }) => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -13,9 +13,9 @@ const OodQuoteSlider = ({ blok }) => {
     nextArrow: (
       <button>
         <span className="sr-only">
-          Next Slide:{" "}
+          Next Slide:{' '}
           {`${
-            activeSlide + 1 === blok.quotes.length ? "1" : activeSlide + 2
+            activeSlide + 1 === blok.quotes.length ? '1' : activeSlide + 2
           } of ${blok.quotes.length}`}
         </span>
         <i className="fas fa-chevron-right" aria-hidden="true" />
@@ -24,7 +24,7 @@ const OodQuoteSlider = ({ blok }) => {
     prevArrow: (
       <button>
         <span className="sr-only">
-          Previous Slide:{" "}
+          Previous Slide:{' '}
           {`${activeSlide === 0 ? blok.quotes.length : activeSlide} of ${
             blok.quotes.length
           }`}
@@ -38,7 +38,7 @@ const OodQuoteSlider = ({ blok }) => {
     afterChange: (i) => {
       setActiveSlide(i);
       setSlideInProgress(false);
-      slider.current.querySelector(".slick-current").focus();
+      slider.current.querySelector('.slick-current').focus();
     },
   };
 
@@ -46,11 +46,11 @@ const OodQuoteSlider = ({ blok }) => {
     <SbEditable content={blok}>
       <div
         className={`ood-quote-slider su-flex su-flex--column ${
-          slideInProgress ? "ood-quote-slider--progress" : ""
+          slideInProgress ? 'ood-quote-slider--progress' : ''
         }`}
         ref={slider}
       >
-        <Slider className={"ood-quote-slider__wrapper"} {...sliderSettings}>
+        <Slider className={'ood-quote-slider__wrapper'} {...sliderSettings}>
           {blok.quotes &&
             blok.quotes.map((story) =>
               React.createElement(Components(story.content.component), {
@@ -59,9 +59,9 @@ const OodQuoteSlider = ({ blok }) => {
               })
             )}
         </Slider>
-        <div className={"ood-quote-slider__current-position su-mod-type-1"}>
+        <div className={'ood-quote-slider__current-position su-mod-type-1'}>
           <span aria-hidden="true">
-            {" "}
+            {' '}
             {activeSlide + 1} / {blok.quotes.length}
           </span>
           <span className="sr-only">{`Slide ${activeSlide + 1} of ${

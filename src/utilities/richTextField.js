@@ -1,7 +1,7 @@
-import React from "react";
-import StoryblokClient from "storyblok-js-client";
-import sanitizeHtml from "sanitize-html";
-import { config } from "./config";
+import React from 'react';
+import StoryblokClient from 'storyblok-js-client';
+import sanitizeHtml from 'sanitize-html';
+import { config } from './config';
 
 // Storyblok is now available as variable which contains the richTextResolver functionality
 const Storyblok = new StoryblokClient({});
@@ -17,11 +17,11 @@ function createMarkup(storyblokHTML) {
   if (config.isNetlify) {
     markup = markup.replace(
       /http?(s)\:\/\/a\.storyblok\.com/gi,
-      config.assetCdn + "a"
+      config.assetCdn + 'a'
     );
     markup = markup.replace(
       /http?(s)\:\/\/img?[0-9]\.storyblok\.com/gi,
-      config.assetCdn + "i"
+      config.assetCdn + 'i'
     );
   }
 

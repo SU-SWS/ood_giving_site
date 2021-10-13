@@ -1,25 +1,25 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import ReactPlayer from "react-player";
-import RichTextField from "../../utilities/richTextField";
-import CenteredContainer from "../partials/centeredContainer";
-import FlexCell from "../partials/flexCell";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import ReactPlayer from 'react-player';
+import RichTextField from '../../utilities/richTextField';
+import CenteredContainer from '../partials/centeredContainer';
+import FlexCell from '../partials/flexCell';
 
 // Wrapper that sets the size of the video depending on Storyblok option selected
 const VideoWrapper = (props) => {
   const videoWrapperClasses = `video-embed
         ${
-          props.blok.spacingTop !== "none"
+          props.blok.spacingTop !== 'none'
             ? `su-pt-${props.blok.spacingTop}`
-            : ""
+            : ''
         }
         ${
-          props.blok.spacingBottom !== "none"
+          props.blok.spacingBottom !== 'none'
             ? `su-pb-${props.blok.spacingBottom}`
-            : ""
+            : ''
         }`;
 
-  if (props.blok.videoWidth === "site") {
+  if (props.blok.videoWidth === 'site') {
     return (
       <CenteredContainer classes={videoWrapperClasses}>
         {props.children}
@@ -27,19 +27,19 @@ const VideoWrapper = (props) => {
     );
   }
 
-  if (props.blok.videoWidth === "story") {
+  if (props.blok.videoWidth === 'story') {
     return (
       <CenteredContainer flex={true} classes={videoWrapperClasses}>
-        <FlexCell lg={8} classes={"su-mx-auto"}>
+        <FlexCell lg={8} classes={'su-mx-auto'}>
           {props.children}
         </FlexCell>
       </CenteredContainer>
     );
   }
-  if (props.blok.videoWidth === "inset") {
+  if (props.blok.videoWidth === 'inset') {
     return (
       <CenteredContainer flex={true} classes={videoWrapperClasses}>
-        <FlexCell sm={10} md={8} lg={7} xl={6} classes={"su-mx-auto"}>
+        <FlexCell sm={10} md={8} lg={7} xl={6} classes={'su-mx-auto'}>
           {props.children}
         </FlexCell>
       </CenteredContainer>

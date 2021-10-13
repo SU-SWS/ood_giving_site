@@ -6,8 +6,8 @@
  * is also not good practice to inject and manipulate the page outside of
  * REACT as that can lead to irregularities and troubles.
  */
-import React, { useEffect, useRef } from "react";
-import SbEditable from "storyblok-react";
+import React, { useEffect, useRef } from 'react';
+import SbEditable from 'storyblok-react';
 
 const EmbedScript = (props) => {
   const myEmbed = useRef(null);
@@ -23,7 +23,7 @@ const EmbedScript = (props) => {
     const miniDom = document.createRange().createContextualFragment(html);
 
     // Force the scripts in the embed script field to load sync.
-    const scripts = miniDom.querySelectorAll("script");
+    const scripts = miniDom.querySelectorAll('script');
     if (scripts.length >= 1) {
       for (let item of scripts) {
         if (item.src && item.src.length > 1) {
@@ -34,7 +34,7 @@ const EmbedScript = (props) => {
     }
 
     // Clear the container.
-    myEmbed.current.innerHTML = "";
+    myEmbed.current.innerHTML = '';
 
     // Append the new content.
     myEmbed.current.appendChild(miniDom);

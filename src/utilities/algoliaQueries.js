@@ -29,13 +29,13 @@ function deepSearchByKeys(object, searchKeys, matches = []) {
         deepSearchByKeys(arrayItem, searchKeys, matches);
       }
     } else if (
-      typeof object === "object" &&
-      !Object.keys(object).includes("slug")
+      typeof object === 'object' &&
+      !Object.keys(object).includes('slug')
     ) {
       for (let key of Object.keys(object)) {
-        if (searchKeys.includes(key) && typeof object[key] === "string") {
+        if (searchKeys.includes(key) && typeof object[key] === 'string') {
           matches.push(object[key]);
-        } else if (typeof object[key] === "object") {
+        } else if (typeof object[key] === 'object') {
           deepSearchByKeys(object[key], searchKeys, matches);
         }
       }
@@ -67,16 +67,16 @@ const queries = [
           // These contentKeys are the JSON properties in which relevant plain-text content resides in
           // Might need to be updated, should the storyblok schema of the page type components change
           const contentKeys = [
-            "storyContent",
-            "pageContent",
-            "aboveContent",
-            "belowContent",
-            "sections",
+            'storyContent',
+            'pageContent',
+            'aboveContent',
+            'belowContent',
+            'sections',
           ];
 
           // These textKeys are the JSON properties that contain the actual text strings that we want to index
           // These also might need to be changed / added to based on changes to the storyblok schema
-          const textKeys = ["text", "headline"];
+          const textKeys = ['text', 'headline'];
           contentKeys.forEach((key) => {
             // parse text context of each page from node.content
             if (Array.isArray(parsed[key])) {
@@ -103,7 +103,7 @@ const queries = [
           } else if (canBeConcatenated) {
             let latest = concatContent[concatContent.length - 1];
             // add a white space if necessary
-            if (!latest.endsWith(" ") && !current.startsWith(" ")) {
+            if (!latest.endsWith(' ') && !current.startsWith(' ')) {
               latest = `${latest} `;
             }
             concatContent[concatContent.length - 1] = latest.concat(current);
@@ -139,16 +139,16 @@ const queries = [
       // and that content might be too big for a single record, we index each paragraph as a single record
       // and then collate these records by their slug property.
       distinct: true,
-      attributeForDistinct: "slug",
+      attributeForDistinct: 'slug',
       // These configure which record attributes are searched and also give them a priority
       // Priority is ranked from top to bottom: most important first
       searchableAttributes: [
-        "title",
-        "shortTitle",
-        "slug",
-        "author",
-        "intro,description,teaser",
-        "text",
+        'title',
+        'shortTitle',
+        'slug',
+        'author',
+        'intro,description,teaser',
+        'text',
       ],
     },
   },

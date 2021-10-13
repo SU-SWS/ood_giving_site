@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import SearchOverlay from "../components/search/searchOverlay";
+import React, { useEffect, useState } from 'react';
+import SearchOverlay from '../components/search/searchOverlay';
 
 export const SearchOverlayOpenContext = React.createContext(null);
 
@@ -8,18 +8,18 @@ const SearchOverlayOpenContextProvider = (props) => {
 
   useEffect(() => {
     if (isOpen) {
-      const searchOverlay = document.querySelector(".search-overlay");
+      const searchOverlay = document.querySelector('.search-overlay');
       let scrollbarWidth =
-        searchOverlay.offsetWidth - searchOverlay.clientWidth + "px";
+        searchOverlay.offsetWidth - searchOverlay.clientWidth + 'px';
 
-      document.getElementsByTagName("html")[0].style.overflowY = "hidden";
-      document.getElementsByTagName("body")[0].style.position = "fixed";
-      document.getElementsByTagName("body")[0].style.paddingRight =
+      document.getElementsByTagName('html')[0].style.overflowY = 'hidden';
+      document.getElementsByTagName('body')[0].style.position = 'fixed';
+      document.getElementsByTagName('body')[0].style.paddingRight =
         scrollbarWidth;
     } else {
-      document.getElementsByTagName("body")[0].style.position = "relative";
-      document.getElementsByTagName("html")[0].style.overflowY = "scroll";
-      document.getElementsByTagName("body")[0].style.paddingRight = "0";
+      document.getElementsByTagName('body')[0].style.position = 'relative';
+      document.getElementsByTagName('html')[0].style.overflowY = 'scroll';
+      document.getElementsByTagName('body')[0].style.paddingRight = '0';
     }
   }, [isOpen]);
 

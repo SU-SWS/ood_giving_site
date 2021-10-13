@@ -1,8 +1,8 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import CreateBloks from "../../utilities/createBloks";
-import CenteredContainer from "../partials/centeredContainer";
-import FlexCell from "../partials/flexCell";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import CreateBloks from '../../utilities/createBloks';
+import CenteredContainer from '../partials/centeredContainer';
+import FlexCell from '../partials/flexCell';
 
 const OodLocalFooter = (props) => (
   <SbEditable content={props.blok}>
@@ -12,7 +12,7 @@ const OodLocalFooter = (props) => (
           <CreateBloks blokSection={props.blok.websiteLogo} />
         </div>
         <section className="flex-container ood-local-footer__content">
-          <FlexCell md={6} xl={3} classes={"ood-local-footer__cell"}>
+          <FlexCell md={6} xl={3} classes={'ood-local-footer__cell'}>
             {props.blok.contactHeading && (
               <h2 className="ood-local-footer__list-heading su-serif">
                 {props.blok.contactHeading}
@@ -35,7 +35,7 @@ const OodLocalFooter = (props) => (
             </address>
             <CreateBloks blokSection={props.blok.cta} />
           </FlexCell>
-          <FlexCell md={6} xl={3} classes={"ood-local-footer__cell"}>
+          <FlexCell md={6} xl={3} classes={'ood-local-footer__cell'}>
             <nav aria-label="Local footer Office of Development links">
               {props.blok.headingGroupOod && (
                 <h2 className="ood-local-footer__list-heading su-serif">
@@ -47,7 +47,7 @@ const OodLocalFooter = (props) => (
               </ul>
             </nav>
           </FlexCell>
-          <FlexCell md={6} xl={3} classes={"ood-local-footer__cell"}>
+          <FlexCell md={6} xl={3} classes={'ood-local-footer__cell'}>
             <nav aria-label="Local footer Make a Gift links">
               {props.blok.headingGroupGift && (
                 <h2 className="ood-local-footer__list-heading su-serif">
@@ -61,7 +61,7 @@ const OodLocalFooter = (props) => (
             <h2 className="ood-local-footer__list-heading su-serif">Tax ID</h2>
             <p>{props.blok.taxId}</p>
           </FlexCell>
-          <FlexCell md={6} xl={3} classes={"ood-local-footer__cell"}>
+          <FlexCell md={6} xl={3} classes={'ood-local-footer__cell'}>
             <nav aria-label="Local footer information links">
               {props.blok.headingGroupInfo && (
                 <h2 className="ood-local-footer__list-heading su-serif">

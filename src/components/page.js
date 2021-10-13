@@ -1,5 +1,5 @@
-import React from "react";
-import CreateBloks from "../utilities/createBloks";
+import React from 'react';
+import CreateBloks from '../utilities/createBloks';
 
 const Page = (props) => (
   <div className="page">
