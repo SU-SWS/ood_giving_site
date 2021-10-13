@@ -1,19 +1,19 @@
-import React from "react";
-import { connectHits } from "react-instantsearch-dom";
-import Stats from "./stats";
-import SbLink from "../partials/sbLink";
-import Pagination from "./pagination";
-import Heading from "../partials/heading";
+import React from 'react';
+import { connectHits } from 'react-instantsearch-dom';
+import Stats from './stats';
+import SbLink from '../partials/sbLink';
+import Pagination from './pagination';
+import Heading from '../partials/heading';
 
-const Hits = props => {
+const Hits = (props) => {
   const AlgoliaHits = connectHits(({ hits }) => (
     <div className="search-hits">
       {!hits.length && (
         <div className="search-hits-no-hits">
           <Heading
-            level={"h2"}
+            level={'h2'}
             serif={true}
-            weight={"bold"}
+            weight={'bold'}
             classes="search-hits-no-hits-title"
           >
             {props.blok.noResultsErrorTitle}
@@ -26,12 +26,12 @@ const Hits = props => {
 
       {hits.length > 0 && <Stats />}
 
-      {hits.map(hit => (
+      {hits.map((hit) => (
         <article
           className="search-hits-item su-mb-2 su-pb-2 su-px-default"
           key={hit.objectID}
         >
-          <Heading level={"h2"} serif={true} weight={"bold"}>
+          <Heading level={'h2'} serif={true} weight={'bold'}>
             <SbLink link={{ cached_url: `/${hit.slug}` }}>{hit.title}</SbLink>
           </Heading>
           <p className="su-mb-none">

@@ -1,26 +1,26 @@
-import SbEditable from "storyblok-react";
-import React from "react";
-import SbLink from "../../partials/sbLink";
-import AspectRatioImage from "../../media/aspectRatioImage";
+import SbEditable from 'storyblok-react';
+import React from 'react';
+import SbLink from '../../partials/sbLink';
+import AspectRatioImage from '../../media/aspectRatioImage';
 
 const StoryCardView = (props) => {
-  const Heading = props.headingLevel ? props.headingLevel : "h3";
-  const theLink = { linktype: "story", url: props.storyLink + "/" };
+  const Heading = props.headingLevel ? props.headingLevel : 'h3';
+  const theLink = { linktype: 'story', url: props.storyLink + '/' };
   return (
     <SbEditable content={props.blok}>
       <article
         className={`ood-story-card
                  ${
-                   props.orientation === "horizontal"
-                     ? "ood-story-card--horizontal"
-                     : ""
+                   props.orientation === 'horizontal'
+                     ? 'ood-story-card--horizontal'
+                     : ''
                  }
                  ${
-                   (props.blok.cardImage.filename?.startsWith("http") ||
-                     props.blok.heroImage.filename?.startsWith("http")) &&
+                   (props.blok.cardImage.filename?.startsWith('http') ||
+                     props.blok.heroImage.filename?.startsWith('http')) &&
                    props.hideImage === false
-                     ? "ood-story-card--has-image"
-                     : "ood-story-card--no-image"
+                     ? 'ood-story-card--has-image'
+                     : 'ood-story-card--no-image'
                  }`}
       >
         <SbLink
@@ -29,28 +29,28 @@ const StoryCardView = (props) => {
             props.backgroundColor
           } su-text-no-underline
             ${
-              props.backgroundColor === "white"
-                ? "su-border-color-black-10"
-                : "su-border-color-black-11"
+              props.backgroundColor === 'white'
+                ? 'su-border-color-black-10'
+                : 'su-border-color-black-11'
             }`}
         >
-          {(props.blok.cardImage.filename?.startsWith("http") ||
-            props.blok.heroImage.filename?.startsWith("http")) &&
+          {(props.blok.cardImage.filename?.startsWith('http') ||
+            props.blok.heroImage.filename?.startsWith('http')) &&
             props.hideImage === false && (
               <AspectRatioImage
                 {...props}
-                element={"div"}
+                element={'div'}
                 filename={
                   props.blok.cardImage.filename
                     ? props.blok.cardImage.filename
                     : props.blok.heroImage.filename
                 }
                 alt=""
-                classPrefix={"ood-story-card"}
+                classPrefix={'ood-story-card'}
                 imageSize={`${
-                  props.orientation ? `${props.orientation}-card` : "card"
+                  props.orientation ? `${props.orientation}-card` : 'card'
                 }`}
-                aspectRatio={"3x2"}
+                aspectRatio={'3x2'}
                 visibleHorizontal={props.visibleHorizontal}
                 visibleVertical={props.visibleVertical}
               />

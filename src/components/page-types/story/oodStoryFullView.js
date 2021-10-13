@@ -1,30 +1,30 @@
-import SbEditable from "storyblok-react";
-import React from "react";
-import IconCardSection from "../../partials/iconCardSection";
-import Footer from "../../partials/footer";
-import SeoSocial from "../../partials/seoSocial";
-import CreateBloks from "../../../utilities/createBloks";
-import CenteredContainer from "../../partials/centeredContainer";
-import BelowContent from "../../partials/belowContent";
-import Heading from "../../partials/heading";
-import FlexCell from "../../partials/flexCell";
-import FullWidthImage from "../../media/fullWidthImage";
+import SbEditable from 'storyblok-react';
+import React from 'react';
+import IconCardSection from '../../partials/iconCardSection';
+import Footer from '../../partials/footer';
+import SeoSocial from '../../partials/seoSocial';
+import CreateBloks from '../../../utilities/createBloks';
+import CenteredContainer from '../../partials/centeredContainer';
+import BelowContent from '../../partials/belowContent';
+import Heading from '../../partials/heading';
+import FlexCell from '../../partials/flexCell';
+import FullWidthImage from '../../media/fullWidthImage';
 
-const StoryFullView = props => {
+const StoryFullView = (props) => {
   const dateOptions = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   };
   let publishedDate;
 
   if (props.blok.publishedDate) {
-    const publishedJsDateString = props.blok.publishedDate.replace(" ", "T");
+    const publishedJsDateString = props.blok.publishedDate.replace(' ', 'T');
     const publishedUTCDate = new Date(`${publishedJsDateString}:00Z`);
 
     publishedDate = new Date(publishedUTCDate).toLocaleDateString(
-      "en-US",
+      'en-US',
       dateOptions
     );
   } else if (props.blok.manualDate) {
@@ -41,27 +41,27 @@ const StoryFullView = props => {
           <header
             className={`ood-story__header
                     ${
-                      props.blok.heroImage.filename?.startsWith("http") &&
-                      props.blok.displayImage === "show-image"
-                        ? "ood-story__header--has-image su-bg-white"
+                      props.blok.heroImage.filename?.startsWith('http') &&
+                      props.blok.displayImage === 'show-image'
+                        ? 'ood-story__header--has-image su-bg-white'
                         : `ood-story__header--no-image su-bg-white su-border-color-${props.blok.headerBackgroundColor}`
                     }
             `}
           >
-            {props.blok.heroImage.filename?.startsWith("http") &&
-              props.blok.displayImage === "show-image" && (
+            {props.blok.heroImage.filename?.startsWith('http') &&
+              props.blok.displayImage === 'show-image' && (
                 <FullWidthImage
                   {...props}
                   filename={props.blok.heroImage.filename}
-                  classPrefix={"ood-story"}
+                  classPrefix={'ood-story'}
                   visibleVertical={props.blok.visibleVertical}
-                  visibleHorizontal={"center"}
-                  alt={props.blok.heroImage.alt ?? ""}
+                  visibleHorizontal={'center'}
+                  alt={props.blok.heroImage.alt ?? ''}
                 />
               )}
             <CenteredContainer
               flex={true}
-              classes={"ood-story__header-content"}
+              classes={'ood-story__header-content'}
             >
               <FlexCell
                 md={12}
@@ -70,16 +70,16 @@ const StoryFullView = props => {
                 classes={`ood-story__header-content-wrapper
                      su-bg-${props.blok.headerBoxColor}
                      ${
-                       props.blok.headerBoxColor !== "white" &&
-                       props.blok.headerBoxColor !== "fog-light"
-                         ? "su-text-white"
-                         : ""
+                       props.blok.headerBoxColor !== 'white' &&
+                       props.blok.headerBoxColor !== 'fog-light'
+                         ? 'su-text-white'
+                         : ''
                      }
                      `}
               >
                 <Heading
-                  level={"h1"}
-                  weight={"semibold"}
+                  level={'h1'}
+                  weight={'semibold'}
                   classes={`ood-story__title ood-has-tab-before su-before-bg-${props.blok.tabColor}`}
                 >
                   {props.blok.title}

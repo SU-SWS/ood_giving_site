@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { SearchOverlayOpenContext } from "../../context/searchOverlayStatusProvider";
+import React, { useContext } from 'react';
+import { SearchOverlayOpenContext } from '../../context/searchOverlayStatusProvider';
 
 const HeaderSearchButton = () => {
   const { toggleSearchOverlay } = useContext(SearchOverlayOpenContext);
