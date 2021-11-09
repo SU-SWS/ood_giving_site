@@ -58,6 +58,7 @@ const HeaderWithImage = (props) => {
               }
               imageSize={'header'}
               aspectRatio={'3x2'}
+              visibleVertical={props.blok.visibleVertical}
             />
           </CenteredContainer>
         </div>
