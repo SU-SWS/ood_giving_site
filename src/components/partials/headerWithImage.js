@@ -17,11 +17,10 @@ const HeaderWithImage = (props) => {
     <SbEditable content={props.blok}>
       <header
         className={`ood-interior-page__header ood-interior-page__header--has-image
-              ${
-                props.blok.headerSpacingBottom !== 'none'
-                  ? `su-mb-${props.blok.headerSpacingBottom}`
-                  : ''
-              }`}
+              ${props.blok.headerSpacingBottom !== 'none'
+            ? `su-mb-${props.blok.headerSpacingBottom}`
+            : ''
+          }`}
       >
         {windowSize.width < config.breakpoint.lg &&
           props.blok.layout !== 'no-sidebar' && (
@@ -58,6 +57,7 @@ const HeaderWithImage = (props) => {
               }
               imageSize={'header'}
               aspectRatio={'3x2'}
+              visibleVertical={props.blok.visibleVertical}
             />
           </CenteredContainer>
         </div>
