@@ -5,15 +5,25 @@ const activeEnv =
 
 console.log(`Using environment config: '${activeEnv}'`);
 
-const siteUrl =
-  process.env.GATSBY_SITE_URL ||
-  (process.env.CONTEXT === "production"
-    ? process.env.URL
-    : process.env.DEPLOY_PRIME_URL);
-
 require("dotenv").config({
   path: `.env.${activeEnv}`,
 });
+
+// Support for Gatsby CLI
+let siteUrl = 'http://localhost:8000';
+
+// Support for Production site builds.
+if (process.env.CONTEXT === 'production') {
+  siteUrl = process.env.URL;
+}
+// Support for non-production netlify builds (branch/preview)
+else if (process.env.CONTEXT !== 'production' && process.env.NETLIFY) {
+  siteUrl = process.env.DEPLOY_PRIME_URL;
+}
+// Support for Netlify CLI.
+else if (process.env.NETLIFY_DEV === true) {
+  siteUrl = 'http://localhost:64946';
+}
 
 /**
  * Resolve relations for storyblok.
