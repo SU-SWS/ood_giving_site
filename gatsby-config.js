@@ -5,12 +5,6 @@ const activeEnv =
 
 console.log(`Using environment config: '${activeEnv}'`);
 
-const siteUrl =
-  process.env.GATSBY_SITE_URL ||
-  (process.env.CONTEXT === "production"
-    ? process.env.URL
-    : process.env.DEPLOY_PRIME_URL);
-
 require("dotenv").config({
   path: `.env.${activeEnv}`,
 });
