@@ -5,6 +5,12 @@ const activeEnv =
 
 console.log(`Using environment config: '${activeEnv}'`);
 
+const siteUrl =
+  process.env.GATSBY_SITE_URL ||
+  (process.env.CONTEXT === "production"
+    ? process.env.URL
+    : process.env.DEPLOY_PRIME_URL);
+
 require("dotenv").config({
   path: `.env.${activeEnv}`,
 });
@@ -27,7 +33,7 @@ module.exports = {
     title: `Giving to Stanford`,
     description: `Giving to Stanford.`,
     author: `Stanford University Office of Development`,
-    siteUrl: `https://giving-dev.netlify.app`,
+    siteUrl,
     // This key is for metadata only and can be statically queried
     storyblok: {
       resolveRelations: storyblokRelations,
@@ -93,7 +99,7 @@ module.exports = {
             return { ...page.node };
           });
         },
-        resolveSiteUrl: () => "https://giving-dev.netlify.app",
+        resolveSiteUrl: () => siteUrl,
         excludes: [
           "/editor",
           "/editor/**",
@@ -146,7 +152,7 @@ module.exports = {
         // enablePartialUpdates: true,
         queries: require("./src/utilities/algoliaQueries"),
         // we skip the indexing completely on non-prod builds.
-        skipIndexing: true,
+        skipIndexing: !!(process.env.ALGOLIA_SKIP_INDEXING || process.env.CONTEXT !== 'production')
       },
     },
     {

@@ -1,8 +1,8 @@
-import React from "react"
-import SbEditable from "storyblok-react"
-import SbLink from "../../partials/sbLink"
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import SbLink from '../../partials/sbLink';
 
-const ContentNavItem = props => {
+const ContentNavItem = (props) => {
   return (
     <SbEditable content={props.blok}>
       <li className="su-secondary-nav__item ood-content-nav__item">
@@ -16,7 +16,7 @@ const ContentNavItem = props => {
         </SbLink>
       </li>
     </SbEditable>
-  )
-}
+  );
+};
 
-export default ContentNavItem
+export default ContentNavItem;

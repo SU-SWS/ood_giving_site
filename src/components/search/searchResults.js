@@ -1,16 +1,16 @@
-import { useLocation } from "@reach/router";
-import algoliasearch from "algoliasearch/lite";
-import qs from "query-string";
-import React, { useEffect, useRef, useState } from "react";
+import { useLocation } from '@reach/router';
+import algoliasearch from 'algoliasearch/lite';
+import qs from 'query-string';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Configure,
   connectSearchBox,
   connectStateResults,
   InstantSearch,
-} from "react-instantsearch-dom";
-import Hits from "./hits";
-import Autocomplete from "./autocomplete";
-import Heading from "../partials/heading";
+} from 'react-instantsearch-dom';
+import Hits from './hits';
+import Autocomplete from './autocomplete';
+import Heading from '../partials/heading';
 
 export const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,
@@ -30,7 +30,7 @@ const VirtualSearchBox = ({ query }) => {
 
   return <AlgoliaVirtualSearchBox />;
 };
-const StateResults = props => {
+const StateResults = (props) => {
   const AlgoliaStateResults = connectStateResults(
     ({ searchState, isSearchStalled }) => {
       return (
@@ -38,9 +38,9 @@ const StateResults = props => {
           {props.isEmptySearchVisible ? (
             <div className="search-hits-no-hits">
               <Heading
-                level={"h2"}
+                level={'h2'}
                 serif={true}
-                weight={"bold"}
+                weight={'bold'}
                 classes="search-hits-no-hits-title"
               >
                 {props.blok.emptySearchTitle}
@@ -62,11 +62,11 @@ const StateResults = props => {
   return <AlgoliaStateResults />;
 };
 
-const SearchResults = props => {
+const SearchResults = (props) => {
   // page is 1-based here, for better readability in the URL query parameter
   const [initialPage, setInitialPage] = useState(1);
 
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const [isEmptySearchVisible, setIsEmptySearchVisible] = useState(false);
 
   const { search } = useLocation();
@@ -108,19 +108,19 @@ const SearchResults = props => {
           null,
           null,
           qs.stringifyUrl({
-            url: window.location.href.replace(window.location.search, ""),
+            url: window.location.href.replace(window.location.search, ''),
           })
         );
       }, 400);
     }
   };
 
-  const handleSubmit = value => {
+  const handleSubmit = (value) => {
     setQuery(value);
     setIsEmptySearchVisible(!value);
   };
   const handleSuggestionCleared = () => {
-    setQuery("");
+    setQuery('');
     setIsEmptySearchVisible(false);
   };
 

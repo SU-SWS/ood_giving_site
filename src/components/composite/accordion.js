@@ -1,7 +1,7 @@
-import React from "react";
-import SbEditable from "storyblok-react";
-import Components from "../components";
-import Heading from "../partials/heading";
+import React from 'react';
+import SbEditable from 'storyblok-react';
+import Components from '../components';
+import Heading from '../partials/heading';
 
 class Accordion extends React.Component {
   // Must build the things.
@@ -44,17 +44,17 @@ class Accordion extends React.Component {
   render() {
     let props = this.props;
 
-    let accordionBorderColor = "su-border-color-palo-alto-light";
-    let accordionButtonColor = "ood-cta__button--secondary";
-    let accordionAfterColor = "ood-accordion__button";
+    let accordionBorderColor = 'su-border-color-palo-alto-light';
+    let accordionButtonColor = 'ood-cta__button--secondary';
+    let accordionAfterColor = 'ood-accordion__button';
     let accordionFont = true;
-    let accordionFontWeight = "bold";
-    if (props.blok.accordionColor === "digital-red") {
-      accordionBorderColor = "su-border-color-digital-red su-sans";
-      accordionButtonColor = "ood-cta__button--secondary-digital-red";
-      accordionAfterColor = "ood-accordion__button--digital-red";
+    let accordionFontWeight = 'bold';
+    if (props.blok.accordionColor === 'digital-red') {
+      accordionBorderColor = 'su-border-color-digital-red su-sans';
+      accordionButtonColor = 'ood-cta__button--secondary-digital-red';
+      accordionAfterColor = 'ood-accordion__button--digital-red';
       accordionFont = false;
-      accordionFontWeight = "semibold";
+      accordionFontWeight = 'semibold';
     }
 
     return (
@@ -62,24 +62,24 @@ class Accordion extends React.Component {
         <div
           className={`su-accordion
             ${
-              props.blok.spacingTop !== "none"
+              props.blok.spacingTop !== 'none'
                 ? `su-pt-${props.blok.spacingTop}`
-                : ""
+                : ''
             }
             ${
-              props.blok.spacingBottom !== "none"
+              props.blok.spacingBottom !== 'none'
                 ? `su-pb-${props.blok.spacingBottom}`
-                : ""
+                : ''
             }`}
           {...(props.blok.id ? { id: props.blok.id } : {})}
         >
           {props.blok.title && (
             <Heading
-              defaultLevel={"h3"}
+              defaultLevel={'h3'}
               level={props.blok.headingLevel}
               serif={accordionFont}
               weight={accordionFontWeight}
-              classes={"ood-accordion__heading"}
+              classes={'ood-accordion__heading'}
             >
               {props.blok.title}
             </Heading>
