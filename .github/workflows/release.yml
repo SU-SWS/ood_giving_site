@@ -1,0 +1,46 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Release
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      # Specify a different token to allow pushing changes to main later
+        with:
+          token: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+      - name: Set Git user
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "Github Action"
+      - name: Version Bump
+        id: version_bump
+        uses: 'phips28/gh-action-bump-version@master'
+        with:
+          skip-tag: 'true'
+          commit-message: "ci: version bump to {{version}} [skip ci]"
+        # Specify a different token to allow pushing change to main
+        env:
+          GITHUB_TOKEN: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+      - name: Publish Release
+        id: release
+        uses: release-drafter/release-drafter@v5
+        with:
+          version: ${{ steps.version_bump.outputs.newTag }}
+          publish: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+      - name: Merge release back into dev
+        uses: devmasx/merge-branch@v1.3.1
+        with:
+          type: now
+          from_branch: main
+          target_branch: dev
+          github_token: ${{ secrets.ADMIN_GITHUB_TOKEN }}

@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "patch": ["package.json"],
+    "frontend": ["*.js", "*.css", "*.scss", "*.jsx"],
+    "component": ["src/components"],
+    "backend": ["gatsby-*.js", "lambda/*"],
+    "ci": [".circleci", ".codeclimate", ".github"]
+  }
+}
