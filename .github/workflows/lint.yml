@@ -1,0 +1,14 @@
+name: Lint
+on: push
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set the correct Node version using nvm
+        shell: bash -l {0}
+        run: nvm install
+      - uses: bahmutov/npm-install@v1
+      - name: Run Lint
+        run: npm run lint

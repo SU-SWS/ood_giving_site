@@ -1,13 +1,29 @@
 const path = require("path");
 
 const activeEnv =
-  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development";
 
-console.log(`Using environment config: '${activeEnv}'`)
+console.log(`Using environment config: '${activeEnv}'`);
 
 require("dotenv").config({
   path: `.env.${activeEnv}`,
-})
+});
+
+// Support for Gatsby CLI
+let siteUrl = 'http://localhost:8000';
+
+// Support for Production site builds.
+if (process.env.CONTEXT === 'production') {
+  siteUrl = process.env.URL;
+}
+// Support for non-production netlify builds (branch/preview)
+else if (process.env.CONTEXT !== 'production' && process.env.NETLIFY) {
+  siteUrl = process.env.DEPLOY_PRIME_URL;
+}
+// Support for Netlify CLI.
+else if (process.env.NETLIFY_DEV === true) {
+  siteUrl = 'http://localhost:64946';
+}
 
 /**
  * Resolve relations for storyblok.
@@ -27,11 +43,11 @@ module.exports = {
     title: `Giving to Stanford`,
     description: `Giving to Stanford.`,
     author: `Stanford University Office of Development`,
-    siteUrl: `https://giving.stanford.edu`,
+    siteUrl,
     // This key is for metadata only and can be statically queried
     storyblok: {
       resolveRelations: storyblokRelations,
-    }
+    },
   },
   plugins: [
     {
@@ -88,20 +104,18 @@ module.exports = {
           }
         }
         `,
-        resolvePages: ({
-          allSitePage: { edges: allPages }
-        }) => {
-          return allPages.map(page => {
-            return { ...page.node }
-          })
+        resolvePages: ({ allSitePage: { edges: allPages } }) => {
+          return allPages.map((page) => {
+            return { ...page.node };
+          });
         },
-        resolveSiteUrl: () => 'https://giving.stanford.edu',
+        resolveSiteUrl: () => siteUrl,
         excludes: [
-          '/editor',
-          '/editor/**',
-          '/global-components/**',
-          '/test-items/**',
-          '/403',
+          "/editor",
+          "/editor/**",
+          "/global-components/**",
+          "/test-items/**",
+          "/403",
         ],
       },
     },
@@ -111,6 +125,7 @@ module.exports = {
         accessToken: process.env.GATSBY_STORYBLOK_ACCESS_TOKEN,
         homeSlug: "home",
         resolveRelations: storyblokRelations,
+        resolveLinks: 'url',
         version: process.env.NODE_ENV == "production" ? "published" : "draft", // show only published on the front end site
         // version: 'draft'  // would show any including drafts
       },
@@ -120,9 +135,7 @@ module.exports = {
       options: {
         implementation: require("node-sass"),
         sassOptions: {
-          includePaths: [
-            path.resolve(__dirname, "node_modules")
-          ],
+          includePaths: [path.resolve(__dirname, "node_modules")],
         },
         cssLoaderOptions: {
           camelCase: false,
@@ -150,14 +163,14 @@ module.exports = {
         // enablePartialUpdates: true,
         queries: require("./src/utilities/algoliaQueries"),
         // we skip the indexing completely on non-prod builds.
-        skipIndexing: process.env.CONTEXT != 'production',
+        skipIndexing: !!(process.env.ALGOLIA_SKIP_INDEXING || process.env.CONTEXT !== 'production')
       },
     },
     {
       resolve: `gatsby-plugin-netlify`,
       options: {
         mergeSecurityHeaders: false,
-      }
-    }
+      },
+    },
   ],
-}
+};

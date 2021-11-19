@@ -24,12 +24,6 @@
   }
 }
 
-.gallery-slideshow--inner {
-  @include grid-media-max('sm') {
-    max-width: 20rem;
-  }
-}
-
 .gallery-slideshow--caption {
   max-width: 64rem;
   text-align: right;
@@ -98,7 +92,7 @@
 }
 
 .gallery-slideshow--pager {
-  list-style: none;  
+  list-style: none;
   position: relative;
   margin: 0;
   padding-left: 0;
@@ -274,7 +268,7 @@
       margin-bottom: 0;
     }
   }
-  
+
   .slick-next > i {
     margin-left: 0.1rem;
     margin-bottom: 0.2rem;

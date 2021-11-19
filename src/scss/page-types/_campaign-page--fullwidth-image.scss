@@ -21,12 +21,16 @@
     }
 
     .campaign-page__hero-content-logo {
-      max-width: 43rem;
+      max-width: 100%;
+
+      @include grid-media('2xl') {
+        max-width: 43rem;
+      }
     }
 
     .campaign-page__hero-content {
       &-wrapper {
-        @include padding(3.4rem 2rem);
+        @include padding(3.4rem);
 
         > .campaign-page__hero-content-logo + * {
           margin-top: 3rem;
@@ -41,10 +45,6 @@
           margin-top: 2rem;
         }
 
-        @include grid-media('sm') {
-          @include padding(3.4rem);
-        }
-
         @include grid-media('md') {
           @include padding(5.8rem);
 
@@ -57,12 +57,6 @@
           * + .ood-cta {
             margin-top: 2.6rem;
           }
-        }
-      }
-
-      &-body {
-        @include grid-media-max('xs') {
-          @include padding(null 1.4rem);
         }
       }
     }
