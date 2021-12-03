@@ -33,7 +33,7 @@ const getParam = function (val) {
  * This is Sparta
  */
 const initBridge = function (key, sbResolveRelations, setStory) {
-  const { StoryblokBridge } = window
+  const { StoryblokBridge } = window;
 
   // Initialize the Storyblok JS Bridge
   const storyblokInstance = new StoryblokBridge({
@@ -54,8 +54,6 @@ const initBridge = function (key, sbResolveRelations, setStory) {
   storyblokInstance.on('input', (payload) => {
     setStory(payload.story.content);
   });
-;
-
   storyblokInstance.on('enterEditmode', (event) => {
     // loading the draft version on initial view of the page
     sbClient
@@ -71,8 +69,8 @@ const initBridge = function (key, sbResolveRelations, setStory) {
       })
       .catch((error) => {
         console.log(error);
-      })
-  })
+      });
+  });
 };
 
 /**
