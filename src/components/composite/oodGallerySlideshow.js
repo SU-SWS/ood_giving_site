@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick.css';
 
 const oodGallerySlideshow = ({ blok }) => {
   const [slideshow, setSlideshow] = useState(null);
+  const [modalSlideshow, setModalSlideshow] = useState(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [pagerOffset, setPagerOffset] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
@@ -39,7 +40,7 @@ const oodGallerySlideshow = ({ blok }) => {
               {blok.showExpandLink && (
                 <div className="gallery-slideshow--expand">
                   <button
-                    onClick={() => setModalOpen(true)}
+                    onClick={openModal}
                     className="gallery-slideshow--expand-btn"
                     aria-label="Expand gallery"
                     ref={expandButton}
@@ -122,6 +123,7 @@ const oodGallerySlideshow = ({ blok }) => {
     afterChange: (i) => {
       setActiveSlide(i);
     },
+    initialSlide: activeSlide,
   };
 
   const adjustPagerPosition = () => {
@@ -158,7 +160,12 @@ const oodGallerySlideshow = ({ blok }) => {
     setModalOpen(false);
     if (expandButton.current) {
       expandButton.current.focus();
-    }
+    };
+    slideshow.slickGoTo(activeSlide, true);
+  };
+  const openModal = () => {
+    modalSlideshow.slickGoTo(activeSlide, true);
+    setModalOpen(true);
   };
 
   return (
@@ -186,7 +193,7 @@ const oodGallerySlideshow = ({ blok }) => {
       `}
       >
         <div
-          className={`gallery-slideshow--inner su-mx-auto 
+          className={`gallery-slideshow--inner su-mx-auto
           ${
             blok.containerWidth == 'constrain-max-width'
               ? 'flex-md-10-of-12 flex-xl-8-of-12'
@@ -228,7 +235,9 @@ const oodGallerySlideshow = ({ blok }) => {
         ariaLabel={blok.ariaLabel + ' full screen view'}
       >
         <div className="gallery-slideshow--modal-wrapper">
-          <Slider className="gallery-slideshow--modal" {...modalSliderSettings}>
+          <Slider className="gallery-slideshow--modal"
+                  ref={(slider) => setModalSlideshow(slider)}
+                  {...modalSliderSettings}>
             {blok.slides.map((slide, index) => {
               return (
                 <div
