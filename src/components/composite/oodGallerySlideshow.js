@@ -160,7 +160,7 @@ const oodGallerySlideshow = ({ blok }) => {
     setModalOpen(false);
     if (expandButton.current) {
       expandButton.current.focus();
-    };
+    }
     slideshow.slickGoTo(activeSlide, true);
   };
   const openModal = () => {
@@ -235,9 +235,11 @@ const oodGallerySlideshow = ({ blok }) => {
         ariaLabel={blok.ariaLabel + ' full screen view'}
       >
         <div className="gallery-slideshow--modal-wrapper">
-          <Slider className="gallery-slideshow--modal"
-                  ref={(slider) => setModalSlideshow(slider)}
-                  {...modalSliderSettings}>
+          <Slider
+            className="gallery-slideshow--modal"
+            ref={(slider) => setModalSlideshow(slider)}
+            {...modalSliderSettings}
+          >
             {blok.slides.map((slide, index) => {
               return (
                 <div
