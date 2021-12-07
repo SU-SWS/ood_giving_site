@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useRef} from 'react';
 import SbEditable from 'storyblok-react';
 import AspectRatioImage from '../media/aspectRatioImage';
 import Slider from 'react-slick';
@@ -7,8 +7,6 @@ import RichTextField from '../../utilities/richTextField';
 import 'slick-carousel/slick/slick.css';
 
 const oodGallerySlideshow = ({ blok }) => {
-  const [slideshow, setSlideshow] = useState(null);
-  const [modalSlideshow, setModalSlideshow] = useState(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [pagerOffset, setPagerOffset] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
@@ -16,6 +14,8 @@ const oodGallerySlideshow = ({ blok }) => {
   const pagerWindow = React.createRef();
   const pager = React.createRef();
   const expandButton = React.createRef();
+  const slideshow = useRef(null);
+  const modalSlideshow = useRef(null);
 
   const sliderSettings = {
     arrows: false,
@@ -161,10 +161,10 @@ const oodGallerySlideshow = ({ blok }) => {
     if (expandButton.current) {
       expandButton.current.focus();
     }
-    slideshow.slickGoTo(activeSlide, true);
+    slideshow.current.slickGoTo(activeSlide, true);
   };
   const openModal = () => {
-    modalSlideshow.slickGoTo(activeSlide, true);
+    modalSlideshow.current.slickGoTo(activeSlide, true);
     setModalOpen(true);
   };
 
@@ -203,7 +203,7 @@ const oodGallerySlideshow = ({ blok }) => {
         >
           <Slider
             className="gallery-slideshow--slides"
-            ref={(slider) => setSlideshow(slider)}
+            ref={slideshow}
             {...sliderSettings}
           >
             {blok.slides.map((slide, index) => {
@@ -237,7 +237,7 @@ const oodGallerySlideshow = ({ blok }) => {
         <div className="gallery-slideshow--modal-wrapper">
           <Slider
             className="gallery-slideshow--modal"
-            ref={(slider) => setModalSlideshow(slider)}
+            ref={modalSlideshow}
             {...modalSliderSettings}
           >
             {blok.slides.map((slide, index) => {
