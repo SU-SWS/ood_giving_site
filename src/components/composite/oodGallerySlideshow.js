@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, { useState, useRef } from 'react';
 import SbEditable from 'storyblok-react';
 import AspectRatioImage from '../media/aspectRatioImage';
 import Slider from 'react-slick';
