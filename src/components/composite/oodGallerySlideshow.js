@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import SbEditable from 'storyblok-react';
 import AspectRatioImage from '../media/aspectRatioImage';
 import Slider from 'react-slick';
@@ -7,7 +7,6 @@ import RichTextField from '../../utilities/richTextField';
 import 'slick-carousel/slick/slick.css';
 
 const oodGallerySlideshow = ({ blok }) => {
-  const [slideshow, setSlideshow] = useState(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [pagerOffset, setPagerOffset] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
@@ -15,6 +14,8 @@ const oodGallerySlideshow = ({ blok }) => {
   const pagerWindow = React.createRef();
   const pager = React.createRef();
   const expandButton = React.createRef();
+  const slideshow = useRef(null);
+  const modalSlideshow = useRef(null);
 
   const sliderSettings = {
     arrows: false,
@@ -39,7 +40,7 @@ const oodGallerySlideshow = ({ blok }) => {
               {blok.showExpandLink && (
                 <div className="gallery-slideshow--expand">
                   <button
-                    onClick={() => setModalOpen(true)}
+                    onClick={openModal}
                     className="gallery-slideshow--expand-btn"
                     aria-label="Expand gallery"
                     ref={expandButton}
@@ -122,6 +123,7 @@ const oodGallerySlideshow = ({ blok }) => {
     afterChange: (i) => {
       setActiveSlide(i);
     },
+    initialSlide: activeSlide,
   };
 
   const adjustPagerPosition = () => {
@@ -147,11 +149,11 @@ const oodGallerySlideshow = ({ blok }) => {
   };
 
   const clickPrev = () => {
-    slideshow.slickPrev();
+    slideshow.current.slickPrev();
   };
 
   const clickNext = () => {
-    slideshow.slickNext();
+    slideshow.current.slickNext();
   };
 
   const closeModal = () => {
@@ -159,6 +161,11 @@ const oodGallerySlideshow = ({ blok }) => {
     if (expandButton.current) {
       expandButton.current.focus();
     }
+    slideshow.current.slickGoTo(activeSlide, true);
+  };
+  const openModal = () => {
+    modalSlideshow.current.slickGoTo(activeSlide, true);
+    setModalOpen(true);
   };
 
   return (
@@ -186,7 +193,7 @@ const oodGallerySlideshow = ({ blok }) => {
       `}
       >
         <div
-          className={`gallery-slideshow--inner su-mx-auto 
+          className={`gallery-slideshow--inner su-mx-auto
           ${
             blok.containerWidth == 'constrain-max-width'
               ? 'flex-md-10-of-12 flex-xl-8-of-12'
@@ -196,7 +203,7 @@ const oodGallerySlideshow = ({ blok }) => {
         >
           <Slider
             className="gallery-slideshow--slides"
-            ref={(slider) => setSlideshow(slider)}
+            ref={slideshow}
             {...sliderSettings}
           >
             {blok.slides.map((slide, index) => {
@@ -228,7 +235,11 @@ const oodGallerySlideshow = ({ blok }) => {
         ariaLabel={blok.ariaLabel + ' full screen view'}
       >
         <div className="gallery-slideshow--modal-wrapper">
-          <Slider className="gallery-slideshow--modal" {...modalSliderSettings}>
+          <Slider
+            className="gallery-slideshow--modal"
+            ref={modalSlideshow}
+            {...modalSliderSettings}
+          >
             {blok.slides.map((slide, index) => {
               return (
                 <div
