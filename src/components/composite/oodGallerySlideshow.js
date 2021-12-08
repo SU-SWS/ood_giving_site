@@ -149,11 +149,11 @@ const oodGallerySlideshow = ({ blok }) => {
   };
 
   const clickPrev = () => {
-    slideshow.slickPrev();
+    slideshow.current.slickPrev();
   };
 
   const clickNext = () => {
-    slideshow.slickNext();
+    slideshow.current.slickNext();
   };
 
   const closeModal = () => {
