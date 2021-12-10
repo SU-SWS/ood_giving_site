@@ -67,6 +67,19 @@
       font-size: 1.6rem;
     }
 
+    &.ood-cta__button--secondary-digital-red {
+      &::after {
+        color: $su-color-digital-red;
+      }
+
+      &:hover,
+      &:focus {
+        &::after {
+          color: $su-color-white;
+        }
+      }
+    }
+
     &::after {
       @include margin(null null null 0.3em);
       display: inline-block;
