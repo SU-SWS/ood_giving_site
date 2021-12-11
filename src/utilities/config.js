@@ -18,4 +18,4 @@ const config = {
   },
 };
 
-export { config };
+module.exports = { config };
