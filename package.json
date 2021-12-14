@@ -69,8 +69,8 @@
     "lint": "NODE_ENV=test eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "NODE_ENV=test eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "https-proxy-install": "brew install mkcert && mkcert -install && mkcert localhost",
-    "https-proxy-start": "local-ssl-proxy --source 3010 --target 8000 --cert localhost.pem --key localhost-key.pem"
+    "https-proxy-start": "local-ssl-proxy --source 3010 --target 8000 --cert ./dev/localhost.pem --key ./dev/localhost-key.pem",
+    "hps": "local-ssl-proxy --cert ./dev/localhost.pem --key ./dev/localhost-key.pem"
   },
   "repository": {
     "type": "git",

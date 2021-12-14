@@ -37,6 +37,7 @@ const initBridge = function (key, sbResolveRelations, setStory) {
 
   // Initialize the Storyblok JS Bridge
   const storyblokInstance = new StoryblokBridge({
+    preventClicks: true,
     resolveRelations: sbResolveRelations,
     accessToken: key,
   });

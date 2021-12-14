@@ -39,19 +39,24 @@ Connecting to Storyblok
 
 You will need an access token to connect to a storyblok space. Contact a member on the project team to get one. Once you have obtained a key you will need to add it to your local environment file. In `.env.development` and/or `.env.production` add the value of the access key to the `GATSBY_STORYBLOK_ACCESS_TOKEN` variable. `Development` builds can use the `preview` access tokens from Storyblok, but `Production` builds should only ever use the `public` access tokens. This is to ensure no unpublished content is accidentally revealed to the public.
 
-Connecting the local build to Storyblok Editor
+Using the Storyblok Editor on localhost
 ---
 
-Currently Storyblok v2 doesn't allow accessing the environment with http, so to make it work, https has to be added to localhost.
+Currently Storyblok v2 doesn't allow accessing the environment with http, so to make it work, https has to be added to localhost. For your convenience we have created the certificate and key but your system may not trust this self signed cert. Once you have localhost up and running you can visit the url in the browser and proceed past the warning or you can add the certificate to your trusted list.
 
-To set it up the certificate:
-```
-npm run https-proxy-install
-```
+OSX:
+https://readwriteexercise.com/posts/trust-self-signed-certificates-macos/
 
 To start:
 ```
+npm run dev
 npm run https-proxy-start
+```
+
+Or to choose your own ports:
+```
+netlify dev
+npm run hps -- --target=3010 --source=64946
 ```
 
 Connecting to Algolia
