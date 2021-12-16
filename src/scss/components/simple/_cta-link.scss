@@ -105,11 +105,21 @@
       color: $su-color-bay-dark;
       box-shadow: inset 0 0 0 1px $su-color-bay-dark;
 
+      &::after {
+        color: $su-color-bay-dark;
+        background-color: transparent;
+      }
+
       &:hover,
       &:focus {
         background-color: $su-color-bay-dark;
         color: $su-color-white;
         box-shadow: inset 0 0 0 1px $su-color-bay-dark;
+
+        &::after {
+          color: $su-color-white;
+          background-color: transparent;
+        }
       }
     }
 
@@ -119,11 +129,21 @@
       color: $su-color-digital-red;
       box-shadow: inset 0 0 0 1px $su-color-digital-red;
 
+      &::after {
+        color: $su-color-digital-red;
+        background-color: transparent;
+      }
+
       &:hover,
       &:focus {
         background-color: $su-color-digital-red;
         color: $su-color-white;
         box-shadow: inset 0 0 0 1px $su-color-digital-red;
+
+        &::after {
+          color: $su-color-white;
+          background-color: transparent;
+        }
       }
     }
 
