@@ -125,4 +125,5 @@ const SbLink = React.forwardRef((props, ref) => {
   );
 });
 
+SbLink.displayName = 'SbLink';
 export default SbLink;
