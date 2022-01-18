@@ -1,0 +1,23 @@
+{
+  "name": "netlify-plugin-vault-variables",
+  "version": "1.0.0",
+  "description": "Use vault as the place to store environment variables.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "netlify",
+    "vault",
+    "environment",
+    "plugin"
+  ],
+  "author": "Stanford Web Services",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "node-vault": "^0.9.21",
+    "toml": "^3.0.0"
+  }
+}
