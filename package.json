@@ -50,6 +50,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "netlify-cli": "^3.29.17",
     "node-sass": "^6.0.0",
+    "node-vault": "^0.9.22",
     "postcss": "^8.2.15",
     "prettier": "2.3.0",
     "react-refresh": "^0.10.0",
