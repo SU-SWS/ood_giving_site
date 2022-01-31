@@ -24,7 +24,7 @@ cp example.env .env
 npm install
 npm run vault
 * Then fire up your development server using gatsby
-npm run dev
+npm run develop
 * Or a netlify development server
 netlify dev
 ```
