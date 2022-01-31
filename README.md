@@ -21,6 +21,7 @@ cp example.env .env
 * Manually add the vault secret and role id to .env
 * You can get the variables by running `netlify login` then `netlify link` and then `netlify env`
 * After the VAULT_ROLE_ID and VAULT_SECRET_ID environment variables have been set run
+npm install
 npm run vault
 * Then fire up your development server using gatsby
 npm run dev
