@@ -24,6 +24,7 @@
     "gatsby-source-storyblok": "^3.1.0",
     "gatsby-transformer-sharp": "^4.3.0",
     "graphql": "^15.5.0",
+    "netlify-plugin-contextual-env": "^0.3.0",
     "netlify-plugin-submit-sitemap": "^0.2.3",
     "path-browserify": "^1.0.1",
     "process": "^0.11.10",
@@ -49,9 +50,11 @@
     "eslint-plugin-prettier": "^3.4.0",
     "netlify-cli": "^3.29.17",
     "node-sass": "^6.0.0",
+    "node-vault": "^0.9.22",
     "postcss": "^8.2.15",
     "prettier": "2.3.0",
-    "react-refresh": "^0.10.0"
+    "react-refresh": "^0.10.0",
+    "toml": "^3.0.0"
   },
   "keywords": [
     "Stanford"
@@ -64,6 +67,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "vault": "node ./plugins/netlify-plugin-vault-variables/script.js",
     "lint": "NODE_ENV=test eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "NODE_ENV=test eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
