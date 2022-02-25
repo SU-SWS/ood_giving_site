@@ -50,6 +50,9 @@
   [plugins.inputs]
     mode = 'prefix'
 
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
+
 # CONTEXTUAL PLUGINS
 # ##############################################################################
 # Production context:
