@@ -72,6 +72,8 @@
   }
 }
 
-table:not(.life-income-gifts) tr:nth-child(2n) {
-  background:  $su-color-fog-light;
+table:not(.life-income-gifts) {
+  tr:nth-child(2n) {
+    background:  $su-color-fog-light;
+  }
 }
