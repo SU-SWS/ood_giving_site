@@ -20,20 +20,10 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "Github Action"
-      - name: Version Bump
-        id: version_bump
-        uses: 'phips28/gh-action-bump-version@master'
-        with:
-          skip-tag: 'true'
-          commit-message: "ci: version bump to {{version}} [skip ci]"
-        # Specify a different token to allow pushing change to main
-        env:
-          GITHUB_TOKEN: ${{ secrets.ADMIN_GITHUB_TOKEN }}
       - name: Publish Release
         id: release
         uses: release-drafter/release-drafter@v5
         with:
-          version: ${{ steps.version_bump.outputs.newTag }}
           publish: true
         env:
           GITHUB_TOKEN: ${{ secrets.ADMIN_GITHUB_TOKEN }}

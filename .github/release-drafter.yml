@@ -9,6 +9,17 @@ categories:
       - 'fix'
   - title: '🧰 Maintenance'
     label: 'task'
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'patch'
+  default: patch
 template: |
   ## Release Notes:
 
