@@ -77,3 +77,16 @@ table:not(.life-income-gifts) {
     background:  $su-color-fog-light;
   }
 }
+
+// Wrapper that adds the horizontal scroll it the table is wider than the parent
+.table-scroll {
+  overflow: auto;
+  max-width: 100%;
+  margin-bottom: 7.2rem;
+
+  @include grid-media('md') {
+    table {
+      margin-bottom: 0;
+    }
+  }
+}
