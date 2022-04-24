@@ -24,6 +24,7 @@
     "gatsby-plugin-sitemap": "^5.3.0",
     "gatsby-source-filesystem": "^4.3.0",
     "gatsby-source-storyblok": "^3.1.0",
+    "gatsby-transformer-json": "^4.12.1",
     "gatsby-transformer-sharp": "^4.3.0",
     "graphql": "^15.5.0",
     "netlify-plugin-contextual-env": "^0.3.0",
