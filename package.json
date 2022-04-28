@@ -2,7 +2,7 @@
   "name": "giving-to-stanford",
   "private": true,
   "description": "Giving to Stanford",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "author": "Stanford University Office of Development",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
@@ -26,6 +26,7 @@
     "gatsby-transformer-sharp": "^4.3.0",
     "netlify-plugin-contextual-env": "^0.3.0",
     "netlify-plugin-submit-sitemap": "^0.3.0",
+    "netlify-plugin-vault-variables": "^1.0.4",
     "path-browserify": "^1.0.1",
     "process": "^0.11.10",
     "query-string": "^7.1.0",
@@ -67,7 +68,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "vault": "node ./plugins/netlify-plugin-vault-variables/script.js",
+    "vault": "netlify-plugin-vault-variables",
+    "vault:local": "NODE_ENV=development netlify-plugin-vault-variables",
     "lint": "NODE_ENV=test eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "NODE_ENV=test eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
