@@ -36,9 +36,9 @@
     "react-helmet": "^6.1.0",
     "react-id-generator": "^3.0.1",
     "react-instantsearch-dom": "^6.11.0",
-    "react-loader-spinner": "^5.1.0",
     "react-player": "^2.9.0",
     "react-slick": "^0.29.0",
+    "react-spinners": "^0.11.0",
     "sanitize-html": "^2.3.3",
     "slick-carousel": "^1.8.1",
     "storyblok-js-client": "^4.1.6",
@@ -63,6 +63,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "dev": "gatsby develop",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
