@@ -1,9 +1,5 @@
 # BUILD Settings:
 # ##############################################################################
-[build]
-  publish = "public"
-  functions = "lambda"
-
 [dev]
   publish = "public"
   port = 64946
@@ -36,7 +32,7 @@
 # Fetch vault plugin needs to come before any of the contextual environment
 # variable plugins so they can act on the new vars.
 [[plugins]]
-  package = "/plugins/netlify-plugin-vault-variables"
+  package = "netlify-plugin-vault-variables"
   [plugins.inputs]
     endpoint = 'https://vault.stanford.edu'
     # Order doesn't matter here as these will be fetch asyncronously. Try not to have dupes.
@@ -44,11 +40,6 @@
     # Set which environment variables to use for the approle login
     secretId = 'VAULT_SECRET_ID'
     roleId = 'VAULT_ROLE_ID'
-
-[[plugins]]
-  package = 'netlify-plugin-contextual-env'
-  [plugins.inputs]
-    mode = 'prefix'
 
 [[plugins]]
   package = "@netlify/plugin-gatsby"
