@@ -22,7 +22,7 @@ cp example.env .env
 * You can get the variables by running `netlify login` then `netlify link` and then `netlify env`
 * After the VAULT_ROLE_ID and VAULT_SECRET_ID environment variables have been set run
 npm install
-npm run vault
+npm run vault:local
 * Then fire up your development server using gatsby
 npm run develop
 * Or a netlify development server
@@ -109,9 +109,9 @@ Vault source paths:
 - 'secret/data/projects/adapt/giving'
 - 'secret/data/projects/adapt/certs'
 
-Environment variables are stored (and versioned) in vault.stanford.edu. You can fetch them and have them written to `.env` by running `npm run vault`. You will need to add the vault role id and vault secret into the `.env` file first. You can likely find those values in the Netlify environment variables UI. If you can't find them. Please ask another developer.
+Environment variables are stored (and versioned) in vault.stanford.edu. You can fetch them and have them written to `.env` by running `npm run vault:local`. You will need to add the vault role id and vault secret into the `.env` file first. You can likely find those values in the Netlify environment variables UI. If you can't find them. Please ask another developer.
 
-The script that fetches the secrets is in the netlify plugin 'plugins/netlify-plugin-vault-variables/script.js'. It is exectued by running `npm run vault`.
+The script that fetches the secrets is 'netlify-plugin-vault-variables'. It is exectued by running `npm run vault:local`.
 
 When the script runs, it should only append new values to your `.env` file. This means you can have your own local environment variables or overwrite ones that are coming from vault. You can change this so that vault overwrite all values by setting the environment variable VAULT_OVERWRITE=true.
 
