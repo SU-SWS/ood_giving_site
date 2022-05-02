@@ -2,12 +2,21 @@ import React, { useMemo } from 'react';
 import { graphql } from 'gatsby';
 import { useTable } from 'react-table';
 
+import CreateStories from '../../utilities/createStories';
 import PROFESSORSHIPS from '../../fixtures/professorships.json';
 
 const getTableDataBySubcategory = (subcategory) =>
   PROFESSORSHIPS.filter(item => item['SUBCATEGORY'] === subcategory);
 
 const Professorship = ({ data }) => {
+  const oodLocalHeader = {
+    ...data.header,
+    content: JSON.parse(data.header.content),
+  };
+  const oodLocalFooter = {
+    ...data.footer,
+    content: JSON.parse(data.footer.content),
+  }
   const tableSearchTerm = data.allProfessorshipsJson.edges[0].node.jsonId;
   const columns = useMemo(() => [
     {
@@ -35,6 +44,7 @@ const Professorship = ({ data }) => {
   } = useTable({ columns, data: tableData });
   return (
     <>
+      <CreateStories stories={[oodLocalHeader]} />
       <table {...getTableProps()} css={{ border: 'solid 1px gray' }}>
         <thead>
           {headerGroups.map(headerGroup => (
@@ -76,6 +86,7 @@ const Professorship = ({ data }) => {
           })}
         </tbody>
       </table>
+      <CreateStories stories={[oodLocalFooter]} />
     </>
   );
 };
@@ -90,6 +101,14 @@ export const query = graphql`
           jsonId
         }
       }
+    }
+    header: storyblokEntry(field_component: {eq: "oodLocalHeader"}) {
+      id
+      content
+    }
+    footer: storyblokEntry(field_component: {eq: "oodLocalFooter"}) {
+      id
+      content
     }
   }
 `;

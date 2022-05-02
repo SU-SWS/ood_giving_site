@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql, navigate, Link, useStaticQuery } from "gatsby"
 import Fuse from 'fuse.js';
 
 import PROFESSORSHIPS from '../../fixtures/professorships.json';
@@ -59,7 +59,7 @@ const Index = () => {
           value={getSearchTerm} 
         />
         <button
-          onClick={() => setSearchResults(fuse.search(getSearchTerm))}
+          onClick={() => navigate(`/endowed-professorships/search?term=${getSearchTerm}`)}
         >
           Submit
         </button>
@@ -86,7 +86,7 @@ const Index = () => {
             {getSubcategories().map(item => {
               return (
                 <li css={{margin: '10px', cursor: 'pointer'}} key={item}>
-                  <Link to={`/professorships/${professorshipsMap[item].to}`}>
+                  <Link to={`/endowed-professorships/${professorshipsMap[item].to}`}>
                     {professorshipsMap[item].label}
                   </Link>
                 </li>
