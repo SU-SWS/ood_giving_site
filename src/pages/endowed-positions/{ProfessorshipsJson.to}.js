@@ -20,7 +20,7 @@ const Professorship = ({ data }) => {
   const tableSearchTerm = data.allProfessorshipsJson.edges[0].node.jsonId;
   const columns = useMemo(() => [
     {
-      Header: "Position",
+      Header: "Title",
       accessor: "POSITION",
     },
     {

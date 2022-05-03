@@ -59,7 +59,7 @@ const Index = () => {
           value={getSearchTerm} 
         />
         <button
-          onClick={() => navigate(`/endowed-professorships/search?term=${getSearchTerm}`)}
+          onClick={() => navigate(`/endowed-positions/search?term=${getSearchTerm}`)}
         >
           Submit
         </button>
