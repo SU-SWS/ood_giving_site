@@ -86,7 +86,7 @@ const Index = () => {
             {getSubcategories().map(item => {
               return (
                 <li css={{margin: '10px', cursor: 'pointer'}} key={item}>
-                  <Link to={`/endowed-professorships/${professorshipsMap[item].to}`}>
+                  <Link to={`/endowed-positions/${professorshipsMap[item].to}`}>
                     {professorshipsMap[item].label}
                   </Link>
                 </li>
