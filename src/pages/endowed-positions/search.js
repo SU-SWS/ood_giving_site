@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react';
 import { graphql } from 'gatsby';
 import Fuse from 'fuse.js';
 
-import PROFESSORSHIPS from '../../fixtures/professorships.json';
+import ENDOWED_POSITIONS from '../../fixtures/endowedPositions.json';
 import EndowedPositionsNav from '../../components/endowed-positions/EndowedPositionsNav';
 import CreateStories from '../../utilities/createStories';
 
-const fuse = new Fuse(PROFESSORSHIPS, {
+const fuse = new Fuse(ENDOWED_POSITIONS, {
   keys: ['SUBCATEGORY', 'POSITION', 'CURRENT HOLDER'/*, 'WEBSITE'*/],
   includeScore: true,
   threshold: 0.3,

@@ -1,10 +1,10 @@
 import React, {useCallback, useMemo, useState} from 'react';
 import { navigate } from 'gatsby';
 
-import PROFESSORSHIPS_MAP from '../../constants/professorships.json';
+import ENDOWED_POSITIONS_MAP from '../../constants/ENDOWED_POSITIONS_MAP.json';
 
 const getDropdown = (key) => 
-  PROFESSORSHIPS_MAP.map((item) => (
+  ENDOWED_POSITIONS_MAP.map((item) => (
     item.section === key ? <option value={item.to}>{item.label}</option> : null
   ));
 

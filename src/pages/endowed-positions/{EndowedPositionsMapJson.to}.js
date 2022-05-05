@@ -4,10 +4,10 @@ import { useTable } from 'react-table';
 
 import EndowedPositionsNav from '../../components/endowed-positions/EndowedPositionsNav';
 import CreateStories from '../../utilities/createStories';
-import PROFESSORSHIPS from '../../fixtures/professorships.json';
+import ENDOWED_POSITIONS from '../../fixtures/endowedPositions.json';
 
 const getTableDataBySubcategory = (subcategory) =>
-  PROFESSORSHIPS.filter(item => item['SUBCATEGORY'] === subcategory);
+  ENDOWED_POSITIONS.filter(item => item['SUBCATEGORY'] === subcategory);
 
 const Professorship = ({ data }) => {
   const oodLocalHeader = {
@@ -18,7 +18,7 @@ const Professorship = ({ data }) => {
     ...data.footer,
     content: JSON.parse(data.footer.content),
   }
-  const tableSearchTerm = data.allProfessorshipsJson.edges[0].node.jsonId;
+  const tableSearchTerm = data.allEndowedPositionsMapJson.edges[0].node.jsonId;
   const columns = useMemo(() => [
     {
       Header: "Title",
@@ -95,7 +95,7 @@ const Professorship = ({ data }) => {
 
 export const query = graphql`
   query($id: String) {
-    allProfessorshipsJson(
+    allEndowedPositionsMapJson(
       filter: {id: {eq: $id}}
     ) {
       edges {

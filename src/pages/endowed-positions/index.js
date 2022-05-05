@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { graphql, navigate, Link, useStaticQuery } from "gatsby"
 import Fuse from 'fuse.js';
 
-import PROFESSORSHIPS from '../../fixtures/professorships.json';
+import ENDOWED_POSITIONS from '../../fixtures/endowedPositions.json';
 
-const fuse = new Fuse(PROFESSORSHIPS, {
+const fuse = new Fuse(ENDOWED_POSITIONS, {
   keys: ['SUBCATEGORY', 'POSITION', 'CURRENT HOLDER'/*, 'WEBSITE'*/],
   includeScore: true,
   threshold: 0.3,
 });
 
 const getSubcategories = () => {
-  const SUBS = PROFESSORSHIPS.map(item => item['SUBCATEGORY']);
+  const SUBS = ENDOWED_POSITIONS.map(item => item['SUBCATEGORY']);
 
   return [...new Set(SUBS)];
 };
@@ -33,9 +33,9 @@ const convertArrayToObject = (array) => {
 const Index = () => {
   const [getSearchResults, setSearchResults] = useState(null);
   const [getSearchTerm, setSearchTerm] = useState('');
-  const {allProfessorshipsJson: { edges }} = useStaticQuery(graphql`
+  const {allEndowedPositionsMapJson: { edges }} = useStaticQuery(graphql`
     query {
-      allProfessorshipsJson {
+      allEndowedPositionsMapJson {
         edges {
           node {
             jsonId
@@ -47,7 +47,7 @@ const Index = () => {
     }
   `);
 
-  const professorshipsMap = convertArrayToObject(edges);
+  const endowedPositionsMap = convertArrayToObject(edges);
 
   return (
     <>
@@ -86,8 +86,8 @@ const Index = () => {
             {getSubcategories().map(item => {
               return (
                 <li css={{margin: '10px', cursor: 'pointer'}} key={item}>
-                  <Link to={`/endowed-positions/${professorshipsMap[item].to}`}>
-                    {professorshipsMap[item].label}
+                  <Link to={`/endowed-positions/${endowedPositionsMap[item].to}`}>
+                    {endowedPositionsMap[item].label}
                   </Link>
                 </li>
               );
