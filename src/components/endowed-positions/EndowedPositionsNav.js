@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 import { navigate } from 'gatsby';
 
 import PROFESSORSHIPS_MAP from '../../constants/professorships.json';
@@ -12,6 +12,15 @@ const handleChange = (event) => navigate(`/endowed-positions/${event.target.valu
 
 const EndowedPositionsNav = () => {
   const [getSearchTerm, setSearchTerm] = useState('');
+
+  const centersInstitutesProgramsOptions = useMemo(() => getDropdown('Centers, Institutes, and Programs'), []);
+  const schoolOptions = useMemo(() => getDropdown('Schools'), []);
+  const handleInputChange = useCallback((event) => {
+    setSearchTerm(event.currentTarget.value);
+  }, []);
+  const handleSearch = useCallback(() => {
+    navigate(`/endowed-positions/search?term=${getSearchTerm}`)
+  }, [getSearchTerm]);
 
   return (
     <nav className='endowed-positions__nav'>
@@ -42,7 +51,7 @@ const EndowedPositionsNav = () => {
           onChange={handleChange}
         >
           <option value='' disabled selected>Select a Center, Institute, or Program</option>
-          {getDropdown('Centers, Institutes, and Programs')}
+          {centersInstitutesProgramsOptions}
         </select>
         <select
           className='endowed-positions__select'
@@ -50,20 +59,18 @@ const EndowedPositionsNav = () => {
           onChange={handleChange}
         >
           <option value='' disabled selected>Select a School</option>
-          {getDropdown('Schools')}
+          {schoolOptions}
         </select>
         <fieldset className='endowed-positions__fieldset'>
           <input
             className='endowed-positions__input'
             id="search-input"
-            onChange={(event) => {
-              setSearchTerm(event.target.value);
-            }}
+            onChange={handleInputChange}
             value={getSearchTerm} 
           />
           <button
             className='endowed-positions__button'
-            onClick={() => navigate(`/endowed-positions/search?term=${getSearchTerm}`)}
+            onClick={handleSearch}
           >
             Search
           </button>
