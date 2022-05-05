@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { graphql } from 'gatsby';
 import { useTable } from 'react-table';
 
+import EndowedPositionsNav from '../../components/endowed-positions/EndowedPositionsNav';
 import CreateStories from '../../utilities/createStories';
 import PROFESSORSHIPS from '../../fixtures/professorships.json';
 
@@ -45,6 +46,7 @@ const Professorship = ({ data }) => {
   return (
     <>
       <CreateStories stories={[oodLocalHeader]} />
+      <EndowedPositionsNav />
       <table {...getTableProps()} css={{ border: 'solid 1px gray' }}>
         <thead>
           {headerGroups.map(headerGroup => (

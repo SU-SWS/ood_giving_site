@@ -1,0 +1,67 @@
+.endowed-positions {
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0;
+
+    & > div {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+
+  &__select {
+    border: 1px solid #d2d3d4;
+    height: 32px;
+    border-radius: 3px;
+    outline: 0;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    color: #2E2D29;
+    padding: 0 18px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: url(https://give.stanford.edu/down.png) no-repeat calc(100% - 18px ) center;
+    margin: 0;
+    line-height: 2.5rem;
+    min-width: 90px;
+    flex: 0 0 25%;
+  }
+
+  &__input {
+    height: 32px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-size: 18px;
+    border: 1px solid #d2d3d4;
+    outline: 0;
+    padding: 0 20px;
+    margin: 0 10px 0 0;
+  }
+
+  &__fieldset {
+    border: none;
+    display: flex;
+    flex: 0 0 25%;
+    padding: 0;
+  }
+
+  &__button {
+    background: #006B81;
+    border: 1px solid #007C92;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.2), 0px 10px 20px rgba(0, 0, 0, 0.15);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &__label {
+    color: #2e2d29;
+    flex: 0 0 25%;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    margin: 0 0 5px;
+  }
+}

@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import Fuse from 'fuse.js';
 
 import PROFESSORSHIPS from '../../fixtures/professorships.json';
+import EndowedPositionsNav from '../../components/endowed-positions/EndowedPositionsNav';
 import CreateStories from '../../utilities/createStories';
 
 const fuse = new Fuse(PROFESSORSHIPS, {
@@ -21,7 +22,7 @@ const Search = ({data, location}) => {
     ...data.footer,
     content: JSON.parse(data.footer.content),
   }
-console.log(data);
+
   useEffect(() => {
     const newSearch = new URLSearchParams(location.search);
 
@@ -29,11 +30,12 @@ console.log(data);
       setSearchResults(fuse.search(newSearch.get('term')));
     }
   }, [location]);
-
+console.log(getSearchResults);
   return (
     <>
       <CreateStories stories={[oodLocalHeader]} />
-      {getSearchResults
+      <EndowedPositionsNav />
+      {getSearchResults?.length
         ? getSearchResults.map((item, index) => (
             <dl key={`${item.item['CURRENT HOLDER']}-${index}`}>
               <dt>{item.item['CURRENT HOLDER']}</dt>
