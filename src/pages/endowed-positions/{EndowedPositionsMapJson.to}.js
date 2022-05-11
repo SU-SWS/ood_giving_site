@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { graphql } from 'gatsby';
 import { useTable } from 'react-table';
 
@@ -10,6 +10,7 @@ const getTableDataBySubcategory = (subcategory) =>
   ENDOWED_POSITIONS.filter(item => item['SUBCATEGORY'] === subcategory);
 
 const Professorship = ({ data }) => {
+  const DISPLAYED_RESULTS = 25;
   const oodLocalHeader = {
     ...data.header,
     content: JSON.parse(data.header.content),
@@ -19,6 +20,8 @@ const Professorship = ({ data }) => {
     content: JSON.parse(data.footer.content),
   }
   const tableSearchTerm = data.allEndowedPositionsMapJson.edges[0].node.jsonId;
+  const [getPage, setPage] = useState(1);
+  const [getIndex, setIndex] = useState(0);
   const columns = useMemo(() => [
     {
       Header: "Title",
@@ -29,13 +32,17 @@ const Professorship = ({ data }) => {
       accessor: "CURRENT HOLDER",
     },
   ], []);
-  const tableData = useMemo(() => getTableDataBySubcategory(tableSearchTerm).map((item, index) => {
-    return {
-      'POSITION': item['POSITION'],
-      'CURRENT HOLDER': item['CURRENT HOLDER'],
-      id: index
+
+  const tableData = useMemo(() => {
+    const fullArray = getTableDataBySubcategory(tableSearchTerm);
+    const paginatedArray = [];
+    for (let i = getIndex; i < DISPLAYED_RESULTS * getPage; i++) {
+      paginatedArray.push(fullArray[i]);
     }
-  }, []));
+
+    return paginatedArray;
+  }, [getIndex, getPage, tableSearchTerm]);
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -43,6 +50,18 @@ const Professorship = ({ data }) => {
     rows,
     prepareRow,
   } = useTable({ columns, data: tableData });
+
+  useEffect(() => {
+    const newSearch = new URLSearchParams(location.search);
+
+    if (newSearch.get('page')) {
+      console.log(Number(newSearch.get('page') - 1) * DISPLAYED_RESULTS);
+      setPage(Number(newSearch.get('page')));
+      setIndex(Number(newSearch.get('page') - 1) * DISPLAYED_RESULTS);
+    }
+
+  }, [location]);
+
   return (
     <>
       <CreateStories stories={[oodLocalHeader]} />

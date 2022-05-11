@@ -1,16 +1,26 @@
 import React, {useEffect, useState} from 'react';
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import Fuse from 'fuse.js';
 
 import ENDOWED_POSITIONS from '../../fixtures/endowedPositions.json';
 import EndowedPositionsNav from '../../components/endowed-positions/EndowedPositionsNav';
 import CreateStories from '../../utilities/createStories';
 
+const PAGE_ITEMS = 25;
+
 const fuse = new Fuse(ENDOWED_POSITIONS, {
-  keys: ['SUBCATEGORY', 'POSITION', 'CURRENT HOLDER'/*, 'WEBSITE'*/],
+  keys: ['SUBCATEGORY', 'POSITION', 'CURRENT HOLDER'],
   includeScore: true,
   threshold: 0.3,
 });
+
+const SearchResultItem = ({currentHolder, index, position, website}) => (
+  <dl onClick={() => navigate(`${location.pathname}${location.search}&item=${index}`)}>
+    <dt>{currentHolder}</dt>
+    <dd>{position}</dd>
+    <dd>{website}</dd>
+  </dl>
+);
 
 const Search = ({data, location}) => {
   const [getSearchResults, setSearchResults] = useState(null);
@@ -25,23 +35,40 @@ const Search = ({data, location}) => {
 
   useEffect(() => {
     const newSearch = new URLSearchParams(location.search);
+    const paginatedArray = [];
+    let searchResults;
 
     if (newSearch.get('term')) {
-      setSearchResults(fuse.search(newSearch.get('term')));
+      searchResults = (fuse.search(newSearch.get('term')));
+
+      for (let i = 0; i < 25; i++ ) {
+        paginatedArray.push(searchResults[i]);
+      }
+      
+      if (newSearch.get('item') && searchResults?.[Number(newSearch.get('item'))]) {
+        searchResults = [searchResults[Number(newSearch.get('item'))]];
+
+        setSearchResults(searchResults);
+        return;
+      }
     }
+    console.log(paginatedArray);
+    setSearchResults(paginatedArray);
   }, [location]);
-console.log(getSearchResults);
+
   return (
     <>
       <CreateStories stories={[oodLocalHeader]} />
       <EndowedPositionsNav />
       {getSearchResults?.length
         ? getSearchResults.map((item, index) => (
-            <dl key={`${item.item['CURRENT HOLDER']}-${index}`}>
-              <dt>{item.item['CURRENT HOLDER']}</dt>
-              <dd>{item.item['POSITION']}</dd>
-              <dd>{item.item['WEBSITE']}</dd>
-            </dl>
+            <SearchResultItem
+              currentHolder={item.item['CURRENT HOLDER']}
+              index={index}
+              key={`${item.item['CURRENT HOLDER']}-${index}`}
+              position={item.item['POSITION']}
+              website={item.item['WEBSITE']}
+            />
           ))
         : <div>no results</div>}
       <CreateStories stories={[oodLocalFooter]} />

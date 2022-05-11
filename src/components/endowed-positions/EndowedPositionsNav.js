@@ -5,7 +5,7 @@ import ENDOWED_POSITIONS_MAP from '../../constants/ENDOWED_POSITIONS_MAP.json';
 
 const getDropdown = (key) => 
   ENDOWED_POSITIONS_MAP.map((item) => (
-    item.section === key ? <option value={item.to}>{item.label}</option> : null
+    item.section === key ? <option key={item.label} value={item.to}>{item.label}</option> : null
   ));
 
 const handleChange = (event) => navigate(`/endowed-positions/${event.target.value}`);
@@ -47,19 +47,19 @@ const EndowedPositionsNav = () => {
       <div>
         <select
           className='endowed-positions__select'
-          id="centers-institutes-programs-select"
-          onChange={handleChange}
-        >
-          <option value='' disabled selected>Select a Center, Institute, or Program</option>
-          {centersInstitutesProgramsOptions}
-        </select>
-        <select
-          className='endowed-positions__select'
           id="schools-select"
           onChange={handleChange}
         >
           <option value='' disabled selected>Select a School</option>
           {schoolOptions}
+        </select>
+        <select
+          className='endowed-positions__select'
+          id="centers-institutes-programs-select"
+          onChange={handleChange}
+        >
+          <option value='' disabled selected>Select a Center, Institute, or Program</option>
+          {centersInstitutesProgramsOptions}
         </select>
         <fieldset className='endowed-positions__fieldset'>
           <input
