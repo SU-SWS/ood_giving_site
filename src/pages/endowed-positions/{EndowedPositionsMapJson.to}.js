@@ -36,7 +36,8 @@ const Professorship = ({ data }) => {
   const tableData = useMemo(() => {
     const fullArray = getTableDataBySubcategory(tableSearchTerm);
     const paginatedArray = [];
-    for (let i = getIndex; i < DISPLAYED_RESULTS * getPage; i++) {
+    const total = fullArray.length > DISPLAYED_RESULTS ? DISPLAYED_RESULTS : fullArray.length;
+    for (let i = getIndex; i < total * getPage; i++) {
       paginatedArray.push(fullArray[i]);
     }
 
