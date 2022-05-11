@@ -40,7 +40,7 @@ const Professorship = ({ data }) => {
       paginatedArray.push(fullArray[i]);
     }
 
-    return paginatedArray;
+    return paginatedArray.filter((item) => item !== undefined);
   }, [getIndex, getPage, tableSearchTerm]);
 
   const {
