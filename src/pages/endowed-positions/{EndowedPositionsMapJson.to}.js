@@ -9,7 +9,7 @@ import ENDOWED_POSITIONS from '../../fixtures/endowedPositions.json';
 const getTableDataBySubcategory = (subcategory) =>
   ENDOWED_POSITIONS.filter(item => item['SUBCATEGORY'] === subcategory);
 
-const Professorship = ({ data }) => {
+const Professorship = ({ data, location }) => {
   const DISPLAYED_RESULTS = 25;
   const oodLocalHeader = {
     ...data.header,
