@@ -6,13 +6,13 @@ import ENDOWED_POSITIONS from '../../fixtures/endowedPositions.json';
 import EndowedPositionsNav from '../../components/endowed-positions/EndowedPositionsNav';
 import CreateStories from '../../utilities/createStories';
 
-const PAGE_ITEMS = 25;
-
 const fuse = new Fuse(ENDOWED_POSITIONS, {
   keys: ['SUBCATEGORY', 'POSITION', 'CURRENT HOLDER'],
   includeScore: true,
-  threshold: 0.3,
-});
+  minMatchCharLength: 4,
+  threshold: 0.2,
+  ignoreLocation: true
+})
 
 const SearchResultItem = ({currentHolder, index, position, website}) => (
   <dl onClick={() => navigate(`${location.pathname}${location.search}&item=${index}`)}>
@@ -41,7 +41,7 @@ const Search = ({data, location}) => {
     if (newSearch.get('term')) {
       searchResults = (fuse.search(newSearch.get('term')));
 
-      for (let i = 0; i < 25; i++ ) {
+      for (let i = 0; i < searchResults.length; i++ ) {
         paginatedArray.push(searchResults[i]);
       }
       
@@ -52,7 +52,6 @@ const Search = ({data, location}) => {
         return;
       }
     }
-    console.log(paginatedArray);
     setSearchResults(paginatedArray);
   }, [location]);
 
@@ -70,7 +69,7 @@ const Search = ({data, location}) => {
               website={item.item['WEBSITE']}
             />
           ))
-        : <div>no results</div>}
+        : <div>No results</div>}
       <CreateStories stories={[oodLocalFooter]} />
     </>
   );

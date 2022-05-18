@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { useTable } from 'react-table';
 
 import EndowedPositionsNav from '../../components/endowed-positions/EndowedPositionsNav';
+import EndowedPositionsPagination from '../../components/endowed-positions/EndowedPositionsPagination';
 import CreateStories from '../../utilities/createStories';
 import ENDOWED_POSITIONS from '../../fixtures/endowedPositions.json';
 
@@ -10,6 +11,7 @@ const getTableDataBySubcategory = (subcategory) =>
   ENDOWED_POSITIONS.filter(item => item['SUBCATEGORY'] === subcategory);
 
 const Professorship = ({ data, location }) => {
+  console.log(data);
   const DISPLAYED_RESULTS = 25;
   const oodLocalHeader = {
     ...data.header,
@@ -19,9 +21,15 @@ const Professorship = ({ data, location }) => {
     ...data.footer,
     content: JSON.parse(data.footer.content),
   }
-  const tableSearchTerm = data.allEndowedPositionsMapJson.edges[0].node.jsonId;
+  const {jsonId, label, link} = data.allEndowedPositionsMapJson.edges[0].node;
+  const tableSearchTerm = jsonId;
+  const fullArray = getTableDataBySubcategory(tableSearchTerm);
   const [getPage, setPage] = useState(1);
   const [getIndex, setIndex] = useState(0);
+  // Pagination stuff
+  const canPaginate = fullArray.length > DISPLAYED_RESULTS;
+  const totalPages = canPaginate ? Math.ceil(fullArray.length / DISPLAYED_RESULTS) : 1;
+  const pagesArray = Array.from(Array(totalPages).keys());
   const columns = useMemo(() => [
     {
       Header: "Title",
@@ -34,7 +42,6 @@ const Professorship = ({ data, location }) => {
   ], []);
 
   const tableData = useMemo(() => {
-    const fullArray = getTableDataBySubcategory(tableSearchTerm);
     const paginatedArray = [];
     const total = fullArray.length > DISPLAYED_RESULTS ? DISPLAYED_RESULTS : fullArray.length;
     for (let i = getIndex; i < total * getPage; i++) {
@@ -56,7 +63,6 @@ const Professorship = ({ data, location }) => {
     const newSearch = new URLSearchParams(location.search);
 
     if (newSearch.get('page')) {
-      console.log(Number(newSearch.get('page') - 1) * DISPLAYED_RESULTS);
       setPage(Number(newSearch.get('page')));
       setIndex(Number(newSearch.get('page') - 1) * DISPLAYED_RESULTS);
     }
@@ -67,6 +73,10 @@ const Professorship = ({ data, location }) => {
     <>
       <CreateStories stories={[oodLocalHeader]} />
       <EndowedPositionsNav />
+      <h2>{label}</h2>
+      <p>
+        The information presented int the table below is arranged alphabetically by title. Additional information is at <a href={link} title={label}>{label}</a>.
+      </p>
       <table {...getTableProps()} css={{ border: 'solid 1px gray' }}>
         <thead>
           {headerGroups.map(headerGroup => (
@@ -108,6 +118,7 @@ const Professorship = ({ data, location }) => {
           })}
         </tbody>
       </table>
+      {canPaginate && <EndowedPositionsPagination pagesArray={pagesArray} />}
       <CreateStories stories={[oodLocalFooter]} />
     </>
   );
@@ -121,6 +132,8 @@ export const query = graphql`
       edges {
         node {
           jsonId
+          label
+          link
         }
       }
     }

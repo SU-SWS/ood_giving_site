@@ -27,15 +27,15 @@ const EndowedPositionsNav = () => {
       <div>
         <label
           className='endowed-positions__label'
-          htmlFor='centers-institutes-programs-select'
-        >
-          Centers, Institutes, and Programs
-        </label>
-        <label
-          className='endowed-positions__label'
           htmlFor='schools-select'
         >
           Schools
+        </label>
+        <label
+          className='endowed-positions__label'
+          htmlFor='centers-institutes-programs-select'
+        >
+          Centers, Institutes, and Programs
         </label>
         <label
           className='endowed-positions__label'

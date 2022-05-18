@@ -23,7 +23,6 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    background: url(https://give.stanford.edu/down.png) no-repeat calc(100% - 18px ) center;
     margin: 0;
     line-height: 2.5rem;
     min-width: 90px;
@@ -63,5 +62,12 @@
     font-style: normal;
     font-weight: bold;
     margin: 0 0 5px;
+  }
+
+  &__paginate {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    max-width: 750px;
   }
 }
