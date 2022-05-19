@@ -21,30 +21,16 @@ const EndowedPositionsNav = () => {
   const handleSearch = useCallback(() => {
     navigate(`/endowed-positions/search?term=${getSearchTerm}`)
   }, [getSearchTerm]);
+  const handleKeyDown = useCallback((event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  });
 
   return (
     <nav className='endowed-positions__nav'>
       <div>
-        <label
-          className='endowed-positions__label'
-          htmlFor='schools-select'
-        >
-          Schools
-        </label>
-        <label
-          className='endowed-positions__label'
-          htmlFor='centers-institutes-programs-select'
-        >
-          Centers, Institutes, and Programs
-        </label>
-        <label
-          className='endowed-positions__label'
-          htmlFor='search-input'
-        >
-          Search
-        </label>
-      </div>
-      <div>
+        <label className='endowed-positions__label'>Navigate to...</label>
         <select
           className='endowed-positions__select'
           id="schools-select"
@@ -66,14 +52,15 @@ const EndowedPositionsNav = () => {
             className='endowed-positions__input'
             id="search-input"
             onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            placeholder="Search..."
             value={getSearchTerm} 
           />
-          <button
-            className='endowed-positions__button'
+          <i
+            aria-hidden="true"
+            class="fas fa-search fa-flip-horizontal endowed-positions__search-button" 
             onClick={handleSearch}
-          >
-            Search
-          </button>
+          />
         </fieldset>
       </div>
     </nav>

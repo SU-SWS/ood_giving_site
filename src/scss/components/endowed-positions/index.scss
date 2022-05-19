@@ -2,49 +2,42 @@
   &__nav {
     display: flex;
     flex-direction: column;
-    margin: 40px 0;
-
-    & > div {
-      display: flex;
-      justify-content: space-evenly;
-    }
+    margin: 20px 0;
   }
 
   &__select {
+    background: url(https://give.stanford.edu/down.png) no-repeat calc(100% - 18px ) center;
     border: 1px solid #d2d3d4;
-    height: 32px;
+    height: 40px;
     border-radius: 3px;
-    outline: 0;
     font-size: 18px;
     font-weight: normal;
     font-style: normal;
     color: #2E2D29;
-    padding: 0 18px;
+    padding: 0 38px 0 18px;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    margin: 0;
+    margin: 0 0 20px;
     line-height: 2.5rem;
-    min-width: 90px;
-    flex: 0 0 25%;
+    width: 100%;
   }
 
   &__input {
-    height: 32px;
+    height: 40px;
     box-sizing: border-box;
     border-radius: 3px;
     font-size: 18px;
     border: 1px solid #d2d3d4;
-    outline: 0;
     padding: 0 20px;
-    margin: 0 10px 0 0;
+    width: 100%;
   }
 
   &__fieldset {
     border: none;
-    display: flex;
-    flex: 0 0 25%;
+    margin: 0;
     padding: 0;
+    position: relative;
   }
 
   &__button {
@@ -57,11 +50,12 @@
 
   &__label {
     color: #2e2d29;
-    flex: 0 0 25%;
+    display: block;
     font-size: 16px;
     font-style: normal;
     font-weight: bold;
-    margin: 0 0 5px;
+    margin: 0 0 15px;
+    text-align: left;
   }
 
   &__paginate {
@@ -69,5 +63,27 @@
     justify-content: space-evenly;
     margin: 0 auto;
     max-width: 750px;
+  }
+
+  &__search-button {
+    font-size: 1.6rem;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__search-results {
+    & > dt:hover {
+      cursor: pointer;
+    }
+    & > dd {
+      border-bottom: 1px solid #000;
+      margin: 0 0 1em;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 }

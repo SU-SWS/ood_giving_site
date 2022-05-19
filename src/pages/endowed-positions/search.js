@@ -3,7 +3,7 @@ import { graphql, navigate } from 'gatsby';
 import Fuse from 'fuse.js';
 
 import ENDOWED_POSITIONS from '../../fixtures/endowedPositions.json';
-import EndowedPositionsNav from '../../components/endowed-positions/EndowedPositionsNav';
+import EndowedPositionsHeader from '../../components/endowed-positions/EndowedPositionsHeader';
 import CreateStories from '../../utilities/createStories';
 
 const fuse = new Fuse(ENDOWED_POSITIONS, {
@@ -12,14 +12,20 @@ const fuse = new Fuse(ENDOWED_POSITIONS, {
   minMatchCharLength: 4,
   threshold: 0.2,
   ignoreLocation: true
-})
+});
 
 const SearchResultItem = ({currentHolder, index, position, website}) => (
-  <dl onClick={() => navigate(`${location.pathname}${location.search}&item=${index}`)}>
-    <dt>{currentHolder}</dt>
-    <dd>{position}</dd>
-    <dd>{website}</dd>
-  </dl>
+  <>
+    <dt onClick={() => navigate(`${location.pathname}${location.search}&item=${index}`)}>
+      <strong>{currentHolder}</strong>
+    </dt>
+    <dd onClick={() => navigate(`${location.pathname}${location.search}&item=${index}`)}>
+      <p>
+        <strong>Title:</strong> {position}<br />
+        {website}
+      </p>
+    </dd>
+  </>
 );
 
 const Search = ({data, location}) => {
@@ -54,22 +60,31 @@ const Search = ({data, location}) => {
     }
     setSearchResults(paginatedArray);
   }, [location]);
-
+console.log(getSearchResults);
   return (
     <>
       <CreateStories stories={[oodLocalHeader]} />
-      <EndowedPositionsNav />
-      {getSearchResults?.length
-        ? getSearchResults.map((item, index) => (
-            <SearchResultItem
-              currentHolder={item.item['CURRENT HOLDER']}
-              index={index}
-              key={`${item.item['CURRENT HOLDER']}-${index}`}
-              position={item.item['POSITION']}
-              website={item.item['WEBSITE']}
-            />
-          ))
-        : <div>No results</div>}
+      <EndowedPositionsHeader />
+      <section class="ood-interior-page__body">
+        <div class="centered-container flex-container ood-interior-page__body-container">
+          <div class="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
+            <dl className="endowed-positions__search-results">
+              {getSearchResults?.length
+                ? getSearchResults.map((item, index) => (
+                    <SearchResultItem
+                      currentHolder={item.item['CURRENT HOLDER']}
+                      index={index}
+                      key={`${item.item['CURRENT HOLDER']}-${index}`}
+                      position={item.item['POSITION']}
+                      website={item.item['WEBSITE']}
+                    />
+                  ))
+                : <div>No results</div>
+              }
+            </dl>
+          </div>
+        </div>
+      </section>
       <CreateStories stories={[oodLocalFooter]} />
     </>
   );

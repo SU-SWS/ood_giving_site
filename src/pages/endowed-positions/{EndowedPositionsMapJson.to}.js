@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { graphql, Link } from 'gatsby';
 import { useTable } from 'react-table';
 
+import EndowedPositionsHeader from '../../components/endowed-positions/EndowedPositionsHeader';
 import EndowedPositionsNav from '../../components/endowed-positions/EndowedPositionsNav';
 import EndowedPositionsPagination from '../../components/endowed-positions/EndowedPositionsPagination';
 import CreateStories from '../../utilities/createStories';
@@ -21,7 +22,7 @@ const Professorship = ({ data, location }) => {
     ...data.footer,
     content: JSON.parse(data.footer.content),
   }
-  const {jsonId, label, link} = data.allEndowedPositionsMapJson.edges[0].node;
+  const {jsonId, label, link} = data?.allEndowedPositionsMapJson?.edges?.[0]?.node || {};
   const tableSearchTerm = jsonId;
   const fullArray = getTableDataBySubcategory(tableSearchTerm);
   const [getPage, setPage] = useState(1);
@@ -72,53 +73,59 @@ const Professorship = ({ data, location }) => {
   return (
     <>
       <CreateStories stories={[oodLocalHeader]} />
-      <EndowedPositionsNav />
-      <h2>{label}</h2>
-      <p>
-        The information presented int the table below is arranged alphabetically by title. Additional information is at <a href={link} title={label}>{label}</a>.
-      </p>
-      <table {...getTableProps()} css={{ border: 'solid 1px gray' }}>
-        <thead>
-          {headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map(column => (
-                <th
-                  {...column.getHeaderProps()}
-                  css={{
-                    color: 'black',
-                    fontWeight: 'bold',
-                  }}
-                >
-                  {column.render('Header')}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map(row => {
-            prepareRow(row)
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map(cell => {
+      <EndowedPositionsHeader />
+      <section class="ood-interior-page__body">
+        <div class="centered-container flex-container ood-interior-page__body-container">
+          <div class="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
+            <h2>{label}</h2>
+            <p>
+              The information presented in the table below is arranged alphabetically by title. Additional information is at <a href={link} title={label}>{label}</a>.
+            </p>
+            <table {...getTableProps()} css={{ border: 'solid 1px gray' }}>
+              <thead>
+                {headerGroups.map(headerGroup => (
+                  <tr {...headerGroup.getHeaderGroupProps()}>
+                    {headerGroup.headers.map(column => (
+                      <th
+                        {...column.getHeaderProps()}
+                        css={{
+                          color: 'black',
+                          fontWeight: 'bold',
+                        }}
+                      >
+                        {column.render('Header')}
+                      </th>
+                    ))}
+                  </tr>
+                ))}
+              </thead>
+              <tbody {...getTableBodyProps()}>
+                {rows.map(row => {
+                  prepareRow(row)
                   return (
-                    <td
-                      {...cell.getCellProps()}
-                      css={{
-                        padding: '10px',
-                        border: 'solid 1px gray',
-                      }}
-                    >
-                      {cell.render('Cell')}
-                    </td>
+                    <tr {...row.getRowProps()}>
+                      {row.cells.map(cell => {
+                        return (
+                          <td
+                            {...cell.getCellProps()}
+                            css={{
+                              padding: '10px',
+                              border: 'solid 1px gray',
+                            }}
+                          >
+                            {cell.render('Cell')}
+                          </td>
+                        )
+                      })}
+                    </tr>
                   )
                 })}
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
-      {canPaginate && <EndowedPositionsPagination pagesArray={pagesArray} />}
+              </tbody>
+            </table>
+            {canPaginate && <EndowedPositionsPagination pagesArray={pagesArray} />}
+          </div>
+        </div>
+      </section>
       <CreateStories stories={[oodLocalFooter]} />
     </>
   );
