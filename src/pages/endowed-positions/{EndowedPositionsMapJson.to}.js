@@ -1,9 +1,8 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { graphql, Link } from 'gatsby';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { graphql } from 'gatsby';
 import { useTable } from 'react-table';
 
 import EndowedPositionsHeader from '../../components/endowed-positions/EndowedPositionsHeader';
-import EndowedPositionsNav from '../../components/endowed-positions/EndowedPositionsNav';
 import EndowedPositionsPagination from '../../components/endowed-positions/EndowedPositionsPagination';
 import CreateStories from '../../utilities/createStories';
 import ENDOWED_POSITIONS from '../../fixtures/endowedPositions.json';
@@ -12,7 +11,6 @@ const getTableDataBySubcategory = (subcategory) =>
   ENDOWED_POSITIONS.filter(item => item['SUBCATEGORY'] === subcategory);
 
 const Professorship = ({ data, location }) => {
-  console.log(data);
   const DISPLAYED_RESULTS = 25;
   const oodLocalHeader = {
     ...data.header,
@@ -22,7 +20,7 @@ const Professorship = ({ data, location }) => {
     ...data.footer,
     content: JSON.parse(data.footer.content),
   }
-  const {jsonId, label, link} = data?.allEndowedPositionsMapJson?.edges?.[0]?.node || {};
+  const {jsonId, label, link, to} = data?.allEndowedPositionsMapJson?.edges?.[0]?.node || {};
   const tableSearchTerm = jsonId;
   const fullArray = getTableDataBySubcategory(tableSearchTerm);
   const [getPage, setPage] = useState(1);
@@ -31,6 +29,7 @@ const Professorship = ({ data, location }) => {
   const canPaginate = fullArray.length > DISPLAYED_RESULTS;
   const totalPages = canPaginate ? Math.ceil(fullArray.length / DISPLAYED_RESULTS) : 1;
   const pagesArray = Array.from(Array(totalPages).keys());
+  const headerRef = useRef(null);
   const columns = useMemo(() => [
     {
       Header: "Title",
@@ -70,14 +69,18 @@ const Professorship = ({ data, location }) => {
 
   }, [location]);
 
+  useEffect(() => {
+    headerRef?.current.scrollIntoView();
+  });
+
   return (
     <>
       <CreateStories stories={[oodLocalHeader]} />
-      <EndowedPositionsHeader />
-      <section class="ood-interior-page__body">
-        <div class="centered-container flex-container ood-interior-page__body-container">
-          <div class="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
-            <h2>{label}</h2>
+      <EndowedPositionsHeader to={to} />
+      <section className="ood-interior-page__body">
+        <div className="centered-container flex-container ood-interior-page__body-container">
+          <div className="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
+            <h2 ref={headerRef}>{label}</h2>
             <p>
               The information presented in the table below is arranged alphabetically by title. Additional information is at <a href={link} title={label}>{label}</a>.
             </p>
@@ -141,6 +144,7 @@ export const query = graphql`
           jsonId
           label
           link
+          to
         }
       }
     }

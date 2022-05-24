@@ -2,7 +2,7 @@ import React from 'react';
 
 import EndowedPositionsNav from './EndowedPositionsNav';
 
-const EndowedPositionsHeader = () => (
+const EndowedPositionsHeader = ({to}) => (
   <>
     <div className="ood-interior-page--no-image ood-support-page">
       <div className="su-bg-fog-light">
@@ -20,7 +20,7 @@ const EndowedPositionsHeader = () => (
                 <div>
                     <p><span>This site is a comprehensive directory of endowed positions at Stanford. It is updated six times per year, following meetings of Stanford's Board of Trustees.</span></p>
                 </div>
-                <EndowedPositionsNav />
+                <EndowedPositionsNav to={to} />
               </div>
             </div>
           </div>

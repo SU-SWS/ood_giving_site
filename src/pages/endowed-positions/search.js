@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { graphql, navigate } from 'gatsby';
 import Fuse from 'fuse.js';
 
@@ -38,6 +38,7 @@ const Search = ({data, location}) => {
     ...data.footer,
     content: JSON.parse(data.footer.content),
   }
+  const resultsRef = useRef(null);
 
   useEffect(() => {
     const newSearch = new URLSearchParams(location.search);
@@ -60,7 +61,11 @@ const Search = ({data, location}) => {
     }
     setSearchResults(paginatedArray);
   }, [location]);
-console.log(getSearchResults);
+
+  useEffect(() => {
+    resultsRef?.current?.scrollIntoView();
+  })
+
   return (
     <>
       <CreateStories stories={[oodLocalHeader]} />
@@ -68,7 +73,7 @@ console.log(getSearchResults);
       <section class="ood-interior-page__body">
         <div class="centered-container flex-container ood-interior-page__body-container">
           <div class="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
-            <dl className="endowed-positions__search-results">
+            <dl className="endowed-positions__search-results" ref={resultsRef}>
               {getSearchResults?.length
                 ? getSearchResults.map((item, index) => (
                     <SearchResultItem

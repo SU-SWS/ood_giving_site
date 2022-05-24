@@ -3,18 +3,23 @@ import { navigate } from 'gatsby';
 
 import ENDOWED_POSITIONS_MAP from '../../constants/ENDOWED_POSITIONS_MAP.json';
 
-const getDropdown = (key) => 
-  ENDOWED_POSITIONS_MAP.map((item) => (
-    item.section === key ? <option key={item.label} value={item.to}>{item.label}</option> : null
-  ));
+const getDropdown = (key, to) => 
+  ENDOWED_POSITIONS_MAP.map((item) => {
+    const payload = {
+      ...(item.to === to ? { disabled: true, selected: true } : {})
+    };
+    return (
+      item.section === key ? <option key={item.label} value={item.to} {...payload}>{item.label}</option> : null
+    );
+  });
 
 const handleChange = (event) => navigate(`/endowed-positions/${event.target.value}`);
 
-const EndowedPositionsNav = () => {
+const EndowedPositionsNav = ({to}) => {
   const [getSearchTerm, setSearchTerm] = useState('');
 
-  const centersInstitutesProgramsOptions = useMemo(() => getDropdown('Centers, Institutes, and Programs'), []);
-  const schoolOptions = useMemo(() => getDropdown('Schools'), []);
+  const centersInstitutesProgramsOptions = useMemo(() => getDropdown('Centers, Institutes, and Programs', to), []);
+  const schoolOptions = useMemo(() => getDropdown('Schools', to), []);
   const handleInputChange = useCallback((event) => {
     setSearchTerm(event.currentTarget.value);
   }, []);
@@ -30,35 +35,42 @@ const EndowedPositionsNav = () => {
   return (
     <nav className='endowed-positions__nav'>
       <div>
-        <label className='endowed-positions__label'>Navigate to...</label>
+        <label
+          className='endowed-positions__label'
+          htmlFor='schools-centers-institutes-programs-select'
+        >
+          Navigate to...
+        </label>
         <select
           className='endowed-positions__select'
-          id="schools-select"
+          id="schools-centers-institutes-programs-select"
           onChange={handleChange}
         >
-          <option value='' disabled selected>Select a School</option>
-          {schoolOptions}
+          <option value='' disabled selected>Select a School, Center, Institute, or Program</option>
+          <optgroup label='Schools'>
+            {schoolOptions}
+          </optgroup>
+          <optgroup label='Centers, Institutes, and Programs'>
+            {centersInstitutesProgramsOptions}
+          </optgroup>
         </select>
-        <select
-          className='endowed-positions__select'
-          id="centers-institutes-programs-select"
-          onChange={handleChange}
+        <label
+          className='endowed-positions__label'
+          htmlFor='search-input'
         >
-          <option value='' disabled selected>Select a Center, Institute, or Program</option>
-          {centersInstitutesProgramsOptions}
-        </select>
+          Search...
+        </label>
         <fieldset className='endowed-positions__fieldset'>
           <input
             className='endowed-positions__input'
             id="search-input"
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
-            placeholder="Search..."
             value={getSearchTerm} 
           />
           <i
             aria-hidden="true"
-            class="fas fa-search fa-flip-horizontal endowed-positions__search-button" 
+            className="fas fa-search fa-flip-horizontal endowed-positions__search-button" 
             onClick={handleSearch}
           />
         </fieldset>
