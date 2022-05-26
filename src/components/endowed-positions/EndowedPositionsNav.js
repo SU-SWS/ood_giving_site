@@ -35,32 +35,34 @@ const EndowedPositionsNav = ({to}) => {
   return (
     <nav className='endowed-positions__nav'>
       <div>
-        <label
-          className='endowed-positions__label'
-          htmlFor='schools-centers-institutes-programs-select'
-        >
-          Navigate to...
-        </label>
-        <select
-          className='endowed-positions__select'
-          id="schools-centers-institutes-programs-select"
-          onChange={handleChange}
-        >
-          <option value='' disabled selected>Select a School, Center, Institute, or Program</option>
-          <optgroup label='Schools'>
-            {schoolOptions}
-          </optgroup>
-          <optgroup label='Centers, Institutes, and Programs'>
-            {centersInstitutesProgramsOptions}
-          </optgroup>
-        </select>
-        <label
-          className='endowed-positions__label'
-          htmlFor='search-input'
-        >
-          Search...
-        </label>
         <fieldset className='endowed-positions__fieldset'>
+          <label
+            className='endowed-positions__label'
+            htmlFor='schools-centers-institutes-programs-select'
+          >
+            Filter by school or area:
+          </label>
+          <select
+            className='endowed-positions__select'
+            id="schools-centers-institutes-programs-select"
+            onChange={handleChange}
+          >
+            <option value='' disabled selected>Select a School, Center, Institute, or Program</option>
+            <optgroup label='Schools'>
+              {schoolOptions}
+            </optgroup>
+            <optgroup label='Centers, Institutes, and Programs'>
+              {centersInstitutesProgramsOptions}
+            </optgroup>
+          </select>
+        </fieldset>
+        <fieldset className='endowed-positions__fieldset'>
+          <label
+            className='endowed-positions__label'
+            htmlFor='search-input'
+          >
+            Search by keyword:
+          </label>
           <input
             className='endowed-positions__input'
             id="search-input"

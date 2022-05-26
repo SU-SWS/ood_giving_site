@@ -3,6 +3,11 @@
     display: flex;
     flex-direction: column;
     margin: 20px 0;
+
+    > div {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 
   &__select {
@@ -18,7 +23,9 @@
     font-style: normal;
     font-weight: normal;
     line-height: 2.5rem;
-    margin: 0 0 20px;
+    margin: 0;
+    max-width: 100%;
+    min-width: 100%;
     padding: 0 38px 0 18px;
     width: 100%;
   }
@@ -35,7 +42,8 @@
 
   &__fieldset {
     border: none;
-    margin: 0;
+    flex: 1 1 auto;
+    margin: 0 5px 20px;
     padding: 0;
     position: relative;
   }
@@ -66,11 +74,10 @@
   }
 
   &__search-button {
+    bottom: 12px;
     font-size: 1.6rem;
     position: absolute;
     right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
   }
 
   &__search-results {

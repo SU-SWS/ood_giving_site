@@ -18,7 +18,7 @@ const EndowedPositionsHeader = ({to}) => (
             <div className="ood-interior-page__header-intro-wrapper flex-12-of-12 su-bg-white">
               <div className="intro-text ood-interior-page__intro flex-xl-10-of-12">
                 <div>
-                    <p><span>This site is a comprehensive directory of endowed positions at Stanford. It is updated six times per year, following meetings of Stanford's Board of Trustees.</span></p>
+                    <p><span>Endowed positions are gifted by donors to support outstanding faculty in perpetuity. This directory of all endowed positions at Stanford is updated six times per year, following meetings of Stanford's Board of Trustees.</span></p>
                 </div>
                 <EndowedPositionsNav to={to} />
               </div>

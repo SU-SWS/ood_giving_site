@@ -70,8 +70,10 @@ const Professorship = ({ data, location }) => {
   }, [location]);
 
   useEffect(() => {
-    headerRef?.current.scrollIntoView();
-  });
+    if (location?.search?.indexOf('page') > -1) {
+      headerRef?.current.scrollIntoView();
+    }
+  }, [headerRef, location]);
 
   return (
     <>
