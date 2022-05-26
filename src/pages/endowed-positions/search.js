@@ -9,7 +9,7 @@ import CreateStories from '../../utilities/createStories';
 const fuse = new Fuse(ENDOWED_POSITIONS, {
   keys: ['SUBCATEGORY', 'POSITION', 'CURRENT HOLDER'],
   includeScore: true,
-  minMatchCharLength: 4,
+  minMatchCharLength: 3,
   threshold: 0.2,
   ignoreLocation: true
 });
