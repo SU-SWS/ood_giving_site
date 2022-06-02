@@ -4,6 +4,7 @@ import Fuse from 'fuse.js';
 
 import ENDOWED_POSITIONS from '../../fixtures/endowedPositions.json';
 import EndowedPositionsHeader from '../../components/endowed-positions/EndowedPositionsHeader';
+import EndowedPositionsFooter from '../../components/endowed-positions/EndowedPositionsFooter';
 import CreateStories from '../../utilities/createStories';
 
 const fuse = new Fuse(ENDOWED_POSITIONS, {
@@ -70,10 +71,10 @@ const Search = ({data, location}) => {
     <>
       <CreateStories stories={[oodLocalHeader]} />
       <EndowedPositionsHeader />
-      <section class="ood-interior-page__body">
-        <div class="centered-container flex-container ood-interior-page__body-container">
-          <div class="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
-            <dl className="endowed-positions__search-results" ref={resultsRef}>
+      <section class='ood-interior-page__body'>
+        <div class='centered-container flex-container ood-interior-page__body-container'>
+          <div class='ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12'>
+            <dl className='endowed-positions__search-results' ref={resultsRef}>
               {getSearchResults?.length
                 ? getSearchResults.map((item, index) => (
                     <SearchResultItem
@@ -81,12 +82,13 @@ const Search = ({data, location}) => {
                       index={index}
                       key={`${item.item['CURRENT HOLDER']}-${index}`}
                       position={item.item['POSITION']}
-                      website={item.item['WEBSITE']}
+                      website={item.item['SUBCATEGORY']}
                     />
                   ))
                 : <div>No results</div>
               }
             </dl>
+            <EndowedPositionsFooter />
           </div>
         </div>
       </section>

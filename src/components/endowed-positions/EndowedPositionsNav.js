@@ -6,7 +6,7 @@ import ENDOWED_POSITIONS_MAP from '../../constants/ENDOWED_POSITIONS_MAP.json';
 const getDropdown = (key, to) => 
   ENDOWED_POSITIONS_MAP.map((item) => {
     const payload = {
-      ...(item.to === to ? { disabled: true, selected: true } : {})
+      ...(item.to === to ? { disabled: true } : {})
     };
     return (
       item.section === key ? <option key={item.label} value={item.to} {...payload}>{item.label}</option> : null
@@ -44,7 +44,8 @@ const EndowedPositionsNav = ({to}) => {
           </label>
           <select
             className='endowed-positions__select'
-            id="schools-centers-institutes-programs-select"
+            defaultValue={to}
+            id='schools-centers-institutes-programs-select'
             onChange={handleChange}
           >
             <option value='' disabled selected>Select a School, Center, Institute, or Program</option>
@@ -65,14 +66,14 @@ const EndowedPositionsNav = ({to}) => {
           </label>
           <input
             className='endowed-positions__input'
-            id="search-input"
+            id='search-input'
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             value={getSearchTerm} 
           />
           <i
-            aria-hidden="true"
-            className="fas fa-search fa-flip-horizontal endowed-positions__search-button" 
+            aria-hidden='true'
+            className='fas fa-search fa-flip-horizontal endowed-positions__search-button' 
             onClick={handleSearch}
           />
         </fieldset>

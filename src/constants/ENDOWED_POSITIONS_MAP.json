@@ -4,7 +4,7 @@
     "label": "Bass University Fellows in Undergraduate Education Program",
     "section": "Centers, Institutes, and Programs",
     "to": "bass-university-fellows-in-undergraduate-education-program",
-    "link": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "link": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "id": "CENTER FOR ADVANCED STUDY IN THE BEHAVIORAL SCIENCES",
@@ -64,9 +64,9 @@
   },
   {
     "id": "SCHOOL OF EARTH, ENERGY AND ENVIRONMENTAL SCIENCES",
-    "label": "School of Earth, Energy & Environmental Sciences",
+    "label": "Stanford Doerr School of Sustainability",
     "section": "Schools",
-    "to": "school-of-earth-energy-and-environmental-sciences",
+    "to": "stanford-doerr-school-of-sustainability",
     "link": "https://earth.stanford.edu/faculty-research/directory"
   },
   {
@@ -92,9 +92,9 @@
   },
   {
     "id": "STANFORD CHEM-H",
-    "label": "Stanford ChEM-H",
+    "label": "Sarafan ChEM-H",
     "section": "Centers, Institutes, and Programs",
-    "to": "stanford-chem-h",
+    "to": "sarafan-chem-h",
     "link": "https://chemh.stanford.edu/"
   },
   {
@@ -150,7 +150,7 @@
     "id": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "label": "University, Presidential, and Provostial Professorships",
     "section": "Centers, Institutes, and Programs",
-    "to": "stanford-woods-institute-for-the-environment",
+    "to": "university-presidential-and-provostial-professorships",
     "link": ""
   },
   {

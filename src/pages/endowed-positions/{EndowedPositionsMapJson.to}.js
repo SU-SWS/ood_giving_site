@@ -4,6 +4,7 @@ import { useTable } from 'react-table';
 
 import EndowedPositionsHeader from '../../components/endowed-positions/EndowedPositionsHeader';
 import EndowedPositionsPagination from '../../components/endowed-positions/EndowedPositionsPagination';
+import EndowedPositionsFooter from '../../components/endowed-positions/EndowedPositionsFooter';
 import CreateStories from '../../utilities/createStories';
 import ENDOWED_POSITIONS from '../../fixtures/endowedPositions.json';
 
@@ -32,12 +33,12 @@ const Professorship = ({ data, location }) => {
   const headerRef = useRef(null);
   const columns = useMemo(() => [
     {
-      Header: "Title",
-      accessor: "POSITION",
+      Header: 'Title',
+      accessor: 'POSITION',
     },
     {
-      Header: "Current Holder",
-      accessor: "CURRENT HOLDER",
+      Header: 'Current Holder',
+      accessor: 'CURRENT HOLDER',
     },
   ], []);
 
@@ -79,25 +80,20 @@ const Professorship = ({ data, location }) => {
     <>
       <CreateStories stories={[oodLocalHeader]} />
       <EndowedPositionsHeader to={to} />
-      <section className="ood-interior-page__body">
-        <div className="centered-container flex-container ood-interior-page__body-container">
-          <div className="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
+      <section className='ood-interior-page__body'>
+        <div className='centered-container flex-container ood-interior-page__body-container'>
+          <div className='ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12'>
             <h2 ref={headerRef}>{label}</h2>
             <p>
-              The information presented in the table below is arranged alphabetically by title. Additional information is at <a href={link} title={label}>{label}</a>.
+              The information presented in the table below is arranged alphabetically by title.
+              {link && <>Additional information is at <a href={link} title={label}>{label}</a>.</>}
             </p>
-            <table {...getTableProps()} css={{ border: 'solid 1px gray' }}>
+            <table {...getTableProps()}>
               <thead>
                 {headerGroups.map(headerGroup => (
                   <tr {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map(column => (
-                      <th
-                        {...column.getHeaderProps()}
-                        css={{
-                          color: 'black',
-                          fontWeight: 'bold',
-                        }}
-                      >
+                      <th {...column.getHeaderProps()}>
                         {column.render('Header')}
                       </th>
                     ))}
@@ -111,13 +107,7 @@ const Professorship = ({ data, location }) => {
                     <tr {...row.getRowProps()}>
                       {row.cells.map(cell => {
                         return (
-                          <td
-                            {...cell.getCellProps()}
-                            css={{
-                              padding: '10px',
-                              border: 'solid 1px gray',
-                            }}
-                          >
+                          <td {...cell.getCellProps()}>
                             {cell.render('Cell')}
                           </td>
                         )
@@ -127,7 +117,8 @@ const Professorship = ({ data, location }) => {
                 })}
               </tbody>
             </table>
-            {canPaginate && <EndowedPositionsPagination pagesArray={pagesArray} />}
+            {canPaginate && <EndowedPositionsPagination currentPage={getPage} pagesArray={pagesArray} />}
+            <EndowedPositionsFooter />
           </div>
         </div>
       </section>

@@ -71,6 +71,10 @@
     justify-content: space-evenly;
     margin: 0 auto;
     max-width: 750px;
+
+    & > a {
+      text-decoration: none;
+    }
   }
 
   &__search-button {
@@ -92,5 +96,9 @@
         cursor: pointer;
       }
     }
+  }
+
+  &__footer {
+    margin: 40px 0;
   }
 }
