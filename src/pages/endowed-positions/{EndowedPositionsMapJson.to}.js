@@ -91,13 +91,13 @@ const Professorship = ({ data, location }) => {
               The information presented in the table below is arranged
               alphabetically by title.
               {link && (
-              <>
-                Additional information is at {' '}
+                <>
+                  Additional information is at{' '}
                   <a href={link} title={label}>
                     {label}
                   </a>
-                .
-              </>
+                  .
+                </>
               )}
             </p>
             <table {...getTableProps()}>
