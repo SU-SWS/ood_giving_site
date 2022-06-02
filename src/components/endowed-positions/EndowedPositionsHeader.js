@@ -21,7 +21,7 @@ const EndowedPositionsHeader = ({ to }) => (
                 <div>
                   <p>
                     <span>
-                      <Link to='/endowed-positions'>Endowed positions</Link> are
+                      <Link to="/endowed-positions">Endowed positions</Link> are
                       gifted by donors to support outstanding faculty, staff,
                       and campus leaders in perpetuity. Through these meaningful
                       investments, donors help enhance the Stanford community

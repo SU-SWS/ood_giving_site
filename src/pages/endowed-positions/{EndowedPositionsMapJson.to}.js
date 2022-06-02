@@ -71,7 +71,6 @@ const Professorship = ({ data, location }) => {
       setPage(Number(newSearch.get('page')));
       setIndex(Number(newSearch.get('page') - 1) * DISPLAYED_RESULTS);
     }
-
   }, [location]);
 
   useEffect(() => {
@@ -88,8 +87,7 @@ const Professorship = ({ data, location }) => {
         <div className="centered-container flex-container ood-interior-page__body-container">
           <div className="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
             <h2 ref={headerRef}>{label}</h2>
-            <p>
-              The information presented in the table below is arranged alphabetically by title.
+            <p>The information presented in the table below is arranged alphabetically by title.
               {link && (
                 <>
                   Additional information is at {' '}
@@ -104,8 +102,8 @@ const Professorship = ({ data, location }) => {
               <thead>
                 {headerGroups.map((headerGroup) => (
                   <tr {...headerGroup.getHeaderGroupProps()}>
-                    {headerGroup.headers.map((column) => (
-                      <th {...column.getHeaderProps()}>
+                    {headerGroup.headers.map((column, index) => (
+                      <th key={index} {...column.getHeaderProps()}>
                         {column.render('Header')}
                       </th>
                     ))}

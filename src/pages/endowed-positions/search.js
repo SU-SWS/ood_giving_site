@@ -77,7 +77,7 @@ const Search = ({ data, location }) => {
 
   useEffect(() => {
     resultsRef?.current?.scrollIntoView();
-  })
+  });
 
   return (
     <>
@@ -87,18 +87,19 @@ const Search = ({ data, location }) => {
         <div className="centered-container flex-container ood-interior-page__body-container">
           <div className="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
             <dl className="endowed-positions__search-results" ref={resultsRef}>
-              {getSearchResults?.length
-                ? getSearchResults.map((item, index) => (
-                    <SearchResultItem
-                      currentHolder={item.item['CURRENT HOLDER']}
-                      index={index}
-                      key={`${item.item['CURRENT HOLDER']}-${index}`}
-                      position={item.item['POSITION']}
-                      website={item.item['SUBCATEGORY']}
-                    />
-                  ))
-                : <div>No results</div>
-              }
+              {getSearchResults?.length ? (
+                getSearchResults.map((item, index) => (
+                  <SearchResultItem
+                    currentHolder={item.item['CURRENT HOLDER']}
+                    index={index}
+                    key={`${item.item['CURRENT HOLDER']}-${index}`}
+                    position={item.item['POSITION']}
+                    website={item.item['SUBCATEGORY']}
+                  />
+                ))
+              ) : (
+                <div>No results</div>
+              )}
             </dl>
             <EndowedPositionsFooter />
           </div>
