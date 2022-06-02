@@ -14,7 +14,7 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    background: url("https://give.stanford.edu/down.png") no-repeat calc(100% - 18px) center;
+    background: url("#{$su-image-path}/caret-down-black.svg") no-repeat calc(100% - 18px) center / 17px 11px;
     border: 1px solid #D2D3D4;
     border-radius: 3px;
     color: #2E2D29;
