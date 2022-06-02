@@ -87,7 +87,8 @@ const Professorship = ({ data, location }) => {
         <div className="centered-container flex-container ood-interior-page__body-container">
           <div className="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
             <h2 ref={headerRef}>{label}</h2>
-            <p>The information presented in the table below is arranged alphabetically by title.
+            <p>The information presented in the table below is arranged
+              alphabetically by title.
               {link && (
                 <>
                   Additional information is at {' '}
@@ -100,8 +101,8 @@ const Professorship = ({ data, location }) => {
             </p>
             <table {...getTableProps()}>
               <thead>
-                {headerGroups.map((headerGroup) => (
-                  <tr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroups.map((headerGroup, index) => (
+                  <tr key={index} {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map((column, index) => (
                       <th key={index} {...column.getHeaderProps()}>
                         {column.render('Header')}
@@ -111,19 +112,19 @@ const Professorship = ({ data, location }) => {
                 ))}
               </thead>
               <tbody {...getTableBodyProps()}>
-                {rows.map((row) => {
-                  prepareRow(row)
+                {rows.map((row, index) => {
+                  prepareRow(row);
                   return (
-                    <tr {...row.getRowProps()}>
-                      {row.cells.map((cell) => {
+                    <tr key={index} {...row.getRowProps()}>
+                      {row.cells.map((cell, index) => {
                         return (
-                          <td {...cell.getCellProps()}>
+                          <td key={index} {...cell.getCellProps()}>
                             {cell.render('Cell')}
                           </td>
-                        )
+                        );
                       })}
                     </tr>
-                  )
+                  );
                 })}
               </tbody>
             </table>
@@ -143,7 +144,7 @@ const Professorship = ({ data, location }) => {
 };
 
 export const query = graphql`
-  query($id: String) {
+  query ($id: String) {
     allEndowedPositionsMapJson(filter: { id: { eq: $id } }) {
       edges {
         node {
