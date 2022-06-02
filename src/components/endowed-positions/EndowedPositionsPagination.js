@@ -6,7 +6,7 @@ const EndowedPositionsPagination = ({ currentPage, pagesArray }) => (
   <ol className="endowed-positions__paginate search-pagination">
     {pagesArray.map((item) => (
       <li
-        className={cx("search-pagination-item", {
+        className={cx('search-pagination-item', {
           ['search-pagination-item--current']: item + 1 === currentPage,
         })}
         key={item + 1}

@@ -15,7 +15,8 @@ const getDropdown = (key, to) =>
     ) : null;
   });
 
-const handleChange = (event) => navigate(`/endowed-positions/${event.target.value}`);
+const handleChange = (event) =>
+  navigate(`/endowed-positions/${event.target.value}`);
 
 const EndowedPositionsNav = ({ to }) => {
   const [getSearchTerm, setSearchTerm] = useState('');
@@ -29,7 +30,7 @@ const EndowedPositionsNav = ({ to }) => {
     setSearchTerm(event.currentTarget.value);
   }, []);
   const handleSearch = useCallback(() => {
-    navigate(`/endowed-positions/search?term=${getSearchTerm}`)
+    navigate(`/endowed-positions/search?term=${getSearchTerm}`);
   }, [getSearchTerm]);
   const handleKeyDown = useCallback((event) => {
     if (event.key === 'Enter') {
@@ -56,9 +57,7 @@ const EndowedPositionsNav = ({ to }) => {
             <option value="" disabled selected>
               Select a School, Center, Institute, or Program
             </option>
-            <optgroup label="Schools">
-              {schoolOptions}
-            </optgroup>
+            <optgroup label="Schools">{schoolOptions}</optgroup>
             <optgroup label="Centers, Institutes, and Programs">
               {centersInstitutesProgramsOptions}
             </optgroup>

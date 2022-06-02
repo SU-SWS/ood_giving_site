@@ -34,16 +34,19 @@ const Professorship = ({ data, location }) => {
     : 1;
   const pagesArray = Array.from(Array(totalPages).keys());
   const headerRef = useRef(null);
-  const columns = useMemo(() => [
-    {
-      Header: 'Title',
-      accessor: 'POSITION',
-    },
-    {
-      Header: 'Current Holder',
-      accessor: 'CURRENT HOLDER',
-    },
-  ], []);
+  const columns = useMemo(
+    () => [
+      {
+        Header: 'Title',
+        accessor: 'POSITION',
+      },
+      {
+        Header: 'Current Holder',
+        accessor: 'CURRENT HOLDER',
+      },
+    ],
+    []
+  );
 
   const tableData = useMemo(() => {
     const paginatedArray = [];
@@ -87,13 +90,21 @@ const Professorship = ({ data, location }) => {
             <h2 ref={headerRef}>{label}</h2>
             <p>
               The information presented in the table below is arranged alphabetically by title.
-              {link && <>Additional information is at <a href={link} title={label}>{label}</a>.</>}
+              {link && (
+                <>
+                  Additional information is at {' '}
+                    <a href={link} title={label}>
+                      {label}
+                    </a>
+                  .
+                </>
+              )}
             </p>
             <table {...getTableProps()}>
               <thead>
-                {headerGroups.map(headerGroup => (
+                {headerGroups.map((headerGroup) => (
                   <tr {...headerGroup.getHeaderGroupProps()}>
-                    {headerGroup.headers.map(column => (
+                    {headerGroup.headers.map((column) => (
                       <th {...column.getHeaderProps()}>
                         {column.render('Header')}
                       </th>
@@ -102,11 +113,11 @@ const Professorship = ({ data, location }) => {
                 ))}
               </thead>
               <tbody {...getTableBodyProps()}>
-                {rows.map(row => {
+                {rows.map((row) => {
                   prepareRow(row)
                   return (
                     <tr {...row.getRowProps()}>
-                      {row.cells.map(cell => {
+                      {row.cells.map((cell) => {
                         return (
                           <td {...cell.getCellProps()}>
                             {cell.render('Cell')}
@@ -135,9 +146,7 @@ const Professorship = ({ data, location }) => {
 
 export const query = graphql`
   query($id: String) {
-    allEndowedPositionsMapJson(
-      filter: { id: { eq: $id } }
-    ) {
+    allEndowedPositionsMapJson(filter: { id: { eq: $id } }) {
       edges {
         node {
           jsonId
@@ -158,4 +167,4 @@ export const query = graphql`
   }
 `;
 
-export default Professorship
+export default Professorship;

@@ -19,15 +19,15 @@ const EndowedPositionsHeader = ({ to }) => (
             <div className="ood-interior-page__header-intro-wrapper flex-12-of-12 su-bg-white">
               <div className="intro-text ood-interior-page__intro flex-xl-10-of-12">
                 <div>
-                    <p>
-                      <span>
-                        <Link to='/endowed-positions'>Endowed positions</Link> are
-                        gifted by donors to support outstanding faculty, staff,
-                        and campus leaders in perpetuity. Through these meaningful
-                        investments, donors help enhance the Stanford community
-                        and strengthen the university’s future.
-                      </span>
-                    </p>
+                  <p>
+                    <span>
+                      <Link to='/endowed-positions'>Endowed positions</Link> are
+                      gifted by donors to support outstanding faculty, staff,
+                      and campus leaders in perpetuity. Through these meaningful
+                      investments, donors help enhance the Stanford community
+                      and strengthen the university’s future.
+                    </span>
+                  </p>
                 </div>
                 <EndowedPositionsNav to={to} />
               </div>

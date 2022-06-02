@@ -30,7 +30,8 @@ const SearchResultItem = ({ currentHolder, index, position, website }) => (
       }
     >
       <p>
-        <strong>Title:</strong> {position}<br />
+        <strong>Title:</strong> {position}
+        <br />
         {website}
       </p>
     </dd>
@@ -57,11 +58,14 @@ const Search = ({ data, location }) => {
     if (newSearch.get('term')) {
       searchResults = fuse.search(newSearch.get('term'));
 
-      for (let i = 0; i < searchResults.length; i++ ) {
+      for (let i = 0; i < searchResults.length; i++) {
         paginatedArray.push(searchResults[i]);
       }
 
-      if (newSearch.get('item') && searchResults?.[Number(newSearch.get('item'))]) {
+      if (
+        newSearch.get('item') &&
+        searchResults?.[Number(newSearch.get('item'))]
+      ) {
         searchResults = [searchResults[Number(newSearch.get('item'))]];
 
         setSearchResults(searchResults);
@@ -79,9 +83,9 @@ const Search = ({ data, location }) => {
     <>
       <CreateStories stories={[oodLocalHeader]} />
       <EndowedPositionsHeader />
-      <section class="ood-interior-page__body">
-        <div class="centered-container flex-container ood-interior-page__body-container">
-          <div class="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
+      <section className="ood-interior-page__body">
+        <div className="centered-container flex-container ood-interior-page__body-container">
+          <div className="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
             <dl className="endowed-positions__search-results" ref={resultsRef}>
               {getSearchResults?.length
                 ? getSearchResults.map((item, index) => (
