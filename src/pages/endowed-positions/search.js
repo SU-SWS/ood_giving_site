@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { graphql, navigate } from 'gatsby';
 import Fuse from 'fuse.js';
 
@@ -12,15 +12,23 @@ const fuse = new Fuse(ENDOWED_POSITIONS, {
   includeScore: true,
   minMatchCharLength: 3,
   threshold: 0.2,
-  ignoreLocation: true
+  ignoreLocation: true,
 });
 
-const SearchResultItem = ({currentHolder, index, position, website}) => (
+const SearchResultItem = ({ currentHolder, index, position, website }) => (
   <>
-    <dt onClick={() => navigate(`${location.pathname}${location.search}&item=${index}`)}>
+    <dt
+      onClick={() =>
+        navigate(`${location.pathname}${location.search}&item=${index}`)
+      }
+    >
       <strong>{currentHolder}</strong>
     </dt>
-    <dd onClick={() => navigate(`${location.pathname}${location.search}&item=${index}`)}>
+    <dd
+      onClick={() =>
+        navigate(`${location.pathname}${location.search}&item=${index}`)
+      }
+    >
       <p>
         <strong>Title:</strong> {position}<br />
         {website}
@@ -29,7 +37,7 @@ const SearchResultItem = ({currentHolder, index, position, website}) => (
   </>
 );
 
-const Search = ({data, location}) => {
+const Search = ({ data, location }) => {
   const [getSearchResults, setSearchResults] = useState(null);
   const oodLocalHeader = {
     ...data.header,
@@ -38,7 +46,7 @@ const Search = ({data, location}) => {
   const oodLocalFooter = {
     ...data.footer,
     content: JSON.parse(data.footer.content),
-  }
+  };
   const resultsRef = useRef(null);
 
   useEffect(() => {
@@ -47,12 +55,12 @@ const Search = ({data, location}) => {
     let searchResults;
 
     if (newSearch.get('term')) {
-      searchResults = (fuse.search(newSearch.get('term')));
+      searchResults = fuse.search(newSearch.get('term'));
 
       for (let i = 0; i < searchResults.length; i++ ) {
         paginatedArray.push(searchResults[i]);
       }
-      
+
       if (newSearch.get('item') && searchResults?.[Number(newSearch.get('item'))]) {
         searchResults = [searchResults[Number(newSearch.get('item'))]];
 
@@ -71,10 +79,10 @@ const Search = ({data, location}) => {
     <>
       <CreateStories stories={[oodLocalHeader]} />
       <EndowedPositionsHeader />
-      <section class='ood-interior-page__body'>
-        <div class='centered-container flex-container ood-interior-page__body-container'>
-          <div class='ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12'>
-            <dl className='endowed-positions__search-results' ref={resultsRef}>
+      <section class="ood-interior-page__body">
+        <div class="centered-container flex-container ood-interior-page__body-container">
+          <div class="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
+            <dl className="endowed-positions__search-results" ref={resultsRef}>
               {getSearchResults?.length
                 ? getSearchResults.map((item, index) => (
                     <SearchResultItem
@@ -99,11 +107,11 @@ const Search = ({data, location}) => {
 
 export const query = graphql`
   query {
-    header: storyblokEntry(field_component: {eq: "oodLocalHeader"}) {
+    header: storyblokEntry(field_component: { eq: "oodLocalHeader" }) {
       id
       content
     }
-    footer: storyblokEntry(field_component: {eq: "oodLocalFooter"}) {
+    footer: storyblokEntry(field_component: { eq: "oodLocalFooter" }) {
       id
       content
     }
