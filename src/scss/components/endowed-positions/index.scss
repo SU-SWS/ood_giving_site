@@ -14,8 +14,8 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    background: url(https://give.stanford.edu/down.png) no-repeat calc(100% - 18px ) center;
-    border: 1px solid #d2d3d4;
+    background: url("https://give.stanford.edu/down.png") no-repeat calc(100% - 18px) center;
+    border: 1px solid #D2D3D4;
     border-radius: 3px;
     color: #2E2D29;
     height: 40px;
@@ -32,7 +32,7 @@
 
   &__input {
     box-sizing: border-box;
-    border: 1px solid #d2d3d4;
+    border: 1px solid #D2D3D4;
     border-radius: 3px;
     font-size: 18px;
     height: 40px;
@@ -41,7 +41,7 @@
   }
 
   &__fieldset {
-    border: none;
+    border: 0;
     flex: 1 1 auto;
     margin: 0 5px 20px;
     padding: 0;
@@ -51,13 +51,13 @@
   &__button {
     background: #006B81;
     border: 1px solid #007C92;
-    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.2), 0px 10px 20px rgba(0, 0, 0, 0.15);
-    color: #fff;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.15);
+    color: #FFF;
     text-decoration: none;
   }
 
   &__label {
-    color: #2e2d29;
+    color: #2E2D29;
     display: block;
     font-size: 16px;
     font-style: normal;
@@ -88,6 +88,7 @@
     & > dt:hover {
       cursor: pointer;
     }
+
     & > dd {
       border-bottom: 1px solid #000;
       margin: 0 0 1em;

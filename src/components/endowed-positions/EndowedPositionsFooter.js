@@ -7,7 +7,7 @@ const EndowedPositionsFooter = () => (
         This site is a comprehensive directory of endowed positions at Stanford.
         It is updated six times per year, following meetings of Stanford&apos;s
         Board of Trustees. Last updated DATE. For questions or corrections
-        please email
+        please email{' '}
         <a href="mailto:donorrelations@stanford.edu">
           donorrelations@stanford.edu
         </a>

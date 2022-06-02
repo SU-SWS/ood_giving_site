@@ -89,7 +89,7 @@ const Professorship = ({ data, location }) => {
             <h2 ref={headerRef}>{label}</h2>
             <p>
               The information presented in the table below is arranged
-              alphabetically by title.
+              alphabetically by title.{' '}
               {link && (
                 <>
                   Additional information is at{' '}
