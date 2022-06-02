@@ -87,16 +87,17 @@ const Professorship = ({ data, location }) => {
         <div className="centered-container flex-container ood-interior-page__body-container">
           <div className="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
             <h2 ref={headerRef}>{label}</h2>
-            <p>The information presented in the table below is arranged
+            <p>
+              The information presented in the table below is arranged
               alphabetically by title.
               {link && (
-                <>
-                  Additional information is at {' '}
-                    <a href={link} title={label}>
-                      {label}
-                    </a>
-                  .
-                </>
+              <>
+                Additional information is at {' '}
+                  <a href={link} title={label}>
+                    {label}
+                  </a>
+                .
+              </>
               )}
             </p>
             <table {...getTableProps()}>
