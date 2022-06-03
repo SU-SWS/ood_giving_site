@@ -15,7 +15,13 @@ const fuse = new Fuse(ENDOWED_POSITIONS, {
   ignoreLocation: true,
 });
 
-const SearchResultItem = ({ currentHolder, index, location, position, website }) => {
+const SearchResultItem = ({
+  currentHolder,
+  index,
+  location,
+  position,
+  website,
+}) => {
   const handleClick = useCallback(() => {
     if (location.search.indexOf('item') === -1) {
       navigate(`${location.pathname}${location.search}&item=${index}`);
