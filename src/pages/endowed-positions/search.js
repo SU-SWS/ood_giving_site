@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { graphql, navigate } from 'gatsby';
 import Fuse from 'fuse.js';
 
@@ -15,28 +15,28 @@ const fuse = new Fuse(ENDOWED_POSITIONS, {
   ignoreLocation: true,
 });
 
-const SearchResultItem = ({ currentHolder, index, position, website }) => (
-  <>
-    <dt
-      onClick={() =>
-        navigate(`${location.pathname}${location.search}&item=${index}`)
-      }
-    >
-      <strong>{currentHolder}</strong>
-    </dt>
-    <dd
-      onClick={() =>
-        navigate(`${location.pathname}${location.search}&item=${index}`)
-      }
-    >
-      <p>
-        <strong>Title:</strong> {position}
-        <br />
-        {website}
-      </p>
-    </dd>
-  </>
-);
+const SearchResultItem = ({ currentHolder, index, location, position, website }) => {
+  const handleClick = useCallback(() => {
+    if (location.search.indexOf('item') === -1) {
+      navigate(`${location.pathname}${location.search}&item=${index}`);
+    }
+  }, []);
+
+  return (
+    <>
+      <dt onClick={handleClick}>
+        <strong>{currentHolder}</strong>
+      </dt>
+      <dd onClick={handleClick}>
+        <p>
+          <strong>Title:</strong> {position}
+          <br />
+          {website}
+        </p>
+      </dd>
+    </>
+  );
+};
 
 const Search = ({ data, location }) => {
   const [getSearchResults, setSearchResults] = useState(null);
@@ -93,6 +93,7 @@ const Search = ({ data, location }) => {
                     currentHolder={item.item['CURRENT HOLDER']}
                     index={index}
                     key={`${item.item['CURRENT HOLDER']}-${index}`}
+                    location={location}
                     position={item.item['POSITION']}
                     website={item.item['SUBCATEGORY']}
                   />
