@@ -2,8 +2,10 @@
   &__body {
     background-color: $su-color-fog-light;
 
-    table tr:nth-child(2n) {
-      background-color: #FFF;
+    table {
+      tr:nth-child(2n) {
+        background-color: #FFF;
+      }
     }
   }
 
