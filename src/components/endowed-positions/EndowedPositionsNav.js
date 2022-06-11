@@ -24,7 +24,10 @@ const EndowedPositionsNav = ({ to }) => {
     []
   );
   const schoolOptions = useMemo(() => getDropdown('Schools', to), []);
-  const handleSelectChange = useCallback((event) => setPage(event.target.value), []);
+  const handleSelectChange = useCallback(
+    (event) => setPage(event.target.value),
+    []
+  );
   const handleGoClick = () => navigate(`/endowed-positions/${page}`);
   const handleInputChange = useCallback((event) => {
     setSearchTerm(event.currentTarget.value);
@@ -40,10 +43,7 @@ const EndowedPositionsNav = ({ to }) => {
 
 
   return (
-    <nav
-      aria-label="filter and search"
-      className="endowed-positions__nav"
-    >
+    <nav aria-label="filter and search" className="endowed-positions__nav">
       <div>
         <fieldset className="endowed-positions__fieldset">
           <label
@@ -67,7 +67,9 @@ const EndowedPositionsNav = ({ to }) => {
                 {centersInstitutesProgramsOptions}
               </optgroup>
             </select>
-            <button onClick={handleGoClick} type="button">Go</button>
+            <button onClick={handleGoClick} type="button">
+              Go
+            </button>
           </div>
         </fieldset>
         <fieldset className="endowed-positions__fieldset">

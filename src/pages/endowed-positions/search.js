@@ -95,22 +95,25 @@ const Search = ({ data, location }) => {
           <div className="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
             {getSearchResults?.length ? (
               <>
-                <h2>Search results for "{searchTerm}"</h2>
-                <ul className="endowed-positions__search-results" ref={resultsRef}>
-                    {getSearchResults.map((item, index) => (
-                      <SearchResultItem
-                        currentHolder={item.item['CURRENT HOLDER']}
-                        index={index}
-                        key={`${item.item['CURRENT HOLDER']}-${index}`}
-                        location={location}
-                        position={item.item['POSITION']}
-                        website={item.item['SUBCATEGORY']}
-                      />
-                    ))}
+                <h2>Search results for &quot;{searchTerm}&quot;</h2>
+                <ul
+                  className="endowed-positions__search-results"
+                  ref={resultsRef}
+                >
+                  {getSearchResults.map((item, index) => (
+                    <SearchResultItem
+                      currentHolder={item.item['CURRENT HOLDER']}
+                      index={index}
+                      key={`${item.item['CURRENT HOLDER']}-${index}`}
+                      location={location}
+                      position={item.item['POSITION']}
+                      website={item.item['SUBCATEGORY']}
+                    />
+                  ))}
                 </ul>
               </>
             ) : (
-              <h2>No results for "{searchTerm}"</h2>
+              <h2>No results for &quot;{searchTerm}&quot;</h2>
             )}
             <EndowedPositionsFooter />
           </div>
