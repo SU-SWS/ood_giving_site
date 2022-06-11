@@ -41,7 +41,6 @@ const EndowedPositionsNav = ({ to }) => {
     }
   });
 
-
   return (
     <nav aria-label="filter and search" className="endowed-positions__nav">
       <div>

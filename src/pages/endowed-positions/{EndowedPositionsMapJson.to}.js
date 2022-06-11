@@ -106,9 +106,7 @@ const Professorship = ({ data, location }) => {
                 {headerGroups.map((headerGroup, index) => (
                   <tr key={index}>
                     {headerGroup.headers.map((column, index) => (
-                      <th key={index}>
-                        {column.render('Header')}
-                      </th>
+                      <th key={index}>{column.render('Header')}</th>
                     ))}
                   </tr>
                 ))}
@@ -126,11 +124,7 @@ const Professorship = ({ data, location }) => {
                             </th>
                           );
                         }
-                        return (
-                          <td key={index}>
-                            {cell.render('Cell')}
-                          </td>
-                        )
+                        return <td key={index}>{cell.render('Cell')}</td>;
                       })}
                     </tr>
                   );
