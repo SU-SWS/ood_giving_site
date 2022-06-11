@@ -29,23 +29,22 @@ const SearchResultItem = ({
   }, []);
 
   return (
-    <>
-      <dt onClick={handleClick}>
+    <li>
+      <h3 onClick={handleClick}>
         <strong>{currentHolder}</strong>
-      </dt>
-      <dd onClick={handleClick}>
-        <p>
-          <strong>Title:</strong> {position}
-          <br />
-          {website}
-        </p>
-      </dd>
-    </>
+      </h3>
+      <p onClick={handleClick}>
+        <strong>Title:</strong> {position}
+        <br />
+        {website}
+      </p>
+    </li>
   );
 };
 
 const Search = ({ data, location }) => {
   const [getSearchResults, setSearchResults] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
   const oodLocalHeader = {
     ...data.header,
     content: JSON.parse(data.header.content),
@@ -62,6 +61,7 @@ const Search = ({ data, location }) => {
     let searchResults;
 
     if (newSearch.get('term')) {
+      setSearchTerm(newSearch.get('term'));
       searchResults = fuse.search(newSearch.get('term'));
 
       for (let i = 0; i < searchResults.length; i++) {
@@ -79,10 +79,11 @@ const Search = ({ data, location }) => {
       }
     }
     setSearchResults(paginatedArray);
-  }, [location]);
+  }, [location, searchTerm, setSearchTerm]);
 
   useEffect(() => {
     resultsRef?.current?.scrollIntoView();
+    resultsRef?.current?.focus();
   });
 
   return (
@@ -92,22 +93,25 @@ const Search = ({ data, location }) => {
       <section className="ood-interior-page__body">
         <div className="centered-container flex-container ood-interior-page__body-container">
           <div className="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
-            <dl className="endowed-positions__search-results" ref={resultsRef}>
-              {getSearchResults?.length ? (
-                getSearchResults.map((item, index) => (
-                  <SearchResultItem
-                    currentHolder={item.item['CURRENT HOLDER']}
-                    index={index}
-                    key={`${item.item['CURRENT HOLDER']}-${index}`}
-                    location={location}
-                    position={item.item['POSITION']}
-                    website={item.item['SUBCATEGORY']}
-                  />
-                ))
-              ) : (
-                <div>No results</div>
-              )}
-            </dl>
+            {getSearchResults?.length ? (
+              <>
+                <h2>Search results for "{searchTerm}"</h2>
+                <ul className="endowed-positions__search-results" ref={resultsRef}>
+                    {getSearchResults.map((item, index) => (
+                      <SearchResultItem
+                        currentHolder={item.item['CURRENT HOLDER']}
+                        index={index}
+                        key={`${item.item['CURRENT HOLDER']}-${index}`}
+                        location={location}
+                        position={item.item['POSITION']}
+                        website={item.item['SUBCATEGORY']}
+                      />
+                    ))}
+                </ul>
+              </>
+            ) : (
+              <h2>No results for "{searchTerm}"</h2>
+            )}
             <EndowedPositionsFooter />
           </div>
         </div>

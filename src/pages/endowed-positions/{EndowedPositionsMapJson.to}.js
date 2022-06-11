@@ -76,6 +76,7 @@ const Professorship = ({ data, location }) => {
   useEffect(() => {
     if (location?.search?.indexOf('page') > -1) {
       headerRef?.current.scrollIntoView();
+      headerRef?.current.focus();
     }
   }, [headerRef, location]);
 
@@ -100,29 +101,36 @@ const Professorship = ({ data, location }) => {
                 </>
               )}
             </p>
-            <table {...getTableProps()}>
+            <table>
               <thead>
                 {headerGroups.map((headerGroup, index) => (
-                  <tr key={index} {...headerGroup.getHeaderGroupProps()}>
+                  <tr key={index}>
                     {headerGroup.headers.map((column, index) => (
-                      <th key={index} {...column.getHeaderProps()}>
+                      <th key={index}>
                         {column.render('Header')}
                       </th>
                     ))}
                   </tr>
                 ))}
               </thead>
-              <tbody {...getTableBodyProps()}>
+              <tbody>
                 {rows.map((row, index) => {
                   prepareRow(row);
                   return (
-                    <tr key={index} {...row.getRowProps()}>
+                    <tr key={index}>
                       {row.cells.map((cell, index) => {
+                        if (index === 0) {
+                          return (
+                            <th key={index} scope="row">
+                              {cell.render('Cell')}
+                            </th>
+                          );
+                        }
                         return (
-                          <td key={index} {...cell.getCellProps()}>
+                          <td key={index}>
                             {cell.render('Cell')}
                           </td>
-                        );
+                        )
                       })}
                     </tr>
                   );

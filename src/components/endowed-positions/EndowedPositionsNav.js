@@ -15,17 +15,17 @@ const getDropdown = (key, to) =>
     ) : null;
   });
 
-const handleChange = (event) =>
-  navigate(`/endowed-positions/${event.target.value}`);
-
 const EndowedPositionsNav = ({ to }) => {
   const [getSearchTerm, setSearchTerm] = useState('');
+  const [page, setPage] = useState(null);
 
   const centersInstitutesProgramsOptions = useMemo(
     () => getDropdown('Centers, Institutes, and Programs', to),
     []
   );
   const schoolOptions = useMemo(() => getDropdown('Schools', to), []);
+  const handleSelectChange = useCallback((event) => setPage(event.target.value), []);
+  const handleGoClick = () => navigate(`/endowed-positions/${page}`);
   const handleInputChange = useCallback((event) => {
     setSearchTerm(event.currentTarget.value);
   }, []);
@@ -38,8 +38,12 @@ const EndowedPositionsNav = ({ to }) => {
     }
   });
 
+
   return (
-    <nav className="endowed-positions__nav">
+    <nav
+      aria-label="filter and search"
+      className="endowed-positions__nav"
+    >
       <div>
         <fieldset className="endowed-positions__fieldset">
           <label
@@ -48,20 +52,23 @@ const EndowedPositionsNav = ({ to }) => {
           >
             Filter by school or area:
           </label>
-          <select
-            className="endowed-positions__select"
-            defaultValue={to}
-            id="schools-centers-institutes-programs-select"
-            onChange={handleChange}
-          >
-            <option value="" disabled selected>
-              Select a School, Center, Institute, or Program
-            </option>
-            <optgroup label="Schools">{schoolOptions}</optgroup>
-            <optgroup label="Centers, Institutes, and Programs">
-              {centersInstitutesProgramsOptions}
-            </optgroup>
-          </select>
+          <div className="endowed-positions__select-wrapper">
+            <select
+              className="endowed-positions__select"
+              defaultValue={to}
+              id="schools-centers-institutes-programs-select"
+              onChange={handleSelectChange}
+            >
+              <option value="" disabled selected>
+                Select a School, Center, Institute, or Program
+              </option>
+              <optgroup label="Schools">{schoolOptions}</optgroup>
+              <optgroup label="Centers, Institutes, and Programs">
+                {centersInstitutesProgramsOptions}
+              </optgroup>
+            </select>
+            <button onClick={handleGoClick} type="button">Go</button>
+          </div>
         </fieldset>
         <fieldset className="endowed-positions__fieldset">
           <label className="endowed-positions__label" htmlFor="search-input">

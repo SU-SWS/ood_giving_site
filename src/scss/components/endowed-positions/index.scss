@@ -10,6 +10,23 @@
     }
   }
 
+  &__select-wrapper {
+    display: flex;
+
+    & > button {
+      background: #014240;
+      border: none;
+      color: #FFF;
+      font-size: 2rem;
+      width: 45px;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+
   &__select {
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -23,11 +40,9 @@
     font-style: normal;
     font-weight: normal;
     line-height: 2.5rem;
-    margin: 0;
-    max-width: 100%;
-    min-width: 100%;
+    margin: 0 10px 0 0;
     padding: 0 38px 0 18px;
-    width: 100%;
+    width: calc(100% - 55px);
   }
 
   &__input {
@@ -68,9 +83,9 @@
 
   &__paginate {
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
     margin: 0 auto;
-    max-width: 750px;
+    max-width: 1000px;
 
     & > a {
       text-decoration: none;
@@ -85,13 +100,21 @@
   }
 
   &__search-results {
-    & > dt:hover {
-      cursor: pointer;
+    list-style: none;
+    padding: 0;
+  
+    h3 {
+      margin: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
-    & > dd {
+    p {
       border-bottom: 1px solid #000;
       margin: 0 0 1em;
+      padding: 0 0 0.5em;
 
       &:hover {
         cursor: pointer;
