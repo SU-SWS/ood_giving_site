@@ -1,4 +1,12 @@
 .endowed-positions {
+  &__body {
+    background-color: $su-color-fog-light;
+
+    table tr:nth-child(2n) {
+      background-color: #FFF;
+    }
+  }
+
   &__nav {
     display: flex;
     flex-direction: column;
@@ -31,7 +39,7 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    background: url("#{$su-image-path}/caret-down-black.svg") no-repeat calc(100% - 18px) center / 17px 11px;
+    background: url("#{$su-image-path}/caret-down-black.svg") no-repeat calc(100% - 18px) center / 12px 12px;
     border: 1px solid #D2D3D4;
     border-radius: 3px;
     color: #2E2D29;

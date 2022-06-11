@@ -90,7 +90,7 @@ const Search = ({ data, location }) => {
     <>
       <CreateStories stories={[oodLocalHeader]} />
       <EndowedPositionsHeader />
-      <section className="ood-interior-page__body">
+      <section className="ood-interior-page__body endowed-positions__body">
         <div className="centered-container flex-container ood-interior-page__body-container">
           <div className="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
             {getSearchResults?.length ? (
