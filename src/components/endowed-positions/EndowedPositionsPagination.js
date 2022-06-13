@@ -5,7 +5,6 @@ import cx from 'classnames';
 const TOTAL_MOBILE_PAGES = 5;
 const MOBILE_WIDTH = 765;
 
-
 const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState({
     width: undefined,
@@ -25,6 +24,21 @@ const useWindowSize = () => {
   return windowSize;
 };
 
+const TextPagination = ({ currentPage, next }) => {
+  const text = next ? 'next' : 'previous';
+  const url = next ? `?page=${currentPage + 1}` : `?page=${currentPage - 1}`
+  return (
+    <li className="search-pagination-item search-pagination-item--text">
+      <Link
+        aria-label={`Go to ${text} page`}
+        to={url}
+      >
+        {text}
+      </Link>
+    </li>
+  );
+};
+
 const EndowedPositionsPagination = ({ currentPage, pagesArray }) => {
   const size = useWindowSize();
   const isMobile = size.width < MOBILE_WIDTH;
@@ -41,14 +55,7 @@ const EndowedPositionsPagination = ({ currentPage, pagesArray }) => {
   return (
     <ol className="endowed-positions__paginate search-pagination">
       {isMobile && currentPage !== 1 && (
-        <li className="search-pagination-item search-pagination-item--text">
-          <Link
-            aria-label="Go to previous page"
-            to={`?page=${currentPage - 1}`}
-          >
-            Previous
-          </Link>
-        </li>
+        <TextPagination currentPage={currentPage} />
       )}
       {pagesArray.map((item) => {
         const ariaCurrent =
@@ -78,11 +85,7 @@ const EndowedPositionsPagination = ({ currentPage, pagesArray }) => {
         );
       })}
       {isMobile && currentPage !== pagesArray.length && (
-        <li className="search-pagination-item search-pagination-item--text">
-          <Link aria-label="Go to next page" to={`?page=${currentPage + 1}`}>
-            Next
-          </Link>
-        </li>
+        <TextPagination currentPage={currentPage} next />
       )}
     </ol>
   );
