@@ -26,13 +26,10 @@ const useWindowSize = () => {
 
 const TextPagination = ({ currentPage, next }) => {
   const text = next ? 'next' : 'previous';
-  const url = next ? `?page=${currentPage + 1}` : `?page=${currentPage - 1}`
+  const url = next ? `?page=${currentPage + 1}` : `?page=${currentPage - 1}`;
   return (
     <li className="search-pagination-item search-pagination-item--text">
-      <Link
-        aria-label={`Go to ${text} page`}
-        to={url}
-      >
+      <Link aria-label={`Go to ${text} page`} to={url}>
         {text}
       </Link>
     </li>
