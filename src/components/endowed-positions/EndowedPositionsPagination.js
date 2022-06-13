@@ -18,9 +18,9 @@ const useWindowSize = () => {
         height: window.innerHeight,
       });
     }
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     handleResize();
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
   return windowSize;
 };
@@ -40,14 +40,16 @@ const EndowedPositionsPagination = ({ currentPage, pagesArray }) => {
 
   return (
     <ol className="endowed-positions__paginate search-pagination">
-      {isMobile && currentPage !== 1 && <li className="search-pagination-item search-pagination-item--text">
-        <Link
-          aria-label="Go to previous page"
-          to={`?page=${currentPage - 1}`}
-        >
-          Previous
-        </Link>
-      </li>}
+      {isMobile && currentPage !== 1 && (
+        <li className="search-pagination-item search-pagination-item--text">
+          <Link
+            aria-label="Go to previous page"
+            to={`?page=${currentPage - 1}`}
+          >
+            Previous
+          </Link>
+        </li>
+      )}
       {pagesArray.map((item) => {
         const ariaCurrent =
           item + 1 === currentPage ? { 'aria-current': true } : {};
@@ -55,7 +57,8 @@ const EndowedPositionsPagination = ({ currentPage, pagesArray }) => {
           <li
             className={cx('search-pagination-item', {
               ['search-pagination-item--current']: item + 1 === currentPage,
-              ['search-pagination-item--mobile-hidden']: mobileDisplayArray.indexOf(item) === -1 && isMobile,
+              ['search-pagination-item--mobile-hidden']:
+                mobileDisplayArray.indexOf(item) === -1 && isMobile,
             })}
             key={item + 1}
             {...ariaCurrent}
@@ -74,14 +77,13 @@ const EndowedPositionsPagination = ({ currentPage, pagesArray }) => {
           </li>
         );
       })}
-      {isMobile && currentPage !== pagesArray.length && <li className="search-pagination-item search-pagination-item--text">
-        <Link
-          aria-label="Go to next page"
-          to={`?page=${currentPage + 1}`}
-        >
-          Next
-        </Link>
-      </li>}
+      {isMobile && currentPage !== pagesArray.length && (
+        <li className="search-pagination-item search-pagination-item--text">
+          <Link aria-label="Go to next page" to={`?page=${currentPage + 1}`}>
+            Next
+          </Link>
+        </li>
+      )}
     </ol>
   );
 };
