@@ -63,7 +63,7 @@ const Professorship = ({ data, location }) => {
 
   const { headerGroups, rows, prepareRow } = useTable({
     columns,
-    data: tableData
+    data: tableData,
   });
 
   useEffect(() => {
