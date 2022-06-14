@@ -61,8 +61,10 @@ const Professorship = ({ data, location }) => {
     return paginatedArray.filter((item) => item !== undefined);
   }, [getIndex, getPage, tableSearchTerm]);
 
-  const { headerGroups, rows, prepareRow } =
-    useTable({ columns, data: tableData });
+  const { headerGroups, rows, prepareRow } = useTable({
+    columns,
+    data: tableData
+  });
 
   useEffect(() => {
     const newSearch = new URLSearchParams(location.search);
