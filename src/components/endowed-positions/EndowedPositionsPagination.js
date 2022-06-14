@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import cx from 'classnames';
 
 const TOTAL_MOBILE_PAGES = 5;
-const MOBILE_WIDTH = 765;
+const MOBILE_WIDTH = 1000;
 
 const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState({
@@ -61,14 +61,14 @@ const EndowedPositionsPagination = ({ currentPage, pagesArray }) => {
           <li
             className={cx('search-pagination-item', {
               ['search-pagination-item--current']: item + 1 === currentPage,
-              ['search-pagination-item--mobile-hidden']:
+              ['endowed-positions__paginate--mobile-hidden']:
                 mobileDisplayArray.indexOf(item) === -1 && isMobile,
             })}
             key={item + 1}
             {...ariaCurrent}
           >
             {item + 1 === currentPage ? (
-              <>{item + 1}</>
+              <><span className="sr-only">page </span>{item + 1}</>
             ) : (
               <Link
                 aria-label={`to page ${item + 1}`}

@@ -74,7 +74,7 @@ const Professorship = ({ data, location }) => {
   }, [location]);
 
   useEffect(() => {
-    if (location?.search?.indexOf('page') > -1) {
+    if (location?.search?.indexOf('page') > -1 || location?.search?.indexOf('filtered') > -1) {
       headerRef?.current.scrollIntoView();
       headerRef?.current.focus();
     }
@@ -87,7 +87,7 @@ const Professorship = ({ data, location }) => {
       <section className="ood-interior-page__body endowed-positions__body">
         <div className="centered-container flex-container ood-interior-page__body-container">
           <div className="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
-            <h2 ref={headerRef}>{label}</h2>
+            <h2 id="main-content" ref={headerRef}>{label}</h2>
             <p>
               The information presented in the table below is arranged
               alphabetically by title.{' '}

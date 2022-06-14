@@ -3,8 +3,13 @@
     background-color: $su-color-fog-light;
 
     table {
-      tr:nth-child(2n) {
-        background-color: #FFF;
+      tbody {
+        tr:nth-child(odd) {
+          background-color: #DAD7CB;
+        }
+        tr:nth-child(2n) {
+          background-color: #FFF;
+        }
       }
     }
   }
@@ -27,8 +32,8 @@
       background: #014240;
       border: 0;
       color: #FFF;
+      flex-grow: 1;
       font-size: 2rem;
-      width: 45px;
 
       &:hover {
         cursor: pointer;
@@ -98,6 +103,10 @@
 
     & > a {
       text-decoration: none;
+    }
+
+    &--mobile-hidden {
+      display: none;
     }
   }
 

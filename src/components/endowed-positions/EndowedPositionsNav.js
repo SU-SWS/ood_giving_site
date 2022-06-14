@@ -28,7 +28,7 @@ const EndowedPositionsNav = ({ to }) => {
     (event) => setPage(event.target.value),
     []
   );
-  const handleGoClick = () => navigate(`/endowed-positions/${page}`);
+  const handleGoClick = () => navigate(`/endowed-positions/${page}?page=1`);
   const handleInputChange = useCallback((event) => {
     setSearchTerm(event.currentTarget.value);
   }, []);
