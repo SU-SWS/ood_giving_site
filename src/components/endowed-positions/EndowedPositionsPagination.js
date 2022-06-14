@@ -68,7 +68,10 @@ const EndowedPositionsPagination = ({ currentPage, pagesArray }) => {
             {...ariaCurrent}
           >
             {item + 1 === currentPage ? (
-              <><span className="sr-only">page </span>{item + 1}</>
+              <>
+                <span className="sr-only">page </span>
+                {item + 1}
+              </>
             ) : (
               <Link
                 aria-label={`to page ${item + 1}`}

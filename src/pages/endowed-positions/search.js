@@ -95,7 +95,9 @@ const Search = ({ data, location }) => {
           <div className="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
             {getSearchResults?.length ? (
               <>
-                <h2 id="main-content">Search results for &quot;{searchTerm}&quot;</h2>
+                <h2 id="main-content">
+                  Search results for &quot;{searchTerm}&quot;
+                </h2>
                 <ul
                   className="endowed-positions__search-results"
                   ref={resultsRef}
