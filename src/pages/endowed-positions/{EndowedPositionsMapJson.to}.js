@@ -89,7 +89,7 @@ const Professorship = ({ data, location }) => {
       <section className="ood-interior-page__body endowed-positions__body">
         <div className="centered-container flex-container ood-interior-page__body-container">
           <div className="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
-            <h2 id="main-content" ref={headerRef}>
+            <h2 id="main-content" ref={headerRef} tabIndex="-1">
               {label}
             </h2>
             <p>

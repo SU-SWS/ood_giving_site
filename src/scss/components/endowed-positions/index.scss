@@ -5,7 +5,7 @@
     table {
       tbody {
         tr:nth-child(odd) {
-          background-color: #DAD7CB;
+          background-color: #EEE;
         }
 
         tr:nth-child(even) {
@@ -120,6 +120,7 @@
 
   &__search-results {
     list-style: none;
+    outline: 0;
     padding: 0;
 
     h3 {

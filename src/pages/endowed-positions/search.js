@@ -101,6 +101,7 @@ const Search = ({ data, location }) => {
                 <ul
                   className="endowed-positions__search-results"
                   ref={resultsRef}
+                  tabIndex="-1"
                 >
                   {getSearchResults.map((item, index) => (
                     <SearchResultItem
