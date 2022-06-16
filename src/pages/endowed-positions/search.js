@@ -53,7 +53,7 @@ const Search = ({ data, location }) => {
     ...data.footer,
     content: JSON.parse(data.footer.content),
   };
-  const resultsRef = useRef(null);
+  const headerRef = useRef(null);
 
   useEffect(() => {
     const newSearch = new URLSearchParams(location.search);
@@ -82,8 +82,8 @@ const Search = ({ data, location }) => {
   }, [location, searchTerm, setSearchTerm]);
 
   useEffect(() => {
-    resultsRef?.current?.scrollIntoView();
-    resultsRef?.current?.focus();
+    headerRef?.current?.scrollIntoView();
+    headerRef?.current?.focus();
   });
 
   return (
@@ -95,14 +95,14 @@ const Search = ({ data, location }) => {
           <div className="ood-interior-page__body-content su-mx-auto flex-lg-10-of-12 flex-xl-8-of-12">
             {getSearchResults?.length ? (
               <>
-                <h2 id="main-content">
+                <h2
+                  className="endowed-positions__search-results-header"
+                  id="main-content"
+                  ref={headerRef}
+                  tabIndex="-1">
                   Search results for &quot;{searchTerm}&quot;
                 </h2>
-                <ul
-                  className="endowed-positions__search-results"
-                  ref={resultsRef}
-                  tabIndex="-1"
-                >
+                <ul className="endowed-positions__search-results">
                   {getSearchResults.map((item, index) => (
                     <SearchResultItem
                       currentHolder={item.item['CURRENT HOLDER']}
@@ -116,7 +116,14 @@ const Search = ({ data, location }) => {
                 </ul>
               </>
             ) : (
-              <h2 id="main-content">No results for &quot;{searchTerm}&quot;</h2>
+              <h2
+                className="endowed-positions__search-results-header"
+                id="main-content"
+                ref={headerRef}
+                tabIndex="-1"
+              >
+                No results for &quot;{searchTerm}&quot;
+              </h2>
             )}
             <EndowedPositionsFooter />
           </div>
