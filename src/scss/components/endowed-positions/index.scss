@@ -1,0 +1,152 @@
+.endowed-positions {
+  &__body {
+    background-color: $su-color-fog-light;
+
+    table {
+      tbody {
+        tr:nth-child(odd) {
+          background-color: #EEE;
+        }
+
+        tr:nth-child(even) {
+          background-color: #FFF;
+        }
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+
+    > div {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__select-wrapper {
+    display: flex;
+
+    & > button {
+      background: #014240;
+      border: 0;
+      color: #FFF;
+      flex-grow: 1;
+      font-size: 2rem;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: url("#{$su-image-path}/caret-down-black.svg") no-repeat calc(100% - 18px) center / 12px 12px;
+    border: 1px solid #D2D3D4;
+    border-radius: 3px;
+    color: #2E2D29;
+    height: 40px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 2.5rem;
+    margin: 0 10px 0 0;
+    padding: 0 38px 0 18px;
+    width: calc(100% - 55px);
+  }
+
+  &__input {
+    box-sizing: border-box;
+    border: 1px solid #D2D3D4;
+    border-radius: 3px;
+    font-size: 18px;
+    height: 40px;
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  &__fieldset {
+    border: 0;
+    flex: 1 1 auto;
+    margin: 0 5px 20px;
+    padding: 0;
+    position: relative;
+  }
+
+  &__button {
+    background: #006B81;
+    border: 1px solid #007C92;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.15);
+    color: #FFF;
+    text-decoration: none;
+  }
+
+  &__label {
+    color: #2E2D29;
+    display: block;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    margin: 0 0 15px;
+    text-align: left;
+  }
+
+  &__paginate {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1000px;
+
+    & > a {
+      text-decoration: none;
+    }
+
+    &--mobile-hidden {
+      display: none;
+    }
+  }
+
+  &__search-button {
+    bottom: 12px;
+    font-size: 1.6rem;
+    position: absolute;
+    right: 20px;
+  }
+
+  &__search-results-header {
+    outline: 0;
+  }
+
+  &__search-results {
+    list-style: none;
+    outline: 0;
+    padding: 0;
+
+    h3 {
+      margin: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    p {
+      border-bottom: 1px solid #000;
+      margin: 0 0 1em;
+      padding: 0 0 0.5em;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__footer {
+    margin: 40px 0;
+  }
+}

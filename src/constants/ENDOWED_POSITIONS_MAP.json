@@ -1,0 +1,163 @@
+[
+  {
+    "id": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
+    "label": "Bass University Fellows in Undergraduate Education Program",
+    "section": "Centers, Institutes, and Programs",
+    "to": "bass-university-fellows-in-undergraduate-education-program",
+    "link": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
+  },
+  {
+    "id": "CENTER FOR ADVANCED STUDY IN THE BEHAVIORAL SCIENCES",
+    "label": "Center for Advanced Study in the Behavioral Sciences",
+    "section": "Centers, Institutes, and Programs",
+    "to": "center-for-advanced-study-in-the-behavioral-sciences",
+    "link": "https://casbs.stanford.edu/"
+  },
+  {
+    "id": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
+    "label": "Department of Athletics, Physical Education, and Recreation",
+    "section": "Centers, Institutes, and Programs",
+    "to": "department-of-athletics-physical-education-and-recreation",
+    "link": "http://www.gostanford.com"
+  },
+  {
+    "id": "FREEMAN SPOGLI INSTITUTE FOR INTERNATIONAL STUDIES",
+    "label": "Freeman Spogli Institute for International Studies",
+    "section": "Centers, Institutes, and Programs",
+    "to": "freeman-spogli-institute-for-international-studies",
+    "link": "http://fsi.stanford.edu/docs/members_of_fsi/"
+  },
+  {
+    "id": "GRADUATE SCHOOL OF BUSINESS",
+    "label": "Graduate School of Business",
+    "section": "Schools",
+    "to": "graduate-school-of-business",
+    "link": "http://www.gsb.stanford.edu/faculty-research/faculty"
+  },
+  {
+    "id": "GRADUATE SCHOOL OF EDUCATION",
+    "label": "Graduate School of Education",
+    "section": "Schools",
+    "to": "graduate-school-of-education",
+    "link": "http://ed.stanford.edu/faculty/profiles"
+  },
+  {
+    "id": "HAAS CENTER FOR PUBLIC SERVICE",
+    "label": "Haas Center for Public Service",
+    "section": "Centers, Institutes, and Programs",
+    "to": "haas-center-for-public-service",
+    "link": "http://haas.stanford.edu/"
+  },
+  {
+    "id": "HOOVER INSTITUTION",
+    "label": "Hoover Institution",
+    "section": "Centers, Institutes, and Programs",
+    "to": "hoover-institution",
+    "link": "http://www.hoover.org/"
+  },
+  {
+    "id": "IRIS AND B. GERALD CANTOR CENTER FOR VISUAL ARTS",
+    "label": "Iris and B. Gerald Cantor Center for Visual Arts",
+    "section": "Centers, Institutes, and Programs",
+    "to": "iris-and-b-gerald-cantor-center-for-visual-arts",
+    "link": "http://museum.stanford.edu/"
+  },
+  {
+    "id": "SCHOOL OF EARTH, ENERGY AND ENVIRONMENTAL SCIENCES",
+    "label": "Stanford Doerr School of Sustainability",
+    "section": "Schools",
+    "to": "stanford-doerr-school-of-sustainability",
+    "link": "https://earth.stanford.edu/faculty-research/directory"
+  },
+  {
+    "id": "SCHOOL OF ENGINEERING",
+    "label": "School of Engineering",
+    "section": "Schools",
+    "to": "school-of-engineering",
+    "link": "https://engineering.stanford.edu/people/faculty/grid"
+  },
+  {
+    "id": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "label": "School of Humanities and Sciences",
+    "section": "Schools",
+    "to": "school-of-humanities-and-sciences",
+    "link": "http://humsci.stanford.edu/"
+  },
+  {
+    "id": "STANFORD BIO-X",
+    "label": "Stanford Bio-X",
+    "section": "Centers, Institutes, and Programs",
+    "to": "stanford-bio-x",
+    "link": "http://biox.stanford.edu/"
+  },
+  {
+    "id": "STANFORD CHEM-H",
+    "label": "Sarafan ChEM-H",
+    "section": "Centers, Institutes, and Programs",
+    "to": "sarafan-chem-h",
+    "link": "https://chemh.stanford.edu/"
+  },
+  {
+    "id": "STANFORD INSTITUTE FOR ECONOMIC POLICY RESEARCH",
+    "label": "Stanford Institute for Economic Policy Research",
+    "section": "Centers, Institutes, and Programs",
+    "to": "stanford-institute-for-economic-policy-research",
+    "link": "http://siepr.stanford.edu/people"
+  },
+  {
+    "id": "STANFORD INSTITUTE FOR HUMAN-CENTERED ARTIFICIAL INTELLIGENCE",
+    "label": "Stanford Institute For Human-Centered Artificial Intelligence",
+    "section": "Centers, Institutes, and Programs",
+    "to": "stanford-institute-for-human-centered-artificial-intelligence",
+    "link": "https://hai.stanford.edu/"
+  },
+  {
+    "id": "STANFORD KING CENTER ON GLOBAL DEVELOPMENT",
+    "label": "Stanford King Center on Global Development",
+    "section": "Centers, Institutes, and Programs",
+    "to": "stanford-king-center-on-global-development",
+    "link": "https://kingcenter.stanford.edu/"
+  },
+  {
+    "id": "STANFORD LAW SCHOOL",
+    "label": "Stanford Law School",
+    "section": "Schools",
+    "to": "stanford-law-school",
+    "link": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
+  },
+  {
+    "id": "STANFORD MEDICINE",
+    "label": "Stanford Medicine",
+    "section": "Schools",
+    "to": "stanford-medicine",
+    "link": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "id": "STANFORD UNIVERSITY LIBRARIES",
+    "label": "Stanford Libraries",
+    "section": "Centers, Institutes, and Programs",
+    "to": "stanford-university-libraries",
+    "link": "http://library.stanford.edu/"
+  },
+  {
+    "id": "STANFORD WOODS INSTITUTE FOR THE ENVIRONMENT",
+    "label": "Stanford Woods Institute for the Environment",
+    "section": "Centers, Institutes, and Programs",
+    "to": "stanford-woods-institute-for-the-environment",
+    "link": "http://woods.stanford.edu/about/woods-faculty-researchers"
+  },
+  {
+    "id": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
+    "label": "University, Presidential, and Provostial Professorships",
+    "section": "Centers, Institutes, and Programs",
+    "to": "university-presidential-and-provostial-professorships",
+    "link": ""
+  },
+  {
+    "id": "WU TSAI NEUROSCIENCES INSTITUTE",
+    "label": "Wu Tsai Neurosciences Institute",
+    "section": "Centers, Institutes, and Programs",
+    "to": "wu-tsai-neurosciences-institute",
+    "link": "http://neuroscience.stanford.edu/"
+  }
+]
