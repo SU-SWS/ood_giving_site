@@ -99,7 +99,8 @@ const Search = ({ data, location }) => {
                   className="endowed-positions__search-results-header"
                   id="main-content"
                   ref={headerRef}
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   Search results for &quot;{searchTerm}&quot;
                 </h2>
                 <ul className="endowed-positions__search-results">
