@@ -186,5 +186,12 @@ module.exports = {
         mergeSecurityHeaders: false,
       },
     },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/constants/`,
+      },
+    },
   ],
 };
