@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { graphql, navigate } from 'gatsby';
+import { Helmet } from 'react-helmet';
 import Fuse from 'fuse.js';
 
 import ENDOWED_POSITIONS from '../../fixtures/endowedPositions.json';
@@ -88,6 +89,13 @@ const Search = ({ data, location }) => {
 
   return (
     <>
+      <Helmet>
+        <title>{`Search results for ${searchTerm}`}</title>
+        <meta
+          name="description"
+          content="Endowed positions are gifted by donors to support outstanding faculty, staff, and campus leaders. Through these meaningful investments, donors help enhance the Stanford community and strengthen the university’s future."
+        />
+      </Helmet>
       <CreateStories stories={[oodLocalHeader]} />
       <EndowedPositionsHeader />
       <section className="ood-interior-page__body endowed-positions__body">
