@@ -14,6 +14,13 @@
     "link": "https://casbs.stanford.edu/"
   },
   {
+    "id": "CENTERS FOR EQUITY, COMMUNITY, AND LEADERSHIP",
+    "label": "Centers for Equity, Community, and Leadership",
+    "section": "Centers, Institutes, and Programs",
+    "to": "centers-for-equity-community-and-leadership",
+    "link": "https://studentaffairs.stanford.edu/about-student-affairs/about-centers-equity-community-and-leadership"
+  },
+  {
     "id": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "label": "Department of Athletics, Physical Education, and Recreation",
     "section": "Centers, Institutes, and Programs",
@@ -63,7 +70,7 @@
     "link": "http://museum.stanford.edu/"
   },
   {
-    "id": "SCHOOL OF EARTH, ENERGY AND ENVIRONMENTAL SCIENCES",
+    "id": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "label": "Stanford Doerr School of Sustainability",
     "section": "Schools",
     "to": "stanford-doerr-school-of-sustainability",
@@ -91,7 +98,14 @@
     "link": "http://biox.stanford.edu/"
   },
   {
-    "id": "STANFORD CHEM-H",
+    "id": "STANFORD STUDENT AFFAIRS",
+    "label": "Stanford Student Affairs",
+    "section": "Centers, Institutes, and Programs",
+    "to": "stanford-student-affairs",
+    "link": "https://studentaffairs.stanford.edu/"
+  },
+  {
+    "id": "SARAFAN CHEM-H",
     "label": "Sarafan ChEM-H",
     "section": "Centers, Institutes, and Programs",
     "to": "sarafan-chem-h",

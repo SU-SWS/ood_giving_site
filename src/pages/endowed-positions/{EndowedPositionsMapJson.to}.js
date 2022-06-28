@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
 import { useTable } from 'react-table';
 
 import EndowedPositionsHeader from '../../components/endowed-positions/EndowedPositionsHeader';
@@ -84,6 +85,13 @@ const Professorship = ({ data, location }) => {
 
   return (
     <>
+      <Helmet>
+        <title>{label}</title>
+        <meta
+          name="description"
+          content="Endowed positions are gifted by donors to support outstanding faculty, staff, and campus leaders. Through these meaningful investments, donors help enhance the Stanford community and strengthen the university’s future."
+        />
+      </Helmet>
       <CreateStories stories={[oodLocalHeader]} />
       <EndowedPositionsHeader to={to} />
       <section className="ood-interior-page__body endowed-positions__body">
