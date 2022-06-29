@@ -90,7 +90,10 @@ const Search = ({ data, location }) => {
   return (
     <>
       <Helmet>
-        <title>Endowed Positions at Stanford: {`Search results for ${searchTerm}`} | Giving to Stanford</title>
+        <title>
+          Endowed Positions at Stanford: {`Search results for "${searchTerm}"`} |
+          {` `}Giving to Stanford
+        </title>
         <meta
           name="description"
           content="Endowed positions are gifted by donors to support outstanding faculty, staff, and campus leaders. Through these meaningful investments, donors help enhance the Stanford community and strengthen the university’s future."
