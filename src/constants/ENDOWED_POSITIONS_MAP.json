@@ -70,10 +70,10 @@
     "link": "http://museum.stanford.edu/"
   },
   {
-    "id": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
-    "label": "Stanford Doerr School of Sustainability",
+    "id": "SCHOOL OF EARTH, ENERGY AND ENVIRONMENTAL SCIENCES",
+    "label": "School of Earth, Energy and Environmental Sciences",
     "section": "Schools",
-    "to": "stanford-doerr-school-of-sustainability",
+    "to": "school-of-earth-energy-and-environmental-sciences",
     "link": "https://earth.stanford.edu/faculty-research/directory"
   },
   {
@@ -147,10 +147,10 @@
     "link": "https://med.stanford.edu/profiles/"
   },
   {
-    "id": "STANFORD UNIVERSITY LIBRARIES",
+    "id": "STANFORD LIBRARIES",
     "label": "Stanford Libraries",
     "section": "Centers, Institutes, and Programs",
-    "to": "stanford-university-libraries",
+    "to": "stanford-libraries",
     "link": "http://library.stanford.edu/"
   },
   {
