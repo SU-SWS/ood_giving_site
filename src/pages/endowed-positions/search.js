@@ -91,8 +91,8 @@ const Search = ({ data, location }) => {
     <>
       <Helmet>
         <title>
-          Endowed Positions at Stanford: {`Search results for "${searchTerm}"`} |
-          {` `}Giving to Stanford
+          Endowed Positions at Stanford: {`Search results for "${searchTerm}"`}
+          {' '}| Giving to Stanford
         </title>
         <meta
           name="description"
