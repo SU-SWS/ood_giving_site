@@ -86,7 +86,7 @@ const Professorship = ({ data, location }) => {
   return (
     <>
       <Helmet>
-        <title>{label}</title>
+        <title>Endowed Positions at Stanford: {label} | Giving to Stanford</title>
         <meta
           name="description"
           content="Endowed positions are gifted by donors to support outstanding faculty, staff, and campus leaders. Through these meaningful investments, donors help enhance the Stanford community and strengthen the university’s future."
