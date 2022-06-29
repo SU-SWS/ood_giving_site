@@ -2,6 +2,7 @@
 # ###############################################################################################
 /cdn/asset/*   https://assets.stanford.edu/a/:splat   301
 /cdn/img/*   https://assets.stanford.edu/i/:splat   301
+/endowed-positions/content/*   /endowed-positions   301
 
 # STATIC REDIRECTS
 # ###############################################################################################
