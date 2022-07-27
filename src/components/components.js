@@ -67,6 +67,8 @@ import CtaGroup from './composite/ctaGroup';
 import SearchResults from './search/searchResults';
 import oodGallerySlideshow from './composite/oodGallerySlideshow';
 import OodCampaignImpact from './composite/oodCampaignImpact';
+// Endowed Positions
+import EndowedPositionsSearch from './endowed-positions/EndowedPositionsSearch';
 
 const ComponentList = {
   page: Page,
@@ -129,6 +131,7 @@ const ComponentList = {
   alert: Alert,
   alertPicker: AlertPicker,
   oodGallerySlideshow: oodGallerySlideshow,
+  endowedPositionsSearch: EndowedPositionsSearch,
 };
 
 const Components = (type) => {
