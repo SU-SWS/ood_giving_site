@@ -1,7 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { navigate } from 'gatsby';
+import SbEditable from 'storyblok-react';
 
-const EndowedPositionsSearch = () => {
+const EndowedPositionsSearch = (props) => {
   const [searchTerm, setSearchTerm] = useState;
 
   const handleInputChange = useCallback((event) => {
@@ -17,7 +18,7 @@ const EndowedPositionsSearch = () => {
   });
 
   return (
-    <>
+    <SbEditable content={props.blok}>
       <input
         // className="endowed-positions__input"
         // id="search-input"
@@ -26,7 +27,7 @@ const EndowedPositionsSearch = () => {
         value={getSearchTerm}
       />
       <button type="button" onClick={handleSearch}>go</button>
-    </>
+    </SbEditable>
   );
 }
 
