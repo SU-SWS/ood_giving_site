@@ -26,9 +26,11 @@ const EndowedPositionsSearch = (props) => {
         onKeyDown={handleKeyDown}
         value={getSearchTerm}
       />
-      <button type="button" onClick={handleSearch}>go</button>
+      <button type="button" onClick={handleSearch}>
+        go
+      </button>
     </SbEditable>
   );
-}
+};
 
 export default EndowedPositionsSearch;
