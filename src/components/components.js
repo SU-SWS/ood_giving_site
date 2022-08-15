@@ -68,6 +68,7 @@ import SearchResults from './search/searchResults';
 import oodGallerySlideshow from './composite/oodGallerySlideshow';
 import OodCampaignImpact from './composite/oodCampaignImpact';
 // Endowed Positions
+import EndowedPositionsSearchPicker from './endowed-positions/EndowedPositionsSearchPicker';
 import EndowedPositionsSearch from './endowed-positions/EndowedPositionsSearch';
 
 const ComponentList = {
@@ -131,6 +132,7 @@ const ComponentList = {
   alert: Alert,
   alertPicker: AlertPicker,
   oodGallerySlideshow: oodGallerySlideshow,
+  endowedPositionsSearchPicker: EndowedPositionsSearchPicker,
   endowedPositionsSearch: EndowedPositionsSearch,
 };
 
