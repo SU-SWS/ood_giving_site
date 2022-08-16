@@ -61,6 +61,7 @@ const CampaignHero = (props) => {
                 className={`campaign-page__hero-content-logo ${blok.logoAlignment}`}
                 src={blok.logo?.filename}
                 alt={blok.logo?.alt}
+                loading="lazy"
               />
             )}
             <div

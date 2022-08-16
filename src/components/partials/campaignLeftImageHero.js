@@ -33,6 +33,7 @@ const CampaignLeftImageHero = (props) => {
               className={'hero-logo'}
               src={props.blok.logo.filename}
               alt={props.blok.logo.alt}
+              loading="lazy"
             />
           )}
         </div>

@@ -50,6 +50,7 @@ const HeaderFullWidthImage = (props) => {
               className={'header-logo'}
               src={props.blok.headerLogo.filename}
               alt={props.blok.headerLogo.alt}
+              loading="lazy"
             />
           )}
         </div>

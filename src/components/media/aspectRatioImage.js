@@ -58,6 +58,7 @@ const AspectRatioImage = (props) => {
             }`}
             src={processedImg}
             alt={props.alt ?? ''}
+            loading={props.lazy ?? 'lazy'}
           />
         </div>
       </Element>
