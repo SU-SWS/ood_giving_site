@@ -49,7 +49,7 @@ https://readwriteexercise.com/posts/trust-self-signed-certificates-macos/
 
 To start:
 ```
-npm run dev
+npm run develop
 npm run https-proxy-start
 ```
 
