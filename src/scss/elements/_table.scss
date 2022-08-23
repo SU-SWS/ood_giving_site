@@ -1,6 +1,9 @@
 @charset "UTF-8";
 
-table {
+// Specific for the Compare Life Income Gifts table
+.life-income-gifts {
+  @include responsive-spacing('padding', 2);
+  background-color: $su-color-white;
   border-collapse: separate;
 
   th {
@@ -26,50 +29,64 @@ table {
     }
   }
 
-  // Specific for the Compare Life Income Gifts table
-  &.life-income-gifts {
-    @include responsive-spacing('padding', 2);
-    background-color: $su-color-white;
-
-    thead {
-      th {
-        text-align: center;
-      }
-
-      td {
-        &.empty {
-          border: 0;
-        }
-      }
-    }
-
-    tbody {
-      td,
-      th[scope="row"] {
-        @include responsive-spacing('padding', null 0);
-        border: 1px solid $su-color-white;
-        border-top: 1px solid $su-color-black-40;
-      }
-
-      // first columns and header rows
-      th[scope="row"] {
-        font-weight: $su-font-semi-bold;
-        min-width: 20rem;
-
-        @include grid-media('lg') {
-          min-width: 30rem;
-        }
-      }
-    }
-
-    .fas.fa-check::before {
-      color: $su-color-black;
-    }
-  }
 
   tfoot {
     .footnote {
       @include responsive-spacing('padding', 2 0 null);
+    }
+  }
+
+  thead {
+    th {
+      text-align: center;
+    }
+
+    td {
+      &.empty {
+        border: 0;
+      }
+    }
+  }
+
+  tbody {
+    td,
+    th[scope="row"] {
+      @include responsive-spacing('padding', null 0);
+      border: 1px solid $su-color-white;
+      border-top: 1px solid $su-color-black-40;
+    }
+
+    // first columns and header rows
+    th[scope="row"] {
+      font-weight: $su-font-semi-bold;
+      min-width: 20rem;
+
+      @include grid-media('lg') {
+        min-width: 30rem;
+      }
+    }
+  }
+
+  .fas.fa-check::before {
+    color: $su-color-black;
+  }
+}
+
+table:not(.life-income-gifts) {
+  tr:nth-child(2n) {
+    background:  $su-color-fog-light;
+  }
+}
+
+// Wrapper that adds the horizontal scroll it the table is wider than the parent
+.table-scroll {
+  overflow: auto;
+  max-width: 100%;
+  margin-bottom: 7.2rem;
+
+  @include grid-media('md') {
+    table {
+      margin-bottom: 0;
     }
   }
 }

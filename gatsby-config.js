@@ -1,13 +1,9 @@
-const path = require("path");
+const path = require('path');
+
+require('dotenv').config();
 
 const activeEnv =
-  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development";
-
-console.log(`Using environment config: '${activeEnv}'`);
-
-require("dotenv").config({
-  path: `.env.${activeEnv}`,
-});
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'development';
 
 // Support for Gatsby CLI
 let siteUrl = 'http://localhost:8000';
@@ -29,13 +25,13 @@ else if (process.env.NETLIFY_DEV === true) {
  * Resolve relations for storyblok.
  */
 const storyblokRelations = [
-  "oodQuoteSlider.quotes",
-  "globalFooterPicker.globalFooter",
-  "localFooterPicker.localFooter",
-  "localHeaderPicker.localHeader",
-  "contentMenuPicker.contentMenu",
-  "storyPicker.story",
-  "alertPicker.alert",
+  'oodQuoteSlider.quotes',
+  'globalFooterPicker.globalFooter',
+  'localFooterPicker.localFooter',
+  'localHeaderPicker.localHeader',
+  'contentMenuPicker.contentMenu',
+  'storyPicker.story',
+  'alertPicker.alert',
 ];
 
 module.exports = {
@@ -57,18 +53,18 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
-      resolve: "gatsby-plugin-robots-txt",
+      resolve: 'gatsby-plugin-robots-txt',
       options: {
         policy: [
-          { userAgent: "*", allow: "/" },
-          { userAgent: "*", disallow: "/editor/" },
+          { userAgent: '*', allow: '/' },
+          { userAgent: '*', disallow: '/editor/' },
         ],
       },
     },
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        id: "GTM-5RGQ5DD",
+        id: 'GTM-5RGQ5DD',
 
         // Include GTM in development.
         //
@@ -79,7 +75,7 @@ module.exports = {
         // should be an object or a function that is executed in the browser
         //
         // Defaults to null
-        defaultDataLayer: { platform: "gatsby" },
+        defaultDataLayer: { platform: 'gatsby' },
       },
     },
     {
@@ -109,11 +105,11 @@ module.exports = {
         },
         resolveSiteUrl: () => siteUrl,
         excludes: [
-          "/editor",
-          "/editor/**",
-          "/global-components/**",
-          "/test-items/**",
-          "/403",
+          '/editor',
+          '/editor/**',
+          '/global-components/**',
+          '/test-items/**',
+          '/403',
         ],
         // eslint-disable-next-line consistent-return
         filterPages: (page, excludedRoute, tools) => {
@@ -135,22 +131,22 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-storyblok",
+      resolve: 'gatsby-source-storyblok',
       options: {
         accessToken: process.env.GATSBY_STORYBLOK_ACCESS_TOKEN,
-        homeSlug: "home",
+        homeSlug: 'home',
         resolveRelations: storyblokRelations,
         resolveLinks: 'url',
-        version: process.env.NODE_ENV == "production" ? "published" : "draft", // show only published on the front end site
+        version: process.env.NODE_ENV == 'production' ? 'published' : 'draft', // show only published on the front end site
         // version: 'draft'  // would show any including drafts
       },
     },
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        implementation: require("node-sass"),
+        implementation: require('node-sass'),
         sassOptions: {
-          includePaths: [path.resolve(__dirname, "node_modules")],
+          includePaths: [path.resolve(__dirname, 'node_modules')],
         },
         cssLoaderOptions: {
           camelCase: false,
@@ -176,15 +172,25 @@ module.exports = {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         // enablePartialUpdates: true,
-        queries: require("./src/utilities/algoliaQueries"),
+        queries: require('./src/utilities/algoliaQueries'),
         // we skip the indexing completely on non-prod builds.
-        skipIndexing: !!(process.env.ALGOLIA_SKIP_INDEXING || process.env.CONTEXT !== 'production')
+        skipIndexing: !!(
+          process.env.ALGOLIA_SKIP_INDEXING === "true" ||
+          process.env.CONTEXT !== 'production'
+        ),
       },
     },
     {
       resolve: `gatsby-plugin-netlify`,
       options: {
         mergeSecurityHeaders: false,
+      },
+    },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/constants/`,
       },
     },
   ],

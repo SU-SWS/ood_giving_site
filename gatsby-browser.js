@@ -16,4 +16,7 @@ export const shouldUpdateScroll = ({routerProps: {location}}) => {
   if (location.pathname == '/areas-to-support/' && location.hash) {
     return false;
   }
+  if (location.pathname.indexOf('/endowed-positions') > -1) {
+    return false;
+  }
 }

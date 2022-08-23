@@ -1,9 +1,10 @@
+/* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
-import Components from '../components/components.js';
 import SbEditable from 'storyblok-react';
-import Loader from 'react-loader-spinner';
+import ClipLoader from 'react-spinners/ClipLoader';
 import { useStaticQuery, graphql } from 'gatsby';
 import StoryblokClient from 'storyblok-js-client';
+import Components from '../components/components';
 
 const sbClient = new StoryblokClient({});
 
@@ -13,13 +14,13 @@ const sbClient = new StoryblokClient({});
  * @returns
  */
 const getParam = function (val) {
-  var result = '';
-  var tmp = [];
+  let result = '';
+  let tmp = [];
 
   window.location.search
     .substr(1)
     .split('&')
-    .forEach(function (item) {
+    .forEach((item) => {
       tmp = item.split('=');
       if (tmp[0] === val) {
         result = decodeURIComponent(tmp[1]);
@@ -43,11 +44,12 @@ const initBridge = function (key, sbResolveRelations, setStory) {
   });
 
   // Ping the Visual Editor and enter Editmode manually
-  storyblokInstance.pingEditor(function () {
+  storyblokInstance.pingEditor(() => {
     storyblokInstance.enterEditmode();
   });
 
-  storyblokInstance.on(['change', 'published', 'unpublished'], (event) => {
+  // Listens on multiple events and does a basic website refresh
+  storyblokInstance.on(['change', 'published', 'unpublished'], () => {
     window.location.reload();
   });
 
@@ -55,7 +57,7 @@ const initBridge = function (key, sbResolveRelations, setStory) {
   storyblokInstance.on('input', (payload) => {
     setStory(payload.story.content);
   });
-  storyblokInstance.on('enterEditmode', (event) => {
+  storyblokInstance.on('enterEditmode', () => {
     // loading the draft version on initial view of the page
     sbClient
       .get(`cdn/stories/${getParam('path')}`, {
@@ -69,6 +71,7 @@ const initBridge = function (key, sbResolveRelations, setStory) {
         }
       })
       .catch((error) => {
+        /* eslint-disable no-console */
         console.log(error);
       });
   });
@@ -120,7 +123,7 @@ const StoryblokEntry = (props) => {
         return;
       }
 
-      let script = document.createElement('script');
+      const script = document.createElement('script');
       script.type = 'text/javascript';
       script.src = '//app.storyblok.com/f/storyblok-v2-latest.js';
       script.onload = () => {
@@ -142,6 +145,7 @@ const StoryblokEntry = (props) => {
       <SbEditable content={myStory}>
         <div>
           {React.createElement(Components(myStory.component), {
+            // eslint-disable-next-line no-underscore-dangle
             key: myStory._uid,
             blok: myStory,
           })}
@@ -154,7 +158,7 @@ const StoryblokEntry = (props) => {
   return (
     <div className="su-cc">
       <h1>Loading...</h1>
-      <Loader type="Oval" color="#00BFFF" height={125} width={125} />
+      <ClipLoader color="#00BFFF" height={125} width={125} />
     </div>
   );
 };

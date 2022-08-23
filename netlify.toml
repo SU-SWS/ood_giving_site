@@ -1,9 +1,5 @@
 # BUILD Settings:
 # ##############################################################################
-[build]
-  publish = "public"
-  functions = "lambda"
-
 [dev]
   publish = "public"
   port = 64946
@@ -29,9 +25,27 @@
   for = "/editor"
   [headers.values]
     X-Frame-Options = "ALLOWALL"
-# SUBMIT SITEMAP PLUGIN
-# https://www.npmjs.com/package/netlify-plugin-submit-sitemap
-# ###############################################################################
+
+# PLUGINS
+# ##############################################################################
+
+# Fetch vault plugin needs to come before any of the contextual environment
+# variable plugins so they can act on the new vars.
+[[plugins]]
+  package = "netlify-plugin-vault-variables"
+  [plugins.inputs]
+    endpoint = 'https://vault.stanford.edu'
+    # Order doesn't matter here as these will be fetch asyncronously. Try not to have dupes.
+    secrets = ['secret/data/projects/adapt/giving']
+    # Set which environment variables to use for the approle login
+    secretId = 'VAULT_SECRET_ID'
+    roleId = 'VAULT_ROLE_ID'
+
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
+
+# CONTEXTUAL PLUGINS
+# ##############################################################################
 # Production context:
 # All deploys from the main repository branch
 # will inherit these settings.
@@ -43,5 +57,6 @@
     [context.main.plugins.inputs]
       # Path to the sitemap URL (optional, default = /sitemap.xml)
       sitemapPath = "/sitemap/sitemap-index.xml"
+
 # REDIRECTS are located in static/_redirects
 # ###############################################################################

@@ -117,11 +117,6 @@ const HtmlHead = (props) => {
         name="google-site-verification"
         content="tUJ214wF9k79KCsAn5wIOyOFR2eH0RlBANimm5MCFfU"
       />
-      <script
-        key="stripe"
-        src="https://js.stripe.com/v3"
-        type="text/javascript"
-      />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
         href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
