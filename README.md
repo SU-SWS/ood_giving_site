@@ -1,5 +1,4 @@
 # [ADAPT OOD GIVING](https://github.com/SU-SWS/ood_giving_site)
-##### Version: 1.0.0
 
 <a href="https://codeclimate.com/github/SU-SWS/ood_giving_site/maintainability"><img src="https://api.codeclimate.com/v1/badges/dc1a243d09f8aa5c903a/maintainability" /></a>
 
@@ -32,6 +31,37 @@ netlify dev
 ## Connecting to Storyblok
 
 You will need an access token to connect to a storyblok space. You can contact a member on the project team to get one but if you follow the installation steps you should be able to get one from vault. `Development` builds can use the `preview` access tokens from Storyblok, but `Production` builds should only ever use the `public` access tokens. This is to ensure no unpublished content is accidentally revealed to the public. By default the environment variables from vault are set to point to the development environment and then overridden with the contextual environment plugin. For local development, you can override any of the environment variables as the netlify build plugins don't take effect when running netlify dev.
+
+## Using the Storyblok Editor on localhost
+
+Currently Storyblok v2 doesn't allow accessing the environment with http, so to make it work, https has to be added to localhost. For your convenience we have created the certificate and key but your system may not trust this self signed cert. Once you have localhost up and running you can visit the url in the browser and proceed past the warning or you can add the certificate to your trusted list.
+
+OSX:
+https://readwriteexercise.com/posts/trust-self-signed-certificates-macos/
+
+To start:
+```
+npm run develop
+// Then in a different terminal ...
+npm run https-proxy-start
+```
+
+Or to choose your own ports:
+```
+netlify dev
+npm run hps -- --target=3010 --source=64946
+```
+
+## Connecting to Algolia
+
+The content of this site is indexed with Algolia. When the search is used, Algolia is queried by the frontend for results. In order to do that, the frontend needs several environment variables:
+
+* `GATSBY_ALGOLIA_APP_ID`,
+* `GATSBY_ALGOLIA_SEARCH_API_KEY`,
+* `GATSBY_ALGOLIA_INDEX_NAME` and
+* `GATSBY_ALGOLIA_SUGGESTIONS_INDEX_NAME`.
+
+Set these in your `.env` file in order for the search to work or pull from vault using `npm run vault:local`
 
 ## Development vs Production builds.
 
