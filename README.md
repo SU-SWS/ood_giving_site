@@ -50,7 +50,8 @@ https://readwriteexercise.com/posts/trust-self-signed-certificates-macos/
 To start:
 ```
 npm run develop
-npm run https-proxy-start
+// Then in a different terminal ...
+npm run https-proxy-start    
 ```
 
 Or to choose your own ports:
