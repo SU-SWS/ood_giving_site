@@ -100,6 +100,7 @@ const StoryImage = (props) => {
                    }`}
                 src={processedImg}
                 alt={props.blok.image.alt ? props.blok.image.alt : ''}
+                loading="lazy"
               />
             </div>
             {props.blok.caption && (
