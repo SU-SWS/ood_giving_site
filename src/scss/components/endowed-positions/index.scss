@@ -43,6 +43,33 @@
     }
   }
 
+  &__search-wrapper {
+    & > input {
+      box-sizing: border-box;
+      border: 1px solid #D2D3D4;
+      border-radius: 3px;
+      flex: 0 0 auto;
+      font-size: 18px;
+      height: 40px;
+      margin-right: 10px;
+      max-width: 200px;
+      padding: 0 20px;
+    }
+
+    & > button {
+      background: #014240;
+      border: 0;
+      color: #FFF;
+      flex: 0 0 auto;
+      font-size: 2rem;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+
   &__select {
     -moz-appearance: none;
     -webkit-appearance: none;
