@@ -59,9 +59,11 @@
     & > button {
       background: #014240;
       border: 0;
+      box-sizing: border-box;
       color: #FFF;
       flex: 0 0 auto;
       font-size: 2rem;
+      height: 40px;
 
       &:hover {
         cursor: pointer;

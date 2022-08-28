@@ -19,6 +19,12 @@ const EndowedPositionsSearch = (props) => {
 
   return (
     <SbEditable content={props.blok}>
+      <label
+        className="endowed-positions__label"
+        htmlFor="search-input"
+      >
+        Search by keyword:
+      </label>
       <div className="endowed-positions__search-wrapper">
         <input
           id="search-input"
