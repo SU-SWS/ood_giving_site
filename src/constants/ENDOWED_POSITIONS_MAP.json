@@ -70,13 +70,6 @@
     "link": "http://museum.stanford.edu/"
   },
   {
-    "id": "SCHOOL OF EARTH, ENERGY AND ENVIRONMENTAL SCIENCES",
-    "label": "School of Earth, Energy and Environmental Sciences",
-    "section": "Schools",
-    "to": "school-of-earth-energy-and-environmental-sciences",
-    "link": "https://earth.stanford.edu/faculty-research/directory"
-  },
-  {
     "id": "SCHOOL OF ENGINEERING",
     "label": "School of Engineering",
     "section": "Schools",
@@ -96,6 +89,13 @@
     "section": "Centers, Institutes, and Programs",
     "to": "stanford-bio-x",
     "link": "http://biox.stanford.edu/"
+  },
+  {
+    "id": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
+    "label": "Stanford Doerr School of Sustainability",
+    "section": "Schools",
+    "to": "stanford-doerr-school-of-sustainability",
+    "link": "https://earth.stanford.edu/faculty-research/directory#gs.9lb8yz"
   },
   {
     "id": "STANFORD STUDENT AFFAIRS",
