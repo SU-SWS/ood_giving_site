@@ -44,15 +44,19 @@
   }
 
   &__search-wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    width: 480px;
+
     & > input {
       box-sizing: border-box;
       border: 1px solid #D2D3D4;
       border-radius: 3px;
-      flex: 0 0 auto;
+      flex: 1 0 auto;
       font-size: 18px;
       height: 40px;
       margin-right: 10px;
-      max-width: 200px;
       padding: 0 20px;
     }
 
