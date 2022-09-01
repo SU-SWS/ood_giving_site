@@ -49,7 +49,7 @@ npm run https-proxy-start
 Or to choose your own ports:
 ```
 netlify dev
-npm run hps -- --target=3010 --source=64946
+npm run hps -- --target=64946 --source=3010
 ```
 
 ## Connecting to Algolia

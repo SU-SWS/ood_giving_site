@@ -32,6 +32,7 @@ const storyblokRelations = [
   'contentMenuPicker.contentMenu',
   'storyPicker.story',
   'alertPicker.alert',
+  'endowedPositionsSearchPicker.endowedPositionsSearch',
 ];
 
 module.exports = {
