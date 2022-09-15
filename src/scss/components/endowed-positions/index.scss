@@ -128,6 +128,12 @@
     font-weight: bold;
     margin: 0 0 15px;
     text-align: left;
+
+    &--homepage {
+      font-family: "Source Serif Pro", Georgia, Times, Times New Roman, serif;
+      font-size: 1.95312em;
+      font-weight: 700;
+    }
   }
 
   &__paginate {
