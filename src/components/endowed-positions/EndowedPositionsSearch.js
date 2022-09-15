@@ -23,7 +23,7 @@ const EndowedPositionsSearch = (props) => {
         className="endowed-positions__label--homepage"
         htmlFor="search-input"
       >
-        Search by keyword:
+        Search endowed positions by keyword&#40;s&#41;:
       </label>
       <div className="endowed-positions__search-wrapper">
         <input
