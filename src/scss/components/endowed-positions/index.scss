@@ -26,8 +26,9 @@
     }
   }
 
-  &__select-wrapper {
+  &__search-wrapper {
     display: flex;
+    justify-content: space-between;
 
     & > button {
       background: #014240;
@@ -60,15 +61,15 @@
     padding: 0 38px 0 18px;
     width: calc(100% - 55px);
   }
-
   &__input {
     box-sizing: border-box;
     border: 1px solid #D2D3D4;
     border-radius: 3px;
     font-size: 18px;
     height: 40px;
+    margin: 0;
     padding: 0 20px;
-    width: 100%;
+    width: calc(100% - 55px);
   }
 
   &__fieldset {
