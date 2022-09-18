@@ -34,7 +34,7 @@
       background: #014240;
       border: 0;
       color: #FFF;
-      flex-grow: 1;
+      flex-grow: 0;
       font-size: 2rem;
 
       &:hover {
@@ -44,32 +44,16 @@
     }
   }
 
-  &__select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    background: url("#{$su-image-path}/caret-down-black.svg") no-repeat calc(100% - 18px) center / 12px 12px;
-    border: 1px solid #D2D3D4;
-    border-radius: 3px;
-    color: #2E2D29;
-    height: 40px;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 2.5rem;
-    margin: 0 10px 0 0;
-    padding: 0 38px 0 18px;
-    width: calc(100% - 55px);
-  }
   &__input {
     box-sizing: border-box;
     border: 1px solid #D2D3D4;
     border-radius: 3px;
+    flex-grow: 0;
     font-size: 18px;
     height: 40px;
     margin: 0;
     padding: 0 20px;
-    width: calc(100% - 55px);
+    width: calc(100% - 80px);
   }
 
   &__fieldset {

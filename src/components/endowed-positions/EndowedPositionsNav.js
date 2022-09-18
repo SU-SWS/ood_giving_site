@@ -51,7 +51,7 @@ const EndowedPositionsNav = ({ to }) => {
       <div>
         <fieldset className="endowed-positions__fieldset">
           <label className="endowed-positions__label" htmlFor="search-input">
-            Search by keyword:
+            Search all endowed positions by keyword&#40;s&#41;:
           </label>
           <div className="endowed-positions__search-wrapper">
             <input
