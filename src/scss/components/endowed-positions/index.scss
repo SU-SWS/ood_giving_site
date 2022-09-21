@@ -29,7 +29,7 @@
   &__nav-search-wrapper {
     display: flex;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 0;
     max-width: 480px;
 
     & > button {
@@ -178,4 +178,8 @@
   &__footer {
     margin: 40px 0;
   }
+}
+
+.endowed-positions-header.ood-interior-page__intro.intro-text {
+  text-align: left;
 }
