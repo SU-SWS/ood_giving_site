@@ -53,7 +53,7 @@ const EndowedPositionsNav = ({ to }) => {
           <label className="endowed-positions__label" htmlFor="search-input">
             Search all endowed positions by keyword&#40;s&#41;:
           </label>
-          <div className="endowed-positions__search-wrapper">
+          <div className="endowed-positions__nav-search-wrapper">
             <input
               className="endowed-positions__input"
               id="search-input"

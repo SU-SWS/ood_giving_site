@@ -26,6 +26,26 @@
     }
   }
 
+  &__nav-search-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 480px;
+
+    & > button {
+      background: #014240;
+      border: 0;
+      color: #FFF;
+      flex-grow: 0;
+      font-size: 2rem;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+
   &__search-wrapper {
     display: flex;
     justify-content: space-between;
@@ -74,7 +94,8 @@
   &__fieldset {
     border: 0;
     flex: 1 1 auto;
-    margin: 0 5px 20px;
+    flex-direction: column;
+    margin: 20px 5px;
     padding: 0;
     position: relative;
   }
@@ -89,11 +110,11 @@
 
   &__label {
     color: #2E2D29;
-    display: block;
-    font-size: 16px;
+    display: inline-block;
+    font-size: 0.9em;
     font-style: normal;
     font-weight: bold;
-    margin: 0 0 15px;
+    margin: 0 auto 15px;
     text-align: left;
 
     &--homepage {
