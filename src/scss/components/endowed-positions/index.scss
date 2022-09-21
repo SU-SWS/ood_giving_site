@@ -29,13 +29,28 @@
   &__search-wrapper {
     display: flex;
     justify-content: space-between;
+    max-width: 100%;
+    width: 480px;
+
+    & > input {
+      box-sizing: border-box;
+      border: 1px solid #D2D3D4;
+      border-radius: 3px;
+      flex: 1 0 auto;
+      font-size: 18px;
+      height: 40px;
+      margin-right: 10px;
+      padding: 0 20px;
+    }
 
     & > button {
       background: #014240;
       border: 0;
+      box-sizing: border-box;
       color: #FFF;
-      flex-grow: 0;
+      flex: 0 0 auto;
       font-size: 2rem;
+      height: 40px;
 
       &:hover {
         cursor: pointer;
@@ -80,6 +95,14 @@
     font-weight: bold;
     margin: 0 0 15px;
     text-align: left;
+
+    &--homepage {
+      display: inline-block;
+      font-family: "Source Serif Pro", Georgia, Times, serif;
+      font-size: 1.95312em;
+      font-weight: 700;
+      margin: 0 0 15px;
+    }
   }
 
   &__paginate {
