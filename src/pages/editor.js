@@ -45,7 +45,27 @@ const initBridge = function (key, sbResolveRelations, setStory) {
 
   // Ping the Visual Editor and enter Editmode manually
   storyblokInstance.pingEditor(() => {
-    storyblokInstance.enterEditmode();
+    if (storyblokInstance.isInEditor()) {
+      // load the draft version
+      storyblokInstance.enterEditmode();
+    } else {
+      // load the draft version while in new window preview
+      sbClient
+        .get(`cdn/stories/${getParam('path')}`, {
+          version: 'draft',
+          resolve_relations: sbResolveRelations || [],
+          token: key,
+        })
+        .then(({ data }) => {
+          if (data.story) {
+            setStory(data.story.content);
+          }
+        })
+        .catch((error) => {
+          /* eslint-disable no-console */
+          console.log(error);
+        });
+    }
   });
 
   // Listens on multiple events and does a basic website refresh
