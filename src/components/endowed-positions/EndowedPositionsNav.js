@@ -50,48 +50,21 @@ const EndowedPositionsNav = ({ to }) => {
     <nav aria-label="filter and search" className="endowed-positions__nav">
       <div>
         <fieldset className="endowed-positions__fieldset">
-          <label
-            className="endowed-positions__label"
-            htmlFor="schools-centers-institutes-programs-select"
-          >
-            Filter by school or area:
+          <label className="endowed-positions__label" htmlFor="search-input">
+            Search all endowed positions by keyword&#40;s&#41;:
           </label>
-          <div className="endowed-positions__select-wrapper">
-            <select
-              className="endowed-positions__select"
-              defaultValue={to}
-              id="schools-centers-institutes-programs-select"
-              onChange={handleSelectChange}
-            >
-              <option value="" disabled selected>
-                Select a School, Center, Institute, or Program
-              </option>
-              <optgroup label="Schools">{schoolOptions}</optgroup>
-              <optgroup label="Centers, Institutes, and Programs">
-                {centersInstitutesProgramsOptions}
-              </optgroup>
-            </select>
-            <button onClick={handleGoClick} type="button">
-              Go
+          <div className="endowed-positions__nav-search-wrapper">
+            <input
+              className="endowed-positions__input"
+              id="search-input"
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+              value={getSearchTerm}
+            />
+            <button onClick={handleSearch} type="button">
+              Search
             </button>
           </div>
-        </fieldset>
-        <fieldset className="endowed-positions__fieldset">
-          <label className="endowed-positions__label" htmlFor="search-input">
-            Search by keyword:
-          </label>
-          <input
-            className="endowed-positions__input"
-            id="search-input"
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-            value={getSearchTerm}
-          />
-          <i
-            aria-hidden="true"
-            className="fas fa-search fa-flip-horizontal endowed-positions__search-button"
-            onClick={handleSearch}
-          />
         </fieldset>
       </div>
     </nav>

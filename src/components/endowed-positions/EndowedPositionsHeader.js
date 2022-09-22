@@ -17,7 +17,7 @@ const EndowedPositionsHeader = ({ to }) => (
           </div>
           <div className="centered-container flex-container ood-interior-page__header-intro">
             <div className="ood-interior-page__header-intro-wrapper flex-12-of-12 su-bg-white">
-              <div className="intro-text ood-interior-page__intro flex-xl-10-of-12">
+              <div className="endowed-positions-header intro-text ood-interior-page__intro flex-xl-10-of-12">
                 <div>
                   <p>
                     <span>

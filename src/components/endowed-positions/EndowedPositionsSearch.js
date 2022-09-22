@@ -19,16 +19,23 @@ const EndowedPositionsSearch = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <input
-        // className="endowed-positions__input"
-        // id="search-input"
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-        value={searchTerm}
-      />
-      <button type="button" onClick={handleSearch}>
-        go
-      </button>
+      <label
+        className="endowed-positions__label--homepage"
+        htmlFor="search-input"
+      >
+        Search endowed positions by keyword&#40;s&#41;:
+      </label>
+      <div className="endowed-positions__search-wrapper">
+        <input
+          id="search-input"
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          value={searchTerm}
+        />
+        <button type="button" onClick={handleSearch}>
+          Search
+        </button>
+      </div>
     </SbEditable>
   );
 };
