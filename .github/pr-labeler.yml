@@ -1,9 +1,0 @@
-feature: ['feature/*', 'feat/*', 'feature-*']
-fix: ['fix/*', 'bug/*', 'bugfix/*', 'hotfix/*']
-task: ['task/*', 'chore/*']
-major: '*[major]*'
-minor: '*[minor]*'
-patch: '*[patch]*'
-alpha: '*[alpha]*'
-beta: '*[beta]*'
-rc: '*[rc]*'
