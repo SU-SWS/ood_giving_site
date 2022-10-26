@@ -9,3 +9,9 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+
+permissions:
+  # All other permissions are set to none
+  checks: write
+  contents: read
+  pull-requests: write
