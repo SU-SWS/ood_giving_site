@@ -25,7 +25,7 @@
     "gatsby-source-filesystem": "^4.3.0",
     "gatsby-source-storyblok": "^3.1.0",
     "gatsby-transformer-json": "^4.24.0",
-    "gatsby-transformer-sharp": "^4.3.0",
+    "gatsby-transformer-sharp": "^4.24.0",
     "netlify-plugin-contextual-env": "^0.3.0",
     "netlify-plugin-submit-sitemap": "^0.3.0",
     "netlify-plugin-vault-variables": "^1.0.7",
