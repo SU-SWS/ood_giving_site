@@ -56,7 +56,7 @@
     "netlify-cli": "^12.1.0",
     "node-sass": "^7.0.3",
     "node-vault": "^0.9.22",
-    "postcss": "^8.2.15",
+    "postcss": "^8.4.18",
     "prettier": "2.3.0",
     "react-refresh": "^0.13.0",
     "toml": "^3.0.0"
