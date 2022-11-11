@@ -105,6 +105,13 @@ const OodSupportPage = (props) => {
                 <label htmlFor="culture">Culture, Ethics, + Service</label>
                 <input
                   type="radio"
+                  id="dei"
+                  name="areas-to-support"
+                  onClick={updateHash}
+                />
+                <label htmlFor="dei">Diversity, Equity, + Inclusion</label>
+                <input
+                  type="radio"
                   id="law"
                   name="areas-to-support"
                   onClick={updateHash}
@@ -152,6 +159,7 @@ const OodSupportPage = (props) => {
                   <CreateBloks blokSection={props.blok.athletics} />
                   <CreateBloks blokSection={props.blok.business} />
                   <CreateBloks blokSection={props.blok.culture} />
+                  <CreateBloks blokSection={props.blok.dei} />
                   <CreateBloks blokSection={props.blok.law} />
                   <CreateBloks blokSection={props.blok.medicine} />
                   <CreateBloks blokSection={props.blok.science} />
