@@ -336,7 +336,7 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKARHT0",
+    "Key": "BusinessKARHT5074092",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Fletcher Jones Faculty Scholar",
     "CURRENT HOLDER": "Greg Martin",
@@ -420,10 +420,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKABTR0",
+    "Key": "BusinessKABTR5536951",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Larsen Lam Family Lectureship",
-    "CURRENT HOLDER": "Melissa Briggs",
+    "CURRENT HOLDER": "Melissa Jones Briggs",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -2212,7 +2212,7 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKAQEO0",
+    "Key": "H&SKAQEO5797631",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Alden H. and Winifred Hubbard Brown Faculty Fellow",
     "CURRENT HOLDER": "Tselil Schramm",
@@ -3304,20 +3304,6 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKASXU0",
-    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
-    "POSITION": "The Lorry I. Lokey/Business Wire Visiting Professorship in Human Biology",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://humsci.stanford.edu"
-  },
-  {
-    "Key": "H&SKARLC0",
-    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
-    "POSITION": "The Lorry I. Lokey/Business Wire Visiting Professorship in Professional Journalism",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://humsci.stanford.edu"
-  },
-  {
     "Key": "H&SKASZP3436581",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Donald L. Lucas Endowed Professorship in Economics",
@@ -3423,13 +3409,6 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKARNQ0",
-    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
-    "POSITION": "The Lawrence and Nancy Mohr Visiting Poet",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://humsci.stanford.edu"
-  },
-  {
     "Key": "H&SKBACV4259537",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Teresa Hihn Moore Professorship in Religious Studies",
@@ -3483,13 +3462,6 @@
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The William Bennett Munro Professorship in Political Science",
     "CURRENT HOLDER": "Michael R. Tomz",
-    "WEBSITE": "http://humsci.stanford.edu"
-  },
-  {
-    "Key": "H&SKAVEY0",
-    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
-    "POSITION": "The Joaquim Nabuco Visiting Professorship in Brazilian Studies",
-    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3616,13 +3588,6 @@
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Mark Pigott KBE Professorship",
     "CURRENT HOLDER": "Roland Greene",
-    "WEBSITE": "http://humsci.stanford.edu"
-  },
-  {
-    "Key": "H&SKCJTE0",
-    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
-    "POSITION": "The Henri Poincaré Distinguished Visiting Professorship",
-    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3815,20 +3780,6 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKBAHA0",
-    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
-    "POSITION": "The Isaac and Madeline Stein Visiting Writer",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://humsci.stanford.edu"
-  },
-  {
-    "Key": "H&SKBAHA0",
-    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
-    "POSITION": "The Isaac and Madeline Stein Visiting Writer",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://humsci.stanford.edu"
-  },
-  {
     "Key": "H&SKBAGZ3232535",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Max H. Stein Professorship",
@@ -3945,13 +3896,6 @@
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Job and Gertrud Tamaki Professorship in Chemistry",
     "CURRENT HOLDER": "Bianxiao Cui",
-    "WEBSITE": "http://humsci.stanford.edu"
-  },
-  {
-    "Key": "H&SKATDB0",
-    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
-    "POSITION": "The Edward Larocque Tinker Visiting Professorship",
-    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -4396,7 +4340,7 @@
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
-    "Key": "LawNAAVS0",
+    "Key": "LawNAAVS5183371",
     "SUBCATEGORY": "STANFORD LAW SCHOOL",
     "POSITION": "The Edwin A. Heafey, Jr. Visiting Professorship",
     "CURRENT HOLDER": "Easha Anand",
@@ -4431,7 +4375,7 @@
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
-    "Key": "LawKLAWK0",
+    "Key": "LawKLAWK5393291",
     "SUBCATEGORY": "STANFORD LAW SCHOOL",
     "POSITION": "The Leah Kaplan Visiting Professorship in Human Rights",
     "CURRENT HOLDER": "E. Tendayi Achiume",
