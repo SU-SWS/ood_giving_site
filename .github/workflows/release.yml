@@ -5,11 +5,17 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  
 jobs:
   release:
     name: Release
     timeout-minutes: 10
     runs-on: ubuntu-latest
+    permissions:
+      # write permission is required to create a github release
+      contents: write
 
     steps:
       - uses: actions/checkout@v2
@@ -34,6 +40,8 @@ jobs:
         uses: release-drafter/release-drafter@v5
         with:
           publish: true
+          config-name: release-drafter.yml
+          disable-autolabeler: true
         env:
           GITHUB_TOKEN: ${{ secrets.ADMIN_GITHUB_TOKEN }}
       - name: Merge release back into dev
