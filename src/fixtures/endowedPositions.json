@@ -1491,10 +1491,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKENSB2630622",
+    "Key": "EngineeringKENSB9709509",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Addie and Al Macovski Professorship",
-    "CURRENT HOLDER": "Dwight G. Nishimura",
+    "CURRENT HOLDER": "Jennifer Cochran",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -2730,6 +2730,13 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
+    "Key": "H&SKBFAC5247859",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Kimberly Glenn Professorship",
+    "CURRENT HOLDER": "Jens Hainmueller",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
     "Key": "H&SKAXOS5307879",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Frederic O. Glover Professorship in Humanities and Social Sciences",
@@ -3787,10 +3794,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKASAT7344278",
+    "Key": "H&SKASAT0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The J. E. Wallace Sterling Professorship in the Humanities",
-    "CURRENT HOLDER": "Keith M. Baker",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -4886,16 +4893,16 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKAQCU0",
+    "Key": "MedicineKAQCU9603495",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Josephine Q. Berry Faculty Scholar in Cancer Research",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Steven Corsello",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
     "Key": "MedicineKAQCS9877416",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Lowell W. and Josephine Q. Berry Professorship",
+    "POSITION": "The Lowell W. and Josephine Q. Berry Professorship in the Department of Psychiatry and Behavioral Sciences",
     "CURRENT HOLDER": "Ruth O'Hara",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
@@ -5047,13 +5054,6 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKHARB5129577",
-    "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Chavez Family Goldman Sachs Scholar",
-    "CURRENT HOLDER": "Nigam Shah",
-    "WEBSITE": "https://med.stanford.edu/profiles/"
-  },
-  {
     "Key": "MedicineKHAJK4146734",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The D. H. Chen Professorship",
@@ -5110,13 +5110,6 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKHAIJ0",
-    "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The CRK Faculty Scholar",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "https://med.stanford.edu/profiles/"
-  },
-  {
     "Key": "MedicineKHAAO9721226",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Lawrence Crowley, MD, Endowed Professorship in Child Health",
@@ -5154,7 +5147,7 @@
   {
     "Key": "MedicineKHAPT5664858",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Anthony DiGenova Endowed Faculty Scholar I",
+    "POSITION": "The Anthony DiGenova Endowed Faculty Scholar",
     "CURRENT HOLDER": "Kyle Loh",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
@@ -5250,10 +5243,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKBAXY9603495",
+    "Key": "MedicineKBAXY0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Robert L. and Mary Ellenburg Endowed Faculty Scholar",
-    "CURRENT HOLDER": "Steven Corsello",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5289,13 +5282,6 @@
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Endowed Directorship of Pediatric Imaging",
     "CURRENT HOLDER": "Richard A. Barth",
-    "WEBSITE": "https://med.stanford.edu/profiles/"
-  },
-  {
-    "Key": "MedicineKHAOY5368948",
-    "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Endowed Faculty Scholar in Food Allergy and Immunology",
-    "CURRENT HOLDER": "Scott Boyd",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5672,7 +5658,7 @@
   {
     "Key": "MedicineKARHY3387172",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Johnson & Johnson Distinguished Professorship in Surgery",
+    "POSITION": "The Johnson & Johnson Professorship in Surgery",
     "CURRENT HOLDER": "James Chang, Jr.",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
@@ -5719,10 +5705,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineNAAAU35434513",
+    "Key": "MedicineNAAAU0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Marron and Mary Elizabeth Kendrick Professorship in Pediatrics",
-    "CURRENT HOLDER": "Neville H. Golden",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5758,6 +5744,13 @@
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The John A. Kriewall and Elizabeth A. Haehl Directorship of Pediatric Palliative Care",
     "CURRENT HOLDER": "Barbara Sourkes",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "MedicineKHAIJ5638465",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The C.R. Krishnamurthi Faculty Scholar",
+    "CURRENT HOLDER": "Sydney Lu",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5803,24 +5796,17 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKARKE5568177",
+    "Key": "MedicineKARKE5356879",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Esther Ehrman Lazard Faculty Scholar",
-    "CURRENT HOLDER": "Shannon J. Beres",
+    "CURRENT HOLDER": "Maya Kumar",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKARKE4328449",
+    "Key": "MedicineKARKE50019586",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Esther Ehrman Lazard Faculty Scholar",
-    "CURRENT HOLDER": "Christin Kuo",
-    "WEBSITE": "https://med.stanford.edu/profiles/"
-  },
-  {
-    "Key": "MedicineKARKE36171064",
-    "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Esther Ehrman Lazard Faculty Scholar",
-    "CURRENT HOLDER": "Gerlinde Wernig",
+    "CURRENT HOLDER": "Hawa Racine Thiam",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5894,16 +5880,16 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKAROV3378650",
+    "Key": "MedicineKAROV0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Lindhard Family Professorship in Pediatric Cancer Biology",
-    "CURRENT HOLDER": "Michael L. Cleary",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
     "Key": "MedicineKHASA9920471",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Marc and Jennifer Lipschultz Director of the Stanford Innovative Medicines Accelerator",
+    "POSITION": "The Marc and Jennifer Lipschultz Directorship of the Stanford Innovative Medicines Accelerator",
     "CURRENT HOLDER": "Chaitan Khosla",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
@@ -5938,28 +5924,28 @@
   {
     "Key": "MedicineKAVCO9940008",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Virginia and D. K. Ludwig Professorship",
+    "POSITION": "The Virginia and D.K. Ludwig Professorship",
     "CURRENT HOLDER": "Lucy Shapiro",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
     "Key": "MedicineKHALE3039369",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Virginia and D. K. Ludwig Professorship in Biochemistry",
+    "POSITION": "The Virginia and D.K. Ludwig Professorship in Biochemistry",
     "CURRENT HOLDER": "Peter S. Kim",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
     "Key": "MedicineKHAEK4309605",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Virginia and D. K. Ludwig Professorship in Cancer Research",
+    "POSITION": "The Virginia and D.K. Ludwig Professorship in Cancer Research",
     "CURRENT HOLDER": "Howard Y. Chang",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
     "Key": "MedicineKAVCP1131242",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Virginia and D. K. Ludwig Professorship in Clinical Investigation in Cancer Research",
+    "POSITION": "The Virginia and D.K. Ludwig Professorship in Clinical Investigation in Cancer Research",
     "CURRENT HOLDER": "Irving L. Weissman",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
@@ -6041,13 +6027,6 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKARMW9950510",
-    "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Emma Pfeiffer Merner Professorship in Medical Sciences",
-    "CURRENT HOLDER": "Suzanne Pfeffer",
-    "WEBSITE": "https://med.stanford.edu/profiles/"
-  },
-  {
     "Key": "MedicineKAAHA9771015",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Deane P. and Louise Mitchell Professorship in the School of Medicine",
@@ -6071,14 +6050,14 @@
   {
     "Key": "MedicineKHAVE5201548",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Betty Irene Moore Basic Science and Engineering Initiative Endowed Research Director",
+    "POSITION": "The Betty Irene Moore Basic Science and Engineering Initiative Endowed Research Directorship",
     "CURRENT HOLDER": "Marlene Rabinovitch",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
     "Key": "MedicineZBAOB9904509",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Betty Irene Moore Director for Cardiac Anesthesia",
+    "POSITION": "The Betty Irene Moore Directorship for Cardiac Anesthesia",
     "CURRENT HOLDER": "M. Gail Boltz",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
@@ -6276,6 +6255,13 @@
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Pediatric Hematology/Oncology Endowed Professorship",
     "CURRENT HOLDER": "Bertil Glader",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "MedicineKARMW9950510",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Emma Pfeiffer Merner Professorship in Medical Sciences",
+    "CURRENT HOLDER": "Suzanne Pfeffer",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6601,6 +6587,13 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
+    "Key": "MedicineKHANQ9643161",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Stanford Medicine Pathology Professorship",
+    "CURRENT HOLDER": "Thomas J. Montine",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
     "Key": "MedicineKHAQJ4470845",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Stanford Medicine Basic Science Professorship",
@@ -6643,13 +6636,6 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKHANQ9643161",
-    "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Stanford Medicine Professorship in Pathology",
-    "CURRENT HOLDER": "Thomas J. Montine",
-    "WEBSITE": "https://med.stanford.edu/profiles/"
-  },
-  {
     "Key": "MedicineKHAWM0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Stanford Medicine Professorship in Pathology",
@@ -6664,10 +6650,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKBAVM50003622",
+    "Key": "MedicineKHAOY5368948",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Stanford Neurosciences Institute Faculty Scholar",
-    "CURRENT HOLDER": "Julia Kaltschmidt",
+    "POSITION": "The Stanford Professorship in Food Allergy and Immunology",
+    "CURRENT HOLDER": "Scott Boyd",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -7014,10 +7000,10 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "DAPERKMMMY0",
+    "Key": "DAPERKMMMY9604036",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Anonymous Assistant Wrestling Coachship",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Grant Leeth",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7091,10 +7077,10 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "DAPERKAQVX3988839",
+    "Key": "DAPERKAQVX50024728",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Bradford M. Freeman Directorship of Football",
-    "CURRENT HOLDER": "David Shaw",
+    "CURRENT HOLDER": "Troy Taylor",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7154,10 +7140,10 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "DAPERKBCPZ0",
+    "Key": "DAPERKBCPZ50023494",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Onnie Killefer Assistant Field Hockey Coachship",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Megan Frazer",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7205,7 +7191,7 @@
   {
     "Key": "DAPERKTTTT50007335",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
-    "POSITION": "The Jessica Mendoza Assistant Softball Coachship",
+    "POSITION": "The Jessica Mendoza Associate Head Softball Coachship",
     "CURRENT HOLDER": "Jessica Merchant",
     "WEBSITE": "http://www.gostanford.com/"
   },
@@ -7219,8 +7205,15 @@
   {
     "Key": "DAPERKMMMU50019063",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
-    "POSITION": "The Patricia Miranda Assistant Wrestling Coachship",
+    "POSITION": "The Patricia Miranda Associate Head Wrestling Coachship",
     "CURRENT HOLDER": "Enock Francois",
+    "WEBSITE": "http://www.gostanford.com/"
+  },
+  {
+    "Key": "DAPERKABWN50005261",
+    "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
+    "POSITION": "The Montag Family Directorship of Women's Volleyball",
+    "CURRENT HOLDER": "Kevin Hambly",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7261,8 +7254,15 @@
   {
     "Key": "DAPERKMMNJ5771490",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
-    "POSITION": "The Al Roderigues Assistant Men's Volleyball Coachship",
+    "POSITION": "The Al Roderigues Associate Head Men's Volleyball Coachship",
     "CURRENT HOLDER": "Daniel Rasay",
+    "WEBSITE": "http://www.gostanford.com/"
+  },
+  {
+    "Key": "DAPERKMMNZ5280848",
+    "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
+    "POSITION": "The Rodgers Family Directorship of Women's Gymnastics",
+    "CURRENT HOLDER": "Tabitha Yim",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7275,7 +7275,7 @@
   {
     "Key": "DAPERKMMNP5452226",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
-    "POSITION": "The Kawika and Erik Shoji Men's Volleyball Assistant Coachship",
+    "POSITION": "The Kawika and Erik Shoji Assistant Men's Volleyball Coachship",
     "CURRENT HOLDER": "Ken Shibuya",
     "WEBSITE": "http://www.gostanford.com/"
   },
@@ -7291,6 +7291,13 @@
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Paul A. Violich Directorship of Women’s Swimming",
     "CURRENT HOLDER": "Greg Meehan",
+    "WEBSITE": "http://www.gostanford.com/"
+  },
+  {
+    "Key": "DAPERKMMMB5780537",
+    "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
+    "POSITION": "The Paul A. Violich Women's Lacrosse Head Coachship",
+    "CURRENT HOLDER": "Danielle Spencer",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7980,6 +7987,13 @@
     "WEBSITE": "http://neuroscience.stanford.edu/"
   },
   {
+    "Key": "NeurosciencesKBAVM50003622",
+    "SUBCATEGORY": "WU TSAI NEUROSCIENCES INSTITUTE",
+    "POSITION": "The Stanford Neurosciences Institute Faculty Scholar",
+    "CURRENT HOLDER": "Julia Kaltschmidt",
+    "WEBSITE": "http://neuroscience.stanford.edu/"
+  },
+  {
     "Key": "NeurosciencesKABVC5573932",
     "SUBCATEGORY": "WU TSAI NEUROSCIENCES INSTITUTE",
     "POSITION": "The Bonnie Uytengsu and Family Director of the Stanford Brain Organogenesis Program",
@@ -7994,10 +8008,10 @@
     "WEBSITE": "http://neuroscience.stanford.edu/"
   },
   {
-    "Key": "University Presidential and Provostial ProfessorshipsKAQAO7093305",
+    "Key": "University Presidential and Provostial ProfessorshipsKAQAO0",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Burt and Marion Avery Professorship in Immunology",
-    "CURRENT HOLDER": "John C. Boothroyd",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
   },
   {
