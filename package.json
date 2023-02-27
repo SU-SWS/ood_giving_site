@@ -9,7 +9,7 @@
     "@netlify/plugin-gatsby": "^3.4.8",
     "algoliasearch": "^4.8.3",
     "classnames": "^2.3.2",
-    "decanter": "^6.2.3",
+    "decanter": "^6.2.13",
     "fuse.js": "^6.5.3",
     "gatsby": "^4.24.7",
     "gatsby-plugin-algolia": "^0.26.0",
