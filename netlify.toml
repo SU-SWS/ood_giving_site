@@ -17,10 +17,6 @@
     Strict-Transport-Security = "max-age=2592000"
     Permissions-Policy = "vibrate=(), geolocation=(), midi=(), notifications=(), push=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), speaker=()"
     X-Frame-Options = "DENY"
-[[context.dev.headers]]
-  for = "/*"
-  [context.dev.headers.values]
-    Basic-Auth = "adapt:letmein2021"
 [[headers]]
   for = "/editor"
   [headers.values]
@@ -43,6 +39,13 @@
 
 [[plugins]]
   package = "@netlify/plugin-gatsby"
+
+[[plugins]]
+  package = '/plugins/netlify-plugin-contextual-auth'
+  [plugins.inputs]
+    username = 'adapt'
+    password = 'letmein2021'
+    context = ['branch-deploy', 'deploy-preview']
 
 # CONTEXTUAL PLUGINS
 # ##############################################################################
