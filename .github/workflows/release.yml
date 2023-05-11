@@ -16,16 +16,21 @@ jobs:
     permissions:
       # write permission is required to create a github release
       contents: write
-
+      deployments: write
+      pull-requests: read
+      packages: write
+      
     steps:
-      - uses: actions/checkout@v2
-      # Specify a different token to allow pushing changes to main later
+      - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+          ref: ${{ github.base_ref }}
+          fetch-depth: 0
+          
       - name: Set Git user
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "Github Action"
+          
       - name: Version Bump
         id: version_bump
         uses: "phips28/gh-action-bump-version@master"
@@ -35,6 +40,7 @@ jobs:
         # Specify a different token to allow pushing change to main
         env:
           GITHUB_TOKEN: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+          
       - name: Publish Release
         id: release
         uses: release-drafter/release-drafter@v5
@@ -44,6 +50,7 @@ jobs:
           disable-autolabeler: true
         env:
           GITHUB_TOKEN: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+          
       - name: Merge release back into dev
         uses: devmasx/merge-branch@v1.3.1
         with:
