@@ -175,10 +175,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKABJZ0",
+    "Key": "BusinessKABJZ5359958",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
-    "POSITION": "The Davies Family Professorship",
-    "CURRENT HOLDER": "To Be Named",
+    "POSITION": "The Davies Family Professorship in the Graduate School of Business",
+    "CURRENT HOLDER": "Andrew B. Hall",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -665,10 +665,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKAQOV9958505",
+    "Key": "BusinessKAQOV0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Edward B. Rust Professorship in the Graduate School of Business",
-    "CURRENT HOLDER": "Keith Krehbiel",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -721,10 +721,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKBARR0",
+    "Key": "BusinessKBARR9680289",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Jagdeep and Roshni Singh Professorship in the Graduate School of Business",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Nir Halevy",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -1029,10 +1029,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKAQBD9704292",
+    "Key": "EngineeringKAQBD4506838",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The William E. Ayer Professorship in Electrical Engineering",
-    "CURRENT HOLDER": "Roger T. Howe",
+    "CURRENT HOLDER": "Subhasish Mitra",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1120,10 +1120,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKAUQV9895582",
+    "Key": "EngineeringKAUQV9771056",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Canon Professorship in the School of Engineering",
-    "CURRENT HOLDER": "Patrick M. Hanrahan",
+    "CURRENT HOLDER": "Ronald Fedkiw",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1309,10 +1309,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKARAV9830704",
+    "Key": "EngineeringKARAV3683018",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Robert L. and Audrey S. Hancock Professorship in the School of Engineering",
-    "CURRENT HOLDER": "Bernd Girod",
+    "CURRENT HOLDER": "Olav Solgaard",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1449,10 +1449,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKBAEZ9888744",
+    "Key": "EngineeringKBAEZ9967472",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Kleiner Perkins, Mayfield, Sequoia Capital Professorship in the School of Engineering",
-    "CURRENT HOLDER": "Nicholas McKeown",
+    "CURRENT HOLDER": "Monica Lam",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1589,17 +1589,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKOSHM5161194",
+    "Key": "EngineeringKOSHM5700841",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Kenneth and Barbara Oshman Faculty Scholar",
-    "CURRENT HOLDER": "Nicholas T. Ouellette",
-    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
-  },
-  {
-    "Key": "EngineeringKOSHM5264571",
-    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
-    "POSITION": "The Kenneth and Barbara Oshman Faculty Scholar",
-    "CURRENT HOLDER": "Sindy K. Y. Tang",
+    "CURRENT HOLDER": "Catherine Gorle",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -2401,13 +2394,6 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKAAQP5453051",
-    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
-    "POSITION": "The Denning Family Directorship",
-    "CURRENT HOLDER": "Jean Ma",
-    "WEBSITE": "http://humsci.stanford.edu"
-  },
-  {
     "Key": "H&SKAAYL0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Denning Family Professorship in the Arts",
@@ -2751,10 +2737,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKAJTR9965856",
+    "Key": "H&SKAJTR5358340",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Robert Grimmett Professorship in Mathematics",
-    "CURRENT HOLDER": "Steven P. Kerckhoff",
+    "CURRENT HOLDER": "Eleny Ionel",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -2930,6 +2916,13 @@
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Robert H. N. Ho Family Foundation Professorship in Buddhist Studies",
     "CURRENT HOLDER": "John H. Kieschnick",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
+    "Key": "H&SKAAWD5708603",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Sir Robert Ho Tung Professorship in Chinese Archaeology",
+    "CURRENT HOLDER": "Li Liu",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3906,13 +3899,6 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKAAWD5708603",
-    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
-    "POSITION": "The Sir Robert Ho Tung Professorship",
-    "CURRENT HOLDER": "Li Liu",
-    "WEBSITE": "http://humsci.stanford.edu"
-  },
-  {
     "Key": "H&SKBAWE9787284",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The James T. Watkins IV and Elise V. Watkins Professorship",
@@ -4193,10 +4179,10 @@
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKARRE5733510",
+    "Key": "Earth SciencesKARRE5709965",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Victoria and Roger Sant Directorship of the Earth Systems Program",
-    "CURRENT HOLDER": "Karen Casciotti",
+    "CURRENT HOLDER": "Kabir Peay",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
@@ -4942,10 +4928,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKHAST3885118",
+    "Key": "MedicineKHAST50023932",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Botha Chan Endowed Professorship",
-    "CURRENT HOLDER": "Gerald Grant",
+    "CURRENT HOLDER": "Cormac Maher",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6118,10 +6104,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKHARI0",
+    "Key": "MedicineKHARI9858267",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Naddisy Foundation Professorship in Pediatric Food Allergy, Immunology, and Asthma",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "David B. Lewis",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6545,10 +6531,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKASBC9923012",
+    "Key": "MedicineKASBC4236766",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Kathryn Simmons Stamey Professorship",
-    "CURRENT HOLDER": "Harcharan S. Gill",
+    "CURRENT HOLDER": "Joseph Liao",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6797,10 +6783,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKHAVK0",
+    "Key": "MedicineKHAVK20585964",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Wendy J. Tomlin-Hess Endowed Professorship",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Jochen Profit",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6808,6 +6794,20 @@
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The John A. Turner, MD, Endowed Professorship for Child and Adolescent Psychiatry",
     "CURRENT HOLDER": "Victor G. Carrion",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "MedicineKHAWQ9607653",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The John and Marva Warnock Faculty Scholar",
+    "CURRENT HOLDER": "Daniel Delitto",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "MedicineKHAWQ5076684",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The John and Marva Warnock Faculty Scholar",
+    "CURRENT HOLDER": "Amanda Kirane",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6916,55 +6916,6 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "CantorKDJTD0",
-    "SUBCATEGORY": "IRIS AND B. GERALD CANTOR CENTER FOR VISUAL ARTS",
-    "POSITION": "The Associate Directorship for Academic and Public Engagement",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://museum.stanford.edu"
-  },
-  {
-    "Key": "CantorKAURW0",
-    "SUBCATEGORY": "IRIS AND B. GERALD CANTOR CENTER FOR VISUAL ARTS",
-    "POSITION": "The Curatorship of Museum Education",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://museum.stanford.edu"
-  },
-  {
-    "Key": "CantorKAUVG23451982",
-    "SUBCATEGORY": "IRIS AND B. GERALD CANTOR CENTER FOR VISUAL ARTS",
-    "POSITION": "The John and Jill Freidenrich Directorship of the Iris and B. Gerald Cantor Center for Visual Arts",
-    "CURRENT HOLDER": "Veronica Roberts",
-    "WEBSITE": "http://museum.stanford.edu"
-  },
-  {
-    "Key": "CantorKARAB0",
-    "SUBCATEGORY": "IRIS AND B. GERALD CANTOR CENTER FOR VISUAL ARTS",
-    "POSITION": "The Robert M. and Ruth L. Halperin Curatorship in Modern and Contemporary Art",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://museum.stanford.edu"
-  },
-  {
-    "Key": "CantorKAVDV0",
-    "SUBCATEGORY": "IRIS AND B. GERALD CANTOR CENTER FOR VISUAL ARTS",
-    "POSITION": "The Maveety Curatorship in Asian Art",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://museum.stanford.edu"
-  },
-  {
-    "Key": "CantorKAAMC0",
-    "SUBCATEGORY": "IRIS AND B. GERALD CANTOR CENTER FOR VISUAL ARTS",
-    "POSITION": "The Burton and Deedee McMurtry Curatorship, Prints and Drawings",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://museum.stanford.edu"
-  },
-  {
-    "Key": "CantorKBAHS0",
-    "SUBCATEGORY": "IRIS AND B. GERALD CANTOR CENTER FOR VISUAL ARTS",
-    "POSITION": "The Phyllis Wattis Curatorship",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://museum.stanford.edu"
-  },
-  {
     "Key": "CASBSKABGK9786179",
     "SUBCATEGORY": "CENTER FOR ADVANCED STUDY IN THE BEHAVIORAL SCIENCES",
     "POSITION": "The Sara Miller McCune Directorship of CASBS",
@@ -6972,10 +6923,10 @@
     "WEBSITE": "https://casbs.stanford.edu/"
   },
   {
-    "Key": "CECLKABXG0",
+    "Key": "CECLKABXG5137338",
     "SUBCATEGORY": "CENTERS FOR EQUITY, COMMUNITY, AND LEADERSHIP",
     "POSITION": "The Scott J. J. Hsu Directorship for the Asian American Activities Center",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Linda Tran",
     "WEBSITE": "https://studentaffairs.stanford.edu/about-student-affairs/about-centers-equity-community-and-leadership"
   },
   {
@@ -7042,10 +6993,10 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "DAPERKABME5996700",
+    "Key": "DAPERKABME50024847",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
-    "POSITION": "The Couch Family Defensive Backs Coachship",
-    "CURRENT HOLDER": "Duane Akina",
+    "POSITION": "The Couch Family Safeties Coachship",
+    "CURRENT HOLDER": "Bob Gregory",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7112,10 +7063,10 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "DAPERKABJJ5357777",
+    "Key": "DAPERKABJJ0",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Kevin M. Hogan Quarterbacks Coachship",
-    "CURRENT HOLDER": "Tavita Pritchard",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7154,10 +7105,10 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "DAPERKBAAA6003387",
+    "Key": "DAPERKBAAA50024747",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Kissick Family Directorship of Football Sports Performance",
-    "CURRENT HOLDER": "Cullen Carroll",
+    "CURRENT HOLDER": "Ryan Deatrick",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7182,17 +7133,17 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "DAPERKABIE50008766",
+    "Key": "DAPERKABIE50024773",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Krishnamurthi Wide Receivers Coachship",
-    "CURRENT HOLDER": "Bobby Kennedy",
+    "CURRENT HOLDER": "Tyler Osborne",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "DAPERKABBP5357777",
+    "Key": "DAPERKABBP50024728",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Andrew Luck Directorship of Offense",
-    "CURRENT HOLDER": "Tavita Pritchard",
+    "CURRENT HOLDER": "Troy Taylor",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7273,10 +7224,10 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "DAPERKADEF5506382",
+    "Key": "DAPERKADEF50024842",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Willie Shaw Directorship of Defense",
-    "CURRENT HOLDER": "Lance Anderson",
+    "CURRENT HOLDER": "Bobby April",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7749,6 +7700,69 @@
     "WEBSITE": "https://chemh.stanford.edu/"
   },
   {
+    "Key": "Stanford ArtsKAURW0",
+    "SUBCATEGORY": "STANFORD ARTS",
+    "POSITION": "The Curatorship of Museum Education",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "https://arts.stanford.edu/"
+  },
+  {
+    "Key": "Stanford ArtsKAAQP5453051",
+    "SUBCATEGORY": "STANFORD ARTS",
+    "POSITION": "The Denning Family Directorship",
+    "CURRENT HOLDER": "Jean Ma",
+    "WEBSITE": "https://arts.stanford.edu/"
+  },
+  {
+    "Key": "Stanford ArtsKDJTD5878984",
+    "SUBCATEGORY": "STANFORD ARTS",
+    "POSITION": "The Directorship for Academic and Public Engagement",
+    "CURRENT HOLDER": "Christina Linden",
+    "WEBSITE": "https://arts.stanford.edu/"
+  },
+  {
+    "Key": "Stanford ArtsKAUVG23451982",
+    "SUBCATEGORY": "STANFORD ARTS",
+    "POSITION": "The John and Jill Freidenrich Directorship of the Iris and B. Gerald Cantor Center for Visual Arts",
+    "CURRENT HOLDER": "Veronica Roberts",
+    "WEBSITE": "https://arts.stanford.edu/"
+  },
+  {
+    "Key": "Stanford ArtsKARAB50009366",
+    "SUBCATEGORY": "STANFORD ARTS",
+    "POSITION": "The Robert M. and Ruth L. Halperin Curatorship in Modern and Contemporary Art",
+    "CURRENT HOLDER": "Aleesa Pitchamarn Alexander",
+    "WEBSITE": "https://arts.stanford.edu/"
+  },
+  {
+    "Key": "Stanford ArtsKAVDV0",
+    "SUBCATEGORY": "STANFORD ARTS",
+    "POSITION": "The Maveety Curatorship in Asian Art",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "https://arts.stanford.edu/"
+  },
+  {
+    "Key": "Stanford ArtsKAAMC0",
+    "SUBCATEGORY": "STANFORD ARTS",
+    "POSITION": "The Burton and Deedee McMurtry Curatorship, Prints and Drawings",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "https://arts.stanford.edu/"
+  },
+  {
+    "Key": "Stanford ArtsKBCOZ0",
+    "SUBCATEGORY": "STANFORD ARTS",
+    "POSITION": "The McMurtry Family Directorship of Stanford Live",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "https://arts.stanford.edu/"
+  },
+  {
+    "Key": "Stanford ArtsKBAHS0",
+    "SUBCATEGORY": "STANFORD ARTS",
+    "POSITION": "The Phyllis Wattis Curatorship",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "https://arts.stanford.edu/"
+  },
+  {
     "Key": "Bio-XKBIOX9971664",
     "SUBCATEGORY": "STANFORD BIO-X",
     "POSITION": "The Catherine Holman Johnson Directorship of Stanford Bio-X",
@@ -8033,574 +8047,574 @@
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Burt and Marion Avery Professorship in Immunology",
     "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBAOU0",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Michael and Barbara Berberian Professorship",
     "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKAQGX9761875",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Bing Presidential Professorship",
     "CURRENT HOLDER": "Marc Tessier-Lavigne",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKAQHJ5357365",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Bing Professorship in Environmental Science",
     "CURRENT HOLDER": "Rodolfo Dirzo",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBCFY0",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Peter and Helen Bing Professorship",
     "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBCFZ0",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Peter and Helen Bing Professorship II",
     "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsNAAAI5357209",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The William H. Bonsall Professorship in French",
     "CURRENT HOLDER": "Dan Edelstein",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsNAAAI9972241",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The William H. Bonsall Professorship in History",
     "CURRENT HOLDER": "Nancy S. Kollmann",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsNAAAI9784240",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The William H. Bonsall Professorship in the Humanities",
     "CURRENT HOLDER": "Beth Levin",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsNAAAI0",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The William H. Bonsall Professorship in Music",
     "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBCGA0",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Gerhard Casper Professorship",
     "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsNAAME5357209",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Christensen Directorship of Thinking Matters",
     "CURRENT HOLDER": "Dan Edelstein",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKABBX9893314",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Davies Family Provostial Professorship",
     "CURRENT HOLDER": "Kenneth E. Goodson",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBBHU2994242",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Denning Family Provostial Professorship",
     "CURRENT HOLDER": "Jonathan Berger",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBBJW9660877",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Michelle and Kevin Douglas Provostial Professorship",
     "CURRENT HOLDER": "Robert Jackson",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBCBV0",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The John W. Etchemendy Professorship",
     "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKAQVY9791724",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Freeman-Thornton Chair for the Vice Provost for Undergraduate Education",
     "CURRENT HOLDER": "Sarah Church",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKAQXH9936600",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Harald Trap Friis Professorship",
     "CURRENT HOLDER": "Andrei Linde",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBBBM3225547",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Gabilan Professorship",
     "CURRENT HOLDER": "Patricia R. Burchat",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBBQO9965294",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Harman Family Provostial Professorship",
     "CURRENT HOLDER": "William “Bill” T. Newsome",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBCFA5160094",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Jensen Huang Professorship in Global Leadership",
     "CURRENT HOLDER": "Jelena Vuckovic",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBBQU9685215",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The George and Setsuko Ishiyama Provostial Professorship",
     "CURRENT HOLDER": "Eric Lambin",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBBEU0",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Kimmelman Professorship",
     "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBAOO217973090",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Martin Luther King, Jr. Centennial Professorship",
     "CURRENT HOLDER": "Lerone A. Martin",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKAQWO9894460",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Leonardo Professorship",
     "CURRENT HOLDER": "Friedrich B. Prinz",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBBNN5529083",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Linda R. Meier and Joan F. Lane Provostial Professorship",
     "CURRENT HOLDER": "Abraham Verghese",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKATAA3567252",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Paul Pigott Professorship in Physical Sciences",
     "CURRENT HOLDER": "Zhi-Xun Shen",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBCAV5511366",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Precourt Family Professorship",
     "CURRENT HOLDER": "Sally M. Benson",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBBQY5922629",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Jay Precourt Professorship",
     "CURRENT HOLDER": "Arun Majumdar",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBBEQ9679841",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Reliance-Dhirubhai Ambani Professorship",
     "CURRENT HOLDER": "Thomas Blom Hansen",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKACOS5709664",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Edward Ricketts Provostial Professorship",
     "CURRENT HOLDER": "Larry Crowder",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBBGA9971664",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Sapp Family Provostial Professorship",
     "CURRENT HOLDER": "Carla J. Shatz",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBCGP4721080",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Sequoia Capital Professorship",
     "CURRENT HOLDER": "Fei-Fei Li",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBBVS99998940",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Shriram Family Directorship of the Knight-Hennessy Scholars Program",
     "CURRENT HOLDER": "John L. Hennessy",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKASLU9966557",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Lewis M. Terman Professorship",
     "CURRENT HOLDER": "Ellen Markman",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBBPQ0",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Lewis M. Terman Professorship II",
     "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBBJR9916834",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Carl and Marilynn Thoma Provostial Professorship in the Arts and Humanities",
     "CURRENT HOLDER": "Alexander Nemerov",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKASKL5254330",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The UPS Foundation Professorship",
     "CURRENT HOLDER": "Sarah Billington",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBBTX50004905",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Wallenberg-Bienenstock Professorship",
     "CURRENT HOLDER": "Wah Chiu",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKAUMU0",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Howard H. and Jessie T. Watkins University Professorship",
     "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "University Presidential and Provostial ProfessorshipsKBBPR0",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Howard H. and Jessie T. Watkins University Professorship",
     "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://professorships.stanford.edu/get/layout/pbooks/pro"
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
     "Key": "The Bass University FellowsKBBEI5452191",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Gregory Amadon Family University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Risa Wechsler",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKBBCA1667765",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Anonymous Friends University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Larry Diamond",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAQYD9945627",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Gerhard Casper University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Lynn Hildemann",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKBAZF9900531",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Paul Davies Family University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Thomas W. Kenny",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAAEH4286985",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Duca Family University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Allison Okamura",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAQMW3131794",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Dunlevie Family University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Paul G. Fisher",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKASPJ9775339",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Barbara D. Finberg University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Zephyr Frank",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKBAYT3750288",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Bert and Candace Forbes University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Stacey F. Bent",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAUVF5568619",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Thomas W. and Susan B. Ford University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Adrian Daub",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKBBBH4497939",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Michael Forman University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Gregory M. Walton",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAAIS7103195",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The John A. and Cynthia Fry Gunn University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Ross Shachter",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKBAZT9962697",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Mimi and Peter Haas University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Scott D. Sagan",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAAJV5568771",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Robert and Ruth Halperin University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Tomás Jiménez",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAADE3870938",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Rachford and Carlota A. Harris University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Stephen M. Sano",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKBBET9648441",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Hazy Family University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Adam Banks",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAAKX3742640",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Yumi and Yasunori Kaneko Family University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Jeanne L. Tsai",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsNAAVU5569846",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The William and Dorothy Kaye University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Haiyan Lee",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKBAFA5000001",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The William R. and Gretchen B. Kimball University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Sarah Heilshorn",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKARJH5517974",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Kleinheinz Family University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Allyson Hobbs",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAVBO35040971",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Landreth Family University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Michael R. Tomz",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKBAFM9689284",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Martin Family University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Drew Endy",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKATAH5570011",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Barbara and Buzz McCoy University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Nicole Ardoin",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKATCD9867904",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Burton J. and Deedee McMurtry University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Paula M. L. Moya",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAAGW2045201",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Milligan Family University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Carl Wieman",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAAKY5517874",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The John and Lydia Pearce Mitchell University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Caroline M. Hoxby",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAAHE4125613",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Olivier & Nomellini Family University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Noah Diffenbaugh",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAALK5849523",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Robert K. Packard University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Elaine Treharne",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAAIF9791724",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Pritzker University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Sarah Church",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKATKD9826165",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Eleanor Loring Ritch University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Nicholas Jenkins",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKBAZS9953134",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Louise and Claude Rosenberg, Jr. University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Rafe R. Mazzeo",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsNAAVR9925876",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The John Henry Samter University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Aron Rodrigue",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKBAZU3494200",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Sapp Family University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Kathryn A. Moler",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAALB5357209",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The W. Warren Shelden University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Dan Edelstein",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKBBEL1722719",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Stanford Alumni University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Gordon Chang",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAAHJ5164078",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Stanford Friends University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Mary Beth Mudgett",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKBAZV9942012",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The William and Lynda Steere University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Robert W. Dutton",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKBBBK5202577",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Sugden Family University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Alexandria Boehm",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKBAZW3601630",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Oswald G. Villard University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Barbara Voss",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAALQ9970997",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The J. Frederick and Elisabeth Brewer Weintz University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Debra M. Satz",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKAADC5075365",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Akiko Yamazaki and Jerry Yang University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Michael Bernstein",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University FellowsKBBCY9842824",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Mr. and Mrs. Frank W. Yeung University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Elizabeth A. Hadly",
-    "WEBSITE": "http://teachingcommons.stanford.edu/grants-awards/bass-university-fellows-undergraduate-education-program"
+    "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
     "Key": "The Bass University Fellows - EmeritiBASS0",
@@ -9097,6 +9111,13 @@
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "Continuing Bass University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Robert M. Waymouth",
+    "WEBSITE": ""
+  },
+  {
+    "Key": "College Faculty FellowsKJYBJ5452781",
+    "SUBCATEGORY": "COLLEGE FACULTY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
+    "POSITION": "The Nehal and Jenny Fan Raj College Faculty Fellow in Undergraduate Education",
+    "CURRENT HOLDER": "Grant Parker",
     "WEBSITE": ""
   }
 ]

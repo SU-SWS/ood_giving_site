@@ -63,13 +63,6 @@
     "link": "http://www.hoover.org/"
   },
   {
-    "id": "IRIS AND B. GERALD CANTOR CENTER FOR VISUAL ARTS",
-    "label": "Iris and B. Gerald Cantor Center for Visual Arts",
-    "section": "Centers, Institutes, and Programs",
-    "to": "iris-and-b-gerald-cantor-center-for-visual-arts",
-    "link": "http://museum.stanford.edu/"
-  },
-  {
     "id": "SCHOOL OF ENGINEERING",
     "label": "School of Engineering",
     "section": "Schools",
@@ -173,5 +166,19 @@
     "section": "Centers, Institutes, and Programs",
     "to": "wu-tsai-neurosciences-institute",
     "link": "http://neuroscience.stanford.edu/"
+  },
+  {
+    "id": "COLLEGE FACULTY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
+    "label": "College Faculty Fellows in Undergraduate Education Program",
+    "section": "Centers, Institutes, and Programs",
+    "to": "college-faculty-fellows-in-undergraduate-education-program",
+    "link": ""
+  },
+  {
+    "id": "STANFORD ARTS",
+    "label": "Stanford Arts",
+    "section": "Centers, Institutes, and Programs",
+    "to": "stanford-arts",
+    "link": "https://arts.stanford.edu/"
   }
 ]
