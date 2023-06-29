@@ -30,18 +30,18 @@ const CreateStories = (props) => {
       //     document.cookie = 'maxRelationsWarning=1; SameSite=None; Secure';
       //   }
       // }
-      if (
-        window.location.pathname == '/editor/' &&
-        !document.cookie.match(/maxRelationsWarning/)
-      ) {
-        alert(
-          "This page has exceeded Storyblok's max number of relations per request," +
-            'so some items may not be shown in the Preview. These items will ' +
-            'still be shown on the published version of the page.'
-        );
-        // Set cookie so we don't show the warning again in the same session.
-        document.cookie = 'maxRelationsWarning=1; SameSite=None; Secure';
-      }
+      // if (
+      //   window.location.pathname == '/editor/' &&
+      //   !document.cookie.match(/maxRelationsWarning/)
+      // ) {
+      //   alert(
+      //     "This page has exceeded Storyblok's max number of relations per request," +
+      //       'so some items may not be shown in the Preview. These items will ' +
+      //       'still be shown on the published version of the page.'
+      //   );
+      //   // Set cookie so we don't show the warning again in the same session.
+      //   document.cookie = 'maxRelationsWarning=1; SameSite=None; Secure';
+      // }
       return React.createElement(Components(story.content.component), {
         key: story.content._uid,
         blok: story.content,
