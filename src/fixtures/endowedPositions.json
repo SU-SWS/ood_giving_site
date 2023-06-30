@@ -434,6 +434,13 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
+    "Key": "BusinessKEJPA50025004",
+    "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
+    "POSITION": "The David S. Lobel Professorship in Business and Sustainability",
+    "CURRENT HOLDER": "Bård Harstad",
+    "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
+  },
+  {
     "Key": "BusinessKLOBL5357617",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The David S. Lobel Professorship in Private Equity",
@@ -791,10 +798,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKAVKP0",
+    "Key": "BusinessKAVKP5161603",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The William R. Timken Professorship in the Graduate School of Business",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Vikrant Vig",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -1596,17 +1603,17 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
+    "Key": "EngineeringKARRY5541097",
+    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
+    "POSITION": "The Lee Otterson Faculty Scholar",
+    "CURRENT HOLDER": "Eric Appel",
+    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
+  },
+  {
     "Key": "EngineeringKARRY9680575",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Lee Otterson Faculty Scholar",
     "CURRENT HOLDER": "Manu Prakash",
-    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
-  },
-  {
-    "Key": "EngineeringKARRY9676555",
-    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
-    "POSITION": "The Lee Otterson Faculty Scholar",
-    "CURRENT HOLDER": "Elizabeth Sattely",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1743,17 +1750,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKSING5760207",
+    "Key": "EngineeringKSING9602638",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Jagdeep and Roshni Singh Faculty Fellow",
-    "CURRENT HOLDER": "Guillaume Basse",
-    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
-  },
-  {
-    "Key": "EngineeringKSING50014740",
-    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
-    "POSITION": "The Jagdeep and Roshni Singh Faculty Fellow",
-    "CURRENT HOLDER": "Sarah Fletcher",
+    "CURRENT HOLDER": "Matthias Garten",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1764,17 +1764,31 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKSING5671611",
+    "Key": "EngineeringKSING5723882",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Jagdeep and Roshni Singh Faculty Fellow",
-    "CURRENT HOLDER": "Felipe Jornada",
+    "CURRENT HOLDER": "Arvind Karunakaran",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKSING5117781",
+    "Key": "EngineeringKSING6112816",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Jagdeep and Roshni Singh Faculty Fellow",
-    "CURRENT HOLDER": "Hae Young Noh",
+    "CURRENT HOLDER": "Khalid Osman",
+    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
+  },
+  {
+    "Key": "EngineeringKSING50005919",
+    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
+    "POSITION": "The Jagdeep and Roshni Singh Faculty Fellow",
+    "CURRENT HOLDER": "Barbara Simpson",
+    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
+  },
+  {
+    "Key": "EngineeringKSING5595804",
+    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
+    "POSITION": "The Jagdeep and Roshni Singh Faculty Fellow",
+    "CURRENT HOLDER": "Madeleine Udell",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -2170,10 +2184,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKBCND0",
+    "Key": "H&SKBCND50006205",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
-    "POSITION": "The Eavan Boland Professorship I",
-    "CURRENT HOLDER": "To Be Named",
+    "POSITION": "The Eavan Boland Professorship",
+    "CURRENT HOLDER": "Patrick Phillips",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -2394,10 +2408,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKAAYL0",
+    "Key": "H&SKAAYL5775282",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Denning Family Professorship in the Arts",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Louise Glück",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -2926,6 +2940,13 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
+    "Key": "H&SKBCQM5584433",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Sir Robert Ho Tung Professorship in Chinese Studies",
+    "CURRENT HOLDER": "Jennifer Pan",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
     "Key": "H&SKBAEG9924440",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Hoagland Family Professorship in Humanities and Sciences",
@@ -2944,6 +2965,27 @@
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Omar and Althea Dwyer Hoskins Faculty Scholar",
     "CURRENT HOLDER": "Giovanna Ceserani",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
+    "Key": "H&SKBCPO50020640",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Humanities and Sciences Professorship",
+    "CURRENT HOLDER": "Aaron Van Jordan",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
+    "Key": "H&SKBCPR5452191",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Humanities and Sciences Professorship",
+    "CURRENT HOLDER": "Risa Wechsler",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
+    "Key": "H&SKBCPS0",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Humanities and Sciences Professorship",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3098,6 +3140,13 @@
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Bella Mabury and Eloise Mabury Knapp Professorship in Humanities",
     "CURRENT HOLDER": "Elizabeth Tallent",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
+    "Key": "H&SKBCNE5275831",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Knight Family Professorship in Creative Writing",
+    "CURRENT HOLDER": "Amaud Johnson",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3332,6 +3381,13 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
+    "Key": "H&SKBCPN4298568",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The McGregor-Girand Professorship in Social Ethics of Science and Technology",
+    "CURRENT HOLDER": "Rob Reich",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
     "Key": "H&SKATBN0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Donald J. McLachlan Professorship in History",
@@ -3353,10 +3409,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKBCFK0",
+    "Key": "H&SKBCFK4639068",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Michelle Mercer and Bruce Golden Family Professorship in Feminist and Gender Studies",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Rachel Jean-Baptiste",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3451,10 +3507,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKARSO2521193",
+    "Key": "H&SKARSO0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Shuzo Nishihara Professorship in Environmental and Resource Economics",
-    "CURRENT HOLDER": "Lawrence H. Goulder",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3654,10 +3710,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKAAUQ5453051",
+    "Key": "H&SKAAUQ0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Victoria and Roger Sant Professorship in Art",
-    "CURRENT HOLDER": "Jean Ma",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3990,10 +4046,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKAJTU9969122",
+    "Key": "H&SKAJTU0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Ray Lyman Wilbur Professorship",
-    "CURRENT HOLDER": "Tze Lai",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -4305,10 +4361,10 @@
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
-    "Key": "LawKAQWV0",
+    "Key": "LawKAQWV50019394",
     "SUBCATEGORY": "STANFORD LAW SCHOOL",
-    "POSITION": "The W. A. Franke Professorship in Law and Business",
-    "CURRENT HOLDER": "To Be Named",
+    "POSITION": "The William A. Franke Professorship in Law and Business",
+    "CURRENT HOLDER": "Robert Bartlett",
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
@@ -4627,6 +4683,13 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
+    "Key": "MedicineZBAXK4563953",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Additional Ventures Endowed Directorship for the Comprehensive Single Ventricle Program",
+    "CURRENT HOLDER": "Sharon Chen",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
     "Key": "MedicineKHACF3586641",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The John R. Adler Professorship",
@@ -4739,7 +4802,14 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKHAQQ0",
+    "Key": "MedicineKHAQQ5280829",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Ben Barres Professorship",
+    "CURRENT HOLDER": "Tirin Moore",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "MedicineKHAXI0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Ben Barres Professorship",
     "CURRENT HOLDER": "To Be Named",
@@ -5530,13 +5600,6 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineZBAXK4563953",
-    "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Erin Hoffmann Endowed Directorship for the Comprehensive Single Ventricle Program",
-    "CURRENT HOLDER": "Sharon Chen",
-    "WEBSITE": "https://med.stanford.edu/profiles/"
-  },
-  {
     "Key": "MedicineKARNR9651388",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Emile Holman Professorship in Surgery",
@@ -5670,10 +5733,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKARJY4176749",
+    "Key": "MedicineKARJY7422355",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Richard L. Kempson, MD, Professorship in Surgical Pathology",
-    "CURRENT HOLDER": "Teri A. Longacre",
+    "CURRENT HOLDER": "Gerald Berry",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5852,10 +5915,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKAROV0",
+    "Key": "MedicineKAROV9600705",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Lindhard Family Professorship in Pediatric Cancer Biology",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Raya Saab",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6790,6 +6853,13 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
+    "Key": "MedicineKHAXD0",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Truong-Tan Broadcom Endowed Professorship",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
     "Key": "MedicineKHAKV4603098",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The John A. Turner, MD, Endowed Professorship for Child and Adolescent Psychiatry",
@@ -7707,10 +7777,10 @@
     "WEBSITE": "https://arts.stanford.edu/"
   },
   {
-    "Key": "Stanford ArtsKAAQP5453051",
+    "Key": "Stanford ArtsKAAQP0",
     "SUBCATEGORY": "STANFORD ARTS",
     "POSITION": "The Denning Family Directorship",
-    "CURRENT HOLDER": "Jean Ma",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://arts.stanford.edu/"
   },
   {
