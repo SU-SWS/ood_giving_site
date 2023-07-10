@@ -1,3 +1,4 @@
+require('isomorphic-fetch');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -9,50 +10,55 @@ exports.createPages = ({ graphql, actions }) => {
 
     resolve(
       graphql(
-        `{
-          allStoryblokEntry {
-            edges {
-              node {
-                id
-                name
-                created_at
-                uuid
-                slug
-                full_slug
-                content
-                is_startpage
-                parent_id
-                group_id
+        `
+          {
+            allStoryblokEntry {
+              edges {
+                node {
+                  id
+                  name
+                  created_at
+                  uuid
+                  slug
+                  full_slug
+                  content
+                  is_startpage
+                  parent_id
+                  group_id
+                }
               }
             }
           }
-        }`
-      ).then(result => {
+        `
+      ).then((result) => {
         if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
+          console.log(result.errors);
+          reject(result.errors);
         }
 
-        const entries = result.data.allStoryblokEntry.edges
+        const entries = result.data.allStoryblokEntry.edges;
         entries.forEach((entry, index) => {
-          let slug = `${entry.node.full_slug}`
-          slug = slug.replace(/^\/|\/$/g, '')
-          let pagePath = entry.node.full_slug == 'home' ? '' : slug + '/'
+          let slug = `${entry.node.full_slug}`;
+          slug = slug.replace(/^\/|\/$/g, '');
+          let pagePath = entry.node.full_slug == 'home' ? '' : slug + '/';
 
           // Wire up the 404 page by setting the path to just 404 as Gatsby expects it.
           if (pagePath.match(/^404/)) {
-            pagePath = "404"
+            pagePath = '404';
           }
 
           // Wire up the 403 page by setting the path to just 403 as Gatsby expects it.
           if (pagePath.match(/^403/)) {
-            pagePath = "403"
+            pagePath = '403';
           }
 
           // Determine if the page is canonical, or is using a custom canonical URL.
           const content = JSON.parse(entry.node.content);
           let isCanonical = true;
-          if (content.canonicalURL && (content.canonicalURL.url || content.canonicalURL.cached_url)) {
+          if (
+            content.canonicalURL &&
+            (content.canonicalURL.url || content.canonicalURL.cached_url)
+          ) {
             isCanonical = false;
           }
 
@@ -63,33 +69,40 @@ exports.createPages = ({ graphql, actions }) => {
               story: entry.node,
               isCanonical: isCanonical,
               noindex: !!content.noindex,
-            }
-          })
-        })
+            },
+          });
+        });
       })
-    )
+    );
 
     // Add Redirects pre-configured in Storyblok.
     resolve(
       graphql(
-        `{
-          allStoryblokEntry(filter: {field_enabled_boolean: {eq: true}, field_component: {eq: "redirect"}}) {
-            edges {
-              node {
-                name
-                field_to_string
-                field_from_string
-                field_enabled_boolean
-                field_statusCode_string
-                field_component
+        `
+          {
+            allStoryblokEntry(
+              filter: {
+                field_enabled_boolean: { eq: true }
+                field_component: { eq: "redirect" }
+              }
+            ) {
+              edges {
+                node {
+                  name
+                  field_to_string
+                  field_from_string
+                  field_enabled_boolean
+                  field_statusCode_string
+                  field_component
+                }
               }
             }
           }
-        }`
-      ).then(result => {
+        `
+      ).then((result) => {
         if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
+          console.log(result.errors);
+          reject(result.errors);
         }
 
         const entries = result.data.allStoryblokEntry.edges;
@@ -100,12 +113,12 @@ exports.createPages = ({ graphql, actions }) => {
             force: true,
             redirectInBrowser: false,
             statusCode: Number(entry.node.field_statusCode_string),
-          })
-        })
+          });
+        });
       })
-    )
-  })
-}
+    );
+  });
+};
 
 // Alter Gatsby's webpack config.
 exports.onCreateWebpackConfig = ({
@@ -114,42 +127,40 @@ exports.onCreateWebpackConfig = ({
   loaders,
   plugins,
   actions,
-  getConfig
+  getConfig,
 }) => {
-
   // override config only during
   // production JS & CSS build
   if (stage === 'build-javascript') {
     // get current webpack config
-    const config = getConfig()
+    const config = getConfig();
 
     // find CSS minimizer
     const minifyCssIndex = config.optimization.minimizer.findIndex(
-      minimizer => minimizer.constructor.name ===
-        'CssMinimizerPlugin'
-    )
+      (minimizer) => minimizer.constructor.name === 'CssMinimizerPlugin'
+    );
 
     // if found, overwrite existing CSS minimizer preset svgo plugin options.
     if (minifyCssIndex > -1) {
-      delete config.optimization.minimizer[minifyCssIndex].options.minimizerOptions.preset[1].svgo.plugins;
+      delete config.optimization.minimizer[minifyCssIndex].options
+        .minimizerOptions.preset[1].svgo.plugins;
     }
 
     // replace webpack config with the modified object
-    actions.replaceWebpackConfig(config)
+    actions.replaceWebpackConfig(config);
   }
-
 
   actions.setWebpackConfig({
     resolve: {
       fallback: {
-        path: require.resolve("path-browserify"),
+        path: require.resolve('path-browserify'),
         fs: false,
-      }
+      },
     },
     plugins: [
       new webpack.ProvidePlugin({
         process: 'process/browser',
       }),
-    ]
-  })
-}
+    ],
+  });
+};

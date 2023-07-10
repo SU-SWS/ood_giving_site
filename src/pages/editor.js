@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-import 'isomorphic-fetch';
 import React, { useState, useEffect } from 'react';
 import SbEditable from 'storyblok-react';
 import ClipLoader from 'react-spinners/ClipLoader';
