@@ -26,6 +26,7 @@
     "gatsby-source-storyblok": "^4.2.1",
     "gatsby-transformer-json": "^4.24.0",
     "gatsby-transformer-sharp": "^4.24.0",
+    "isomorphic-fetch": "^3.0.0",
     "netlify-plugin-contextual-env": "^0.3.0",
     "netlify-plugin-submit-sitemap": "^0.4.0",
     "netlify-plugin-vault-variables": "^1.0.7",
