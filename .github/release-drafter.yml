@@ -1,25 +1,14 @@
-name-template: 'v$RESOLVED_VERSION'
-tag-template: '$RESOLVED_VERSION'
+name-template: "v$RESOLVED_VERSION"
+tag-template: "$RESOLVED_VERSION"
 categories:
-  - title: '🚀 Features'
+  - title: "🚀 Features"
     labels:
-      - 'feature'
-  - title: '🐛 Bug Fixes'
+      - "feature"
+  - title: "🐛 Bug Fixes"
     labels:
-      - 'fix'
-  - title: '🧰 Maintenance'
-    label: 'task'
-version-resolver:
-  major:
-    labels:
-      - 'major'
-  minor:
-    labels:
-      - 'minor'
-  patch:
-    labels:
-      - 'patch'
-  default: patch
+      - "fix"
+  - title: "🧰 Maintenance"
+    label: "task"
 template: |
   ## Release Notes:
 
