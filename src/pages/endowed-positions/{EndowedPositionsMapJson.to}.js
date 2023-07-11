@@ -22,6 +22,10 @@ const Professorship = ({ data, location }) => {
     ...data.footer,
     content: JSON.parse(data.footer.content),
   };
+  const globalFooter = {
+    ...data.globalFooter,
+    content: JSON.parse(data.globalFooter.content),
+  };
   const { jsonId, label, link, to } =
     data?.allEndowedPositionsMapJson?.edges?.[0]?.node || {};
   const tableSearchTerm = jsonId;
@@ -155,7 +159,7 @@ const Professorship = ({ data, location }) => {
           </div>
         </div>
       </section>
-      <CreateStories stories={[oodLocalFooter]} />
+      <CreateStories stories={[oodLocalFooter, globalFooter]} />
     </>
   );
 };
@@ -177,6 +181,10 @@ export const query = graphql`
       content
     }
     footer: storyblokEntry(field_component: { eq: "oodLocalFooter" }) {
+      id
+      content
+    }
+    globalFooter: storyblokEntry(field_component: { eq: "globalFooter" }) {
       id
       content
     }

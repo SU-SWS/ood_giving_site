@@ -54,6 +54,11 @@ const Search = ({ data, location }) => {
     ...data.footer,
     content: JSON.parse(data.footer.content),
   };
+  const globalFooter = {
+    ...data.globalFooter,
+    content: JSON.parse(data.globalFooter.content),
+  };
+
   const headerRef = useRef(null);
 
   useEffect(() => {
@@ -141,7 +146,7 @@ const Search = ({ data, location }) => {
           </div>
         </div>
       </section>
-      <CreateStories stories={[oodLocalFooter]} />
+      <CreateStories stories={[oodLocalFooter, globalFooter]} />
     </>
   );
 };
@@ -153,6 +158,10 @@ export const query = graphql`
       content
     }
     footer: storyblokEntry(field_component: { eq: "oodLocalFooter" }) {
+      id
+      content
+    }
+    globalFooter: storyblokEntry(field_component: { eq: "globalFooter" }) {
       id
       content
     }
