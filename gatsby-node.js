@@ -1,4 +1,4 @@
-require('isomorphic-fetch');
+
 const path = require('path');
 const webpack = require('webpack');
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import 'isomorphic-fetch';
 import HtmlHead from './components/partials/htmlHead';
 
 export default class HTML extends React.Component {
