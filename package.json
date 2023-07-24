@@ -26,6 +26,7 @@
     "gatsby-source-storyblok": "^4.2.1",
     "gatsby-transformer-json": "^4.24.0",
     "gatsby-transformer-sharp": "^4.24.0",
+    "isomorphic-fetch": "^3.0.0",
     "netlify-plugin-contextual-env": "^0.3.0",
     "netlify-plugin-submit-sitemap": "^0.4.0",
     "netlify-plugin-vault-variables": "^1.0.7",
@@ -44,7 +45,7 @@
     "react-table": "^7.7.0",
     "sanitize-html": "^2.7.2",
     "slick-carousel": "^1.8.1",
-    "storyblok-js-client": "^4.1.6",
+    "storyblok-js-client": "^5.11.0",
     "storyblok-react": "^0.1.2",
     "tabbable": "^5.2.0",
     "trim": "^1.0.1"
