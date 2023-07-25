@@ -50,6 +50,7 @@ class AccordionItem extends React.Component {
             {...(props.blok.id ? { id: props.blok.id } : {})}
           >
             <button
+              type="button"
               className={`su-accordion__button ${props.accordionAfterColor} su-${props.accordionFontWeight}`}
               aria-expanded={this.state.expanded}
               onClick={this.toggle}

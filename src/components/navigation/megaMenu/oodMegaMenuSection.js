@@ -32,6 +32,7 @@ const OodMegaMenuSection = (props) => {
     <SbEditable content={props.blok}>
       <li className="ood-mega-nav__item--parent" ref={ref}>
         <button
+          type="button"
           className="ood-mega-nav__trigger"
           aria-expanded={sectionOpened}
           onClick={toggleSection}

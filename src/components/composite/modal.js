@@ -88,6 +88,7 @@ export const Modal = ({
         >
           <div className="su-modal--header">
             <button
+              type="button"
               ref={closeButton}
               className="su-modal--close"
               onClick={onClose}

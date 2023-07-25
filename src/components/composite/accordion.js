@@ -87,12 +87,14 @@ class Accordion extends React.Component {
           {props.blok.accordionItems.length > 1 && (
             <>
               <button
+                type="button"
                 className={`su-accordion__collapse-all su-button ${accordionButtonColor}`}
                 onClick={this.collapseAll}
               >
                 Collapse all
               </button>
               <button
+                type="button"
                 className={`su-accordion__expand-all su-button ${accordionButtonColor}`}
                 onClick={this.expandAll}
               >
