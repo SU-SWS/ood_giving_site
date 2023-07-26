@@ -50,10 +50,7 @@ const Autocomplete = React.forwardRef((props, ref) => {
       };
 
       const containerProps = {
-        role: null,
-        'aria-haspopup': null,
-        'aria-owns': null,
-        'aria-expanded': null,
+        'aria-owns': listboxId,
       };
 
       const inputProps = {
@@ -62,13 +59,9 @@ const Autocomplete = React.forwardRef((props, ref) => {
         type: 'text',
         placeholder: 'Search',
         id: inputId,
-        role: 'combobox',
-        'aria-haspopup': 'listbox',
-        'aria-owns': listboxId,
         onChange,
         onKeyDown,
         onFocus: () => setShouldRenderSuggestions(true),
-        'aria-expanded': currentSuggestions?.length > 0,
       };
 
       const handleSuggestionsFetch = (data) => {
