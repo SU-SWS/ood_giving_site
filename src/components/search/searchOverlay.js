@@ -63,12 +63,18 @@ const SearchOverlay = () => {
   UseFocusTrap(firstTabbableRef, lastTabbableRef, isOpen);
 
   return (
-    <div className={`search-overlay ${isOpen ? 'visible' : 'hidden'}`}>
+    <div
+      role="dialog"
+      aria-modal
+      aria-label="Search this site"
+      className={`search-overlay ${isOpen ? 'visible' : 'hidden'}`}
+    >
       <LocationProvider>
         <CenteredContainer classes="search-container su-pt-5" flex={true}>
           <FlexCell lg={11} xl={9} xxl={8} classes="su-mx-auto">
             <div className="search-header">
               <button
+                type="button"
                 className="search-close-button"
                 onClick={closeSearchOverlay}
                 ref={firstTabbableRef}
@@ -95,6 +101,8 @@ const SearchOverlay = () => {
               >
                 {isOpen && (
                   <Autocomplete
+                    inputId="search-overlay-input"
+                    listboxId="search-overlay-listbox"
                     onSubmit={submitTerm}
                     onSuggestionCleared={handleSuggestionCleared}
                     ref={inputRef}

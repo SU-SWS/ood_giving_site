@@ -131,6 +131,8 @@ const SearchResults = (props) => {
         indexName={process.env.GATSBY_ALGOLIA_SUGGESTIONS_INDEX_NAME}
       >
         <Autocomplete
+          inputId="search-page-input"
+          listboxId="search-page-listbox"
           onSubmit={handleSubmit}
           onSuggestionCleared={handleSuggestionCleared}
         />

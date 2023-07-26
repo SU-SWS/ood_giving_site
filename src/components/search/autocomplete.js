@@ -6,6 +6,7 @@ import qs from 'query-string';
 
 /* eslint-disable-next-line react/display-name */
 const Autocomplete = React.forwardRef((props, ref) => {
+  const { inputId, listboxId, ...otherProps } = props;
   const [initialTerm, setInitialTerm] = useState('');
 
   const { search } = useLocation();
@@ -48,15 +49,26 @@ const Autocomplete = React.forwardRef((props, ref) => {
         }
       };
 
+      const containerProps = {
+        role: null,
+        'aria-haspopup': null,
+        'aria-owns': null,
+        'aria-expanded': null,
+      };
+
       const inputProps = {
         ref,
         value,
         type: 'text',
         placeholder: 'Search',
-        id: 'search-input',
+        id: inputId,
+        role: 'combobox',
+        'aria-haspopup': 'listbox',
+        'aria-owns': listboxId,
         onChange,
         onKeyDown,
         onFocus: () => setShouldRenderSuggestions(true),
+        'aria-expanded': currentSuggestions?.length > 0,
       };
 
       const handleSuggestionsFetch = (data) => {
@@ -95,7 +107,7 @@ const Autocomplete = React.forwardRef((props, ref) => {
 
       return (
         <form role="search" className="search-input">
-          <label htmlFor="search-input" className="su-sr-only-element">
+          <label htmlFor={inputId} className="su-sr-only-element">
             Search this site
           </label>
           <AutoSuggest
@@ -105,7 +117,17 @@ const Autocomplete = React.forwardRef((props, ref) => {
             onSuggestionSelected={handleSubmit}
             getSuggestionValue={(hit) => hit.query}
             renderSuggestion={(hit) => hit.query}
+            containerProps={containerProps}
             inputProps={inputProps}
+            renderSuggestionsContainer={({ containerProps, children }) => (
+              <div
+                {...containerProps}
+                aria-label="Search suggestions"
+                id={listboxId}
+              >
+                {children}
+              </div>
+            )}
           />
           {value && (
             <button
