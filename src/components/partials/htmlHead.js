@@ -90,6 +90,10 @@ const HtmlHead = () => {
         href="https://www-media.stanford.edu/assets/favicon/favicon-16x16.png"
         sizes="16x16"
       />
+      <meta
+        name="google-site-verification"
+        content="tUJ214wF9k79KCsAn5wIOyOFR2eH0RlBANimm5MCFfU"
+      />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link
         rel="preconnect"
