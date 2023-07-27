@@ -19,7 +19,10 @@ const SearchOverlay = () => {
   const [isEmptyErrorVisible, setIsEmptyErrorVisible] = useState(false);
   const inputRef = useRef(null);
 
-  const searchButton = document.querySelector('.ood-header__search-button');
+  const searchButton =
+    typeof window !== 'undefined' &&
+    document.querySelector('.ood-header__search-button');
+
   const focusSearchButton = () => {
     if (searchButton) {
       // wait 100ms, then focus on search button
