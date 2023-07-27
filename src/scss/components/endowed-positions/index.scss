@@ -118,8 +118,8 @@
     text-align: left;
 
     &--homepage {
+      @include serif;
       display: inline-block;
-      font-family: "Source Serif Pro", Georgia, Times, serif;
       font-size: 1.95312em;
       font-weight: 700;
       margin: 0 0 15px;
