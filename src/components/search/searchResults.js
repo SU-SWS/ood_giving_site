@@ -130,6 +130,7 @@ const SearchResults = (props) => {
         searchClient={searchClient}
         indexName={process.env.GATSBY_ALGOLIA_SUGGESTIONS_INDEX_NAME}
       >
+        {/* This is the search bar on the search results page */}
         <Autocomplete
           inputId="search-page-input"
           listboxId="search-page-listbox"

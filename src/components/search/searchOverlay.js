@@ -19,6 +19,14 @@ const SearchOverlay = () => {
   const [isEmptyErrorVisible, setIsEmptyErrorVisible] = useState(false);
   const inputRef = useRef(null);
 
+  const searchButton = document.querySelector('.ood-header__search-button');
+  const focusSearchButton = () => {
+    if (searchButton) {
+      // wait 100ms, then focus on search button
+      setTimeout(() => searchButton.focus(), 100);
+    }
+  };
+
   useEffect(() => {
     if (isOpen && inputRef.current) {
       // when the search overlay opens, immediately give focus to the input
@@ -43,7 +51,13 @@ const SearchOverlay = () => {
     setIsEmptyErrorVisible(false);
   };
 
-  UseEscape(() => isOpen && closeSearchOverlay());
+  const handleCloseOverlay = () => {
+    closeSearchOverlay();
+    focusSearchButton();
+  };
+
+  // close search overlay and focus search button
+  UseEscape(() => isOpen && handleCloseOverlay());
 
   const {
     introduction,
@@ -76,7 +90,7 @@ const SearchOverlay = () => {
               <button
                 type="button"
                 className="search-close-button"
-                onClick={closeSearchOverlay}
+                onClick={handleCloseOverlay}
                 ref={firstTabbableRef}
                 aria-label="Close Search"
               >
