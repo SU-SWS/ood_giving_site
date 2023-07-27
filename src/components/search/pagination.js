@@ -31,7 +31,7 @@ const Pagination = ({ initialPage }) => {
       };
 
       return (
-        <nav role="navigation" aria-label="Search Results Pagination">
+        <nav aria-label="Search Results Pagination">
           <ul className="search-pagination">
             {isPreviousVisible && (
               <li className="search-pagination-item search-pagination-item--text">
