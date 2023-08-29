@@ -140,11 +140,6 @@ const StoryblokEntry = (props) => {
           // Storyblok Preview API access key.
           const key = await getParam('access_key');
 
-          // Must have the API Access key.
-          if (key.length === 0 || typeof key !== 'string') {
-            return;
-          }
-
           const script = document.createElement('script');
           script.type = 'text/javascript';
           script.src = '//app.storyblok.com/f/storyblok-v2-latest.js';
