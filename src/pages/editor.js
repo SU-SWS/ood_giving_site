@@ -160,6 +160,8 @@ const StoryblokEntry = (props) => {
         console.error('ERROR:', error);
       }
     };
+
+    handleAccessToken();
   }, [sbResolveRelations, mounted, setMounted, myStory]);
 
   /**
