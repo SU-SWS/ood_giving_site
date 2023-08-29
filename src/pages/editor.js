@@ -134,27 +134,32 @@ const StoryblokEntry = (props) => {
    */
   useEffect(() => {
     // One time load only.
-    if (!mounted) {
-      // Storyblok Preview API access key.
-      const key = getParam('access_key');
+    const handleAccessToken = async () => {
+      try {
+        if (!mounted) {
+          // Storyblok Preview API access key.
+          const key = await getParam('access_key');
 
-      // Must have the API Access key.
-      if (key.length === 0 || typeof key !== 'string') {
-        return;
+          // Must have the API Access key.
+          if (key.length === 0 || typeof key !== 'string') {
+            return;
+          }
+
+          const script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = '//app.storyblok.com/f/storyblok-v2-latest.js';
+          script.onload = () => {
+            initBridge(key, sbResolveRelations, setStory);
+          };
+          document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        // Ready to go.
+        setMounted(true);
+      } catch (error) {
+        console.error('ERROR:', error);
       }
-
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = '//app.storyblok.com/f/storyblok-v2-latest.js';
-      script.onload = () => {
-        initBridge(key, sbResolveRelations, setStory);
-      };
-      document.getElementsByTagName('head')[0].appendChild(script);
-    }
-
-    setMounted(true);
-
-    // Ready to go.
+    };
   }, [sbResolveRelations, mounted, setMounted, myStory]);
 
   /**
