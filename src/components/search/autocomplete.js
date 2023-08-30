@@ -6,6 +6,7 @@ import qs from 'query-string';
 
 /* eslint-disable-next-line react/display-name */
 const Autocomplete = React.forwardRef((props, ref) => {
+  const { inputId, listboxId, ...otherProps } = props;
   const [initialTerm, setInitialTerm] = useState('');
 
   const { search } = useLocation();
@@ -48,11 +49,16 @@ const Autocomplete = React.forwardRef((props, ref) => {
         }
       };
 
+      const containerProps = {
+        'aria-owns': listboxId,
+      };
+
       const inputProps = {
         ref,
         value,
         type: 'text',
         placeholder: 'Search',
+        id: inputId,
         onChange,
         onKeyDown,
         onFocus: () => setShouldRenderSuggestions(true),
@@ -94,6 +100,9 @@ const Autocomplete = React.forwardRef((props, ref) => {
 
       return (
         <form role="search" className="search-input">
+          <label htmlFor={inputId} className="su-sr-only-element">
+            Search this site
+          </label>
           <AutoSuggest
             suggestions={shouldRenderSuggestions ? currentSuggestions : []}
             onSuggestionsFetchRequested={handleSuggestionsFetch}
@@ -101,10 +110,21 @@ const Autocomplete = React.forwardRef((props, ref) => {
             onSuggestionSelected={handleSubmit}
             getSuggestionValue={(hit) => hit.query}
             renderSuggestion={(hit) => hit.query}
+            containerProps={containerProps}
             inputProps={inputProps}
+            renderSuggestionsContainer={({ containerProps, children }) => (
+              <div
+                {...containerProps}
+                aria-label="Search suggestions"
+                id={listboxId}
+              >
+                {children}
+              </div>
+            )}
           />
           {value && (
             <button
+              type="button"
               className="search-input-clear-button"
               onClick={() => {
                 setValue('');
@@ -113,10 +133,7 @@ const Autocomplete = React.forwardRef((props, ref) => {
               aria-label="Clear search input"
             >
               <span className="search-input-clear-text">Clear</span>
-              <i
-                aria-hidden="true"
-                className="search-input-clear-icon fas fa-times"
-              />
+              <i aria-hidden className="search-input-clear-icon fas fa-times" />
             </button>
           )}
 
@@ -128,7 +145,7 @@ const Autocomplete = React.forwardRef((props, ref) => {
             <span className="su-sr-only-element">Submit search</span>
             <i
               className="search-input-submit-button-icon fas fa-search fa-flip-horizontal"
-              aria-hidden="true"
+              aria-hidden
             />
           </button>
         </form>

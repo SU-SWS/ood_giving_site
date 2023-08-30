@@ -31,7 +31,7 @@ const Pagination = ({ initialPage }) => {
       };
 
       return (
-        <nav role="navigation" aria-label="Search Results Pagination">
+        <nav aria-label="Search Results Pagination">
           <ul className="search-pagination">
             {isPreviousVisible && (
               <li className="search-pagination-item search-pagination-item--text">
@@ -48,10 +48,7 @@ const Pagination = ({ initialPage }) => {
             )}
             {isFirstPageVisible && (
               <>
-                <li
-                  role="button"
-                  className="search-pagination-item search-pagination-item--mobile-hidden"
-                >
+                <li className="search-pagination-item search-pagination-item--mobile-hidden">
                   <a
                     onClick={($event) => handlePageChange(1, $event)}
                     href={`/search-results?page=1`}
@@ -60,7 +57,10 @@ const Pagination = ({ initialPage }) => {
                     1
                   </a>
                 </li>
-                <li className="search-pagination-item search-pagination-item--placeholder search-pagination-item--mobile-hidden">
+                <li
+                  aria-label="ellipsis indicating non-visible pages"
+                  className="search-pagination-item search-pagination-item--placeholder search-pagination-item--mobile-hidden"
+                >
                   ...
                 </li>
               </>
@@ -100,7 +100,10 @@ const Pagination = ({ initialPage }) => {
             })}
             {isLastPageVisible && (
               <>
-                <li className="search-pagination-item search-pagination-item--placeholder search-pagination-item--mobile-hidden">
+                <li
+                  aria-label="ellipsis indicating non-visible pages"
+                  className="search-pagination-item search-pagination-item--placeholder search-pagination-item--mobile-hidden"
+                >
                   ...
                 </li>
                 <li className="search-pagination-item search-pagination-item--mobile-hidden">

@@ -40,6 +40,7 @@ const oodGallerySlideshow = ({ blok }) => {
               {blok.showExpandLink && (
                 <div className="gallery-slideshow--expand">
                   <button
+                    type="button"
                     onClick={openModal}
                     className="gallery-slideshow--expand-btn"
                     aria-label="Expand gallery"
@@ -57,7 +58,11 @@ const oodGallerySlideshow = ({ blok }) => {
           </div>
 
           <div className="gallery-slideshow--controls">
-            <button className="gallery-slideshow--prev" onClick={clickPrev}>
+            <button
+              type="button"
+              className="gallery-slideshow--prev"
+              onClick={clickPrev}
+            >
               <span className="sr-only">Previous Slide</span>
               <i className="fas fa-chevron-left" aria-hidden="true"></i>
             </button>
@@ -75,7 +80,11 @@ const oodGallerySlideshow = ({ blok }) => {
                 {dots}
               </ul>
             </div>
-            <button className="gallery-slideshow--next" onClick={clickNext}>
+            <button
+              type="button"
+              className="gallery-slideshow--next"
+              onClick={clickNext}
+            >
               <span className="sr-only">Next Slide</span>
               <i className="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
@@ -109,13 +118,13 @@ const oodGallerySlideshow = ({ blok }) => {
 
   const modalSliderSettings = {
     nextArrow: (
-      <button>
+      <button type="button">
         <span className="sr-only">Next Slide</span>
         <i className="fas fa-chevron-right" aria-hidden="true"></i>
       </button>
     ),
     prevArrow: (
-      <button>
+      <button type="button">
         <span className="sr-only">Previous Slide</span>
         <i className="fas fa-chevron-left" aria-hidden="true"></i>
       </button>
