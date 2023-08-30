@@ -11,7 +11,7 @@ const OodQuoteSlider = ({ blok }) => {
 
   const sliderSettings = {
     nextArrow: (
-      <button>
+      <button type="button">
         <span className="sr-only">
           Next Slide:{' '}
           {`${
@@ -22,7 +22,7 @@ const OodQuoteSlider = ({ blok }) => {
       </button>
     ),
     prevArrow: (
-      <button>
+      <button type="button">
         <span className="sr-only">
           Previous Slide:{' '}
           {`${activeSlide === 0 ? blok.quotes.length : activeSlide} of ${

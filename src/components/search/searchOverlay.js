@@ -19,6 +19,17 @@ const SearchOverlay = () => {
   const [isEmptyErrorVisible, setIsEmptyErrorVisible] = useState(false);
   const inputRef = useRef(null);
 
+  const searchButton =
+    typeof window !== 'undefined' &&
+    document.querySelector('.ood-header__search-button');
+
+  const focusSearchButton = () => {
+    if (searchButton) {
+      // wait 100ms, then focus on search button
+      setTimeout(() => searchButton.focus(), 100);
+    }
+  };
+
   useEffect(() => {
     if (isOpen && inputRef.current) {
       // when the search overlay opens, immediately give focus to the input
@@ -43,7 +54,13 @@ const SearchOverlay = () => {
     setIsEmptyErrorVisible(false);
   };
 
-  UseEscape(() => isOpen && closeSearchOverlay());
+  const handleCloseOverlay = () => {
+    closeSearchOverlay();
+    focusSearchButton();
+  };
+
+  // close search overlay and focus search button
+  UseEscape(() => isOpen && handleCloseOverlay());
 
   const {
     introduction,
@@ -63,14 +80,20 @@ const SearchOverlay = () => {
   UseFocusTrap(firstTabbableRef, lastTabbableRef, isOpen);
 
   return (
-    <div className={`search-overlay ${isOpen ? 'visible' : 'hidden'}`}>
+    <div
+      role="dialog"
+      aria-modal
+      aria-label="Search this site"
+      className={`search-overlay ${isOpen ? 'visible' : 'hidden'}`}
+    >
       <LocationProvider>
         <CenteredContainer classes="search-container su-pt-5" flex={true}>
           <FlexCell lg={11} xl={9} xxl={8} classes="su-mx-auto">
             <div className="search-header">
               <button
+                type="button"
                 className="search-close-button"
-                onClick={closeSearchOverlay}
+                onClick={handleCloseOverlay}
                 ref={firstTabbableRef}
                 aria-label="Close Search"
               >
@@ -95,6 +118,8 @@ const SearchOverlay = () => {
               >
                 {isOpen && (
                   <Autocomplete
+                    inputId="search-overlay-input"
+                    listboxId="search-overlay-listbox"
                     onSubmit={submitTerm}
                     onSuggestionCleared={handleSuggestionCleared}
                     ref={inputRef}

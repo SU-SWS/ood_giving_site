@@ -79,6 +79,7 @@ const OodContentMenu = (props) => {
         ref={ref}
       >
         <button
+          type="button"
           className={`ood-content-nav__toggle`}
           aria-expanded={menuOpened}
           onClick={toggleMenu}

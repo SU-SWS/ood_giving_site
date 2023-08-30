@@ -26,19 +26,22 @@ const Hits = (props) => {
 
       {hits.length > 0 && <Stats />}
 
-      {hits.map((hit) => (
-        <article
-          className="search-hits-item su-mb-2 su-pb-2 su-px-default"
-          key={hit.objectID}
-        >
-          <Heading level={'h2'} serif={true} weight={'bold'}>
-            <SbLink link={{ cached_url: `/${hit.slug}` }}>{hit.title}</SbLink>
-          </Heading>
-          <p className="su-mb-none">
-            {hit.intro || hit.teaser || hit.description}
-          </p>
-        </article>
-      ))}
+      <ul className="su-list-none">
+        {hits.map((hit) => (
+          <li key={hit.objectID}>
+            <article className="search-hits-item su-mb-2 su-pb-2 su-px-default">
+              <Heading level={'h2'} serif={true} weight={'bold'}>
+                <SbLink link={{ cached_url: `/${hit.slug}` }}>
+                  {hit.title}
+                </SbLink>
+              </Heading>
+              <p className="su-mb-none">
+                {hit.intro || hit.teaser || hit.description}
+              </p>
+            </article>
+          </li>
+        ))}
+      </ul>
 
       {hits.length > 0 && <Pagination initialPage={props.initialPage} />}
     </div>
