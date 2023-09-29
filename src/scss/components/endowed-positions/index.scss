@@ -183,3 +183,51 @@
 .endowed-positions-header.ood-interior-page__intro.intro-text {
   text-align: left;
 }
+
+.endowed-positions-pie {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+/* .endowed-positions-pie {
+  aspect-ratio: 1 / 1;
+  display: inline-grid;
+  place-content: center;
+  position: relative;
+  width: 80px;
+  &::after {
+    border-radius: 50%;
+    position: absolute;
+    background: red;
+    content: "none";
+    inset: calc(50% - 5px/2);
+    transform: rotate(calc(50px*3.6deg)) translateY(calc(50% - 80px/2));
+  }
+} */
+
+/*
+aspectRatio: '1 / 1',
+        display: 'inline-grid',
+        placeContent: 'center',
+        position: 'relative',
+        width: pieWidth,
+        ...(loader ? {...loaderAnimations} : {}),
+        '&::before': {
+          background:
+            `radial-gradient(farthest-side,${pieColor} 98%,#0000) top/${borderThickness} ${borderThickness} no-repeat,
+            conic-gradient(${pieColor} calc(${percent}*1%),${pieBackgroundColor} 0)`,
+          mask: `radial-gradient(farthest-side,#0000 calc(99% - ${borderThickness}),#000 calc(100% - ${borderThickness}))`,
+          backgroundSize: '0 0, auto',
+          inset: 0,
+          borderRadius: '50%',
+          content: '""',
+          position: 'absolute',
+        },
+        '&::after': {
+          borderRadius: '50%',
+          position: 'absolute',
+          background: pieColor,
+          content: 'none',
+          inset: `calc(50% - ${borderThickness}/2)`,
+          transform: `rotate(calc(${percent}*3.6deg)) translateY(calc(50% - ${pieWidth}/2))`,
+        },*/
