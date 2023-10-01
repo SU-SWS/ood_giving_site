@@ -9,7 +9,7 @@ import EndowedPositionsNav from './EndowedPositionsNav';
 
 const pieColor = '#8C1515';
 const pieBackgroundColor = 'rgba(93, 75, 60, 0.1)';
-const borderThickness = '15px';
+const borderThickness = '20px';
 const pieWidth = '180px';
 
 const pieStylesheet = ({percent}) => {
@@ -50,8 +50,8 @@ const Pie = ({children, descriptor, percent}) => {
   return (
     <>
       <div className="endowed-positions-pie" css={styles}>
-        <span>{children}</span>
-        <span>{descriptor}</span>
+        <span className="endowed-positions-pie__number">{children}</span>
+        <span className="endowed-positions-pie__descriptor">{descriptor}</span>
       </div>
     </>
   );

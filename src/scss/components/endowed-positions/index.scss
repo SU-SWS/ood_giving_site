@@ -188,6 +188,16 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+
+  &__number {
+    font-size: 6rem;
+    font-weight: bold;
+  }
+
+  &__descriptor {
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
 }
 /* .endowed-positions-pie {
   aspect-ratio: 1 / 1;
