@@ -13,7 +13,7 @@ const borderThickness = '20px';
 const pieWidth = '180px';
 
 const pieStylesheet = ({percent}) => {
-  const offsetPercent = percent === 0 ? 100 : percent;
+  // const offsetPercent = percent === 0 ? 0 : percent;
 
   return {
     alignItems: 'center',
@@ -26,7 +26,7 @@ const pieStylesheet = ({percent}) => {
     '&::before': {
       background:
         `radial-gradient(farthest-side,${pieColor} 98%,#0000) top/${borderThickness} ${borderThickness} no-repeat,
-        conic-gradient(${pieColor} calc(${offsetPercent}*1%),${pieBackgroundColor} 0)`,
+        conic-gradient(${pieColor} calc(${percent}*1%),${pieBackgroundColor} 0)`,
       mask: `radial-gradient(farthest-side,#0000 calc(99% - ${borderThickness}),#000 calc(100% - ${borderThickness}))`,
       backgroundSize: '0 0, auto',
       inset: 0,
@@ -40,7 +40,7 @@ const pieStylesheet = ({percent}) => {
       background: pieColor,
       content: 'none',
       inset: `calc(50% - ${borderThickness}/2)`,
-      transform: `rotate(calc(${offsetPercent}*3.6deg)) translateY(calc(50% - ${pieWidth}/2))`,
+      transform: `rotate(calc(${percent}*3.6deg)) translateY(calc(50% - ${pieWidth}/2))`,
     }
   };
 }
@@ -58,8 +58,11 @@ const Pie = ({children, descriptor, percent}) => {
 }
 
 const EndowedPositionsHeader = ({ to }) => {
-  const targetDate = /* new Date('September 29, 2023') */ new Date('November 28, 2023').toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
+  const targetDate = /* new Date('October 1, 2023').toLocaleString("en-US", {timeZone: "America/Los_Angeles"}); */ new Date('November 28, 2023').toLocaleString("en-US", {timeZone: "America/Los_Angeles"});;
   const [days, hours, minutes, seconds] = useCountdown(targetDate); 
+  // if (days + hours + minutes + seconds <= 0) {
+  //   return <div>Countdown over!</div>;
+  // }
   return (
     <>
       <div className="ood-interior-page--no-image ood-support-page">
