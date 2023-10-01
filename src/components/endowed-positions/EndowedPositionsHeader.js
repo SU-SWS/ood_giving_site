@@ -1,14 +1,55 @@
+/** @jsx jsx */
 import React from 'react';
+import { jsx } from '@emotion/react';
 import { Link } from 'gatsby';
 
 import { useCountdown } from '../../hooks/useCountdown';
 
 import EndowedPositionsNav from './EndowedPositionsNav';
 
-const Pie = ({children, descriptor}) => {
+const pieColor = '#8C1515';
+const pieBackgroundColor = 'rgba(93, 75, 60, 0.1)';
+const borderThickness = '15px';
+const pieWidth = '180px';
+
+const pieStylesheet = ({percent}) => {
+  const offsetPercent = percent === 0 ? 100 : percent;
+
+  return {
+    alignItems: 'center',
+    aspectRatio: '1 / 1',
+    display: 'inline-grid',
+    placeContent: 'center',
+    position: 'relative',
+    textAlign: 'center',
+    width: pieWidth,
+    '&::before': {
+      background:
+        `radial-gradient(farthest-side,${pieColor} 98%,#0000) top/${borderThickness} ${borderThickness} no-repeat,
+        conic-gradient(${pieColor} calc(${offsetPercent}*1%),${pieBackgroundColor} 0)`,
+      mask: `radial-gradient(farthest-side,#0000 calc(99% - ${borderThickness}),#000 calc(100% - ${borderThickness}))`,
+      backgroundSize: '0 0, auto',
+      inset: 0,
+      borderRadius: '50%',
+      content: '""',
+      position: 'absolute',
+    },
+    '&::after': {
+      borderRadius: '50%',
+      position: 'absolute',
+      background: pieColor,
+      content: 'none',
+      inset: `calc(50% - ${borderThickness}/2)`,
+      transform: `rotate(calc(${offsetPercent}*3.6deg)) translateY(calc(50% - ${pieWidth}/2))`,
+    }
+  };
+}
+
+const Pie = ({children, descriptor, percent}) => {
+  const styles = pieStylesheet({percent});
   return (
     <>
-      <div className="endowed-positions-pie">
+      <div className="endowed-positions-pie" css={styles}>
         <span>{children}</span>
         <span>{descriptor}</span>
       </div>
@@ -17,7 +58,7 @@ const Pie = ({children, descriptor}) => {
 }
 
 const EndowedPositionsHeader = ({ to }) => {
-  const targetDate = new Date('November 28, 2023');
+  const targetDate = /* new Date('September 29, 2023') */ new Date('November 28, 2023');
   const [days, hours, minutes, seconds] = useCountdown(targetDate); 
   return (
     <>
@@ -47,11 +88,11 @@ const EndowedPositionsHeader = ({ to }) => {
                   </div>
                   <EndowedPositionsNav to={to} />
                   <h3>Counting to November 28, 2023</h3>
-                  <div style={{display: "flex"}}>
-                    <Pie descriptor="days">{days}</Pie>:
-                    <Pie descriptor="hours">{hours}</Pie>:
-                    <Pie descriptor="minutes">{minutes}</Pie>:
-                    <Pie descriptor="seconds">{seconds}</Pie>
+                  <div css={{display: "flex"}}>
+                    <Pie descriptor="days" percent={(days / 60) * 100}>{days}</Pie>:
+                    <Pie descriptor="hours" percent={(hours / 24) * 100}>{hours}</Pie>:
+                    <Pie descriptor="minutes" percent={(minutes / 60) * 100}>{minutes}</Pie>:
+                    <Pie descriptor="seconds" percent={(seconds / 60) * 100}>{seconds}</Pie>
                   </div>
                 </div>
               </div>
