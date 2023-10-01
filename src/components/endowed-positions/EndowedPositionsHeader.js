@@ -58,7 +58,7 @@ const Pie = ({children, descriptor, percent}) => {
 }
 
 const EndowedPositionsHeader = ({ to }) => {
-  const targetDate = /* new Date('September 29, 2023') */ new Date('November 28, 2023');
+  const targetDate = /* new Date('September 29, 2023') */ new Date('November 28, 2023').toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
   const [days, hours, minutes, seconds] = useCountdown(targetDate); 
   return (
     <>
