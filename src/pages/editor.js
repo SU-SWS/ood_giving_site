@@ -53,7 +53,7 @@ const initBridge = function (key, sbResolveRelations, setStory) {
       sbClient
         .get(`cdn/stories/${getParam('path')}`, {
           version: 'draft',
-          resolve_relations: sbResolveRelations || [],
+          resolve_relations: sbResolveRelations,
           token: key,
         })
         .then(({ data }) => {
