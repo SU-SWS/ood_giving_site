@@ -87,6 +87,7 @@ const initBridge = function (key, sbResolveRelations, setStory) {
         token: key,
       })
       .then(({ data }) => {
+        console.log('SBCLIENT INSTANCE DATA', data);
         if (data.story) {
           setStory(data.story.content);
         }
