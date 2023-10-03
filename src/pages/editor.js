@@ -81,22 +81,24 @@ const initBridge = function (key, sbResolveRelations, setStory) {
     // loading the draft version on initial view of the page
     console.log('SBCLIENT INSTANCE KEY', key);
     console.log('SBCLIENT INSTANCE PATH', getParam('path'));
-    sbClient
-      .get(`cdn/stories/${getParam('path')}`, {
-        version: 'draft',
-        resolve_relations: sbResolveRelations || [],
-        token: key,
-      })
-      .then(({ data }) => {
-        console.log('SBCLIENT INSTANCE DATA', data);
-        if (data.story) {
-          setStory(data.story.content);
-        }
-      })
-      .catch((error) => {
-        /* eslint-disable no-console */
-        console.log('SBCLIENT INSTANCE ERR:', error);
-      });
+    if (key) {
+      sbClient
+        .get(`cdn/stories/${getParam('path')}`, {
+          version: 'draft',
+          resolve_relations: sbResolveRelations || [],
+          token: key,
+        })
+        .then(({ data }) => {
+          console.log('SBCLIENT INSTANCE DATA', data);
+          if (data.story) {
+            setStory(data.story.content);
+          }
+        })
+        .catch((error) => {
+          /* eslint-disable no-console */
+          console.log('SBCLIENT INSTANCE ERR:', error);
+        });
+    }
   });
 };
 
