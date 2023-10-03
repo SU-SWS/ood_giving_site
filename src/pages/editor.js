@@ -56,7 +56,6 @@ const initBridge = function (key, sbResolveRelations, setStory) {
         .get(`cdn/stories/${getParam('path')}`, {
           version: 'draft',
           resolve_relations: sbResolveRelations,
-          token: key,
         })
         .then(({ data }) => {
           if (data.story) {
@@ -86,7 +85,6 @@ const initBridge = function (key, sbResolveRelations, setStory) {
         .get(`cdn/stories/${getParam('path')}`, {
           version: 'draft',
           resolve_relations: sbResolveRelations || [],
-          token: key,
         })
         .then(({ data }) => {
           if (data.story) {
