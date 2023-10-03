@@ -79,7 +79,7 @@ const initBridge = function (key, sbResolveRelations, setStory) {
   });
   storyblokInstance.on('enterEditmode', () => {
     // loading the draft version on initial view of the page
-    console.count('SBCLIENT INSTANCE KEY', key);
+    console.log('SBCLIENT INSTANCE KEY', key);
     sbClient
       .get(`cdn/stories/${getParam('path')}`, {
         version: 'draft',
