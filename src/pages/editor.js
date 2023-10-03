@@ -6,7 +6,9 @@ import { useStaticQuery, graphql } from 'gatsby';
 import StoryblokClient from 'storyblok-js-client';
 import Components from '../components/components';
 
-const sbClient = new StoryblokClient({});
+const sbClient = new StoryblokClient({
+  accessToken: process.env.GATSBY_STORYBLOK_ACCESS_TOKEN,
+});
 
 /**
  *
