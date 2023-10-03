@@ -65,7 +65,7 @@ const initBridge = function (key, sbResolveRelations, setStory) {
         })
         .catch((error) => {
           /* eslint-disable no-console */
-          console.log('SBCLIENT STORIES ERR:', error);
+          console.log(error);
         });
     }
   });
@@ -81,8 +81,6 @@ const initBridge = function (key, sbResolveRelations, setStory) {
   });
   storyblokInstance.on('enterEditmode', () => {
     // loading the draft version on initial view of the page
-    console.log('SBCLIENT INSTANCE KEY', key);
-    console.log('SBCLIENT INSTANCE PATH', getParam('path'));
     if (key) {
       sbClient
         .get(`cdn/stories/${getParam('path')}`, {
@@ -91,14 +89,13 @@ const initBridge = function (key, sbResolveRelations, setStory) {
           token: key,
         })
         .then(({ data }) => {
-          console.log('SBCLIENT INSTANCE DATA', data);
           if (data.story) {
             setStory(data.story.content);
           }
         })
         .catch((error) => {
           /* eslint-disable no-console */
-          console.log('SBCLIENT INSTANCE ERR:', error);
+          console.log(error);
         });
     }
   });
