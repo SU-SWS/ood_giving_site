@@ -6,9 +6,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import StoryblokClient from 'storyblok-js-client';
 import Components from '../components/components';
 
-const sbClient = new StoryblokClient({
-  accessToken: process.env.GATSBY_STORYBLOK_ACCESS_TOKEN,
-});
 
 /**
  *
@@ -31,6 +28,10 @@ const getParam = function (val) {
 
   return result;
 };
+
+const sbClient = new StoryblokClient({
+  accessToken: getParam('access_key'),
+});
 
 /**
  * This is Sparta
