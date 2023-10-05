@@ -6,7 +6,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import StoryblokClient from 'storyblok-js-client';
 import Components from '../components/components';
 
-
 /**
  *
  * @param {*} val
@@ -17,7 +16,7 @@ const getParam = function (val) {
   let tmp = [];
 
   window.location.search
-    .substr(1)
+    .substring(1)
     .split('&')
     .forEach((item) => {
       tmp = item.split('=');
