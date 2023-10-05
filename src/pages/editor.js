@@ -29,15 +29,15 @@ const getParam = function (val) {
   return result;
 };
 
-const sbClient = new StoryblokClient({
-  accessToken: getParam('access_key'),
-});
-
 /**
  * This is Sparta
  */
 const initBridge = function (key, sbResolveRelations, setStory) {
   const { StoryblokBridge } = window;
+
+  const sbClient = new StoryblokClient({
+    accessToken: key,
+  });
 
   // Initialize the Storyblok JS Bridge
   const storyblokInstance = new StoryblokBridge({
