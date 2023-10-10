@@ -194,8 +194,5 @@ module.exports = {
         path: `./src/constants/`,
       },
     },
-    {
-      resolve: `gatsby-plugin-emotion`,
-    },
   ],
 };
