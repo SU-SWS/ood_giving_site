@@ -6,8 +6,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import StoryblokClient from 'storyblok-js-client';
 import Components from '../components/components';
 
-const sbClient = new StoryblokClient({});
-
 /**
  *
  * @param {*} val
@@ -18,7 +16,7 @@ const getParam = function (val) {
   let tmp = [];
 
   window.location.search
-    .substr(1)
+    .substring(1)
     .split('&')
     .forEach((item) => {
       tmp = item.split('=');
@@ -35,6 +33,10 @@ const getParam = function (val) {
  */
 const initBridge = function (key, sbResolveRelations, setStory) {
   const { StoryblokBridge } = window;
+
+  const sbClient = new StoryblokClient({
+    accessToken: key,
+  });
 
   // Initialize the Storyblok JS Bridge
   const storyblokInstance = new StoryblokBridge({
@@ -53,8 +55,7 @@ const initBridge = function (key, sbResolveRelations, setStory) {
       sbClient
         .get(`cdn/stories/${getParam('path')}`, {
           version: 'draft',
-          resolve_relations: sbResolveRelations || [],
-          token: key,
+          resolve_relations: sbResolveRelations,
         })
         .then(({ data }) => {
           if (data.story) {
@@ -83,7 +84,6 @@ const initBridge = function (key, sbResolveRelations, setStory) {
       .get(`cdn/stories/${getParam('path')}`, {
         version: 'draft',
         resolve_relations: sbResolveRelations || [],
-        token: key,
       })
       .then(({ data }) => {
         if (data.story) {
@@ -134,27 +134,28 @@ const StoryblokEntry = (props) => {
    */
   useEffect(() => {
     // One time load only.
-    if (!mounted) {
-      // Storyblok Preview API access key.
-      const key = getParam('access_key');
+    const handleAccessToken = async () => {
+      try {
+        if (!mounted) {
+          // Storyblok Preview API access key.
+          const key = await getParam('access_key');
 
-      // Must have the API Access key.
-      if (key.length === 0 || typeof key !== 'string') {
-        return;
+          const script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = '//app.storyblok.com/f/storyblok-v2-latest.js';
+          script.onload = () => {
+            initBridge(key, sbResolveRelations, setStory);
+          };
+          document.getElementsByTagName('head')[0].appendChild(script);
+        }
+        // Ready to go.
+        setMounted(true);
+      } catch (error) {
+        console.error('HANDLE ACCESS TOKEN ERROR:', error);
       }
+    };
 
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = '//app.storyblok.com/f/storyblok-v2-latest.js';
-      script.onload = () => {
-        initBridge(key, sbResolveRelations, setStory);
-      };
-      document.getElementsByTagName('head')[0].appendChild(script);
-    }
-
-    setMounted(true);
-
-    // Ready to go.
+    handleAccessToken();
   }, [sbResolveRelations, mounted, setMounted, myStory]);
 
   /**
