@@ -3,7 +3,7 @@ import React from 'react';
 import CountdownPie from './CountdownPie';
 import UseCountdown from '../../hooks/useCountdown';
 
-const Countdown = (props) => {
+const Countdown = () => {
   const targetDate = new Date('November 28, 2023').toLocaleString('en-US', {
     timeZone: 'America/Los_Angeles',
   });
