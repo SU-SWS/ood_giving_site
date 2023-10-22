@@ -8,7 +8,7 @@ const Countdown = () => {
     timeZone: 'America/Los_Angeles',
   });
   const [days, hours, minutes, seconds] = UseCountdown(targetDate);
-  
+
   // render nothing for now when countdown is over
   if (days + hours + minutes + seconds <= 0) {
     return null;
