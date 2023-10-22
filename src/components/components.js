@@ -72,7 +72,7 @@ import EndowedPositionsSearchPicker from './endowed-positions/EndowedPositionsSe
 import EndowedPositionsSearch from './endowed-positions/EndowedPositionsSearch';
 // Giving Tuesday Countdown
 import CountdownPicker from './giving-tuesday/CountdownPicker';
-import Countdown from './giving-tuesday/countdown';
+import Countdown from './giving-tuesday/Countdown';
 
 const ComponentList = {
   page: Page,
