@@ -21,11 +21,11 @@ const EndowedPositionsHeader = ({ to }) => (
                 <div>
                   <p>
                     <span>
-                      <Link to="/endowed-positions">Endowed positions</Link>{' '}
-                      are gifted by donors to support outstanding faculty,
-                      staff, and campus leaders. Through these meaningful
-                      investments, donors help enhance the Stanford community
-                      and strengthen the university’s future.
+                      <Link to="/endowed-positions">Endowed positions</Link> are
+                      gifted by donors to support outstanding faculty, staff,
+                      and campus leaders. Through these meaningful investments,
+                      donors help enhance the Stanford community and strengthen
+                      the university’s future.
                     </span>
                   </p>
                 </div>
