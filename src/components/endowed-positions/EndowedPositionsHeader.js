@@ -10,7 +10,7 @@ const pieBackgroundColor = 'rgba(93, 75, 60, 0.1)';
 const borderThickness = '20px';
 const pieWidth = '180px';
 
-const Pie = ({children, className, descriptor, percent}) => {
+const Pie = ({ children, className, descriptor, percent }) => {
   return (
     <>
       <style>
@@ -24,11 +24,13 @@ const Pie = ({children, className, descriptor, percent}) => {
       </div>
     </>
   );
-}
+};
 
 const EndowedPositionsHeader = ({ to }) => {
-  const targetDate = new Date('November 28, 2023').toLocaleString("en-US", {timeZone: "America/Los_Angeles"});;
-  const [days, hours, minutes, seconds] = useCountdown(targetDate); 
+  const targetDate = new Date('November 28, 2023').toLocaleString('en-US', {
+    timeZone: 'America/Los_Angeles',
+  });
+  const [days, hours, minutes, seconds] = useCountdown(targetDate);
   // if (days + hours + minutes + seconds <= 0) {
   //   return <div>Countdown over!</div>;
   // }
@@ -50,21 +52,39 @@ const EndowedPositionsHeader = ({ to }) => {
                   <div>
                     <p>
                       <span>
-                        <Link to="/endowed-positions">Endowed positions</Link> are
-                        gifted by donors to support outstanding faculty, staff,
-                        and campus leaders. Through these meaningful investments,
-                        donors help enhance the Stanford community and strengthen
-                        the university’s future.
+                        <Link to="/endowed-positions">Endowed positions</Link>{' '}
+                        are gifted by donors to support outstanding faculty,
+                        staff, and campus leaders. Through these meaningful
+                        investments, donors help enhance the Stanford community
+                        and strengthen the university’s future.
                       </span>
                     </p>
                   </div>
                   <EndowedPositionsNav to={to} />
                   <h3>Counting to November 28, 2023</h3>
-                  <div style={{display: "flex"}}>
+                  <div style={{ display: 'flex' }}>
                     {/* <Pie descriptor="days" percent={(days / 60) * 100}>{days}</Pie>: */}
-                    <Pie className="pie-hours" descriptor="hours" percent={(hours / 24) * 100}>{hours}</Pie>
-                    <Pie className="pie-minutes" descriptor="minutes" percent={(minutes / 60) * 100}>{minutes}</Pie>
-                    <Pie className="pie-seconds" descriptor="seconds" percent={(seconds / 60) * 100}>{seconds}</Pie>
+                    <Pie
+                      className="pie-hours"
+                      descriptor="hours"
+                      percent={(hours / 24) * 100}
+                    >
+                      {hours}
+                    </Pie>
+                    <Pie
+                      className="pie-minutes"
+                      descriptor="minutes"
+                      percent={(minutes / 60) * 100}
+                    >
+                      {minutes}
+                    </Pie>
+                    <Pie
+                      className="pie-seconds"
+                      descriptor="seconds"
+                      percent={(seconds / 60) * 100}
+                    >
+                      {seconds}
+                    </Pie>
                   </div>
                 </div>
               </div>
