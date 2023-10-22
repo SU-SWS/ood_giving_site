@@ -11,7 +11,6 @@ const Countdown = () => {
 
   return (
     <div className="countdown-wrapper">
-      {/* <CountdownPie descriptor="days" percent={(days / 60) * 100}>{days}</CountdownPie>: */}
       <CountdownPie
         className="pie-hours"
         descriptor="hours"
