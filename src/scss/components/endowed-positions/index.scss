@@ -183,38 +183,3 @@
 .endowed-positions-header.ood-interior-page__intro.intro-text {
   text-align: left;
 }
-
-.endowed-positions-pie {
-  align-items: center;
-  aspect-ratio: 1 / 1;
-  display: inline-grid;
-  flex-direction: column;
-  place-content: center;
-  position: relative;
-  text-align: center;
-
-  &::after {
-    border-radius: 50%;
-    content: none;
-    position: absolute;
-  }
-
-  &::before {
-    background-repeat: no-repeat;
-    background-size: 0 0, auto;
-    inset: 0;
-    border-radius: 50%;
-    content: "";
-    position: absolute;
-  }
-
-  &__number {
-    font-size: 6rem;
-    font-weight: bold;
-  }
-
-  &__descriptor {
-    font-size: 2rem;
-    text-transform: uppercase;
-  }
-}

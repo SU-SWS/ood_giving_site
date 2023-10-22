@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react';
 import { navigate } from 'gatsby';
-import SbEditable from 'storyblok-react';
 
 const EndowedPositionsSearch = (props) => {
   const [searchTerm, setSearchTerm] = useState('');

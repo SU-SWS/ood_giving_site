@@ -1,0 +1,38 @@
+.countdown-wrapper {
+  display: flex;
+}
+
+.countdown-pie {
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  display: inline-grid;
+  flex-direction: column;
+  place-content: center;
+  position: relative;
+  text-align: center;
+
+  &::after {
+    border-radius: 50%;
+    content: none;
+    position: absolute;
+  }
+
+  &::before {
+    background-repeat: no-repeat;
+    background-size: 0 0, auto;
+    inset: 0;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+  }
+
+  &__number {
+    font-size: clamp(0.8rem, 8vw, 6rem);
+    font-weight: bold;
+  }
+
+  &__descriptor {
+    font-size: clamp(0.4rem, 2vw, 2rem);
+    text-transform: uppercase;
+  }
+}
