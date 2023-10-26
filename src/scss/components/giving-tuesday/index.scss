@@ -1,12 +1,15 @@
 .countdown-wrapper {
   display: flex;
+  max-width: 560px;
 }
 
 .countdown-pie {
   align-items: center;
   aspect-ratio: 1 / 1;
   display: inline-grid;
+  flex: 0 1 32%;
   flex-direction: column;
+  justify-content: space-between;
   place-content: center;
   position: relative;
   text-align: center;
