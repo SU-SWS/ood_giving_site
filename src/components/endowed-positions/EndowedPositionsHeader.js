@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import EndowedPositionsNav from './EndowedPositionsNav';
-import Countdown from '../giving-tuesday/countdown';
+import Countdown from '../giving-tuesday/Countdown';
 
 const EndowedPositionsHeader = ({ to }) => (
   <>
