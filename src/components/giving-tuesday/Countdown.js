@@ -15,11 +15,7 @@ const Countdown = () => {
   }
 
   return (
-    <div
-      aria-atomic="true"
-      className="countdown-wrapper"
-      role="timer"
-    >
+    <div aria-atomic="true" className="countdown-wrapper" role="timer">
       <CountdownPie
         className="pie-hours"
         descriptor="hours"
