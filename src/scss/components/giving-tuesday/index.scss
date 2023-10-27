@@ -31,12 +31,12 @@
   }
 
   &__number {
-    font-size: clamp(0.8rem, 8vw, 6rem);
+    font-size: clamp(1rem, 8vw, 6rem);
     font-weight: bold;
   }
 
   &__descriptor {
-    font-size: clamp(0.4rem, 2vw, 2rem);
+    font-size: clamp(1rem, 2vw, 2rem);
     text-transform: uppercase;
   }
 }
