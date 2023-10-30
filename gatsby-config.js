@@ -33,6 +33,7 @@ const storyblokRelations = [
   'storyPicker.story',
   'alertPicker.alert',
   'endowedPositionsSearchPicker.endowedPositionsSearch',
+  'countdownPicker.countdown',
 ];
 
 module.exports = {

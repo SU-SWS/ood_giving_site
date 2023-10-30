@@ -1,0 +1,42 @@
+.countdown-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 560px;
+}
+
+.countdown-pie {
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  display: inline-grid;
+  flex: 0 1 32%;
+  flex-direction: column;
+  justify-content: space-between;
+  place-content: center;
+  position: relative;
+  text-align: center;
+
+  &::after {
+    border-radius: 50%;
+    content: none;
+    position: absolute;
+  }
+
+  &::before {
+    background-repeat: no-repeat;
+    background-size: 0 0, auto;
+    inset: 0;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+  }
+
+  &__number {
+    font-size: clamp(1rem, 8vw, 6rem);
+    font-weight: bold;
+  }
+
+  &__descriptor {
+    font-size: clamp(1rem, 2vw, 2rem);
+    text-transform: uppercase;
+  }
+}
