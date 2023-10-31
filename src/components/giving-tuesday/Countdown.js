@@ -17,7 +17,7 @@ const Countdown = () => {
 
   return (
     <div aria-atomic="true" className="countdown-wrapper" role="timer">
-      {days >= 0 && (
+      {days > 0 && (
         <div className="countdown-pie-row">
           <div className="countdown-spacer" />
           <CountdownPie
