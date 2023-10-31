@@ -17,17 +17,19 @@ const Countdown = () => {
 
   return (
     <div aria-atomic="true" className="countdown-wrapper" role="timer">
-      <div className="countdown-pie-row">
-        <div className="countdown-spacer" />
-        <CountdownPie
-          className="pie-days"
-          descriptor="days"
-          percent={(days / 29) * 100}
-        >
-          {days}
-        </CountdownPie>
-        <div className="countdown-spacer" />
-      </div>
+      {days >= 0 && (
+        <div className="countdown-pie-row">
+          <div className="countdown-spacer" />
+          <CountdownPie
+            className="pie-days"
+            descriptor="days"
+            percent={(days / 29) * 100}
+          >
+            {days}
+          </CountdownPie>
+          <div className="countdown-spacer" />
+        </div>
+      )}
       <div className="countdown-pie-row">
         <CountdownPie
           className="pie-hours"
