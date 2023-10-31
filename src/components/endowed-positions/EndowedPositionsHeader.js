@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import EndowedPositionsNav from './EndowedPositionsNav';
-
+import Countdown from '../giving-tuesday/Countdown';
 const EndowedPositionsHeader = ({ to }) => (
   <>
     <div className="ood-interior-page--no-image ood-support-page">
@@ -30,6 +30,7 @@ const EndowedPositionsHeader = ({ to }) => (
                   </p>
                 </div>
                 <EndowedPositionsNav to={to} />
+                <Countdown />
               </div>
             </div>
           </div>
