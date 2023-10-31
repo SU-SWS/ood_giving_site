@@ -4,14 +4,10 @@ import CountdownPie from './CountdownPie';
 import UseCountdown from '../../hooks/useCountdown';
 
 const Countdown = () => {
-  // new Date(Date.UTC(year,month,day,hours,minutes,seconds,msec)) 
-  // const targetDate = new Date('November 28, 2023').toLocaleString('en-US', {
-  //   timeZone: 'America/Los_Angeles',
-  // });
   /**
    * manually set date to 11/28/2023 w/ a UTC offset (no daylight savings)
    */
-  const targetDate = new Date(Date.UTC(2023,10,28,8));
+  const targetDate = new Date(Date.UTC(2023, 10, 28, 8));
   const [days, hours, minutes, seconds] = UseCountdown(targetDate);
 
   // render nothing for now when countdown is over
