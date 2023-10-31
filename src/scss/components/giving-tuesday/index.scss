@@ -1,7 +1,17 @@
 .countdown-wrapper {
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+.countdown-pie-row {
   display: flex;
   justify-content: space-between;
-  max-width: 560px;
+  margin: 0 0 10px;
+}
+
+.countdown-spacer {
+  flex: 0 1 32%;
+  width: 180px;
 }
 
 .countdown-pie {
