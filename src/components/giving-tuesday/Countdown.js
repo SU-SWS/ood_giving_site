@@ -7,7 +7,7 @@ const Countdown = () => {
   /**
    * manually set date to 11/28/2023 w/ a UTC offset (no daylight savings)
    */
-  const targetDate = new Date(Date.UTC(2023, 10, 28, 8));
+  const targetDate = new Date(Date.UTC(2023, 10, 29, 8, 59, 59));
   const [days, hours, minutes, seconds] = UseCountdown(targetDate);
 
   // render nothing for now when countdown is over
