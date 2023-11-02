@@ -1,52 +1,62 @@
 .countdown-wrapper {
-  margin: 0 auto;
-  max-width: 560px;
-}
-
-.countdown-pie-row {
   display: flex;
-  justify-content: space-between;
-  margin: 0 0 10px;
-}
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0 auto 10px;
+  max-width: 540px;
 
-.countdown-spacer {
-  flex: 0 1 32%;
-  width: 180px;
-}
+  &.has-days {
+    max-width: 720px;
+    // 800px see reasoning below, but this is where we want 2x2
+    @media only screen and (max-width: 800px) {
+      max-width: 360px;
+    }
 
-.countdown-pie {
-  align-items: center;
-  aspect-ratio: 1 / 1;
-  display: inline-grid;
-  flex: 0 1 32%;
-  flex-direction: column;
-  justify-content: space-between;
-  place-content: center;
-  position: relative;
-  text-align: center;
-
-  &::after {
-    border-radius: 50%;
-    content: none;
-    position: absolute;
+    .countdown-pie {
+      flex-basis: 24%;
+      // 800px is a bit arbitrary but that seems to be when the text gets unreadable
+      @media only screen and (max-width: 800px) {
+        flex-basis: 40%;
+        margin-bottom: 10px;
+      }
+    }
   }
 
-  &::before {
-    background-repeat: no-repeat;
-    background-size: 0 0, auto;
-    inset: 0;
-    border-radius: 50%;
-    content: "";
-    position: absolute;
-  }
-
-  &__number {
-    font-size: clamp(1rem, 8vw, 6rem);
-    font-weight: bold;
-  }
-
-  &__descriptor {
-    font-size: clamp(1rem, 2vw, 2rem);
-    text-transform: uppercase;
+  .countdown-pie {
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    display: inline-grid;
+    flex: 0 1 32%;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 180px;
+    place-content: center;
+    position: relative;
+    text-align: center;
+  
+    &::after {
+      border-radius: 50%;
+      content: none;
+      position: absolute;
+    }
+  
+    &::before {
+      background-repeat: no-repeat;
+      background-size: 0 0, auto;
+      inset: 0;
+      border-radius: 50%;
+      content: "";
+      position: absolute;
+    }
+  
+    &__number {
+      font-size: clamp(1rem, 8vw, 6rem);
+      font-weight: bold;
+    }
+  
+    &__descriptor {
+      font-size: clamp(1rem, 2vw, 2rem);
+      text-transform: uppercase;
+    }
   }
 }
