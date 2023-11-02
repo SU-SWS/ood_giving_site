@@ -30,7 +30,6 @@ const Countdown = () => {
         >
           {days}
         </CountdownPie>
-          
       )}
       <CountdownPie
         className="pie-hours"
