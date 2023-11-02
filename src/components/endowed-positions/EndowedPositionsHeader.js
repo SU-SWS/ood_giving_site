@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import EndowedPositionsNav from './EndowedPositionsNav';
-import Countdown from '../giving-tuesday/Countdown';
 
 const EndowedPositionsHeader = ({ to }) => (
   <>
@@ -31,7 +30,6 @@ const EndowedPositionsHeader = ({ to }) => (
                   </p>
                 </div>
                 <EndowedPositionsNav to={to} />
-                <Countdown />
               </div>
             </div>
           </div>

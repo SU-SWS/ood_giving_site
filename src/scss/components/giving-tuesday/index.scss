@@ -3,12 +3,18 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 0 auto 10px;
-  max-width: 720px;
+  max-width: 540px;
 
   &.has-days {
+    max-width: 720px;
+    // 800px see reasoning below, but this is where we want 2x2
+    @media only screen and (max-width: 800px) {
+      max-width: 360px;
+    }
+
     .countdown-pie {
       flex-basis: 24%;
-      // 700px is a bit arbitrary but that seems to be when the text gets unreadable
+      // 800px is a bit arbitrary but that seems to be when the text gets unreadable
       @media only screen and (max-width: 800px) {
         flex-basis: 40%;
         margin-bottom: 10px;
@@ -23,6 +29,7 @@
     flex: 0 1 32%;
     flex-direction: column;
     justify-content: space-between;
+    max-width: 180px;
     place-content: center;
     position: relative;
     text-align: center;

@@ -19,7 +19,7 @@ const Countdown = () => {
   return (
     <div
       aria-atomic="true"
-      className={classNames("countdown-wrapper", {["has-days"]: days > 0})}
+      className={classNames('countdown-wrapper', { ['has-days']: days > 0 })}
       role="timer"
     >
       {days > 0 && (
