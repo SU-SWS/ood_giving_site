@@ -70,6 +70,9 @@ import OodCampaignImpact from './composite/oodCampaignImpact';
 // Endowed Positions
 import EndowedPositionsSearchPicker from './endowed-positions/EndowedPositionsSearchPicker';
 import EndowedPositionsSearch from './endowed-positions/EndowedPositionsSearch';
+// Giving Tuesday Countdown
+import CountdownPicker from './giving-tuesday/CountdownPicker';
+import Countdown from './giving-tuesday/Countdown';
 
 const ComponentList = {
   page: Page,
@@ -134,6 +137,8 @@ const ComponentList = {
   oodGallerySlideshow: oodGallerySlideshow,
   endowedPositionsSearchPicker: EndowedPositionsSearchPicker,
   endowedPositionsSearch: EndowedPositionsSearch,
+  countdownPicker: CountdownPicker,
+  countdown: Countdown,
 };
 
 const Components = (type) => {
