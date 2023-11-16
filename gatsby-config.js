@@ -146,7 +146,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        implementation: require('node-sass'),
         sassOptions: {
           includePaths: [path.resolve(__dirname, 'node_modules')],
         },
