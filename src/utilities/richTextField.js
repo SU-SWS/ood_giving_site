@@ -8,7 +8,11 @@ const Storyblok = new StoryblokClient({});
 
 function createMarkup(storyblokHTML) {
   // Run sanitizer and renderer.
-  let markup = sanitizeHtml(Storyblok.richTextResolver.render(storyblokHTML));
+  let markup = sanitizeHtml(Storyblok.richTextResolver.render(storyblokHTML), {
+    // allowedTags: false, // This allows extra HTML tags to be rendered, e.g., H2, img
+    // allowedAttributes: false, // This allows custom class names
+    // allowVulnerableTags: true, // https://github.com/apostrophecms/sanitize-html/blob/main/CHANGELOG.md#1250
+  });
 
   // Rewrite the URL to the redirect link to mask the API endpoint.
   if (config.isNetlify) {
