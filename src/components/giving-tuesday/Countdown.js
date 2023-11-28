@@ -19,7 +19,7 @@ const Countdown = () => {
   return (
     <div
       aria-atomic="true"
-      className="countdown-wrapper"
+      className="countdown-wrapper has-days"
       role="timer"
     >
       <CountdownPie
