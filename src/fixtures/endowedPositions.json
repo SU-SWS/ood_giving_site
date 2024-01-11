@@ -591,7 +591,7 @@
     "KEY": "BusinessKRAAX0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The James Irvin Miller Professorship in Finance",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Zhiguo He",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -812,10 +812,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "KEY": "BusinessKASCV9967688",
+    "KEY": "BusinessKASCV0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Carl and Marilynn Thoma Professorship in the Graduate School of Business",
-    "CURRENT HOLDER": "Hau L. Lee",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -1029,10 +1029,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "KEY": "EngineeringKAUNT9940081",
+    "KEY": "EngineeringKAUNT0",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Rodney H. Adams Professorship in the School of Engineering",
-    "CURRENT HOLDER": "Bernard Roth",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1162,6 +1162,13 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
+    "KEY": "EngineeringKWMKO4643607",
+    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
+    "POSITION": "The Cheriton Family Professorship",
+    "CURRENT HOLDER": "Ron Dror",
+    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
+  },
+  {
     "KEY": "EngineeringKWMKO50004632",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Cheriton Family Faculty Scholar",
@@ -1173,13 +1180,6 @@
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Cheriton Family Professorship",
     "CURRENT HOLDER": "Mendel Rosenblum",
-    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
-  },
-  {
-    "KEY": "EngineeringKWMKO0",
-    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
-    "POSITION": "The Cheriton Family Professorship",
-    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1267,10 +1267,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "KEY": "EngineeringKAQUV6087096",
+    "KEY": "EngineeringKAQUV5588064",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The David Filo and Jerry Yang Faculty Scholar",
-    "CURRENT HOLDER": "Itai Ashlagi",
+    "CURRENT HOLDER": "Mary Wootters",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1960,7 +1960,7 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "KEY": "H&SKAUNJ",
+    "KEY": "H&SKAUNJ9596945",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Billie Bennett Achilles Directorship of Keyboard Programs",
     "CURRENT HOLDER": "Elizabeth Schumann",
@@ -2093,10 +2093,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "KEY": "H&SKAAER7130248",
+    "KEY": "H&SKAAER0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The John D. and Sigrid Banks Professorship",
-    "CURRENT HOLDER": "David O. Siegmund",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3388,10 +3388,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "KEY": "H&SKASZD1216712",
+    "KEY": "H&SKASZD0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Robert and Florence McDonnell Professorship in Eastern European Studies",
-    "CURRENT HOLDER": "Norman M. Naimark",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3658,6 +3658,13 @@
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Charles and Elizabeth Prothro Professorship in Marine Sciences",
     "CURRENT HOLDER": "Barbara Block",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
+    "KEY": "H&SKBCPB5177779",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Nehal and Jenny Fan Raj Lecturer in Undergraduate Teaching",
+    "CURRENT HOLDER": "Brian Coyne",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -4396,10 +4403,10 @@
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
-    "KEY": "LawNAAVS0",
+    "KEY": "LawNAAVS5328729",
     "SUBCATEGORY": "STANFORD LAW SCHOOL",
     "POSITION": "The Edwin A. Heafey, Jr. Visiting Professorship",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Fred Smith",
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
@@ -4697,10 +4704,10 @@
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
-    "KEY": "MedicineKHABO0",
+    "KEY": "MedicineKHABO9593229",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Deborah E. Addicott-John A. Kriewall and Elizabeth A. Haehl Family Professorship in Pediatrics",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Justin Baker",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -4914,10 +4921,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "KEY": "MedicineKAAET1045848",
+    "KEY": "MedicineKAAET0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Lucy Becker Professorship in Medicine",
-    "CURRENT HOLDER": "Lucy S. Tompkins",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5026,10 +5033,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "KEY": "MedicineKHAXP0",
+    "KEY": "MedicineKHAXP5378913",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Lawrence Bowman Family Faculty Fellow",
-    "CURRENT HOLDER": "To Be Named",
+    "POSITION": "The Lawrence Bowman Family Fellow",
+    "CURRENT HOLDER": "Grace Soon Kim",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5159,6 +5166,13 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
+    "KEY": "MedicineKHALP3208048",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Harvey J. Cohen, MD, PhD, Professorship in Pediatrics",
+    "CURRENT HOLDER": "Sheri L. Spunt",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
     "KEY": "MedicineKAURN0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Roy B. Cohn-Theodore A. Falasco Professorship in Cardiothoracic Surgery",
@@ -5243,10 +5257,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "KEY": "MedicineKHAEB0",
+    "KEY": "MedicineKHAEB4073904",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Thelma and Henry Doelger Professorship in Cardiovascular Surgery II",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Leah Backhus",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5359,13 +5373,6 @@
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Endowed Directorship of Pediatric Imaging",
     "CURRENT HOLDER": "Richard A. Barth",
-    "WEBSITE": "https://med.stanford.edu/profiles/"
-  },
-  {
-    "KEY": "MedicineKHALP3208048",
-    "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Endowed Professorship in Pediatric Cancer",
-    "CURRENT HOLDER": "Sheri L. Spunt",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5670,10 +5677,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "KEY": "MedicineKARES9910720",
+    "KEY": "MedicineKARES0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The William M. Hume Professorship in the School of Medicine",
-    "CURRENT HOLDER": "William Weis",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5782,10 +5789,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "KEY": "MedicineNAAAU0",
+    "KEY": "MedicineNAAAU9593995",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Marron and Mary Elizabeth Kendrick Professorship in Pediatrics",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Jonathan Klein",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6314,7 +6321,7 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "KEY": "Medicine0",
+    "KEY": "MedicineKHAUM0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Paralyzed Veterans of America Professorship of Spinal Cord Injury Medicine II",
     "CURRENT HOLDER": "To Be Named",
@@ -6356,10 +6363,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "KEY": "MedicineKARUY7756356",
+    "KEY": "MedicineKARUY0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Edward F. and Irene Thiele Pimley Professorship in Neurology and the Neurological Sciences",
-    "CURRENT HOLDER": "David A. Prince",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6587,6 +6594,13 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
+    "KEY": "MedicineKHAPW3751286",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Mary and Dr. Salim Shelby Professorship",
+    "CURRENT HOLDER": "William Talbot",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
     "KEY": "MedicineKBAGR5622269",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Drs. Ben and A. Jess Shenson Professorship",
@@ -6734,10 +6748,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "KEY": "MedicineKHAWM0",
+    "KEY": "MedicineKHAWM5773639",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Stanford Medicine Professorship in Pathology",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Stephen Montgomery",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6762,10 +6776,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "KEY": "MedicineKAAGS0",
+    "KEY": "MedicineKAAGS5568870",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Stanford University Professorship in Nephrology",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Tara Chang",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6818,10 +6832,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "KEY": "MedicineKHAQN50003711",
+    "KEY": "MedicineKHAQN0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Taube Distinguished Scholar for Pediatric Immunotherapy",
-    "CURRENT HOLDER": "Robbie Majzner",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -7476,10 +7490,10 @@
     "WEBSITE": "https://fsi.stanford.edu/people/institute-faculty-researchers"
   },
   {
-    "KEY": "FSIKAZEI1609122",
+    "KEY": "FSIKAZEI0",
     "SUBCATEGORY": "FREEMAN SPOGLI INSTITUTE FOR INTERNATIONAL STUDIES",
     "POSITION": "The Frank Stanton Professorship in Nuclear Security",
-    "CURRENT HOLDER": "Rodney Ewing",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://fsi.stanford.edu/people/institute-faculty-researchers"
   },
   {
@@ -7504,10 +7518,10 @@
     "WEBSITE": "https://fsi.stanford.edu/people/institute-faculty-researchers"
   },
   {
-    "KEY": "HaasKALRY9760901",
+    "KEY": "HaasKALRY5400711",
     "SUBCATEGORY": "HAAS CENTER FOR PUBLIC SERVICE",
     "POSITION": "The Peter E. Haas Directorship",
-    "CURRENT HOLDER": "Deborah Stipek",
+    "CURRENT HOLDER": "Juliet Brodie",
     "WEBSITE": "http://haas.stanford.edu/"
   },
   {
@@ -7812,10 +7826,10 @@
     "WEBSITE": "https://arts.stanford.edu/"
   },
   {
-    "KEY": "Stanford ArtsKAAQP0",
+    "KEY": "Stanford ArtsKAAQP5516097",
     "SUBCATEGORY": "STANFORD ARTS",
     "POSITION": "The Denning Family Directorship",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Hideo Mabuchi",
     "WEBSITE": "https://arts.stanford.edu/"
   },
   {
@@ -7875,6 +7889,27 @@
     "WEBSITE": "http://biox.stanford.edu/"
   },
   {
+    "KEY": "Stanford Data ScienceKBCNS0",
+    "SUBCATEGORY": "STANFORD DATA SCIENCE",
+    "POSITION": "The Jane Lauder Professorship in Stanford Data Science",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "https://datascience.stanford.edu/about/people"
+  },
+  {
+    "KEY": "Stanford Data ScienceKABUP0",
+    "SUBCATEGORY": "STANFORD DATA SCIENCE",
+    "POSITION": "The Ram and Vijay Shriram Data Science Fellow",
+    "CURRENT HOLDER": "Ambarish Chattopadhyay",
+    "WEBSITE": "https://datascience.stanford.edu/about/people"
+  },
+  {
+    "KEY": "Stanford Data ScienceKABUP0",
+    "SUBCATEGORY": "STANFORD DATA SCIENCE",
+    "POSITION": "The Ram and Vijay Shriram Data Science Fellow",
+    "CURRENT HOLDER": "Tijana Zrnic",
+    "WEBSITE": "https://datascience.stanford.edu/about/people"
+  },
+  {
     "KEY": "SIEPRKAQNR3541323",
     "SUBCATEGORY": "STANFORD INSTITUTE FOR ECONOMIC POLICY RESEARCH",
     "POSITION": "The Gordon Cain Senior Fellow",
@@ -7921,6 +7956,13 @@
     "SUBCATEGORY": "STANFORD INSTITUTE FOR ECONOMIC POLICY RESEARCH",
     "POSITION": "The Trione Directorship of SIEPR",
     "CURRENT HOLDER": "Mark G. Duggan",
+    "WEBSITE": "http://siepr.stanford.edu/people"
+  },
+  {
+    "KEY": "SIEPRKAAUH0",
+    "SUBCATEGORY": "STANFORD INSTITUTE FOR ECONOMIC POLICY RESEARCH",
+    "POSITION": "The Trione Visiting Professorship in Economics",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://siepr.stanford.edu/people"
   },
   {
@@ -8246,13 +8288,6 @@
     "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
-    "KEY": "University Presidential and Provostial ProfessorshipsKBCBV0",
-    "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
-    "POSITION": "The John W. Etchemendy Professorship",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
-  },
-  {
     "KEY": "University Presidential and Provostial ProfessorshipsKBBTN50003622",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Firmenich Next Generation Faculty Scholar",
@@ -8260,10 +8295,10 @@
     "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
-    "KEY": "University Presidential and Provostial ProfessorshipsKAQVY9791724",
+    "KEY": "University Presidential and Provostial ProfessorshipsKAQVY0",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Freeman-Thornton Chair for the Vice Provost for Undergraduate Education",
-    "CURRENT HOLDER": "Sarah Church",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
@@ -8624,10 +8659,10 @@
     "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
-    "KEY": "The Bass University FellowsKAAIF9791724",
+    "KEY": "The Bass University FellowsKAAIF0",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Pritzker University Fellow in Undergraduate Education",
-    "CURRENT HOLDER": "Sarah Church",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
