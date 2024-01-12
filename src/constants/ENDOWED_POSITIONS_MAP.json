@@ -180,5 +180,12 @@
     "section": "Centers, Institutes, and Programs",
     "to": "stanford-arts",
     "link": "https://arts.stanford.edu/"
+  },
+  {
+    "id": "STANFORD DATA SCIENCE",
+    "label": "Stanford Data Science",
+    "section": "Centers, Institutes, and Programs",
+    "to": "stanford-data-science",
+    "link": "https://datascience.stanford.edu/about/people"
   }
 ]

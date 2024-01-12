@@ -146,7 +146,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        implementation: require('node-sass'),
         sassOptions: {
           includePaths: [path.resolve(__dirname, 'node_modules')],
         },
@@ -177,7 +176,7 @@ module.exports = {
         queries: require('./src/utilities/algoliaQueries'),
         // we skip the indexing completely on non-prod builds.
         skipIndexing: !!(
-          process.env.ALGOLIA_SKIP_INDEXING === "true" ||
+          process.env.ALGOLIA_SKIP_INDEXING === 'true' ||
           process.env.CONTEXT !== 'production'
         ),
       },
