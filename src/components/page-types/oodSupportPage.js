@@ -123,7 +123,7 @@ const OodSupportPage = (props) => {
                   name="areas-to-support"
                   onClick={updateHash}
                 />
-                <label htmlFor="medicine">Medicine + Health Care</label>
+                <label htmlFor="medicine">Medicine</label>
                 <input
                   type="radio"
                   id="science"
