@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import CountdownPie from './CountdownPie';
@@ -19,37 +19,21 @@ const Countdown = () => {
        */
       setCountdownDate(new Date(Date.UTC(2024, 3, 4, 14, 0, 0)));
     }
-  }, [countdownDate, setCountdownDate])
+  }, [countdownDate, setCountdownDate]);
 
   if (days + hours + minutes + seconds <= 0) {
     return (
-      <div className='countdown-wrapper has-days'>
-        <CountdownPie
-          className="pie-days" 
-          descriptor="days"
-          percent={0}
-        >
+      <div className="countdown-wrapper has-days">
+        <CountdownPie className="pie-days" descriptor="days" percent={0}>
           0
         </CountdownPie>
-        <CountdownPie
-          clasName="pie-hours"
-          descriptor="hours"
-          percent={0}
-        >
+        <CountdownPie clasName="pie-hours" descriptor="hours" percent={0}>
           0
         </CountdownPie>
-        <CountdownPie
-          clasName="pie-minutes"
-          descriptor="minutes"
-          percent={0}
-        >
+        <CountdownPie clasName="pie-minutes" descriptor="minutes" percent={0}>
           0
         </CountdownPie>
-        <CountdownPie
-          className="pie-seconds"
-          descriptor="seconds"
-          percent={0}
-        >
+        <CountdownPie className="pie-seconds" descriptor="seconds" percent={0}>
           0
         </CountdownPie>
       </div>
