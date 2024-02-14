@@ -15,7 +15,7 @@ const Countdown = () => {
   useEffect(() => {
     if (!countdownDate) {
       /**
-       * manually set date to 04/04/2024 w/ a UTC offset (no daylight savings)
+       * manually set date to 04/04/2024 7AM w/ a UTC offset (no daylight savings)
        */
       setCountdownDate(new Date(Date.UTC(2024, 3, 4, 14, 0, 0)));
     }
