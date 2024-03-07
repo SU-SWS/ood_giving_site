@@ -44,7 +44,7 @@ const Countdown = ({ blok }) => {
       {days + hours + minutes + seconds <= 0 ? (
         <div
           className={classNames('countdown-wrapper', {
-            ['has-days']: days > 0
+            ['has-days']: days > 0,
           })}
         >
           {days > 0 && hasDays && (
