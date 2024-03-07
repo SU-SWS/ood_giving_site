@@ -9,14 +9,14 @@ const getDescriptorString = (descriptor, time) => {
   return time !== 1 ? `${descriptor}s` : descriptor;
 };
 
-const convertDaysToHours = (days) => days ? days * 24 : 0;
+const convertDaysToHours = (days) => (days ? days * 24 : 0);
 
-const Countdown = ({blok}) => {
-  const {date, hasDays, hourPieRange} = blok;
+const Countdown = ({ blok }) => {
+  const { date, hasDays, hourPieRange } = blok;
   const [countdownDate, setCountdownDate] = useState(null);
   const [days, hours, minutes, seconds] = UseCountdown(countdownDate) || [];
   const displayHours = hasDays ? hours : convertDaysToHours(days) + hours;
-  const displayHourPieRange = hasDays ? 24 : hourPieRange; 
+  const displayHourPieRange = hasDays ? 24 : hourPieRange;
 
   useEffect(() => {
     if (!countdownDate) {
@@ -42,8 +42,12 @@ const Countdown = ({blok}) => {
   return (
     <SbEditable content={blok}>
       {days + hours + minutes + seconds <= 0 ? (
-        <div className={classNames('countdown-wrapper', { ['has-days']: days > 0 })}>
-          {hasDays && (
+        <div
+          className={classNames('countdown-wrapper', {
+            ['has-days']: days > 0
+          })}
+        >
+          {days > 0 && hasDays && (
             <CountdownPie className="pie-days" descriptor="days" percent={0}>
               0
             </CountdownPie>
@@ -54,17 +58,23 @@ const Countdown = ({blok}) => {
           <CountdownPie clasName="pie-minutes" descriptor="minutes" percent={0}>
             0
           </CountdownPie>
-          <CountdownPie className="pie-seconds" descriptor="seconds" percent={0}>
+          <CountdownPie
+            className="pie-seconds"
+            descriptor="seconds"
+            percent={0}
+          >
             0
           </CountdownPie>
         </div>
       ) : (
         <div
           aria-atomic="true"
-          className={classNames('countdown-wrapper', { ['has-days']: days > 0 })}
+          className={classNames('countdown-wrapper', {
+            ['has-days']: days > 0,
+          })}
           role="timer"
         >
-          {(days > 0 && hasDays) && (
+          {days > 0 && hasDays && (
             <CountdownPie
               className="pie-days"
               descriptor={getDescriptorString('day', days)}
