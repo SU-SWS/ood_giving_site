@@ -3125,7 +3125,7 @@
     "Key": "H&SKARIW5452672",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Sara Hart Kimball Professorship in the Humanities",
-    "CURRENT HOLDER": "Branislav Jakovljevi?",
+    "CURRENT HOLDER": "Branislav Jakovljević",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -8214,7 +8214,7 @@
     "Key": "NeurosciencesKABVC5573932",
     "SUBCATEGORY": "WU TSAI NEUROSCIENCES INSTITUTE",
     "POSITION": "The Bonnie Uytengsu and Family Director of the Stanford Brain Organogenesis Program",
-    "CURRENT HOLDER": "Sergiu P. Pa?ca",
+    "CURRENT HOLDER": "Sergiu P. Pașca",
     "WEBSITE": "http://neuroscience.stanford.edu/"
   },
   {
@@ -9342,6 +9342,27 @@
     "SUBCATEGORY": "COLLEGE FACULTY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Nehal and Jenny Fan Raj College Faculty Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Grant Parker",
+    "WEBSITE": ""
+  },
+  {
+    "Key": "College Faculty FellowsKJYBO0",
+    "SUBCATEGORY": "COLLEGE FACULTY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
+    "POSITION": "The Alex Ramlie College Faculty Fellow I",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": ""
+  },
+  {
+    "Key": "College Faculty FellowsKJYBO0",
+    "SUBCATEGORY": "COLLEGE FACULTY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
+    "POSITION": "The Alex Ramlie College Faculty Fellow II",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": ""
+  },
+  {
+    "Key": "College Faculty FellowsKJYBN0",
+    "SUBCATEGORY": "COLLEGE FACULTY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
+    "POSITION": "The Tiedtke Family College Faculty Fellow",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": ""
   }
 ]
