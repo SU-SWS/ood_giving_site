@@ -50,11 +50,15 @@ const CampaignHero = (props) => {
         <div className="campaign-page__image-wrapper">{full_width_image}</div>
         <div className={campaignContentClasses}>
           <div
-            className={`campaign-page__hero-content-wrapper ${
+            className={cx(
+              'campaign-page__hero-content-wrapper',
               isFullWidthImage
                 ? 'flex-md-9-of-12 flex-lg-6-of-12 column-grid__column'
+                : '',
+              blok.heroContentPosition === 'center' && isFullWidthImage
+                ? 'su-mx-auto'
                 : ''
-            }`}
+            )}
           >
             {blok.logo?.filename && (
               <img
