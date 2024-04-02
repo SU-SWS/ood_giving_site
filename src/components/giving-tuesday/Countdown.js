@@ -12,7 +12,7 @@ const getDescriptorString = (descriptor, time) => {
 const convertDaysToHours = (days) => (days ? days * 24 : 0);
 
 const Countdown = ({ blok }) => {
-  const { date, hasDays, hourPieRange } = blok;
+  const { date, hasDays, hourPieRange, useNew } = blok;
   const [countdownDate, setCountdownDate] = useState(null);
   const [days, hours, minutes, seconds] = UseCountdown(countdownDate) || [];
   const displayHours = hasDays ? hours : convertDaysToHours(days) + hours;
@@ -21,12 +21,21 @@ const Countdown = ({ blok }) => {
   useEffect(() => {
     if (!countdownDate) {
       if (!date) {
-        /**
-         * manually set date to 04/04/2024 7AM w/ a UTC offset (no daylight savings)
-         * this should only stay for the current campaign, can remove this and make
-         * component purely storyblok configurable after campaign
-         */
-        setCountdownDate(new Date(Date.UTC(2024, 3, 4, 14, 0, 0)));
+        if (useNew) {
+          /**
+           * manually set date to 04/05/2024 7PM w/ a UTC offset (no daylight savings)
+           * this should only stay for the current campaign, can remove this and make
+           * component purely storyblok configurable after campaign
+           */
+          setCountdownDate(new Date(Date.UTC(2024, 3, 6, 2, 0, 0)));
+        } else {
+          /**
+           * manually set date to 04/04/2024 7AM w/ a UTC offset (no daylight savings)
+           * this should only stay for the current campaign, can remove this and make
+           * component purely storyblok configurable after campaign
+           */
+          setCountdownDate(new Date(Date.UTC(2024, 3, 4, 14, 0, 0)));
+        }
       } else {
         /**
          * the date prop returns in the following format: "2023-11-21 23:56"
