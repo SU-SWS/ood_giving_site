@@ -16,6 +16,10 @@ const ForeignSourceReporting = ({ data, location }) => {
     ...data?.globalFooter,
     content: JSON.parse(data?.globalFooter.content),
   };
+
+  const searchParams = new URLSearchParams(location.search);
+  const email = searchParams.get('email') || '';
+
   return (
     <>
       <Helmet>
@@ -29,15 +33,14 @@ const ForeignSourceReporting = ({ data, location }) => {
       <div>
         <iframe
           className="airtable-embed"
-          src="https://airtable.com/embed/appqrMELkE4ZYdFly/pagrpihZXaAaE34DJ/form"
+          src={`https://airtable.com/embed/appqrMELkE4ZYdFly/pagrpihZXaAaE34DJ/form?prefill_email=${email}&prefill_hiddenEmail=${email}&hide_hiddenEmail=true`}
           frameBorder="0"
           style={{
             background: 'transparent',
-            // border: '1px solid #ccc',
             width: '100%',
             height: '1200px',
           }}
-          allowTransparency
+          allowtransparency="true"
         />
       </div>
       <CreateStories stories={[oodLocalFooter, globalFooter]} />
