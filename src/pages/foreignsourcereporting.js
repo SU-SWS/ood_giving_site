@@ -35,7 +35,7 @@ const ForeignSourceReporting = ({ data, location }) => {
             background: 'transparent',
             // border: '1px solid #ccc',
             width: '100%',
-            height: '1000px',
+            height: '1200px',
           }}
           allowTransparency
         />
