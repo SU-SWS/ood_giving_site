@@ -33,7 +33,7 @@ const ForeignSourceReporting = ({ data, location }) => {
       <div>
         <iframe
           className="airtable-embed"
-          src={`https://airtable.com/embed/appqrMELkE4ZYdFly/pagrpihZXaAaE34DJ/form?prefill_email=${email}&prefill_hiddenEmail=${email}&hide_hiddenEmail=true`}
+          src={`https://airtable.com/embed/appssF3RJFHENkFV5/pagK0vwq4xqA4pUPa/form?prefill_userEmail=${email}&prefill_emailAddress=${email}&hide_emailAddress=true`}
           frameBorder="0"
           style={{
             background: 'transparent',
