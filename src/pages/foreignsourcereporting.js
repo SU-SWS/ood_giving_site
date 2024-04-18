@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import CreateStories from '../utilities/createStories';
@@ -17,8 +17,13 @@ const ForeignSourceReporting = ({ data, location }) => {
     content: JSON.parse(data?.globalFooter.content),
   };
 
-  const searchParams = new URLSearchParams(location.search);
-  const email = searchParams.get('email') || '';
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const email = searchParams.get('email') || '';
+    setEmail(email);
+  }, [location.search]);
 
   return (
     <>
