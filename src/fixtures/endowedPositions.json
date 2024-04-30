@@ -462,10 +462,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKAVCM0",
+    "Key": "BusinessKAVCM5042940",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Jonathan B. Lovelace Professorship in the Graduate School of Business",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Ali Yurukoglu",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -686,10 +686,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKAQOV0",
+    "Key": "BusinessKAQOV5421352",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Edward B. Rust Professorship in the Graduate School of Business",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Juan Carlos Suárez Serrato",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -812,10 +812,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKASCV0",
+    "Key": "BusinessKASCV4822680",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Carl and Marilynn Thoma Professorship in the Graduate School of Business",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Mohsen Bayati",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -1029,10 +1029,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKAUNT0",
+    "Key": "EngineeringKAUNT9823444",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Rodney H. Adams Professorship in the School of Engineering",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Pamela Hinds",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1040,6 +1040,13 @@
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Alcatel-Lucent Professorship in Communications and Networking",
     "CURRENT HOLDER": "Alexander Aiken",
+    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
+  },
+  {
+    "Key": "EngineeringKAQCG5539404",
+    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
+    "POSITION": "The Reid and Polly Anderson Faculty Fellow",
+    "CURRENT HOLDER": "Vivian Feig",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1519,10 +1526,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKDNDG0",
+    "Key": "EngineeringKDNDG5423201",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Hong Seh and Vivian W. M. Lim Professorship",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Alberto Salleo",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -5383,10 +5390,38 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
+    "Key": "MedicineZBBDH4009320",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Endowed Directorship of the Center for Advanced Pediatric and Perinatal Education",
+    "CURRENT HOLDER": "Lou Halamek",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "MedicineZBBBL100009725",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Endowed Medical Directorship of Pediatric Celiac Disease",
+    "CURRENT HOLDER": "Hilary Jericho",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
     "Key": "MedicineZBAGK9914193",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Endowed Directorship of Pediatric Imaging",
     "CURRENT HOLDER": "Richard A. Barth",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "MedicineZBBBL9593672",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Endowed Medical Directorship of Pediatric Inflammatory Bowel Disease",
+    "CURRENT HOLDER": "Jonathan Moses",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "MedicineZBBBK9605203",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Endowed Directorship for the Stanford Medicine Children's Health Center for Inflammatory Bowel Disease and Celiac Disease",
+    "CURRENT HOLDER": "Michael J. Rosen",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5691,10 +5726,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKARES0",
+    "Key": "MedicineKARES3570660",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The William M. Hume Professorship in the School of Medicine",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Sylvia Plevritis",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5845,10 +5880,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineZBAFI9747759",
+    "Key": "MedicineZBAFI9590234",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The John A. Kriewall and Elizabeth A. Haehl Directorship of Pediatric Palliative Care",
-    "CURRENT HOLDER": "Barbara Sourkes",
+    "CURRENT HOLDER": "Alexis Morvant",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5891,6 +5926,13 @@
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Laurie Kraus Lacob Professorship",
     "CURRENT HOLDER": "Jonathan S. Berek",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "MedicineKHAXR3725207",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Laurie Kraus Lacob Research Directorship",
+    "CURRENT HOLDER": "Matthew Porteus",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6797,7 +6839,7 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKHATP9769027",
+    "Key": "MedicineKHATP9605203",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Stanford University Endowed Professorship for Pediatric IBD and Celiac Disease",
     "CURRENT HOLDER": "Michael J. Rosen",
@@ -6822,6 +6864,13 @@
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Faculty Scholar in Stem Cell Biology",
     "CURRENT HOLDER": "Marius Wernig",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "MedicineKHAYH9707890",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Stem Cell Institute Directorship",
+    "CURRENT HOLDER": "Ravi Majeti",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -7224,10 +7273,10 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "DAPERKAAZG9969536",
+    "Key": "DAPERKAAZG4065223",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Setsuko Ishiyama Directorship of Women’s Basketball",
-    "CURRENT HOLDER": "Tara VanDerveer",
+    "CURRENT HOLDER": "Kate Paye",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7245,10 +7294,10 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "DAPERNSAAC50001969",
+    "Key": "DAPERNSAAC50029634",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Anne and Tony Joseph Directorship of Men’s Basketball",
-    "CURRENT HOLDER": "Jerod Haase",
+    "CURRENT HOLDER": "Kyle Smith",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7476,10 +7525,10 @@
     "WEBSITE": "https://fsi.stanford.edu/people/institute-faculty-researchers"
   },
   {
-    "Key": "FSIKABIZ50017667",
+    "Key": "FSIKABIZ3283231",
     "SUBCATEGORY": "FREEMAN SPOGLI INSTITUTE FOR INTERNATIONAL STUDIES",
     "POSITION": "The Bernard and Susan Liautaud Visiting Fellow",
-    "CURRENT HOLDER": "Oleksiy Honcharuk",
+    "CURRENT HOLDER": "Susan E. Rice",
     "WEBSITE": "https://fsi.stanford.edu/people/institute-faculty-researchers"
   },
   {
@@ -7903,10 +7952,10 @@
     "WEBSITE": "https://arts.stanford.edu/"
   },
   {
-    "Key": "Stanford ArtsKBCOZ0",
+    "Key": "Stanford ArtsKBCOZ50029433",
     "SUBCATEGORY": "STANFORD ARTS",
     "POSITION": "The McMurtry Family Directorship of Stanford Live",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Iris Nemani",
     "WEBSITE": "https://arts.stanford.edu/"
   },
   {
@@ -8017,14 +8066,21 @@
   {
     "Key": "HAIKABVU2655330",
     "SUBCATEGORY": "STANFORD INSTITUTE FOR HUMAN-CENTERED ARTIFICIAL INTELLIGENCE",
-    "POSITION": "The Denning Directorship of Stanford HAI",
+    "POSITION": "The Denning Co-Directorship of Stanford HAI",
     "CURRENT HOLDER": "John W. Etchemendy",
+    "WEBSITE": "https://hai.stanford.edu/"
+  },
+  {
+    "Key": "HAIKABVU5998008",
+    "SUBCATEGORY": "STANFORD INSTITUTE FOR HUMAN-CENTERED ARTIFICIAL INTELLIGENCE",
+    "POSITION": "The Denning Co-Directorship (Acting) of Stanford HAI",
+    "CURRENT HOLDER": "James Landay",
     "WEBSITE": "https://hai.stanford.edu/"
   },
   {
     "Key": "HAIKABVU4721080",
     "SUBCATEGORY": "STANFORD INSTITUTE FOR HUMAN-CENTERED ARTIFICIAL INTELLIGENCE",
-    "POSITION": "The Denning Directorship of Stanford HAI",
+    "POSITION": "The Denning Co-Directorship (On Leave) of Stanford HAI",
     "CURRENT HOLDER": "Fei-Fei Li",
     "WEBSITE": "https://hai.stanford.edu/"
   },
@@ -8138,56 +8194,56 @@
     "SUBCATEGORY": "STANFORD WOODS INSTITUTE FOR THE ENVIRONMENT",
     "POSITION": "The Richard and Rhoda Goldman Professorship in Environmental Studies",
     "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://woods.stanford.edu/about/woods-faculty-researchers"
+    "WEBSITE": "https://woods.stanford.edu/people"
   },
   {
     "Key": "WoodsKAAIL5212064",
     "SUBCATEGORY": "STANFORD WOODS INSTITUTE FOR THE ENVIRONMENT",
     "POSITION": "The Higgins-Magid Senior Fellow",
     "CURRENT HOLDER": "Jenna Davis",
-    "WEBSITE": "http://woods.stanford.edu/about/woods-faculty-researchers"
+    "WEBSITE": "https://woods.stanford.edu/people"
   },
   {
     "Key": "WoodsKABAY5055701",
     "SUBCATEGORY": "STANFORD WOODS INSTITUTE FOR THE ENVIRONMENT",
     "POSITION": "The Kimmelman Faculty Fellow",
     "CURRENT HOLDER": "William Chueh",
-    "WEBSITE": "http://woods.stanford.edu/about/woods-faculty-researchers"
+    "WEBSITE": "https://woods.stanford.edu/people"
   },
   {
     "Key": "WoodsKABAY4125613",
     "SUBCATEGORY": "STANFORD WOODS INSTITUTE FOR THE ENVIRONMENT",
     "POSITION": "The Kimmelman Family Senior Fellow",
     "CURRENT HOLDER": "Noah Diffenbaugh",
-    "WEBSITE": "http://woods.stanford.edu/about/woods-faculty-researchers"
+    "WEBSITE": "https://woods.stanford.edu/people"
   },
   {
     "Key": "WoodsKRADQ2641298",
     "SUBCATEGORY": "STANFORD WOODS INSTITUTE FOR THE ENVIRONMENT",
     "POSITION": "The Perry L. McCarty Directorship of the Woods Institute for the Environment",
     "CURRENT HOLDER": "Christopher B. Field",
-    "WEBSITE": "http://woods.stanford.edu/about/woods-faculty-researchers"
+    "WEBSITE": "https://woods.stanford.edu/people"
   },
   {
     "Key": "WoodsKABIG50014740",
     "SUBCATEGORY": "STANFORD WOODS INSTITUTE FOR THE ENVIRONMENT",
     "POSITION": "The Lee and Kitty Price Fellow",
     "CURRENT HOLDER": "Sarah Fletcher",
-    "WEBSITE": "http://woods.stanford.edu/about/woods-faculty-researchers"
+    "WEBSITE": "https://woods.stanford.edu/people"
   },
   {
     "Key": "WoodsKAPIF9658069",
     "SUBCATEGORY": "STANFORD WOODS INSTITUTE FOR THE ENVIRONMENT",
     "POSITION": "The William and Eva Price Senior Fellow",
     "CURRENT HOLDER": "Jim Leape",
-    "WEBSITE": "http://woods.stanford.edu/about/woods-faculty-researchers"
+    "WEBSITE": "https://woods.stanford.edu/people"
   },
   {
     "Key": "WoodsKBATS5144732",
     "SUBCATEGORY": "STANFORD WOODS INSTITUTE FOR THE ENVIRONMENT",
     "POSITION": "The William Wrigley Senior Fellow",
     "CURRENT HOLDER": "David Lobell",
-    "WEBSITE": "http://woods.stanford.edu/about/woods-faculty-researchers"
+    "WEBSITE": "https://woods.stanford.edu/people"
   },
   {
     "Key": "NeurosciencesKBCIW0",
@@ -9338,31 +9394,31 @@
     "WEBSITE": ""
   },
   {
-    "Key": "College Faculty FellowsKJYBJ5452781",
-    "SUBCATEGORY": "COLLEGE FACULTY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
-    "POSITION": "The Nehal and Jenny Fan Raj College Faculty Fellow in Undergraduate Education",
-    "CURRENT HOLDER": "Grant Parker",
+    "Key": "College Faculty FellowsKJYBJ5850707",
+    "SUBCATEGORY": "COLLEGE FACULTY FELLOWS PROGRAM",
+    "POSITION": "The Nehal and Jenny Fan Raj College Faculty Fellow",
+    "CURRENT HOLDER": "Ronald Egan",
     "WEBSITE": ""
   },
   {
-    "Key": "College Faculty FellowsKJYBO0",
-    "SUBCATEGORY": "COLLEGE FACULTY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
-    "POSITION": "The Alex Ramlie College Faculty Fellow I",
-    "CURRENT HOLDER": "To Be Named",
+    "Key": "College Faculty FellowsKJYBO3698206",
+    "SUBCATEGORY": "COLLEGE FACULTY FELLOWS PROGRAM",
+    "POSITION": "The Alex Ramlie College Faculty Fellow",
+    "CURRENT HOLDER": "William P. Barnett",
     "WEBSITE": ""
   },
   {
-    "Key": "College Faculty FellowsKJYBO0",
-    "SUBCATEGORY": "COLLEGE FACULTY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
-    "POSITION": "The Alex Ramlie College Faculty Fellow II",
-    "CURRENT HOLDER": "To Be Named",
+    "Key": "College Faculty FellowsKJYBO2641298",
+    "SUBCATEGORY": "COLLEGE FACULTY FELLOWS PROGRAM",
+    "POSITION": "The Alex Ramlie College Faculty Fellow",
+    "CURRENT HOLDER": "Christopher B. Field",
     "WEBSITE": ""
   },
   {
-    "Key": "College Faculty FellowsKJYBN0",
-    "SUBCATEGORY": "COLLEGE FACULTY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
+    "Key": "College Faculty FellowsKJYBN9778143",
+    "SUBCATEGORY": "COLLEGE FACULTY FELLOWS PROGRAM",
     "POSITION": "The Tiedtke Family College Faculty Fellow",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Julie Baker",
     "WEBSITE": ""
   }
 ]
