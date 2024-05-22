@@ -36,14 +36,14 @@ const ForeignSourceReporting = ({ data }) => {
         </Heading>
         <p>
           The federal government requires institutions of higher education, such
-          as Stanford, to report gifts from donors who are not U.S. citizens(or
-          are dual citizens) when that donor makes gifts and other payments to
-          Stanford that total $250,000 or more in a calendar year. Stanford must
-          also report gifts and other payments received from a donor who is a
-          citizen of one of certain specific countries (the list may change over
-          time, and currently includes China, including Hong Kong, Russia, Iran,
-          and North Korea) when that donor makes gifts and other payments to
-          Stanford having an aggregate value of $50,000 or more during a
+          as Stanford, to report gifts from a donor who is not a U.S. citizen
+          when that donor makes gifts and other payments to Stanford with an
+          aggregate value of $250,000 or more in a calendar year. Stanford must
+          also report gifts and other payments received from a donor who has
+          citizenship in one of certain specific countries (the list may change
+          over time, and currently includes China, including Hong Kong, Russia,
+          Iran, and North Korea), when that donor makes gifts and other payments
+          to Stanford having an aggregate value of $50,000 or more during a
           reporting period that runs from July 1 to June 30 of the following
           year. Your generous gift(s) meet one or both of these reporting
           thresholds. Thank you for providing your information below.
