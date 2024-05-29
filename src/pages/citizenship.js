@@ -41,12 +41,12 @@ const ForeignSourceReporting = ({ data }) => {
           aggregate value of $250,000 or more in a calendar year. Stanford must
           also report gifts and other payments received from a donor who has
           citizenship in one of certain specific countries (the list may change
-          over time, and currently includes China, including Hong Kong, Russia,
-          Iran, and North Korea), when that donor makes gifts and other payments
-          to Stanford having an aggregate value of $50,000 or more during a
-          reporting period that runs from July 1 to June 30 of the following
-          year. Your generous gift(s) meet one or both of these reporting
-          thresholds. Thank you for providing your information below.
+          over time, and currently includes China (not including Hong Kong),
+          Russia, Iran, and North Korea), when that donor makes gifts and other
+          payments to Stanford having an aggregate value of $50,000 or more
+          during a reporting period that runs from July 1 to June 30 of the
+          following year. Your generous gift(s) meet one or both of these
+          reporting thresholds. Thank you for providing your information below.
         </p>
         <p>
           You can find additional details about this policy in section V of
