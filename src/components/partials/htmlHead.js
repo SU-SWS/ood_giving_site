@@ -2,11 +2,13 @@ import React from 'react';
 
 /*
  ** The HtmlHead component is included into the html.js file, to always be loaded.
- * The purpose of this file is to provide a default Title value,
- * ensure that favicons are provided from Stanford's media source, particularly for browser tab and phone home screens.
  */
 
 const HtmlHead = () => {
+  // Heap ID
+  const ID = '2306378928';
+  const isProduction = process.env.CONTEXT === 'production';
+
   return (
     <>
       <link
@@ -104,6 +106,15 @@ const HtmlHead = () => {
         href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
         rel="stylesheet"
       />
+      {isProduction && (
+        <script
+          id="heap-id"
+          dangerouslySetInnerHTML={{
+            __html: `window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};
+            heap.load(${ID});`,
+          }}
+        />
+      )}
     </>
   );
 };
