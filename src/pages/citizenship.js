@@ -57,7 +57,7 @@ const ForeignSourceReporting = ({ data }) => {
             <SbLink
               linkType="url"
               link={{
-                url: 'https://giving.stanford.edu/gift-policy',
+                url: 'https://giving.stanford.edu/gift-policies/',
               }}
             >
               Gift Policy website
