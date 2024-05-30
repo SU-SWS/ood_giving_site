@@ -52,15 +52,14 @@ const ForeignSourceReporting = ({ data }) => {
             you.
           </p>
           <p>
-            You can find additional details about this policy in section V of
-            Stanford’s{' '}
+            You can find additional details about this policy in section V of{' '}
             <SbLink
               linkType="url"
               link={{
                 url: 'https://giving.stanford.edu/gift-policies/',
               }}
             >
-              Gift Policy website
+              Stanford’s Gift Policy
             </SbLink>
             .
           </p>
