@@ -20,6 +20,7 @@ const Countdown = ({ blok }) => {
   const [days, hours, minutes, seconds] = UseCountdown(countdownDate) || [];
   const displayHours = hasDays ? hours : convertDaysToHours(days) + hours;
   const displayHourPieRange = hasDays ? 24 : hourPieRange;
+  const noTime = days + hours + minutes + seconds <= 0;
   const daysClassName = useMemo(() => generateClassName('days'), []);
   const hoursClassName = useMemo(() => generateClassName('hours'), []);
   const minutesClassName = useMemo(() => generateClassName('minutes'), []);
@@ -48,11 +49,6 @@ const Countdown = ({ blok }) => {
          * the date prop returns in the following format: "2023-11-21 23:56"
          * we have convert it to be usable for the js Date object
          */
-        console.log(date);
-        console.log(daysClassName);
-        console.log(hoursClassName);
-        console.log(minutesClassName);
-        console.log(secondsClassName);
         const dateArray = date.split(' ');
 
         setCountdownDate(new Date(`${dateArray[0]}T${dateArray[1]}`));
@@ -62,71 +58,44 @@ const Countdown = ({ blok }) => {
 
   return (
     <SbEditable content={blok}>
-      {days + hours + minutes + seconds <= 0 ? (
-        <div
-          className={classNames('countdown-wrapper', {
-            ['has-days']: days > 0,
-          })}
+      <div
+        aria-atomic="true"
+        className={classNames('countdown-wrapper', {
+          ['has-days']: days > 0 && hasDays,
+        })}
+        role="timer"
+      >
+        {days > 0 && hasDays && (
+          <CountdownPie
+            className={daysClassName}
+            descriptor={getDescriptorString('day', days)}
+            percent={noTime ? 0 : (days / 29) * 100}
+          >
+            {noTime ? 0 : days}
+          </CountdownPie>
+        )}
+        <CountdownPie
+          className={hoursClassName}
+          descriptor={getDescriptorString('hour', displayHours)}
+          percent={noTime ? 0 : (displayHours / displayHourPieRange) * 100}
         >
-          {days > 0 && hasDays && (
-            <CountdownPie className={daysClassName} descriptor="days" percent={0}>
-              0
-            </CountdownPie>
-          )}
-          <CountdownPie className={hoursClassName} descriptor="hours" percent={0}>
-            0
-          </CountdownPie>
-          <CountdownPie className={minutesClassName} descriptor="minutes" percent={0}>
-            0
-          </CountdownPie>
-          <CountdownPie
-            className={secondsClassName}
-            descriptor="seconds"
-            percent={0}
-          >
-            0
-          </CountdownPie>
-        </div>
-      ) : (
-        <div
-          aria-atomic="true"
-          className={classNames('countdown-wrapper', {
-            ['has-days']: days > 0,
-          })}
-          role="timer"
+          {noTime ? 0 : displayHours}
+        </CountdownPie>
+        <CountdownPie
+          className={minutesClassName}
+          descriptor={getDescriptorString('minute', minutes)}
+          percent={noTime ? 0 : (minutes / 60) * 100}
         >
-          {days > 0 && hasDays && (
-            <CountdownPie
-              className={daysClassName}
-              descriptor={getDescriptorString('day', days)}
-              percent={(days / 29) * 100}
-            >
-              {days}
-            </CountdownPie>
-          )}
-          <CountdownPie
-            className={hoursClassName}
-            descriptor={getDescriptorString('hour', displayHours)}
-            percent={(displayHours / displayHourPieRange) * 100}
-          >
-            {displayHours}
-          </CountdownPie>
-          <CountdownPie
-            className={minutesClassName}
-            descriptor={getDescriptorString('minute', minutes)}
-            percent={(minutes / 60) * 100}
-          >
-            {minutes}
-          </CountdownPie>
-          <CountdownPie
-            className={secondsClassName}
-            descriptor={getDescriptorString('second', seconds)}
-            percent={(seconds / 60) * 100}
-          >
-            {seconds}
-          </CountdownPie>
-        </div>
-      )}
+          {noTime ? 0 : minutes}
+        </CountdownPie>
+        <CountdownPie
+          className={secondsClassName}
+          descriptor={getDescriptorString('second', seconds)}
+          percent={noTime ? 0 : (seconds / 60) * 100}
+        >
+          {noTime ? 0 : seconds}
+        </CountdownPie>
+      </div>
     </SbEditable>
   );
 };
