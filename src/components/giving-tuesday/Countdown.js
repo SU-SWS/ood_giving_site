@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
 import SbEditable from 'storyblok-react';
 
 import CountdownPie from './CountdownPie';
 import UseCountdown from '../../hooks/useCountdown';
+
+const generateClassName = (key) =>
+  `${key}-${Math.floor(Math.random() * 100000, 5)}`;
 
 const getDescriptorString = (descriptor, time) => {
   return time !== 1 ? `${descriptor}s` : descriptor;
@@ -17,6 +20,10 @@ const Countdown = ({ blok }) => {
   const [days, hours, minutes, seconds] = UseCountdown(countdownDate) || [];
   const displayHours = hasDays ? hours : convertDaysToHours(days) + hours;
   const displayHourPieRange = hasDays ? 24 : hourPieRange;
+  const daysClassName = useMemo(() => generateClassName('days'), []);
+  const hoursClassName = useMemo(() => generateClassName('hours'), []);
+  const minutesClassName = useMemo(() => generateClassName('minutes'), []);
+  const secondsClassName = useMemo(() => generateClassName('seconds'), []);
 
   useEffect(() => {
     if (!countdownDate) {
@@ -41,6 +48,11 @@ const Countdown = ({ blok }) => {
          * the date prop returns in the following format: "2023-11-21 23:56"
          * we have convert it to be usable for the js Date object
          */
+        console.log(date);
+        console.log(daysClassName);
+        console.log(hoursClassName);
+        console.log(minutesClassName);
+        console.log(secondsClassName);
         const dateArray = date.split(' ');
 
         setCountdownDate(new Date(`${dateArray[0]}T${dateArray[1]}`));
@@ -57,18 +69,18 @@ const Countdown = ({ blok }) => {
           })}
         >
           {days > 0 && hasDays && (
-            <CountdownPie className="pie-days" descriptor="days" percent={0}>
+            <CountdownPie className={daysClassName} descriptor="days" percent={0}>
               0
             </CountdownPie>
           )}
-          <CountdownPie clasName="pie-hours" descriptor="hours" percent={0}>
+          <CountdownPie className={hoursClassName} descriptor="hours" percent={0}>
             0
           </CountdownPie>
-          <CountdownPie clasName="pie-minutes" descriptor="minutes" percent={0}>
+          <CountdownPie className={minutesClassName} descriptor="minutes" percent={0}>
             0
           </CountdownPie>
           <CountdownPie
-            className="pie-seconds"
+            className={secondsClassName}
             descriptor="seconds"
             percent={0}
           >
@@ -85,7 +97,7 @@ const Countdown = ({ blok }) => {
         >
           {days > 0 && hasDays && (
             <CountdownPie
-              className="pie-days"
+              className={daysClassName}
               descriptor={getDescriptorString('day', days)}
               percent={(days / 29) * 100}
             >
@@ -93,21 +105,21 @@ const Countdown = ({ blok }) => {
             </CountdownPie>
           )}
           <CountdownPie
-            className="pie-hours"
+            className={hoursClassName}
             descriptor={getDescriptorString('hour', displayHours)}
             percent={(displayHours / displayHourPieRange) * 100}
           >
             {displayHours}
           </CountdownPie>
           <CountdownPie
-            className="pie-minutes"
+            className={minutesClassName}
             descriptor={getDescriptorString('minute', minutes)}
             percent={(minutes / 60) * 100}
           >
             {minutes}
           </CountdownPie>
           <CountdownPie
-            className="pie-seconds"
+            className={secondsClassName}
             descriptor={getDescriptorString('second', seconds)}
             percent={(seconds / 60) * 100}
           >
