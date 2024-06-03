@@ -5,6 +5,7 @@ import SbEditable from 'storyblok-react';
 import CountdownPie from './CountdownPie';
 import UseCountdown from '../../hooks/useCountdown';
 
+// use useId when it becomes available
 const generateClassName = (key) =>
   `${key}-${Math.floor(Math.random() * 100000, 5)}`;
 
