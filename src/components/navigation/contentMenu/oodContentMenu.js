@@ -31,7 +31,7 @@ const OodContentMenu = (props) => {
   const Menus = (props) => (
     <>
       <div className={`ood-content-nav__menu-group`}>
-        {!!props.blok.menuTitle?.length && (
+        {props.blok.menuTitle && (
           <Heading level={'h2'} classes={`ood-content-nav__title`}>
             {props.blok.menuTitle}
           </Heading>
