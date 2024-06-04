@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "decanter": "^6.2.19",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "local-ssl-proxy": "^1.3.0",
     "node-vault": "^0.9.22",
