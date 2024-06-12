@@ -33,27 +33,27 @@ const Countdown = ({ blok }) => {
        * the date prop returns in the following format: "2023-11-21 23:56"
        * we have convert it to be a usable for the js Date object
        */
-      const blokDateArray = date.split(' ');
-      const dateArray = blokDateArray[0].split('-');
-      const timeArray = blokDateArray[1].split(':');
+      const blokDateArray = date?.split(' ');
+      const dateArray = blokDateArray?.[0]?.split('-');
+      const timeArray = blokDateArray?.[1]?.split(':');
       const blokDateObj = new Date(
-        `${dateArray[0]}-${dateArray[1]}-${dateArray[2]}T${timeArray[0]}:${timeArray[1]}`
+        `${dateArray?.[0]}-${dateArray?.[1]}-${dateArray?.[2]}T${timeArray?.[0]}:${timeArray?.[1]}`
       );
-      const utcOffset = blokDateObj.getTimezoneOffset();
-      const utcDateObj = new Date(blokDateObj.getTime() + utcOffset);
+      const utcOffset = blokDateObj?.getTimezoneOffset();
+      const utcDateObj = new Date(blokDateObj?.getTime() + utcOffset);
       setCountdownDate(
         new Date(
           Date.UTC(
-            utcDateObj.getFullYear(),
-            utcDateObj.getMonth(),
-            utcDateObj.getDate(),
-            timeArray[0],
-            timeArray[1]
+            utcDateObj?.getFullYear(),
+            utcDateObj?.getMonth(),
+            utcDateObj?.getDate(),
+            timeArray?.[0],
+            timeArray?.[1]
           )
         )
       );
     }
-  }, [countdownDate, setCountdownDate]);
+  }, [date, countdownDate, setCountdownDate]);
 
   return (
     <SbEditable content={blok}>
