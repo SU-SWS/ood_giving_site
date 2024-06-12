@@ -16,7 +16,7 @@ const getDescriptorString = (descriptor, time) => {
 const convertDaysToHours = (days) => (days ? days * 24 : 0);
 
 const Countdown = ({ blok }) => {
-  const { date, hasDays, hourPieRange, useNew } = blok;
+  const { date, dayPieRange, hasDays, hourPieRange } = blok;
   const [countdownDate, setCountdownDate] = useState(null);
   const [days, hours, minutes, seconds] = UseCountdown(countdownDate) || [];
   const displayHours = hasDays ? hours : convertDaysToHours(days) + hours;
@@ -29,31 +29,20 @@ const Countdown = ({ blok }) => {
 
   useEffect(() => {
     if (!countdownDate) {
-      if (!date) {
-        if (useNew) {
-          /**
-           * manually set date to 04/05/2024 7PM w/ a UTC offset (no daylight savings)
-           * this should only stay for the current campaign, can remove this and make
-           * component purely storyblok configurable after campaign
-           */
-          setCountdownDate(new Date(Date.UTC(2024, 3, 6, 2, 0, 0)));
-        } else {
-          /**
-           * manually set date to 04/04/2024 7AM w/ a UTC offset (no daylight savings)
-           * this should only stay for the current campaign, can remove this and make
-           * component purely storyblok configurable after campaign
-           */
-          setCountdownDate(new Date(Date.UTC(2024, 3, 4, 14, 0, 0)));
-        }
-      } else {
-        /**
-         * the date prop returns in the following format: "2023-11-21 23:56"
-         * we have convert it to be usable for the js Date object
-         */
-        const dateArray = date.split(' ');
-
-        setCountdownDate(new Date(`${dateArray[0]}T${dateArray[1]}`));
-      }
+      const blokDateArray = date.split(' ');
+      const dateArray = blokDateArray[0].split('-');
+      const timeArray = blokDateArray[1].split(':');
+      const blokDateObj =
+        new Date(`${dateArray[0]}-${dateArray[1]}-${dateArray[2]}T${timeArray[0]}:${timeArray[1]}`);
+      const utcOffset = blokDateObj.getTimezoneOffset();
+      const utcDateObj = new Date(blokDateObj.getTime() + utcOffset);
+      setCountdownDate(new Date(Date.UTC(
+        utcDateObj.getFullYear(),
+        utcDateObj.getMonth(),
+        utcDateObj.getDate(),
+        timeArray[0],
+        timeArray[1]
+      )))
     }
   }, [countdownDate, setCountdownDate]);
 
@@ -70,7 +59,7 @@ const Countdown = ({ blok }) => {
           <CountdownPie
             className={daysClassName}
             descriptor={getDescriptorString('day', days)}
-            percent={noTime ? 0 : (days / 29) * 100}
+            percent={noTime ? 0 : (days / dayPieRange) * 100}
           >
             {noTime ? 0 : days}
           </CountdownPie>
