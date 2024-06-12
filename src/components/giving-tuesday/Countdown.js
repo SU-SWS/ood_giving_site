@@ -29,6 +29,10 @@ const Countdown = ({ blok }) => {
 
   useEffect(() => {
     if (!countdownDate) {
+      /**
+       * the date prop returns in the following format: "2023-11-21 23:56"
+       * we have convert it to be a usable for the js Date object
+       */
       const blokDateArray = date.split(' ');
       const dateArray = blokDateArray[0].split('-');
       const timeArray = blokDateArray[1].split(':');
