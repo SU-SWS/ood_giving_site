@@ -33,18 +33,21 @@ const Countdown = ({ blok }) => {
       const dateArray = blokDateArray[0].split('-');
       const timeArray = blokDateArray[1].split(':');
       const blokDateObj = new Date(
-        `${dateArray[0]}-${dateArray[1]}-${dateArray[2]}T${timeArray[0]}:${timeArray[1]}`);
+        `${dateArray[0]}-${dateArray[1]}-${dateArray[2]}T${timeArray[0]}:${timeArray[1]}`
+      );
       const utcOffset = blokDateObj.getTimezoneOffset();
       const utcDateObj = new Date(blokDateObj.getTime() + utcOffset);
-      setCountdownDate(new Date(
-        Date.UTC(
-          utcDateObj.getFullYear(),
-          utcDateObj.getMonth(),
-          utcDateObj.getDate(),
-          timeArray[0],
-          timeArray[1]
+      setCountdownDate(
+        new Date(
+          Date.UTC(
+            utcDateObj.getFullYear(),
+            utcDateObj.getMonth(),
+            utcDateObj.getDate(),
+            timeArray[0],
+            timeArray[1]
+          )
         )
-      ));
+      );
     }
   }, [countdownDate, setCountdownDate]);
 
