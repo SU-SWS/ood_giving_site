@@ -39,16 +39,17 @@ const Countdown = ({ blok }) => {
       const blokDateObj = new Date(
         `${dateArray?.[0]}-${dateArray?.[1]}-${dateArray?.[2]}T${timeArray?.[0]}:${timeArray?.[1]}`
       );
-      const utcOffset = blokDateObj?.getTimezoneOffset();
+      const utcOffset = blokDateObj?.getTimezoneOffset() * 60 * 1000;
       const utcDateObj = new Date(blokDateObj?.getTime() + utcOffset);
+
       setCountdownDate(
         new Date(
           Date.UTC(
             utcDateObj?.getFullYear(),
             utcDateObj?.getMonth(),
             utcDateObj?.getDate(),
-            timeArray?.[0],
-            timeArray?.[1]
+            utcDateObj?.getHours(),
+            utcDateObj?.getMinutes()
           )
         )
       );
