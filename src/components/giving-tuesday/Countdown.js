@@ -16,7 +16,7 @@ const getDescriptorString = (descriptor, time) => {
 const convertDaysToHours = (days) => (days ? days * 24 : 0);
 
 const Countdown = ({ blok }) => {
-  const { date, dayPieRange, hasDays, hourPieRange } = blok;
+  const { date, dayPieRange, hasDays, hourPieRange, isDST } = blok;
   const [countdownDate, setCountdownDate] = useState(null);
   const [days, hours, minutes, seconds] = UseCountdown(countdownDate) || [];
   const displayHours = hasDays ? hours : convertDaysToHours(days) + hours;
@@ -26,6 +26,10 @@ const Countdown = ({ blok }) => {
   const hoursClassName = useMemo(() => generateClassName('hours'), []);
   const minutesClassName = useMemo(() => generateClassName('minutes'), []);
   const secondsClassName = useMemo(() => generateClassName('seconds'), []);
+  const pacificTimeOffset = useMeme(() => {
+    const pacificTime = isDST ? 420 : 480;
+    return pacificTime * 60 * 1000;
+  }, [isDST]);
 
   useEffect(() => {
     if (!countdownDate) {
@@ -37,11 +41,11 @@ const Countdown = ({ blok }) => {
       const dateArray = blokDateArray?.[0]?.split('-');
       const timeArray = blokDateArray?.[1]?.split(':');
       const blokDateObj = new Date(
-        `${dateArray?.[0]}-${dateArray?.[1]}-${dateArray?.[2]}T${timeArray?.[0]}:${timeArray?.[1]}`
+        `${dateArray?.[0]}-${dateArray?.[1]}-${dateArray?.[2]} ${timeArray?.[0]}:${timeArray?.[1]}`
       );
       const utcOffset = blokDateObj?.getTimezoneOffset() * 60 * 1000;
-      const utcDateObj = new Date(blokDateObj?.getTime() + utcOffset);
-
+      const timezoneDifference = utcOffset - pacificTimeOffset;
+      const utcDateObj = new Date(blokDateObj?.getTime() + utcOffset - timezoneDifference);
       setCountdownDate(
         new Date(
           Date.UTC(
