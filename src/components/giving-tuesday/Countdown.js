@@ -26,7 +26,7 @@ const Countdown = ({ blok }) => {
   const hoursClassName = useMemo(() => generateClassName('hours'), []);
   const minutesClassName = useMemo(() => generateClassName('minutes'), []);
   const secondsClassName = useMemo(() => generateClassName('seconds'), []);
-  const pacificTimeOffset = useMeme(() => {
+  const pacificTimeOffset = useMemo(() => {
     const pacificTime = isDST ? 420 : 480;
     return pacificTime * 60 * 1000;
   }, [isDST]);
