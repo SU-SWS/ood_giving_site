@@ -45,7 +45,9 @@ const Countdown = ({ blok }) => {
       );
       const utcOffset = blokDateObj?.getTimezoneOffset() * 60 * 1000;
       const timezoneDifference = utcOffset - pacificTimeOffset;
-      const utcDateObj = new Date(blokDateObj?.getTime() + utcOffset - timezoneDifference);
+      const utcDateObj = new Date(
+        blokDateObj?.getTime() + utcOffset - timezoneDifference
+      );
       setCountdownDate(
         new Date(
           Date.UTC(
