@@ -5,6 +5,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { useStaticQuery, graphql } from 'gatsby';
 import StoryblokClient from 'storyblok-js-client';
 import Components from '../components/components';
+import Sa11yInit from '../components/Sa11yInit';
 
 /**
  *
@@ -163,15 +164,18 @@ const StoryblokEntry = (props) => {
    */
   if (myStory && myStory.component) {
     return (
-      <SbEditable content={myStory}>
-        <div>
-          {React.createElement(Components(myStory.component), {
-            // eslint-disable-next-line no-underscore-dangle
-            key: myStory._uid,
-            blok: myStory,
-          })}
-        </div>
-      </SbEditable>
+      <>
+        <Sa11yInit />
+        <SbEditable content={myStory}>
+          <div>
+            {React.createElement(Components(myStory.component), {
+              // eslint-disable-next-line no-underscore-dangle
+              key: myStory._uid,
+              blok: myStory,
+            })}
+          </div>
+        </SbEditable>
+      </>
     );
   }
 
