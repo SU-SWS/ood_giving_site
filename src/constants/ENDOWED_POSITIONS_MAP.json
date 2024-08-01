@@ -14,13 +14,6 @@
     "link": "https://casbs.stanford.edu/"
   },
   {
-    "id": "CENTERS FOR EQUITY, COMMUNITY, AND LEADERSHIP",
-    "label": "Centers for Equity, Community, and Leadership",
-    "section": "Centers, Institutes, and Programs",
-    "to": "centers-for-equity-community-and-leadership",
-    "link": "https://studentaffairs.stanford.edu/about-student-affairs/about-centers-equity-community-and-leadership"
-  },
-  {
     "id": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "label": "Department of Athletics, Physical Education, and Recreation",
     "section": "Centers, Institutes, and Programs",
@@ -89,13 +82,6 @@
     "section": "Schools",
     "to": "stanford-doerr-school-of-sustainability",
     "link": "https://sustainability.stanford.edu/about-school/faculty"
-  },
-  {
-    "id": "STANFORD STUDENT AFFAIRS",
-    "label": "Stanford Student Affairs",
-    "section": "Centers, Institutes, and Programs",
-    "to": "stanford-student-affairs",
-    "link": "https://studentaffairs.stanford.edu/"
   },
   {
     "id": "SARAFAN CHEM-H",
@@ -168,13 +154,6 @@
     "link": "http://neuroscience.stanford.edu/"
   },
   {
-    "id": "COLLEGE FACULTY FELLOWS PROGRAM",
-    "label": "College Faculty Fellows Program",
-    "section": "Centers, Institutes, and Programs",
-    "to": "college-faculty-fellows-program",
-    "link": ""
-  },
-  {
     "id": "STANFORD ARTS",
     "label": "Stanford Arts",
     "section": "Centers, Institutes, and Programs",
@@ -187,5 +166,19 @@
     "section": "Centers, Institutes, and Programs",
     "to": "stanford-data-science",
     "link": "https://datascience.stanford.edu/about/people"
+  },
+  {
+    "id": "OFFICE OF THE VICE PROVOST FOR STUDENT AFFAIRS",
+    "label": "Office of the Vice Provost for Student Affairs",
+    "section": "Centers, Institutes, and Programs",
+    "to": "office-of-the-vice-provost-for-student-affairs",
+    "link": "https://studentaffairs.stanford.edu/"
+  },
+  {
+    "id": "OFFICE OF THE VICE PROVOST FOR UNDERGRADUATE EDUCATION",
+    "label": "Office of the Vice Provost for Undergraduate Education",
+    "section": "Centers, Institutes, and Programs",
+    "to": "office-of-the-vice-provost-for-undergraduate-education",
+    "link": "https://undergrad.stanford.edu/about-vpue"
   }
 ]
