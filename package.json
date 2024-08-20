@@ -2,7 +2,7 @@
   "name": "giving-to-stanford",
   "private": true,
   "description": "Giving to Stanford",
-  "version": "4.1.12",
+  "version": "4.1.16",
   "author": "Stanford University Office of Development",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
@@ -40,6 +40,7 @@
     "react-slick": "^0.29.0",
     "react-spinners": "^0.11.0",
     "react-table": "^7.7.0",
+    "sa11y": "^3.2.1",
     "sanitize-html": "^2.7.3",
     "slick-carousel": "^1.8.1",
     "storyblok-js-client": "^4.1.6",
