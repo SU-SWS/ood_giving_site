@@ -6,7 +6,7 @@
   "author": "Stanford University Office of Development",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
-    "algoliasearch": "^4.8.6",
+    "algoliasearch": "^5.13.0",
     "classnames": "^2.3.2",
     "fuse.js": "^6.5.3",
     "gatsby": "^4.24.8",
