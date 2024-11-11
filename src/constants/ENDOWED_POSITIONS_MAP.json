@@ -126,11 +126,11 @@
     "link": "https://med.stanford.edu/profiles/"
   },
   {
-    "id": "STANFORD LIBRARIES",
-    "label": "Stanford Libraries",
+    "id": "STANFORD UNIVERSITY LIBRARIES",
+    "label": "Stanford University Libraries",
     "section": "Centers, Institutes, and Programs",
-    "to": "stanford-libraries",
-    "link": "http://library.stanford.edu/"
+    "to": "stanford-university-libraries",
+    "link": "http://library.stanford.edu/support-stanford-libraries"
   },
   {
     "id": "STANFORD WOODS INSTITUTE FOR THE ENVIRONMENT",
