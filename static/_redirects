@@ -4,6 +4,7 @@ https://mysite.stanford.edu https://giving.stanford.edu/your-report-has-moved 30
 https://mysite.stanford.edu/* https://giving.stanford.edu/your-report-has-moved 301!
 https://thankyou.stanford.edu/* https://giving.stanford.edu/:splat 301!
 
+
 # DYNAMIC REDIRECTS
 # ###############################################################################################
 /cdn/asset/*   https://assets.stanford.edu/a/:splat   301
