@@ -62,7 +62,7 @@ const FullWidthImage = (props) => {
       >
         <img
           className={`${props.classPrefix ? `${props.classPrefix}__image` : ''}
-               su-obj-position-h-${props.visibleHorizontal ?? 'center'}-v-${
+              su-obj-position-h-${props.visibleHorizontal ?? 'center'}-v-${
             props.visibleVertical ?? 'top'
           }`}
           {...(imgSrcset ? { srcSet: imgSrcset } : {})}

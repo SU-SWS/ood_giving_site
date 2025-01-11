@@ -3,7 +3,7 @@ import SbEditable from 'storyblok-react';
 import CreateBloks from '../../utilities/createBloks';
 import Heading from './heading';
 import FullWidthImage from '../media/fullWidthImage';
-import FlexCell from './flexCell';
+import transformImage from '../../utilities/transformImage';
 
 /* The Hero section with image on the left is referenced by the Campaign Page type. */
 
@@ -31,7 +31,7 @@ const CampaignLeftImageHero = (props) => {
           {props.blok.logo.filename && (
             <img
               className={'hero-logo'}
-              src={props.blok.logo.filename}
+              src={transformImage(props.blok.logo.filename)}
               alt={props.blok.logo.alt}
             />
           )}

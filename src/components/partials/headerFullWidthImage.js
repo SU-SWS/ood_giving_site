@@ -8,6 +8,7 @@ import Heading from './heading';
 import { config } from '../../utilities/config';
 import FullWidthImage from '../media/fullWidthImage';
 import FlexCell from './flexCell';
+import transformImage from '../../utilities/transformImage';
 
 /* The Header with Fullwidth Image component is referenced by the Interior Page type. */
 
@@ -48,7 +49,7 @@ const HeaderFullWidthImage = (props) => {
           {props.blok.headerLogo.filename && (
             <img
               className={'header-logo'}
-              src={props.blok.headerLogo.filename}
+              src={transformImage(props.blok.headerLogo.filename)}
               alt={props.blok.headerLogo.alt}
             />
           )}
