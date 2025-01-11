@@ -8,7 +8,7 @@ import Heading from './heading';
 import { config } from '../../utilities/config';
 import FullWidthImage from '../media/fullWidthImage';
 import FlexCell from './flexCell';
-import { transformImage } from '../../utilities/transformImage';
+import transformImage from '../../utilities/transformImage';
 
 /* The Header with Fullwidth Image component is referenced by the Interior Page type. */
 

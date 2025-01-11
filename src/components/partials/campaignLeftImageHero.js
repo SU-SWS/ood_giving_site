@@ -3,7 +3,7 @@ import SbEditable from 'storyblok-react';
 import CreateBloks from '../../utilities/createBloks';
 import Heading from './heading';
 import FullWidthImage from '../media/fullWidthImage';
-import { transformImage } from '../../utilities/transformImage';
+import transformImage from '../../utilities/transformImage';
 
 /* The Hero section with image on the left is referenced by the Campaign Page type. */
 

@@ -4,7 +4,7 @@ import cx from 'classnames';
 import CreateBloks from '../../utilities/createBloks';
 import Heading from './heading';
 import FullWidthImage from '../media/fullWidthImage';
-import { transformImage } from '../../utilities/transformImage';
+import transformImage from '../../utilities/transformImage';
 
 /* The Hero section with fullwidth image is referenced by the Campaign Page type. */
 
