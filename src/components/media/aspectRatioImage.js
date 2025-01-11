@@ -52,8 +52,8 @@ const AspectRatioImage = (props) => {
         >
           <img
             className={`ood-media__image
-               ${props.classPrefix ? `${props.classPrefix}__image` : ''}
-               su-obj-position-h-${props.visibleHorizontal ?? 'center'}-v-${
+                ${props.classPrefix ? `${props.classPrefix}__image` : ''}
+                su-obj-position-h-${props.visibleHorizontal ?? 'center'}-v-${
               props.visibleVertical ?? 'top'
             }`}
             src={processedImg}
