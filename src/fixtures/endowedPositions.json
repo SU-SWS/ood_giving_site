@@ -217,6 +217,13 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
+    "Key": "BusinessKABTS4330411",
+    "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
+    "POSITION": "The Nicholas E. Donatiello, Jr. Lectureship",
+    "CURRENT HOLDER": "Claudia Fan Munce",
+    "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
+  },
+  {
     "Key": "BusinessKAZAI5543386",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Susan Ford Dorsey Faculty Fellow",
@@ -504,10 +511,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKAQKC5482924",
+    "Key": "BusinessKAQKC9595397",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The MBA Class of 1969 Faculty Scholar",
-    "CURRENT HOLDER": "Takuo Sugaya",
+    "CURRENT HOLDER": "Helena Miton",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -518,10 +525,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKASYW3063203",
+    "Key": "BusinessKASYW34006569",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The MBA Class of 1978 Lecturership",
-    "CURRENT HOLDER": "David Dodson",
+    "CURRENT HOLDER": "Allison Kluger",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -567,17 +574,24 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKARTX9750456",
+    "Key": "BusinessKARTX9680289",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Hank McKinnell-Pfizer Inc. Faculty Fellow",
-    "CURRENT HOLDER": "Benoît Monin",
+    "CURRENT HOLDER": "Nir Halevy",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKATCA9969320",
+    "Key": "BusinessKATCA99992802",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The James and Doris McNamara Faculty Fellow",
-    "CURRENT HOLDER": "Robert Burgelman",
+    "CURRENT HOLDER": "Charles A. O'Reilly",
+    "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
+  },
+  {
+    "Key": "BusinessKABTN6986277",
+    "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
+    "POSITION": "The William F. Meehan III Lectureship",
+    "CURRENT HOLDER": "Matt Glickman",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -630,10 +644,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKABHV5592015",
+    "Key": "BusinessKABHV5833885",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Kevin J. O’Donohue Family Faculty Scholar",
-    "CURRENT HOLDER": "Mohammad Akbarpour",
+    "CURRENT HOLDER": "Yuyan Wang",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -672,13 +686,6 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKABTN6986277",
-    "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
-    "POSITION": "The Raccoon Partners Lectureship in Strategic Management",
-    "CURRENT HOLDER": "Matt Glickman",
-    "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
-  },
-  {
     "Key": "BusinessKRACQ5240506",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Louise and Claude N. Rosenberg, Jr., Directorship of the Center for Social Innovation in the Graduate School of Business",
@@ -686,10 +693,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKAQPT5609443",
+    "Key": "BusinessKAQPT6116821",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Louise and Claude N. Rosenberg, Jr., Faculty Scholar",
-    "CURRENT HOLDER": "Shoshana Vasserman",
+    "CURRENT HOLDER": "Yu Ding",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -714,24 +721,24 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKABDC9621606",
+    "Key": "BusinessKABDC4822680",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Shanahan Family Faculty Scholar",
-    "CURRENT HOLDER": "Jon Atwell",
+    "CURRENT HOLDER": "Mohsen Bayati",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKABDA5595642",
+    "Key": "BusinessKABDA5184120",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The R. Michael Shanahan Faculty Scholar",
-    "CURRENT HOLDER": "Kuang Xu",
+    "CURRENT HOLDER": "Dan Iancu",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKABDB9772229",
+    "Key": "BusinessKABDB5528379",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The R. Michael and Mary Shanahan Faculty Fellow",
-    "CURRENT HOLDER": "Andy Skrzypacz",
+    "CURRENT HOLDER": "Ed deHaan",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -763,31 +770,31 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKARZY5359958",
+    "Key": "BusinessKARZY5161603",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Spence Faculty Fellow",
-    "CURRENT HOLDER": "Andy Hall",
+    "CURRENT HOLDER": "Vikrant Vig",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKAACL5945707",
+    "Key": "BusinessKAACL6187134",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Spence Faculty Scholar",
-    "CURRENT HOLDER": "John Kepler",
+    "CURRENT HOLDER": "Antonio Coppola",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKEJET4474573",
+    "Key": "BusinessKEJET50025004",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Srivani Faculty Fellow",
-    "CURRENT HOLDER": "Erica Plambeck",
+    "CURRENT HOLDER": "Bård Harstad",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKEJEU5184120",
+    "Key": "BusinessKEJEU5773382",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Srivani Faculty Scholar",
-    "CURRENT HOLDER": "Dan Iancu",
+    "CURRENT HOLDER": "Omer Karaduman",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -854,10 +861,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKRLBA5360265",
+    "Key": "BusinessKRLBA4541678",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Winnick Family Faculty Scholar",
-    "CURRENT HOLDER": "Greg Buchak",
+    "CURRENT HOLDER": "Hanno Lustig",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -945,10 +952,10 @@
     "WEBSITE": "http://ed.stanford.edu/faculty/profiles"
   },
   {
-    "Key": "EducationKAREU1453745",
+    "Key": "EducationKAREU0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF EDUCATION",
     "POSITION": "The Vida Jacks Professorship of Education",
-    "CURRENT HOLDER": "Francisco O. Ramirez",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://ed.stanford.edu/faculty/profiles"
   },
   {
@@ -1057,17 +1064,17 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKAQCG0",
-    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
-    "POSITION": "The Reid and Polly Anderson Faculty Fellow",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
-  },
-  {
     "Key": "EngineeringKAQCG5539404",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Reid and Polly Anderson Faculty Fellow",
     "CURRENT HOLDER": "Vivian Feig",
+    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
+  },
+  {
+    "Key": "EngineeringKAQCG5520812",
+    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
+    "POSITION": "The Reid and Polly Anderson Faculty Fellow",
+    "CURRENT HOLDER": "Sho Takatori",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1162,10 +1169,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKAUQU2758902",
+    "Key": "EngineeringKAUQU4799292",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
-    "POSITION": "The William Alden Campbell and Martha Campbell Professorship in the School of Engineering",
-    "CURRENT HOLDER": "Jeffrey R. Koseff",
+    "POSITION": "The William Alden Campbell and Martha Campbell Professorship",
+    "CURRENT HOLDER": "Jack Baker",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1295,10 +1302,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringNSYDG1427053",
+    "Key": "EngineeringNSYDG0",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The John M. Fluke Professorship in Electrical Engineering",
-    "CURRENT HOLDER": "James D. Plummer",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1334,6 +1341,13 @@
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Fortinet Founders Professorship",
     "CURRENT HOLDER": "Yi Cui",
+    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
+  },
+  {
+    "Key": "EngineeringKWMOC4619375",
+    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
+    "POSITION": "The Fortinet Founders Professorship II",
+    "CURRENT HOLDER": "Carlos Guestrin",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1393,10 +1407,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKARCF0",
+    "Key": "EngineeringKARCF50027378",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The William George Hoover Faculty Fellow in Electrical Engineering",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Thierry Tambe",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1456,10 +1470,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKENSI0",
+    "Key": "EngineeringKENSI9648941",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The W. M. Keck Faculty Scholar",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Jian Qin",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1589,24 +1603,24 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKARRT0",
+    "Key": "EngineeringKARRT5726784",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Robert N. Noyce Faculty Fellow",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Anton Ermakov",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKARRT0",
+    "Key": "EngineeringKARRT5733264",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Robert N. Noyce Faculty Fellow",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Ludwig Schmidt",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKARRT0",
+    "Key": "EngineeringKARRT9602102",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Robert N. Noyce Faculty Fellow",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Alicia Sheares",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1764,10 +1778,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKBASB1627256",
+    "Key": "EngineeringKBASB0",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Rickey/Nielsen Professorship in the School of Engineering",
-    "CURRENT HOLDER": "Krishna Saraswat",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1876,10 +1890,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKASDJ0",
+    "Key": "EngineeringKASDJ5807262",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The STMicroelectronics Faculty Development Scholar",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Dorsa Sadigh",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -2054,7 +2068,7 @@
     "Key": "H&SKAQAM5452109",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Annenberg Faculty Fellow",
-    "CURRENT HOLDER": "Molly Antopol-Johnson",
+    "CURRENT HOLDER": "Molly Antopol",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -2065,10 +2079,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKAQAM5483723",
+    "Key": "H&SKAQAM5252411",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Annenberg Faculty Fellow",
-    "CURRENT HOLDER": "Kathryn M. Olivarius",
+    "CURRENT HOLDER": "Rosa Cao",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -2083,6 +2097,13 @@
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Stanford W. Ascherman, MD Professorship",
     "CURRENT HOLDER": "Ronald Egan",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
+    "Key": "H&SKBCRX4611844",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Asian Cultures and Society Professorship",
+    "CURRENT HOLDER": "Jun Uchida",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -2191,10 +2212,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKAQFB0",
+    "Key": "H&SKAQFB6080660",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Bing Professorship in Human Biology",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Vasiliki Fouka",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -2422,6 +2443,13 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
+    "Key": "H&SKBCQX0",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Joan Danforth Professorship",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
     "Key": "H&SKAAXY0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Bita Daryabari Professorship in Persian Studies",
@@ -2541,10 +2569,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKAQQJ5778511",
+    "Key": "H&SKAQQJ3742640",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Dunlevie Family Professorship",
-    "CURRENT HOLDER": "Florencia Torche",
+    "CURRENT HOLDER": "Jeanne Tsai",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -2660,10 +2688,31 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
+    "Key": "H&SKARIB9867086",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Marjorie Mhoon Fair Professorship I",
+    "CURRENT HOLDER": "Ian H. Gotlib",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
+    "Key": "H&SKAJTT5515676",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Marjorie Mhoon Fair Professorship II",
+    "CURRENT HOLDER": "Daniel S. Fisher",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
     "Key": "H&SKAUUI9970476",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Marjorie Mhoon Fair Professorship in Quantitative Science",
     "CURRENT HOLDER": "Iain M. Johnstone",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
+    "Key": "H&SKBCQO50029813",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Lana H. Ferguson H&S Lectureship in Undergraduate Teaching",
+    "CURRENT HOLDER": "Jacob Hellman",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -2716,10 +2765,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKAXNV9877192",
+    "Key": "H&SKAXNV0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Joan B. Ford Professorship",
-    "CURRENT HOLDER": "Mark Granovetter",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -2730,10 +2779,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKBJTN0",
+    "Key": "H&SKBJTN4657383",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Robert G. Freeman Professorship in International Studies",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Jisha Menon",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3087,20 +3136,6 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKAJTT5515676",
-    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
-    "POSITION": "The David Starr Jordan Professorship",
-    "CURRENT HOLDER": "Daniel S. Fisher",
-    "WEBSITE": "http://humsci.stanford.edu"
-  },
-  {
-    "Key": "H&SKARIB9867086",
-    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
-    "POSITION": "The David Starr Jordan Professorship",
-    "CURRENT HOLDER": "Ian H. Gotlib",
-    "WEBSITE": "http://humsci.stanford.edu"
-  },
-  {
     "Key": "H&SKARJX3751476",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The William R. Kenan, Jr. Professorship",
@@ -3213,10 +3248,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKARNF0",
+    "Key": "H&SKARNF9896895",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Josephine Knotts Knowles Professorship in Human Biology",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Laurence Baker",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3346,10 +3381,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKASFR0",
+    "Key": "H&SKASFR25539701",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Clarence Irving Lewis Professorship in Philosophy",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Thomas Icard",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -4186,10 +4221,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKATNJ3987112",
+    "Key": "H&SKATNJ0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Holbrook Working Professorship in Price Theory",
-    "CURRENT HOLDER": "Jonathan D. Levin",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -4207,172 +4242,186 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "Earth SciencesKAAQU9944380",
+    "Key": "Doerr School of SustainabilityKAAQU9944380",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Thomas Davies Barrow Professorship",
     "CURRENT HOLDER": "Roland N. Horne",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKAQCR9864489",
+    "Key": "Doerr School of SustainabilityKAQCR9864489",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Keleen and Carlton Beal Professorship",
     "CURRENT HOLDER": "Anthony R. Kovscek",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKAQKD1946359",
+    "Key": "Doerr School of SustainabilityKAQKD1946359",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Welton Joseph and Maud L’Anphere Crook Professorship",
     "CURRENT HOLDER": "Stephan A. Graham",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKBCML6108685",
+    "Key": "Doerr School of SustainabilityKBCML6108685",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Steven and Roberta Denning Faculty Fellow in Global Governance for Sustainability",
     "CURRENT HOLDER": "Hélène Benveniste",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKEJCA0",
+    "Key": "Doerr School of SustainabilityKEJCA5159727",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Steven and Roberta Denning Global Sustainability Professorship",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Shanjun Li",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKRSJE5570011",
+    "Key": "Doerr School of SustainabilityKRSJE5570011",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Emmett Family Faculty Scholar",
     "CURRENT HOLDER": "Nicole M. Ardoin",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKARAE2652022",
+    "Key": "Doerr School of SustainabilityKARAE2652022",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Cecil H. and Ida M. Green Professorship",
     "CURRENT HOLDER": "Paul Segall",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKAUXR3082518",
+    "Key": "Doerr School of SustainabilityKAUXR3082518",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The George L. Harrington Professorship",
     "CURRENT HOLDER": "Rosemary J. Knight",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKAAUU9792870",
+    "Key": "Doerr School of SustainabilityKAAUU9792870",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Terry Huffington Professorship",
     "CURRENT HOLDER": "Scott Fendorf",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKRSJH4125613",
+    "Key": "Doerr School of SustainabilityKRSJH4125613",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Kara J Foundation Professorship",
     "CURRENT HOLDER": "Noah Diffenbaugh",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKARKT9852252",
+    "Key": "Doerr School of SustainabilityKARKT9852252",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The W. M. Keck Professorship",
     "CURRENT HOLDER": "Robert B. Dunbar",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKARIT9702384",
+    "Key": "Doerr School of SustainabilityKARIT9702384",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Dorrell William Kirby Professorship",
     "CURRENT HOLDER": "Jonathan Payne",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKEJRJ0",
+    "Key": "Doerr School of SustainabilityKEJRJ0",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The L&S Family Professorship in Energy and Sustainability",
     "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKAVCI9957705",
+    "Key": "Doerr School of SustainabilityKAVCI9957705",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
-    "POSITION": "The Wayne Loel Professorship",
+    "POSITION": "The Wayne Loel Professorship in Earth Science",
     "CURRENT HOLDER": "Gregory Beroza",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKARNY9844978",
+    "Key": "Doerr School of SustainabilityKAVCI9945627",
+    "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
+    "POSITION": "The Wayne Loel Professorship in Sustainability",
+    "CURRENT HOLDER": "Lynn Hildemann",
+    "WEBSITE": "https://sustainability.stanford.edu/"
+  },
+  {
+    "Key": "Doerr School of SustainabilityKARNY9844978",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Otto N. Miller Professorship",
     "CURRENT HOLDER": "Louis Durlofsky",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKBAFS3565348",
+    "Key": "Doerr School of SustainabilityKBAFS3565348",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Barney and Estelle Morris Professorship",
     "CURRENT HOLDER": "Biondo Biondi",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKBAFV5922629",
+    "Key": "Doerr School of SustainabilityKBAFV5922629",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Chester Naramore Deanship",
     "CURRENT HOLDER": "Arun Majumdar",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKARSH5144732",
+    "Key": "Doerr School of SustainabilityKARSH5144732",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Benjamin M. Page Professorship",
     "CURRENT HOLDER": "Dr. David Brian Lobell",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKARRE5709965",
+    "Key": "Doerr School of SustainabilityKARRE5709965",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Victoria and Roger Sant Directorship of the Earth Systems Program",
     "CURRENT HOLDER": "Kabir Peay",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKAVJL9785932",
+    "Key": "Doerr School of SustainabilityKAVJL9785932",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Donald and Donald M. Steel Professorship",
     "CURRENT HOLDER": "Kevin R. Arrigo",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKBNKM3832763",
+    "Key": "Doerr School of SustainabilityKBNKM3832763",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Max Steineke Professorship",
     "CURRENT HOLDER": "Hamdi Tchelepi",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKAJTF9668255",
+    "Key": "Doerr School of SustainabilityKAJTF9668255",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Sykes Family E-IPER Directorship",
     "CURRENT HOLDER": "Krish Seetah",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKAAPG2461853",
+    "Key": "Doerr School of SustainabilityKAAPG2461853",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Cyrus Fisher Tolman Professorship",
     "CURRENT HOLDER": "Steven M. Gorelick",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Earth SciencesKCLKH3536125",
+    "Key": "Doerr School of SustainabilityKCLKH3536125",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The William Wrigley Professorship",
     "CURRENT HOLDER": "Rosamond L. Naylor",
     "WEBSITE": "https://sustainability.stanford.edu/"
+  },
+  {
+    "Key": "LawKBCNV0",
+    "SUBCATEGORY": "STANFORD LAW SCHOOL",
+    "POSITION": "The Anonymous Law Professorship",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
     "Key": "LawKAQFO21739909",
@@ -4809,6 +4858,20 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
+    "Key": "MedicineKHAZC22083950",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Alan Adler Professorship in Ophthalmology",
+    "CURRENT HOLDER": "Prithvi Mruthyunjaya",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "MedicineKHAZE5401122",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Irene Adler Endowed Scholar",
+    "CURRENT HOLDER": "Brooke Howitt",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
     "Key": "MedicineKHAXJ9688944",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Alex and Susie Algard Endowed Professorship",
@@ -4938,7 +5001,7 @@
     "Key": "MedicineKHAJB9682726",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Anne T. and Robert M. Bass Faculty Scholar in Pediatric Cancer and Blood Diseases",
-    "CURRENT HOLDER": "Sushima Reddy",
+    "CURRENT HOLDER": "Sushma Reddy",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -4998,10 +5061,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKAAES9704393",
+    "Key": "MedicineKAAES0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The George E. Becker Professorship in Medicine",
-    "CURRENT HOLDER": "Beverly S. Mitchell",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5268,6 +5331,13 @@
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Sutardja Chuk Professorship in Definitive and Curative Medicine",
     "CURRENT HOLDER": "Matthew Porteus",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "MedicineKHAVN5357059",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The CKD Family Professorship",
+    "CURRENT HOLDER": "Michaela Liedtke",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6510,10 +6580,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKHAPD5594564",
+    "Key": "MedicineKHAPD0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The NICU Nurses Professorship",
-    "CURRENT HOLDER": "Gary M. Shaw",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -7364,10 +7434,17 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "DAPERKMMMY9604036",
+    "Key": "DAPERKABXZ6225066",
+    "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
+    "POSITION": "The Anonymous Assistant Women's Tennis Coachship",
+    "CURRENT HOLDER": "Janice Shin",
+    "WEBSITE": "http://www.gostanford.com/"
+  },
+  {
+    "Key": "DAPERKMMMY50030768",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Anonymous Assistant Wrestling Coachship",
-    "CURRENT HOLDER": "Grant Leeth",
+    "CURRENT HOLDER": "Hayden Hidlay",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7382,13 +7459,6 @@
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Harry K. and Ida S. Berland Associate Head Women’s Basketball Coachship",
     "CURRENT HOLDER": "Tempie Brown",
-    "WEBSITE": "http://www.gostanford.com/"
-  },
-  {
-    "Key": "DAPERKABLK9768151",
-    "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
-    "POSITION": "The Peter and Helen Bing Directorship of Women’s Tennis",
-    "CURRENT HOLDER": "Frankie Brennan",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7427,6 +7497,13 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
+    "Key": "DAPERKBFDH50031677",
+    "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
+    "POSITION": "The Devens Family Endowed Men's Tennis Assistant Coachship",
+    "CURRENT HOLDER": "Harrison Adams",
+    "WEBSITE": "http://www.gostanford.com/"
+  },
+  {
     "Key": "DAPERKBFDX50026337",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Duan Family Assistant Women's Golf Coachship",
@@ -7458,7 +7535,7 @@
     "Key": "DAPERKBFDY6019038",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Farwell Family Directorship of Women's Rowing",
-    "CURRENT HOLDER": "Derek Barnes",
+    "CURRENT HOLDER": "Derek Byrnes",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7466,6 +7543,13 @@
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Farwell Family Directorship of Men’s Rowing",
     "CURRENT HOLDER": "Ted Sobolewski",
+    "WEBSITE": "http://www.gostanford.com/"
+  },
+  {
+    "Key": "DAPERKBFDR50023213",
+    "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
+    "POSITION": "The Fontaine and Langenfeld Women's Gymnastics Assistant Coachship",
+    "CURRENT HOLDER": "Hallie Mossett",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7616,10 +7700,10 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "DAPERKMMMU6090794",
+    "Key": "DAPERKMMMU50028450",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Patricia Miranda Associate Head Wrestling Coachship",
-    "CURRENT HOLDER": "Ryan Deakin",
+    "CURRENT HOLDER": "Patrick Brucki",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7641,6 +7725,13 @@
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Kimberly and Beverly Oden Assistant Volleyball Coachship",
     "CURRENT HOLDER": "Alex Dunphy",
+    "WEBSITE": "http://www.gostanford.com/"
+  },
+  {
+    "Key": "DAPERKBFEF50018930",
+    "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
+    "POSITION": "The Pechanec Luck Family Associate Head Women's Gymnastics Coachship",
+    "CURRENT HOLDER": "Vincent Smurro",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -8169,6 +8260,13 @@
     "WEBSITE": "https://studentaffairs.stanford.edu/"
   },
   {
+    "Key": "VPSAKBFDJ36430940",
+    "SUBCATEGORY": "OFFICE OF THE VICE PROVOST FOR STUDENT AFFAIRS",
+    "POSITION": "The Kelsey and Robert Murphy Directorship for the First-Generation and/or Low-Income Student Success Center",
+    "CURRENT HOLDER": "Lien Truong",
+    "WEBSITE": "https://studentaffairs.stanford.edu/"
+  },
+  {
     "Key": "VPSAKBFAT0",
     "SUBCATEGORY": "OFFICE OF THE VICE PROVOST FOR STUDENT AFFAIRS",
     "POSITION": "The Anonymous Queer Student Resources Directorship",
@@ -8512,10 +8610,10 @@
     "WEBSITE": "http://siepr.stanford.edu/people"
   },
   {
-    "Key": "SIEPRKABAJ6001216",
+    "Key": "SIEPRKABAJ5388824",
     "SUBCATEGORY": "STANFORD INSTITUTE FOR ECONOMIC POLICY RESEARCH",
     "POSITION": "The Trione Directorship of SIEPR",
-    "CURRENT HOLDER": "Mark G. Duggan",
+    "CURRENT HOLDER": "Neale Mahoney",
     "WEBSITE": "http://siepr.stanford.edu/people"
   },
   {
@@ -8604,56 +8702,56 @@
   },
   {
     "Key": "LibrariesKAQNS9970195",
-    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
+    "SUBCATEGORY": "STANFORD LIBRARIES",
     "POSITION": "The Elwood Cubberley Education Librarianship",
     "CURRENT HOLDER": "Kathryn M. Kerns",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"
   },
   {
     "Key": "LibrariesKAQVS7055486",
-    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
+    "SUBCATEGORY": "STANFORD LIBRARIES",
     "POSITION": "The Frances and Charles Field Curatorship of Special Collections",
     "CURRENT HOLDER": "Roberto G. Trujillo",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"
   },
   {
     "Key": "LibrariesKARAG9904616",
-    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
+    "SUBCATEGORY": "STANFORD LIBRARIES",
     "POSITION": "The Ida M. Green University Librarianship",
     "CURRENT HOLDER": "Michael A. Keller",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"
   },
   {
     "Key": "LibrariesKBCEY5732912",
-    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
+    "SUBCATEGORY": "STANFORD LIBRARIES",
     "POSITION": "The Harold C. Hohbach Silicon Valley Historian",
     "CURRENT HOLDER": "Charles Petersen",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"
   },
   {
     "Key": "LibrariesKBCEX9937038",
-    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
+    "SUBCATEGORY": "STANFORD LIBRARIES",
     "POSITION": "The Harold C. Hohbach Curatorship",
     "CURRENT HOLDER": "Henry Lowood",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"
   },
   {
     "Key": "LibrariesKARPC0",
-    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
+    "SUBCATEGORY": "STANFORD LIBRARIES",
     "POSITION": "The Dean and Virginia Morrison Curatorship of Social Sciences, Demography, and Population Studies",
     "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"
   },
   {
     "Key": "LibrariesKAVGV0",
-    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
+    "SUBCATEGORY": "STANFORD LIBRARIES",
     "POSITION": "The Mary R. and Elizabeth K. Raymond Conservationist",
     "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"
   },
   {
     "Key": "LibrariesKBAGI50010559",
-    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
+    "SUBCATEGORY": "STANFORD LIBRARIES",
     "POSITION": "The Reinhard Family Curatorship of Judaica and Hebraica Collections",
     "CURRENT HOLDER": "Eitan Kensky",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"

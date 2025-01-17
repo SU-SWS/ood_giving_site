@@ -7,6 +7,7 @@ import CenteredContainer from '../components/partials/centeredContainer';
 import SbLink from '../components/partials/sbLink';
 
 const ForeignSourceReporting = ({ data }) => {
+  const isProduction = process.env.CONTEXT === 'production';
   const oodLocalHeader = {
     ...data?.header,
     content: JSON.parse(data?.header.content),
@@ -56,7 +57,9 @@ const ForeignSourceReporting = ({ data }) => {
             <SbLink
               linkType="url"
               link={{
-                url: 'https://giving.stanford.edu/gift-policies/',
+                url: isProduction
+                  ? 'https://giving.stanford.edu/gift-policies/'
+                  : 'https://dev--adapt-giving.netlify.app/gift-policies/',
               }}
             >
               Stanford’s Gift Policy
