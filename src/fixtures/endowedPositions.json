@@ -406,10 +406,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKAVGM0",
+    "Key": "BusinessKAVGM3521424",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
-    "POSITION": "The Philip H. Knight Professorship for the Dean of the Graduate School of Business",
-    "CURRENT HOLDER": "To Be Named",
+    "POSITION": "The Philip H. Knight Professorship for the Dean of the Graduate School of Business (Interim)",
+    "CURRENT HOLDER": "Peter DeMarzo",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -1302,13 +1302,6 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringNSYDG0",
-    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
-    "POSITION": "The John M. Fluke Professorship in Electrical Engineering",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
-  },
-  {
     "Key": "EngineeringKFONG3373479",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Kenneth Fong Professorship",
@@ -1414,10 +1407,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKWMAH9843509",
+    "Key": "EngineeringKWMAH4779567",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The ICME Directorship",
-    "CURRENT HOLDER": "Gianluca Iaccarino",
+    "CURRENT HOLDER": "Eric Darve",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1582,10 +1575,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKARPL0",
+    "Key": "EngineeringKARPL5806715",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The David T. Morgenthaler II Faculty Scholar",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Brian Hie",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1638,10 +1631,17 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKARRU0",
+    "Key": "EngineeringKARRU50003863",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Robert N. Noyce Family Faculty Fellow",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Christopher Gregg",
+    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
+  },
+  {
+    "Key": "EngineeringKARRU50023318",
+    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
+    "POSITION": "The Robert N. Noyce Family Faculty Fellow",
+    "CURRENT HOLDER": "Azalia Mirhoseini",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1778,10 +1778,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKBASB0",
+    "Key": "EngineeringKBASB5000001",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Rickey/Nielsen Professorship in the School of Engineering",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Sarah Heilshorn",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -3563,10 +3563,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKAVEP9941618",
+    "Key": "H&SKAVEP0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Clifford G. Morrison Professorship in Population and Resources Studies",
-    "CURRENT HOLDER": "Peter M. Vitousek",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3749,6 +3749,13 @@
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Charles and Elizabeth Prothro Professorship in Marine Sciences",
     "CURRENT HOLDER": "Barbara Block",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
+    "Key": "H&SKBCTO5774735",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Nehal and Jenny Fan Raj Civics Fellow in Undergraduate Teaching",
+    "CURRENT HOLDER": "Alison McQueen",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -4270,13 +4277,6 @@
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Doerr School of SustainabilityKEJCA5159727",
-    "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
-    "POSITION": "The Steven and Roberta Denning Global Sustainability Professorship",
-    "CURRENT HOLDER": "Shanjun Li",
-    "WEBSITE": "https://sustainability.stanford.edu/"
-  },
-  {
     "Key": "Doerr School of SustainabilityKRSJE5570011",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Emmett Family Faculty Scholar",
@@ -4326,10 +4326,10 @@
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
-    "Key": "Doerr School of SustainabilityKEJRJ0",
+    "Key": "Doerr School of SustainabilityKEJRJ50030823",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
-    "POSITION": "The L&S Family Professorship in Energy and Sustainability",
-    "CURRENT HOLDER": "To Be Named",
+    "POSITION": "The L&S Family Center Fellow in Energy and Sustainability",
+    "CURRENT HOLDER": "Colin Ophus",
     "WEBSITE": "https://sustainability.stanford.edu/"
   },
   {
@@ -4529,10 +4529,10 @@
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
-    "Key": "LawNAAVS5328729",
+    "Key": "LawNAAVS50030237",
     "SUBCATEGORY": "STANFORD LAW SCHOOL",
     "POSITION": "The Edwin A. Heafey, Jr. Visiting Professorship",
-    "CURRENT HOLDER": "Fred Smith",
+    "CURRENT HOLDER": "Alexandra Klass",
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
@@ -4564,10 +4564,10 @@
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
-    "Key": "LawKLAWK5393291",
+    "Key": "LawKLAWK0",
     "SUBCATEGORY": "STANFORD LAW SCHOOL",
     "POSITION": "The Leah Kaplan Visiting Professorship in Human Rights",
-    "CURRENT HOLDER": "E. Tendayi Achiume",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
@@ -4739,10 +4739,10 @@
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
-    "Key": "LawNAANM0",
+    "Key": "LawNAANM50030466",
     "SUBCATEGORY": "STANFORD LAW SCHOOL",
     "POSITION": "The Herman Phleger Visiting Professorship",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Harold Hongju Koh",
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
@@ -5530,10 +5530,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKHALL0",
+    "Key": "MedicineKHALL219643105",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Elizabeth Wood Dunlevie Professorship",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Mitchell Cohen",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6580,10 +6580,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKHAPD0",
+    "Key": "MedicineKHAKZ9588592",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The NICU Nurses Professorship",
-    "CURRENT HOLDER": "To Be Named",
+    "POSITION": "The NICU Nurses Faculty Scholar",
+    "CURRENT HOLDER": "Erik Jensen",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -7004,6 +7004,13 @@
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Stanford Medicine Discovery Professorship",
     "CURRENT HOLDER": "Melissa Bondy",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "MedicineKHAFE5358346",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Stanford Medicine Endowed Chair of the Department of Neurosurgery",
+    "CURRENT HOLDER": "Michael Lim",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -8276,21 +8283,21 @@
   {
     "Key": "VPUEKJYBW5410473",
     "SUBCATEGORY": "OFFICE OF THE VICE PROVOST FOR UNDERGRADUATE EDUCATION",
-    "POSITION": "The Bertelson Family COLLEGE Faculty Fellow (Fall 2024)",
+    "POSITION": "The Bertelson Family College Faculty Fellow (Fall 2024)",
     "CURRENT HOLDER": "Judith Fan",
     "WEBSITE": "https://undergrad.stanford.edu/about-vpue"
   },
   {
     "Key": "VPUEKJYBW50002476",
     "SUBCATEGORY": "OFFICE OF THE VICE PROVOST FOR UNDERGRADUATE EDUCATION",
-    "POSITION": "The Bertelson Family COLLEGE Faculty Fellow (Winter 2025)",
+    "POSITION": "The Bertelson Family College Faculty Fellow (Winter 2025)",
     "CURRENT HOLDER": "Steven Press",
     "WEBSITE": "https://undergrad.stanford.edu/about-vpue"
   },
   {
     "Key": "VPUEKJYBW5451736",
     "SUBCATEGORY": "OFFICE OF THE VICE PROVOST FOR UNDERGRADUATE EDUCATION",
-    "POSITION": "The Bertelson Family COLLEGE Faculty Fellow (Spring 2025)",
+    "POSITION": "The Bertelson Family College Faculty Fellow (Spring 2025)",
     "CURRENT HOLDER": "Ban Wang",
     "WEBSITE": "https://undergrad.stanford.edu/about-vpue"
   },
@@ -8309,30 +8316,30 @@
     "WEBSITE": "https://undergrad.stanford.edu/about-vpue"
   },
   {
-    "Key": "VPUEKAQVY0",
+    "Key": "VPUEKAQVY5561130",
     "SUBCATEGORY": "OFFICE OF THE VICE PROVOST FOR UNDERGRADUATE EDUCATION",
     "POSITION": "The Freeman-Thornton Chair for the Vice Provost for Undergraduate Education",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "James T. Hamilton",
     "WEBSITE": "https://undergrad.stanford.edu/about-vpue"
   },
   {
     "Key": "VPUEKJYBY5252411",
     "SUBCATEGORY": "OFFICE OF THE VICE PROVOST FOR UNDERGRADUATE EDUCATION",
-    "POSITION": "The Nelson Family COLLEGE Faculty Fellow (Fall 2024)",
+    "POSITION": "The Nelson Family College Faculty Fellow (Fall 2024)",
     "CURRENT HOLDER": "Rosa Cao",
     "WEBSITE": "https://undergrad.stanford.edu/about-vpue"
   },
   {
     "Key": "VPUEKJYBY21767975",
     "SUBCATEGORY": "OFFICE OF THE VICE PROVOST FOR UNDERGRADUATE EDUCATION",
-    "POSITION": "The Nelson Family COLLEGE Faculty Fellow (Winter 2025)",
+    "POSITION": "The Nelson Family College Faculty Fellow (Winter 2025)",
     "CURRENT HOLDER": "Emilee Chapman",
     "WEBSITE": "https://undergrad.stanford.edu/about-vpue"
   },
   {
     "Key": "VPUEKJYBY5854556",
     "SUBCATEGORY": "OFFICE OF THE VICE PROVOST FOR UNDERGRADUATE EDUCATION",
-    "POSITION": "The Nelson Family COLLEGE Faculty Fellow (Spring 2025)",
+    "POSITION": "The Nelson Family College Faculty Fellow (Spring 2025)",
     "CURRENT HOLDER": "Nicole Martinez-Martin",
     "WEBSITE": "https://undergrad.stanford.edu/about-vpue"
   },
@@ -8702,56 +8709,56 @@
   },
   {
     "Key": "LibrariesKAQNS9970195",
-    "SUBCATEGORY": "STANFORD LIBRARIES",
+    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
     "POSITION": "The Elwood Cubberley Education Librarianship",
     "CURRENT HOLDER": "Kathryn M. Kerns",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"
   },
   {
     "Key": "LibrariesKAQVS7055486",
-    "SUBCATEGORY": "STANFORD LIBRARIES",
+    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
     "POSITION": "The Frances and Charles Field Curatorship of Special Collections",
     "CURRENT HOLDER": "Roberto G. Trujillo",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"
   },
   {
     "Key": "LibrariesKARAG9904616",
-    "SUBCATEGORY": "STANFORD LIBRARIES",
+    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
     "POSITION": "The Ida M. Green University Librarianship",
     "CURRENT HOLDER": "Michael A. Keller",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"
   },
   {
     "Key": "LibrariesKBCEY5732912",
-    "SUBCATEGORY": "STANFORD LIBRARIES",
+    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
     "POSITION": "The Harold C. Hohbach Silicon Valley Historian",
     "CURRENT HOLDER": "Charles Petersen",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"
   },
   {
     "Key": "LibrariesKBCEX9937038",
-    "SUBCATEGORY": "STANFORD LIBRARIES",
+    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
     "POSITION": "The Harold C. Hohbach Curatorship",
     "CURRENT HOLDER": "Henry Lowood",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"
   },
   {
     "Key": "LibrariesKARPC0",
-    "SUBCATEGORY": "STANFORD LIBRARIES",
+    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
     "POSITION": "The Dean and Virginia Morrison Curatorship of Social Sciences, Demography, and Population Studies",
     "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"
   },
   {
     "Key": "LibrariesKAVGV0",
-    "SUBCATEGORY": "STANFORD LIBRARIES",
+    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
     "POSITION": "The Mary R. and Elizabeth K. Raymond Conservationist",
     "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"
   },
   {
     "Key": "LibrariesKBAGI50010559",
-    "SUBCATEGORY": "STANFORD LIBRARIES",
+    "SUBCATEGORY": "STANFORD UNIVERSITY LIBRARIES",
     "POSITION": "The Reinhard Family Curatorship of Judaica and Hebraica Collections",
     "CURRENT HOLDER": "Eitan Kensky",
     "WEBSITE": "https://library.stanford.edu/support-stanford-libraries"
@@ -8936,6 +8943,13 @@
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Denning Family Provostial Professorship",
     "CURRENT HOLDER": "Jonathan Berger",
+    "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
+  },
+  {
+    "Key": "University Presidential and Provostial ProfessorshipsKEJCA5159727",
+    "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
+    "POSITION": "The Steven and Roberta Denning Global Sustainability Professorship",
+    "CURRENT HOLDER": "Shanjun Li",
     "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
