@@ -12,6 +12,7 @@ function createMarkup(storyblokHTML) {
     allowedTags: false, // This allows extra HTML tags to be rendered, e.g., H2, img
     allowedAttributes: false, // This allows custom class names
     allowVulnerableTags: true, // https://github.com/apostrophecms/sanitize-html/blob/main/CHANGELOG.md#1250
+    exclusiveFilter: (frame) => frame.tag === 'a' && !frame.text.trim(), // Remove empty links
   });
 
   // Rewrite the URL to the redirect link to mask the API endpoint.
