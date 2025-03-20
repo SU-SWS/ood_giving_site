@@ -10,26 +10,22 @@ const OodSupportCard = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <article
+      <div
         className={`ood-support-card su-text-white su-text-align-left`}
         data-areas-to-support={taxonomyString(props.blok.taxonomy)}
       >
         <SbLink
           link={props.blok.link}
-          classes={`ood-support-card__link su-bg-${props.blok.backgroundColor}`}
+          classes={`ood-support-card__link su-text-white su-bg-${props.blok.backgroundColor}`}
         >
           <div className="ood-support-card__contents">
-            <Heading
-              level={props.blok.headingLevel}
-              defaultLevel={'h3'}
-              color={'white'}
-              weight={'semibold'}
+            <span
               classes={`ood-support-card__headline ${
                 props.blok.link.linktype === 'url' ? 'su-link--external' : ''
               }`}
             >
               {props.blok.headline}
-            </Heading>
+            </span>
             <span
               aria-hidden="true"
               className={`ood-support-card__icon su-text-white
@@ -47,7 +43,7 @@ const OodSupportCard = (props) => {
             />
           </div>
         </SbLink>
-      </article>
+      </div>
     </SbEditable>
   );
 };
