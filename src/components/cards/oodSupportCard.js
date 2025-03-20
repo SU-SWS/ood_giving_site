@@ -10,7 +10,7 @@ const OodSupportCard = (props) => {
 
   return (
     <SbEditable content={props.blok}>
-      <div
+      <article
         className="ood-support-card su-text-white su-text-align-left"
         data-areas-to-support={taxonomyString(props.blok.taxonomy)}
       >
@@ -44,7 +44,7 @@ const OodSupportCard = (props) => {
             />
           </div>
         </SbLink>
-      </div>
+      </article>
     </SbEditable>
   );
 };
