@@ -77,6 +77,7 @@
     "lint:fix": "NODE_ENV=test eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "https-proxy-start": "local-ssl-proxy --source 3010 --target 8000 --cert ./dev/localhost.pem --key ./dev/localhost-key.pem",
+    "proxy": "npm run https-proxy-start",
     "hps": "local-ssl-proxy --cert ./dev/localhost.pem --key ./dev/localhost-key.pem"
   },
   "repository": {
