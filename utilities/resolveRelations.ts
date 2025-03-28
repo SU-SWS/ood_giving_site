@@ -4,5 +4,13 @@
  */
 
 export const resolveRelations: string[] = [
-
+  'oodQuoteSlider.quotes',
+  'globalFooterPicker.globalFooter',
+  'localFooterPicker.localFooter',
+  'localHeaderPicker.localHeader',
+  'contentMenuPicker.contentMenu',
+  'storyPicker.story',
+  'alertPicker.alert',
+  'endowedPositionsSearchPicker.endowedPositionsSearch',
+  'countdownPicker.countdown',
 ];
