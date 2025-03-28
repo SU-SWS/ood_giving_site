@@ -1,4 +1,4 @@
-import { type SbImageType } from '@/components/Storyblok/Storyblok.types'
+import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
 
 /**
  * A utility function to get the first image from the story content.

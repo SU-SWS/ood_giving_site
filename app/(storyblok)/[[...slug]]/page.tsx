@@ -12,7 +12,7 @@ type PathsType = {
 };
 
 type ParamsType = {
-  params: PathsType;
+  params: Promise<PathsType>;
 };
 
 // Storyblok bridge options.
