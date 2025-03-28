@@ -23,6 +23,7 @@ pids
 
 # misc
 .DS_Store
+*.pem
 
 # testing
 /coverage
