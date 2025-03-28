@@ -3,8 +3,7 @@ import { GoogleTagManager } from '@next/third-parties/google';
 import { useEffect } from 'react';
 import useUTMs from '@/hooks/useUTMs';
 import { isActiveEnv } from '@/utilities/getActiveEnv';
-// TODO: Need GTM ID
-const GTM_ID = '';
+const GTM_ID = 'GTM-5RGQ5DD';
 
 export default function GAProvider({ children }: { children: React.ReactNode }) {
   const { setUTMCookie, deleteUTMCookie } = useUTMs();
