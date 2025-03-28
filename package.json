@@ -18,7 +18,6 @@
     "Firefox ESR",
     "not dead"
   ],
-  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "inspect": "NODE_OPTIONS='--inspect' next dev",
