@@ -19,14 +19,14 @@ getStoryblokApi();
 /**
  * Get the story data from the Storyblok API through the cache.
  */
-export default async function PageNotFound() {
-  const { data } = await getStoryDataCached({ path: '404-page-page-not-found' });
+export default async function Forbidden() {
+  const { data } = await getStoryDataCached({ path: '403-page-access-denied' });
 
   if (data === 404) {
     return (
       <>
-        <h1>Error: Could not find page</h1>
-        <p>Slug <code><strong>404-page-page-not-found</strong></code> could not be found in the CMS.</p>
+        <h1>Error: Access Denied</h1>
+        <p>Slug <code><strong>403-page-access-denied</strong></code> could not be found in the CMS.</p>
       </>
     );
   }
