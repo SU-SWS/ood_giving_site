@@ -1,8 +1,13 @@
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 import { ComponentNotFound } from '@/components/Storyblok/ComponentNotFound';
+import { GlobalFooter } from '@/components/GlobalFooter';
+import { OodLandingPage } from '@/components/Storyblok/OodLandingPage';
+import { GlobalFooterPicker } from '@/components/GlobalFooter/GlobalFooterPicker';
 
 export const components = {
-
+  oodLandingPage: OodLandingPage,
+  globalFooter: GlobalFooter,
+  globalFooterPicker: GlobalFooterPicker,
 };
 
 export type GetStoryblokApiConfig = {
