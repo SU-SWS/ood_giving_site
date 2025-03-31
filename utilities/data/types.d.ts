@@ -5,7 +5,7 @@ export type getStoryDataProps = {
 
 export type PageProps = {
   searchParams: {
-    accessToken: string,
+    access_key: string,
     path: string,
     _storyblok: string, // ID of space (eg: 1005200)
     _storyblok_c: string,

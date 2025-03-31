@@ -111,8 +111,6 @@ const Page = async ({ params }: ParamsType) => {
     notFound();
   }
 
-  // console.log('data: ', data);
-
   // Return the story.
   return (
     <StoryblokStory

@@ -8,8 +8,10 @@ import { getStoryblokApi } from '@/utilities/storyblok';
 /**
  * Get the data out of the Storyblok API for the page.
  */
-export const getStoryData =
-  async ({ path, isEditor = false }: getStoryDataProps): Promise<ISbResult | { data: 404 }> => {
+export const getStoryData = async ({ 
+  path, 
+  isEditor = false,
+}: getStoryDataProps): Promise<ISbResult | { data: 404 }> => {
     const storyblokApi = getStoryblokApi();
     const isProd = isProduction();
 
@@ -21,8 +23,6 @@ export const getStoryData =
     };
 
     const slug = path.replace(/\/$/, ''); // Remove trailing slash.
-
-    console.log('GET STORY: ', slug);
 
     try {
       const story: ISbResult = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
