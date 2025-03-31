@@ -4,7 +4,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { FlexBox } from '@/components/FlexBox';
-import GAProvider, { GTAG } from '@/components/GAProvider';
+import { GAProvider, GTAG } from '@/components/GAProvider';
 
 type LayoutProps = {
   children: React.ReactNode,
@@ -28,7 +28,7 @@ const grotesk = localFont({
   variable: '--font-grotesk',
 });
 
-export default function RootLayout({ children }: LayoutProps) {
+const RootLayout = ({ children }: LayoutProps) => {
   return (
     <GAProvider>
       <html
@@ -49,4 +49,6 @@ export default function RootLayout({ children }: LayoutProps) {
       </html>
     </GAProvider>
   );
-}
+};
+
+export default RootLayout;

@@ -4,9 +4,9 @@ import { useEffect } from 'react';
 import { Masthead } from '@/components/Masthead';
 import { Container } from '@/components/Container';
 
-export default function Error({error}: {
+const Error = ({error}: {
   error: Error & { digest?: string };
-}) {
+}) => {
   useEffect(() => {
     // Log the error to an error reporting service
     console.error('Segment error', error);
@@ -23,4 +23,6 @@ export default function Error({error}: {
       </main>
     </div>
   );
-}
+};
+
+export default Error;

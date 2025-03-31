@@ -39,7 +39,7 @@ getStoryblokApi();
 /**
  * Generate the list of stories to statically render.
  */
-export async function generateStaticParams() {
+export const generateStaticParams = async () => {
   const isProd = isProduction();
 
   // Get all the stories.
@@ -77,7 +77,7 @@ export async function generateStaticParams() {
 /**
  * Generate the SEO metadata for the page.
  */
-export async function generateMetadata({ params }: ParamsType): Promise<Metadata> {
+export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata> => {
   const { slug } = await params;
 
   // Convert the slug to a path.
@@ -91,12 +91,12 @@ export async function generateMetadata({ params }: ParamsType): Promise<Metadata
   // Generate the metadata.
   const meta = getPageMetadata({ story, sbConfig: config, slug: slugPath });
   return meta;
-}
+};
 
 /**
  * Fetch the path data for the page and render it.
  */
-export default async function Page({ params }: ParamsType) {
+const Page = async ({ params }: ParamsType) => {
   const { slug } = await params;
 
   // Convert the slug to a path.
@@ -123,3 +123,5 @@ export default async function Page({ params }: ParamsType) {
     />
   );
 };
+
+export default Page;

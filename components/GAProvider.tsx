@@ -5,7 +5,7 @@ import useUTMs from '@/hooks/useUTMs';
 import { isProduction } from '@/utilities/getActiveEnv';
 const GTM_ID = 'GTM-5RGQ5DD';
 
-export default function GAProvider({ children }: { children: React.ReactNode }) {
+export const GAProvider = ({ children }: { children: React.ReactNode }) => {
   const { setUTMCookie, deleteUTMCookie } = useUTMs();
 
   useEffect(() => {

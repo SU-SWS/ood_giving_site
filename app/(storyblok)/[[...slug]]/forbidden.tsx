@@ -1,5 +1,5 @@
 import React from 'react';
-import StoryblokProvider from '@/components/StoryblokProvider';
+import { StoryblokProvider } from '@/components/StoryblokProvider';
 import { StoryblokStory } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getStoryDataCached } from '@/utilities/data/getStoryData';
@@ -19,7 +19,7 @@ getStoryblokApi();
 /**
  * Get the story data from the Storyblok API through the cache.
  */
-export default async function Forbidden() {
+const Forbidden = async () => {
   const { data } = await getStoryDataCached({ path: '403-page-access-denied' });
 
   if (data === 404) {
@@ -36,4 +36,6 @@ export default async function Forbidden() {
       <StoryblokStory story={data.story} bridgeOptions={bridgeOptions} />
     </StoryblokProvider>
   );
-}
+};
+
+export default Forbidden;

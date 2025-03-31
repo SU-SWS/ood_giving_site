@@ -1,12 +1,12 @@
 'use client';
 import { getStoryblokApi } from '@/utilities/storyblok';
 
-interface ProviderProps {
+type ProviderProps = {
   children: React.ReactNode;
   isEditor?: boolean;
 };
 
-export default function StoryblokProvider({ children, isEditor = false }: ProviderProps) {
+export const StoryblokProvider = ({ children, isEditor = false }: ProviderProps) => {
   getStoryblokApi({ isPreview: isEditor });
   return children;
-}
+};
