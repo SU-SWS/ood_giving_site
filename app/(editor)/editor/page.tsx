@@ -1,4 +1,4 @@
-import type { PageProps } from '@/utilities/data/types';
+import type { PageProps, PageSearchParams } from '@/utilities/data/types';
 import { storyblokInit, apiPlugin, StoryblokStory } from '@storyblok/react/rsc';
 import { components as Components } from '@/utilities/storyblok';
 import { resolveRelations } from '@/utilities/resolveRelations';
@@ -33,7 +33,7 @@ storyblokInit({
  * Validate the editor token.
  *
  */
-const validateEditor = (searchParams: PageProps['searchParams']) => {
+const validateEditor = (searchParams: PageSearchParams) => {
 
   // See if the token is in the query string matches the one in the environment.
   const queryAccessToken = searchParams['access_key'];
@@ -50,7 +50,8 @@ const validateEditor = (searchParams: PageProps['searchParams']) => {
 /**
  * Fetch the path data for the page and render it.
  */
-export default async function Page({ searchParams }: PageProps) {
+const Page = async (props: PageProps) => {
+  const { searchParams } = await props;
 
   // Not a valid editor token.
   if (!validateEditor(searchParams)) {
@@ -78,3 +79,5 @@ export default async function Page({ searchParams }: PageProps) {
     />
   );
 };
+
+export default Page;
