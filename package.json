@@ -19,13 +19,11 @@
     "not dead"
   ],
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --experimental-https",
     "inspect": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "hps": "local-ssl-proxy --cert ./dev/localhost.pem --key ./dev/localhost-key.pem",
-    "proxy": "local-ssl-proxy --source 3010 --target 3000 --cert ./dev/localhost.pem --key ./dev/localhost-key.pem",
     "vault": "netlify-plugin-vault-variables",
     "vault:local": "NODE_ENV=development netlify-plugin-vault-variables",
     "lint:fix": "next lint --fix",
