@@ -34,7 +34,7 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
         return false;
       }
 
-      if (story.full_slug.includes('global-components/') || story.full_slug.includes('test/')) {
+      if (story.full_slug.includes('global-components/') || story.full_slug.includes('test/') || story.full_slug.includes('test-items/')) {
         return false;
       }
 
