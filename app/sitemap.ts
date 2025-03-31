@@ -11,7 +11,6 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
       clear: 'auto',
       type: 'memory',
     },
-    region: 'us',
   });
 
   const isProd = isProduction();
