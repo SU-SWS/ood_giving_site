@@ -23,7 +23,7 @@
     "inspect": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint --max-warnings=0",
     "vault": "netlify-plugin-vault-variables",
     "vault:local": "NODE_ENV=development netlify-plugin-vault-variables",
     "lint:fix": "next lint --fix",
