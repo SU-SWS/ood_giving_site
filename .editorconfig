@@ -17,5 +17,6 @@ insert_final_newline = true
 indent_style = tab
 
 [*.{js,jsx,ts,tsx}]
+quote_type = single
 indent_style = space
 indent_size = 2

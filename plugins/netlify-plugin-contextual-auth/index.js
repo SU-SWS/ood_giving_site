@@ -13,7 +13,7 @@ module.exports = {
         // Add basic auth headers
         fs.appendFileSync(
           inputs.file,
-          `\n${inputs.path}\n  Basic-Auth: ${inputs.username}:${inputs.password}`
+          `\n${inputs.path}\n  Basic-Auth: ${inputs.username}:${inputs.password}`,
         );
       } catch (error) {
         // Report a user error
@@ -22,7 +22,7 @@ module.exports = {
 
       // Display success information
       console.log(
-        `Added basic auth "${inputs.username}:${inputs.password} for path "${inputs.path}""`
+        `Added basic auth "${inputs.username}:${inputs.password} for path "${inputs.path}""`,
       );
       status.show({ summary: 'Success!' });
     }
