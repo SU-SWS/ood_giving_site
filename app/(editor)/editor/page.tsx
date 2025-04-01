@@ -1,10 +1,26 @@
-import type { PageProps, PageSearchParams } from '@/utilities/data/types';
-import { storyblokInit, apiPlugin, StoryblokStory } from '@storyblok/react/rsc';
-import { components as Components } from '@/utilities/storyblok';
+import { StoryblokStory } from '@storyblok/react/rsc';
+import { getStoryblokApi } from '@/utilities/storyblok';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { notFound } from 'next/navigation';
-import { ComponentNotFound } from '@/components/Storyblok/ComponentNotFound';
 import { getStoryData } from '@/utilities/data/getStoryData';
+
+type PageSearchParams = {
+  access_key: string;
+  path: string;
+  _storyblok: string; // ID of space (eg: 1005200)
+  _storyblok_c: string;
+  _storyblok_version: string;
+  _storyblok_lang: string;
+  _storyblok_release: string; // number as a string eg: '0'
+  _storyblok_rl: string; // eg: '1698435696245'
+  '_storyblok_tk[space_id]': string; // eg: '1005200'
+  '_storyblok_tk[timestamp]': string; // eg: '1698435695'
+  '_storyblok_tk[token]': string; // eg: '654efea80d36a0b2bas3640ea937b0e0d4cc0234'
+};
+
+type PageProps = {
+  searchParams: Promise<PageSearchParams>;
+};
 
 // Control what happens when a dynamic segment is visited that was not generated with generateStaticParams.
 export const dynamic = 'force-dynamic';
@@ -19,47 +35,21 @@ const bridgeOptions = {
 /**
  * Init on the server.
  */
-storyblokInit({
-  accessToken: process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN, // Preview token because this is in server side.
-  use: [apiPlugin],
-  components: Components,
-  enableFallbackComponent: true,
-  customFallbackComponent: (component) => {
-    return <ComponentNotFound component={component} />;
-  },
-});
-
-/**
- * Validate the editor token.
- *
- */
-const validateEditor = (searchParams: PageSearchParams) => {
-
-  // See if the token is in the query string matches the one in the environment.
-  const queryAccessToken = searchParams['access_key'];
-  const validationToken = process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN;
-
-  if (queryAccessToken === validationToken) {
-    return true;
-  }
-
-  // Something didn't work out.
-  return false;
-};
+getStoryblokApi({ isPreview: true });
 
 /**
  * Fetch the path data for the page and render it.
  */
-const Page = async (props: PageProps) => {
-  const { searchParams } = await props;
+const Page = async ({ searchParams }: PageProps) => {
+  const { access_key: accessKey, path } = await searchParams;
 
   // Not a valid editor token.
-  if (!validateEditor(searchParams)) {
+  if (accessKey !== process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN) {
     console.error('Invalid editor token');
     notFound();
   }
 
-  const slug = searchParams.path.replace(/\/$/, '');
+  const slug = path === 'home' ? '/' : path.replace(/\/$/, '');
 
   // Get data out of the API.
   const { data } = await getStoryData({ path: slug, isEditor: true });
