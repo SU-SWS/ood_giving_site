@@ -2,12 +2,12 @@ import React from 'react';
 import { CreateStories } from '@/components/CreateStories';
 import { type ISbStoryData } from '@storyblok/react';
 
-type GlobalFooterPickerProps = {
+export type SbGlobalFooterPickerProps = {
   blok: {
     globalFooter: ISbStoryData[];
   }
 }
 
-export const GlobalFooterPicker = (props: GlobalFooterPickerProps) => (
+export const SbGlobalFooterPicker = (props: SbGlobalFooterPickerProps) => (
   <CreateStories stories={props.blok.globalFooter} />
 );

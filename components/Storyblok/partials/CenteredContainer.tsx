@@ -1,6 +1,6 @@
 import React, { type ElementType, type HTMLAttributes } from 'react';
 
-type CenteredContainerProps = {
+export type CenteredContainerProps = {
   element?: string;
   centered_disabled?: boolean;
   flex?: boolean;
@@ -9,19 +9,28 @@ type CenteredContainerProps = {
   children?: React.ReactNode;
 }
 
-export const CenteredContainer = (props: CenteredContainerProps) => {
-  const Element = props.element ?? 'div' as ElementType<HTMLAttributes<HTMLElement>>;
+export const CenteredContainer = ({
+  element,
+  centered_disabled,
+  flex,
+  srOnly,
+  classes,
+  children,
+  ...rest
+}: CenteredContainerProps) => {
+  const Element = element ?? 'div' as ElementType<HTMLAttributes<HTMLElement>>;
 
   return (
     <Element
       className={`
-       ${props.centered_disabled ? '' : 'centered-container'}
-       ${props.flex ? 'flex-container' : ''}
-       ${props.srOnly ? 'su-sr-only-element' : ''}
-       ${props.classes ?? ''}
-  `}
+        ${centered_disabled ? '' : 'centered-container'}
+        ${flex ? 'flex-container' : ''}
+        ${srOnly ? 'su-sr-only-element' : ''}
+        ${classes ?? ''}
+      `}
+      {...rest}
     >
-      {props.children}
+      {children}
     </Element>
   );
 };

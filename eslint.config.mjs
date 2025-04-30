@@ -10,8 +10,12 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
-  {
+  ...compat.config({
+    extends: ['next/core-web-vitals', 'next/typescript'],
+    ignorePatterns: [
+      // Generated SB types
+      'component-types-sb.d.ts',
+    ],
     rules: {
       'comma-dangle': ['error', {
         'objects': 'always-multiline',
@@ -79,7 +83,7 @@ const eslintConfig = [
       'semi': [1, 'always'], // 1 is for warning
       '@next/next/no-img-element': 0,
     },
-  },
+  }),
 ];
 
 export default eslintConfig;

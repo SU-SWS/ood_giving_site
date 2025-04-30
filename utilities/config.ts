@@ -2,6 +2,7 @@
  * Global variables for this project.
  */
 export const config = {
+  isNetlify: process.env.NETLIFY ?? false,
   siteTitle: 'Giving to Stanford',
   // TODO: default description?
   siteDescription: '',

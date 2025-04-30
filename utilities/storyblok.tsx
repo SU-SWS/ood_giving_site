@@ -1,13 +1,21 @@
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 import { ComponentNotFound } from '@/components/Storyblok/ComponentNotFound';
-import { GlobalFooter } from '@/components/GlobalFooter';
-import { OodLandingPage } from '@/components/Storyblok/OodLandingPage';
-import { GlobalFooterPicker } from '@/components/GlobalFooter/GlobalFooterPicker';
+import { SbGlobalFooter } from '@/components/Storyblok/SbGlobalFooter';
+import { SbLandingPage } from '@/components/Storyblok/SbLandingPage';
+import { SbGlobalFooterPicker } from '@/components/Storyblok/SbGlobalFooterPicker';
+import { SbStoryOverviewPage } from '@/components/Storyblok/SbStoryOverviewPage';
+import { SbCampaignPage } from '@/components/Storyblok/SbCampaignPage';
+import { SbInteriorPage } from '@/components/Storyblok/SbInteriorPage';
 
 export const components = {
-  oodLandingPage: OodLandingPage,
-  globalFooter: GlobalFooter,
-  globalFooterPicker: GlobalFooterPicker,
+  // Pages
+  oodLandingPage: SbLandingPage,
+  storyOverview: SbStoryOverviewPage,
+  oodCampaignPage: SbCampaignPage,
+  oodInteriorPage: SbInteriorPage,
+  // Identity
+  globalFooter: SbGlobalFooter,
+  globalFooterPicker: SbGlobalFooterPicker,
 };
 
 export type GetStoryblokApiConfig = {
