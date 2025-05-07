@@ -1,5 +1,5 @@
 import type { NextConfig } from 'next';
-import { getStoryblokRedirects } from '@/utilities/data/getStoryblokRedirects';
+import { getStoryblokRedirects } from '@/utilities/data/getStoryblokRedirects.mjs';
 
 const nextConfig: NextConfig = {
   eslint: {
@@ -18,10 +18,7 @@ const nextConfig: NextConfig = {
     CONTEXT: process.env.CONTEXT || 'development',
   },
   async redirects() {
-    const storyblokRedirects = await getStoryblokRedirects();
-    return [
-      ...storyblokRedirects,
-    ];
+    return await getStoryblokRedirects();
   },
 };
 
