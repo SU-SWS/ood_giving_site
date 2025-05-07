@@ -1,3 +1,4 @@
+'use client';
 import React, { type MouseEventHandler, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { storyblokEditable, type SbBlokData } from '@storyblok/react';
