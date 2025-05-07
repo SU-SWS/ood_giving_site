@@ -30,7 +30,7 @@ export type SbSupportPageProps = HeaderNoImageProps & IconCardSectionProps & Foo
   }
 };
 
-export const OodSupportPage = (props: SbSupportPageProps) => {
+export const SbSupportPage = (props: SbSupportPageProps) => {
   const { push } = useRouter();
 
   // TODO: Make sure this actually works

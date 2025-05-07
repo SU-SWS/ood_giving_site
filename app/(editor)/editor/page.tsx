@@ -1,5 +1,4 @@
 import { StoryblokStory } from '@storyblok/react/rsc';
-import { getStoryblokApi } from '@/utilities/storyblok';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { notFound } from 'next/navigation';
 import { getStoryData } from '@/utilities/data/getStoryData';
@@ -31,11 +30,6 @@ const bridgeOptions = {
   preventClicks: true,
   resolveLinks: 'story',
 };
-
-/**
- * Init on the server.
- */
-getStoryblokApi({ isPreview: true });
 
 /**
  * Fetch the path data for the page and render it.
