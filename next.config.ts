@@ -18,7 +18,10 @@ const nextConfig: NextConfig = {
     CONTEXT: process.env.CONTEXT || 'development',
   },
   async redirects() {
-    return await getStoryblokRedirects();
+    const storyblokRedirects = await getStoryblokRedirects();
+    return [
+      ...storyblokRedirects,
+    ];
   },
 };
 
