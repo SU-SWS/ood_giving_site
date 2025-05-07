@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { type ISbRichtext, type SbBlokData, storyblokEditable } from '@storyblok/react';
 import { RichTextField } from '@/components/RichTextField';
