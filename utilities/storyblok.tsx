@@ -10,18 +10,20 @@ import { SbInteriorPage } from '@/components/Storyblok/SbInteriorPage';
 import { SbSupportPage } from '@/components/Storyblok/SbSupportPage';
 import { SbStoryPage } from '@/components/Storyblok/SbStoryPage';
 import { SbStoryPicker } from '@/components/Storyblok/SbStoryPage';
+import { Redirect } from '@/components/Redirect';
 
 export const components = {
   // TODO DS-1417: Remove and clean up page
   page: SbPage,
+  redirect: Redirect,
   storyPicker: SbStoryPicker,
   // Pages
-  oodLandingPage: SbLandingPage,
-  storyOverview: SbStoryOverviewPage,
   oodCampaignPage: SbCampaignPage,
   oodInteriorPage: SbInteriorPage,
-  oodSupportPage: SbSupportPage,
+  oodLandingPage: SbLandingPage,
   oodStory: SbStoryPage,
+  oodSupportPage: SbSupportPage,
+  storyOverview: SbStoryOverviewPage,
   // Identity
   globalFooter: SbGlobalFooter,
   globalFooterPicker: SbGlobalFooterPicker,
