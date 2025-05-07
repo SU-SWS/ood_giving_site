@@ -5,7 +5,7 @@ import { CreateBloks } from '@/components/CreateBloks';
 import { Heading } from '@/components/Storyblok/partials/Heading';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 
-type IconCardSectionProps = {
+export type IconCardSectionProps = {
   blok: SbBlokData & {
     iconCards: SbBlokData[];
     iconCardHeading?: string;

@@ -7,7 +7,7 @@ import { StoryblokServerComponent, type ISbStoryData } from '@storyblok/react/rs
  * https://github.com/SU-SWS/saa_alumni/pull/563
  */
 
-type CreateStoriesProps = {
+export type CreateStoriesProps = {
   stories: ISbStoryData[];
   [key: string]: unknown;
 };

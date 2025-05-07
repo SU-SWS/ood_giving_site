@@ -1,0 +1,79 @@
+'use client';
+import React from 'react';
+import { type ISbRichtext, type SbBlokData, storyblokEditable } from '@storyblok/react';
+import { useWindowSize } from 'usehooks-ts';
+import { CreateBloks } from '@/components/CreateBloks';
+import { RichTextField } from '@/components/RichTextField';
+import { AspectRatioImage, type AspectRatioImageProps } from '@/components/Storyblok/partials/AspectRatioImage';
+import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
+import { Heading } from '@/components/Storyblok/partials/Heading';
+import { config } from '@/utilities/config';
+
+export type HeaderWithImageProps = {
+  blok: SbBlokData & {
+    contentMenu: SbBlokData[];
+    title?: string;
+    headerSpacingBottom?: string;
+    headerBackgroundColor?: string;
+    layout?: string;
+    intro?: ISbRichtext;
+    headerImage: AspectRatioImageProps;
+  }
+};
+
+/* The Header with Image component is referenced by the Interior Page type. */
+export const HeaderWithImage = (props: HeaderWithImageProps) => {
+  const windowSize = useWindowSize();
+
+  return (
+    <header
+      { ...storyblokEditable(props.blok) }
+      className={`ood-interior-page__header ood-interior-page__header--has-image
+            ${
+              props.blok.headerSpacingBottom !== 'none'
+                ? `su-mb-${props.blok.headerSpacingBottom}`
+                : ''
+            }`}
+    >
+      {windowSize.width < config.breakpoints.lg &&
+        props.blok.layout !== 'no-sidebar' && (
+          <div className="su-bg-palo-alto-dark">
+            <CreateBloks blokSection={props.blok.contentMenu} />
+          </div>
+        )}
+      <div className={`ood-interior-page__header-title-wrapper su-bg-white`}>
+        <CenteredContainer flex={true} classes="su-pb-5">
+          <div className={'header-and-intro flex-md-7-of-12 flex-lg-6-of-12'}>
+            <Heading
+              level={'h1'}
+              serif={true}
+              color={'black'}
+              classes={'ood-interior-page__title '}
+            >
+              {props.blok.title}
+            </Heading>
+            <div className={`ood-interior-page__header-intro-wrapper`}>
+              {props.blok.intro && <RichTextField data={props.blok.intro} />}
+            </div>
+          </div>
+          <div
+            className={`ood-interior-page__rectangle su-bg-${props.blok.headerBackgroundColor}`}
+            aria-hidden="true"
+          />
+          <AspectRatioImage
+            {...props}
+            filename={props.blok.headerImage.filename}
+            alt={props.blok.headerImage.alt}
+            classPrefix={'ood-interior-page__header'}
+            otherClasses={
+              'flex-md-5-of-12 flex-lg-6-of-12 su-ml-auto su-mr-none'
+            }
+            imageSize={'header'}
+            aspectRatio={'3x2'}
+            visibleVertical={props.blok.visibleVertical}
+          />
+        </CenteredContainer>
+      </div>
+    </header>
+  );
+};

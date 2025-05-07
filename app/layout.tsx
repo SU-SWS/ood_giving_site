@@ -1,5 +1,5 @@
 import { cnb } from 'cnbuilder';
-import { Source_Sans_3 } from 'next/font/google';
+import { Source_Sans_3, Source_Serif_4 } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -16,16 +16,16 @@ const source_sans = Source_Sans_3({
   variable: '--font-source-sans',
 });
 
+const source_serif = Source_Serif_4({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-source-serif',
+});
+
 const stanford = localFont({
   src: '../public/fonts/stanford.woff2',
   weight: '300',
   variable: '--font-stanford',
-});
-
-const grotesk = localFont({
-  src: '../public/fonts/PPRightGrotesk-SpatialBlack.woff2',
-  weight: '900',
-  variable: '--font-grotesk',
 });
 
 const RootLayout = ({ children }: LayoutProps) => {
@@ -35,7 +35,7 @@ const RootLayout = ({ children }: LayoutProps) => {
         lang="en"
         className={cnb(
           source_sans.variable,
-          grotesk.variable,
+          source_serif.variable,
           stanford.variable,
         )}
       >

@@ -3,7 +3,7 @@ import { type SbBlokData } from '@storyblok/react/rsc';
 import { storyblokEditable } from '@storyblok/react';
 import { CreateBloks } from '@/components/CreateBloks';
 
-type FooterProps = {
+export type FooterProps = {
   blok: SbBlokData & {
     localFooter: SbBlokData[];
     globalFooter: SbBlokData[];

@@ -1,14 +1,14 @@
 import React, { type ElementType, type HTMLAttributes } from 'react';
 
-type HeadingProps = {
+export type HeadingProps = {
   level?: string;
   defaultLevel?: string;
   classes?: string;
-  serif?: string;
+  serif?: boolean;
   weight?: string;
   color?: string;
   align?: string;
-  external?: string;
+  external?: boolean;
   children?: React.ReactNode;
 }
 

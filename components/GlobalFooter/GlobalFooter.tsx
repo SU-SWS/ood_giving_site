@@ -3,17 +3,14 @@ import { StanfordLogo } from '../StanfordLogo';
 import { Container } from '../Container';
 import { FlexBox } from '../FlexBox';
 import * as styles from './GlobalFooter.styles';
-import { SbBlokData, storyblokEditable } from '@storyblok/react';
 
 type GlobalFooterProps = {
-  blok: SbBlokData & {
-    color?: string;
-  }
+  color?: string;
 };
 
 // TODO: Fix custom bg colors
-export const GlobalFooter = (props: GlobalFooterProps) => (
-  <Container {...storyblokEditable(props.blok)} className={cnb(styles.root)}>
+export const GlobalFooter = ({ color, ...rest }: GlobalFooterProps) => (
+  <Container className={cnb(styles.root)} {...rest}>
     <FlexBox direction="col" className={styles.outerWrapper}>
       <div className={styles.logoWrapper}>
         <StanfordLogo isLink tabIndex={-1} aria-hidden className={styles.logo} type="stacked" color="white" />

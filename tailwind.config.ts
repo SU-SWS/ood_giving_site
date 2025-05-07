@@ -1,10 +1,8 @@
 import { type Config } from 'tailwindcss';
-// import path from 'path';
 import decanter from 'decanter';
 import tailwindContainerQueries from '@tailwindcss/container-queries';
 
-// Path to custom Tailwind plugins for Directory
-// const dir = path.resolve(__dirname, 'tailwind/plugins');
+import { fontFamily } from './tailwind/plugins/theme/fontFamily';
 
 export default {
   presets: [
@@ -15,6 +13,11 @@ export default {
     './components/**/*.{js,jsx,ts,tsx}',
     './utilities/**/*.{js,jsx,ts,tsx}',
   ],
+  theme: {
+    extend: {
+      fontFamily: fontFamily(),
+    },
+  },
   plugins: [
     tailwindContainerQueries,
   ],

@@ -5,7 +5,6 @@ import { getPageMetadata } from '@/utilities/getPageMetadata';
 import { notFound } from 'next/navigation';
 import { getStoryDataCached, getConfigBlokCached, getAllStoriesCached } from '@/utilities/data/';
 import { isProduction } from '@/utilities/getActiveEnv';
-import { getStoryblokApi } from '@/utilities/storyblok';
 
 type PathsType = {
   slug: string[];
@@ -30,11 +29,6 @@ export const revalidate = 31536000;
 
 // Force static rendering.
 export const dynamic = 'force-static';
-
-/**
- * Init on the server.
- */
-getStoryblokApi();
 
 /**
  * Generate the list of stories to statically render.

@@ -1,24 +1,20 @@
 import React from 'react';
 import { type SbBlokData } from '@storyblok/react/rsc';
 import { storyblokEditable } from '@storyblok/react';
-import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
+import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { CreateBloks } from '@/components/CreateBloks';
-import { Footer } from '@/components/Storyblok/partials/Footer';
+import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
 
-type OodLandingPageProps = {
+type SbLandingPageProps = IconCardSectionProps & FooterProps & {
   blok: SbBlokData & {
-    localFooter: SbBlokData[];
-    globalFooter: SbBlokData[];
     localHeader: SbBlokData[];
     alertPicker: SbBlokData[];
     heroSection: SbBlokData[];
-    iconCardHeading?: string;
-    iconCards: SbBlokData[];
     sections: SbBlokData[];
   }
 };
 
-export const OodLandingPage = (props: OodLandingPageProps) => (
+export const SbLandingPage = (props: SbLandingPageProps) => (
   <div {...storyblokEditable(props.blok)}>
     <CreateBloks blokSection={props.blok.alertPicker} />
     <CreateBloks blokSection={props.blok.localHeader} />
