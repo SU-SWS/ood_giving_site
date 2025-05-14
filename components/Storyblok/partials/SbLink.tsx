@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { type SbLinkType } from '../Storyblok.types';
 
-// TODO DS-1495: Let's see if we can move this over to our CTA components
+// TODO DS-1495: Let's see if we can clean this up a bit
 export type SbLinkProps = {
   link: SbLinkType;
   classes?: string;

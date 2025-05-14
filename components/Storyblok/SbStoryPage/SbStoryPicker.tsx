@@ -3,7 +3,7 @@ import { CreateStories } from '@/components/CreateStories';
 import { type ISbStoryData, type SbBlokData } from '@storyblok/react';
 
 export type SbStoryPickerProps = {
-  blok: SbBlokData[] & {
+  blok: SbBlokData & {
     story: ISbStoryData[];
     orientation?: unknown;
     hideImage?: unknown;

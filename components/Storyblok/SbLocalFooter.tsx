@@ -1,0 +1,104 @@
+import React from 'react';
+import { storyblokEditable } from '@storyblok/react';
+import { type SbBlokData } from '@storyblok/react';
+import { CreateBloks } from '@/components/CreateBloks';
+import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
+import { Grid } from '@/components/Grid';
+import { FlexBox } from '../FlexBox';
+
+export type SbLocalFooterProps = {
+  blok: SbBlokData & {
+    contactHeading?: string;
+    addressLine1?: string;
+    addressLine2?: string;
+    addressLine3?: string;
+    phone?: string;
+    email?: string;
+    headingGroupOod?: string;
+    headingGroupGift?: string;
+    taxId?: string;
+    headingGroupInfo?: string;
+    websiteLogo?: SbBlokData[];
+    cta?: SbBlokData[];
+    linkGroupOod?: SbBlokData[];
+    linkGroupGift?: SbBlokData[];
+    linkGroupInfo?: SbBlokData[];
+  }
+};
+
+export const SbLocalFooter = (props: SbLocalFooterProps) => (
+  <div {...storyblokEditable(props.blok)} className="pb-38 pt-34 md:pb-72 md:pt-58 bg-white">
+    <CenteredContainer>
+      <div className="pb-32 md:pb-45">
+        <CreateBloks blokSection={props.blok.websiteLogo} />
+      </div>
+      <Grid as="section" md={2} xl={4} className="text-18 leading-snug gap-60">
+        <div>
+          {props.blok.contactHeading && (
+            <h2 className="text-20 font-serif">
+              {props.blok.contactHeading}
+            </h2>
+          )}
+          <FlexBox as="address" direction="col">
+            {props.blok.addressLine1 && (
+              <span>{props.blok.addressLine1}</span>
+            )}
+            {props.blok.addressLine2 && (
+              <span>{props.blok.addressLine2}</span>
+            )}
+            {props.blok.addressLine3 && (
+              <span>{props.blok.addressLine3}</span>
+            )}
+            {props.blok.phone && <span>{props.blok.phone}</span>}
+            {props.blok.email && (
+              <a href={`mailto:${props.blok.email}`}>{props.blok.email}</a>
+            )}
+          </FlexBox>
+          {props.blok.cta && (
+            <div className="mt-36">
+              <CreateBloks blokSection={props.blok.cta} />
+            </div>
+          )}
+        </div>
+        <div>
+          <nav aria-label="Local footer Office of Development links">
+            {props.blok.headingGroupOod && (
+              <h2 className="text-20 font-serif">
+                {props.blok.headingGroupOod}
+              </h2>
+            )}
+            <ul className="list-none m-0 p-0 [&_a]:font-normal [&_a]:text-digital-red [&_a]:hocus:text-black">
+              <CreateBloks blokSection={props.blok.linkGroupOod} />
+            </ul>
+          </nav>
+        </div>
+        <div>
+          <nav aria-label="Local footer Make a Gift links">
+            {props.blok.headingGroupGift && (
+              <h2 className="text-20 font-serif">
+                {props.blok.headingGroupGift}
+              </h2>
+            )}
+            <ul className="list-none m-0 p-0 [&_a]:font-normal [&_a]:text-digital-red [&_a]:hocus:text-black">
+              <CreateBloks blokSection={props.blok.linkGroupGift} />
+            </ul>
+          </nav>
+          <h2 className="text-20 font-serif">Tax ID</h2>
+          <p>{props.blok.taxId}</p>
+        </div>
+        <div>
+          <nav aria-label="Local footer information links">
+            {props.blok.headingGroupInfo && (
+              <h2 className="text-20 font-serif">
+                {props.blok.headingGroupInfo}
+              </h2>
+            )}
+            <ul className="list-none m-0 p-0 [&_a]:font-normal [&_a]:text-digital-red [&_a]:hocus:text-black">
+              <CreateBloks blokSection={props.blok.linkGroupInfo} />
+            </ul>
+          </nav>
+        </div>
+      </Grid>
+    </CenteredContainer>
+  </div>
+);

@@ -11,12 +11,20 @@ import { SbSupportPage } from '@/components/Storyblok/SbSupportPage';
 import { SbStoryPage } from '@/components/Storyblok/SbStoryPage';
 import { SbStoryPicker } from '@/components/Storyblok/SbStoryPage';
 import { Redirect } from '@/components/Redirect';
+import { SbLocalFooterPicker } from '@/components/Storyblok/SbLocalFooterPicker';
+import { SbLocalFooter } from '@/components/Storyblok/SbLocalFooter';
+import { SbCtaLink } from '@/components/Storyblok/SbCtaLink';
+import { SbNavItem } from '@/components/Storyblok/SbNavItem';
+import { SbLockup } from '@/components/Storyblok/SbLockup';
 
 export const components = {
   // TODO DS-1417: Remove and clean up page
   page: SbPage,
   redirect: Redirect,
   storyPicker: SbStoryPicker,
+  ctaLink: SbCtaLink,
+  navItem: SbNavItem,
+  lockup: SbLockup,
   // Pages
   oodCampaignPage: SbCampaignPage,
   oodInteriorPage: SbInteriorPage,
@@ -27,6 +35,8 @@ export const components = {
   // Identity
   globalFooter: SbGlobalFooter,
   globalFooterPicker: SbGlobalFooterPicker,
+  localFooterPicker: SbLocalFooterPicker,
+  oodLocalFooter: SbLocalFooter,
 };
 
 export type GetStoryblokApiConfig = {
