@@ -3,7 +3,7 @@ import React from 'react';
 import { type SbBlokData, storyblokEditable } from '@storyblok/react';
 import { useWindowSize } from 'usehooks-ts';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
-import { Heading } from '@/components/Storyblok/partials/Heading';
+import { Heading } from '@/components/Typography';
 import { CreateBloks } from '@/components/CreateBloks';
 import { config } from '@/utilities/config';
 
@@ -38,10 +38,9 @@ export const HeaderMinimal = (props: HeaderMinimalProps) => {
             <CreateBloks blokSection={props.blok.contentMenu} />
           )}
         <Heading
-          level={'h1'}
-          classes={'ood-interior-page__title'}
-          serif={true}
-          align={'center'}
+          as="h1"
+          align="center"
+          className="ood-interior-page__title"
         >
           {props.blok.title}
         </Heading>

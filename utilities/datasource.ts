@@ -1,3 +1,14 @@
+import { type FontSizeType } from '@/components/Typography';
+
+/**
+ * Legacy modular typography sizes
+ */
+export const modTypeSizes: Record<string, FontSizeType> = {
+  'su-mod-type-4': 'f4',
+  'su-mod-type-6': 'f6',
+}
+export type ModTypeSizeTypes = keyof typeof modTypeSizes;
+
 /**
  * Small margin values in em units useful for adding to typography elements
  */

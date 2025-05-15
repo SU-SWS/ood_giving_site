@@ -2,7 +2,7 @@ import React from 'react';
 import { type SbBlokData } from '@storyblok/react/rsc';
 import { storyblokEditable } from '@storyblok/react';
 import { CreateBloks } from '@/components/CreateBloks';
-import { Heading } from '@/components/Storyblok/partials/Heading';
+import { Heading } from '@/components/Typography';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 
 export type IconCardSectionProps = {
@@ -24,7 +24,7 @@ export const IconCardSection = (props: IconCardSectionProps) => {
 
   return (
     <div {...storyblokEditable(props.blok)}>
-      <Heading level="h2" classes="su-sr-only-element">
+      <Heading srOnly>
         {props.blok.iconCardHeading
           ? props.blok.iconCardHeading
           : 'Links to more information'}
