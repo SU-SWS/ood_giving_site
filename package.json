@@ -20,6 +20,7 @@
   ],
   "scripts": {
     "dev": "next dev --experimental-https",
+    "dev:https": "next dev --experimental-https --port 3010",
     "inspect": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",

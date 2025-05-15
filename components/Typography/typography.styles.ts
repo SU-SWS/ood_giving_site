@@ -68,3 +68,5 @@ export const textVariants = {
   card: 'card-paragraph',
   intro: 'intro-text',
 };
+
+export const iconStyle = 'inline-block shrink-0 w-09em ml-03em -mt-01em';
