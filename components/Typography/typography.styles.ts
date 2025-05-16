@@ -9,7 +9,7 @@ export const fontWeights = {
   bold: 'font-bold',
 };
 
-// Modular typography - already includes responsive font sizes
+// Modular and fluid typography from Decanter
 export const fontSizes = {
   base: 'type-0',
   1: 'type-1',
@@ -43,6 +43,16 @@ export const fontLeadings = {
   normal: 'leading', // 1.5
 };
 
+// Letter spacing
+export const fontTrackings = {
+  tighter: 'tracking-tighter', // -0.05em
+  tight: 'tracking-tight', // -0.025em
+  normal: 'tracking-normal', // 0
+  wide: 'tracking-wide', // 0.025em
+  wider: 'tracking-wider', // 0.05em
+  widest: 'tracking-widest', // 0.1em
+};
+
 export const textAligns = {
   left: 'text-left',
   center: 'text-center',
@@ -57,6 +67,7 @@ export const textColors = {
   'digital-red': 'text-digital-red',
 };
 
+// Variants already include font size generally so either use the variant or the size prop
 export const textVariants = {
   none: '', // Use default base/inherited style
   /**
@@ -69,4 +80,4 @@ export const textVariants = {
   intro: 'intro-text',
 };
 
-export const iconStyle = 'inline-block shrink-0 w-09em ml-03em -mt-01em';
+export const iconStyle = 'inline-block ml-03em';

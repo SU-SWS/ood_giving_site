@@ -13,6 +13,7 @@ export type TypographyProps = {
   color?: types.TextColorType;
   variant?: types.TextVariantType;
   leading?: types.FontLeadingType;
+  tracking?: types.FontTrackingType;
   italic?: boolean;
   srOnly?: boolean;
   uppercase?: boolean;
@@ -36,6 +37,7 @@ export const Text = ({
   color = 'default',
   variant,
   leading,
+  tracking,
   italic,
   srOnly,
   uppercase,
@@ -61,6 +63,7 @@ export const Text = ({
           color && styles.textColors[color],
           variant && styles.textVariants[variant],
           leading && styles.fontLeadings[leading],
+          tracking && styles.fontTrackings[tracking],
           italic && 'italic',
           srOnly && 'sr-only',
           uppercase && 'uppercase',
@@ -74,7 +77,6 @@ export const Text = ({
       {icon && (
         <HeroIcon
           icon={icon}
-          noBaseStyle
           className={cnb(styles.iconStyle, iconClasses)}
           {...iProps}
         />

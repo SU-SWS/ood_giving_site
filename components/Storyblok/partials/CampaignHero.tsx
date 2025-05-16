@@ -1,7 +1,6 @@
 import React from 'react';
 import { type SbBlokData } from '@storyblok/react';
 import { storyblokEditable } from '@storyblok/react';
-import { cnb } from 'cnbuilder';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Heading } from '@/components/Typography';
 import { FullWidthImage } from '@/components/Storyblok/partials/FullWidthImage';

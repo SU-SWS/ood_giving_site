@@ -15,6 +15,8 @@ export type FontSizeType = keyof typeof styles.fontSizes;
 
 export type FontLeadingType = keyof typeof styles.fontLeadings;
 
+export type FontTrackingType = keyof typeof styles.fontTrackings;
+
 export type TextAlignType = keyof typeof styles.textAligns;
 
 export type TextColorType = keyof typeof styles.textColors;

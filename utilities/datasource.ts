@@ -139,7 +139,7 @@ export const marginVerticals = {
 export const modTypeSizes: Record<string, FontSizeType> = {
   'su-mod-type-4': 'f4',
   'su-mod-type-6': 'f6',
-}
+};
 export type ModTypeSizeTypes = keyof typeof modTypeSizes;
 
 /**

@@ -12,6 +12,8 @@ import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
 import { config } from '@/utilities/config';
 import { type SbImageType } from '../Storyblok.types';
 
+// TODO: heading styles like ood-interior-page__title will be taken care of later when styling page heroes
+
 export type HeaderFullWidthImageProps = {
   blok: SbBlokData & {
     contentMenu: SbBlokData[];
