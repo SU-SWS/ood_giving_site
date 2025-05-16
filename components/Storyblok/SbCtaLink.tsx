@@ -2,12 +2,13 @@ import React from 'react';
 import { cnb } from 'cnbuilder';
 import { storyblokEditable, type SbBlokData } from '@storyblok/react';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
+import { SrOnlyText } from '@/components/Typography';
 import { type SbLinkType } from './Storyblok.types';
 import {
   ctaLinkColors,
   ctaLinkStyles,
   ctaSizes,
-  type CtaLinkStylesType, 
+  type CtaLinkStylesType,
   type CtaLinkColorsType,
   type CtaSizesType,
   type LinkIconsType,
@@ -58,7 +59,7 @@ export const SbCtaLink = React.forwardRef<HTMLAnchorElement, SbCtaProps>((props,
       >
         {props.blok.linkText}
         {props.blok.srText && (
-          <span className="sr-only">{` ${props.blok.srText}`}</span>
+          <SrOnlyText>{props.blok.srText}</SrOnlyText>
         )}
       </SbLink>
     </div>

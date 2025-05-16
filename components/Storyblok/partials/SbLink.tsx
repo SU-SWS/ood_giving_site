@@ -4,6 +4,7 @@ import { config } from '@/utilities/config';
 import { cnb } from 'cnbuilder';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { SrOnlyText } from '@/components/Typography';
 import { type SbLinkType } from '../Storyblok.types';
 
 // TODO DS-1495: Let's see if we can clean this up a bit
@@ -99,7 +100,7 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
         {...otherAttributes}
       >
         {props.children}
-        <span className="sr-only"> (external link)</span>
+        <SrOnlyText />
       </a>
     );
   }

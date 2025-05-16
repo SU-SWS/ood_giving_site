@@ -79,5 +79,3 @@ export const textVariants = {
   card: 'card-paragraph',
   intro: 'intro-text',
 };
-
-export const iconStyle = 'inline-block ml-03em';

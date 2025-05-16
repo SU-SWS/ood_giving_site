@@ -1,5 +1,7 @@
 import React, { type ElementType, type HTMLAttributes } from 'react';
 
+// TODO: Can be removed later after we added all components and replaced this with the new Container component.
+
 export type CenteredContainerProps = {
   element?: string;
   centered_disabled?: boolean;

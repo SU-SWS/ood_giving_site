@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 import { type SbBlokData, storyblokEditable } from '@storyblok/react';
 import { useWindowSize } from 'usehooks-ts';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';

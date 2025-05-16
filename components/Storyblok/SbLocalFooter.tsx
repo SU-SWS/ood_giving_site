@@ -1,4 +1,3 @@
-import React from 'react';
 import { storyblokEditable } from '@storyblok/react';
 import { type SbBlokData } from '@storyblok/react';
 import { CreateBloks } from '@/components/CreateBloks';

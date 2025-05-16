@@ -1,5 +1,4 @@
 import { cnb } from 'cnbuilder';
-import { HeroIcon, type HeroIconProps, type IconType } from '@/components/HeroIcon';
 import { marginTops, marginBottoms, type MarginType } from '@/utilities/datasource';
 import * as styles from './typography.styles';
 import * as types from './typography.types';
@@ -19,8 +18,6 @@ export type TypographyProps = {
   uppercase?: boolean;
   mt?: MarginType;
   mb?: MarginType;
-  icon?: IconType;
-  iconProps?: Omit<HeroIconProps, 'icon' | 'noBaseStyle'>;
   className?: string;
   children?: React.ReactNode;
 };
@@ -43,44 +40,31 @@ export const Text = ({
   uppercase,
   mt,
   mb,
-  icon,
-  iconProps,
   className,
   children,
   ...rest
-}: TextProps) => {
-  const { className: iconClasses, ...iProps } = iconProps || {};
-
-  return (
-    <AsComponent
-      {...rest}
-      className={
-        cnb(
-          font && styles.fontFamilies[font],
-          size && styles.fontSizes[size],
-          weight && styles.fontWeights[weight],
-          align && styles.textAligns[align],
-          color && styles.textColors[color],
-          variant && styles.textVariants[variant],
-          leading && styles.fontLeadings[leading],
-          tracking && styles.fontTrackings[tracking],
-          italic && 'italic',
-          srOnly && 'sr-only',
-          uppercase && 'uppercase',
-          mt && marginTops[mt],
-          mb && marginBottoms[mb],
-          className,
-        )
-      }
-    >
-      {children}
-      {icon && (
-        <HeroIcon
-          icon={icon}
-          className={cnb(styles.iconStyle, iconClasses)}
-          {...iProps}
-        />
-      )}
-    </AsComponent>
-  );
-};
+}: TextProps) => (
+  <AsComponent
+    {...rest}
+    className={
+      cnb(
+        font && styles.fontFamilies[font],
+        size && styles.fontSizes[size],
+        weight && styles.fontWeights[weight],
+        align && styles.textAligns[align],
+        color && styles.textColors[color],
+        variant && styles.textVariants[variant],
+        leading && styles.fontLeadings[leading],
+        tracking && styles.fontTrackings[tracking],
+        italic && 'italic',
+        srOnly && 'sr-only',
+        uppercase && 'uppercase',
+        mt && marginTops[mt],
+        mb && marginBottoms[mb],
+        className,
+      )
+    }
+  >
+    {children}
+  </AsComponent>
+);

@@ -8,7 +8,7 @@ import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer
 import { BelowContent, type BelowContentProps } from '@/components/Storyblok/partials/BelowContent';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
-import { Heading } from '@/components/Typography';
+import { Heading, SrOnlyText } from '@/components/Typography';
 
 export type SbSupportPageProps = HeaderNoImageProps & IconCardSectionProps & FooterProps & BelowContentProps & {
   blok: SbBlokData & {
@@ -79,7 +79,7 @@ export const SbSupportPage = (props: SbSupportPageProps) => {
                 </Heading>
               </header>
             )}
-            <p className={`su-sr-only-element`}>{props.blok.srText}</p>
+            <SrOnlyText as="p">{props.blok.srText}</SrOnlyText>
             <CenteredContainer classes={'ood-support-page__filter-container'}>
               <input
                 type="radio"
