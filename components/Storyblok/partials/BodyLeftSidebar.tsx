@@ -25,7 +25,7 @@ export const BodyLeftSidebar = (props: BodyLeftSidebarProps) => {
         element={'aside'}
         lg={4}
         xl={3}
-        classes={'ood-interior-page__body-sidebar'}
+        className="ood-interior-page__body-sidebar"
       >
         {windowSize.width >= config.breakpoints.lg && (
           <>
@@ -39,7 +39,7 @@ export const BodyLeftSidebar = (props: BodyLeftSidebarProps) => {
       </FlexCell>
       <FlexCell
         lg={8}
-        classes={'ood-interior-page__body-content'}
+        className="ood-interior-page__body-content"
         id={'body-content'}
       >
         <CreateBloks blokSection={props.blok.pageContent} />

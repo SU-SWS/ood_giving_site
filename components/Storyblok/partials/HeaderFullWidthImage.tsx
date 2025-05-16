@@ -75,7 +75,7 @@ export const HeaderFullWidthImage = (props: HeaderFullWidthImageProps) => {
         <FlexCell
           md={12}
           lg={10}
-          classes={`ood-interior-page__header-content-wrapper`}
+          className="ood-interior-page__header-content-wrapper"
         >
           <Heading
             level={'h1'}

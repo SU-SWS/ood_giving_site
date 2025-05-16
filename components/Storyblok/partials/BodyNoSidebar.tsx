@@ -14,7 +14,7 @@ export const BodyNoSidebar = (props: BodyNoSidebarProps) => (
     {...storyblokEditable(props.blok)}
     lg={10}
     xl={8}
-    classes={'ood-interior-page__body-content su-mx-auto'}
+    className="ood-interior-page__body-content su-mx-auto"
   >
     <CreateBloks blokSection={props.blok.pageContent} />
   </FlexCell>
