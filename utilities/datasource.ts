@@ -1,3 +1,5 @@
+import { type FontSizeType } from '@/components/Typography';
+
 export const ctaLinkStyles = {
   'ood-cta__button--primary su-after-bg-white': 'bg-bay-dark text-white hocus:bg-palo-alto hocus:text-white hocus:after:bg-white after:bg-white',
   'ood-cta__button--secondary su-after-bg-bay-dark su-after-bg-hocus-white': 'bg-white text-bay-dark shadow-bay-dark shadow-[inset_0_0_0_1px] after:text-bay-dark after:bg-bay-dark hocus:bg-bay-dark hocus:text-white hocus:after:text-white hocus:after:bg-white',
@@ -131,7 +133,19 @@ export const marginVerticals = {
   10: 'rs-my-10',
 };
 
-export const marginTops = {
+/**
+ * Legacy modular typography sizes
+ */
+export const modTypeSizes: Record<string, FontSizeType> = {
+  'su-mod-type-4': 'f4',
+  'su-mod-type-6': 'f6',
+};
+export type ModTypeSizeTypes = keyof typeof modTypeSizes;
+
+/**
+ * Small margin values in em units useful for adding to typography elements
+ */
+export const smallMarginTops = {
   none: 'mt-0',
   '01em': 'mt-01em',
   '02em': 'mt-02em',
@@ -143,6 +157,13 @@ export const marginTops = {
   '08em': 'mt-08em',
   '09em': 'mt-09em',
   '1em': 'mt-1em',
+};
+
+/**
+ * Larger Decanter responsive spacing values useful for adding to larger layout elements
+ */
+export const largeMarginTops = {
+  none: 'mt-0',
   base: 'rs-mt-0',
   1: 'rs-mt-1',
   2: 'rs-mt-2',
@@ -156,7 +177,12 @@ export const marginTops = {
   10: 'rs-mt-10',
 };
 
-export const marginBottoms = {
+export const marginTops = {
+  ...smallMarginTops,
+  ...largeMarginTops,
+};
+
+export const smallMarginBottoms = {
   none: 'mb-0',
   '01em': 'mb-01em',
   '02em': 'mb-02em',
@@ -168,6 +194,10 @@ export const marginBottoms = {
   '08em': 'mb-08em',
   '09em': 'mb-09em',
   '1em': 'mb-1em',
+};
+
+export const largeMarginBottoms = {
+  none: 'mb-0',
   base: 'rs-mb-0',
   1: 'rs-mb-1',
   2: 'rs-mb-2',
@@ -179,5 +209,12 @@ export const marginBottoms = {
   8: 'rs-mb-8',
   9: 'rs-mb-9',
   10: 'rs-mb-10',
+};
+// Type common for both top and bottom margins since the keys are the same
+export type LargeMarginType = keyof typeof largeMarginBottoms;
+
+export const marginBottoms = {
+  ...smallMarginBottoms,
+  ...largeMarginBottoms,
 };
 export type MarginType = keyof typeof marginBottoms;

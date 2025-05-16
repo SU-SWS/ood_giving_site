@@ -5,7 +5,7 @@ import { CenteredContainer } from '@/components/Storyblok/partials/CenteredConta
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
 import { BelowContent, type BelowContentProps } from '@/components/Storyblok/partials/BelowContent';
-import { Heading } from '@/components/Storyblok/partials/Heading';
+import { Heading, Paragraph } from '@/components/Typography';
 import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
 import { FullWidthImage } from '@/components/Storyblok/partials/FullWidthImage';
 import { type SbImageType } from '../Storyblok.types';
@@ -92,16 +92,16 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                      `}
               >
                 <Heading
-                  level={'h1'}
-                  weight={'semibold'}
-                  classes={`ood-story__title ood-has-tab-before su-before-bg-${props.blok.tabColor}`}
+                  as="h1"
+                  weight="semibold"
+                  className={`ood-story__title ood-has-tab-before su-before-bg-${props.blok.tabColor}`}
                 >
                   {props.blok.title}
                 </Heading>
                 {props.blok.intro && (
-                  <p className="intro-text ood-story__intro-text">
+                  <Paragraph variant="intro" className="ood-story__intro-text">
                     {props.blok.intro}
-                  </p>
+                  </Paragraph>
                 )}
               </FlexCell>
             </CenteredContainer>
@@ -118,9 +118,9 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                     <div className="ood-story__metadata su-pb-5">
                       {props.blok.author && (
                         <>
-                          <p className="ood-story__metadata-title su-bold su-uppercase">
+                          <Paragraph weight="bold" uppercase className="ood-story__metadata-title">
                             Author
-                          </p>
+                          </Paragraph>
                           <span className="ood-story__metadata-data">
                             {props.blok.author}
                           </span>
@@ -128,9 +128,9 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                       )}
                       {publishedDate && (
                         <>
-                          <p className="ood-story__metadata-title su-bold su-uppercase">
+                          <Paragraph weight="bold" uppercase className="ood-story__metadata-title">
                             Date
-                          </p>
+                          </Paragraph>
                           <span className="ood-story__metadata-data su-mb-none">
                             {publishedDate}
                           </span>

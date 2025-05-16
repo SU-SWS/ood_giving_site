@@ -10,6 +10,7 @@ import { BodyNoSidebar, type BodyNoSidebarProps } from '@/components/Storyblok/p
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
+import { Heading } from '@/components/Typography';
 import { CreateBloks } from '@/components/CreateBloks';
 
 export type SbInteriorPageProps = HeaderMinimalProps
@@ -19,8 +20,8 @@ export type SbInteriorPageProps = HeaderMinimalProps
   & BodyNoSidebarProps
   & BodyLeftSidebarProps
   & BelowContentProps
-  & IconCardSectionProps 
-  & FooterProps 
+  & IconCardSectionProps
+  & FooterProps
   & {
     blok: SbBlokData & {
       localHeader: SbBlokData[];
@@ -59,9 +60,9 @@ export const SbInteriorPage = (props: SbInteriorPageProps) => {
               <section>
                 {props.blok.bodyTitle && (
                   <header>
-                    <h2>
+                    <Heading>
                       {props.blok.bodyTitle}
-                    </h2>
+                    </Heading>
                   </header>
                 )}
                 <CenteredContainer flex={true}>

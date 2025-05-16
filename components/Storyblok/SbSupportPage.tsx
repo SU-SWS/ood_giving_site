@@ -8,7 +8,7 @@ import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer
 import { BelowContent, type BelowContentProps } from '@/components/Storyblok/partials/BelowContent';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
-import { Heading } from '@/components/Storyblok/partials/Heading';
+import { Heading, SrOnlyText } from '@/components/Typography';
 
 export type SbSupportPageProps = HeaderNoImageProps & IconCardSectionProps & FooterProps & BelowContentProps & {
   blok: SbBlokData & {
@@ -74,17 +74,12 @@ export const SbSupportPage = (props: SbSupportPageProps) => {
           <section className="ood-interior-page__body ood-support-page__body">
             {props.blok.bodyTitle && (
               <header className="centered-container ood-interior-page__body-header su-text-align-left">
-                <Heading
-                  level={'h2'}
-                  weight={'bold'}
-                  serif={true}
-                  classes="ood-interior-page__body-header-title ood-has-tab-before"
-                >
+                <Heading className="ood-interior-page__body-header-title ood-has-tab-before">
                   {props.blok.bodyTitle}
                 </Heading>
               </header>
             )}
-            <p className={`su-sr-only-element`}>{props.blok.srText}</p>
+            <SrOnlyText as="p">{props.blok.srText}</SrOnlyText>
             <CenteredContainer classes={'ood-support-page__filter-container'}>
               <input
                 type="radio"

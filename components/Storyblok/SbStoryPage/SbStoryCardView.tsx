@@ -1,6 +1,6 @@
 import React from 'react';
 import { storyblokEditable, type SbBlokData } from '@storyblok/react';
-import { Heading } from '@/components/Storyblok/partials/Heading';
+import { Heading, Paragraph, type HeadingType } from '@/components/Typography';
 import { AspectRatioImage, type AspectRatioImageProps } from '@/components/Storyblok/partials/AspectRatioImage';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
 import { type SbImageType } from '../Storyblok.types';
@@ -15,7 +15,7 @@ export type SbStoryCardViewProps = AspectRatioImageProps & {
     teaser?: string;
     intro?: string;
   };
-  headingLevel?: string;
+  headingLevel?: HeadingType;
   storyLink?: string;
   orientation?: string;
   hideImage?: boolean;
@@ -80,8 +80,11 @@ export const SbStoryCardView = (props: SbStoryCardViewProps) => {
           >
             {(props.blok.shortTitle || props.blok.title) && (
               <Heading
-                level={props.headingLevel || 'h3'}
-                classes={`ood-story-card__headline su-sans su-semibold su-text-black`}
+                as={props.headingLevel || 'h3'}
+                font="sans"
+                color="black"
+                weight="semibold"
+                className="ood-story-card__headline"
               >
                 {props.blok.shortTitle
                   ? props.blok.shortTitle
@@ -89,9 +92,9 @@ export const SbStoryCardView = (props: SbStoryCardViewProps) => {
               </Heading>
             )}
             {(props.blok.teaser || props.blok.intro) && (
-              <p className="ood-story-card__body su-text-black su-regular">
+              <Paragraph color="black" leading="snug" weight="normal" mb="none" className="ood-story-card__body">
                 {props.blok.teaser ? props.blok.teaser : props.blok.intro}
-              </p>
+              </Paragraph>
             )}
           </section>
         </SbLink>

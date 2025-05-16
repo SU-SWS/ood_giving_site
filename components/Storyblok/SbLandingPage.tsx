@@ -1,4 +1,3 @@
-import React from 'react';
 import { type SbBlokData } from '@storyblok/react/rsc';
 import { storyblokEditable } from '@storyblok/react';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';

@@ -2,9 +2,10 @@ import React from 'react';
 import { type SbBlokData } from '@storyblok/react';
 import { storyblokEditable } from '@storyblok/react';
 import { CreateBloks } from '@/components/CreateBloks';
-import { Heading } from '@/components/Storyblok/partials/Heading';
+import { Heading } from '@/components/Typography';
 import { FullWidthImage } from '@/components/Storyblok/partials/FullWidthImage';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
+import { modTypeSizes, type ModTypeSizeTypes } from '@/utilities/datasource';
 
 export type CampaignHeroProps = {
   blok: SbBlokData & {
@@ -15,7 +16,7 @@ export type CampaignHeroProps = {
     heroBgColor?: string;
     heroContentColor?: string;
     heroContentAlignment?: string;
-    heroTitleType?: string;
+    heroTitleType?: ModTypeSizeTypes;
     heroTitleFontSerif?: boolean;
     image?: {
       filename?: string;
@@ -89,12 +90,11 @@ export const CampaignHero = (props: CampaignHeroProps) => {
           )}
           <div>
             <Heading
-              level={'h1'}
-              weight={`${isFullWidthImage ? 'regular' : 'semibold'}`}
-              serif={
-                blok.heroStyle === 'fullwidth-image' ? blok.heroTitleFontSerif : undefined
-              }
-              classes={`campaign-page__title ${blok.heroTitleType}`}
+              as="h1"
+              size={modTypeSizes[blok.heroTitleType] || 'f4'}
+              weight={isFullWidthImage ? 'normal' : 'semibold'}
+              font={blok.heroStyle === 'fullwidth-image' && blok.heroTitleFontSerif ? 'serif' : 'sans'}
+              className="campaign-page__title"
             >
               {blok.title}
             </Heading>

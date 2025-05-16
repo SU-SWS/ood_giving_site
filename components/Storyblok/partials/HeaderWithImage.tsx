@@ -1,12 +1,11 @@
 'use client';
-import React from 'react';
 import { type ISbRichtext, type SbBlokData, storyblokEditable } from '@storyblok/react';
 import { useWindowSize } from 'usehooks-ts';
 import { CreateBloks } from '@/components/CreateBloks';
 import { RichTextField } from '@/components/RichTextField';
 import { AspectRatioImage, type AspectRatioImageProps } from '@/components/Storyblok/partials/AspectRatioImage';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
-import { Heading } from '@/components/Storyblok/partials/Heading';
+import { Heading } from '@/components/Typography';
 import { config } from '@/utilities/config';
 
 export type HeaderWithImageProps = {
@@ -45,10 +44,9 @@ export const HeaderWithImage = (props: HeaderWithImageProps) => {
         <CenteredContainer flex={true} classes="su-pb-5">
           <div className={'header-and-intro flex-md-7-of-12 flex-lg-6-of-12'}>
             <Heading
-              level={'h1'}
-              serif={true}
-              color={'black'}
-              classes={'ood-interior-page__title '}
+              as="h1"
+              color="black"
+              className="ood-interior-page__title"
             >
               {props.blok.title}
             </Heading>
