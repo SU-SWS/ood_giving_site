@@ -34,7 +34,7 @@ export const SbCtaLink = React.forwardRef<HTMLAnchorElement, SbCtaProps>((props,
   }
 
   return (
-    <div {...storyblokEditable(props.blok)} className={`ood-cta block su-text-align-${props.blok.align}`}>
+    <div {...storyblokEditable(props.blok)} className={`ood-cta block text-${props.blok.align}`}>
       <SbLink
         ref={ref}
         link={props.blok.link}
