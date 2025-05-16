@@ -9,7 +9,7 @@ export const base = ({ addBase, config }: { addBase: Function, config: Function 
       width: '100%',
       overflowX: 'clip',
       fontSize: '1.6rem',
-      color: '#17171A',
+      color: '#2e2d29',
 
       '@screen md': {
         fontSize: '1.8rem',
