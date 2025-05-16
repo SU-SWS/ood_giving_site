@@ -99,7 +99,7 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
         {...otherAttributes}
       >
         {props.children}
-        <span className={'su-sr-only-element'}> (external link)</span>
+        <span className="sr-only"> (external link)</span>
       </a>
     );
   }
