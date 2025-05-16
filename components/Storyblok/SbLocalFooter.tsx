@@ -1,5 +1,5 @@
 import React from 'react';
-import { dcnb } from 'cnbuilder';
+import { cnb } from 'cnbuilder';
 import { storyblokEditable } from '@storyblok/react';
 import { type SbBlokData } from '@storyblok/react';
 import { CreateBloks } from '@/components/CreateBloks';
@@ -28,8 +28,8 @@ export type SbLocalFooterProps = {
 };
 
 const styles = {
-  linkGroup: dcnb('list-none m-0 p-0 [&_a]:leading-snug [&_a]:font-normal [&_a]:text-digital-red [&_a:hover]:text-black [&_a:focus]:text-black'),
-  linkGroupHeading: dcnb('text-20 font-serif'),
+  linkGroup: cnb('list-none m-0 p-0 [&_a]:leading-snug [&_a]:font-normal [&_a]:text-digital-red [&_a:hover]:text-black [&_a:focus]:text-black'),
+  linkGroupHeading: cnb('text-20 font-serif'),
 }; 
 
 export const SbLocalFooter = (props: SbLocalFooterProps) => (
@@ -38,7 +38,7 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
       <div className="pb-32 md:pb-45">
         <CreateBloks blokSection={props.blok.websiteLogo} />
       </div>
-      <Grid as="section" md={2} xl={4} className="text-18 leading-snug gap-60">
+      <Grid as="section" md={2} xl={4} className="text-18 leading-snug gap-30 md:gap-60">
         <div>
           {props.blok.contactHeading && (
             <h2 className="text-20 font-serif">
@@ -89,7 +89,7 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
               <CreateBloks blokSection={props.blok.linkGroupGift} />
             </ul>
           </nav>
-          <h2 className={dcnb(styles.linkGroupHeading, 'mt-3 md:mt-36')}>Tax ID</h2>
+          <h2 className={cnb(styles.linkGroupHeading, 'mt-30 md:mt-36')}>Tax ID</h2>
           <p>{props.blok.taxId}</p>
         </div>
         <div>
