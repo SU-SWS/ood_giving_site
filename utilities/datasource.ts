@@ -15,8 +15,6 @@ export const ctaLinkStyles = {
 
 export type CtaLinkStylesType = keyof typeof ctaLinkStyles;
 
-// <div className=""
-
 export const ctaLinkColors = {
   'su-text-digital-red su-after-bg-digital-red su-text-hocus-sky-dark su-after-bg-hocus-sky-dark': 'text-digital-red after:bg-digital-red hocus:text-sky-dark hocus:after:bg-sky-dark',
   'su-text-white su-text-hocus-white su-hocus-underline su-after-bg-white su-after-bg-hocus-white': 'text-white hocus:text-white hocus:underline after:bg-white hocus:after:bg-white',
