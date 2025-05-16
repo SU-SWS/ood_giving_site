@@ -29,7 +29,7 @@ export type SbLocalFooterProps = {
 
 const styles = {
   linkGroup: cnb('list-none m-0 p-0 [&_a]:leading-snug [&_a]:font-normal [&_a]:text-digital-red [&_a:hover]:text-black [&_a:focus]:text-black'),
-  linkGroupHeading: cnb('text-20 font-serif'),
+  linkGroupHeading: cnb('text-20 font-serif tracking-normal'),
 }; 
 
 export const SbLocalFooter = (props: SbLocalFooterProps) => (
@@ -90,7 +90,7 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
             </ul>
           </nav>
           <h2 className={cnb(styles.linkGroupHeading, 'mt-30 md:mt-36')}>Tax ID</h2>
-          <p>{props.blok.taxId}</p>
+          <p className="mb-0">{props.blok.taxId}</p>
         </div>
         <div>
           <nav aria-label="Local footer information links">

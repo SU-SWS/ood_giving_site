@@ -1,5 +1,5 @@
 import React from 'react';
-import { cnb } from 'cnbuilder';
+import { type ClassValue, cnb } from 'cnbuilder';
 import Link from 'next/link';
 import { FlexBox } from '@/components/FlexBox';
 import { StanfordLogo } from './StanfordLogo';
@@ -12,7 +12,7 @@ type LogoLockupProps = {
   text: string;
   isLink?: boolean;
   color?: styles.LogoTextColorType;
-  className?: string;
+  className?: ClassValue;
 }
 
 export const LogoLockup = ({

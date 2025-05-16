@@ -15,7 +15,7 @@ export const SbLockup = (props: SbLockupProps) => (
     <LogoLockup 
       isLink
       text="Giving"
-      className="scale-125 origin-left sm:scale-100 text-[1.67em] md:text-[1.72em] lg:text-[1.9em]"
+      className="origin-left scale-[175%]"
     />
   </div>
 );
