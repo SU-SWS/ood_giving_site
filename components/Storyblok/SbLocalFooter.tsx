@@ -88,7 +88,7 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
           </ul>
         </nav>
         <Heading tracking="normal" mt={2} className={styles.linkGroupHeading}>Tax ID</Heading>
-        <p className="mb-0">{props.blok.taxId}</p>
+        <span>{props.blok.taxId}</span>
       </div>
       <div>
         <nav aria-label="Local footer information links">

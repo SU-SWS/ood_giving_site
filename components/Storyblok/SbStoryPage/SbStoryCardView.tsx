@@ -1,6 +1,6 @@
 import React from 'react';
 import { storyblokEditable, type SbBlokData } from '@storyblok/react';
-import { Heading, type HeadingType } from '@/components/Typography';
+import { Heading, Paragraph, type HeadingType } from '@/components/Typography';
 import { AspectRatioImage, type AspectRatioImageProps } from '@/components/Storyblok/partials/AspectRatioImage';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
 import { type SbImageType } from '../Storyblok.types';
@@ -92,9 +92,9 @@ export const SbStoryCardView = (props: SbStoryCardViewProps) => {
               </Heading>
             )}
             {(props.blok.teaser || props.blok.intro) && (
-              <p className="ood-story-card__body su-text-black su-regular">
+              <Paragraph color="black" leading="snug" weight="normal" mb="none" className="ood-story-card__body">
                 {props.blok.teaser ? props.blok.teaser : props.blok.intro}
-              </p>
+              </Paragraph>
             )}
           </section>
         </SbLink>
