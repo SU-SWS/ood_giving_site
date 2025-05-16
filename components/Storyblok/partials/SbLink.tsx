@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { config } from '@/utilities/config';
-import { dcnb } from 'cnbuilder';
+import { cnb } from 'cnbuilder';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { type SbLinkType } from '../Storyblok.types';
@@ -78,7 +78,7 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
       <Link
         ref={ref}
         href={linkUrl}
-        className={dcnb(linkClasses, storyClasses)}
+        className={cnb(linkClasses, storyClasses)}
         // TODO DS-1495: Figure out what to do here
         // activeClassName={activeClass}
         {...otherAttributes}
@@ -95,7 +95,7 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
       <a
         ref={ref}
         href={linkUrl}
-        className={dcnb(linkClasses, urlClasses)}
+        className={cnb(linkClasses, urlClasses)}
         {...otherAttributes}
       >
         {props.children}
@@ -123,7 +123,7 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
       <a
         ref={ref}
         href={linkUrl}
-        className={dcnb(linkClasses, assetClasses)}
+        className={cnb(linkClasses, assetClasses)}
         target={`_blank`}
         {...otherAttributes}
       >

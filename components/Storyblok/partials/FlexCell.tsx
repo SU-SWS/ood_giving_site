@@ -1,5 +1,5 @@
 import React, { type ElementType, type HTMLAttributes } from 'react';
-import { type ClassValue, dcnb } from 'cnbuilder';
+import { type ClassValue, cnb } from 'cnbuilder';
 
 export type FlexCellProps = {
   element?: string;
@@ -31,7 +31,7 @@ export const FlexCell = ({
 
   return (
     <Element
-      className={dcnb(className, {
+      className={cnb(className, {
         [`flex-xs-${xs}-of-12`]: !!xs,
         [`flex-xs-${sm}-of-12`]: !!sm,
         [`flex-xs-${md}-of-12`]: !!md,

@@ -1,4 +1,5 @@
 import React from 'react';
+import { cnb } from 'cnbuilder';
 import { storyblokEditable, type SbBlokData } from '@storyblok/react';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
 import { type SbLinkType } from './Storyblok.types';
@@ -11,7 +12,6 @@ import {
   type CtaSizesType,
   type LinkIconsType,
 } from '@/utilities/datasource';
-import { dcnb } from 'cnbuilder';
 
 export type SbCtaProps = {
   blok: SbBlokData & {
@@ -38,7 +38,7 @@ export const SbCtaLink = React.forwardRef<HTMLAnchorElement, SbCtaProps>((props,
       <SbLink
         ref={ref}
         link={props.blok.link}
-        classes={dcnb(props.blok.linkIcon,
+        classes={cnb(props.blok.linkIcon,
           'text-18 md:text-20',
           {
             [
