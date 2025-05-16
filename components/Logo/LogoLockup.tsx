@@ -1,17 +1,17 @@
 import React from 'react';
 import { cnb } from 'cnbuilder';
-import { StanfordLogo } from '@/components/StanfordLogo';
 import Link from 'next/link';
 import { FlexBox } from '@/components/FlexBox';
-import * as styles from './Logo.styles';
+import { StanfordLogo } from './StanfordLogo';
+import * as styles from './LogoLockup.styles';
 
 /**
- * Stanford Department Branding Component.
+ * Stanford Department Branding Component with the Stanford wordmark logo and department name.
  */
 type LogoLockupProps = {
   text: string;
   isLink?: boolean;
-  color?: 'default' | 'white';
+  color?: styles.LogoTextColorType;
   className?: string;
 }
 
@@ -22,20 +22,15 @@ export const LogoLockup = ({
   className,
   ...rest
 }: LogoLockupProps) => {
-  const levers: { [key: string]: string } = {};
-  levers.textColor = styles.textColor[color];
-  levers.bar = styles.barColor[color];
-
-  // Partials
   const LockupContent = (
-    <FlexBox className={styles.contentWrapper}>
+    <FlexBox className={styles.contentWrapper} data-component="LogoLockup">
       <StanfordLogo
         color={color === 'white' ? 'white' : 'cardinal-red'}
         isLink={false}
         className={cnb(styles.logo)}
       />
-      <div className={cnb(styles.bar, levers.bar)} aria-hidden />
-      <div className={cnb(styles.text, levers.textColor)}>
+      <div className={cnb(styles.bar, styles.barColors[color])} aria-hidden="true" />
+      <div className={cnb(styles.text, styles.textColors[color])}>
         {text}
       </div>
     </FlexBox>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { dcnb } from 'cnbuilder';
 import { storyblokEditable } from '@storyblok/react';
 import { type SbBlokData } from '@storyblok/react';
 import { CreateBloks } from '@/components/CreateBloks';
@@ -26,6 +27,11 @@ export type SbLocalFooterProps = {
   }
 };
 
+const styles = {
+  linkGroup: dcnb('list-none m-0 p-0 [&_a]:leading-snug [&_a]:font-normal [&_a]:text-digital-red [&_a:hover]:text-black [&_a:focus]:text-black'),
+  linkGroupHeading: dcnb('text-20 font-serif'),
+}; 
+
 export const SbLocalFooter = (props: SbLocalFooterProps) => (
   <div {...storyblokEditable(props.blok)} className="pb-38 pt-34 md:pb-72 md:pt-58 bg-white">
     <CenteredContainer>
@@ -39,7 +45,7 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
               {props.blok.contactHeading}
             </h2>
           )}
-          <FlexBox as="address" direction="col">
+          <FlexBox as="address" direction="col" className="gap-2">
             {props.blok.addressLine1 && (
               <span>{props.blok.addressLine1}</span>
             )}
@@ -63,11 +69,11 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
         <div>
           <nav aria-label="Local footer Office of Development links">
             {props.blok.headingGroupOod && (
-              <h2 className="text-20 font-serif">
+              <h2 className={styles.linkGroupHeading}>
                 {props.blok.headingGroupOod}
               </h2>
             )}
-            <ul className="list-none m-0 p-0 [&_a]:font-normal [&_a]:text-digital-red [&_a]:hocus:text-black">
+            <ul className={styles.linkGroup}>
               <CreateBloks blokSection={props.blok.linkGroupOod} />
             </ul>
           </nav>
@@ -75,25 +81,25 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
         <div>
           <nav aria-label="Local footer Make a Gift links">
             {props.blok.headingGroupGift && (
-              <h2 className="text-20 font-serif">
+              <h2 className={styles.linkGroupHeading}>
                 {props.blok.headingGroupGift}
               </h2>
             )}
-            <ul className="list-none m-0 p-0 [&_a]:font-normal [&_a]:text-digital-red [&_a]:hocus:text-black">
+            <ul className={styles.linkGroup}>
               <CreateBloks blokSection={props.blok.linkGroupGift} />
             </ul>
           </nav>
-          <h2 className="text-20 font-serif">Tax ID</h2>
+          <h2 className={dcnb(styles.linkGroupHeading, 'mt-3 md:mt-36')}>Tax ID</h2>
           <p>{props.blok.taxId}</p>
         </div>
         <div>
           <nav aria-label="Local footer information links">
             {props.blok.headingGroupInfo && (
-              <h2 className="text-20 font-serif">
+              <h2 className={styles.linkGroupHeading}>
                 {props.blok.headingGroupInfo}
               </h2>
             )}
-            <ul className="list-none m-0 p-0 [&_a]:font-normal [&_a]:text-digital-red [&_a]:hocus:text-black">
+            <ul className={styles.linkGroup}>
               <CreateBloks blokSection={props.blok.linkGroupInfo} />
             </ul>
           </nav>

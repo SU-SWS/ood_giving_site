@@ -38,19 +38,22 @@ export const SbCtaLink = React.forwardRef<HTMLAnchorElement, SbCtaProps>((props,
       <SbLink
         ref={ref}
         link={props.blok.link}
-        classes={dcnb(props.blok.linkIcon, {
-          [
-            `text-digital-red hocus:text-sky-dark hocus:underline
-            ${ctaLinkColors[props.blok.linkTextColor]}`
-          ]: !props.blok.isButton,
-          [
-            `pt-[1.1rem] px-3 pb-[1.2rem] font-sans
-            inline-block w-auto border-none font-regular
-            no-underline transition-colors hocus:no-underline
-            ${ctaLinkStyles?.[props.blok.linkButtonStyle]}
-            ${ctaSizes?.[props.blok.linkButtonSize]}`
-          ]: props.blok.isButton,
-        })}
+        classes={dcnb(props.blok.linkIcon,
+          'text-18 md:text-20',
+          {
+            [
+              `text-digital-red hocus:text-sky-dark hocus:underline
+              ${ctaLinkColors[props.blok.linkTextColor]}`
+            ]: !props.blok.isButton,
+            [
+              `pt-11 px-30 pb-12 font-sans
+              inline-block w-auto border-none font-regular
+              no-underline transition-colors hocus:underline
+              ${ctaLinkStyles?.[props.blok.linkButtonStyle]}
+              ${ctaSizes?.[props.blok.linkButtonSize]}`
+            ]: props.blok.isButton,
+          },
+        )}
         attributes={props.blok.rel ? {rel: props.blok.rel} : {}}
       >
         {props.blok.linkText}
