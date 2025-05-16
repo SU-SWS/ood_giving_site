@@ -3,7 +3,7 @@ import { cnb } from 'cnbuilder';
 import * as styles from './StanfordLogo.styles';
 
 type StanfordLogoProps = HTMLAttributes<HTMLElement> & {
-  color?: styles.LogoColorType;
+  color?: styles.StanfordLogoColorType;
   type?: 'short' | 'full' | 'stacked';
   isLink?: boolean;
 };
@@ -44,7 +44,7 @@ export const StanfordLogo = ({
       <a
         {...rest}
         href="https://www.stanford.edu"
-        className={cnb('logo', color ? styles.logoColors[color] : '', className)}
+        className={cnb('logo', color ? styles.stanfordLogoColors[color] : '', className)}
       >
         {logoText}
       </a>
@@ -52,7 +52,7 @@ export const StanfordLogo = ({
   }
 
   return (
-    <div {...rest} className={cnb('logo', color ? styles.logoColors[color] : '', className)}>
+    <div {...rest} className={cnb('logo', color ? styles.stanfordLogoColors[color] : '', className)}>
       {logoText}
     </div>
   );

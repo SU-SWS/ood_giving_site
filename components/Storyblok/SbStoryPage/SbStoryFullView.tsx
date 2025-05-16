@@ -81,7 +81,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                 md={12}
                 lg={10}
                 xxl={9}
-                classes={`ood-story__header-content-wrapper
+                className={`ood-story__header-content-wrapper
                      su-bg-${props.blok.headerBoxColor}
                      ${
                        props.blok.headerBoxColor !== 'white' &&
@@ -113,7 +113,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
             {(props.blok.author || publishedDate) && (
               <div className="ood-story__metadata">
                 <CenteredContainer flex={true}>
-                  <FlexCell lg={8} classes="su-mx-auto">
+                  <FlexCell lg={8} className="su-mx-auto">
                     <CreateBloks blokSection={props.blok.cta} />
                     <div className="ood-story__metadata su-pb-5">
                       {props.blok.author && (

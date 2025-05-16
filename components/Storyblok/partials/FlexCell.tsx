@@ -1,4 +1,5 @@
-import React, { ElementType, HTMLAttributes } from 'react';
+import React, { type ElementType, type HTMLAttributes } from 'react';
+import { type ClassValue, cnb } from 'cnbuilder';
 
 export type FlexCellProps = {
   element?: string;
@@ -9,9 +10,9 @@ export type FlexCellProps = {
   lg?: number;
   xl?: number;
   xxl?: number;
-  classes?: string;
+  className?: ClassValue;
   children?: React.ReactNode;
-}
+};
 
 export const FlexCell = ({
   element,
@@ -22,7 +23,7 @@ export const FlexCell = ({
   lg,
   xl,
   xxl,
-  classes = '',
+  className = '',
   children,
   ...rest
 }: FlexCellProps) => {
@@ -30,15 +31,14 @@ export const FlexCell = ({
 
   return (
     <Element
-      className={`
-        ${classes}
-        ${xs ? `flex-xs-${xs}-of-12` : ''}
-        ${sm ? `flex-sm-${sm}-of-12` : ''}
-        ${md ? `flex-md-${md}-of-12` : ''}
-        ${lg ? `flex-lg-${lg}-of-12` : ''}
-        ${xl ? `flex-xl-${xl}-of-12` : ''}
-        ${xxl ? `flex-2xl-${xxl}-of-12` : ''}
-      `}
+      className={cnb(className, {
+        [`flex-xs-${xs}-of-12`]: !!xs,
+        [`flex-xs-${sm}-of-12`]: !!sm,
+        [`flex-xs-${md}-of-12`]: !!md,
+        [`flex-xs-${lg}-of-12`]: !!lg,
+        [`flex-xs-${xl}-of-12`]: !!xl,
+        [`flex-xs-${xxl}-of-12`]: !!xxl,
+      })}
       {...(id ? { id } : {})}
       {...rest}
     >
