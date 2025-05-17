@@ -15,7 +15,7 @@ import {
  * "default" means using the default body font size (defined in TW base) as the base font size
  * "card" means using the card-paragraph style as the base font size (smaller than default)
  */
-export type RichTextBaseFontSizeType = 'default' | 'card';
+export type RichTextBaseFontSizeType = 'default' | 'card' | 'base23';
 
 export type RichTextProps = {
   wysiwyg: StoryblokRichtext;
@@ -82,10 +82,10 @@ export const RichText = ({
          * For main content WYSIWYG, this gets you type-2 for h2, type-1 for h3
          * but h4, h5 and h6 would be type-0 (the minimum font size)
          */
-        const headingSize = Math.max(4 - level, 0);
+        const headingSize = Math.max(5 - level, 0);
 
         return (
-          <Heading as={`h${level}`} size={headingSize as FontSizeType} font="sans" leading="tight">
+          <Heading as={`h${level}`} size={headingSize as FontSizeType} leading="tight">
             {children}
           </Heading>
         );

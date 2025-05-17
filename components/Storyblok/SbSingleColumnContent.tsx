@@ -1,5 +1,6 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
+import { Container } from '@/components/Container';
 import { RichText } from '@/components/RichText';
 import { type PaddingType } from '@/utilities/datasource';
 
@@ -7,34 +8,19 @@ type SbSingleColumnContentProps = {
   blok: SbBlokData & {
     id?: string;
     content: StoryblokRichtext;
-    backgroundColor?: 'black' | 'white' | 'black-70' | 'black-60' | 'black-50' | 'none';
+    backgroundColor?: 'white' | 'fog-light'
     spacingTop?: PaddingType;
     spacingBottom?: PaddingType;
   },
-  // isDarkTheme?: boolean;
-  // baseFontSize?: RichTextBaseFontSizeType;
 };
 
 export const SbSingleColumnContent = (props: SbSingleColumnContentProps) => (
-  <div
+  <Container
     {...storyblokEditable(props.blok)}
-    className={`ood-single-column-content
-                  ${
-                    props.blok.backgroundColor !== ''
-                      ? `su-bg-${props.blok.backgroundColor}`
-                      : ''
-                  }
-                  ${
-                    props.blok.spacingTop !== 'none'
-                      ? `su-pt-${props.blok.spacingTop}`
-                      : ''
-                  }
-                  ${
-                    props.blok.spacingBottom !== 'none'
-                      ? `su-pb-${props.blok.spacingBottom}`
-                      : ''
-                  }
-  `}
+    width="full"
+    bgColor={props.blok.backgroundColor}
+    pt={props.blok.spacingTop}
+    pb={props.blok.spacingBottom}
   >
     <div
       id={props.blok.id}
@@ -54,8 +40,8 @@ export const SbSingleColumnContent = (props: SbSingleColumnContentProps) => (
                 : 'su-mx-auto'
             }`}
       >
-        <RichTextField data={props.blok.content} />
+        <RichText baseFontSize="base23" wysiwyg={props.blok.content} />
       </div>
     </div>
-  </div>
+  </Container>
 );
