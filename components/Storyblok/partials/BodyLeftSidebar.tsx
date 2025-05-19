@@ -4,6 +4,7 @@ import { type SbBlokData, storyblokEditable } from '@storyblok/react';
 import { useWindowSize } from 'usehooks-ts';
 import { CreateBloks } from '@/components/CreateBloks';
 import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
+import { Skiplink } from '@/components/SkipLink';
 import { config } from '@/utilities/config';
 
 export type BodyLeftSidebarProps = {
@@ -29,9 +30,9 @@ export const BodyLeftSidebar = (props: BodyLeftSidebarProps) => {
       >
         {windowSize.width >= config.breakpoints.lg && (
           <>
-            <a href="#body-content" className="su-skiplinks">
+            <Skiplink href="#body-content">
               Skip past section menu to page content
-            </a>
+            </Skiplink>
             <CreateBloks blokSection={props.blok.contentMenu} />
           </>
         )}

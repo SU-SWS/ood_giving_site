@@ -31,5 +31,8 @@ export const base = ({ addBase, config }: { addBase: Function, config: Function 
         display: 'none',
       },
     },
+    'b, strong': {
+      fontWeight: config('theme.fontWeight.bold'),
+    },
   });
 };

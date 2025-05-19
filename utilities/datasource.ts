@@ -135,6 +135,7 @@ export const marginVerticals = {
 
 /**
  * Legacy modular typography sizes
+ * Add more as needed
  */
 export const modTypeSizes: Record<string, FontSizeType> = {
   'su-mod-type-4': 'f4',
