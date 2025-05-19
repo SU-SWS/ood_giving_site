@@ -59,7 +59,7 @@ export const HeaderNoImage = (props: HeaderNoImageProps) => {
           className={`ood-interior-page__header-intro-wrapper flex-12-of-12 su-bg-white`}
         >
           {props.blok.intro && (
-            <div className="intro-text ood-interior-page__intro flex-xl-10-of-12">
+            <div className="intro-text ood-interior-page__intro flex-xl-10-of-12 text-20 md:text-25 lg:text-29">
               <RichText wysiwyg={props.blok.intro} />
             </div>
           )}

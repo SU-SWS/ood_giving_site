@@ -86,7 +86,7 @@ export const HeaderFullWidthImage = (props: HeaderFullWidthImageProps) => {
             {props.blok.title}
           </Heading>
           {props.blok.intro && (
-            <div className="ood-interior-page__header-intro">
+            <div className="ood-interior-page__header-intro text-20 md:text-23 lg:text-25">
               <RichText wysiwyg={props.blok.intro} />
             </div>
           )}

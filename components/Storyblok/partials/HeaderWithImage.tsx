@@ -51,7 +51,7 @@ export const HeaderWithImage = (props: HeaderWithImageProps) => {
             >
               {props.blok.title}
             </Heading>
-            <div className={`ood-interior-page__header-intro-wrapper`}>
+            <div className="ood-interior-page__header-intro-wrapper text-20 md:text-23 lg:text-25">
               {props.blok.intro && <RichText wysiwyg={props.blok.intro} />}
             </div>
           </div>

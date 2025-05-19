@@ -6,6 +6,7 @@ import {
   Paragraph,
   textAligns,
   textColors,
+  textVariants,
   type TextColorType,
   type FontSizeType,
   type TextAlignType,
@@ -91,13 +92,13 @@ export const RichText = ({
         );
       },
       paragraph: (children) => (
-        <Paragraph variant={baseFontSize === 'default' ? undefined : baseFontSize}>
+        <Paragraph>
           {children}
         </Paragraph>
       ),
     },
     defaultBlokResolver: (name) => (
-      <Paragraph weight="bold" variant={baseFontSize === 'default' ? undefined : baseFontSize}>
+      <Paragraph weight="bold">
         Missing blok resolver for blok type {name}.
       </Paragraph>
     ),
@@ -108,6 +109,7 @@ export const RichText = ({
     <div
       className={cnb(
         'wysiwyg', // wysiwyg class from Decanter adds vertical rhythm and basic styles
+        baseFontSize !== 'default' && textVariants[baseFontSize],
         textColors[textColor],
         printColor,
         textAligns[textAlign],
