@@ -65,6 +65,10 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
   // Story or Internal type link.
   // ---------------------------------------------------------------------------
   if (props.link.linktype === 'story') {
+    // If the internal link already starts with a slash (eg, WYSIWYG inline internal links), remove it.
+    if (linkUrl.startsWith('/')) {
+      linkUrl = linkUrl.substring(1);
+    }
     // Handle the home slug.
     linkUrl = linkUrl === 'home' ? basePath : basePath + linkUrl;
     linkUrl += linkUrl.endsWith('/') ? '' : '/';

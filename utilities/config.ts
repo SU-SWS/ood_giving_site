@@ -1,5 +1,5 @@
 // Resolved Netlify app url
-let appUrl = 'http://localhost:3000';
+let appUrl = '';
 
 if (process.env.CONTEXT === 'production') {
   // Support for Production app builds.
