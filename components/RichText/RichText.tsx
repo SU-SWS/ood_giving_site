@@ -79,8 +79,8 @@ export const RichText = ({
       heading: (children, props) => {
         const { level } = props;
         /**
-         * For main content WYSIWYG, this gets you type-2 for h2, type-1 for h3
-         * but h4, h5 and h6 would be type-0 (the minimum font size)
+         * For main content WYSIWYG, this gets you type-3 for h2, type-2 for h3, type-1 for h4,
+         * but h5 and h6 would be type-0 (the base paragraph font size)
          */
         const headingSize = Math.max(5 - level, 0);
 
