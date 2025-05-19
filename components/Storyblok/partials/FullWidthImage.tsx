@@ -33,15 +33,15 @@ export const FullWidthImage = (props: FullWidthImageProps) => {
     originalImg = getProcessedImage(props.filename, '');
 
     if (imgWidth >= 800) {
-      smallImg = getProcessedImage(props.filename, '/800x0');
+      smallImg = getProcessedImage(props.filename, '800x0');
     }
 
     if (imgWidth >= 1200) {
-      mediumImg = getProcessedImage(props.filename, '/1200x0');
+      mediumImg = getProcessedImage(props.filename, '1200x0');
     }
 
     if (imgWidth >= 2000) {
-      largeImg = getProcessedImage(props.filename, '/2000x0');
+      largeImg = getProcessedImage(props.filename, '2000x0');
     }
 
     imgSrcset = smallImg ? smallImg + ' 800w' : '';

@@ -92,9 +92,7 @@ export const RichText = ({
         );
       },
       paragraph: (children) => (
-        <Paragraph>
-          {children}
-        </Paragraph>
+        <Paragraph>{children}</Paragraph>
       ),
     },
     defaultBlokResolver: (name) => (
@@ -108,7 +106,7 @@ export const RichText = ({
   return (
     <div
       className={cnb(
-        'wysiwyg', // wysiwyg class from Decanter adds vertical rhythm and basic styles
+        'wysiwyg break-words', // wysiwyg class from Decanter adds vertical rhythm and basic styles
         baseFontSize !== 'default' && textVariants[baseFontSize],
         textColors[textColor],
         printColor,

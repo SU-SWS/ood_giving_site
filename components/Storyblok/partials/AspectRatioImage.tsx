@@ -28,20 +28,20 @@ export const AspectRatioImage = (props: AspectRatioImageProps) => {
 
     // Only scale image if original image size is larger than intended size
     if (props.imageSize === 'card' && imgWidth > 600) {
-      processedImg = getProcessedImage(props.filename, '/600x0');
+      processedImg = getProcessedImage(props.filename, '600x0');
     } else if (props.imageSize === 'thumbnail' && imgWidth > 400) {
-      processedImg = getProcessedImage(props.filename, '/400x0');
+      processedImg = getProcessedImage(props.filename, '400x0');
     } else if (
       (props.imageSize === 'header' ||
         props.imageSize === 'horizontal-card' ||
         props.imageSize === 'large-card') &&
       imgWidth > 800
     ) {
-      processedImg = getProcessedImage(props.filename, '/800x0');
+      processedImg = getProcessedImage(props.filename, '800x0');
     } else if (props.imageSize === 'gallery-slide') {
-      processedImg = getProcessedImage(props.filename, '/1400x0');
+      processedImg = getProcessedImage(props.filename, '1400x0');
     } else if (imgWidth > 1000) {
-      processedImg = getProcessedImage(props.filename, '/1000x0');
+      processedImg = getProcessedImage(props.filename, '1000x0');
     } else {
       processedImg = getProcessedImage(props.filename, '');
     }

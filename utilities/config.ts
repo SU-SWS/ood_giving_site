@@ -23,7 +23,7 @@ export const config = {
   siteDescription: '',
   siteUrlProd: 'https://giving.stanford.edu',
   assetCdn: 'https://assets.stanford.edu/',
-  imageService: 'https://a-us.storyblok.com/',
+  imageService: 'https://a.storyblok.com/',
   breakpoints: {
     '2xs': 0,
     xs: 320,

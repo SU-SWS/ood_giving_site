@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { SrOnlyText } from '@/components/Typography';
 import { type SbLinkType } from '../Storyblok.types';
+import { getMaskedAsset } from '@/utilities/getMaskedAsset';
 
 // TODO DS-1495: Let's see if we can clean this up a bit
 export type SbLinkProps = {
@@ -113,16 +114,7 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
   // ---------------------------------------------------------------------------
   if (props.link.linktype === 'asset') {
     // Rewrite the URL to the redirect link to mask the API endpoint.
-    if (config.isNetlify) {
-      linkUrl = linkUrl.replace(
-        /http?(s)\:\/\/a\.storyblok\.com/gi,
-        config.assetCdn + 'a',
-      );
-      linkUrl = linkUrl.replace(
-        /http?(s)\:\/\/img?[0-9]\.storyblok\.com/gi,
-        config.assetCdn + 'i',
-      );
-    }
+    linkUrl = getMaskedAsset(linkUrl);
 
     return (
       <a

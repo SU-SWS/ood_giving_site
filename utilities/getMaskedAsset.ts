@@ -11,7 +11,7 @@ export const getMaskedAsset = (mediaSrc: string): string => {
   }
 
   const { imageService } = config;
-  const maskedUrl = mediaSrc.replace(imageService, `${config.assetCdn}a-us/`);
+  const maskedUrl = mediaSrc.replace(imageService, `${config.assetCdn}a/`);
 
   return maskedUrl;
 };
