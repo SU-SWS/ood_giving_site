@@ -43,10 +43,9 @@
     "next": "15.2.4",
     "react-loading-skeleton": "^3.5.0",
     "sa11y": "^4.1.2",
-    "sanitize-html": "^2.16.0",
     "slick-carousel": "^1.8.1",
     "storyblok-js-client": "^6.10.10",
-    "storyblok-rich-text-react-renderer": "^2.9.2",
+    "storyblok-rich-text-react-renderer": "^3.0.1",
     "usehooks-ts": "^3.1.1"
   },
   "peerDependencies": {
@@ -59,7 +58,6 @@
     "@types/node": "^20",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
-    "@types/sanitize-html": "^2.15.0",
     "autoprefixer": "^10.4.21",
     "decanter": "^7.3.1",
     "eslint": "^9.23.0",
