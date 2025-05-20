@@ -135,7 +135,6 @@ export const RichText = ({
       [NODE_PARAGRAPH]: (children) => (
         <Paragraph>{children}</Paragraph>
       ),
-      // TODO:
       [NODE_IMAGE]: (children, props) => {
         const { alt, src } = props;
         return (
