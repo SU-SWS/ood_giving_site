@@ -16,6 +16,7 @@ import { SbLocalFooter } from '@/components/Storyblok/SbLocalFooter';
 import { SbCtaLink } from '@/components/Storyblok/SbCtaLink';
 import { SbNavItem } from '@/components/Storyblok/SbNavItem';
 import { SbLockup } from '@/components/Storyblok/SbLockup';
+import { SbSingleColumnContent } from '@/components/Storyblok/SbSingleColumnContent';
 
 export const components = {
   // TODO DS-1417: Remove and clean up page
@@ -37,6 +38,8 @@ export const components = {
   globalFooterPicker: SbGlobalFooterPicker,
   localFooterPicker: SbLocalFooterPicker,
   oodLocalFooter: SbLocalFooter,
+  // Layout
+  singleColumnContent: SbSingleColumnContent,
 };
 
 export type GetStoryblokApiConfig = {
@@ -49,7 +52,7 @@ export const getStoryblokApi = ({
   isPreview,
 }: GetStoryblokApiConfig = {}) => {
   accessToken ??= isPreview ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
-  
+
   return storyblokInit({
     accessToken,
     use: [apiPlugin],

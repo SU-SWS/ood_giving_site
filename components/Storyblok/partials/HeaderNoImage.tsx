@@ -1,6 +1,7 @@
 'use client';
-import { type ISbRichtext, type SbBlokData, storyblokEditable } from '@storyblok/react';
-import { RichTextField } from '@/components/RichTextField';
+import { type SbBlokData, storyblokEditable } from '@storyblok/react';
+import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
+import { RichText } from '@/components/RichText';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 import { Heading } from '@/components/Storyblok/partials/Heading';
 import { CreateBloks } from '@/components/CreateBloks';
@@ -14,7 +15,7 @@ export type HeaderNoImageProps = {
     headerSpacingBottom?: string;
     headerBackgroundColor?: string;
     layout?: string;
-    intro?: ISbRichtext;
+    intro?: StoryblokRichtext;
   }
 };
 
@@ -58,8 +59,8 @@ export const HeaderNoImage = (props: HeaderNoImageProps) => {
           className={`ood-interior-page__header-intro-wrapper flex-12-of-12 su-bg-white`}
         >
           {props.blok.intro && (
-            <div className="intro-text ood-interior-page__intro flex-xl-10-of-12">
-              <RichTextField data={props.blok.intro} />
+            <div className="intro-text ood-interior-page__intro flex-xl-10-of-12 text-20 md:text-25 lg:text-29">
+              <RichText wysiwyg={props.blok.intro} />
             </div>
           )}
         </div>

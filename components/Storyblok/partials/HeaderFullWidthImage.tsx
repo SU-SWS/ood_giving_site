@@ -1,17 +1,16 @@
 'use client';
-import { type ISbRichtext, type SbBlokData, storyblokEditable } from '@storyblok/react';
+import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
+import { type SbBlokData, storyblokEditable } from '@storyblok/react';
 import { useWindowSize } from 'usehooks-ts';
-import { RichTextField } from '@/components/RichTextField';
+import { RichText } from '@/components/RichText';
 import { CreateBloks } from '@/components/CreateBloks';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
-import { Heading } from '@/components/Typography';
+import { Heading } from '@/components/Storyblok/partials/Heading';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { FullWidthImage, type FullWidthImageProps } from '@/components/Storyblok/partials/FullWidthImage';
 import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
 import { config } from '@/utilities/config';
 import { type SbImageType } from '../Storyblok.types';
-
-// TODO: heading styles like ood-interior-page__title will be taken care of later when styling page heroes
 
 export type HeaderFullWidthImageProps = {
   blok: SbBlokData & {
@@ -22,7 +21,7 @@ export type HeaderFullWidthImageProps = {
     layout?: string;
     headerLogo?: SbImageType;
     headerImage: FullWidthImageProps;
-    intro?: ISbRichtext;
+    intro?: StoryblokRichtext;
   }
 };
 
@@ -78,12 +77,17 @@ export const HeaderFullWidthImage = (props: HeaderFullWidthImageProps) => {
           lg={10}
           className="ood-interior-page__header-content-wrapper"
         >
-          <Heading as="h1" className="ood-interior-page__title">
+          <Heading
+            level={'h1'}
+            weight={'bold'}
+            serif={true}
+            classes={'ood-interior-page__title'}
+          >
             {props.blok.title}
           </Heading>
           {props.blok.intro && (
-            <div className="ood-interior-page__header-intro">
-              <RichTextField data={props.blok.intro} />
+            <div className="ood-interior-page__header-intro text-20 md:text-23 lg:text-25">
+              <RichText wysiwyg={props.blok.intro} />
             </div>
           )}
         </FlexCell>

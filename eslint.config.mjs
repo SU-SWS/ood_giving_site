@@ -24,7 +24,7 @@ const eslintConfig = [
         'exports': 'always-multiline',
         'functions': 'always-multiline',
       }],
-      'max-len': ['warn', { 'code': 120, 'ignoreStrings': true }],
+      'max-len': ['warn', { 'code': 120, 'ignoreStrings': true, 'ignoreComments': true }],
       'no-param-reassign': 'off',
       'no-redeclare': 'off',
       'no-undef': 'off',

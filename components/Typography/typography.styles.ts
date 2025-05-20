@@ -78,4 +78,7 @@ export const textVariants = {
   caption: 'caption',
   card: 'card-paragraph',
   intro: 'intro-text',
+  'base23': 'basefont-23',
 };
+
+export const icon = 'inline-block';

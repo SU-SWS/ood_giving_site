@@ -135,9 +135,12 @@ export const marginVerticals = {
 
 /**
  * Legacy modular typography sizes
+ * Add more as needed
  */
 export const modTypeSizes: Record<string, FontSizeType> = {
+  'su-mod-type-3': 'f3',
   'su-mod-type-4': 'f4',
+  'su-mod-type-5': 'f5',
   'su-mod-type-6': 'f6',
 };
 export type ModTypeSizeTypes = keyof typeof modTypeSizes;

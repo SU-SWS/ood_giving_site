@@ -1,5 +1,5 @@
 // Resolved Netlify app url
-let appUrl = 'http://localhost:3000';
+let appUrl = '';
 
 if (process.env.CONTEXT === 'production') {
   // Support for Production app builds.
@@ -23,7 +23,7 @@ export const config = {
   siteDescription: '',
   siteUrlProd: 'https://giving.stanford.edu',
   assetCdn: 'https://assets.stanford.edu/',
-  imageService: 'https://a-us.storyblok.com/',
+  imageService: 'https://a.storyblok.com/',
   breakpoints: {
     '2xs': 0,
     xs: 320,

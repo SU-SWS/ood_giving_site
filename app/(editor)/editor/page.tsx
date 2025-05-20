@@ -43,7 +43,7 @@ const Page = async ({ searchParams }: PageProps) => {
     notFound();
   }
 
-  const slug = path === 'home' ? '/' : path.replace(/\/$/, '');
+  const slug = path ? path : 'home';
 
   // Get data out of the API.
   const { data } = await getStoryData({ path: slug, isEditor: true });
