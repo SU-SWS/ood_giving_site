@@ -103,6 +103,7 @@ export const RichText = ({
         );
       },
     },
+    // TODO: DS-1437 - Will add Blockquote styles later
     nodeResolvers: {
       heading: (children, props) => {
         const { level } = props;
