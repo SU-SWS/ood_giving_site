@@ -78,6 +78,7 @@ export const iconBaseStyleDefault = 'w-1em';
 export const iconBaseStyle: IconBaseStyleType = {
   'arrow-left': 'w-09em -mt-01em',
   'arrow-right': 'w-09em -mt-01em',
+  'chevron-right': 'w-09em -mt-01em',
   'triangle-right': 'w-09em scale-x-90 mt-01em',
   'triangle-down': 'w-09em scale-x-90 rotate-90 mt-01em',
   'triangle-up': 'w-09em scale-x-90 -rotate-90 mt-02em',

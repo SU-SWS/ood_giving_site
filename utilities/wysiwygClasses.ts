@@ -14,5 +14,10 @@ export const wysiwygClasses = {
   'su-italic': 'italic',
   'callout': 'leading-display font-sans type-2 font-semibold',
   'splash-text': 'leading-display font-serif type-3 font-bold',
+  // CTA styles
+  'ood-cta__link': 'text-digital-red group-hocus-within:text-sky-dark',
+  'su-link--action': 'inline-block no-underline group-hocus-within:underline transition-colors no-underline group-hocus-within:underline',
+  'ood-cta__button': 'pt-11 px-30 pb-12 font-sans inline-block font-normal no-underline group-hocus-within:underline transition-colors',
+  'ood-cta__button--primary': 'bg-bay-dark text-white group-hocus-within:bg-palo-alto group-hocus-within:text-white',
 };
 export type WysiwygClassesType = keyof typeof wysiwygClasses;

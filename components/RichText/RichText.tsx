@@ -4,6 +4,7 @@ import { SbLink } from '@/components/Storyblok/partials/SbLink';
 import {
   Heading,
   Paragraph,
+  Text,
   textAligns,
   textColors,
   textVariants,
@@ -40,21 +41,31 @@ export const RichText = ({
     markResolvers: {
       styled: (children, props) => {
         // Custom classes are string of class name(s) separated by spaces, e.g., 'ood-has-tab-before su-sans su-before-bg-bay-dark', 'su-bold'
-        const { class: wysiwygCustomClasses } = props;
-        // Split the class string into an array of classes separted by spaces
-        const wysiwygClassArray = wysiwygCustomClasses.split(' ');
-        // Trim any whitespace from the class names
-        const trimmedClassArray = wysiwygClassArray.map((className) => className.trim());
+        const { class: wysiwygCustomClasses = '' } = props;
 
-        // Pass each class name in the trimmedClassArray and find the matching class in the wysiwygClasses object
-        // At the end, join all the classes together into a single string
-        const finalClassString = trimmedClassArray.map((className) => {
-          // If a matching class name can't be found in the wysiwygClasses object, return the original class name
-          return className in wysiwygClasses ? wysiwygClasses[className as WysiwygClassesType] : className;
-        }).join(' ');
+        // Expanded icon options as needed
+        const hasIcon = wysiwygCustomClasses.includes('su-link--action');
+
+        /**
+         * Split the string of legacy classes into an array, filter out empty strings, and map to the corresponding TW class names
+         * If a match is not found in the wysiwygClasses object, return the original legacy custom class name from the WYSIWYG
+         * Stitch the array back into a string at the end
+         */
+        const finalClasses = wysiwygCustomClasses.split(/\s+/)
+          .filter(Boolean)
+          .map((className) =>
+            className in wysiwygClasses ? wysiwygClasses[className as WysiwygClassesType] : className,
+          ).join(' ');
 
         return (
-          <span className={finalClassString}>{children}</span>
+          <Text
+            as="span"
+            icon={hasIcon ? 'chevron-right' : undefined}
+            iconProps={{ className: hasIcon ? 'inline-block ml-03em group-hocus-within:translate-x-02em' : undefined }}
+            className={finalClasses}
+          >
+            {children}
+          </Text>
         );
       },
       bold: (children) => <strong>{children}</strong>,
@@ -84,8 +95,7 @@ export const RichText = ({
         return (
           <SbLink
             link={sbLink}
-            // variant={textColor === 'white' ? 'inline-white' : 'inline'}
-            // className="*:inline"
+            classes="group"
             {...custom} // Custom link attributes
           >
             {children}
