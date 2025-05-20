@@ -80,14 +80,14 @@ export const RichText = ({
         } = props;
         /**
          * The data shape of the inline links in WYSIWYG is different form regular Storyblok link field.
-         * Here we structure it to match the sbLink type so we can pass that into CtaLink component.
+         * Here we structure it to match the sbLink type so we can pass that into SbLink component.
          */
         const sbLink = {
           linktype,
           cached_url: linktype === 'story' ? href : '',
           url: linktype === 'asset' || linktype === 'url' ? href : '',
           email: linktype === 'email' ? href : '',
-          anchor,
+          anchor: linktype === 'story' ? anchor : '',
           // The WYSIWYG inline links automatically add a target="_self" by default which is unnecessary
           target: target === '_blank' ? '_blank' : undefined,
         };
@@ -96,7 +96,7 @@ export const RichText = ({
           <SbLink
             link={sbLink}
             classes="group"
-            {...custom} // Custom link attributes
+            attributes={custom} // Custom link attributes
           >
             {children}
           </SbLink>

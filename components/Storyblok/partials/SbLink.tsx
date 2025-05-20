@@ -73,6 +73,10 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
     // Handle the home slug.
     linkUrl = linkUrl === 'home' ? basePath : basePath + linkUrl;
     linkUrl += linkUrl.endsWith('/') ? '' : '/';
+    // If there's an anchor, add it to the end of the url.
+    if (props.link.anchor) {
+      linkUrl += '#' + props.link.anchor;
+    }
 
     if (linkUrl.match(/\?/) && utms.length) {
       linkUrl += '&' + utms;
