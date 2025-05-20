@@ -91,6 +91,11 @@ export const RichText = ({
           anchor,
           custom,
         } = props;
+
+        // Prevents empty links in the WYSIWYG editor from rendering (a11y issue)
+        if (!children || (typeof children === 'string' && !children.trim())) {
+          return null;
+        }
         /**
          * The data shape of the inline links in WYSIWYG is different form regular Storyblok link field.
          * Here we structure it to match the sbLink type so we can pass that into SbLink component.
