@@ -1,4 +1,15 @@
-import { render, type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
+import {
+  render,
+  type StoryblokRichtext,
+  MARK_BOLD,
+  MARK_ITALIC,
+  MARK_STYLED,
+  MARK_LINK,
+  MARK_STRIKE,
+  NODE_HEADING,
+  NODE_PARAGRAPH,
+  NODE_IMAGE,
+} from 'storyblok-rich-text-react-renderer';
 import { cnb } from 'cnbuilder';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
 import {
@@ -13,6 +24,7 @@ import {
   type TextAlignType,
 } from '@/components/Typography';
 import { wysiwygClasses, type WysiwygClassesType } from '@/utilities/wysiwygClasses';
+import { getProcessedImage } from '@/utilities/getProcessedImage';
 
 /**
  * "default" means using the default body font size (defined in TW base) as the base font size
@@ -39,7 +51,7 @@ export const RichText = ({
 
   const rendered = render(wysiwyg, {
     markResolvers: {
-      styled: (children, props) => {
+      [MARK_STYLED]: (children, props) => {
         // Custom classes are string of class name(s) separated by spaces, e.g., 'ood-has-tab-before su-sans su-before-bg-bay-dark', 'su-bold'
         const { class: wysiwygCustomClasses = '' } = props;
 
@@ -68,9 +80,10 @@ export const RichText = ({
           </Text>
         );
       },
-      bold: (children) => <strong>{children}</strong>,
-      italic: (children) => <em>{children}</em>,
-      link: (children, props) => {
+      [MARK_BOLD]: (children) => <strong>{children}</strong>,
+      [MARK_ITALIC]: (children) => <em>{children}</em>,
+      [MARK_STRIKE]: (children) => <del>{children}</del>,
+      [MARK_LINK]: (children, props) => {
         const {
           href,
           target,
@@ -105,7 +118,7 @@ export const RichText = ({
     },
     // TODO: DS-1437 - Will add Blockquote styles later
     nodeResolvers: {
-      heading: (children, props) => {
+      [NODE_HEADING]: (children, props) => {
         const { level } = props;
         /**
          * For main content WYSIWYG, this gets you type-3 for h2, type-2 for h3, type-1 for h4,
@@ -119,9 +132,20 @@ export const RichText = ({
           </Heading>
         );
       },
-      paragraph: (children) => (
+      [NODE_PARAGRAPH]: (children) => (
         <Paragraph>{children}</Paragraph>
       ),
+      // TODO:
+      [NODE_IMAGE]: (children, props) => {
+        const { alt, src } = props;
+        return (
+          <img
+            src={getProcessedImage(src, '1500x0')}
+            alt={alt}
+            loading="lazy"
+          />
+        );
+      },
     },
     defaultBlokResolver: (name) => (
       <Paragraph weight="bold">

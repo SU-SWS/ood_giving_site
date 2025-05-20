@@ -1,9 +1,12 @@
 import { getMaskedAsset } from '@/utilities/getMaskedAsset';
+import { getSbImageSize } from '@/utilities/getSbImageSize';
 
 /**
  *
  * @param imageSrc - The Storyblok URL of the image
  * @param crop - The dimension of the image crop (eg., "600x400")
+ * If a crop dimension is not provided and if the image width is greater than 2000px,
+ * the crop dimension will be set to "2000x0" to keep the original aspect ratio and downsize the image to 2000px wide.
  * @param focus - The focal point of the image provided by the Storyblok Asset field (eg, "348x414:349x415")
  * @param filters - Additional filters to apply to the image (eg., "blur(10)").
  * To add multiple filters, separate them with a colon, eg., "blur(10):grayscale()"
@@ -16,7 +19,7 @@ import { getMaskedAsset } from '@/utilities/getMaskedAsset';
 
 export const getProcessedImage = (
   imageSrc: string = '',
-  crop: string = '',
+  crop: string = getSbImageSize(imageSrc)?.width > 2000 ? '2000x0' : '',
   focus: string = '',
   filters: string = '',
 ): string => {
