@@ -18,7 +18,6 @@ import {
   Text,
   textAligns,
   textColors,
-  textVariants,
   type TextColorType,
   type FontSizeType,
   type TextAlignType,
