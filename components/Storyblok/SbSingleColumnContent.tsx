@@ -4,6 +4,7 @@ import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { Container } from '@/components/Container';
 import { RichText } from '@/components/RichText';
 import { type PaddingType } from '@/utilities/datasource';
+import { hasRichText } from '@/utilities/hasRichText';
 
 const contentWidths = {
   'fit-container': 'su-w-full',
@@ -23,24 +24,30 @@ type SbSingleColumnContentProps = {
   },
 };
 
-export const SbSingleColumnContent = (props: SbSingleColumnContentProps) => (
-  <Container
-    {...storyblokEditable(props.blok)}
-    id={props.blok.id}
-    width={props.blok.contentWidth !== 'fit-container' ? 'site' : 'full'}
-    bgColor={props.blok.backgroundColor}
-    pt={props.blok.spacingTop}
-    pb={props.blok.spacingBottom}
-    className="flex"
-  >
-    <div
-      className={cnb(
-        'ood-single-column-content__wrapper',
-        props.blok.contentWidth === 'fit-container' ? 'ml-none' : 'mx-auto',
-        contentWidths[props.blok.contentWidth],
-      )}
+export const SbSingleColumnContent = (props: SbSingleColumnContentProps) => {
+  if (!hasRichText(props.blok.content)) {
+    return null;
+  }
+
+  return (
+    <Container
+      {...storyblokEditable(props.blok)}
+      id={props.blok.id}
+      width={props.blok.contentWidth !== 'fit-container' ? 'site' : 'full'}
+      bgColor={props.blok.backgroundColor}
+      pt={props.blok.spacingTop}
+      pb={props.blok.spacingBottom}
+      className="flex"
     >
-      <RichText baseFontSize="base23" wysiwyg={props.blok.content} />
-    </div>
-  </Container>
-);
+      <div
+        className={cnb(
+          'ood-single-column-content__wrapper',
+          props.blok.contentWidth === 'fit-container' ? 'ml-none' : 'mx-auto',
+          contentWidths[props.blok.contentWidth],
+        )}
+      >
+        <RichText baseFontSize="base23" wysiwyg={props.blok.content} />
+      </div>
+    </Container>
+  );
+};

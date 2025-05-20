@@ -78,7 +78,7 @@ export const Text = ({
         <HeroIcon
           {...iProps}
           icon={icon}
-          className={iconClasses}
+          className={cnb(iconClasses, styles.icon)}
         />
       )}
     </AsComponent>

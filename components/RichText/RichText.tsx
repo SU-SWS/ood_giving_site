@@ -27,7 +27,7 @@ import { wysiwygClasses, type WysiwygClassesType } from '@/utilities/wysiwygClas
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 
 /**
- * "default" means using the default body font size (defined in TW base) as the base font size
+ * "default" means using the inherited body font size as the base font size
  * "card" means using the card-paragraph style as the base font size (smaller than default)
  */
 export type RichTextBaseFontSizeType = 'default' | 'card' | 'base23';
@@ -73,7 +73,7 @@ export const RichText = ({
           <Text
             as="span"
             icon={hasIcon ? 'chevron-right' : undefined}
-            iconProps={{ className: hasIcon ? 'inline-block ml-03em group-hocus-within:translate-x-02em' : undefined }}
+            iconProps={{ className: hasIcon ? 'ml-02em group-hocus-within:translate-x-02em' : undefined }}
             className={finalClasses}
           >
             {children}
@@ -138,7 +138,7 @@ export const RichText = ({
         );
       },
       [NODE_PARAGRAPH]: (children) => (
-        <Paragraph>{children}</Paragraph>
+        <Paragraph variant={baseFontSize !== 'default'? baseFontSize : undefined}>{children}</Paragraph>
       ),
       [NODE_IMAGE]: (children, props) => {
         const { alt, src } = props;
@@ -163,7 +163,6 @@ export const RichText = ({
     <div
       className={cnb(
         'wysiwyg break-words', // wysiwyg class from Decanter adds vertical rhythm and basic styles
-        baseFontSize !== 'default' && textVariants[baseFontSize],
         textColors[textColor],
         printColor,
         textAligns[textAlign],

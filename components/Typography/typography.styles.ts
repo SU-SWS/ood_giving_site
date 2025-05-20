@@ -80,3 +80,5 @@ export const textVariants = {
   intro: 'intro-text',
   'base23': 'basefont-23',
 };
+
+export const icon = 'inline-block';
