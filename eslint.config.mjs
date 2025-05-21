@@ -1,6 +1,7 @@
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { FlatCompat } from '@eslint/eslintrc';
+import stylistic from '@stylistic/eslint-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -84,6 +85,15 @@ const eslintConfig = [
       '@next/next/no-img-element': 0,
     },
   }),
+  {
+    plugins: {
+      '@stylistic': stylistic,
+    },
+    rules: {
+      // Stylistic
+      '@stylistic/no-trailing-spaces': 'error',
+    },
+  },
 ];
 
 export default eslintConfig;

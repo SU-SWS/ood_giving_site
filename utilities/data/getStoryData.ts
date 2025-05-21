@@ -8,8 +8,8 @@ import { getStoryblokApi } from '@/utilities/storyblok';
 /**
  * Get the data out of the Storyblok API for the page.
  */
-export const getStoryData = async ({ 
-  path, 
+export const getStoryData = async ({
+  path,
   isEditor = false,
 }: getStoryDataProps): Promise<ISbResult | { data: 404 }> => {
     const storyblokApi = getStoryblokApi();
