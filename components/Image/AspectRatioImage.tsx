@@ -5,10 +5,7 @@ import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './Image.styles';
 
 export type AspectRatioImageProps = SbImageType & React.HTMLAttributes<HTMLImageElement> & {
-  // blok: SbBlokData;
-  // element?: string;
   classPrefix?: string;
-  // otherClasses?: string;
   visibleVertical?: styles.VisibleVerticalType;
   visibleHorizontal?: styles.VisibleHorizontalType;
   imageSize?: styles.AspectRatioImageSizeType;
@@ -31,33 +28,43 @@ export const AspectRatioImage = ({
     return null;
   }
 
-  let processedImg = '';
+  // Get image dimensions
   const { width: originalWidth, height: originalHeight } = getSbImageSize(filename);
 
-  // Get the appropriate width limit based on imageSize
-  const minImageWidth = styles.aspectImageSizes[imageSize || 'default'];
+  // Get the appropriate width limit from predefined sizes
+  const sizeKey = imageSize || 'default';
+  const targetWidth = styles.aspectImageSizes[sizeKey];
 
-  // Only scale image if original image size is larger than intended size
-  if (originalWidth > minImageWidth) {
-    processedImg = getProcessedImage(filename, `${minImageWidth}x0`);
-  } else {
-    processedImg = getProcessedImage(filename, '');
-  }
+  /**
+   * Set the image focus from the visibleHorizontal and visibleVertical props, if image focus is not set manually in the image.
+   * If image focus is set manually in Storyblok in the image, it will override the values calculated from the visibleHorizotal and visibleVertical props.
+   */
+  const focusX = styles.imageFocusHorizontal(originalWidth)[visibleHorizontal || 'center'];
+  const focusY = styles.imageFocusVertical(originalHeight)[visibleVertical || 'top'];
+
+  const cropFocus = focus || `${focusX}x${focusY}:${focusX + 1}x${focusY + 1}`;
+
+  // Process the image based on size comparison
+  // For gallery-slide, we always process it regardless of original size
+  const processedImg = (sizeKey === 'gallery-slide' || originalWidth > targetWidth)
+    ? getProcessedImage(filename, `${targetWidth}x0`, cropFocus)
+    : getProcessedImage(filename, '', cropFocus);
 
   return (
     <div
-      className={`su-media su-media--image ood-media ood-media--${
-        aspectRatio
-      }
-            ${classPrefix ? `${classPrefix}__media` : ''}${
-        className ? ` ${className}` : ''
-      }`}
+      className={cnb(
+        'su-media su-media--image ood-media',
+        `ood-media--${aspectRatio}`,
+        classPrefix && `${classPrefix}__media`,
+        className,
+      )}
     >
       <img
-        className={cnb('ood-media__image object-cover', styles.imageAspectRatios[aspectRatio], classPrefix ? `${classPrefix}__image` : '')}
-            //visibleHorizontal ? `su-obj-position-h-${visibleHorizontal}` : 'su-obj-position-h-center',
-            //su-obj-position-h-${visibleHorizontal ?? 'center'}-v-${
-          //visibleVertical ?? 'top'
+        className={cnb(
+          'ood-media__image object-cover',
+          styles.imageAspectRatios[aspectRatio],
+          classPrefix ? `${classPrefix}__image` : '',
+        )}
         src={processedImg}
         alt={alt || ''}
         {...props}

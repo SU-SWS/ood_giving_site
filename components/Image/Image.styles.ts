@@ -1,11 +1,6 @@
-
-
 /**
  * AspectRatioImage styles
  */
-
-export type VisibleVerticalType = 'top' | 'center' | 'bottom';
-export type VisibleHorizontalType = 'left' | 'center' | 'right';
 
 export const aspectImageSizes = {
   card: 600,
@@ -17,6 +12,20 @@ export const aspectImageSizes = {
   default: 1000,
 };
 export type AspectRatioImageSizeType = keyof typeof aspectImageSizes;
+
+export const imageFocusHorizontal = (imgWidth: number) => ({
+  left: 1,
+  center: imgWidth / 2,
+  right: imgWidth - 1,
+});
+export type VisibleHorizontalType = 'left' | 'center' | 'right';
+
+export const imageFocusVertical = (imgHeight: number) => ({
+  top: 1,
+  center: imgHeight / 2,
+  bottom: imgHeight - 1,
+});
+export type VisibleVerticalType = 'top' | 'center' | 'bottom';
 
 /**
  * StoryImage styles
