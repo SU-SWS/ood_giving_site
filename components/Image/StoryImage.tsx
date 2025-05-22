@@ -1,4 +1,5 @@
 import { MediaWrapper, type MediaWrapperProps } from '@/components/Media';
+import { type LightPageBgColorsType } from '@/utilities/datasource';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { getSbImageSize } from '@/utilities/getSbImageSize';
 import * as styles from './StoryImage.styles';
@@ -12,7 +13,7 @@ export type StoryImageProps = React.HTMLAttributes<HTMLDivElement> & MediaWrappe
   visibleVertical?: string;
   isCard?: boolean;
   isInset?: boolean;
-  backgroundColor?: string;
+  backgroundColor?: LightPageBgColorsType;
 };
 
 export const StoryImage = ({
@@ -20,9 +21,10 @@ export const StoryImage = ({
   imageFocus,
   isLoadingEager,
   alt,
-  isCard,
   isInset,
   caption,
+  isCard,
+  backgroundColor,
   aspectRatio,
   pt,
   pb,
@@ -53,7 +55,11 @@ export const StoryImage = ({
         <picture>
           <source
             srcSet={getProcessedImage(imageSrc, cropSize, imageFocus)}
-            media="(min-width: 1200px)"
+            media="(min-width: 1500px)"
+          />
+          <source
+            srcSet={getProcessedImage(imageSrc, styles.imageCropsSmallDesktop[aspectRatio], imageFocus)}
+            media="(min-width: 992px)"
           />
           <source
             srcSet={getProcessedImage(imageSrc, styles.imageCropsTablet[aspectRatio], imageFocus)}

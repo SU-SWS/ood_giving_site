@@ -144,7 +144,7 @@ export const RichText = ({
         return (
           <img
             src={getProcessedImage(src, '1500x0')}
-            alt={alt}
+            alt={alt || ''}
             loading="lazy"
           />
         );
