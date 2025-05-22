@@ -30,24 +30,28 @@ export const AspectRatioImage = ({
 
   // Get image dimensions
   const { width: originalWidth, height: originalHeight } = getSbImageSize(filename);
+  const defaultCropWidth = 1000;
+  const aspectRatioNumbers = aspectRatio.split('x').map(Number);
+  const aspectRatioDecimal = aspectRatioNumbers[0] / aspectRatioNumbers[1];
 
-  // Get the appropriate width limit from predefined sizes
-  const sizeKey = imageSize || 'default';
-  const targetWidth = styles.aspectImageSizes[sizeKey];
+  const cropWidth = imageSize || originalWidth > 1000
+    ? (styles.aspectImageSizes[imageSize] || defaultCropWidth) : originalWidth;
+  const cropHeight = Math.round(cropWidth / aspectRatioDecimal);
 
   /**
-   * Set the image focus from the visibleHorizontal and visibleVertical props, if image focus is not set manually in the image.
+   * Set the effective image focus from the visibleHorizontal and visibleVertical props, if actual image focus is not set manually in the image.
    * If image focus is set manually in Storyblok in the image, it will override the values calculated from the visibleHorizotal and visibleVertical props.
    */
-  const focusX = styles.imageFocusHorizontal(originalWidth)[visibleHorizontal || 'center'];
-  const focusY = styles.imageFocusVertical(originalHeight)[visibleVertical || 'top'];
+  const focusX = !focus && styles.imageFocusHorizontal(originalWidth)[visibleHorizontal || 'center'];
+  const focusY = !focus && styles.imageFocusVertical(originalHeight)[visibleVertical || 'top'];
 
+  //  If image focus is set manually in Storyblok in the image, it overrides the values calculated from the visibleHorizotal and visibleVertical props.
   const cropFocus = focus || `${focusX}x${focusY}:${focusX + 1}x${focusY + 1}`;
 
   // Process the image based on size comparison
   // For gallery-slide, we always process it regardless of original size
-  const processedImg = (sizeKey === 'gallery-slide' || originalWidth > targetWidth)
-    ? getProcessedImage(filename, `${targetWidth}x0`, cropFocus)
+  const processedImg = (imageSize === 'gallery-slide' || originalWidth > cropWidth)
+    ? getProcessedImage(filename, `${cropWidth}x${cropHeight}`, cropFocus)
     : getProcessedImage(filename, '', cropFocus);
 
   return (
@@ -63,11 +67,12 @@ export const AspectRatioImage = ({
         className={cnb(
           'ood-media__image object-cover',
           styles.imageAspectRatios[aspectRatio],
-          classPrefix ? `${classPrefix}__image` : '',
+          classPrefix && `${classPrefix}__image`,
         )}
+        width={cropWidth}
+        height={cropHeight}
         src={processedImg}
         alt={alt || ''}
-        {...props}
       />
     </div>
   );

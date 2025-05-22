@@ -37,7 +37,7 @@ export const StoryImage = ({
    * They don't need to be exact as long as the aspect ratio is correct.
    */
   const cropWidth = parseInt(cropSize?.split('x')[0], 10);
-  const cropHeight = aspectRatio === 'free' || !aspectRatio
+  const cropHeight = !aspectRatio || !aspectRatio
     ? Math.round(originalHeight * 1000 / originalWidth)
     : parseInt(cropSize?.split('x')[1], 10);
 

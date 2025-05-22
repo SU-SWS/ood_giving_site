@@ -58,17 +58,13 @@ export const SbStoryCardView = (props: SbStoryCardViewProps) => {
             props.blok.heroImage.filename?.startsWith('http')) &&
             !props.hideImage && (
               <AspectRatioImage
-                {...props}
-                // element={'div'}
                 filename={
                   props.blok.cardImage.filename
                     ? props.blok.cardImage.filename
                     : props.blok.heroImage.filename
                 }
-                alt=""
                 classPrefix="ood-story-card"
                 imageSize={props.orientation === 'horizontal' ? 'horizontal-card' : 'card'}
-                aspectRatio="3x2"
                 visibleHorizontal={props.visibleHorizontal}
                 visibleVertical={props.visibleVertical}
               />

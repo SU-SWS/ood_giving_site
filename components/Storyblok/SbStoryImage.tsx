@@ -44,7 +44,6 @@ export const SbStoryImage = ({
       caption={Caption}
       captionAlign={captionAlign}
       backgroundColor={backgroundColor}
-      aspectRatio="free"
       pt={spacingTop}
       pb={spacingBottom}
     />

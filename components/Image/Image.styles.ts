@@ -4,12 +4,11 @@
 
 export const aspectImageSizes = {
   card: 600,
-  thumbnail: 400,
-  'horizontal-card': 800,
-  'large-card': 800,
   header: 800,
+  'horizontal-card': 800,
   'gallery-slide': 1400,
-  default: 1000,
+  'large-card': 800,
+  thumbnail: 400,
 };
 export type AspectRatioImageSizeType = keyof typeof aspectImageSizes;
 
@@ -35,7 +34,6 @@ export const imageAspectRatios = {
   '1x1': 'aspect-1',
   '3x2': 'aspect-[3/2]',
   '16x9': 'aspect-[16/9]',
-  free: '',
 };
 export type ImageAspectRatioType = keyof typeof imageAspectRatios;
 
