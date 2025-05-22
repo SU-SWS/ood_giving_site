@@ -3,7 +3,7 @@ import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { StoryImage } from '@/components/Image';
 import { RichText } from '@/components/RichText';
 import { type TextAlignType } from '@/components/Typography';
-import { type ImageAspectRatioType, type LightPageBgColorsType, type PaddingType } from '@/utilities/datasource';
+import { type LightPageBgColorsType, type PaddingType } from '@/utilities/datasource';
 import { hasRichText } from '@/utilities/hasRichText';
 import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
 
@@ -42,6 +42,8 @@ export const SbStoryImage = ({
       imageFocus={focus}
       alt={alt}
       caption={Caption}
+      captionAlign={captionAlign}
+      backgroundColor={backgroundColor}
       aspectRatio="free"
       pt={spacingTop}
       pb={spacingBottom}

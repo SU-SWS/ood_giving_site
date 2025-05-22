@@ -1,77 +1,67 @@
-import React, { type ElementType, type HTMLAttributes } from 'react';
-import { type SbBlokData, storyblokEditable } from '@storyblok/react';
+import { cnb } from 'cnbuilder';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
+import { getSbImageSize } from '@/utilities/getSbImageSize';
 import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
+import * as styles from './Image.styles';
 
-export type AspectRatioImageProps = SbImageType & {
-  blok: SbBlokData;
-  element?: string;
+export type AspectRatioImageProps = SbImageType & React.HTMLAttributes<HTMLImageElement> & {
+  // blok: SbBlokData;
+  // element?: string;
   classPrefix?: string;
-  otherClasses?: string;
-  visibleVertical?: unknown;
-  visibleHorizontal?: unknown;
-  imageSize?: unknown;
-  aspectRatio?: string;
+  // otherClasses?: string;
+  visibleVertical?: styles.VisibleVerticalType;
+  visibleHorizontal?: styles.VisibleHorizontalType;
+  imageSize?: styles.AspectRatioImageSizeType;
+  aspectRatio?: styles.ImageAspectRatioType;
 };
 
-export const AspectRatioImage = (props: AspectRatioImageProps) => {
+export const AspectRatioImage = ({
+  filename,
+  alt,
+  focus,
+  classPrefix,
+  imageSize,
+  aspectRatio = '3x2',
+  visibleHorizontal,
+  visibleVertical,
+  className,
+  ...props
+}: AspectRatioImageProps) => {
+  if (!filename) {
+    return null;
+  }
+
   let processedImg = '';
-  const Element = props.element ?? 'figure' as ElementType<HTMLAttributes<HTMLElement>>;
+  const { width: originalWidth, height: originalHeight } = getSbImageSize(filename);
 
-  if (props.filename != null) {
-    let imgWidth = 0;
+  // Get the appropriate width limit based on imageSize
+  const minImageWidth = styles.aspectImageSizes[imageSize || 'default'];
 
-    if (props.filename?.startsWith('http')) {
-      // Get image width from URL of storyblok image
-      imgWidth = parseInt(props.filename.split('/')[5].split('x')[0], 10) || 0;
-    }
-
-    // Only scale image if original image size is larger than intended size
-    if (props.imageSize === 'card' && imgWidth > 600) {
-      processedImg = getProcessedImage(props.filename, '600x0');
-    } else if (props.imageSize === 'thumbnail' && imgWidth > 400) {
-      processedImg = getProcessedImage(props.filename, '400x0');
-    } else if (
-      (props.imageSize === 'header' ||
-        props.imageSize === 'horizontal-card' ||
-        props.imageSize === 'large-card') &&
-      imgWidth > 800
-    ) {
-      processedImg = getProcessedImage(props.filename, '800x0');
-    } else if (props.imageSize === 'gallery-slide') {
-      processedImg = getProcessedImage(props.filename, '1400x0');
-    } else if (imgWidth > 1000) {
-      processedImg = getProcessedImage(props.filename, '1000x0');
-    } else {
-      processedImg = getProcessedImage(props.filename, '');
-    }
+  // Only scale image if original image size is larger than intended size
+  if (originalWidth > minImageWidth) {
+    processedImg = getProcessedImage(filename, `${minImageWidth}x0`);
+  } else {
+    processedImg = getProcessedImage(filename, '');
   }
 
   return (
-    <Element
-      {...storyblokEditable(props.blok)}
+    <div
       className={`su-media su-media--image ood-media ood-media--${
-        props.aspectRatio
+        aspectRatio
       }
-            ${props.classPrefix ? `${props.classPrefix}__media` : ''}${
-        props.otherClasses ? ` ${props.otherClasses}` : ''
+            ${classPrefix ? `${classPrefix}__media` : ''}${
+        className ? ` ${className}` : ''
       }`}
     >
-      <div
-        className={`su-media__wrapper su-aspect-ratio--${
-          props.aspectRatio ?? '3x2'
-        }`}
-      >
-        <img
-          className={`ood-media__image
-              ${props.classPrefix ? `${props.classPrefix}__image` : ''}
-              su-obj-position-h-${props.visibleHorizontal ?? 'center'}-v-${
-            props.visibleVertical ?? 'top'
-          }`}
-          src={processedImg}
-          alt={props.alt ?? ''}
-        />
-      </div>
-    </Element>
+      <img
+        className={cnb('ood-media__image object-cover', styles.imageAspectRatios[aspectRatio], classPrefix ? `${classPrefix}__image` : '')}
+            //visibleHorizontal ? `su-obj-position-h-${visibleHorizontal}` : 'su-obj-position-h-center',
+            //su-obj-position-h-${visibleHorizontal ?? 'center'}-v-${
+          //visibleVertical ?? 'top'
+        src={processedImg}
+        alt={alt || ''}
+        {...props}
+      />
+    </div>
   );
 };

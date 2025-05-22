@@ -2,7 +2,7 @@ import { MediaWrapper, type MediaWrapperProps } from '@/components/Media';
 import { type LightPageBgColorsType } from '@/utilities/datasource';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { getSbImageSize } from '@/utilities/getSbImageSize';
-import * as styles from './StoryImage.styles';
+import * as styles from './Image.styles';
 
 export type StoryImageProps = React.HTMLAttributes<HTMLDivElement> & MediaWrapperProps & {
   imageSrc: string;

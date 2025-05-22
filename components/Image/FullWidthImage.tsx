@@ -1,19 +1,26 @@
-import React, { type ElementType, type HTMLAttributes } from 'react';
-import { type SbBlokData, storyblokEditable } from '@storyblok/react';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
 
-export type FullWidthImageProps = SbImageType & {
-  blok: SbBlokData;
-  element?: string;
+export type FullWidthImageProps = SbImageType & React.HTMLAttributes<HTMLImageElement> & {
+  // blok: SbBlokData;
+  // element?: string;
   classPrefix?: string;
-  otherClasses?: string;
+  // className?: string;
   visibleVertical?: unknown;
   visibleHorizontal?: unknown;
 };
 
-export const FullWidthImage = (props: FullWidthImageProps) => {
-  const Element = props.element ?? 'figure' as ElementType<HTMLAttributes<HTMLElement>>;
+export const FullWidthImage = ({
+  filename,
+  alt,
+  focus,
+  classPrefix,
+  visibleHorizontal,
+  visibleVertical,
+  className,
+  ...props
+}: FullWidthImageProps) => {
+  // const Element = element ?? 'figure' as ElementType<HTMLAttributes<HTMLElement>>;
   let largeImg,
     mediumImg,
     smallImg,
@@ -22,26 +29,26 @@ export const FullWidthImage = (props: FullWidthImageProps) => {
     imgSizes,
     imgSrc = '';
 
-  if (props.filename != null) {
+  if (filename != null) {
     let imgWidth = 0;
 
     // Get image width from URL of storyblok image
-    if (props.filename?.startsWith('http')) {
-      imgWidth = parseInt(props.filename.split('/')[5].split('x')[0], 10) || 0;
+    if (filename?.startsWith('http')) {
+      imgWidth = parseInt(filename.split('/')[5].split('x')[0], 10) || 0;
     }
 
-    originalImg = getProcessedImage(props.filename, '');
+    originalImg = getProcessedImage(filename, '');
 
     if (imgWidth >= 800) {
-      smallImg = getProcessedImage(props.filename, '800x0');
+      smallImg = getProcessedImage(filename, '800x0');
     }
 
     if (imgWidth >= 1200) {
-      mediumImg = getProcessedImage(props.filename, '1200x0');
+      mediumImg = getProcessedImage(filename, '1200x0');
     }
 
     if (imgWidth >= 2000) {
-      largeImg = getProcessedImage(props.filename, '2000x0');
+      largeImg = getProcessedImage(filename, '2000x0');
     }
 
     imgSrcset = smallImg ? smallImg + ' 800w' : '';
@@ -63,24 +70,24 @@ export const FullWidthImage = (props: FullWidthImageProps) => {
   }
 
   return (
-    <div {...storyblokEditable(props.blok)}>
-      <Element
+    <div>
+      <div
         className={`su-media
-              ${props.classPrefix ? `${props.classPrefix}__media` : ''}${
-          props.otherClasses ? ` ${props.otherClasses}` : ''
+              ${classPrefix ? `${classPrefix}__media` : ''}${
+          className ? ` ${className}` : ''
         }`}
       >
         <img
-          className={`${props.classPrefix ? `${props.classPrefix}__image` : ''}
-              su-obj-position-h-${props.visibleHorizontal ?? 'center'}-v-${
-            props.visibleVertical ?? 'top'
+          className={`${classPrefix ? `${classPrefix}__image` : ''}
+              su-obj-position-h-${visibleHorizontal ?? 'center'}-v-${
+            visibleVertical ?? 'top'
           }`}
           {...(imgSrcset ? { srcSet: imgSrcset } : {})}
           {...(imgSizes ? { sizes: imgSizes } : {})}
           src={imgSrc}
-          alt={props.alt ?? ''}
+          alt={alt || ''}
         />
-      </Element>
+      </div>
     </div>
   );
 };

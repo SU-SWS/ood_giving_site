@@ -1,8 +1,9 @@
 import { cnb } from 'cnbuilder';
 import { Caption, type CaptionProps } from './Caption';
 import { Container } from '@/components/Container';
+import { type TextAlignType } from '@/components/Typography';
 import { type LargeMarginType, type PaddingType } from '@/utilities/datasource';
-import { imageAspectRatios, type ImageAspectRatioType } from '@/utilities/datasource';
+import { imageAspectRatios, type ImageAspectRatioType } from '@/components/Image';
 import * as styles from './MediaWrapper.styles';
 
 /**
@@ -11,6 +12,7 @@ import * as styles from './MediaWrapper.styles';
  */
 export type MediaWrapperProps = React.HTMLAttributes<HTMLDivElement> & CaptionProps & {
   aspectRatio?: ImageAspectRatioType;
+  captionAlign?: TextAlignType;
   isInset?: boolean; // Inset image to make it smaller
   mt?: LargeMarginType;
   mb?: LargeMarginType;
@@ -20,6 +22,7 @@ export type MediaWrapperProps = React.HTMLAttributes<HTMLDivElement> & CaptionPr
 
 export const MediaWrapper = ({
   caption,
+  captionAlign,
   aspectRatio,
   isInset,
   mt,
@@ -40,9 +43,8 @@ export const MediaWrapper = ({
       pb={pb}
       className={cnb(styles.root(isInset), className)}
       {...props}
-      data-component="MediaWrapper"
     >
-      <div data-component="ImageWrapper" className={imageAspectRatios[aspectRatio]}>
+      <div className={imageAspectRatios[aspectRatio]}>
         {children}
       </div>
       {caption && (

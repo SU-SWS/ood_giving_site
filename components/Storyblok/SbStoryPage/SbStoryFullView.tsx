@@ -93,6 +93,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
               >
                 <Heading
                   as="h1"
+                  font="sans"
                   weight="semibold"
                   className={`ood-story__title ood-has-tab-before su-before-bg-${props.blok.tabColor}`}
                 >

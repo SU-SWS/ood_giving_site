@@ -67,7 +67,7 @@ export const CampaignHero = (props: CampaignHeroProps) => {
         classPrefix={'campaign-page'}
         visibleVertical={'center'}
         visibleHorizontal={blok.visibleHorizontal}
-        alt={blok.image?.alt ?? ''}
+        alt={blok.image?.alt || ''}
       />
     ) : (
       <div className={'full-width-image-placeholder'} aria-hidden="true" />

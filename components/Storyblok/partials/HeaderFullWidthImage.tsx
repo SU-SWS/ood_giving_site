@@ -35,8 +35,9 @@ export const HeaderFullWidthImage = (props: HeaderFullWidthImageProps) => {
       filename={props.blok.headerImage.filename}
       classPrefix={'ood-interior-page'}
       visibleVertical={props.blok.visibleVertical}
-      visibleHorizontal={'center'}
+      visibleHorizontal="center"
       alt={props.blok.headerImage.alt ?? ''}
+      className="print:hidden"
     />
   ) : (
     <div className={'full-width-image-placeholder'} aria-hidden="true" />

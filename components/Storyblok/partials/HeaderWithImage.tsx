@@ -4,7 +4,7 @@ import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { useWindowSize } from 'usehooks-ts';
 import { CreateBloks } from '@/components/CreateBloks';
 import { RichText } from '@/components/RichText';
-import { AspectRatioImage, type AspectRatioImageProps } from '@/components/Image';
+import { AspectRatioImage, type AspectRatioImageProps, type VisibleVerticalType } from '@/components/Image';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 import { Heading } from '@/components/Typography';
 import { config } from '@/utilities/config';
@@ -18,6 +18,7 @@ export type HeaderWithImageProps = {
     layout?: string;
     intro?: StoryblokRichtext;
     headerImage: AspectRatioImageProps;
+    visibleVertical?: VisibleVerticalType;
   }
 };
 
@@ -63,12 +64,10 @@ export const HeaderWithImage = (props: HeaderWithImageProps) => {
             {...props}
             filename={props.blok.headerImage.filename}
             alt={props.blok.headerImage.alt}
-            classPrefix={'ood-interior-page__header'}
-            otherClasses={
-              'flex-md-5-of-12 flex-lg-6-of-12 su-ml-auto su-mr-none'
-            }
-            imageSize={'header'}
-            aspectRatio={'3x2'}
+            classPrefix="ood-interior-page__header"
+            className="print:hidden flex-md-5-of-12 flex-lg-6-of-12 su-ml-auto su-mr-none"
+            imageSize="header"
+            aspectRatio="3x2"
             visibleVertical={props.blok.visibleVertical}
           />
         </CenteredContainer>
