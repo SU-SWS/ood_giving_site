@@ -7,7 +7,7 @@ import { CreateBloks } from '@/components/CreateBloks';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 import { Heading } from '@/components/Storyblok/partials/Heading';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
-import { FullWidthImage, type FullWidthImageProps } from '@/components/Storyblok/partials/FullWidthImage';
+import { FullWidthImage, type FullWidthImageProps } from '@/components/Image';
 import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
 import { config } from '@/utilities/config';
 import { type SbImageType } from '../Storyblok.types';

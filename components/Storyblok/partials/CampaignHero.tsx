@@ -3,7 +3,7 @@ import { type SbBlokData } from '@storyblok/react';
 import { storyblokEditable } from '@storyblok/react';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Heading } from '@/components/Typography';
-import { FullWidthImage } from '@/components/Storyblok/partials/FullWidthImage';
+import { FullWidthImage } from '@/components/Image';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { modTypeSizes, type ModTypeSizeTypes } from '@/utilities/datasource';
 

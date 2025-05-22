@@ -7,7 +7,7 @@ import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer
 import { BelowContent, type BelowContentProps } from '@/components/Storyblok/partials/BelowContent';
 import { Heading, Paragraph } from '@/components/Typography';
 import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
-import { FullWidthImage } from '@/components/Storyblok/partials/FullWidthImage';
+import { FullWidthImage } from '@/components/Image';
 import { type SbImageType } from '../Storyblok.types';
 
 export type SbStoryFullViewProps = IconCardSectionProps & FooterProps & BelowContentProps & {

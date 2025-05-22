@@ -1,7 +1,7 @@
 import React from 'react';
 import { storyblokEditable, type SbBlokData } from '@storyblok/react';
 import { Heading, Paragraph, type HeadingType } from '@/components/Typography';
-import { AspectRatioImage, type AspectRatioImageProps } from '@/components/Storyblok/partials/AspectRatioImage';
+import { AspectRatioImage, type AspectRatioImageProps } from '@/components/Image';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
 import { type SbImageType } from '../Storyblok.types';
 import { SuspenseWrapper } from '@/components/SuspenseWrapper';

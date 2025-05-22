@@ -4,7 +4,7 @@ import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { useWindowSize } from 'usehooks-ts';
 import { CreateBloks } from '@/components/CreateBloks';
 import { RichText } from '@/components/RichText';
-import { AspectRatioImage, type AspectRatioImageProps } from '@/components/Storyblok/partials/AspectRatioImage';
+import { AspectRatioImage, type AspectRatioImageProps } from '@/components/Image';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 import { Heading } from '@/components/Typography';
 import { config } from '@/utilities/config';
