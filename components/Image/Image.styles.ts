@@ -1,3 +1,29 @@
+import { cnb } from 'cnbuilder';
+
+export type VisibleHorizontalType = 'left' | 'center' | 'right';
+export type VisibleVerticalType = 'top' | 'center' | 'bottom';
+
+/**
+ * FullWidthImage styles
+ */
+
+export const objectPositions = (
+  visibleHorizontal: VisibleHorizontalType = 'center',
+  visibleVertical: VisibleVerticalType = 'top',
+) => cnb(
+  {
+    'object-left-top': visibleHorizontal === 'left' && visibleVertical === 'top',
+    'object-top': visibleHorizontal === 'center' && visibleVertical === 'top',
+    'object-right-top': visibleHorizontal === 'right' && visibleVertical === 'top',
+    'object-left': visibleHorizontal === 'left' && visibleVertical === 'center',
+    'object-center': visibleHorizontal === 'center' && visibleVertical === 'center',
+    'object-right': visibleHorizontal === 'right' && visibleVertical === 'center',
+    'object-left-bottom': visibleHorizontal === 'left' && visibleVertical === 'bottom',
+    'object-bottom': visibleHorizontal === 'center' && visibleVertical === 'bottom',
+    'object-right-bottom': visibleHorizontal === 'right' && visibleVertical === 'bottom',
+  },
+);
+
 /**
  * AspectRatioImage styles
  */
@@ -18,14 +44,13 @@ export const imageFocusHorizontal = (imgWidth: number) => ({
   center: imgWidth / 2,
   right: imgWidth - 1,
 });
-export type VisibleHorizontalType = 'left' | 'center' | 'right';
 
 export const imageFocusVertical = (imgHeight: number) => ({
   top: 1,
   center: imgHeight / 2,
   bottom: imgHeight - 1,
 });
-export type VisibleVerticalType = 'top' | 'center' | 'bottom';
+
 
 /**
  * StoryImage styles

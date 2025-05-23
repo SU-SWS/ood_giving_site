@@ -11,111 +11,84 @@ export type FullWidthImageProps = SbImageType & React.HTMLAttributes<HTMLImageEl
   visibleHorizontal?: styles.VisibleHorizontalType;
 };
 
+// Define breakpoints for generating responsive images
+const responsiveBreakpoints = [
+  { cropWidth: 2000, minWidth: 1500 },
+  { cropWidth: 1500, minWidth: 1200 },
+  { cropWidth: 1200, minWidth: 992 },
+  { cropWidth: 1000, minWidth: 768 },
+  { cropWidth: 800, minWidth: 461 },
+  { cropWidth: 460, minWidth: 0 }, // Mobile/smallest size
+];
+
 export const FullWidthImage = ({
   filename,
   alt,
-  focus,
   classPrefix,
   visibleHorizontal,
   visibleVertical,
   className,
-  ...imageProps
 }: FullWidthImageProps) => {
   const { width: originalWidth, height: originalHeight } = getSbImageSize(filename);
-  const originalAspectRatio = originalWidth / originalHeight;
 
-  // let largeImg,
-  //   mediumImg,
-  //   smallImg,
-  //   originalImg = '';
-  // let imgSrcset,
-  //   imgSizes,
-  //   imgSrc = '';
+ // Find corresponding image sizes for responsive images
+  const imageSources = useMemo(() => {
+    const sources = [];
 
-  // if (filename != null) {
-  //   let imgWidth = 0;
+    // If the original image width is < 2000px, find out what breakpoint range it falls into
+    const largestBp = responsiveBreakpoints.find(bp => originalWidth >= bp.minWidth && originalWidth < bp.cropWidth);
 
-  //   // Get image width from URL of storyblok image
-  //   if (filename?.startsWith('http')) {
-  //     imgWidth = parseInt(filename.split('/')[5].split('x')[0], 10) || 0;
-  //   }
+    // If we found an appropriate breakpoint, insert the original image at that breakpoint
+    // For example, if the original image is 1100px, it will be used for the min-width: 992px breakpoint
+    if (largestBp) {
+      sources.push({
+        srcSet: getProcessedImage(filename, ''), // Original size
+        media: `(min-width: ${largestBp.minWidth}px)`,
+        width: originalWidth,
+        height: originalHeight,
+      });
+    }
 
-  //   originalImg = getProcessedImage(filename, '');
+    // Add all smaller sizes that are relevant
+    responsiveBreakpoints
+      // First pass: always include the mobile size, and keep all the breakpoints with minWidth < the original image width
+      .filter(bp => bp.cropWidth < originalWidth || bp.cropWidth === 460)
+      // If the original image is wider than 2000px (no largestBp assigned), keep all the breakpoints from the first pass
+      // Otherwise, keep only the breakpoints that are smaller than the largestBp
+      .filter(bp => !largestBp || bp.minWidth < largestBp.minWidth)
+      .forEach(bp => {
+        const cropSize = `${bp.cropWidth}x0`;
 
-  //   if (imgWidth >= 800) {
-  //     smallImg = getProcessedImage(filename, '800x0');
-  //   }
+        sources.push({
+          srcSet: getProcessedImage(filename, cropSize),
+          // The smaller source uses max-width while the larger uses min-width for the media attribute
+          media: bp.minWidth > 0 ? `(min-width: ${bp.minWidth}px)` : `(max-width: ${bp.cropWidth}px)`,
+        });
+      });
 
-  //   if (imgWidth >= 1200) {
-  //     mediumImg = getProcessedImage(filename, '1200x0');
-  //   }
-
-  //   if (imgWidth >= 2000) {
-  //     largeImg = getProcessedImage(filename, '2000x0');
-  //   }
-
-  //   imgSrcset = smallImg ? smallImg + ' 800w' : '';
-  //   imgSrcset += mediumImg ? ',' + mediumImg + ' 1200w ' : '';
-  //   imgSrcset += largeImg ? ',' + largeImg + ' 2000w ' : '';
-
-  //   // Include the original image in the srcset if its width is > 800px and < 2000px
-  //   if (imgWidth > 800 && imgWidth < 2000) {
-  //     imgSrcset += originalImg ? ',' + originalImg + ' ' + imgWidth + 'w ' : '';
-  //   }
-
-  //   // Set sizes attribute only if imgSrcset is not empty (imgSrcset is empty if image width is < 800px)
-  //   if (imgSrcset) {
-  //     imgSizes = '100vw';
-  //   }
-
-  //   // If image is > 2000px, use the resized 2000px version for the src. Otherwise use original image.
-  //   imgSrc = largeImg || originalImg;
-  // }
+    return sources;
+  }, [originalWidth, filename, originalHeight]);
 
   return (
     <div className={cnb('su-media', classPrefix && `${classPrefix}__media`, className)}>
       <picture>
-        {originalWidth > 2000 && (
+        {imageSources.map(({ width, srcSet, media }) => (
           <source
-            srcSet={getProcessedImage(filename, `2000x${Math.round(2000 / originalAspectRatio)}`)}
-            media="(min-width: 1500px)"
+            key={`source-${width}`}
+            srcSet={srcSet}
+            media={media}
           />
-        )}
-        {originalWidth > 1500 && (
-          <source
-            srcSet={getProcessedImage(filename, `1500x${Math.round(1500 / originalAspectRatio)}`)}
-            media="(min-width: 1200px)"
-          />
-        )}
-        {originalWidth > 1200 && (
-          <source
-            srcSet={getProcessedImage(filename, `1200x${Math.round(1200 / originalAspectRatio)}`)}
-            media="(min-width: 992px)"
-          />
-        )}
-        {originalWidth > 1000 && (
-          <source
-            srcSet={getProcessedImage(filename, `1000x${Math.round(1000 / originalAspectRatio)}`)}
-            media="(min-width: 768px)"
-          />
-        )}
-        {originalWidth > 800 && (
-          <source
-            srcSet={getProcessedImage(filename, `800x${Math.round(800 / originalAspectRatio)}`)}
-            media="(min-width: 461px)"
-          />
-        )}
-        <source
-          srcSet={getProcessedImage(filename, `460x${Math.round(460 / originalAspectRatio)}`)}
-          media="(max-width: 460px)"
-        />
+        ))}
         <img
-          {...imageProps}
-          src={getProcessedImage(filename, `2000x${Math.round(2000 / originalAspectRatio)}`)}
+          src={imageSources[0].srcSet} // Use the first source as the default image
           alt={alt || ''}
-          width={2000}
-          height={1000}
-          className={cnb('size-full object-cover', classPrefix && `${classPrefix}__image`)}
+          width={originalWidth}
+          height={originalHeight}
+          className={cnb(
+            'size-full object-cover',
+            styles.objectPositions(visibleHorizontal, visibleVertical),
+            classPrefix && `${classPrefix}__image`)
+          }
         />
       </picture>
     </div>

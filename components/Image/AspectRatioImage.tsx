@@ -3,6 +3,7 @@ import { cnb } from 'cnbuilder';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { getSbImageSize } from '@/utilities/getSbImageSize';
 import { getAspectRatioNumber } from '@/utilities/getAspectRatioNumber';
+import { visiblePositionToFocus } from '@/utilities/visiblePositionToFocus';
 import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './Image.styles';
 
@@ -28,15 +29,12 @@ export const AspectRatioImage = ({
 }: AspectRatioImageProps) => {
   const { width: originalWidth, height: originalHeight } = getSbImageSize(filename);
 
-  const cropFocus = useMemo(() => {
-    // If image focus is set manually in Storyblok in the image, use it
+  const imageFocus = useMemo(() => {
+    // If manual focus is provided, use it directly
     if (focus) return focus;
 
-    // Set the effective image focus from the visibleHorizontal and visibleVertical props
-    const focusX = styles.imageFocusHorizontal(originalWidth)[visibleHorizontal || 'center'];
-    const focusY = styles.imageFocusVertical(originalHeight)[visibleVertical || 'top'];
-
-    return `${focusX}x${focusY}:${focusX + 1}x${focusY + 1}`;
+    // Otherwise calculate focus from visibility parameters
+    return visiblePositionToFocus(originalWidth, originalHeight, visibleHorizontal, visibleVertical);
   }, [focus, originalWidth, originalHeight, visibleHorizontal, visibleVertical]);
 
   const { cropHeight, cropWidth } = useMemo(() => {
@@ -55,7 +53,7 @@ export const AspectRatioImage = ({
     return null;
   }
 
-  const processedImg = getProcessedImage(filename, `${cropWidth}x${cropHeight}`, cropFocus);
+  const processedImg = getProcessedImage(filename, `${cropWidth}x${cropHeight}`, imageFocus);
 
   return (
     <div
