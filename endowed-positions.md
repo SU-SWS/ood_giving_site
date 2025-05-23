@@ -9,8 +9,8 @@ Search results are another sub-route i.e., `/endowed-positions/search?term=james
 ## Endowed Positions Files
 
 - [React component files](https://github.com/SU-SWS/ood_giving_site/tree/dev/src/components/endowed-positions)
-- [Dataset JSON](https://github.com/SU-SWS/ood_giving_site/tree/dev/src/fixtures)
-- [School/Center Map JSON](https://github.com/SU-SWS/ood_giving_site/tree/dev/src/fixtures)
+- [Dataset JSON](https://github.com/SU-SWS/ood_giving_site/blob/dev/src/fixtures/endowedPositions.json)
+- [School/Center Map JSON](https://github.com/SU-SWS/ood_giving_site/blob/dev/src/constants/ENDOWED_POSITIONS_MAP.json)
 
 ## Updating the Endowed Positions dataset
 
