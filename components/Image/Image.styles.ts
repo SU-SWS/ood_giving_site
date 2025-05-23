@@ -97,13 +97,13 @@ export const imageCropsMobile = {
 };
 
 // Image Width (from Storyblok)
-export const StoryImageWidths = {
-  'su-w-full': 'w-full',
-  'centered-container': 'cc',
-  'su-w-story': 'flex-lg-8-of-12',
-  'su-w-inset': 'flex-sm-10-of-12 flex-md-8-of-12 flex-lg-7-of-12 flex-xl-6-of-12 flex-2xl-5-of-12',
-  'fit-container': 'w-full',
+export const storyImageWidths = {
+  'su-w-full': '', // This is labeled as the edge-to-edge option
+  'centered-container': '',
+  'su-w-story': 'lg:basis-8/12',
+  'su-w-inset': 'sm:basis-10/12 md:basis-8/12 lg:basis-7/12 lg:basis-6/12 2xl:basis-5/12',
+  'fit-container': '',
 };
-export type StoryImageWidthType = keyof typeof StoryImageWidths;
+export type StoryImageWidthType = keyof typeof storyImageWidths;
 
 export const image = 'size-full object-cover';

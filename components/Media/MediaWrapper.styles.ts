@@ -1,4 +1,5 @@
-export const root = (isInset: boolean) => isInset ? 'w-2/3 mx-auto' : 'w-full';
+export const root = 'relative flex';
+export const wrapper = 'mx-auto';
 
 // Caption component styles
 export const captionWrapper = 'mt-0';

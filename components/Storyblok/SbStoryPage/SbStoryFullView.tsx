@@ -72,7 +72,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                   visibleVertical={props.blok.visibleVertical}
                   visibleHorizontal={'center'}
                   alt={props.blok.heroImage.alt ?? ''}
-                  className="h-300 md:h-400 lg:h-500 2xl:h-[64rem]"
+                  className="h-300 md:h-400 xl:h-500 2xl:h-[64rem]"
                 />
               )}
             <CenteredContainer

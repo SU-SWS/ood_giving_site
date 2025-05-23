@@ -1,6 +1,6 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
-import { StoryImage } from '@/components/Image';
+import { StoryImage, type StoryImageWidthType } from '@/components/Image';
 import { RichText } from '@/components/RichText';
 import { type TextAlignType } from '@/components/Typography';
 import { type LightPageBgColorsType, type PaddingType } from '@/utilities/datasource';
@@ -12,6 +12,7 @@ type SbStoryImageProps = {
     _uid: string;
     image: SbImageType;
     alt?: string;
+    imageWidth?: StoryImageWidthType;
     caption?: StoryblokRichtext;
     captionAlign?: TextAlignType;
     isCard?: boolean;
@@ -27,6 +28,7 @@ export const SbStoryImage = ({
     caption,
     captionAlign,
     isCard,
+    imageWidth,
     backgroundColor,
     spacingTop,
     spacingBottom,
@@ -40,6 +42,7 @@ export const SbStoryImage = ({
       {...storyblokEditable(blok)}
       imageSrc={filename}
       imageFocus={focus}
+      imageWidth={imageWidth}
       alt={alt}
       caption={Caption}
       captionAlign={captionAlign}
