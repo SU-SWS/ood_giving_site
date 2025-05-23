@@ -14,6 +14,8 @@ Search results are another sub-route i.e., `/endowed-positions/search?term=james
 
 ## Updating the Endowed Positions dataset
 
+The Endowed Positions dataset is updated about 6 times a year. Every few months an updated csv will be provided and the site will need the updated data from the csv. The following are steps to update the site data once a new csv is received:
+
 1. Convert CSV to JSON ([csvjson](https://csvjson.com/csv2json))
 2. Update [endowedPositions.json](https://github.com/SU-SWS/ood_giving_site/blob/dev/src/fixtures/endowedPositions.json)
 3. Update the footer ([EndowedPositionsFooter.js](https://github.com/SU-SWS/ood_giving_site/blob/dev/src/components/endowed-positions/EndowedPositionsFooter.js))
