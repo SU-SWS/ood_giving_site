@@ -1,3 +1,4 @@
+import { cnb } from 'cnbuilder';
 import { MediaWrapper, type MediaWrapperProps } from '@/components/Media';
 import { type LightPageBgColorsType } from '@/utilities/datasource';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
@@ -7,23 +8,21 @@ import * as styles from './Image.styles';
 export type StoryImageProps = React.HTMLAttributes<HTMLDivElement> & MediaWrapperProps & {
   imageSrc: string;
   imageFocus?: string;
-  isLoadingEager?: boolean;
   alt?: string;
-  imageWidth?: styles.StoryImageWidthType;
-  visibleVertical?: string;
-  isCard?: boolean;
+  visibleVertical?: styles.VisibleVerticalType;
   backgroundColor?: LightPageBgColorsType;
+  isCard?: boolean;
 };
 
 export const StoryImage = ({
   imageSrc,
   imageFocus,
   imageWidth,
-  isLoadingEager,
   alt,
   caption,
   isCard,
   backgroundColor,
+  visibleVertical,
   pt,
   pb,
   ...props
@@ -42,12 +41,11 @@ export const StoryImage = ({
   return (
     <MediaWrapper
       width={imageWidth !== 'su-w-full' && imageWidth !== 'fit-container' ? 'site' : 'full'}
-      imageWidth={imageWidth}
+      imageWidth={imageWidth || 'su-w-story'}
       caption={caption}
       pt={pt}
       pb={pb}
       {...props}
-      data-component="StoryImage"
     >
       {!!imageSrc && (
         <picture>
@@ -69,12 +67,11 @@ export const StoryImage = ({
           /> */}
           <img
             src={getProcessedImage(imageSrc, cropSize, imageFocus)}
-            loading={isLoadingEager ? 'eager' : 'lazy'}
-            fetchPriority={isLoadingEager ? 'high' : 'auto' }
+            loading="lazy"
             width={cropWidth}
             // height={cropHeight}
             alt={alt || ''}
-            className={styles.image}
+            className={cnb(styles.image, styles.objectPositions('center', visibleVertical))}
           />
         </picture>
       )}

@@ -42,8 +42,8 @@ export const MediaWrapper = ({
       className={cnb(styles.root, className)}
       {...props}
     >
-      <div className={cnb(styles.wrapper, storyImageWidths[imageWidth])}>
-        <div>
+      <div className={cnb(styles.wrapper(imageWidth), storyImageWidths[imageWidth])}>
+        <div className={imageWidth === 'su-w-full' && 'h-[30vw]'}>
           {children}
         </div>
         {caption && (
