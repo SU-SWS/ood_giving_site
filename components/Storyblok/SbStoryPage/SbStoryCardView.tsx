@@ -23,6 +23,9 @@ export type SbStoryCardViewProps = AspectRatioImageProps & {
 };
 
 export const SbStoryCardView = (props: SbStoryCardViewProps) => {
+  const hasCardImage = props.blok.cardImage?.filename?.startsWith('http');
+  const hasHeroImage = props.blok.heroImage?.filename?.startsWith('http');
+  const showImage = (hasCardImage || hasHeroImage) && !props.hideImage;
 
   const theLink = { linktype: 'story', url: props.storyLink + '/' };
   return (
@@ -35,9 +38,7 @@ export const SbStoryCardView = (props: SbStoryCardViewProps) => {
                     : ''
                 }
                 ${
-                  (props.blok.cardImage.filename?.startsWith('http') ||
-                    props.blok.heroImage.filename?.startsWith('http')) &&
-                  props.hideImage === false
+                  showImage
                     ? 'ood-story-card--has-image'
                     : 'ood-story-card--no-image'
                 }`}
@@ -54,21 +55,16 @@ export const SbStoryCardView = (props: SbStoryCardViewProps) => {
                 : 'su-border-color-black-11'
             }`}
         >
-          {(props.blok.cardImage.filename?.startsWith('http') ||
-            props.blok.heroImage.filename?.startsWith('http')) &&
-            !props.hideImage && (
-              <AspectRatioImage
-                filename={
-                  props.blok.cardImage.filename
-                    ? props.blok.cardImage.filename
-                    : props.blok.heroImage.filename
-                }
-                classPrefix="ood-story-card"
-                imageSize={props.orientation === 'horizontal' ? 'horizontal-card' : 'card'}
-                visibleHorizontal={props.visibleHorizontal}
-                visibleVertical={props.visibleVertical}
-              />
-            )}
+          {showImage && (
+            <AspectRatioImage
+              filename={hasCardImage ? props.blok.cardImage.filename : props.blok.heroImage.filename}
+              focus={hasCardImage ? props.blok.cardImage.focus : props.blok.heroImage.focus}
+              classPrefix="ood-story-card"
+              imageSize={props.orientation === 'horizontal' ? 'horizontal-card' : 'card'}
+              visibleHorizontal={props.visibleHorizontal}
+              visibleVertical={props.visibleVertical}
+            />
+          )}
           <section
             className={`ood-story-card__contents su-mx-auto ood-has-tab-before su-px-2 su-pb-4`}
           >
