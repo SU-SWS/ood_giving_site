@@ -62,11 +62,12 @@ export const HeaderWithImage = (props: HeaderWithImageProps) => {
           />
           <AspectRatioImage
             filename={props.blok.headerImage.filename}
+            focus={props.blok.headerImage.focus}
             alt={props.blok.headerImage.alt}
-            classPrefix="ood-interior-page__header"
-            className="print:hidden flex-md-5-of-12 flex-lg-6-of-12 su-ml-auto su-mr-none"
             imageSize="header"
             visibleVertical={props.blok.visibleVertical}
+            classPrefix="ood-interior-page__header"
+            className="print:hidden flex-md-5-of-12 flex-lg-6-of-12 ml-auto mr-0"
           />
         </CenteredContainer>
       </div>

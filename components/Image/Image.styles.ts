@@ -3,6 +3,7 @@
  */
 
 export const aspectImageSizes = {
+  default: 1000,
   card: 600,
   header: 800,
   'horizontal-card': 800,
