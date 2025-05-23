@@ -1,18 +1,18 @@
 import { getProcessedImage } from './getProcessedImage';
 
-export type ResponsiveBreakpoint = {
+type ResponsiveBreakpoint = {
   cropWidth: number;
   minWidth: number;
 };
 
-export type ImageSource = {
+type ImageSource = {
   srcSet: string;
   media: string;
   width?: number;
   height?: number;
 };
 
-// Define standard breakpoints for generating responsive images
+// Default breakpoints for generating responsive images
 const defaultResponsiveBreakpoints: ResponsiveBreakpoint[] = [
   { cropWidth: 2000, minWidth: 1500 },
   { cropWidth: 1500, minWidth: 1200 },
@@ -28,7 +28,6 @@ const defaultResponsiveBreakpoints: ResponsiveBreakpoint[] = [
  * @param filename - The image filename from Storyblok
  * @param originalWidth - Original width of the image
  * @param originalHeight - Original height of the image
- * @param imageFocus - Optional focus point for image cropping
  * @param customBreakpoints - Optional custom breakpoints to override defaults
  * @returns Array of image sources with srcSet and media queries
  */
@@ -36,7 +35,6 @@ export const getImageSources = (
   filename: string,
   originalWidth: number,
   originalHeight: number,
-  imageFocus?: string,
   customBreakpoints?: ResponsiveBreakpoint[],
 ): ImageSource[] => {
   const sources: ImageSource[] = [];
@@ -49,7 +47,7 @@ export const getImageSources = (
   // For example, if the original image is 1100px, it will be used for the min-width: 992px breakpoint
   if (largestBp) {
     sources.push({
-      srcSet: getProcessedImage(filename, '', imageFocus), // Original size
+      srcSet: getProcessedImage(filename), // Original size
       media: `(min-width: ${largestBp.minWidth}px)`,
       width: originalWidth,
       height: originalHeight,
@@ -67,11 +65,9 @@ export const getImageSources = (
       const cropSize = `${bp.cropWidth}x0`;
 
       sources.push({
-        srcSet: getProcessedImage(filename, cropSize, imageFocus),
+        srcSet: getProcessedImage(filename, cropSize),
         // The smaller source uses max-width while the larger uses min-width for the media attribute
         media: bp.minWidth > 0 ? `(min-width: ${bp.minWidth}px)` : `(max-width: ${bp.cropWidth}px)`,
-        width: bp.cropWidth,
-        height: Math.round(bp.cropWidth * (originalHeight / originalWidth)), // Maintain aspect ratio
       });
     });
 

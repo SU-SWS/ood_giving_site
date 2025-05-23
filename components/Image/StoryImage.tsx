@@ -1,7 +1,8 @@
 import { cnb } from 'cnbuilder';
+import { useMemo } from 'react';
 import { MediaWrapper, type MediaWrapperProps } from '@/components/Media';
 import { type LightPageBgColorsType } from '@/utilities/datasource';
-import { getProcessedImage } from '@/utilities/getProcessedImage';
+import { getImageSources } from '@/utilities/getImageSources';
 import { getSbImageSize } from '@/utilities/getSbImageSize';
 import * as styles from './Image.styles';
 
@@ -27,7 +28,11 @@ export const StoryImage = ({
   ...props
 }: StoryImageProps) => {
   const { width: originalWidth, height: originalHeight } = getSbImageSize(imageSrc);
-  const cropSize = styles.imageCropsDesktop['free'];
+
+  // Get corresponding image sources for responsive images
+  const imageSources = useMemo(() => {
+    return getImageSources(imageSrc, originalWidth, originalHeight);
+  }, [originalWidth, imageSrc, originalHeight]);
 
   return (
     <MediaWrapper
@@ -43,27 +48,18 @@ export const StoryImage = ({
     >
       {!!imageSrc && (
         <picture>
-          <source
-            srcSet={getProcessedImage(imageSrc, cropSize)}
-            media="(min-width: 1500px)"
-          />
-          {/* <source
-            srcSet={getProcessedImage(imageSrc, styles.imageCropsSmallDesktop[aspectRatio], imageFocus)}
-            media="(min-width: 992px)"
-          />
-          <source
-            srcSet={getProcessedImage(imageSrc, styles.imageCropsTablet[aspectRatio], imageFocus)}
-            media="(min-width: 576px)"
-          />
-          <source
-            srcSet={getProcessedImage(imageSrc, styles.imageCropsMobile[aspectRatio], imageFocus)}
-            media="(max-width: 575px)"
-          /> */}
+          {imageSources.map(({ width, srcSet, media }) => (
+            <source
+              key={`source-${width}`}
+              srcSet={srcSet}
+              media={media}
+            />
+          ))}
           <img
-            src={getProcessedImage(imageSrc, cropSize)}
+            src={imageSources[0].srcSet}
             loading="lazy"
-            // width={cropWidth}
-            // height={cropHeight}
+            width={originalWidth}
+            height={originalHeight}
             alt={alt || ''}
             className={cnb(styles.image, styles.objectPositions('center', visibleVertical))}
           />
