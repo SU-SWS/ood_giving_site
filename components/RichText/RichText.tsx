@@ -167,7 +167,6 @@ export const RichText = ({
         textAligns[textAlign],
         className,
       )}
-      data-component="RichText"
     >
       {rendered}
     </div>

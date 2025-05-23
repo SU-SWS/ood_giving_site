@@ -1,26 +1,20 @@
 import { cnb } from 'cnbuilder';
 import { Caption, type CaptionProps } from './Caption';
 import { Container, type ContainerProps } from '@/components/Container';
-import { storyImageWidths, type StoryImageWidthType } from '@/components/Image';
-import { type TextAlignType } from '@/components/Typography';
+import { storyImageWidths } from '@/components/Image';
 import * as styles from './MediaWrapper.styles';
 
 /**
  * This is a wrapper component for images and media elements.
  * that provides a shared set of layout and caption options.
  */
-export type MediaWrapperProps = React.HTMLAttributes<HTMLDivElement> & CaptionProps & ContainerProps & {
-  captionAlign?: TextAlignType;
-  imageWidth?: StoryImageWidthType;
-  // mt?: LargeMarginType;
-  // mb?: LargeMarginType;
-  // pt?: PaddingType;
-  // pb?: PaddingType;
-};
+export type MediaWrapperProps = React.HTMLAttributes<HTMLDivElement> & CaptionProps & ContainerProps;
 
 export const MediaWrapper = ({
   caption,
   captionAlign,
+  isCard,
+  captionBgColor,
   width, // This is the bounding width of the Container
   imageWidth, // This is the width of the wrapper inside the Container
   mt,
@@ -47,7 +41,14 @@ export const MediaWrapper = ({
           {children}
         </div>
         {caption && (
-          <Caption caption={caption} />
+          <Caption
+            imageWidth={imageWidth}
+            caption={caption}
+            isCard={isCard}
+            captionBgColor={captionBgColor}
+            captionAlign={captionAlign}
+            isCaptionInset={imageWidth === 'su-w-full'}
+          />
         )}
       </div>
     </Container>

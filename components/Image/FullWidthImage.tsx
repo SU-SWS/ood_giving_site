@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { cnb } from 'cnbuilder';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { getSbImageSize } from '@/utilities/getSbImageSize';
+import { getImageSources } from '@/utilities/getImageSources';
 import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './Image.styles';
 
@@ -42,7 +43,7 @@ export const FullWidthImage = ({
     // For example, if the original image is 1100px, it will be used for the min-width: 992px breakpoint
     if (largestBp) {
       sources.push({
-        srcSet: getProcessedImage(filename, ''), // Original size
+        srcSet: getProcessedImage(filename), // Original size
         media: `(min-width: ${largestBp.minWidth}px)`,
         width: originalWidth,
         height: originalHeight,

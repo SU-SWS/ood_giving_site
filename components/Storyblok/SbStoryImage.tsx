@@ -9,7 +9,6 @@ import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
 
 type SbStoryImageProps = {
   blok: SbBlokData & {
-    _uid: string;
     image: SbImageType;
     alt?: string;
     imageWidth?: StoryImageWidthType;
@@ -25,30 +24,37 @@ type SbStoryImageProps = {
 
 export const SbStoryImage = ({
   blok: {
-    image: { filename, alt, focus } = {},
+    image: { filename, alt } = {},
     caption,
     captionAlign,
     isCard,
+    backgroundColor,
     imageWidth,
     visibleVertical,
-    backgroundColor,
     spacingTop,
     spacingBottom,
   },
   blok,
 }: SbStoryImageProps) => {
-  const Caption = hasRichText(caption) ? <RichText textColor="black-70" wysiwyg={caption} /> : undefined;
+  const Caption = hasRichText(caption)
+    ? <RichText
+        textColor="cool-grey"
+        wysiwyg={caption}
+        // Edge-to-edge images always have center aligned caption
+        textAlign={imageWidth !== 'su-w-full' ? captionAlign : 'center'}
+      />
+    : undefined;
 
   return (
     <StoryImage
       {...storyblokEditable(blok)}
       imageSrc={filename}
-      imageFocus={focus}
       imageWidth={imageWidth}
       visibleVertical={visibleVertical}
       alt={alt}
       caption={Caption}
       captionAlign={captionAlign}
+      isCard={isCard}
       backgroundColor={backgroundColor}
       pt={spacingTop}
       pb={spacingBottom}

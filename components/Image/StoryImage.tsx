@@ -7,7 +7,6 @@ import * as styles from './Image.styles';
 
 export type StoryImageProps = React.HTMLAttributes<HTMLDivElement> & MediaWrapperProps & {
   imageSrc: string;
-  imageFocus?: string;
   alt?: string;
   visibleVertical?: styles.VisibleVerticalType;
   backgroundColor?: LightPageBgColorsType;
@@ -16,10 +15,10 @@ export type StoryImageProps = React.HTMLAttributes<HTMLDivElement> & MediaWrappe
 
 export const StoryImage = ({
   imageSrc,
-  imageFocus,
   imageWidth,
   alt,
   caption,
+  captionAlign,
   isCard,
   backgroundColor,
   visibleVertical,
@@ -29,20 +28,15 @@ export const StoryImage = ({
 }: StoryImageProps) => {
   const { width: originalWidth, height: originalHeight } = getSbImageSize(imageSrc);
   const cropSize = styles.imageCropsDesktop['free'];
-  /**
-   * Crop width and height are used for width and height attributes on the img element.
-   * They don't need to be exact as long as the aspect ratio is correct.
-   */
-  const cropWidth = parseInt(cropSize?.split('x')[0], 10);
-  // const cropHeight = !aspectRatio || !aspectRatio
-  //   ? Math.round(originalHeight * 1000 / originalWidth)
-  //   : parseInt(cropSize?.split('x')[1], 10);
 
   return (
     <MediaWrapper
       width={imageWidth !== 'su-w-full' && imageWidth !== 'fit-container' ? 'site' : 'full'}
       imageWidth={imageWidth || 'su-w-story'}
       caption={caption}
+      captionAlign={captionAlign}
+      captionBgColor={backgroundColor}
+      isCard={isCard}
       pt={pt}
       pb={pb}
       {...props}
@@ -50,7 +44,7 @@ export const StoryImage = ({
       {!!imageSrc && (
         <picture>
           <source
-            srcSet={getProcessedImage(imageSrc, cropSize, imageFocus)}
+            srcSet={getProcessedImage(imageSrc, cropSize)}
             media="(min-width: 1500px)"
           />
           {/* <source
@@ -66,9 +60,9 @@ export const StoryImage = ({
             media="(max-width: 575px)"
           /> */}
           <img
-            src={getProcessedImage(imageSrc, cropSize, imageFocus)}
+            src={getProcessedImage(imageSrc, cropSize)}
             loading="lazy"
-            width={cropWidth}
+            // width={cropWidth}
             // height={cropHeight}
             alt={alt || ''}
             className={cnb(styles.image, styles.objectPositions('center', visibleVertical))}
