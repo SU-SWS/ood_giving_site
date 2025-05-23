@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { cnb } from 'cnbuilder';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { getSbImageSize } from '@/utilities/getSbImageSize';
+import { getAspectRatioNumber } from '@/utilities/getAspectRatioNumber';
 import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './Image.styles';
 
@@ -41,11 +42,8 @@ export const AspectRatioImage = ({
   const { cropHeight, cropWidth } = useMemo(() => {
     const targetCropWidth = styles.aspectImageSizes[imageSize];
 
-    // E.g. '3x2' => [3, 2]
-    const aspectRatioNumbers = aspectRatio.split('x').map(Number);
-
     // E.g. '3x2' => 1.5
-    const aspectRatioDecimal = aspectRatioNumbers[0] / aspectRatioNumbers[1];
+    const aspectRatioDecimal = getAspectRatioNumber(aspectRatio);
 
     const cropWidth = originalWidth > targetCropWidth ? targetCropWidth : originalWidth;
     const cropHeight = Math.round(cropWidth / aspectRatioDecimal);
