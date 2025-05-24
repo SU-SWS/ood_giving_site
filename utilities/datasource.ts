@@ -1,5 +1,11 @@
 import { type FontSizeType } from '@/components/Typography';
 
+export const lightPageBgColors = {
+  white: 'bg-white',
+  'fog-light': 'bg-fog-light',
+};
+export type LightPageBgColorsType = keyof typeof lightPageBgColors;
+
 export const ctaLinkStyles = {
   'ood-cta__button--primary su-after-bg-white': 'bg-bay-dark text-white hocus:bg-palo-alto hocus:text-white hocus:after:bg-white after:bg-white',
   'ood-cta__button--secondary su-after-bg-bay-dark su-after-bg-hocus-white': 'bg-white text-bay-dark shadow-bay-dark shadow-[inset_0_0_0_1px] after:text-bay-dark after:bg-bay-dark hocus:bg-bay-dark hocus:text-white hocus:after:text-white hocus:after:bg-white',
