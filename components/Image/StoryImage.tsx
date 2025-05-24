@@ -31,8 +31,8 @@ export const StoryImage = ({
 
   // Get corresponding image sources for responsive images
   const imageSources = useMemo(() => {
-    return getImageSources(imageSrc, originalWidth, originalHeight);
-  }, [originalWidth, imageSrc, originalHeight]);
+    return getImageSources(imageSrc, originalWidth);
+  }, [originalWidth, imageSrc]);
 
   return (
     <MediaWrapper
@@ -48,9 +48,9 @@ export const StoryImage = ({
     >
       {!!imageSrc && (
         <picture>
-          {imageSources.map(({ width, srcSet, media }) => (
+          {imageSources.map(({ srcSet, media }, index ) => (
             <source
-              key={`source-${width}`}
+              key={`source-${index}`}
               srcSet={srcSet}
               media={media}
             />

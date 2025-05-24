@@ -1,19 +1,17 @@
 import { getProcessedImage } from './getProcessedImage';
 
-type ResponsiveBreakpoint = {
+type ResponsiveBreakpointType = {
   cropWidth: number;
   minWidth: number;
 };
 
-type ImageSource = {
+type ImageSourceType = {
   srcSet: string;
   media: string;
-  width?: number;
-  height?: number;
 };
 
 // Default breakpoints for generating responsive images
-const defaultResponsiveBreakpoints: ResponsiveBreakpoint[] = [
+const defaultResponsiveBreakpoints: ResponsiveBreakpointType[] = [
   { cropWidth: 2000, minWidth: 1500 },
   { cropWidth: 1500, minWidth: 1200 },
   { cropWidth: 1200, minWidth: 992 },
@@ -34,10 +32,9 @@ const defaultResponsiveBreakpoints: ResponsiveBreakpoint[] = [
 export const getImageSources = (
   filename: string,
   originalWidth: number,
-  originalHeight: number,
-  customBreakpoints?: ResponsiveBreakpoint[],
-): ImageSource[] => {
-  const sources: ImageSource[] = [];
+  customBreakpoints?: ResponsiveBreakpointType[],
+): ImageSourceType[] => {
+  const sources: ImageSourceType[] = [];
   const breakpoints = customBreakpoints || defaultResponsiveBreakpoints;
 
   // If the original image width is < 2000px, find out what breakpoint range it falls into
@@ -49,8 +46,6 @@ export const getImageSources = (
     sources.push({
       srcSet: getProcessedImage(filename), // Original size
       media: `(min-width: ${largestBp.minWidth}px)`,
-      width: originalWidth,
-      height: originalHeight,
     });
   }
 

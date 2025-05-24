@@ -23,15 +23,15 @@ export const FullWidthImage = ({
 
  // Get corresponding image sources for responsive images
   const imageSources = useMemo(() => {
-    return getImageSources(filename, originalWidth, originalHeight);
-  }, [originalWidth, filename, originalHeight]);
+    return getImageSources(filename, originalWidth);
+  }, [originalWidth, filename]);
 
   return (
     <div className={cnb('su-media', classPrefix && `${classPrefix}__media`, className)}>
       <picture>
-        {imageSources.map(({ width, srcSet, media }) => (
+        {imageSources.map(({ srcSet, media }, index) => (
           <source
-            key={`source-${width}`}
+            key={`source-${index}`}
             srcSet={srcSet}
             media={media}
           />
