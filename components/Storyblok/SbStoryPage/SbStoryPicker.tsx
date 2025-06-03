@@ -18,7 +18,7 @@ export const SbStoryPicker = (props: SbStoryPickerProps) => {
   return (
     <CreateStories
       stories={props.blok.story}
-      layout={'story-card'}
+      layout="story-card"
       orientation={props.blok.orientation}
       hideImage={props.blok.hideImage}
       backgroundColor={props.blok.backgroundColor}
