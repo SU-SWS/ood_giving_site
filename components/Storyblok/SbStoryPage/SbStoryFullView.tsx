@@ -7,7 +7,7 @@ import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer
 import { BelowContent, type BelowContentProps } from '@/components/Storyblok/partials/BelowContent';
 import { Heading, Paragraph } from '@/components/Typography';
 import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
-import { FullWidthImage } from '@/components/Storyblok/partials/FullWidthImage';
+import { FullWidthImage, type VisibleVerticalType } from '@/components/Image';
 import { type SbImageType } from '../Storyblok.types';
 
 export type SbStoryFullViewProps = IconCardSectionProps & FooterProps & BelowContentProps & {
@@ -17,6 +17,7 @@ export type SbStoryFullViewProps = IconCardSectionProps & FooterProps & BelowCon
     publishedDate?: string;
     manualDate?: string;
     heroImage: SbImageType;
+    visibleVertical?: VisibleVerticalType;
     title?: string;
     intro?: string;
     storyContent: SbBlokData[];
@@ -71,6 +72,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                   visibleVertical={props.blok.visibleVertical}
                   visibleHorizontal="center"
                   alt={props.blok.heroImage.alt ?? ''}
+                  className="h-300 md:h-400 xl:h-500 2xl:h-[64rem]"
                 />
               )}
             <CenteredContainer
@@ -93,6 +95,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
               >
                 <Heading
                   as="h1"
+                  font="sans"
                   weight="semibold"
                   className={`ood-story__title ood-has-tab-before before:bg-${props.blok.tabColor}`}
                 >

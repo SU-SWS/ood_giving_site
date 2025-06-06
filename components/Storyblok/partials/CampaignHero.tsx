@@ -3,7 +3,7 @@ import { type SbBlokData } from '@storyblok/react';
 import { storyblokEditable } from '@storyblok/react';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Heading } from '@/components/Typography';
-import { FullWidthImage } from '@/components/Storyblok/partials/FullWidthImage';
+import { FullWidthImage, type VisibleHorizontalType } from '@/components/Image';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { modTypeSizes, type ModTypeSizeTypes } from '@/utilities/datasource';
 
@@ -27,7 +27,7 @@ export type CampaignHeroProps = {
       alt?: string;
     },
     logoAlignment?: string;
-    visibleHorizontal?: string;
+    visibleHorizontal?: VisibleHorizontalType;
     bar?: string;
     barBgColor?: string;
     barAlignment?: string;
@@ -62,12 +62,11 @@ export const CampaignHero = (props: CampaignHeroProps) => {
   const full_width_image =
     blok.image?.filename != null ? (
       <FullWidthImage
-        {...props}
         filename={blok.image?.filename}
-        classPrefix={'campaign-page'}
-        visibleVertical={'center'}
+        classPrefix="campaign-page"
+        visibleVertical="center"
         visibleHorizontal={blok.visibleHorizontal}
-        alt={blok.image?.alt ?? ''}
+        alt={blok.image?.alt || ''}
       />
     ) : (
       <div className={'full-width-image-placeholder'} aria-hidden="true" />

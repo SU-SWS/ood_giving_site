@@ -17,6 +17,7 @@ import { SbCtaLink } from '@/components/Storyblok/SbCtaLink';
 import { SbNavItem } from '@/components/Storyblok/SbNavItem';
 import { SbLockup } from '@/components/Storyblok/SbLockup';
 import { SbSingleColumnContent } from '@/components/Storyblok/SbSingleColumnContent';
+import { SbStoryImage } from '@/components/Storyblok/SbStoryImage';
 
 export const components = {
   // TODO DS-1417: Remove and clean up page
@@ -40,6 +41,8 @@ export const components = {
   oodLocalFooter: SbLocalFooter,
   // Layout
   singleColumnContent: SbSingleColumnContent,
+  // Media
+  storyImage: SbStoryImage,
 };
 
 export type GetStoryblokApiConfig = {

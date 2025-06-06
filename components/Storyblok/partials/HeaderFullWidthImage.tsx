@@ -7,7 +7,7 @@ import { CreateBloks } from '@/components/CreateBloks';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 import { Heading } from '@/components/Storyblok/partials/Heading';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
-import { FullWidthImage, type FullWidthImageProps } from '@/components/Storyblok/partials/FullWidthImage';
+import { FullWidthImage, type FullWidthImageProps, type VisibleVerticalType } from '@/components/Image';
 import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
 import { config } from '@/utilities/config';
 import { type SbImageType } from '../Storyblok.types';
@@ -21,6 +21,7 @@ export type HeaderFullWidthImageProps = {
     layout?: string;
     headerLogo?: SbImageType;
     headerImage: FullWidthImageProps;
+    visibleVertical?: VisibleVerticalType;
     intro?: StoryblokRichtext;
   }
 };
@@ -35,8 +36,9 @@ export const HeaderFullWidthImage = (props: HeaderFullWidthImageProps) => {
       filename={props.blok.headerImage.filename}
       classPrefix={'ood-interior-page'}
       visibleVertical={props.blok.visibleVertical}
-      visibleHorizontal={'center'}
+      visibleHorizontal="center"
       alt={props.blok.headerImage.alt ?? ''}
+      className="print:hidden h-160 sm:h-240 md:h-[33rem] lg:h-400 xl:h-500 2xl:h-600"
     />
   ) : (
     <div className={'full-width-image-placeholder'} aria-hidden="true" />

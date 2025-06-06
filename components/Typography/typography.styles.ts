@@ -63,6 +63,7 @@ export const textColors = {
   default: '', // Inherit from the base
   black: 'text-black',
   white: 'text-white',
+  'cool-grey': 'text-cool-grey',
   'black-70': 'text-black-70', // For caption
   'digital-red': 'text-digital-red',
 };
