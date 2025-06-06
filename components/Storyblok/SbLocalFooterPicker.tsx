@@ -4,7 +4,7 @@ import { type ISbStoryData } from '@storyblok/react';
 
 export type SbLocalFooterPickerProps = {
   blok: {
-    localFooter: ISbStoryData[];
+    localFooter?: ISbStoryData[];
   }
 }
 

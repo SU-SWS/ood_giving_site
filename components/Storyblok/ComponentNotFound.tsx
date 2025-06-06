@@ -1,7 +1,7 @@
 import { type SbBlokData } from '@storyblok/react/rsc';
 
-type ComponentNotFoundProps = { 
-  component: { 
+type ComponentNotFoundProps = {
+  component: {
     blok: SbBlokData;
   };
 }
