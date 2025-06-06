@@ -14,19 +14,19 @@ type SbLandingPageProps = IconCardSectionProps & FooterProps & {
 };
 
 export const SbLandingPage = (props: SbLandingPageProps) => (
-  <div {...storyblokEditable(props.blok)}>
+  <div {...storyblokEditable(props.blok)} className="ood-landing-page bg-fog-light">
     <CreateBloks blokSection={props.blok.alertPicker} />
     <CreateBloks blokSection={props.blok.localHeader} />
-    <main id="main-content">
-      <article>
-        <header>
+    <main id="main-content" className="ood-landing-page__main">
+      <article className="bg-fog-light">
+        <header className="ood-landing-page__main-header">
           <CreateBloks blokSection={props.blok.heroSection} />
         </header>
-        <section>
+        <section className="ood-landing-page__main-body">
           <CreateBloks blokSection={props.blok.sections} />
         </section>
       </article>
-      <footer>
+      <footer className="ood-landing-page__main-footer">
         <IconCardSection {...props} />
       </footer>
     </main>

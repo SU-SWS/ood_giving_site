@@ -4,6 +4,7 @@ import tailwindContainerQueries from '@tailwindcss/container-queries';
 
 import { base } from './tailwind/plugins/base/base';
 import { fontFamily } from './tailwind/plugins/theme/fontFamily';
+import { colors } from './tailwind/plugins/theme/colors';
 
 export default {
   presets: [
@@ -17,6 +18,7 @@ export default {
   theme: {
     extend: {
       fontFamily: fontFamily(),
+      colors: colors(),
     },
   },
   plugins: [

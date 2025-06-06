@@ -37,8 +37,8 @@ export const SbInteriorPage = (props: SbInteriorPageProps) => {
     <div {...storyblokEditable(props.blok)}>
       <CreateBloks blokSection={props.blok.alertPicker} />
       <CreateBloks blokSection={props.blok.localHeader} />
-      <main id="main-content">
-        <article>
+      <main id="main-content" className={`ood-interior-page ood-interior-page--${props.blok.headerStyle}`}>
+        <article className="bg-fog-light">
           {props.blok.headerStyle === 'has-image' && (
             <HeaderWithImage {...props} />
           )}
@@ -51,21 +51,21 @@ export const SbInteriorPage = (props: SbInteriorPageProps) => {
           )}
           {props.blok.aboveContent != null &&
             Object.keys(props.blok.aboveContent).length > 0 && (
-              <div>
+              <div className="ood-interior-page__above-body"> 
                 <CreateBloks blokSection={props.blok.aboveContent} />
               </div>
             )}
           {(props.blok.bodyTitle ||
             (props.blok.pageContent != null && Object.keys(props.blok.pageContent).length > 0)) && (
-              <section>
+              <section className="ood-interior-page__body">
                 {props.blok.bodyTitle && (
-                  <header>
-                    <Heading>
+                  <header className="centered-container ood-interior-page__body-header text-left">
+                    <Heading className="ood-interior-page__body-header-title ood-has-tab-before">
                       {props.blok.bodyTitle}
                     </Heading>
                   </header>
                 )}
-                <CenteredContainer flex={true}>
+                <CenteredContainer flex={true} classes={`ood-interior-page__body-container`}>
                   {props.blok.layout === 'no-sidebar' && (
                     <BodyNoSidebar {...props} />
                   )}
@@ -77,7 +77,7 @@ export const SbInteriorPage = (props: SbInteriorPageProps) => {
             )
           }
           <BelowContent {...props} />
-          <footer>
+          <footer className="ood-interior-page__main-footer">
             <IconCardSection {...props} />
           </footer>
         </article>

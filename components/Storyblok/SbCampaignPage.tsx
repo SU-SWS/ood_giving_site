@@ -16,12 +16,12 @@ export const SbCampaignPage = (props: SbCampaignPageProps) => (
   <div {...storyblokEditable(props.blok)}>
     <CreateBloks blokSection={props.blok.alertPicker} />
     <CampaignHeader {...props} />
-    <main id="main-content">
-      <article>
-        <section>
+    <main id="main-content" className="ood-campaign-page">
+      <article className="bg-white">
+        <section className="ood-campaign-page__main-body">
           <CreateBloks blokSection={props.blok.content} />
         </section>
-        <footer>
+        <footer className="ood-campaign-page__main-footer">
           <IconCardSection {...props} />
         </footer>
       </article>

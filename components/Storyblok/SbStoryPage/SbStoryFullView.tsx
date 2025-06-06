@@ -52,14 +52,14 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
       <CreateBloks blokSection={props.blok.alertPicker} />
       <CreateBloks blokSection={props.blok.localHeader} />
       <main id="main-content">
-        <article className={`ood-story su-bg-white`}>
+        <article className="ood-story bg-white">
           <header
             className={`ood-story__header
                     ${
                       props.blok.heroImage.filename?.startsWith('http') &&
                       props.blok.displayImage === 'show-image'
-                        ? 'ood-story__header--has-image su-bg-white'
-                        : `ood-story__header--no-image su-bg-white su-border-color-${props.blok.headerBackgroundColor}`
+                        ? 'ood-story__header--has-image bg-white'
+                        : `ood-story__header--no-image bg-white border-${props.blok.headerBackgroundColor}`
                     }
             `}
           >
@@ -68,27 +68,27 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                 <FullWidthImage
                   {...props}
                   filename={props.blok.heroImage.filename}
-                  classPrefix={'ood-story'}
+                  classPrefix="ood-story"
                   visibleVertical={props.blok.visibleVertical}
-                  visibleHorizontal={'center'}
+                  visibleHorizontal="center"
                   alt={props.blok.heroImage.alt ?? ''}
                   className="h-300 md:h-400 xl:h-500 2xl:h-[64rem]"
                 />
               )}
             <CenteredContainer
-              flex={true}
-              classes={'ood-story__header-content'}
+              flex
+              classes="ood-story__header-content"
             >
               <FlexCell
                 md={12}
                 lg={10}
                 xxl={9}
                 className={`ood-story__header-content-wrapper
-                     su-bg-${props.blok.headerBoxColor}
+                     bg-${props.blok.headerBoxColor}
                      ${
                        props.blok.headerBoxColor !== 'white' &&
                        props.blok.headerBoxColor !== 'fog-light'
-                         ? 'su-text-white'
+                         ? 'text-white'
                          : ''
                      }
                      `}
@@ -97,7 +97,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                   as="h1"
                   font="sans"
                   weight="semibold"
-                  className={`ood-story__title ood-has-tab-before su-before-bg-${props.blok.tabColor}`}
+                  className={`ood-story__title ood-has-tab-before before:bg-${props.blok.tabColor}`}
                 >
                   {props.blok.title}
                 </Heading>
@@ -116,9 +116,9 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
             {(props.blok.author || publishedDate) && (
               <div className="ood-story__metadata">
                 <CenteredContainer flex={true}>
-                  <FlexCell lg={8} className="su-mx-auto">
+                  <FlexCell lg={8} className="mx-auto">
                     <CreateBloks blokSection={props.blok.cta} />
-                    <div className="ood-story__metadata su-pb-5">
+                    <div className="ood-story__metadata rs-pb-5">
                       {props.blok.author && (
                         <>
                           <Paragraph weight="bold" uppercase className="ood-story__metadata-title">
@@ -134,7 +134,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                           <Paragraph weight="bold" uppercase className="ood-story__metadata-title">
                             Date
                           </Paragraph>
-                          <span className="ood-story__metadata-data su-mb-none">
+                          <span className="ood-story__metadata-data mb-0">
                             {publishedDate}
                           </span>
                         </>
