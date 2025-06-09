@@ -1,7 +1,7 @@
 import React from 'react';
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 
-type RedirectProps = React.HTMLAttributes<HTMLElement> & {
+type SbRedirectProps = React.HTMLAttributes<HTMLElement> & {
   blok: SbBlokData & {
     from?: string;
     to?: string;
@@ -10,7 +10,7 @@ type RedirectProps = React.HTMLAttributes<HTMLElement> & {
   };
 };
 
-export const Redirect = (props: RedirectProps) => {
+export const SbRedirect = (props: SbRedirectProps) => {
   const mapping = {
     'From Path': props.blok.from || 'N/A',
     'To Path': props.blok.to || 'N/A',
