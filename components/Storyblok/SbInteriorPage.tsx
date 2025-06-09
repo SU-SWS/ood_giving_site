@@ -51,7 +51,7 @@ export const SbInteriorPage = (props: SbInteriorPageProps) => {
           )}
           {props.blok.aboveContent != null &&
             Object.keys(props.blok.aboveContent).length > 0 && (
-              <div className="ood-interior-page__above-body"> 
+              <div className="ood-interior-page__above-body">
                 <CreateBloks blokSection={props.blok.aboveContent} />
               </div>
             )}
