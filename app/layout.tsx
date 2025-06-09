@@ -2,7 +2,6 @@ import { cnb } from 'cnbuilder';
 import { Source_Sans_3, Source_Serif_4 } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
-import 'react-loading-skeleton/dist/skeleton.css';
 import { FlexBox } from '@/components/FlexBox';
 import { GAProvider, GTAG } from '@/components/GAProvider';
 import { SearchModalProvider } from '@/components/Search/Modal/SearchModalContext';
