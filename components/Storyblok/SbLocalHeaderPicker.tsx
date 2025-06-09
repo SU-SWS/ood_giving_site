@@ -1,4 +1,3 @@
-import React from 'react';
 import { CreateStories } from '../CreateStories';
 import { type ISbStoryData } from '@storyblok/react';
 
@@ -8,6 +7,6 @@ export type SbLocalHeaderPickerProps = {
   }
 };
 
-export const LocalHeaderPicker = (props: SbLocalHeaderPickerProps) => (
+export const SbLocalHeaderPicker = (props: SbLocalHeaderPickerProps) => (
   <CreateStories stories={props.blok.localHeader} />
 );

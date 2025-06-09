@@ -6,6 +6,30 @@ export const lightPageBgColors = {
 };
 export type LightPageBgColorsType = keyof typeof lightPageBgColors;
 
+export const darkBgColors = {
+  'bay-dark': 'bg-bay-dark',
+  'palo-alto': 'bg-palo-alto',
+  'palo-alto-dark': 'bg-palo-alto-dark',
+  'palo-verde-dark': 'bg-palo-verde-dark',
+  'lagunita': 'bg-lagunita',
+  'lagunita-dark': 'bg-lagunita-dark',
+  'sky-dark': 'bg-sky-dark',
+  'cardinal-red': 'bg-cardinal-red',
+  'digital-red': 'bg-digital-red',
+  'black': 'bg-black',
+  'fog-light': 'bg-fog-light',
+  'cardinal-dark-to-spirited-dark': 'bg-gradient-to-tr from-cardinal-dark to-spirited-dark',
+  'plum-to-digital-red': 'bg-gradient-to-tr from-plum to-digital-red',
+  'plum-to-spirited-dark': 'bg-gradient-to-tr from-plum to-spirited-dark',
+  'palo-alto-dark-to-palo-verde-dark': 'bg-gradient-to-tr from-palo-alto-dark to-palo-verde-dark',
+  'sky-dark-to-olive-dark': 'bg-gradient-to-tr from-sky-dark to-olive-dark',
+  'sky-dark-to-bay-dark': 'bg-gradient-to-tr from-sky-dark to-bay-dark',
+  'palo-verde': 'bg-palo-verde',
+  'plum': 'bg-plum',
+  'brick': 'bg-brick',
+};
+export type DarkBgColorsType = keyof typeof darkBgColors;
+
 export const ctaLinkStyles = {
   'ood-cta__button--primary su-after-bg-white': 'bg-bay-dark text-white hocus:bg-palo-alto hocus:text-white hocus:after:bg-white after:bg-white',
   'ood-cta__button--secondary su-after-bg-bay-dark su-after-bg-hocus-white': 'bg-white text-bay-dark shadow-bay-dark shadow-[inset_0_0_0_1px] after:text-bay-dark after:bg-bay-dark hocus:bg-bay-dark hocus:text-white hocus:after:text-white hocus:after:bg-white',

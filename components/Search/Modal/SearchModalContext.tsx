@@ -1,12 +1,31 @@
+'use client';
+
 import React, { createContext, useState, useRef } from 'react';
-import scrollTo from 'gatsby-plugin-smoothscroll';
-import useEscape from '../../../hooks/useEscape';
-import useDisplay from '../../../hooks/useDisplay';
+import { useEscape } from '@/hooks/useEscape';
+import { useDisplay } from '@/hooks/useDisplay';
+
+type SearchModalContextProps = {
+  isOpen: boolean;
+  open: () => void;
+  close: () => void;
+  desktopButtonRef: React.RefObject<HTMLButtonElement>;
+  mobileButtonRef: React.RefObject<HTMLButtonElement>;
+  modalSearchInputRef: React.RefObject<HTMLInputElement>;
+  searchInputRef: React.RefObject<HTMLInputElement>;
+};
 
 /**
  * A context to manage the state of the search modal.
  */
-const SearchModalContext = createContext({});
+const SearchModalContext = createContext<SearchModalContextProps>({
+  isOpen: false,
+  open: () => null,
+  close: () => null,
+  desktopButtonRef: null,
+  mobileButtonRef: null,
+  modalSearchInputRef: null,
+  searchInputRef: null,
+});
 export const SearchModalContextProvider = SearchModalContext.Provider;
 export default SearchModalContext;
 
@@ -15,13 +34,13 @@ export default SearchModalContext;
  * @param {Object} props
  * @param {React.ReactNode} props.children
  */
-export function SearchModalProvider({ children }) {
+export function SearchModalProvider({ children }: { children: React.ReactElement }) {
   const { showDesktop, showMobile } = useDisplay();
   const [isOpen, setIsOpen] = useState(false);
-  const desktopButtonRef = useRef();
-  const mobileButtonRef = useRef();
-  const modalSearchInputRef = useRef();
-  const searchInputRef = useRef();
+  const desktopButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileButtonRef = useRef<HTMLButtonElement>(null);
+  const modalSearchInputRef = useRef<HTMLInputElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Close handler.
   const close = () => {
@@ -40,7 +59,7 @@ export function SearchModalProvider({ children }) {
       && window.location.pathname.startsWith('/search')
     ) {
       searchInputRef.current.focus();
-      scrollTo(`#${searchInputRef.current.id}`);
+      searchInputRef.current.scrollIntoView();
       return;
     }
 
