@@ -20,6 +20,7 @@ import {
   MinusIcon,
   PlayCircleIcon,
   PlusIcon,
+  MagnifyingGlassIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 import { CheckIcon } from '@heroicons/react/16/solid';
@@ -56,6 +57,7 @@ export const iconMap = {
   'play-outline': PlayCircleIcon,
   plus: PlusIcon,
   right: ArrowRightIcon,
+  search: MagnifyingGlassIcon,
   up: ArrowUpIcon,
 };
 export type IconType = keyof typeof iconMap;
