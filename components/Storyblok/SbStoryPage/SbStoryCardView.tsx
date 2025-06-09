@@ -46,13 +46,13 @@ export const SbStoryCardView = (props: SbStoryCardViewProps) => {
       <SuspenseWrapper>
         <SbLink
           link={theLink}
-          classes={`ood-story-card__link su-bg-${
+          classes={`ood-story-card__link bg-${
             props.backgroundColor
-          } su-text-no-underline
+          } no-underline
             ${
               props.backgroundColor === 'white'
-                ? 'su-border-color-black-10'
-                : 'su-border-color-black-11'
+                ? 'border-black-10'
+                : 'border-black-11'
             }`}
         >
           {showImage && (
@@ -66,7 +66,7 @@ export const SbStoryCardView = (props: SbStoryCardViewProps) => {
             />
           )}
           <section
-            className={`ood-story-card__contents su-mx-auto ood-has-tab-before su-px-2 su-pb-4`}
+            className="ood-story-card__contents mx-auto ood-has-tab-before rs-px-2 rs-pb-4"
           >
             {(props.blok.shortTitle || props.blok.title) && (
               <Heading

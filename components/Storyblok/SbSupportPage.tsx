@@ -9,6 +9,7 @@ import { BelowContent, type BelowContentProps } from '@/components/Storyblok/par
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 import { Heading, SrOnlyText } from '@/components/Typography';
+import { Grid } from '../Grid';
 
 export type SbSupportPageProps = HeaderNoImageProps & IconCardSectionProps & FooterProps & BelowContentProps & {
   blok: SbBlokData & {
@@ -69,18 +70,18 @@ export const SbSupportPage = (props: SbSupportPageProps) => {
         id="main-content"
         className="ood-interior-page--no-image ood-support-page"
       >
-        <article className={`su-bg-fog-light`}>
+        <article className="bg-fog-light">
           <HeaderNoImage {...props} />
           <section className="ood-interior-page__body ood-support-page__body">
             {props.blok.bodyTitle && (
-              <header className="centered-container ood-interior-page__body-header su-text-align-left">
+              <header className="centered-container ood-interior-page__body-header text-left">
                 <Heading className="ood-interior-page__body-header-title ood-has-tab-before">
                   {props.blok.bodyTitle}
                 </Heading>
               </header>
             )}
             <SrOnlyText as="p">{props.blok.srText}</SrOnlyText>
-            <CenteredContainer classes={'ood-support-page__filter-container'}>
+            <CenteredContainer classes="ood-support-page__filter-container">
               <input
                 type="radio"
                 id="undergraduate"
@@ -173,7 +174,7 @@ export const SbSupportPage = (props: SbSupportPageProps) => {
                 onClick={updateHash}
               />
               <label htmlFor="all">All</label>
-              <div className={`grid-3-column su-mt-2 su-mb-4`}>
+              <Grid sm={2} lg={3} gap="default" className="rs-mt-2 rs-mb-4">
                 <CreateBloks blokSection={props.blok.undergraduate} />
                 <CreateBloks blokSection={props.blok.graduate} />
                 <CreateBloks blokSection={props.blok.arts} />
@@ -186,7 +187,7 @@ export const SbSupportPage = (props: SbSupportPageProps) => {
                 <CreateBloks blokSection={props.blok.science} />
                 <CreateBloks blokSection={props.blok.sustainability} />
                 <CreateBloks blokSection={props.blok.teaching} />
-              </div>
+              </Grid>
             </CenteredContainer>
           </section>
           <BelowContent {...props} />
