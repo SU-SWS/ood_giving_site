@@ -10,7 +10,7 @@ export const OpenSearchModalButton = React.forwardRef<HTMLButtonElement, { id: s
     <button
       data-test="search--nav-bar"
       type="button"
-      className="shrink-0 w-34 h-34 items-center flex justify-center justify-content-center lg:w-auto lg:h-34 lg:pl-16 lg:pr-13 rounded-full lg:text-18 text-white leading-none border-2 border-digital-red-xlight transition-colors hocus:bg-cardinal-red-xxdark xl:hocus:bg-cardinal-red-xdark lg:hocus:no-underline self-center"
+      className="shrink-0 h-40 w-40 xl:w-fit text-digital-red hocus:text-cardinal-red rounded-full xl:text-20 xl:px-20 border border-black-30 hocus:bg-black-10"
       aria-label="Search Giving"
       onClick={open}
       id={id}

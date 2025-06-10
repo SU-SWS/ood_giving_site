@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useRef } from 'react';
 import { type SbBlokData, storyblokEditable } from '@storyblok/react';
+import { cnb } from 'cnbuilder';
 import { CreateBloks } from '@/components/CreateBloks';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
@@ -8,6 +9,9 @@ import { useOnClickOutside } from 'usehooks-ts';
 import { useEscape } from '@/hooks/useEscape';
 import * as styles from './SbMegaMenu.styles';
 
+/**
+ * Display name of this component is Mega Menu Panel in Storyblok.
+ */
 export type SbMegaMenuSectionProps = {
   blok: SbBlokData & {
     linkGroups?: SbBlokData[];
@@ -45,7 +49,7 @@ export const SbMegaMenuSection = (props: SbMegaMenuSectionProps) => {
     >
       <button
         type="button"
-        className="ood-mega-nav__trigger inline-block cursor-pointer font-semibold leading-cozy bg-transparent border-0"
+        className={cnb('ood-mega-nav__trigger inline-block cursor-pointer bg-transparent border-0', styles.MegaMenuNavLevel1Cta)}
         aria-expanded={sectionOpened}
         onClick={toggleSection}
       >

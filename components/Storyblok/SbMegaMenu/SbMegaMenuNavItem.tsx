@@ -14,7 +14,7 @@ export const SbMegaMenuNavItem = (props:SbMegaMenuNavItemProps) => (
   <li {...storyblokEditable(props.blok)} className={`ood-mega-nav__item ${styles.MegaMenuNavItem}`}>
     <SbLink
       link={props.blok.link}
-      classes={`ood-mega-nav__link ${styles.MegaMenuNavLink}`}
+      classes={`ood-mega-nav__link ${styles.MegaMenuNavLevel1Cta}`}
       externalClasses="su-link--external"
       activeClass="ood-mega-nav__link--active"
     >

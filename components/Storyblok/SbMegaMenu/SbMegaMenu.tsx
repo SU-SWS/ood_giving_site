@@ -37,8 +37,8 @@ export const SbMegaMenu = (props: SbMegaMenuProps) => {
 
   if (windowSize.width >= config.breakpoints.lg) {
     return (
-      <nav {...storyblokEditable(props.blok)} className="ood-mega-nav" aria-label="Main Menu">
-        <FlexBox as="ul" className="ood-mega-nav__menu-lv1 list-unstyled lg:gap-38">
+      <nav {...storyblokEditable(props.blok)} className="ood-mega-nav grow" aria-label="Main Menu">
+        <FlexBox as="ul" wrap="wrap" className="ood-mega-nav__menu-lv1 list-unstyled gap-30 xl:gap-38">
           <CreateBloks blokSection={props.blok.topLevelLinks} />
         </FlexBox>
       </nav>

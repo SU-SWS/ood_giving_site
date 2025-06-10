@@ -14,7 +14,7 @@ export type SbMegaMenuLinkGroupProps = {
 export const SbMegaMenuLinkGroup = (props: SbMegaMenuLinkGroupProps) => (
   <FlexCell {...storyblokEditable(props.blok)} md={4} className="ood-mega-nav__link-group mb-20 md:mb-0 empty:mb-0">
     {props.blok.heading && (
-      <Heading className={`ood-mega-nav__link-group-heading ${styles.MegaMenuNavLinkGroupHeading}`}>
+      <Heading font="sans" weight="bold" uppercase tracking="widest" className={`ood-mega-nav__link-group-heading ${styles.MegaMenuNavLinkGroupHeading}`}>
         {props.blok.heading}
       </Heading>
     )}
