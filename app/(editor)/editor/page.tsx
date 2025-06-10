@@ -38,7 +38,7 @@ const Page = async ({ searchParams }: PageProps) => {
   const { access_key: accessKey, path } = await searchParams;
 
   // Not a valid editor token.
-  if (accessKey !== process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN) {
+  if (accessKey !== process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN) {
     console.error('Invalid editor token');
     notFound();
   }

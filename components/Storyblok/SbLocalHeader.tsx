@@ -1,13 +1,13 @@
 import { storyblokEditable } from '@storyblok/react';
 import { type SbBlokData } from '@storyblok/react';
-import { CreateBloks } from '../CreateBloks';
-import { CenteredContainer } from './partials/CenteredContainer';
-import { Skiplink } from '../SkipLink';
+import { Container } from '@/components/Container';
+import { CreateBloks } from '@/components/CreateBloks';
+import { FlexBox } from '@/components/FlexBox';
+import { Skiplink } from '@/components/SkipLink';
 import { OpenSearchModalButton } from '@/components/Search/Modal/OpenSearchModalButton';
 
 export type SbLocalHeaderProps = {
   blok: SbBlokData & {
-    topBarColor: 'cardinal-red' | 'digital-red' | 'dark';
     subMenu: SbBlokData[];
     lockup: SbBlokData[];
     megaMenu: SbBlokData[];
@@ -17,18 +17,20 @@ export type SbLocalHeaderProps = {
 export const SbLocalHeader = (props: SbLocalHeaderProps) => (
   <header
     {...storyblokEditable(props.blok)}
-    className={`ood-header bg-white lg:border-t-[1rem] border-t-${props.blok.topBarColor}`}
+    className="relative z-[130] ood-header shadow-md bg-white lg:border-t-[1rem] border-t-cardinal-red"
   >
-    <Skiplink href="#main-content" />
-    <div className={`ood-header__submenu-container`}>
+    <Skiplink />
+    <Container className={`ood-header__submenu-container bg-cardinal-red-dark lg:bg-white`}>
       <CreateBloks blokSection={props.blok.subMenu} />
-    </div>
-    <CenteredContainer classes={'ood-header__masthead'}>
-      <CreateBloks blokSection={props.blok.lockup} />
-      <div className={`ood-header__megamenu-wrapper`}>
+    </Container>
+    <Container className={'ood-header__masthead'}>
+      <div className="lg:pb-20">
+        <CreateBloks blokSection={props.blok.lockup} />
+      </div>
+      <FlexBox justifyContent="between" className={`ood-header__megamenu-wrapper`}>
         <CreateBloks blokSection={props.blok.megaMenu} />
         <OpenSearchModalButton id="mastead-search-openmodal-mobile" />
-      </div>
-    </CenteredContainer>
+      </FlexBox>
+    </Container>
   </header>
 );

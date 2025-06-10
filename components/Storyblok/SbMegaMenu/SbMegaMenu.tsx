@@ -2,6 +2,7 @@
 import { useRef, useState } from 'react';
 import { type SbBlokData, storyblokEditable } from '@storyblok/react';
 import { CreateBloks } from '@/components/CreateBloks';
+import { FlexBox } from '@/components/FlexBox';
 import { useEscape } from '@/hooks/useEscape';
 import { useOnClickOutside } from 'usehooks-ts';
 import { config } from '@/utilities/config';
@@ -37,9 +38,9 @@ export const SbMegaMenu = (props: SbMegaMenuProps) => {
   if (windowSize.width >= config.breakpoints.lg) {
     return (
       <nav {...storyblokEditable(props.blok)} className="ood-mega-nav" aria-label="Main Menu">
-        <ul className="ood-mega-nav__menu-lv1 list-none">
+        <FlexBox as="ul" className="ood-mega-nav__menu-lv1 list-unstyled lg:gap-38">
           <CreateBloks blokSection={props.blok.topLevelLinks} />
-        </ul>
+        </FlexBox>
       </nav>
     );
   }
@@ -60,7 +61,7 @@ export const SbMegaMenu = (props: SbMegaMenuProps) => {
         {menuOpened ? 'Close' : 'Menu'}
       </button>
       <ul
-        className="ood-mega-nav__menu-lv1 list-none"
+        className="ood-mega-nav__menu-lv1 list-unstyled"
         aria-hidden={!menuOpened}
       >
         <CreateBloks blokSection={props.blok.topLevelLinks} />
