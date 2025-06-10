@@ -4,13 +4,13 @@ import { type DarkBgColorsType, darkBgColors } from '@/utilities/datasource';
 /**
  * Mega menu section/panel
  */
-export const section = 'relative lg:absolute transition-all w-full bg-fog-light lg:bg-white lg:left-0 lg:w-full';
+export const section = 'relative lg:absolute transition-all w-full bg-fog-light lg:bg-white lg:left-0 lg:w-full shadow-xl';
 
 export const sectionContent = 'px-20 sm:px-30 md:px-50 lg:px-80 xl:px-100 2xl:pl-100 3xl:pl-[calc((100%-1500px)/2)] 3xl:pr-[calc((100%-1500px)/2)]';
 
-export const MegaMenuNavItem = 'mb-20 last-of-type:mb-0';
+export const navItem = 'mb-0';
 
-export const MegaMenuNavLevel1Cta = 'relative text-20 lg:text-21 font-semibold leading-cozy no-underline hocus:no-underline text-black hocus:text-digital-red after:bg-digital-red';
+export const MegaMenuNavLevel1Cta = 'relative inline-block text-20 lg:text-21 lg:pt-16 lg:pb-8 font-semibold leading-cozy no-underline hocus:no-underline text-black hocus:text-digital-red after:bg-digital-red';
 
 export const MegaMenuNavLinkGroupHeading = 'mb-14 pt-10 md:pt-0 border-t border-black-40 first:border-t-0 md:border-t-0 text-17';
 

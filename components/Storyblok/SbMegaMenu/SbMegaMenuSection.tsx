@@ -23,12 +23,12 @@ export type SbMegaMenuSectionProps = {
 
 export const SbMegaMenuSection = (props: SbMegaMenuSectionProps) => {
   return (
-    <Popover as="li">
+    <Popover as="li" className="mb-0">
       {({ open }) => (
         <>
-          <PopoverButton aria-label={`${open ? 'Close' : 'Open'} main menu`} className={cnb('group ood-mega-nav__trigger inline-block cursor-pointer bg-transparent border-0', styles.MegaMenuNavLevel1Cta)}>
+          <PopoverButton aria-label={`${open ? 'Close' : 'Open'} main menu`} className={cnb('group ood-mega-nav__trigger inline-block cursor-pointer bg-transparent border-0 outline-none', styles.MegaMenuNavLevel1Cta)}>
             {props.blok.linkText}
-            <HeroIcon icon="chevron-down" strokeWidth={1.8} className="inline-block ood-mega-nav__trigger-icon ml-2 transition-transform group-aria-expanded:rotate-180" />
+            <HeroIcon icon="chevron-down" strokeWidth={1.8} className="!w-18 -mt-01em inline-block ood-mega-nav__trigger-icon ml-2 transition-transform group-aria-expanded:rotate-180 text-black group-hocus-visible:text-black" />
           </PopoverButton>
           <Transition
             enter="duration-300 ease-out"
