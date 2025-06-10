@@ -3,8 +3,9 @@ import React, { useState, useRef } from 'react';
 import { type SbBlokData, storyblokEditable } from '@storyblok/react';
 import { cnb } from 'cnbuilder';
 import { CreateBloks } from '@/components/CreateBloks';
-import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
+import { Grid } from '@/components/Grid';
 import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
+import { HeroIcon } from '@/components/HeroIcon';
 import { useOnClickOutside } from 'usehooks-ts';
 import { useEscape } from '@/hooks/useEscape';
 import * as styles from './SbMegaMenu.styles';
@@ -49,24 +50,28 @@ export const SbMegaMenuSection = (props: SbMegaMenuSectionProps) => {
     >
       <button
         type="button"
-        className={cnb('ood-mega-nav__trigger inline-block cursor-pointer bg-transparent border-0', styles.MegaMenuNavLevel1Cta)}
+        className={cnb('group ood-mega-nav__trigger inline-block cursor-pointer bg-transparent border-0', styles.MegaMenuNavLevel1Cta)}
         aria-expanded={sectionOpened}
         onClick={toggleSection}
       >
         {props.blok.linkText}
+        <HeroIcon
+          icon="chevron-down"
+          className="inline-block ood-mega-nav__trigger-icon ml-2 transition-transform group-aria-expanded:rotate-180"
+        />
       </button>
-      <div className={`ood-mega-nav__section ${styles.MegaMenuSection}`} aria-hidden={!sectionOpened}>
-        <CenteredContainer flex={true} classes="pt-4 pb-5">
-          <FlexCell lg={8} className="flex flex-col">
-            <div className="flex flex-row flex-wrap justify-between ood-mega-nav__section-links">
+      <div className={`ood-mega-nav__section ${styles.section}`} aria-hidden={!sectionOpened}>
+        <Grid gap="default" lg={3} pt={4} pb={5} className={styles.sectionContent}>
+          <div className="lg:col-span-2">
+            <Grid gap="default" lg={3} className="ood-mega-nav__section-links">
               <CreateBloks blokSection={props.blok.linkGroups} />
-            </div>
+            </Grid>
             <CreateBloks blokSection={props.blok.sectionCtaLink} />
-          </FlexCell>
-          <FlexCell lg={4}>
+          </div>
+          <div className="lg:col-span-1">
             <CreateBloks blokSection={props.blok.card} />
-          </FlexCell>
-        </CenteredContainer>
+          </div>
+        </Grid>
       </div>
     </li>
   );

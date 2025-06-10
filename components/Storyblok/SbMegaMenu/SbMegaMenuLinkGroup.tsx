@@ -19,7 +19,7 @@ export const SbMegaMenuLinkGroup = (props: SbMegaMenuLinkGroupProps) => (
       </Heading>
     )}
     {!!props.blok.links?.length && (
-      <ul className="ood-mega-nav__menu-lv2 list-none">
+      <ul className="ood-mega-nav__menu-lv2 list-unstyled">
         <CreateBloks blokSection={props.blok.links} />
       </ul>
     )}

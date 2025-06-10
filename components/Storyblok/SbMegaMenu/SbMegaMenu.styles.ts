@@ -1,15 +1,20 @@
 import { cnb } from 'cnbuilder';
 import { type DarkBgColorsType, darkBgColors } from '@/utilities/datasource';
 
-// <div className=" aria-h" />
-
-export const MegaMenuSection = cnb(
+/**
+ * Mega menu section/panel
+ */
+export const section = cnb(
   'absolute transition-all',
   'md:aria-hidden:relative md:aria-hidden:opacity-0 md:aria-hidden:invisible md:aria-hidden:overflow-hidden md:aria-hidden:h-0 md:aria-hidden:scale-y-0 md:aria-hidden:origin-[center_top]',
   'md:flex md:h-auto md:opacity-1 md:visible md:scale-y-1',
-  'w-full lg:aria-hidden:bg-white lg:aria-hidden:left-0 lg:aria-hidden:w-full lg:aria-hidden:opacity-0 lg:aria-hidden:invisible lg:aria-hidden:scale-y-0 lg:aria-hidden:top-160 lg:aria-hidden:z-[220] lg:aria-hidden:origin-[center-top] lg:aria-hidden:transition-all',
+  'w-full lg:bg-white lg:left-0 lg:w-full lg:aria-hidden:opacity-0 lg:aria-hidden:invisible lg:aria-hidden:scale-y-0 lg:aria-hidden:top-160 lg:z-[220] lg:aria-hidden:origin-[center-top] lg:aria-hidden:transition-all',
   'lg:absolute lg:flex lg:opacity-1 lg:visible lg:scale-y-1',
 );
+
+export const sectionContent = 'px-20 sm:px-30 md:px-50 lg:px-80 xl:px-100 2xl:pl-100 3xl:pl-[calc((100%-1500px)/2)] 3xl:pr-[calc((100%-1500px)/2)]';
+
+//export const megaMenuSection = 'absolute w-full top-160 left-0 z-[220]';
 
 export const MegaMenuNavItem = 'mb-20 last-of-type:mb-0';
 
