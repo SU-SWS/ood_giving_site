@@ -1,5 +1,5 @@
 import React from 'react';
-import { type SbBlokData, storyblokEditable } from '@storyblok/react';
+import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { HeaderMinimal, type HeaderMinimalProps } from '@/components/Storyblok/partials/HeaderMinimal';
 import { HeaderNoImage, type HeaderNoImageProps } from '@/components/Storyblok/partials/HeaderNoImage';
 import { HeaderWithImage, type HeaderWithImageProps } from '@/components/Storyblok/partials/HeaderWithImage';

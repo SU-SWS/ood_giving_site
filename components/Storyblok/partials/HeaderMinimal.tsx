@@ -1,5 +1,5 @@
 'use client';
-import { type SbBlokData, storyblokEditable } from '@storyblok/react';
+import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { useWindowSize } from 'usehooks-ts';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 import { Heading } from '@/components/Typography';

@@ -1,4 +1,4 @@
-import { type SbBlokData, storyblokEditable } from '@storyblok/react';
+import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 
 export type SbSubMenuProps = {

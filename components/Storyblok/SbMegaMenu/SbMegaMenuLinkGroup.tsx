@@ -1,4 +1,4 @@
-import { type SbBlokData, storyblokEditable } from '@storyblok/react';
+import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
 import { Heading } from '../../Typography';
@@ -20,7 +20,7 @@ export const SbMegaMenuLinkGroup = (props: SbMegaMenuLinkGroupProps) => (
     )}
     {!!props.blok.links?.length && (
       <ul className="ood-mega-nav__menu-lv2 list-unstyled">
-        <CreateBloks blokSection={props.blok.links} />
+        <CreateBloks blokSection={props.blok.links} className="!text-plum" />
       </ul>
     )}
   </FlexCell>

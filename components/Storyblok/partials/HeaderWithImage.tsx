@@ -1,5 +1,5 @@
 'use client';
-import { type SbBlokData, storyblokEditable } from '@storyblok/react';
+import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { useWindowSize } from 'usehooks-ts';
 import { CreateBloks } from '@/components/CreateBloks';

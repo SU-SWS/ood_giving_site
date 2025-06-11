@@ -1,4 +1,4 @@
-import { type SbBlokData, storyblokEditable } from '@storyblok/react';
+import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { AspectRatioImage } from '@/components/Image';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
 import { Heading, Paragraph } from '@/components/Typography';
@@ -31,21 +31,23 @@ export const SbMegaMenuCard = (props: SbMegaMenuCardProps) => (
         />
       </div>
     )}
-    <Heading as="h3" size={2} className={styles.cardHeading}>
-      <SbLink
-        link={props.blok.link}
-        classes="stretched-link no-underline text-white hocus:text-white hocus:underline"
+    <div className={styles.cardContent}>
+      <Heading as="h3" size={2} className={styles.cardHeading}>
+        <SbLink
+          link={props.blok.link}
+          classes={styles.headingLink}
+        >
+          {props.blok.headline}
+        </SbLink>
+      </Heading>
+      <Paragraph
+        color="white"
+        weight="semibold"
+        icon={props.blok.link?.linktype === 'url' ? 'external' : 'chevron-right'}
+        className={styles.cardCta}
       >
-        {props.blok.headline}
-      </SbLink>
-    </Heading>
-    <Paragraph
-      color="white"
-      weight="semibold"
-      icon={props.blok.link?.linktype === 'url' ? 'external' : 'chevron-right'}
-      className={styles.cardCta}
-    >
-      {props.blok.ctaText}
-    </Paragraph>
+        {props.blok.ctaText}
+      </Paragraph>
+    </div>
   </article>
 );

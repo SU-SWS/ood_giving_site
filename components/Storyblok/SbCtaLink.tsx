@@ -1,6 +1,6 @@
 import React from 'react';
 import { cnb } from 'cnbuilder';
-import { storyblokEditable, type SbBlokData } from '@storyblok/react';
+import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
 import { SrOnlyText } from '@/components/Typography';
 import { type SbLinkType } from './Storyblok.types';

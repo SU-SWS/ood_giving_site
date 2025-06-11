@@ -1,5 +1,5 @@
 'use client';
-import { type SbBlokData, storyblokEditable } from '@storyblok/react';
+import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import {
   Popover, PopoverButton, PopoverPanel, Transition,
 } from '@headlessui/react';
