@@ -32,11 +32,11 @@ export const SbMegaMenuSection = (props: SbMegaMenuSectionProps) => {
           </PopoverButton>
           <Transition
             enter="duration-300 ease-out"
-            enterFrom={cnb('opacity-0', '-translate-y-30')}
-            enterTo="opacity-100 translate-y-0"
+            enterFrom="opacity-0 scale-y-95"
+            enterTo="opacity-100 scale-y-100"
             leave="duration-200 ease-out"
-            leaveFrom="opacity-100 translate-y-0"
-            leaveTo={cnb('opacity-0', '-translate-y-30')}
+            leaveFrom="opacity-100 scale-y-100"
+            leaveTo="opacity-0 scale-y-95"
           >
             <PopoverPanel className={`ood-mega-nav__section ${styles.section}`}>
               <Grid {...storyblokEditable(props.blok)} gap="default" lg={3} pt={4} pb={5} className={styles.sectionContent}>

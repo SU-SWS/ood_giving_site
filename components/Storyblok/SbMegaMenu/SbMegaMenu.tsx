@@ -1,39 +1,21 @@
 'use client';
-import { useRef, useState } from 'react';
 import { type SbBlokData, storyblokEditable } from '@storyblok/react';
+import {
+  Popover, PopoverButton, PopoverPanel, Transition,
+} from '@headlessui/react';
 import { CreateBloks } from '@/components/CreateBloks';
 import { FlexBox } from '@/components/FlexBox';
-import { useEscape } from '@/hooks/useEscape';
-import { useOnClickOutside } from 'usehooks-ts';
 import { config } from '@/utilities/config';
 import { useWindowSize } from 'usehooks-ts';
 
 export type SbMegaMenuProps = {
   blok: SbBlokData & {
-    topLevelLinks?: SbBlokData[];
+    topLevelLinks?: SbBlokData[]; // Top level links and parent items for the panels
   };
 };
 
 export const SbMegaMenu = (props: SbMegaMenuProps) => {
   const windowSize = useWindowSize();
-  const [menuOpened, setMenuOpened] = useState(false);
-  const ref = useRef<HTMLElement>(null);
-  const burgerRef = useRef<HTMLButtonElement>(null);
-  const isExpanded = (x: HTMLElement) => x.getAttribute('aria-expanded') === 'true';
-
-  const toggleMenu = () => {
-    setMenuOpened(!menuOpened);
-  };
-
-  // Close menu if escape key is pressed and return focus to the menu button
-  useEscape(() => {
-    if (burgerRef.current && isExpanded(burgerRef.current)) {
-      setMenuOpened(false);
-      burgerRef.current.focus();
-    }
-  });
-
-  useOnClickOutside(ref, () => setMenuOpened(false));
 
   if (windowSize.width >= config.breakpoints.lg) {
     return (
@@ -45,27 +27,38 @@ export const SbMegaMenu = (props: SbMegaMenuProps) => {
     );
   }
   return (
-    <nav {...storyblokEditable(props.blok)} className="ood-mega-nav flex z-[200] lg:items-center" aria-label="Main Menu" ref={ref}>
-      <button
-        type="button"
-        className="ood-mega-nav__toggle mr-none ml-auto"
-        aria-label={menuOpened ? 'Close Menu' : 'Open Menu'}
-        aria-expanded={menuOpened}
-        onClick={toggleMenu}
-        ref={burgerRef}
-      >
-        <i
-          aria-hidden="true"
-          className={`fas fa-${menuOpened ? 'times' : 'bars'}`}
-        />
-        {menuOpened ? 'Close' : 'Menu'}
-      </button>
-      <ul
-        className="ood-mega-nav__menu-lv1 list-unstyled"
-        aria-hidden={!menuOpened}
-      >
-        <CreateBloks blokSection={props.blok.topLevelLinks} />
-      </ul>
-    </nav>
+    <Popover as="nav" className="ood-mega-nav flex z-[200] lg:items-center" aria-label="Main Menu">
+      {({ open }) => (
+        <>
+          <PopoverButton
+            className="ood-mega-nav__toggle mr-none ml-auto"
+            aria-label={open ? 'Close Menu' : 'Open Menu'}
+          >
+            <i
+              aria-hidden="true"
+              className={`fas fa-${open ? 'times' : 'bars'}`}
+            />
+            {open ? 'Close' : 'Menu'}
+          </PopoverButton>
+          <Transition
+            enter="duration-300 ease-out"
+            enterFrom="opacity-0 scale-y-95"
+            enterTo="opacity-100 scale-y-100"
+            leave="duration-200 ease-out"
+            leaveFrom="opacity-100 scale-y-100"
+            leaveTo="opacity-0 scale-y-95"
+          >
+            <PopoverPanel
+              as="ul"
+              {...storyblokEditable(props.blok)}
+              className="ood-mega-nav__menu-lv1 list-unstyled"
+              // aria-hidden={!menuOpened}
+            >
+              <CreateBloks blokSection={props.blok.topLevelLinks} />
+            </PopoverPanel>
+          </Transition>
+        </>
+      )}
+    </Popover>
   );
 };

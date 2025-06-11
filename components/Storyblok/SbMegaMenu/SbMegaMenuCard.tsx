@@ -17,34 +17,35 @@ export type SbMegaMenuCardProps = {
 };
 
 export const SbMegaMenuCard = (props: SbMegaMenuCardProps) => (
-  <article {...storyblokEditable(props.blok)} className="ood-mega-nav__card relative">
+  <article {...storyblokEditable(props.blok)} className={styles.cardRoot(props.blok.backgroundColor)}>
     {props.blok.image.filename != null && (
-      <AspectRatioImage
-        {...props}
-        filename={props.blok.image.filename}
-        alt=""
-        classPrefix="ood-mega-nav__card"
-        imageSize="card"
-        aspectRatio="3x2"
-      />
+      <div className="overflow-hidden">
+        <AspectRatioImage
+          {...props}
+          filename={props.blok.image.filename}
+          alt=""
+          classPrefix="ood-mega-nav__card"
+          className="group-hover:scale-105 transition-transform"
+          imageSize="card"
+          aspectRatio="3x2"
+        />
+      </div>
     )}
-    <div
-      className={styles.MegaMenuCardContent({ backgroundColor: props.blok.backgroundColor })}
-    >
-      <Heading as="h3" size={2}>
-        <SbLink
-          link={props.blok.link}
-          classes="stretched-link no-underline text-white hocus-visible:text-white"
-        >
-          {props.blok.headline}
-        </SbLink>
-      </Heading>
-      <Paragraph
-        color="white"
-        className={styles.MegaMenuCardCta({ external: props.blok.link.linktype === 'url' })}
+    <Heading as="h3" size={2} className={styles.cardHeading}>
+      <SbLink
+        link={props.blok.link}
+        classes="stretched-link no-underline text-white hocus:text-white hocus:underline"
       >
-        {props.blok.ctaText}
-      </Paragraph>
-    </div>
+        {props.blok.headline}
+      </SbLink>
+    </Heading>
+    <Paragraph
+      color="white"
+      weight="semibold"
+      icon={props.blok.link?.linktype === 'url' ? 'external' : 'chevron-right'}
+      className={styles.cardCta}
+    >
+      {props.blok.ctaText}
+    </Paragraph>
   </article>
 );

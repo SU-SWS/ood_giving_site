@@ -16,13 +16,13 @@ export const OpenSearchModalButton = React.forwardRef<HTMLButtonElement, { id: s
       id={id}
       ref={ref}
     >
-      <span className="sr-only lg:not-sr-only leading-none">
+      <span className="sr-only xl:not-sr-only leading-none xl:mr-6">
         Search
       </span>
       <HeroIcon
         icon="search"
         aria-hidden="true"
-        className="inline-block relative -top-1 w-22 lg:w-20 lg:ml-6 h-18"
+        className="inline-block relative -top-1 w-22 lg:w-20 h-18"
       />
     </button>
   );
