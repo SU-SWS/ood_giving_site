@@ -32,5 +32,6 @@ export const config = {
     lg: 992,
     xl: 1200,
     '2xl': 1500,
+    '3xl': 1700,
   },
 };
