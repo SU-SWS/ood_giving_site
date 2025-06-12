@@ -16,13 +16,15 @@ import {
   DocumentDuplicateIcon,
   EnvelopeIcon,
   LinkIcon,
+  LockClosedIcon,
   MapPinIcon,
   MinusIcon,
   PlayCircleIcon,
   PlusIcon,
+  VideoCameraIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { CheckIcon } from '@heroicons/react/16/solid';
+import { CheckIcon, LockClosedIcon as SolidLockClosedIcon } from '@heroicons/react/16/solid';
 import { PlayIcon, PauseIcon } from '@heroicons/react/20/solid';
 
 export const iconMap = {
@@ -48,6 +50,8 @@ export const iconMap = {
   left: ArrowLeftIcon,
   link: LinkIcon,
   location: MapPinIcon,
+  lock: LockClosedIcon,
+  'lock-solid': SolidLockClosedIcon,
   menu: Bars3Icon,
   minus: MinusIcon,
   more: ArrowRightIcon,
@@ -57,6 +61,7 @@ export const iconMap = {
   plus: PlusIcon,
   right: ArrowRightIcon,
   up: ArrowUpIcon,
+  video: VideoCameraIcon,
 };
 export type IconType = keyof typeof iconMap;
 
