@@ -5,6 +5,7 @@ import * as styles from './Cta.styles';
 export type CtaButtonStyleType = keyof typeof styles.ctaButtonStyles;
 export type CtaTextColorType = keyof typeof styles.ctaTextColors;
 export type CtaButtonSizeType = keyof typeof styles.ctaButtonSizes;
+export type CtaAlignType = 'left' | 'center' | 'right';
 
 export type CtaIconType = keyof typeof styles.ctaIcons;
 export type IconColorType = keyof typeof styles.iconColors;
@@ -21,8 +22,7 @@ export interface CtaCommonProps {
   textColor?: CtaTextColorType;
   buttonSize?: CtaButtonSizeType;
   buttonStyle?: CtaButtonStyleType;
-  align?: 'left' | 'center' | 'right';
-  rel?: string;
+  align?: CtaAlignType;
   iconProps?: Omit<HeroIconProps, 'icon'> & React.ComponentProps<'svg'>;
   mt?: MarginType;
   mb?: MarginType;

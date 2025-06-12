@@ -11,20 +11,21 @@ import useUTMs from '@/hooks/useUTMs';
 export type CtaExternalLinkProps = React.ComponentPropsWithoutRef<'a'> & CtaCommonProps & {
   sbLink?: SbLinkType;
   href?: string;
+  rel?: string;
 };
 
 export const CtaExternalLink = React.forwardRef<HTMLAnchorElement, CtaExternalLinkProps>(
   (props, ref) => {
     const {
-      variant = 'link',
-      color = variant !== 'inline' ? 'white' : '',
-      size,
-      curve,
+      isButton,
+      buttonStyle,
+      buttonSize,
+      textColor,
       icon,
-      iconPosition = 'right',
-      animate,
       iconProps,
+      align,
       srText,
+      rel,
       mt,
       mb,
       children,
@@ -47,22 +48,22 @@ export const CtaExternalLink = React.forwardRef<HTMLAnchorElement, CtaExternalLi
       <a
         {...rest}
         href={myHref}
+        rel={rel}
         ref={ref as React.ForwardedRef<HTMLAnchorElement>}
         className={cnb(
           styles.cta,
-          styles.ctaVariants[variant],
-          styles.ctaSizes[size] || styles.ctaSizes[styles.ctaSizeMap[variant]],
-          color ? styles.ctaColors[color] : '',
+          isButton ? styles.ctaButtonBase : '',
+          isButton ? styles.ctaButtonStyles[buttonStyle] : '',
+          isButton ? styles.ctaButtonSizes[buttonSize || 'default'] : '',
+          !isButton ? styles.ctaTextColors[textColor] : '',
           mt ? marginTops[mt] : '',
           mb ? marginBottoms[mb] : '',
           className,
         )}
       >
         <CtaContent
-          variant={variant}
+          buttonStyle={buttonStyle}
           icon={icon}
-          iconPosition={iconPosition}
-          animate={animate}
           iconProps={iconProps}
           srText={srText}
         >

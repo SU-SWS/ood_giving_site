@@ -17,15 +17,15 @@ export type CtaNextLinkProps = CtaCommonProps & Omit<LinkProps, 'href'> & {
 export const CtaNextLink = React.forwardRef<HTMLAnchorElement, CtaNextLinkProps>((props, ref) => {
   const {
     href = '',
-    variant = 'link',
-    color,
-    size,
+    isButton,
+    buttonStyle,
+    buttonSize,
+    textColor,
     icon,
-    iconPosition = 'right',
-    animate,
     iconProps,
     srText,
     target,
+    align,
     mt,
     mb,
     children,
@@ -42,19 +42,18 @@ export const CtaNextLink = React.forwardRef<HTMLAnchorElement, CtaNextLinkProps>
       target={target}
       className={cnb(
         styles.cta,
-        styles.ctaVariants[variant],
-        styles.ctaSizes[size] || styles.ctaSizes[styles.ctaSizeMap[variant]],
-        color ? styles.ctaColors[color] : '',
+        isButton ? styles.ctaButtonBase : '',
+        isButton ? styles.ctaButtonStyles[buttonStyle] : '',
+        isButton ? styles.ctaButtonSizes[buttonSize || 'default'] : '',
+        !isButton ? styles.ctaTextColors[textColor] : '',
         mt ? marginTops[mt] : '',
         mb ? marginBottoms[mb] : '',
         className,
       )}
     >
       <CtaContent
-        variant={variant}
+        buttonStyle={buttonStyle}
         icon={icon}
-        iconPosition={iconPosition}
-        animate={animate}
         iconProps={iconProps}
         srText={srText}
       >

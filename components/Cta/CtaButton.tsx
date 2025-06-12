@@ -1,5 +1,4 @@
 'use client';
-
 import React from 'react';
 import { cnb } from 'cnbuilder';
 import { CtaContent } from './CtaContent';
@@ -12,13 +11,12 @@ export const CtaButton = React.forwardRef<HTMLButtonElement, CtaButtonProps>(
   (props, ref) => {
     const {
       type = 'button',
-      variant = 'solid',
-      color = 'white',
-      iconPosition = 'right',
+      isButton,
+      buttonStyle,
+      buttonSize,
+      textColor,
+      align,
       icon,
-      size,
-      curve,
-      animate,
       iconProps,
       srText,
       children,
@@ -29,23 +27,19 @@ export const CtaButton = React.forwardRef<HTMLButtonElement, CtaButtonProps>(
     return (
       <button
         {...rest}
-        // eslint-disable-next-line react/button-has-type
         type={type}
         ref={ref as React.ForwardedRef<HTMLButtonElement>}
         className={cnb(
           styles.cta,
-          styles.ctaVariants[variant],
-          styles.ctaSizes[size] || styles.ctaSizes[styles.ctaSizeMap[variant]],
-          curve ? styles.ctaCurves[curve] : '',
-          color ? styles.ctaColors[color] : '',
+          isButton ? styles.ctaButtonStyles[buttonStyle] : '',
+          isButton ? styles.ctaButtonSizes[buttonSize] : '',
+          !isButton ? styles.ctaTextColors[textColor] : '',
           className,
         )}
       >
         <CtaContent
-          variant={variant}
+          buttonStyle={buttonStyle}
           icon={icon}
-          iconPosition={iconPosition}
-          animate={animate}
           iconProps={iconProps}
           srText={srText}
         >

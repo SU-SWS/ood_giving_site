@@ -1,7 +1,7 @@
 import { type CtaIconLeftMarginType } from './Cta.types';
 
 export const cta = 'group/cta hocus-visible:underline transition-all';
-export const ctaButtonBase = 'inline-block font-normal w-fit';
+export const ctaButtonBase = 'inline-block font-normal w-fit no-underline hocus:underline';
 
 // Only used for the Button style
 export const ctaButtonStyles = {
