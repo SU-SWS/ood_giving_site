@@ -66,6 +66,7 @@ export const CtaExternalLink = React.forwardRef<HTMLAnchorElement, CtaExternalLi
           icon={icon}
           iconProps={iconProps}
           srText={srText}
+          align={align}
         >
           {children}
         </CtaContent>

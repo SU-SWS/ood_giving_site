@@ -52,10 +52,10 @@ export const SbCtaLink = React.forwardRef<HTMLAnchorElement, SbCtaProps>((props,
       buttonStyle={linkButtonStyle}
       buttonSize={linkButtonSize}
       textColor={linkTextColor}
+      // icon={linkIcon}
       align={align}
       srText={srText}
       rel={rel}
-      // icon={linkIcon}
     >
       {linkText}
     </CtaLink>

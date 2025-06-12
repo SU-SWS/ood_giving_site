@@ -42,6 +42,7 @@ export const CtaButton = React.forwardRef<HTMLButtonElement, CtaButtonProps>(
           icon={icon}
           iconProps={iconProps}
           srText={srText}
+          align={align}
         >
           {children}
         </CtaContent>

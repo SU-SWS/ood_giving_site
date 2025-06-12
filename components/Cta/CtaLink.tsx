@@ -14,6 +14,7 @@ import { getMaskedAsset } from '@/utilities/getMaskedAsset';
 export type CtaLinkProps = Omit<LinkProps, 'href'> & React.ComponentPropsWithoutRef<'a'> & CtaCommonProps & {
   sbLink?: SbLinkType;
   href?: string;
+  rel?: string;
 };
 
 export const CtaLink = React.forwardRef<HTMLAnchorElement, CtaLinkProps>(

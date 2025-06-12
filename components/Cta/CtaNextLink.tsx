@@ -56,6 +56,7 @@ export const CtaNextLink = React.forwardRef<HTMLAnchorElement, CtaNextLinkProps>
         icon={icon}
         iconProps={iconProps}
         srText={srText}
+        align={align}
       >
         {children}
       </CtaContent>
