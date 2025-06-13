@@ -2,13 +2,15 @@ import { type CtaIconLeftMarginType } from './Cta.types';
 
 export const cta = 'group/cta hocus-visible:underline transition-all';
 export const buttonBase = 'block font-normal w-fit no-underline hocus:underline';
-export const gradientButtonBase = 'bg-gradient-to-tr hocus:bg-plum-dark text-white hocus:text-white';
+export const gradientButtonBase = 'bg-gradient-to-tr hocus:bg-plum-dark hocus:bg-none text-white hocus:text-white';
 export const textLinkBase = 'block font-semibold w-fit no-underline text-18 md:text-20';
 export const gradientTextLinkBase = 'bg-clip-text bg-gradient-to-tr text-transparent hocus:text-transparent';
 
 // Only used for the Button style
 export const ctaButtonStyles = {
-  'ood-cta__button--primary su-after-bg-white': 'bg-bay-dark text-white hocus:bg-palo-alto hocus:text-white', // Default
+  // Primary
+  'ood-cta__button--primary su-after-bg-white': 'bg-bay-dark text-white hocus:bg-palo-alto hocus:text-white',
+  // Secondary
   'ood-cta__button--secondary su-after-bg-bay-dark su-after-bg-hocus-white': 'bg-white text-bay-dark shadow-bay-dark shadow-[inset_0_0_0_1px] after:text-bay-dark after:bg-bay-dark hocus:bg-bay-dark hocus:text-white hocus:after:text-white ',
   // Give Now Button
   'su-bg-digital-red su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white': 'bg-digital-red hocus:bg-plum-dark text-white hocus:text-white',
@@ -41,7 +43,7 @@ export const ctaTextColors = {
   // Has an extra su-after-bg-sky-dark-to-bay-dark in SB, but it seems to work here without the dupe string
   'ood-cta__link-gradient su-bg-sky-dark-to-bay-dark': `${gradientTextLinkBase} from-sky-dark to-bay-dark`,
   /**
-   * Campaign page only text colors - seems on live site the intent was to use plum-dark as the hocus color, but it was overridden by the base link hocus color
+   * Campaign page only solid text colors - seems on live site the intent was to use plum-dark as the hocus color, but it was overridden by the base link hocus color
    * Here we honor the original intent by using plum-dark as the hocus color
    */
   'su-text-lagunita-dark su-after-bg-lagunita-dark su-text-hocus-plum-dark su-after-bg-hocus-plum-dark': 'text-lagunita-dark hocus:text-plum-dark',
@@ -74,25 +76,14 @@ export const ctaIcons = {
 
 export const icon = 'inline-block shrink-0 will-change-transform transition-transform stroke-2';
 
-export const iconStyles = {
-  'ghost-swipe': 'group-hover/cta:text-white group-focus-visible/cta:text-white',
-  close: 'text-lagunita-light group-hover/cta:text-lagunita-dark group-focus-visible/cta:text-lagunita-dark !w-22 -mt-4',
-  'close-x': 'text-current hocus:text-current w-22 group-hover/cta:underline group-focus-visible/cta:underline',
-  mainNavFeatured: '!w-1em text-digital-red-xlight stroke-[3]',
-};
-
-export const iconColors = {
-  default: '',
-  'red-xlight-hocus-white': '!text-digital-red-xlight group-hover/cta:!text-white group-focus-visible/cta:!text-white',
-};
-
-export const iconAnimation = {
-  none: '',
-  'top-right': 'group-hover/cta:translate-x-01em group-focus-visible/cta:translate-x-01em group-hover/cta:-translate-y-01em group-focus-visible/cta:-translate-y-01em',
-  down: 'group-hover/cta:translate-y-02em group-focus-visible/cta:translate-y-02em',
-  up: 'group-hover/cta:-translate-y-02em group-focus-visible/cta:-translate-y-02em',
-  right: 'group-hover/cta:translate-x-02em group-focus-visible/cta:translate-x-02em',
-  left: 'group-hover/cta:-translate-x-02em group-focus-visible/cta:-translate-x-02em',
+export const iconAnimations = {
+  'su-link--action': 'group-hover/cta:translate-x-02em group-focus-visible/cta:translate-x-02em',
+  'su-link--jump': 'group-hover/cta:translate-y-02em group-focus-visible/cta:translate-y-02em',
+  'su-link--external': 'group-hover/cta:translate-x-01em group-focus-visible/cta:translate-x-01em group-hover/cta:-translate-y-01em group-focus-visible/cta:-translate-y-01em',
+  'su-link--internal': 'lock',
+  'su-link--download': 'group-hover/cta:translate-y-02em group-focus-visible/cta:translate-y-02em',
+  'su-link--video': 'group-hover/cta:translate-x-02em group-focus-visible/cta:translate-x-02em',
+  'su-link--no-icon': '',
 };
 
 export const ctaAligns = {
@@ -105,8 +96,5 @@ export const ctaAligns = {
 // Only add to this map if left margin is different from default class ml-03em
 export const iconLeftMarginDefault = 'ml-03em';
 export const iconLeftMargin: CtaIconLeftMarginType = {
-  'arrow-right': 'ml-04em',
-  email: 'ml-05em',
-  external: 'ml-04em',
-  link: 'ml-05em',
+  'su-link--external': 'ml-04em',
 };

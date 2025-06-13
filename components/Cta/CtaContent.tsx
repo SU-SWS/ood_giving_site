@@ -1,41 +1,37 @@
-// import { cnb } from 'cnbuilder';
-import { FlexBox } from '../FlexBox';
-// import { HeroIcon } from '../HeroIcon';
-import { SrOnlyText } from '../Typography';
+import { cnb } from 'cnbuilder';
+import { FlexBox } from '@/components/FlexBox';
+import { HeroIcon, type IconType } from '@/components/HeroIcon';
+import { SrOnlyText } from '@/components/Typography';
+import * as styles from './Cta.styles';
 import * as types from './Cta.types';
 
 type CtaContentProps = Omit<types.CtaCommonProps, 'buttonSize' | 'textColor'>;
 
 export const CtaContent = ({
-  buttonStyle,
-  icon,
+  icon = 'su-link--action',
   iconProps,
   srText,
   children,
 }: CtaContentProps) => {
-  // const heroicon = icon || styles.ctaIconMap[variant];
-  // const iconAnimate = animate ? styles.iconAnimation[animate] : '';
-
-  // const iconMarginLeft = iconPosition === 'right' && children && heroicon
-  //   ? styles.iconLeftMargin[heroicon] || styles.iconLeftMarginDefault
-  //   : '';
-  // const iconStyle = styles.iconStyles[variant];
+  const heroIcon = icon ? styles.ctaIcons[icon] as IconType : undefined;
+  const iconMarginLeft = children && icon ? styles.iconLeftMargin[icon] || styles.iconLeftMarginDefault : '';
   const { className: iconClasses, ...iProps } = iconProps || {};
+  const iconAnimate = icon ? styles.iconAnimations[icon] : '';
 
   return (
     <FlexBox as="span" alignItems="center">
+      {children}
       {/* Use this whitespace-nowrap trick so icon won't get pushed to the next line on its own */}
-      {/* {heroicon && (
+      {heroIcon && (
         <span className="whitespace-nowrap">
           &#65279;
           <HeroIcon
-            icon={heroicon}
-            className={cnb(styles.icon, iconStyle, iconAnimate, iconMarginLeft, iconClasses)}
+            icon={heroIcon}
+            className={cnb(styles.icon, iconAnimate, iconMarginLeft, iconClasses)}
             {...iProps}
           />
         </span>
-      )} */}
-      {children}
+      )}
       {srText && <SrOnlyText>{srText}</SrOnlyText>}
     </FlexBox>
   );

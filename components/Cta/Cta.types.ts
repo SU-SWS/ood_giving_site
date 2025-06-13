@@ -1,4 +1,4 @@
-import { type HeroIconProps, type IconType } from '@/components/HeroIcon';
+import { type HeroIconProps } from '@/components/HeroIcon';
 import { type MarginType } from '@/utilities/datasource';
 import * as styles from './Cta.styles';
 
@@ -8,16 +8,15 @@ export type CtaButtonSizeType = keyof typeof styles.ctaButtonSizes;
 export type CtaAlignType = keyof typeof styles.ctaAligns;
 
 export type CtaIconType = keyof typeof styles.ctaIcons;
-export type IconColorType = keyof typeof styles.iconColors;
-export type IconAnimationType = keyof typeof styles.iconAnimation | '';
+export type IconAnimationType = keyof typeof styles.iconAnimations | '';
 
 export type CtaIconLeftMarginType = Partial<{
-  [Key in IconType]: string;
+  [Key in CtaIconType]: string;
 }>;
 
 export interface CtaCommonProps {
   srText?: string;
-  icon?: IconType;
+  icon?: CtaIconType;
   isButton?: boolean;
   textColor?: CtaTextColorType;
   buttonSize?: CtaButtonSizeType;
