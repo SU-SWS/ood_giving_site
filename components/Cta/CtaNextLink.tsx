@@ -1,7 +1,6 @@
 import React from 'react';
 import { cnb } from 'cnbuilder';
-import Link from 'next/link';
-import { type LinkProps } from 'next/link';
+import Link, { type LinkProps } from 'next/link';
 import { CtaContent } from './CtaContent';
 import { type CtaCommonProps } from './Cta.types';
 import { marginTops, marginBottoms } from '@/utilities/datasource';
@@ -19,8 +18,8 @@ export const CtaNextLink = React.forwardRef<HTMLAnchorElement, CtaNextLinkProps>
     href = '',
     isButton,
     buttonStyle,
-    buttonSize,
-    textColor,
+    buttonSize = 'default',
+    textColor = 'su-text-digital-red su-after-bg-digital-red su-text-hocus-sky-dark su-after-bg-hocus-sky-dark',
     icon,
     iconProps,
     srText,
@@ -42,9 +41,9 @@ export const CtaNextLink = React.forwardRef<HTMLAnchorElement, CtaNextLinkProps>
       target={target}
       className={cnb(
         styles.cta,
-        isButton ? styles.ctaButtonBase : '',
+        isButton ? styles.buttonBase : styles.textLinkBase,
         isButton ? styles.ctaButtonStyles[buttonStyle] : '',
-        isButton ? styles.ctaButtonSizes[buttonSize || 'default'] : '',
+        isButton ? styles.ctaButtonSizes[buttonSize] : '',
         !isButton ? styles.ctaTextColors[textColor] : '',
         mt ? marginTops[mt] : '',
         mb ? marginBottoms[mb] : '',

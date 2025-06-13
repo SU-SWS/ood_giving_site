@@ -1,12 +1,10 @@
 import { FlexBox } from '@/components/FlexBox';
-import { Masthead } from '@/components/Masthead';
 import { Container } from '@/components/Container';
 import Skeleton from 'react-loading-skeleton';
 
 const Loading = () => {
   return (
     <div className="bg-black">
-      <Masthead />
       <main>
         <Container width="site" className="rs-my-10">
           <FlexBox gap direction="row" wrap="wrap">

@@ -3,6 +3,7 @@ import React from 'react';
 import { cnb } from 'cnbuilder';
 import { CtaContent } from './CtaContent';
 import { type CtaCommonProps } from './Cta.types';
+import { marginTops, marginBottoms } from '@/utilities/datasource';
 import * as styles from './Cta.styles';
 
 export type CtaButtonProps = React.ComponentPropsWithoutRef<'button'> & CtaCommonProps;
@@ -13,12 +14,14 @@ export const CtaButton = React.forwardRef<HTMLButtonElement, CtaButtonProps>(
       type = 'button',
       isButton,
       buttonStyle,
-      buttonSize,
-      textColor,
+      buttonSize = 'default',
+      textColor = 'su-text-digital-red su-after-bg-digital-red su-text-hocus-sky-dark su-after-bg-hocus-sky-dark',
       align,
       icon,
       iconProps,
       srText,
+      mt,
+      mb,
       children,
       className,
       ...rest
@@ -31,9 +34,12 @@ export const CtaButton = React.forwardRef<HTMLButtonElement, CtaButtonProps>(
         ref={ref as React.ForwardedRef<HTMLButtonElement>}
         className={cnb(
           styles.cta,
+          isButton ? styles.buttonBase : styles.textLinkBase,
           isButton ? styles.ctaButtonStyles[buttonStyle] : '',
           isButton ? styles.ctaButtonSizes[buttonSize] : '',
           !isButton ? styles.ctaTextColors[textColor] : '',
+          mt ? marginTops[mt] : '',
+          mb ? marginBottoms[mb] : '',
           className,
         )}
       >

@@ -19,8 +19,8 @@ export const CtaExternalLink = React.forwardRef<HTMLAnchorElement, CtaExternalLi
     const {
       isButton,
       buttonStyle,
-      buttonSize,
-      textColor,
+      buttonSize = 'default',
+      textColor = 'su-text-digital-red su-after-bg-digital-red su-text-hocus-sky-dark su-after-bg-hocus-sky-dark',
       icon,
       iconProps,
       align,
@@ -52,9 +52,9 @@ export const CtaExternalLink = React.forwardRef<HTMLAnchorElement, CtaExternalLi
         ref={ref as React.ForwardedRef<HTMLAnchorElement>}
         className={cnb(
           styles.cta,
-          isButton ? styles.ctaButtonBase : '',
+          isButton ? styles.buttonBase : styles.textLinkBase,
           isButton ? styles.ctaButtonStyles[buttonStyle] : '',
-          isButton ? styles.ctaButtonSizes[buttonSize || 'default'] : '',
+          isButton ? styles.ctaButtonSizes[buttonSize] : '',
           !isButton ? styles.ctaTextColors[textColor] : '',
           mt ? marginTops[mt] : '',
           mb ? marginBottoms[mb] : '',
