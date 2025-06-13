@@ -77,8 +77,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/SU-SWS/ood_giving_site"
-  },
-  "bugs": {
-    "url": "https://github.com/SU-SWS/ood_giving_site/issues"
   }
 }

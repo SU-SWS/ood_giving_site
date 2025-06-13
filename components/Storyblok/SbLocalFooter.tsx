@@ -29,24 +29,28 @@ export type SbLocalFooterProps = {
 };
 
 const styles = {
+  root: 'w-full',
+  logoWrapper: 'rs-pb-3',
+  grid: 'text-18 leading-snug gap-30 md:gap-60',
+  address: 'gap-2',
+  ctaWrapper: 'rs-mt-2',
   linkGroup: 'list-unstyled *:mb-10',
   linkGroupHeading: 'text-20',
-  linkIcon: 'inline group-hover/cta:text-digital-red group-focus/cta:text-digital-red',
 };
 
 export const SbLocalFooter = (props: SbLocalFooterProps) => (
-  <Container {...storyblokEditable(props.blok)} bgColor="white" pt={4} pb={5} className="w-full">
-    <div className="rs-pb-3">
+  <Container {...storyblokEditable(props.blok)} bgColor="white" pt={4} pb={5} className={styles.root}>
+    <div className={styles.logoWrapper}>
       <CreateBloks blokSection={props.blok.websiteLogo} />
     </div>
-    <Grid as="section" md={2} xl={4} className="text-18 leading-snug gap-30 md:gap-60">
+    <Grid as="section" md={2} xl={4} className={styles.grid}>
       <div>
         {props.blok.contactHeading && (
           <Heading tracking="normal" className={styles.linkGroupHeading}>
             {props.blok.contactHeading}
           </Heading>
         )}
-        <FlexBox as="address" direction="col" className="gap-2">
+        <FlexBox as="address" direction="col" className={styles.address}>
           {props.blok.addressLine1 && (
             <span>{props.blok.addressLine1}</span>
           )}
@@ -62,7 +66,7 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
           )}
         </FlexBox>
         {props.blok.cta && (
-          <div className="rs-mt-2">
+          <div className={styles.ctaWrapper}>
             <CreateBloks blokSection={props.blok.cta} />
           </div>
         )}
@@ -79,9 +83,8 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
               <li key={navItem._uid}>
                 <CtaLink
                   sbLink={navItem.link}
-                  textColor="local-footer"
+                  variant="local-footer"
                   icon={navItem.linkClass}
-                  iconProps={{ className: styles.linkIcon }}
                 >
                   {navItem.linkTextLabel}
                 </CtaLink>
@@ -102,9 +105,8 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
               <li key={navItem._uid}>
                 <CtaLink
                   sbLink={navItem.link}
-                  textColor="local-footer"
+                  variant="local-footer"
                   icon={navItem.linkClass}
-                  iconProps={{ className: styles.linkIcon }}
                 >
                   {navItem.linkTextLabel}
                 </CtaLink>
@@ -127,9 +129,8 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
               <li key={navItem._uid}>
                 <CtaLink
                   sbLink={navItem.link}
-                  textColor="local-footer"
+                  variant="local-footer"
                   icon={navItem.linkClass}
-                  iconProps={{ className: styles.linkIcon }}
                 >
                   {navItem.linkTextLabel}
                 </CtaLink>

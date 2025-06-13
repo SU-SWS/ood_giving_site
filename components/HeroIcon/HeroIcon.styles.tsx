@@ -85,7 +85,7 @@ export const iconBaseStyle: IconBaseStyleType = {
   expand: 'w-1em -mt-02em',
   external: 'w-08em stroke-[2.5] -mt-01em',
   left: 'w-08em',
-  lock: 'w-09em -mt-02em',
+  lock: 'w-09em -mt-03em',
   link: 'w-09em -mt-01em',
   more: 'w-08em',
   plus: 'w-08em',
