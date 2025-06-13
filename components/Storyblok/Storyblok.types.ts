@@ -1,3 +1,4 @@
+import { type CtaIconType } from '@/components/Cta';
 /**
  * Generic types for Storyblok fields
  */
@@ -56,3 +57,14 @@ export type SbLinkType =
       linktype: 'asset';
       [k: string]: unknown;
     };
+
+/**
+ * Reusable types for custom Storyblok components
+ */
+
+export type SbNavItemProps = {
+  _uid: string;
+  linkTextLabel?: string;
+  link?: SbLinkType;
+  linkClass?: CtaIconType;
+};

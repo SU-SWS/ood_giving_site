@@ -83,7 +83,7 @@ export const iconBaseStyle: IconBaseStyleType = {
   'chevron-right': 'w-09em -mt-01em',
   download: 'w-09em -mt-01em',
   expand: 'w-1em -mt-02em',
-  external: 'w-08em stroke-[2.5]',
+  external: 'w-08em stroke-[2.5] -mt-01em',
   left: 'w-08em',
   lock: 'w-09em -mt-02em',
   link: 'w-09em -mt-01em',

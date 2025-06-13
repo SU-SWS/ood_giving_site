@@ -1,6 +1,6 @@
 import { type CtaIconLeftMarginType } from './Cta.types';
 
-export const cta = 'group/cta hocus-visible:underline transition-all';
+export const cta = 'group/cta hocus:underline transition-all';
 export const buttonBase = 'block font-normal w-fit no-underline hocus:underline';
 export const gradientButtonBase = 'bg-gradient-to-tr hocus:bg-plum-dark hocus:bg-none text-white hocus:text-white';
 export const textLinkBase = 'block font-semibold w-fit no-underline text-18 md:text-20';
@@ -55,6 +55,7 @@ export const ctaTextColors = {
   'su-text-bay-dark su-after-bg-bay-dark su-text-hocus-plum-dark su-after-bg-hocus-plum-dark': 'text-bay-dark hocus:text-plum-dark',
   'su-text-sky-dark su-after-bg-sky-dark su-text-hocus-plum-dark su-after-bg-hocus-plum-dark': 'text-sky-dark hocus:text-plum-dark',
   'su-text-lagunita su-after-bg-lagunita su-text-hocus-plum-dark su-after-bg-hocus-plum-dark': 'text-lagunita hocus:text-plum-dark',
+  'local-footer': 'text-digital-red hocus:text-black !underline leading-snug !font-normal !text-16 md:!text-18',
 };
 
 // Only used for the button styles

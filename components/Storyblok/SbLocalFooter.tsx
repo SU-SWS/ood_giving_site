@@ -1,10 +1,12 @@
 import { storyblokEditable } from '@storyblok/react';
 import { type SbBlokData } from '@storyblok/react';
 import { CreateBloks } from '@/components/CreateBloks';
+import { CtaLink } from '@/components/Cta';
 import { Container } from '@/components/Container';
 import { Grid } from '@/components/Grid';
 import { FlexBox } from '@/components/FlexBox';
 import { Heading } from '@/components/Typography';
+import { type SbNavItemProps } from './Storyblok.types';
 
 export type SbLocalFooterProps = {
   blok: SbBlokData & {
@@ -20,15 +22,16 @@ export type SbLocalFooterProps = {
     headingGroupInfo?: string;
     websiteLogo?: SbBlokData[];
     cta?: SbBlokData[];
-    linkGroupOod?: SbBlokData[];
-    linkGroupGift?: SbBlokData[];
-    linkGroupInfo?: SbBlokData[];
+    linkGroupOod?: SbNavItemProps[];
+    linkGroupGift?: SbNavItemProps[];
+    linkGroupInfo?: SbNavItemProps[];
   }
 };
 
 const styles = {
-  linkGroup: 'list-none m-0 p-0 [&_a]:leading-snug [&_a]:font-normal [&_a:hover]:text-black [&_a:focus]:text-black',
+  linkGroup: 'list-unstyled *:mb-10',
   linkGroupHeading: 'text-20',
+  linkIcon: 'group-hover/cta:text-digital-red group-focus/cta:text-digital-red',
 };
 
 export const SbLocalFooter = (props: SbLocalFooterProps) => (
@@ -72,7 +75,18 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
             </Heading>
           )}
           <ul className={styles.linkGroup}>
-            <CreateBloks blokSection={props.blok.linkGroupOod} />
+            {props.blok.linkGroupOod?.map((navItem) => (
+              <li key={navItem._uid}>
+                <CtaLink
+                  sbLink={navItem.link}
+                  textColor="local-footer"
+                  icon={navItem.linkClass}
+                  iconProps={{ className: styles.linkIcon }}
+                >
+                  {navItem.linkTextLabel}
+                </CtaLink>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
@@ -84,7 +98,18 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
             </Heading>
           )}
           <ul className={styles.linkGroup}>
-            <CreateBloks blokSection={props.blok.linkGroupGift} />
+            {props.blok.linkGroupGift?.map((navItem) => (
+              <li key={navItem._uid}>
+                <CtaLink
+                  sbLink={navItem.link}
+                  textColor="local-footer"
+                  icon={navItem.linkClass}
+                  iconProps={{ className: styles.linkIcon }}
+                >
+                  {navItem.linkTextLabel}
+                </CtaLink>
+              </li>
+            ))}
           </ul>
         </nav>
         <Heading tracking="normal" mt={2} className={styles.linkGroupHeading}>Tax ID</Heading>
@@ -98,7 +123,18 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
             </Heading>
           )}
           <ul className={styles.linkGroup}>
-            <CreateBloks blokSection={props.blok.linkGroupInfo} />
+            {props.blok.linkGroupInfo?.map((navItem) => (
+              <li key={navItem._uid}>
+                <CtaLink
+                  sbLink={navItem.link}
+                  textColor="local-footer"
+                  icon={navItem.linkClass}
+                  iconProps={{ className: styles.linkIcon }}
+                >
+                  {navItem.linkTextLabel}
+                </CtaLink>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
