@@ -1,17 +1,13 @@
-import { FlexBox } from '@/components/FlexBox';
-import { Container } from '@/components/Container';
-import Skeleton from 'react-loading-skeleton';
+import { Grid } from '@/components/Grid';
 
 const Loading = () => {
   return (
-    <div className="bg-black">
+    <div className="bg-white">
       <main>
-        <Container width="site" className="rs-my-10">
-          <FlexBox gap direction="row" wrap="wrap">
-            <Skeleton height={500} highlightColor="rgba(255,255,255,0.2)" baseColor="rgba(0,0,0,0.6)" containerClassName="w-full"/>
-            <Skeleton height={300} highlightColor="rgba(255,255,255,0.2)" baseColor="rgba(0,0,0,0.6)" containerClassName="w-full"/>
-          </FlexBox>
-        </Container>
+        <Grid gap="default" mt={10} mb={10} className="cc bg-white animate-[skeleton_2s_linear_infinite]">
+          <div className="w-full h-300 bg-black-10" />
+          <div className="w-full h-300 bg-black-10" />
+        </Grid>
       </main>
     </div>
   );
