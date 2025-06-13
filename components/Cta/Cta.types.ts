@@ -5,7 +5,7 @@ import * as styles from './Cta.styles';
 export type CtaButtonStyleType = keyof typeof styles.ctaButtonStyles;
 export type CtaTextColorType = keyof typeof styles.ctaTextColors;
 export type CtaButtonSizeType = keyof typeof styles.ctaButtonSizes;
-export type CtaAlignType = 'left' | 'center' | 'right';
+export type CtaAlignType = keyof typeof styles.ctaAligns;
 
 export type CtaIconType = keyof typeof styles.ctaIcons;
 export type IconColorType = keyof typeof styles.iconColors;

@@ -52,6 +52,7 @@ export const CtaExternalLink = React.forwardRef<HTMLAnchorElement, CtaExternalLi
         ref={ref as React.ForwardedRef<HTMLAnchorElement>}
         className={cnb(
           styles.cta,
+          styles.ctaAligns[align],
           isButton ? styles.buttonBase : styles.textLinkBase,
           isButton ? styles.ctaButtonStyles[buttonStyle] : '',
           isButton ? styles.ctaButtonSizes[buttonSize] : '',

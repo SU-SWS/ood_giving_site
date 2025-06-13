@@ -53,7 +53,7 @@ export const SbCtaLink = React.forwardRef<HTMLAnchorElement, SbCtaProps>((props,
       buttonSize={linkButtonSize || 'default'}
       textColor={linkTextColor}
       // icon={linkIcon}
-      align={align}
+      align={align || 'left'}
       srText={srText}
       rel={rel}
     >

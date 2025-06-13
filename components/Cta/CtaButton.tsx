@@ -34,6 +34,7 @@ export const CtaButton = React.forwardRef<HTMLButtonElement, CtaButtonProps>(
         ref={ref as React.ForwardedRef<HTMLButtonElement>}
         className={cnb(
           styles.cta,
+          styles.ctaAligns[align],
           isButton ? styles.buttonBase : styles.textLinkBase,
           isButton ? styles.ctaButtonStyles[buttonStyle] : '',
           isButton ? styles.ctaButtonSizes[buttonSize] : '',

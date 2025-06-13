@@ -41,6 +41,7 @@ export const CtaNextLink = React.forwardRef<HTMLAnchorElement, CtaNextLinkProps>
       target={target}
       className={cnb(
         styles.cta,
+        styles.ctaAligns[align],
         isButton ? styles.buttonBase : styles.textLinkBase,
         isButton ? styles.ctaButtonStyles[buttonStyle] : '',
         isButton ? styles.ctaButtonSizes[buttonSize] : '',

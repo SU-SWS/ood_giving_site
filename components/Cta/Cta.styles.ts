@@ -2,6 +2,7 @@ import { type CtaIconLeftMarginType } from './Cta.types';
 
 export const cta = 'group/cta hocus-visible:underline transition-all';
 export const buttonBase = 'block font-normal w-fit no-underline hocus:underline';
+export const gradientButtonBase = 'bg-gradient-to-tr hocus:bg-plum-dark text-white hocus:text-white';
 export const textLinkBase = 'block font-semibold w-fit no-underline text-18 md:text-20';
 export const gradientTextLinkBase = 'bg-clip-text bg-gradient-to-tr text-transparent hocus:text-transparent';
 
@@ -9,16 +10,21 @@ export const gradientTextLinkBase = 'bg-clip-text bg-gradient-to-tr text-transpa
 export const ctaButtonStyles = {
   'ood-cta__button--primary su-after-bg-white': 'bg-bay-dark text-white hocus:bg-palo-alto hocus:text-white', // Default
   'ood-cta__button--secondary su-after-bg-bay-dark su-after-bg-hocus-white': 'bg-white text-bay-dark shadow-bay-dark shadow-[inset_0_0_0_1px] after:text-bay-dark after:bg-bay-dark hocus:bg-bay-dark hocus:text-white hocus:after:text-white ',
-  'su-bg-digital-red su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white': 'bg-digital-red hocus:bg-plum-dark text-white hocus:text-white  ',
+  // Give Now Button
+  'su-bg-digital-red su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white': 'bg-digital-red hocus:bg-plum-dark text-white hocus:text-white',
+  // Secondary Give Now Button
   'su-bg-white su-bg-hocus-plum-dark su-text-digital-red su-text-hocus-white su-after-bg-digital-red su-after-bg-hocus-white': 'bg-white hocus:bg-plum-dark text-digital-red hocus:text-white after:bg-digital-red ',
+  // Ghost Button
   'ood-cta__button--ghost su-after-bg-white': 'text-white bg-transparent shadow-white shadow-[inset_0_0_0_1px] transition-shadow hocus:text-white hocus:shadow-[inset_0_0_0_3px]',
+  // Solid Campaign Plum Button
   'su-bg-plum su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white': 'bg-plum hocus:bg-plum-dark text-white hocus:text-white',
-  'su-bg-cardinal-dark-to-spirited-dark su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white su-transition-none': 'from-cardinal-dark to-spirited-dark hocus:bg-plum-dark text-white hocus:text-white transition-none',
-  'su-bg-plum-to-digital-red su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white su-transition-none': 'from-plum to-digital-red hocus:bg-plum-dark text-white hocus:text-white transition-none',
-  'su-bg-plum-to-spirited-dark su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white su-transition-none': 'from-plum to-spirited-dark hocus:bg-plum-dark text-white hocus:text-white transition-none',
-  'su-bg-palo-alto-dark-to-palo-verde-dark su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white su-transition-none': 'from-palo-alto-dark to-palo-verde-dark hocus:bg-plum-dark text-white hocus:text-white transition-none',
-  'su-bg-sky-dark-to-olive-dark su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white su-transition-none': 'from-sky-dark to-olive-dark hocus:bg-plum-dark text-white hocus:text-white transition-none',
-  'su-bg-sky-dark-to-bay-dark su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white su-transition-none': 'from-sky-dark to-bay-dark hocus:bg-plum-dark text-white hocus:text-white transition-none',
+  // Gradient Campaign Buttons
+  'su-bg-cardinal-dark-to-spirited-dark su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white su-transition-none': `${gradientButtonBase} from-cardinal-red-dark to-spirited-dark hocus:bg-plum-dark transition-none`,
+  'su-bg-plum-to-digital-red su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white su-transition-none': `${gradientButtonBase} from-plum to-digital-red transition-none`,
+  'su-bg-plum-to-spirited-dark su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white su-transition-none': `${gradientButtonBase} from-plum to-spirited-dark transition-none`,
+  'su-bg-palo-alto-dark-to-palo-verde-dark su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white su-transition-none': `${gradientButtonBase} from-palo-alto-dark to-palo-verde-dark transition-none`,
+  'su-bg-sky-dark-to-olive-dark su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white su-transition-none': `${gradientButtonBase} from-sky-dark to-olive-dark transition-none`,
+  'su-bg-sky-dark-to-bay-dark su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white su-transition-none': `${gradientButtonBase} from-sky-dark to-bay-dark transition-none`,
 };
 
 // Only used for the text link style
@@ -87,6 +93,12 @@ export const iconAnimation = {
   up: 'group-hover/cta:-translate-y-02em group-focus-visible/cta:-translate-y-02em',
   right: 'group-hover/cta:translate-x-02em group-focus-visible/cta:translate-x-02em',
   left: 'group-hover/cta:-translate-x-02em group-focus-visible/cta:-translate-x-02em',
+};
+
+export const ctaAligns = {
+  left: 'su-text-left',
+  center: 'su-text-center mx-auto',
+  right: 'su-text-right ml-auto mr-0',
 };
 
 // Icons have left margins
