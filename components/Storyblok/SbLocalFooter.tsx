@@ -31,11 +31,11 @@ export type SbLocalFooterProps = {
 const styles = {
   linkGroup: 'list-unstyled *:mb-10',
   linkGroupHeading: 'text-20',
-  linkIcon: 'group-hover/cta:text-digital-red group-focus/cta:text-digital-red',
+  linkIcon: 'inline group-hover/cta:text-digital-red group-focus/cta:text-digital-red',
 };
 
 export const SbLocalFooter = (props: SbLocalFooterProps) => (
-  <Container {...storyblokEditable(props.blok)} bgColor="white" pt={4} pb={5}>
+  <Container {...storyblokEditable(props.blok)} bgColor="white" pt={4} pb={5} className="w-full">
     <div className="rs-pb-3">
       <CreateBloks blokSection={props.blok.websiteLogo} />
     </div>

@@ -1,5 +1,4 @@
 import { cnb } from 'cnbuilder';
-import { FlexBox } from '@/components/FlexBox';
 import { HeroIcon, type IconType } from '@/components/HeroIcon';
 import { SrOnlyText } from '@/components/Typography';
 import * as styles from './Cta.styles';
@@ -19,7 +18,7 @@ export const CtaContent = ({
   const iconAnimate = icon ? styles.iconAnimations[icon] : '';
 
   return (
-    <FlexBox as="span" alignItems="center">
+    <>
       {children}
       {/* Use this whitespace-nowrap trick so icon won't get pushed to the next line on its own */}
       {heroIcon && (
@@ -33,6 +32,6 @@ export const CtaContent = ({
         </span>
       )}
       {srText && <SrOnlyText>{srText}</SrOnlyText>}
-    </FlexBox>
+    </>
   );
 };
