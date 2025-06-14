@@ -1,10 +1,12 @@
 import { storyblokEditable } from '@storyblok/react';
 import { type SbBlokData } from '@storyblok/react';
 import { CreateBloks } from '@/components/CreateBloks';
+import { CtaLink } from '@/components/Cta';
 import { Container } from '@/components/Container';
 import { Grid } from '@/components/Grid';
 import { FlexBox } from '@/components/FlexBox';
 import { Heading } from '@/components/Typography';
+import { type SbNavItemProps } from './Storyblok.types';
 
 export type SbLocalFooterProps = {
   blok: SbBlokData & {
@@ -20,30 +22,35 @@ export type SbLocalFooterProps = {
     headingGroupInfo?: string;
     websiteLogo?: SbBlokData[];
     cta?: SbBlokData[];
-    linkGroupOod?: SbBlokData[];
-    linkGroupGift?: SbBlokData[];
-    linkGroupInfo?: SbBlokData[];
+    linkGroupOod?: SbNavItemProps[];
+    linkGroupGift?: SbNavItemProps[];
+    linkGroupInfo?: SbNavItemProps[];
   }
 };
 
 const styles = {
-  linkGroup: 'list-none m-0 p-0 [&_a]:leading-snug [&_a]:font-normal [&_a:hover]:text-black [&_a:focus]:text-black',
+  root: 'w-full',
+  logoWrapper: 'rs-pb-3',
+  grid: 'text-18 leading-snug gap-30 md:gap-60',
+  address: 'gap-2',
+  ctaWrapper: 'rs-mt-2',
+  linkGroup: 'list-unstyled *:mb-10',
   linkGroupHeading: 'text-20',
 };
 
 export const SbLocalFooter = (props: SbLocalFooterProps) => (
-  <Container {...storyblokEditable(props.blok)} bgColor="white" pt={4} pb={5}>
-    <div className="rs-pb-3">
+  <Container {...storyblokEditable(props.blok)} bgColor="white" pt={4} pb={5} className={styles.root}>
+    <div className={styles.logoWrapper}>
       <CreateBloks blokSection={props.blok.websiteLogo} />
     </div>
-    <Grid as="section" md={2} xl={4} className="text-18 leading-snug gap-30 md:gap-60">
+    <Grid as="section" md={2} xl={4} className={styles.grid}>
       <div>
         {props.blok.contactHeading && (
           <Heading tracking="normal" className={styles.linkGroupHeading}>
             {props.blok.contactHeading}
           </Heading>
         )}
-        <FlexBox as="address" direction="col" className="gap-2">
+        <FlexBox as="address" direction="col" className={styles.address}>
           {props.blok.addressLine1 && (
             <span>{props.blok.addressLine1}</span>
           )}
@@ -59,7 +66,7 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
           )}
         </FlexBox>
         {props.blok.cta && (
-          <div className="rs-mt-2">
+          <div className={styles.ctaWrapper}>
             <CreateBloks blokSection={props.blok.cta} />
           </div>
         )}
@@ -72,7 +79,17 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
             </Heading>
           )}
           <ul className={styles.linkGroup}>
-            <CreateBloks blokSection={props.blok.linkGroupOod} />
+            {props.blok.linkGroupOod?.map((navItem) => (
+              <li key={navItem._uid}>
+                <CtaLink
+                  sbLink={navItem.link}
+                  variant="local-footer"
+                  icon={navItem.linkClass}
+                >
+                  {navItem.linkTextLabel}
+                </CtaLink>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
@@ -84,7 +101,17 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
             </Heading>
           )}
           <ul className={styles.linkGroup}>
-            <CreateBloks blokSection={props.blok.linkGroupGift} />
+            {props.blok.linkGroupGift?.map((navItem) => (
+              <li key={navItem._uid}>
+                <CtaLink
+                  sbLink={navItem.link}
+                  variant="local-footer"
+                  icon={navItem.linkClass}
+                >
+                  {navItem.linkTextLabel}
+                </CtaLink>
+              </li>
+            ))}
           </ul>
         </nav>
         <Heading tracking="normal" mt={2} className={styles.linkGroupHeading}>Tax ID</Heading>
@@ -98,7 +125,17 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => (
             </Heading>
           )}
           <ul className={styles.linkGroup}>
-            <CreateBloks blokSection={props.blok.linkGroupInfo} />
+            {props.blok.linkGroupInfo?.map((navItem) => (
+              <li key={navItem._uid}>
+                <CtaLink
+                  sbLink={navItem.link}
+                  variant="local-footer"
+                  icon={navItem.linkClass}
+                >
+                  {navItem.linkTextLabel}
+                </CtaLink>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>

@@ -1,3 +1,4 @@
+import { type CtaIconType } from '@/components/Cta';
 /**
  * Generic types for Storyblok fields
  */
@@ -14,24 +15,56 @@ export type SbImageType = {
 
 export type SbLinkType =
   | {
-    cached_url?: string;
-    linktype?: string;
-    [k: string]: unknown;
-  }
+      fieldtype?: 'multilink';
+      id?: string;
+      url?: string;
+      cached_url?: string;
+      target?: '_blank' | '_self';
+      anchor?: string;
+      rel?: string;
+      title?: string;
+      prep?: string;
+      linktype: 'story';
+      [k: string]: unknown;
+    }
   | {
-    id?: string;
-    cached_url?: string;
-    linktype?: 'story';
-    [k: string]: unknown;
-  }
+      fieldtype?: 'multilink';
+      id?: string;
+      url: string;
+      cached_url?: string;
+      target?: '_blank' | '_self';
+      linktype: 'url';
+      rel?: string;
+      title?: string;
+      [k: string]: unknown;
+    }
   | {
-    url?: string;
-    cached_url?: string;
-    linktype?: 'asset' | 'url';
-    [k: string]: unknown;
-  }
+      fieldtype?: 'multilink';
+      id?: string;
+      url?: string;
+      cached_url?: string;
+      target?: '_blank' | '_self';
+      email?: string;
+      linktype: 'email';
+      [k: string]: unknown;
+    }
   | {
-    email?: string;
-    linktype?: 'email';
-    [k: string]: unknown;
-  };
+      fieldtype?: 'multilink';
+      id?: string;
+      url: string;
+      cached_url?: string;
+      target?: '_blank' | '_self';
+      linktype: 'asset';
+      [k: string]: unknown;
+    };
+
+/**
+ * Reusable types for custom Storyblok components
+ */
+
+export type SbNavItemProps = {
+  _uid: string;
+  linkTextLabel?: string;
+  link?: SbLinkType;
+  linkClass?: CtaIconType;
+};
