@@ -13,7 +13,7 @@ export const StoryblokProvider = ({ children, isEditor = false }: ProviderProps)
   if (isEditor) {
     if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search);
-      accessToken = urlParams.get('accessToken') || accessToken;
+      accessToken = urlParams.get('access_key') || accessToken;
     }
   }
 
