@@ -22,7 +22,7 @@ import {
   PlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { CheckIcon } from '@heroicons/react/16/solid';
+import { CheckIcon, MagnifyingGlassIcon } from '@heroicons/react/16/solid';
 import { PlayIcon, PauseIcon } from '@heroicons/react/20/solid';
 
 export const iconMap = {
@@ -56,6 +56,7 @@ export const iconMap = {
   'play-outline': PlayCircleIcon,
   plus: PlusIcon,
   right: ArrowRightIcon,
+  search: MagnifyingGlassIcon,
   up: ArrowUpIcon,
 };
 export type IconType = keyof typeof iconMap;

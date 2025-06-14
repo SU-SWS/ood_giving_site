@@ -5,6 +5,8 @@ import tailwindContainerQueries from '@tailwindcss/container-queries';
 import { base } from './tailwind/plugins/base/base';
 import { fontFamily } from './tailwind/plugins/theme/fontFamily';
 import { colors } from './tailwind/plugins/theme/colors';
+import { keyframes } from './tailwind/plugins/theme/keyframes';
+import { screens } from './tailwind/plugins/theme/screens';
 
 export default {
   presets: [
@@ -19,6 +21,8 @@ export default {
     extend: {
       fontFamily: fontFamily(),
       colors: colors(),
+      keyframes: keyframes(),
+      screens: screens(),
     },
   },
   plugins: [

@@ -1,5 +1,5 @@
 import React from 'react';
-import { storyblokEditable, type SbBlokData } from '@storyblok/react';
+import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';

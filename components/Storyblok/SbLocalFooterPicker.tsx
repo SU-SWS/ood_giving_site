@@ -1,10 +1,10 @@
 import React from 'react';
 import { CreateStories } from '@/components/CreateStories';
-import { type ISbStoryData } from '@storyblok/react';
+import { type ISbStoryData } from '@storyblok/react/rsc';
 
 export type SbLocalFooterPickerProps = {
   blok: {
-    localFooter: ISbStoryData[];
+    localFooter?: ISbStoryData[];
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { storyblokEditable, type SbBlokData } from '@storyblok/react';
+import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { Heading, Paragraph, type HeadingType } from '@/components/Typography';
 import { AspectRatioImage, type AspectRatioImageProps } from '@/components/Image';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
