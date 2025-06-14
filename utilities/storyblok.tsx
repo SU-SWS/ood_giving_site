@@ -72,7 +72,7 @@ export const getStoryblokApi = ({
   accessToken,
   isPreview,
 }: GetStoryblokApiConfig = {}) => {
-  accessToken ??= isPreview ? process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
+  accessToken ??= isPreview ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
 
   return storyblokInit({
     accessToken,
