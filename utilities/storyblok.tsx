@@ -51,10 +51,15 @@ export type GetStoryblokApiConfig = {
 };
 
 export const getStoryblokApi = ({
-  accessToken,
+  accessToken = 'thisisnotarealtokenasitisontheclientsideandgoesintothecode',
   isPreview,
 }: GetStoryblokApiConfig = {}) => {
-  accessToken ??= isPreview ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
+  if (isPreview) {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      accessToken = urlParams.get('access_key') || accessToken;
+    }
+  }
 
   return storyblokInit({
     accessToken,
