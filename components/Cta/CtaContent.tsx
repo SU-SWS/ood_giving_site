@@ -18,7 +18,7 @@ export const CtaContent = ({
   const iconAnimate = icon ? styles.iconAnimations[icon] : '';
 
   return (
-    <>
+    <div>
       {children}
       {/* Use this whitespace-nowrap trick so icon won't get pushed to the next line on its own */}
       {heroIcon && (
@@ -32,6 +32,6 @@ export const CtaContent = ({
         </span>
       )}
       {srText && <SrOnlyText>{srText}</SrOnlyText>}
-    </>
+    </div>
   );
 };
