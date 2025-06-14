@@ -36,7 +36,7 @@
     "@heroicons/react": "^2.2.0",
     "@netlify/functions": "^3.0.4",
     "@next/third-parties": "^15.2.4",
-    "@storyblok/react": "^4.7.0",
+    "@storyblok/react": "^5.0.0",
     "algoliasearch": "^5.23.0",
     "cnbuilder": "^3.1.0",
     "cookies-next": "^5.1.0",
@@ -45,7 +45,7 @@
     "react-instantsearch": "^7.15.7",
     "sa11y": "^4.1.2",
     "slick-carousel": "^1.8.1",
-    "storyblok-js-client": "^6.11.0",
+    "storyblok-js-client": "^7.0.0",
     "storyblok-rich-text-react-renderer": "^3.0.1",
     "usehooks-ts": "^3.1.1"
   },
