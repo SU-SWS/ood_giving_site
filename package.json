@@ -41,7 +41,7 @@
     "cookies-next": "^5.1.0",
     "fuse.js": "^7.1.0",
     "next": "^15.3.3",
-    "sa11y": "^4.1.2",
+    "sa11y": "^4.1.9",
     "slick-carousel": "^1.8.1",
     "storyblok-js-client": "^7.0.0",
     "storyblok-rich-text-react-renderer": "^3.0.1",
