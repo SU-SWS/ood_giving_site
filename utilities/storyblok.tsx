@@ -13,7 +13,7 @@ import { SbStoryPicker } from '@/components/Storyblok/SbStoryPage';
 import { Redirect } from '@/components/Redirect';
 import { SbLocalFooterPicker } from '@/components/Storyblok/SbLocalFooterPicker';
 import { SbLocalFooter } from '@/components/Storyblok/SbLocalFooter';
-import { SbCtaLink } from '@/components/Storyblok/SbCtaLink';
+// import { SbCtaLink } from '@/components/Storyblok/SbCtaLink';
 import { SbNavItem } from '@/components/Storyblok/SbNavItem';
 import { SbLockup } from '@/components/Storyblok/SbLockup';
 import { SbSingleColumnContent } from '@/components/Storyblok/SbSingleColumnContent';
@@ -24,7 +24,7 @@ export const components = {
   page: SbPage,
   redirect: Redirect,
   storyPicker: SbStoryPicker,
-  ctaLink: SbCtaLink,
+  // ctaLink: SbCtaLink,
   navItem: SbNavItem,
   lockup: SbLockup,
   // Pages
