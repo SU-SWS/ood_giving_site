@@ -47,14 +47,14 @@ export const components = {
 
 export type GetStoryblokApiConfig = {
   accessToken?: string;
-  isPreview?: boolean;
+  isEditor?: boolean;
 };
 
 export const getStoryblokApi = ({
   accessToken,
-  isPreview,
+  isEditor,
 }: GetStoryblokApiConfig = {}) => {
-  accessToken ??= isPreview ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
+  accessToken ??= isEditor ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
 
   return storyblokInit({
     accessToken,
