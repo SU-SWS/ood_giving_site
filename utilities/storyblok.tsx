@@ -45,9 +45,19 @@ export const components = {
   storyImage: SbStoryImage,
 };
 
-export const getStoryblokApi = () => {
+export type GetStoryblokApiConfig = {
+  accessToken?: string;
+  isEditor?: boolean;
+};
+
+export const getStoryblokApi = ({
+  accessToken,
+  isEditor,
+}: GetStoryblokApiConfig = {}) => {
+  accessToken ??= isEditor ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
+
   return storyblokInit({
-    accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
+    accessToken,
     use: [apiPlugin],
     components,
     enableFallbackComponent: true,

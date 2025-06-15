@@ -1,7 +1,5 @@
 'use client';
-import { storyblokInit, apiPlugin } from '@storyblok/react/rsc';
-import { ComponentNotFound } from '@/components/Storyblok/ComponentNotFound';
-import { components } from '@/utilities/storyblok';
+import { getStoryblokApi } from '@/utilities/storyblok';
 
 type ProviderProps = {
   children: React.ReactNode;
@@ -9,7 +7,9 @@ type ProviderProps = {
 };
 
 export const StoryblokProvider = ({ children, isEditor = false }: ProviderProps) => {
-  let accessToken = 'thisisnotarealtokenasitisontheclientsideandgoesintothecode'; // No access token because this is in client side code.
+  // No access token because this is in client side code.
+  let accessToken = 'thisisnotarealtokenasitisontheclientsideandgoesintothecode';
+
   if (isEditor) {
     if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search);
@@ -17,16 +17,7 @@ export const StoryblokProvider = ({ children, isEditor = false }: ProviderProps)
     }
   }
 
-  // Init the Storyblok client so we can use the Storyblok components.
-  storyblokInit({
-    accessToken,
-    use: [apiPlugin],
-    components,
-    enableFallbackComponent: true,
-    customFallbackComponent: (component) => {
-      return <ComponentNotFound component={component} />;
-    },
-  });
+  getStoryblokApi({ accessToken, isEditor });
 
   return children;
 };
