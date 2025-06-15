@@ -1,5 +1,5 @@
 import type { getStoryDataProps } from '@/utilities/data/types';
-import type { ISbStoriesParams, ISbResult } from '@storyblok/react';
+import type { ISbStoriesParams, ISbResult } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { isProduction } from '../getActiveEnv';
 import { unstable_cache } from 'next/cache';

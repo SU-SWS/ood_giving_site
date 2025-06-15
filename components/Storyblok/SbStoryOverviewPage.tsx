@@ -1,6 +1,6 @@
 import React from 'react';
 import { type SbBlokData } from '@storyblok/react/rsc';
-import { storyblokEditable } from '@storyblok/react';
+import { storyblokEditable } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
 import { HeaderNoImage, type HeaderNoImageProps } from '@/components/Storyblok/partials/HeaderNoImage';
