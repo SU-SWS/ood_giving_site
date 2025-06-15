@@ -1,5 +1,5 @@
-import { storyblokEditable } from '@storyblok/react';
-import { type SbBlokData } from '@storyblok/react';
+import { storyblokEditable } from '@storyblok/react/rsc';
+import { type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { CtaLink } from '@/components/Cta';
 import { Container } from '@/components/Container';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { storyblokEditable, type SbBlokData } from '@storyblok/react';
+import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import {
   CtaLink,
   type CtaAlignType,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { CreateBloks } from '../CreateBloks';
-import { type SbBlokData } from '@storyblok/react';
+import { type SbBlokData } from '@storyblok/react/rsc';
 
 type SbPageProps = {
   blok: SbBlokData & {
