@@ -1,6 +1,6 @@
 import React from 'react';
 import { type SbBlokData } from '@storyblok/react/rsc';
-import { storyblokEditable } from '@storyblok/react';
+import { storyblokEditable } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Heading } from '@/components/Typography';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';

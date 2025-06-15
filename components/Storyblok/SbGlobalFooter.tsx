@@ -1,5 +1,5 @@
 import { GlobalFooter } from '@/components/GlobalFooter';
-import { SbBlokData, storyblokEditable } from '@storyblok/react';
+import { SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 
 export type SbGlobalFooterProps = {
   blok: SbBlokData & {

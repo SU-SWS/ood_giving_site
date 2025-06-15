@@ -1,5 +1,5 @@
 import React from 'react';
-import { type SbBlokData, storyblokEditable } from '@storyblok/react';
+import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { type SbLinkType } from './Storyblok.types';
 import { LogoLockup } from '@/components/Logo';
 
@@ -12,7 +12,7 @@ export type SbLockupProps = {
 
 export const SbLockup = (props: SbLockupProps) => (
   <div {...storyblokEditable(props.blok)} className="su-lockup su-lockup--option-n">
-    <LogoLockup 
+    <LogoLockup
       isLink
       text="Giving"
       className="origin-left scale-[175%]"

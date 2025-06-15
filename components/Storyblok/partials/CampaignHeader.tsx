@@ -1,5 +1,5 @@
 import React, { useId } from 'react';
-import { type SbBlokData } from '@storyblok/react';
+import { type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { CampaignHero } from '@/components/Storyblok/partials/CampaignHero';
 

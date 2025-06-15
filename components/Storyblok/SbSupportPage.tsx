@@ -1,7 +1,7 @@
 'use client';
 import React, { type MouseEventHandler, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { storyblokEditable, type SbBlokData } from '@storyblok/react';
+import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { HeaderNoImage, type HeaderNoImageProps } from '@/components/Storyblok/partials/HeaderNoImage';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';

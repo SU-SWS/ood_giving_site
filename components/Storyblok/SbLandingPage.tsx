@@ -1,5 +1,5 @@
 import { type SbBlokData } from '@storyblok/react/rsc';
-import { storyblokEditable } from '@storyblok/react';
+import { storyblokEditable } from '@storyblok/react/rsc';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';

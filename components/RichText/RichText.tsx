@@ -23,6 +23,7 @@ import {
   type TextAlignType,
 } from '@/components/Typography';
 import { wysiwygClasses, type WysiwygClassesType } from '@/utilities/wysiwygClasses';
+import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 
 /**
@@ -107,7 +108,7 @@ export const RichText = ({
           anchor: linktype === 'story' ? anchor : '',
           // The WYSIWYG inline links automatically add a target="_self" by default which is unnecessary
           target: target === '_blank' ? '_blank' : undefined,
-        };
+        } as SbLinkType;
 
         return (
           <SbLink

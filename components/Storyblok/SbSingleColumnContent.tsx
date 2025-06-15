@@ -1,4 +1,4 @@
-import { storyblokEditable, type SbBlokData } from '@storyblok/react';
+import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { cnb } from 'cnbuilder';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { Container } from '@/components/Container';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { CreateStories } from '@/components/CreateStories';
-import { type ISbStoryData, type SbBlokData } from '@storyblok/react';
+import { type ISbStoryData, type SbBlokData } from '@storyblok/react/rsc';
 
 export type SbStoryPickerProps = {
   blok: SbBlokData & {
