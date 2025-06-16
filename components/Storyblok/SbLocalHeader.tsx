@@ -17,12 +17,10 @@ export type SbLocalHeaderProps = {
 export const SbLocalHeader = (props: SbLocalHeaderProps) => (
   <header
     {...storyblokEditable(props.blok)}
-    className="relative z-[130] ood-header shadow-md bg-white lg:border-t-[1rem] border-t-cardinal-red"
+    className="relative z-[130] ood-header shadow-md bg-white md:border-t-[1rem] border-t-cardinal-red"
   >
     <Skiplink />
-    <Container className={`ood-header__submenu-container bg-cardinal-red-dark lg:bg-white`}>
-      <CreateBloks blokSection={props.blok.subMenu} />
-    </Container>
+    <CreateBloks blokSection={props.blok.subMenu} />
     <Container className={'ood-header__masthead'}>
       <div className="lg:pb-20">
         <CreateBloks blokSection={props.blok.lockup} />

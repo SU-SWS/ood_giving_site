@@ -1,7 +1,7 @@
 import { type CtaIconLeftMarginType } from './Cta.types';
 
 export const cta = 'group/cta transition-all';
-export const buttonBase = 'block font-normal w-fit no-underline hocus:underline leading-tight';
+export const buttonBase = 'block cta-button font-normal w-fit no-underline hocus:underline leading-tight';
 // hocus to plum dark gradient instead of solid plum dark to avoid a flash of white background on hocus
 export const gradientButtonBase = 'bg-gradient-to-tr hocus:from-plum-dark hocus:to-plum-dark text-white hocus:text-white';
 export const textLinkBase = 'block font-semibold w-fit no-underline text-18 md:text-20 leading-tight';
@@ -61,6 +61,7 @@ export const ctaTextColors = {
 // Additional CTA variants we use for this site, e.g., as subcomponents for other components. These include styles for sizes, colors, icon styles, and other properties.
 export const ctaVariants = {
   'local-footer': 'text-digital-red hocus:text-black underline leading-snug font-normal text-16 md:text-18 *:[&_svg]:hocus:text-digital-red',
+  'sub-menu': 'text-14 sm:text-16 text-white leading-[4rem] md:leading-cozy hocus:text-white md:text-cool-grey md:hocus:text-digital-red font-normal no-underline hocus:underline',
 };
 
 // Maps to linkButtonSize prop in SbCtaLink. Only used for the button styles
