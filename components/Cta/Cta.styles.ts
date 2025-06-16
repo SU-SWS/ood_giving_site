@@ -1,10 +1,10 @@
 import { type CtaIconLeftMarginType } from './Cta.types';
 
 export const cta = 'group/cta transition-all';
-export const buttonBase = 'block font-normal w-fit no-underline hocus:underline';
+export const buttonBase = 'block font-normal w-fit no-underline hocus:underline leading-tight';
 // hocus to plum dark gradient instead of solid plum dark to avoid a flash of white background on hocus
 export const gradientButtonBase = 'bg-gradient-to-tr hocus:from-plum-dark hocus:to-plum-dark text-white hocus:text-white';
-export const textLinkBase = 'block font-semibold w-fit no-underline text-18 md:text-20';
+export const textLinkBase = 'block font-semibold w-fit no-underline text-18 md:text-20 leading-tight';
 export const gradientTextLinkBase = 'bg-clip-text bg-gradient-to-tr text-transparent hocus:text-transparent';
 
 // Maps to linkButtonStyle props in SbCtaLink. Only used for the Button style.
@@ -107,3 +107,5 @@ export const ctaAligns = {
   center: 'su-text-center mx-auto',
   right: 'su-text-right ml-auto mr-0',
 };
+
+export const ctaGroup = 'list-unstyled gap-x-08em gap-y-1em [&_li]:mb-0 [&_a]:text-09em [&_a]:md:text-20 [&_a]:p-07em [&_a]:md:pt-11 [&_a]:md:pb-12 [&_a]:md:px-30';

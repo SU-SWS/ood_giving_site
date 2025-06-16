@@ -21,13 +21,14 @@ import { SbStoryImage } from '@/components/Storyblok/SbStoryImage';
 import { SbSection } from '@/components/Storyblok/SbSection';
 import { SbRowOneColumn } from '@/components/Storyblok/SbRowOneColumn';
 import { SbBasicCard } from '@/components/Storyblok/SbBasicCard';
+import { SbCtaGroup } from '@/components/Storyblok/SbCtaGroup';
 
 export const components = {
-  // TODO DS-1417: Remove and clean up page
   page: SbPage,
   redirect: Redirect,
   storyPicker: SbStoryPicker,
   ctaLink: SbCtaLink,
+  ctaGroup: SbCtaGroup,
   navItem: SbNavItem,
   lockup: SbLockup,
   // Cards
