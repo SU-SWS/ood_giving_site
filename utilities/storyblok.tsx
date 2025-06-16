@@ -18,6 +18,9 @@ import { SbNavItem } from '@/components/Storyblok/SbNavItem';
 import { SbLockup } from '@/components/Storyblok/SbLockup';
 import { SbSingleColumnContent } from '@/components/Storyblok/SbSingleColumnContent';
 import { SbStoryImage } from '@/components/Storyblok/SbStoryImage';
+import { SbSection } from '@/components/Storyblok/SbSection';
+import { SbRowOneColumn } from '@/components/Storyblok/SbRowOneColumn';
+import { SbBasicCard } from '@/components/Storyblok/SbBasicCard';
 
 export const components = {
   // TODO DS-1417: Remove and clean up page
@@ -27,6 +30,8 @@ export const components = {
   ctaLink: SbCtaLink,
   navItem: SbNavItem,
   lockup: SbLockup,
+  // Cards
+  basicCard: SbBasicCard,
   // Pages
   oodCampaignPage: SbCampaignPage,
   oodInteriorPage: SbInteriorPage,
@@ -40,6 +45,8 @@ export const components = {
   localFooterPicker: SbLocalFooterPicker,
   oodLocalFooter: SbLocalFooter,
   // Layout
+  rowOneColumn: SbRowOneColumn,
+  section: SbSection,
   singleColumnContent: SbSingleColumnContent,
   // Media
   storyImage: SbStoryImage,

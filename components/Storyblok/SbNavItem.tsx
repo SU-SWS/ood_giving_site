@@ -1,5 +1,5 @@
 import React from 'react';
-import { type SbBlokData, storyblokEditable } from '@storyblok/react';
+import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
 import { type SbLinkType } from './Storyblok.types';
 

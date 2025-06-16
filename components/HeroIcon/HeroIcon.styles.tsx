@@ -16,13 +16,15 @@ import {
   DocumentDuplicateIcon,
   EnvelopeIcon,
   LinkIcon,
+  LockClosedIcon,
   MapPinIcon,
   MinusIcon,
   PlayCircleIcon,
   PlusIcon,
+  VideoCameraIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { CheckIcon } from '@heroicons/react/16/solid';
+import { CheckIcon, LockClosedIcon as SolidLockClosedIcon } from '@heroicons/react/16/solid';
 import { PlayIcon, PauseIcon } from '@heroicons/react/20/solid';
 
 export const iconMap = {
@@ -48,6 +50,8 @@ export const iconMap = {
   left: ArrowLeftIcon,
   link: LinkIcon,
   location: MapPinIcon,
+  lock: LockClosedIcon,
+  'lock-solid': SolidLockClosedIcon,
   menu: Bars3Icon,
   minus: MinusIcon,
   more: ArrowRightIcon,
@@ -57,6 +61,7 @@ export const iconMap = {
   plus: PlusIcon,
   right: ArrowRightIcon,
   up: ArrowUpIcon,
+  video: VideoCameraIcon,
 };
 export type IconType = keyof typeof iconMap;
 
@@ -76,12 +81,14 @@ export const iconBaseStyle: IconBaseStyleType = {
   'arrow-left': 'w-09em -mt-01em',
   'arrow-right': 'w-09em -mt-01em',
   'chevron-right': 'w-09em -mt-01em',
-  download: 'w-09em',
+  download: 'w-09em -mt-01em',
   expand: 'w-1em -mt-02em',
-  external: 'w-08em stroke-[2.5]',
+  external: 'w-08em stroke-[2.5] -mt-01em',
   left: 'w-08em',
+  lock: 'w-09em -mt-03em',
   link: 'w-09em -mt-01em',
   more: 'w-08em',
   plus: 'w-08em',
   right: 'w-08em',
+  video: 'w-09em -mt-01em',
 };
