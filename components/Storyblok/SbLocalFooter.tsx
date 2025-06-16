@@ -28,6 +28,36 @@ export type SbLocalFooterProps = {
   }
 };
 
+type FooterLinkGroupProps = {
+  heading?: string;
+  links?: SbNavItemProps[];
+  ariaLabel?: string;
+};
+
+// Extract subcomponent for the link groups
+const FooterLinkGroup = ({
+  heading,
+  links,
+  ariaLabel,
+}: FooterLinkGroupProps) => (
+  <nav aria-label={ariaLabel}>
+    {heading && (
+      <Heading tracking="normal" className={styles.linkGroupHeading}>
+        {heading}
+      </Heading>
+    )}
+    <ul className={styles.linkGroup}>
+      {links?.map((navItem) => (
+        <li key={navItem._uid}>
+          <CtaLink sbLink={navItem.link} variant="local-footer" icon={navItem.linkClass}>
+            {navItem.linkTextLabel}
+          </CtaLink>
+        </li>
+      ))}
+    </ul>
+  </nav>
+);
+
 const styles = {
   root: 'w-full',
   logoWrapper: 'rs-pb-3',
@@ -38,107 +68,78 @@ const styles = {
   linkGroupHeading: 'text-20',
 };
 
-export const SbLocalFooter = (props: SbLocalFooterProps) => (
-  <Container {...storyblokEditable(props.blok)} bgColor="white" pt={4} pb={5} className={styles.root}>
-    <div className={styles.logoWrapper}>
-      <CreateBloks blokSection={props.blok.websiteLogo} />
-    </div>
-    <Grid as="section" md={2} xl={4} className={styles.grid}>
-      <div>
-        {props.blok.contactHeading && (
-          <Heading tracking="normal" className={styles.linkGroupHeading}>
-            {props.blok.contactHeading}
-          </Heading>
-        )}
-        <FlexBox as="address" direction="col" className={styles.address}>
-          {props.blok.addressLine1 && (
-            <span>{props.blok.addressLine1}</span>
-          )}
-          {props.blok.addressLine2 && (
-            <span>{props.blok.addressLine2}</span>
-          )}
-          {props.blok.addressLine3 && (
-            <span>{props.blok.addressLine3}</span>
-          )}
-          {props.blok.phone && <span>{props.blok.phone}</span>}
-          {props.blok.email && (
-            <a href={`mailto:${props.blok.email}`}>{props.blok.email}</a>
-          )}
-        </FlexBox>
-        {props.blok.cta && (
-          <div className={styles.ctaWrapper}>
-            <CreateBloks blokSection={props.blok.cta} />
-          </div>
-        )}
+export const SbLocalFooter = (props: SbLocalFooterProps) => {
+  const {
+    contactHeading,
+    addressLine1,
+    addressLine2,
+    addressLine3,
+    phone,
+    email,
+    headingGroupOod,
+    headingGroupGift,
+    taxId,
+    headingGroupInfo,
+    websiteLogo,
+    cta,
+    linkGroupOod,
+    linkGroupGift,
+    linkGroupInfo,
+  } = props.blok;
+
+  return (
+    <Container {...storyblokEditable(props.blok)} bgColor="white" pt={4} pb={5} className={styles.root}>
+      <div className={styles.logoWrapper}>
+        <CreateBloks blokSection={websiteLogo} />
       </div>
-      <div>
-        <nav aria-label="Local footer Office of Development links">
-          {props.blok.headingGroupOod && (
+      <Grid as="section" md={2} xl={4} className={styles.grid}>
+        <div>
+          {contactHeading && (
             <Heading tracking="normal" className={styles.linkGroupHeading}>
-              {props.blok.headingGroupOod}
+              {contactHeading}
             </Heading>
           )}
-          <ul className={styles.linkGroup}>
-            {props.blok.linkGroupOod?.map((navItem) => (
-              <li key={navItem._uid}>
-                <CtaLink
-                  sbLink={navItem.link}
-                  variant="local-footer"
-                  icon={navItem.linkClass}
-                >
-                  {navItem.linkTextLabel}
-                </CtaLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-      <div>
-        <nav aria-label="Local footer Make a Gift links">
-          {props.blok.headingGroupGift && (
-            <Heading tracking="normal" className={styles.linkGroupHeading}>
-              {props.blok.headingGroupGift}
-            </Heading>
+          <FlexBox as="address" direction="col" className={styles.address}>
+            {addressLine1 && (
+              <span>{addressLine1}</span>
+            )}
+            {addressLine2 && (
+              <span>{addressLine2}</span>
+            )}
+            {addressLine3 && (
+              <span>{addressLine3}</span>
+            )}
+            {phone && <span>{phone}</span>}
+            {email && (
+              <a href={`mailto:${email}`}>{email}</a>
+            )}
+          </FlexBox>
+          {cta && (
+            <div className={styles.ctaWrapper}>
+              <CreateBloks blokSection={cta} />
+            </div>
           )}
-          <ul className={styles.linkGroup}>
-            {props.blok.linkGroupGift?.map((navItem) => (
-              <li key={navItem._uid}>
-                <CtaLink
-                  sbLink={navItem.link}
-                  variant="local-footer"
-                  icon={navItem.linkClass}
-                >
-                  {navItem.linkTextLabel}
-                </CtaLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <Heading tracking="normal" mt={2} className={styles.linkGroupHeading}>Tax ID</Heading>
-        <span>{props.blok.taxId}</span>
-      </div>
-      <div>
-        <nav aria-label="Local footer information links">
-          {props.blok.headingGroupInfo && (
-            <Heading tracking="normal" className={styles.linkGroupHeading}>
-              {props.blok.headingGroupInfo}
-            </Heading>
-          )}
-          <ul className={styles.linkGroup}>
-            {props.blok.linkGroupInfo?.map((navItem) => (
-              <li key={navItem._uid}>
-                <CtaLink
-                  sbLink={navItem.link}
-                  variant="local-footer"
-                  icon={navItem.linkClass}
-                >
-                  {navItem.linkTextLabel}
-                </CtaLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </Grid>
-  </Container>
-);
+        </div>
+        <FooterLinkGroup
+          heading={headingGroupOod}
+          links={linkGroupOod}
+          ariaLabel="Local footer Office of Development links"
+        />
+        <div>
+          <FooterLinkGroup
+            heading={headingGroupGift}
+            links={linkGroupGift}
+            ariaLabel="Local footer Make a Gift links"
+          />
+          <Heading tracking="normal" mt={2} className={styles.linkGroupHeading}>Tax ID</Heading>
+          <span>{taxId}</span>
+        </div>
+        <FooterLinkGroup
+          heading={headingGroupInfo}
+          links={linkGroupInfo}
+          ariaLabel="Local footer information links"
+        />
+      </Grid>
+    </Container>
+  );
+};
