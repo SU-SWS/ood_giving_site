@@ -39,7 +39,7 @@ export const SbCtaLink = React.forwardRef<HTMLAnchorElement, SbCtaProps>((props,
     linkTextColor,
   } = props.blok;
 
-  if (!props.blok.linkText) {
+  if (!linkText) {
     return null;
   }
 
