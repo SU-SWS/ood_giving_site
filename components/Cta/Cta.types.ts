@@ -29,3 +29,5 @@ export interface CtaCommonProps {
   mb?: MarginType;
   children?: React.ReactNode;
 }
+
+export type CtaGroupDisplayType = 'inline' | 'inline-block';

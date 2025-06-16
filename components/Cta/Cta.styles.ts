@@ -107,3 +107,5 @@ export const ctaAligns = {
   center: 'su-text-center mx-auto',
   right: 'su-text-right ml-auto mr-0',
 };
+
+export const ctaGroup = 'list-unstyled gap-x-08em gap-y-1em [&_li]:mb-0 [&_a]:text-09em [&_a]:md:text-20 [&_a]:p-07em [&_a]:md:pt-11 [&_a]:md:pb-12 [&_a]:md:px-30';
