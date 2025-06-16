@@ -4,7 +4,7 @@ import { CreateBloks } from '@/components/CreateBloks';
 // TODO: This is a placeholder
 export type SbRowOneColumnProps = {
   blok: SbBlokData & {
-    columnDontent: SbBlokData[];
+    columnContent: SbBlokData[];
   };
 }
 
