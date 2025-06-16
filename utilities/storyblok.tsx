@@ -28,6 +28,9 @@ import {
   SbMegaMenuLinkGroup,
   SbMegaMenuCard,
 } from '@/components/Storyblok/SbMegaMenu';
+import { SbSection } from '@/components/Storyblok/SbSection';
+import { SbRowOneColumn } from '@/components/Storyblok/SbRowOneColumn';
+import { SbBasicCard } from '@/components/Storyblok/SbBasicCard';
 
 export const components = {
   // TODO DS-1417: Remove and clean up page
@@ -37,6 +40,8 @@ export const components = {
   ctaLink: SbCtaLink,
   navItem: SbNavItem,
   lockup: SbLockup,
+  // Cards
+  basicCard: SbBasicCard,
   // Pages
   oodCampaignPage: SbCampaignPage,
   oodInteriorPage: SbInteriorPage,
@@ -58,6 +63,8 @@ export const components = {
   oodMegaMenuLinkGroup: SbMegaMenuLinkGroup,
   oodMegaMenuCard: SbMegaMenuCard,
   // Layout
+  rowOneColumn: SbRowOneColumn,
+  section: SbSection,
   singleColumnContent: SbSingleColumnContent,
   // Media
   storyImage: SbStoryImage,
@@ -65,14 +72,14 @@ export const components = {
 
 export type GetStoryblokApiConfig = {
   accessToken?: string;
-  isPreview?: boolean;
+  isEditor?: boolean;
 };
 
 export const getStoryblokApi = ({
   accessToken,
-  isPreview,
+  isEditor,
 }: GetStoryblokApiConfig = {}) => {
-  accessToken ??= isPreview ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
+  accessToken ??= isEditor ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
 
   return storyblokInit({
     accessToken,

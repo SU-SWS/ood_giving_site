@@ -1,9 +1,8 @@
-import React from 'react';
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { Heading, Paragraph, type HeadingType } from '@/components/Typography';
 import { AspectRatioImage, type AspectRatioImageProps } from '@/components/Image';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
-import { type SbImageType } from '../Storyblok.types';
+import { type SbImageType, type SbLinkType } from '../Storyblok.types';
 import { SuspenseWrapper } from '@/components/SuspenseWrapper';
 
 export type SbStoryCardViewProps = AspectRatioImageProps & {
@@ -27,7 +26,7 @@ export const SbStoryCardView = (props: SbStoryCardViewProps) => {
   const hasHeroImage = props.blok.heroImage?.filename?.startsWith('http');
   const showImage = (hasCardImage || hasHeroImage) && !props.hideImage;
 
-  const theLink = { linktype: 'story', url: props.storyLink + '/' };
+  const theLink: SbLinkType = { linktype: 'story', url: props.storyLink + '/' };
   return (
     <article
       {...storyblokEditable(props.blok)}

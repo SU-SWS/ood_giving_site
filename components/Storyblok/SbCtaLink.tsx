@@ -1,67 +1,63 @@
 import React from 'react';
-import { cnb } from 'cnbuilder';
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
-import { SbLink } from '@/components/Storyblok/partials/SbLink';
-import { SrOnlyText } from '@/components/Typography';
-import { type SbLinkType } from './Storyblok.types';
 import {
-  ctaLinkColors,
-  ctaLinkStyles,
-  ctaSizes,
-  type CtaLinkStylesType,
-  type CtaLinkColorsType,
-  type CtaSizesType,
-  type LinkIconsType,
-} from '@/utilities/datasource';
+  CtaLink,
+  type CtaAlignType,
+  type CtaButtonStyleType,
+  type CtaButtonSizeType,
+  type CtaTextColorType,
+  type CtaIconType,
+} from '@/components/Cta';
+import { type SbLinkType } from './Storyblok.types';
 
 export type SbCtaProps = {
   blok: SbBlokData & {
-    align?: string;
+    align?: CtaAlignType;
     link: SbLinkType;
     linkText?: string;
     isButton?: boolean;
-    linkButtonStyle?: CtaLinkStylesType;
-    linkButtonSize?: CtaSizesType;
-    linkIcon?: LinkIconsType;
-    linkTextColor?: CtaLinkColorsType;
+    linkButtonStyle?: CtaButtonStyleType;
+    linkButtonSize?: CtaButtonSizeType;
+    linkTextColor?: CtaTextColorType;
+    linkIcon?: CtaIconType;
     rel?: string;
     srText?: string;
   }
 };
 
 export const SbCtaLink = React.forwardRef<HTMLAnchorElement, SbCtaProps>((props, ref) => {
+  const {
+    linkText,
+    link,
+    isButton,
+    rel,
+    srText,
+    align,
+    linkButtonStyle,
+    linkButtonSize,
+    linkIcon,
+    linkTextColor,
+  } = props.blok;
+
   if (!props.blok.linkText) {
     return null;
   }
 
   return (
-    <div {...storyblokEditable(props.blok)} className={`ood-cta block text-${props.blok.align}`}>
-      <SbLink
-        ref={ref}
-        link={props.blok.link}
-        classes={cnb(props.blok.linkIcon,
-          'text-18 md:text-20',
-          {
-            [
-              `text-digital-red hocus:text-sky-dark hocus:underline
-              ${ctaLinkColors[props.blok.linkTextColor]}`
-            ]: !props.blok.isButton,
-            [
-              `pt-11 px-30 pb-12 font-sans
-              inline-block w-auto border-none font-regular
-              no-underline transition-colors hocus:underline
-              ${ctaLinkStyles?.[props.blok.linkButtonStyle]}
-              ${ctaSizes?.[props.blok.linkButtonSize]}`
-            ]: props.blok.isButton,
-          },
-        )}
-        attributes={props.blok.rel ? {rel: props.blok.rel} : {}}
-      >
-        {props.blok.linkText}
-        {props.blok.srText && (
-          <SrOnlyText>{props.blok.srText}</SrOnlyText>
-        )}
-      </SbLink>
-    </div>
+    <CtaLink
+      {...storyblokEditable(props.blok)}
+      ref={ref}
+      sbLink={link}
+      isButton={isButton}
+      buttonStyle={linkButtonStyle}
+      buttonSize={linkButtonSize || 'default'}
+      textColor={linkTextColor}
+      icon={linkIcon}
+      align={align || 'left'}
+      srText={srText}
+      rel={rel}
+    >
+      {linkText}
+    </CtaLink>
   );
 });
