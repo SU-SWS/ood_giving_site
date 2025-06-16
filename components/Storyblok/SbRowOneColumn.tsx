@@ -11,7 +11,7 @@ export type SbRowOneColumnProps = {
 export const SbRowOneColumn = (props: SbRowOneColumnProps) => {
   return (
     <div {...storyblokEditable(props.blok)}>
-      <CreateBloks blokSection={props.blok.columnDontent} />
+      <CreateBloks blokSection={props.blok.columnContent} />
     </div>
   );
 };
