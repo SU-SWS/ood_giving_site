@@ -27,7 +27,7 @@ export const SbMegaMenuSection = (props: SbMegaMenuSectionProps) => {
         <>
           <PopoverButton aria-label={`${open ? 'Close' : 'Open'} main menu`} className={styles.panelButton}>
             {props.blok.linkText}
-            <HeroIcon icon="chevron-down" strokeWidth={1.8} className="!w-18 -mt-01em inline-block ood-mega-nav__trigger-icon ml-2 transition-transform group-aria-expanded:rotate-180 text-black group-hocus-visible:text-black" />
+            <HeroIcon icon="chevron-down" strokeWidth={1.8} noBaseStyle className={styles.panelButtonIcon} />
           </PopoverButton>
           <Transition
             enter="duration-300 ease-out"
@@ -40,14 +40,14 @@ export const SbMegaMenuSection = (props: SbMegaMenuSectionProps) => {
             <PopoverPanel className={styles.section}>
               <Grid {...storyblokEditable(props.blok)} gap="default" lg={3} pt={4} pb={5} className={styles.sectionContent}>
                 <div className="lg:col-span-2">
-                  <Grid gap="default" lg={3}>
+                  <Grid gap="default" lg={3} className="gap-y-40 lg:gap-y-0">
                     <CreateBloks blokSection={props.blok.linkGroups} />
                   </Grid>
-                  <div className="rs-mt-4">
+                  <div className="rs-mt-4 empty:mt-0">
                     <CreateBloks blokSection={props.blok.sectionCtaLink} />
                   </div>
                 </div>
-                <div className="lg:col-span-1">
+                <div className="lg:col-span-1 mt-20 lg:mt-0">
                   <CreateBloks blokSection={props.blok.card} />
                 </div>
               </Grid>

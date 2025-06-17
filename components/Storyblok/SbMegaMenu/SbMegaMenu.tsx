@@ -3,10 +3,12 @@ import { type SbBlokData, storyblokEditable } from '@storyblok/react';
 import {
   Popover, PopoverButton, PopoverPanel, Transition,
 } from '@headlessui/react';
+import { useWindowSize } from 'usehooks-ts';
 import { CreateBloks } from '@/components/CreateBloks';
 import { FlexBox } from '@/components/FlexBox';
+import { HeroIcon } from '@/components/HeroIcon';
 import { config } from '@/utilities/config';
-import { useWindowSize } from 'usehooks-ts';
+import * as styles from './SbMegaMenu.styles';
 
 export type SbMegaMenuProps = {
   blok: SbBlokData & {
@@ -31,12 +33,13 @@ export const SbMegaMenu = (props: SbMegaMenuProps) => {
       {({ open }) => (
         <>
           <PopoverButton
-            className="ood-mega-nav__toggle mr-none ml-auto"
+            className={styles.mobileButton}
             aria-label={open ? 'Close Menu' : 'Open Menu'}
           >
-            <i
-              aria-hidden="true"
-              className={`fas fa-${open ? 'times' : 'bars'}`}
+            <HeroIcon
+              icon={open ? 'close' : 'menu'}
+              noBaseStyle
+              className={styles.mobileButtonIcon}
             />
             {open ? 'Close' : 'Menu'}
           </PopoverButton>
@@ -51,8 +54,7 @@ export const SbMegaMenu = (props: SbMegaMenuProps) => {
             <PopoverPanel
               as="ul"
               {...storyblokEditable(props.blok)}
-              className="ood-mega-nav__menu-lv1 list-unstyled"
-              // aria-hidden={!menuOpened}
+              className={styles.mobileTopMenu}
             >
               <CreateBloks blokSection={props.blok.topLevelLinks} />
             </PopoverPanel>

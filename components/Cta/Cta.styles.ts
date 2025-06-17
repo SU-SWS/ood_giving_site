@@ -62,7 +62,7 @@ export const ctaTextColors = {
 export const ctaVariants = {
   'local-footer': 'text-digital-red hocus:text-black underline leading-snug font-normal text-16 md:text-18 *:[&_svg]:hocus:text-digital-red',
   'sub-menu': 'text-14 sm:text-16 py-6 md:py-10 text-white leading-[4rem] md:leading-cozy hocus:text-white md:text-cool-grey md:hocus:text-digital-red font-normal no-underline hocus:underline',
-  'mega-menu': 'relative inline-block text-20 lg:text-21 lg:py-16 font-semibold leading-cozy no-underline hocus:no-underline text-black hocus:text-digital-red before:absolute before:inline-block before:h-10 before:w-full before:left-0 before:bottom-0 before:bg-digital-red before:scale-x-0 before:transition-transform hocus:before:scale-x-100 aria-expanded:before:scale-x-100 outline-none',
+  'mega-menu': 'relative flex w-full lg:w-fit text-20 lg:text-21 px-20 sm:px-30 md:px-50 py-16 lg:px-0 font-semibold leading-cozy no-underline hocus:underline lg:hocus:no-underline text-black hocus:text-digital-red before:absolute before:inline-block before:w-6 before:h-full before:left-0 before:bottom-0 before:bg-digital-red before:scale-y-0 before:transition-transform hocus:before:scale-y-100 lg:before:h-10 lg:before:w-full before:left-0 before:bottom-0 lg:before:scale-y-100 lg:before:scale-x-0 lg:hocus:before:scale-x-100 outline-none',
   'mega-menu-link-lvl2': 'text-black hocus:text-digital-red no-underline hocus:underline leading-display font-normal text-19 *:[&_svg]:text-digital-red',
 };
 
@@ -111,4 +111,4 @@ export const ctaAligns = {
   right: 'su-text-right ml-auto mr-0',
 };
 
-export const ctaGroup = 'list-unstyled gap-x-08em gap-y-1em [&_li]:mb-0 [&_a]:text-09em [&_a]:md:text-20 [&_a]:p-07em [&_a]:md:pt-11 [&_a]:md:pb-12 [&_a]:md:px-30';
+export const ctaGroup = 'list-unstyled gap-x-08em gap-y-1em [&_li]:mb-0 [&_a]:text-09em [&_a]:md:text-20 [&_.cta-button]:p-07em [&_.cta-button]:md:pt-11 [&_.cta-button]:md:pb-12 [&_.cta-button]:md:px-30';

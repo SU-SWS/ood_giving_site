@@ -19,7 +19,7 @@ export type SbMegaMenuCardProps = {
 export const SbMegaMenuCard = (props: SbMegaMenuCardProps) => (
   <article {...storyblokEditable(props.blok)} className={styles.cardRoot(props.blok.backgroundColor)}>
     {props.blok.image.filename != null && (
-      <div className="overflow-hidden">
+      <div className="hidden lg:block overflow-hidden">
         <AspectRatioImage
           {...props}
           filename={props.blok.image.filename}

@@ -1,6 +1,4 @@
-import { storyblokEditable } from '@storyblok/react/rsc';
-import { type SbBlokData } from '@storyblok/react/rsc';
-import { Container } from '@/components/Container';
+import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { FlexBox } from '@/components/FlexBox';
 import { Skiplink } from '@/components/SkipLink';
@@ -21,14 +19,14 @@ export const SbLocalHeader = (props: SbLocalHeaderProps) => (
   >
     <Skiplink />
     <CreateBloks blokSection={props.blok.subMenu} />
-    <Container className="pt-15 md:pt-0">
+    <FlexBox justifyContent="between" className="cc pt-15 md:pt-26 lg:pt-0 lg:flex-col">
       <div className="lg:pb-10 text-21 sm:text-25 md:text-[3.2rem]">
         <CreateBloks blokSection={props.blok.lockup} />
       </div>
-      <FlexBox justifyContent="between" className={`ood-header__megamenu-wrapper`}>
+      <FlexBox className="ood-header__megamenu-wrapper gap-16 flex-row-reverse lg:flex-row lg:items-center lg:justify-center">
         <CreateBloks blokSection={props.blok.megaMenu} />
         <OpenSearchModalButton id="mastead-search-openmodal-mobile" />
       </FlexBox>
-    </Container>
+    </FlexBox>
   </header>
 );
