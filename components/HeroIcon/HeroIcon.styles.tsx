@@ -80,7 +80,7 @@ export const iconBaseStyleDefault = 'w-1em';
 export const iconBaseStyle: IconBaseStyleType = {
   'arrow-left': 'w-09em -mt-01em',
   'arrow-right': 'w-09em -mt-01em',
-  'chevron-right': 'w-09em -mt-01em',
+  'chevron-right': 'w-09em stroke-[2.5] -mt-01em',
   download: 'w-09em -mt-01em',
   expand: 'w-1em -mt-02em',
   external: 'w-08em stroke-[2.5] -mt-01em',

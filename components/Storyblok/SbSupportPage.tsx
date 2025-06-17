@@ -29,7 +29,8 @@ export type SbSupportPageProps = HeaderNoImageProps & IconCardSectionProps & Foo
     science: SbBlokData[];
     sustainability: SbBlokData[];
     teaching: SbBlokData[];
-  }
+  };
+  slug?: string;
 };
 
 export const SbSupportPage = (props: SbSupportPageProps) => {
@@ -65,7 +66,7 @@ export const SbSupportPage = (props: SbSupportPageProps) => {
   return (
     <div {...storyblokEditable(props.blok)}>
       <CreateBloks blokSection={props.blok.alertPicker} />
-      <CreateBloks blokSection={props.blok.localHeader} />
+      <CreateBloks blokSection={props.blok.localHeader} slug={props.slug} />
       <main
         id="main-content"
         className="ood-interior-page--no-image ood-support-page"

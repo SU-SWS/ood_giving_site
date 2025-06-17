@@ -8,28 +8,36 @@ import { CreateBloks } from '@/components/CreateBloks';
 import { FlexBox } from '@/components/FlexBox';
 import { HeroIcon } from '@/components/HeroIcon';
 import { config } from '@/utilities/config';
+import { getNumBloks } from '@/utilities/getNumBloks';
 import * as styles from './SbMegaMenu.styles';
 
 export type SbMegaMenuProps = {
   blok: SbBlokData & {
     topLevelLinks?: SbBlokData[]; // Top level links and parent items for the panels
   };
+  slug?: string;
 };
 
-export const SbMegaMenu = (props: SbMegaMenuProps) => {
+export const SbMegaMenu = ({ blok, slug }: SbMegaMenuProps) => {
+  const { topLevelLinks } = blok;
   const windowSize = useWindowSize();
 
+  if (!getNumBloks(topLevelLinks)) {
+    return null;
+  }
+
+  // Desktop mega menu
   if (windowSize.width >= config.breakpoints.lg) {
     return (
-      <nav {...storyblokEditable(props.blok)} className="ood-mega-nav grow" aria-label="Main Menu">
-        <FlexBox as="ul" wrap="wrap" className="ood-mega-nav__menu-lv1 list-unstyled gap-30 xl:gap-38">
-          <CreateBloks blokSection={props.blok.topLevelLinks} />
+      <nav {...storyblokEditable(blok)} className="grow" aria-label="Main Menu">
+        <FlexBox as="ul" wrap="wrap" className="list-unstyled gap-30 xl:gap-38">
+          <CreateBloks blokSection={topLevelLinks} slug={slug} />
         </FlexBox>
       </nav>
     );
   }
   return (
-    <Popover as="nav" className="ood-mega-nav flex z-[200] lg:items-center" aria-label="Main Menu">
+    <Popover as="nav" className="flex z-[200] lg:items-center" aria-label="Main Menu">
       {({ open }) => (
         <>
           <PopoverButton
@@ -53,10 +61,11 @@ export const SbMegaMenu = (props: SbMegaMenuProps) => {
           >
             <PopoverPanel
               as="ul"
-              {...storyblokEditable(props.blok)}
+              {...storyblokEditable(blok)}
               className={styles.mobileTopMenu}
             >
-              <CreateBloks blokSection={props.blok.topLevelLinks} />
+              <div className={styles.innerShadow} aria-hidden="true" />
+              <CreateBloks blokSection={topLevelLinks} slug={slug} />
             </PopoverPanel>
           </Transition>
         </>

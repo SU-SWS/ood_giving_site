@@ -8,46 +8,55 @@ import * as styles from './SbMegaMenu.styles';
 
 export type SbMegaMenuCardProps = {
   blok: SbBlokData & {
-    link?: SbLinkType;
     image?: SbImageType;
     backgroundColor?: DarkBgColorsType
     headline?: string;
     ctaText?: string;
+    link?: SbLinkType;
   };
 };
 
-export const SbMegaMenuCard = (props: SbMegaMenuCardProps) => (
-  <article {...storyblokEditable(props.blok)} className={styles.cardRoot(props.blok.backgroundColor)}>
-    {props.blok.image.filename != null && (
-      <div className="hidden lg:block overflow-hidden">
-        <AspectRatioImage
-          {...props}
-          filename={props.blok.image.filename}
-          alt=""
-          classPrefix="ood-mega-nav__card"
-          className="group-hover:scale-105 transition-transform"
-          imageSize="card"
-          aspectRatio="3x2"
-        />
+export const SbMegaMenuCard = ({ blok }: SbMegaMenuCardProps) => {
+  const {
+    image,
+    backgroundColor,
+    headline,
+    ctaText,
+    link,
+  } = blok;
+
+  return (
+    <article {...storyblokEditable(blok)} className={styles.cardRoot(backgroundColor)}>
+      {image.filename != null && (
+        <div className="hidden lg:block overflow-hidden">
+          <AspectRatioImage
+            filename={image.filename}
+            alt=""
+            className="group-hocus-within:scale-105 transition-transform"
+            imageSize="card"
+            aspectRatio="3x2"
+          />
+        </div>
+      )}
+      <div className={styles.cardContent}>
+        {headline && (
+          <Heading as="h2" size={2} className={styles.cardHeading}>
+            <SbLink link={link} classes={styles.headingLink}>
+              {headline}
+            </SbLink>
+          </Heading>
+        )}
+        {ctaText && (
+          <Paragraph
+            color="white"
+            weight="semibold"
+            icon={link?.linktype === 'url' ? 'external' : 'chevron-right'}
+            iconProps={{ className: 'group-hocus-within:translate-x-02em' }}
+          >
+            {ctaText}
+          </Paragraph>
+        )}
       </div>
-    )}
-    <div className={styles.cardContent}>
-      <Heading as="h3" size={2} className={styles.cardHeading}>
-        <SbLink
-          link={props.blok.link}
-          classes={styles.headingLink}
-        >
-          {props.blok.headline}
-        </SbLink>
-      </Heading>
-      <Paragraph
-        color="white"
-        weight="semibold"
-        icon={props.blok.link?.linktype === 'url' ? 'external' : 'chevron-right'}
-        className={styles.cardCta}
-      >
-        {props.blok.ctaText}
-      </Paragraph>
-    </div>
-  </article>
-);
+    </article>
+  );
+};

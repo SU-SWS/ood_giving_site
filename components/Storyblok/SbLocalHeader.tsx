@@ -10,6 +10,7 @@ export type SbLocalHeaderProps = {
     lockup: SbBlokData[];
     megaMenu: SbBlokData[];
   };
+  slug?: string;
 };
 
 export const SbLocalHeader = (props: SbLocalHeaderProps) => (
@@ -23,8 +24,8 @@ export const SbLocalHeader = (props: SbLocalHeaderProps) => (
       <div className="lg:pb-10 text-21 sm:text-25 md:text-[3.2rem]">
         <CreateBloks blokSection={props.blok.lockup} />
       </div>
-      <FlexBox className="ood-header__megamenu-wrapper gap-16 flex-row-reverse lg:flex-row lg:items-center lg:justify-center">
-        <CreateBloks blokSection={props.blok.megaMenu} />
+      <FlexBox className="gap-16 flex-row-reverse lg:flex-row lg:items-center lg:justify-center">
+        <CreateBloks blokSection={props.blok.megaMenu} slug={props.slug} />
         <OpenSearchModalButton id="mastead-search-openmodal-mobile" />
       </FlexBox>
     </FlexBox>

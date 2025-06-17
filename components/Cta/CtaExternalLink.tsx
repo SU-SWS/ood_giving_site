@@ -19,7 +19,7 @@ export const CtaExternalLink = React.forwardRef<HTMLAnchorElement, CtaExternalLi
     isButton,
     buttonStyle = 'ood-cta__button--primary su-after-bg-white',
     buttonSize = 'default',
-    textColor = 'su-text-digital-red su-after-bg-digital-red su-text-hocus-sky-dark su-after-bg-hocus-sky-dark',
+    textColor = 'su-text-digital-red su-after-bg-digital-red su-text-hocus-plum-dark su-after-bg-hocus-plum-dark',
     variant,
     icon,
     iconProps,

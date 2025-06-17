@@ -1,4 +1,4 @@
-export const root = 'flex no-underline font-normal';
+export const root = 'flex no-underline font-normal w-fit';
 export const contentWrapper = 'flex-row items-center';
 export const logo = 'text-[1.43em] leading-half mt-[0.27em]';
 export const bar = 'block w-1 h-1em mx-03em md:mx-02em';

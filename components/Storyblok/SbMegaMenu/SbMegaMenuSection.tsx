@@ -38,9 +38,10 @@ export const SbMegaMenuSection = (props: SbMegaMenuSectionProps) => {
             leaveTo="opacity-0 scale-y-95"
           >
             <PopoverPanel className={styles.section}>
+              <div className={styles.innerShadow} aria-hidden="true" />
               <Grid {...storyblokEditable(props.blok)} gap="default" lg={3} pt={4} pb={5} className={styles.sectionContent}>
                 <div className="lg:col-span-2">
-                  <Grid gap="default" lg={3} className="gap-y-40 lg:gap-y-0">
+                  <Grid gap="default" md={3} className="gap-y-40 lg:gap-y-0">
                     <CreateBloks blokSection={props.blok.linkGroups} />
                   </Grid>
                   <div className="rs-mt-4 empty:mt-0">

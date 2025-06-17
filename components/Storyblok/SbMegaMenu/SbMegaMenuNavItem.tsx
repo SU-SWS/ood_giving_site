@@ -14,16 +14,21 @@ export type SbMegaMenuNavItemProps = {
     link?: SbLinkType;
     linkText?: string;
   };
+  slug?: string;
 };
 
-export const SbMegaMenuNavItem = (props:SbMegaMenuNavItemProps) => {
-  const { link, linkText } = props.blok;
+export const SbMegaMenuNavItem = ({ blok, slug }: SbMegaMenuNavItemProps) => {
+  const { link, linkText } = blok;
+  const isActivePage = slug === link?.cached_url;
 
   return (
-    <li {...storyblokEditable(props.blok)} className={styles.navItem}>
+    <li {...storyblokEditable(blok)} className={styles.navItem}>
       <CtaLink
         sbLink={link}
         variant="mega-menu"
+        icon="su-link--action"
+        iconProps={{ className: styles.navItemChevron }}
+        className={isActivePage && 'before:bg-black before:hocus:bg-digital-red lg:before:bg-black-40 before:scale-y-100 lg:before:scale-x-100'}
       >
         {linkText}
       </CtaLink>
