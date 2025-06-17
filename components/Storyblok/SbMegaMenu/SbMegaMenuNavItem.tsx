@@ -1,8 +1,15 @@
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { SbLink } from '../partials/SbLink';
+import { CtaLink } from '@/components/Cta';
 import { type SbLinkType } from '../Storyblok.types';
 import * as styles from './SbMegaMenu.styles';
 
+/**
+ * This is only used for the top-level mega menu links.
+ * Even though the links in the individual mega menu panels use this same Storyblok component,
+ * they are not rendered with this component.
+ * See `SbMegaMenuLinkGroup` for the links in the mega menu panels.
+ */
 export type SbMegaMenuNavItemProps = {
   blok: SbBlokData & {
     link?: SbLinkType;
@@ -10,15 +17,17 @@ export type SbMegaMenuNavItemProps = {
   };
 };
 
-export const SbMegaMenuNavItem = (props:SbMegaMenuNavItemProps) => (
-  <li {...storyblokEditable(props.blok)} className={`ood-mega-nav__item ${styles.navItem}`}>
-    <SbLink
-      link={props.blok.link}
-      classes={`ood-mega-nav__link ${styles.MegaMenuNavLevel1Cta}`}
-      externalClasses="su-link--external"
-      activeClass="ood-mega-nav__link--active"
-    >
-      {props.blok.linkText}
-    </SbLink>
-  </li>
-);
+export const SbMegaMenuNavItem = (props:SbMegaMenuNavItemProps) => {
+  const { link, linkText } = props.blok;
+
+  return (
+    <li {...storyblokEditable(props.blok)} className={styles.navItem}>
+      <CtaLink
+        sbLink={link}
+        variant="mega-menu"
+      >
+        {linkText}
+      </CtaLink>
+    </li>
+  );
+};
