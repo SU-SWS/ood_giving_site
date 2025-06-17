@@ -44,7 +44,9 @@ export const SbMegaMenuSection = (props: SbMegaMenuSectionProps) => {
                   <Grid gap="default" lg={3} className="ood-mega-nav__section-links">
                     <CreateBloks blokSection={props.blok.linkGroups} />
                   </Grid>
-                  <CreateBloks blokSection={props.blok.sectionCtaLink} />
+                  <div className="rs-mt-4">
+                    <CreateBloks blokSection={props.blok.sectionCtaLink} />
+                  </div>
                 </div>
                 <div className="lg:col-span-1">
                   <CreateBloks blokSection={props.blok.card} />

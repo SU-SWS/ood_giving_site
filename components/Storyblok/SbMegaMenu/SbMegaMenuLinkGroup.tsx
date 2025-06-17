@@ -1,27 +1,44 @@
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
-import { CreateBloks } from '@/components/CreateBloks';
+import { CtaLink } from '@/components/Cta';
 import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
-import { Heading } from '../../Typography';
+import { Heading } from '@/components/Typography';
+import { getNumBloks } from '@/utilities/getNumBloks';
+import { type SbOodMegaMenuNavItemProps } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './SbMegaMenu.styles';
 
 export type SbMegaMenuLinkGroupProps = {
   blok: SbBlokData & {
     heading?: string;
-    links?: SbBlokData[];
+    links?: SbOodMegaMenuNavItemProps[];
   };
 };
 
-export const SbMegaMenuLinkGroup = (props: SbMegaMenuLinkGroupProps) => (
-  <FlexCell {...storyblokEditable(props.blok)} md={4} className="ood-mega-nav__link-group mb-20 md:mb-0 empty:mb-0">
-    {props.blok.heading && (
-      <Heading font="sans" weight="bold" uppercase tracking="widest" className={`ood-mega-nav__link-group-heading ${styles.MegaMenuNavLinkGroupHeading}`}>
-        {props.blok.heading}
-      </Heading>
-    )}
-    {!!props.blok.links?.length && (
-      <ul className="ood-mega-nav__menu-lv2 list-unstyled">
-        <CreateBloks blokSection={props.blok.links} className="!text-plum" />
-      </ul>
-    )}
-  </FlexCell>
-);
+export const SbMegaMenuLinkGroup = (props: SbMegaMenuLinkGroupProps) => {
+  const { heading, links } = props.blok;
+
+  return (
+    <FlexCell {...storyblokEditable(props.blok)} md={4} className={styles.linkGroup}>
+      {heading && (
+        <Heading font="sans" weight="bold" uppercase tracking="widest" className={styles.linkGroupHeading}>
+          {heading}
+        </Heading>
+      )}
+      {!!getNumBloks(links) && (
+        <ul className={styles.linkGroupList}>
+          {links?.map(({ _uid, link, linkText }) => (
+            <li key={_uid} className={styles.linkGroupItem}>
+              <CtaLink
+                sbLink={link}
+                variant="mega-menu-link-lvl2"
+                align="right"
+                icon={link.linktype === 'story' ? 'su-link--no-icon' : 'su-link--external'}
+              >
+                {linkText}
+              </CtaLink>
+            </li>
+          ))}
+        </ul>
+      )}
+    </FlexCell>
+  );
+};

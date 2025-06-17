@@ -4,6 +4,10 @@ import { CtaLink } from '@/components/Cta';
 import { FlexBox } from '@/components/FlexBox';
 import { type SbNavItemProps } from './Storyblok.types';
 
+/**
+ * Deprecating the topBarColor prop because we no longer have a brand bar.
+ * The digital red top border instead of a brand bar is always used.
+ */
 export type SbSubMenuProps = {
   blok: SbBlokData & {
     menuLinkItems?: SbNavItemProps[];

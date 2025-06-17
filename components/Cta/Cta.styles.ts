@@ -61,7 +61,8 @@ export const ctaTextColors = {
 // Additional CTA variants we use for this site, e.g., as subcomponents for other components. These include styles for sizes, colors, icon styles, and other properties.
 export const ctaVariants = {
   'local-footer': 'text-digital-red hocus:text-black underline leading-snug font-normal text-16 md:text-18 *:[&_svg]:hocus:text-digital-red',
-  'sub-menu': 'text-14 sm:text-16 text-white leading-[4rem] md:leading-cozy hocus:text-white md:text-cool-grey md:hocus:text-digital-red font-normal no-underline hocus:underline',
+  'sub-menu': 'text-14 sm:text-16 py-6 md:py-10 text-white leading-[4rem] md:leading-cozy hocus:text-white md:text-cool-grey md:hocus:text-digital-red font-normal no-underline hocus:underline',
+  'mega-menu-link-lvl2': 'text-black hocus:text-digital-red no-underline hocus:underline leading-display font-normal text-19 *:[&_svg]:text-digital-red',
 };
 
 // Maps to linkButtonSize prop in SbCtaLink. Only used for the button styles

@@ -7,7 +7,7 @@ import * as types from './Cta.types';
 type CtaContentProps = Omit<types.CtaCommonProps, 'buttonSize' | 'textColor'>;
 
 export const CtaContent = ({
-  icon = 'su-link--action',
+  icon,
   iconProps,
   srText,
   children,

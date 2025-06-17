@@ -12,7 +12,13 @@ export const navItem = 'mb-0';
 
 export const MegaMenuNavLevel1Cta = 'relative inline-block text-20 lg:text-21 lg:py-16 font-semibold leading-cozy no-underline hocus:no-underline text-black hocus:text-digital-red before:absolute before:inline-block before:h-10 before:w-full before:left-0 before:bottom-0 before:bg-digital-red before:scale-x-0 before:transition-transform hocus:before:scale-x-100 aria-expanded:before:scale-x-100';
 
-export const MegaMenuNavLinkGroupHeading = 'mb-14 pt-10 md:pt-0 border-t border-black-40 first:border-t-0 md:border-t-0 text-17';
+/**
+ * Mega menu link group
+ */
+export const linkGroup = 'mb-20 md:mb-0 empty:mb-0';
+export const linkGroupHeading = 'mb-[1.4em] pt-10 md:pt-0 border-t border-black-40 first:border-t-0 md:border-t-0 text-17';
+export const linkGroupList = 'list-unstyled';
+export const linkGroupItem = 'mb-20 last:mb-0';
 
 /**
  * Mega menu card
