@@ -19,7 +19,13 @@ export type SbMegaMenuNavItemProps = {
 
 export const SbMegaMenuNavItem = ({ blok, slug }: SbMegaMenuNavItemProps) => {
   const { link, linkText } = blok;
-  const isActivePage = slug === link?.cached_url;
+  if (!link.cached_url || !linkText) {
+    return null;
+  }
+  // Remove any trailing and leading slashes from the cached URL and slug
+  const sanitizedUrl = link?.cached_url.replace(/^\/|\/$/g, '');
+  const sanitizedSlug = slug?.replace(/^\/|\/$/g, '');
+  const isActivePage = sanitizedSlug === sanitizedUrl;
 
   return (
     <li {...storyblokEditable(blok)} className={styles.navItem}>
@@ -28,6 +34,7 @@ export const SbMegaMenuNavItem = ({ blok, slug }: SbMegaMenuNavItemProps) => {
         variant="mega-menu"
         icon="su-link--action"
         iconProps={{ className: styles.navItemChevron }}
+        aria-current={isActivePage ? 'page' : undefined}
         className={isActivePage && styles.topLevelLinkActive}
       >
         {linkText}
