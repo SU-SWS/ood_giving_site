@@ -41,6 +41,7 @@ export const sectionContent = 'px-20 sm:px-30 md:px-50 lg:px-80 xl:px-100 2xl:pl
 export const sectionLinksWrapper = 'lg:col-span-2';
 export const sectionLinkGroupGrid = 'gap-y-40 lg:gap-y-0';
 export const sectionCtaWrapper = 'rs-mt-4 empty:mt-0';
+export const sectionCardWrapper = 'mt-20 lg:mt-0';
 
 /**
  * Mega menu link group
