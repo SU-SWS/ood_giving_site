@@ -3,7 +3,6 @@ import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import {
   Popover, PopoverButton, PopoverPanel, Transition,
 } from '@headlessui/react';
-import { cnb } from 'cnbuilder';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Grid } from '@/components/Grid';
 import { HeroIcon } from '@/components/HeroIcon';
@@ -26,7 +25,7 @@ export const SbMegaMenuSection = (props: SbMegaMenuSectionProps) => {
     <Popover as="li" className="mb-0">
       {({ open }) => (
         <>
-          <PopoverButton aria-label={`${open ? 'Close' : 'Open'} main menu`} className={cnb('group ood-mega-nav__trigger inline-block cursor-pointer bg-transparent border-0 outline-none', styles.MegaMenuNavLevel1Cta)}>
+          <PopoverButton aria-label={`${open ? 'Close' : 'Open'} main menu`} className={styles.panelButton}>
             {props.blok.linkText}
             <HeroIcon icon="chevron-down" strokeWidth={1.8} className="!w-18 -mt-01em inline-block ood-mega-nav__trigger-icon ml-2 transition-transform group-aria-expanded:rotate-180 text-black group-hocus-visible:text-black" />
           </PopoverButton>
@@ -38,10 +37,10 @@ export const SbMegaMenuSection = (props: SbMegaMenuSectionProps) => {
             leaveFrom="opacity-100 scale-y-100"
             leaveTo="opacity-0 scale-y-95"
           >
-            <PopoverPanel className={`ood-mega-nav__section ${styles.section}`}>
+            <PopoverPanel className={styles.section}>
               <Grid {...storyblokEditable(props.blok)} gap="default" lg={3} pt={4} pb={5} className={styles.sectionContent}>
                 <div className="lg:col-span-2">
-                  <Grid gap="default" lg={3} className="ood-mega-nav__section-links">
+                  <Grid gap="default" lg={3}>
                     <CreateBloks blokSection={props.blok.linkGroups} />
                   </Grid>
                   <div className="rs-mt-4">

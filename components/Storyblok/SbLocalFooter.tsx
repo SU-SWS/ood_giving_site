@@ -60,7 +60,7 @@ const FooterLinkGroup = ({
 
 const styles = {
   root: 'w-full',
-  logoWrapper: 'rs-pb-3',
+  logoWrapper: 'text-25 md:text-[3.2rem] rs-pb-3',
   grid: 'text-18 leading-snug gap-30 md:gap-60',
   address: 'gap-2',
   ctaWrapper: 'rs-mt-2',

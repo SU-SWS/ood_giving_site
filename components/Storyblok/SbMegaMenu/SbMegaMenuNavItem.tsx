@@ -1,5 +1,4 @@
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
-import { SbLink } from '../partials/SbLink';
 import { CtaLink } from '@/components/Cta';
 import { type SbLinkType } from '../Storyblok.types';
 import * as styles from './SbMegaMenu.styles';

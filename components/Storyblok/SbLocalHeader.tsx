@@ -21,8 +21,8 @@ export const SbLocalHeader = (props: SbLocalHeaderProps) => (
   >
     <Skiplink />
     <CreateBloks blokSection={props.blok.subMenu} />
-    <Container className={'ood-header__masthead'}>
-      <div className="lg:pb-20">
+    <Container className="pt-15 md:pt-0">
+      <div className="lg:pb-10 text-21 sm:text-25 md:text-[3.2rem]">
         <CreateBloks blokSection={props.blok.lockup} />
       </div>
       <FlexBox justifyContent="between" className={`ood-header__megamenu-wrapper`}>

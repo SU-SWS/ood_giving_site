@@ -62,7 +62,7 @@ export const ctaTextColors = {
 export const ctaVariants = {
   'local-footer': 'text-digital-red hocus:text-black underline leading-snug font-normal text-16 md:text-18 *:[&_svg]:hocus:text-digital-red',
   'sub-menu': 'text-14 sm:text-16 py-6 md:py-10 text-white leading-[4rem] md:leading-cozy hocus:text-white md:text-cool-grey md:hocus:text-digital-red font-normal no-underline hocus:underline',
-  'mega-menu': 'relative inline-block text-20 lg:text-21 lg:py-16 font-semibold leading-cozy no-underline hocus:no-underline text-black hocus:text-digital-red before:absolute before:inline-block before:h-10 before:w-full before:left-0 before:bottom-0 before:bg-digital-red before:scale-x-0 before:transition-transform hocus:before:scale-x-100 aria-expanded:before:scale-x-100',
+  'mega-menu': 'relative inline-block text-20 lg:text-21 lg:py-16 font-semibold leading-cozy no-underline hocus:no-underline text-black hocus:text-digital-red before:absolute before:inline-block before:h-10 before:w-full before:left-0 before:bottom-0 before:bg-digital-red before:scale-x-0 before:transition-transform hocus:before:scale-x-100 aria-expanded:before:scale-x-100 outline-none',
   'mega-menu-link-lvl2': 'text-black hocus:text-digital-red no-underline hocus:underline leading-display font-normal text-19 *:[&_svg]:text-digital-red',
 };
 
