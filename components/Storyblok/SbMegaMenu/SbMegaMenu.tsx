@@ -29,15 +29,15 @@ export const SbMegaMenu = ({ blok, slug }: SbMegaMenuProps) => {
   // Desktop mega menu
   if (windowSize.width >= config.breakpoints.lg) {
     return (
-      <nav {...storyblokEditable(blok)} className="grow" aria-label="Main Menu">
-        <FlexBox as="ul" wrap="wrap" className="list-unstyled gap-30 xl:gap-38">
+      <nav {...storyblokEditable(blok)} className={styles.root} aria-label="Main Menu">
+        <FlexBox as="ul" wrap="wrap" className={styles.wrapper}>
           <CreateBloks blokSection={topLevelLinks} slug={slug} />
         </FlexBox>
       </nav>
     );
   }
   return (
-    <Popover as="nav" className="flex z-[200] lg:items-center" aria-label="Main Menu">
+    <Popover as="nav" className={styles.mobileRoot} aria-label="Main Menu">
       {({ open }) => (
         <>
           <PopoverButton

@@ -28,7 +28,7 @@ export const SbMegaMenuNavItem = ({ blok, slug }: SbMegaMenuNavItemProps) => {
         variant="mega-menu"
         icon="su-link--action"
         iconProps={{ className: styles.navItemChevron }}
-        className={isActivePage && 'before:bg-black before:hocus:bg-digital-red lg:before:bg-black-40 before:scale-y-100 lg:before:scale-x-100'}
+        className={isActivePage && styles.topLevelLinkActive}
       >
         {linkText}
       </CtaLink>

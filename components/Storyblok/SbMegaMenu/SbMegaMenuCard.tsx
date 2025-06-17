@@ -28,11 +28,11 @@ export const SbMegaMenuCard = ({ blok }: SbMegaMenuCardProps) => {
   return (
     <article {...storyblokEditable(blok)} className={styles.cardRoot(backgroundColor)}>
       {image.filename != null && (
-        <div className="hidden lg:block overflow-hidden">
+        <div className={styles.cardImageWrapper}>
           <AspectRatioImage
             filename={image.filename}
             alt=""
-            className="group-hocus-within:scale-105 transition-transform"
+            className={styles.cardImage}
             imageSize="card"
             aspectRatio="3x2"
           />
@@ -40,7 +40,7 @@ export const SbMegaMenuCard = ({ blok }: SbMegaMenuCardProps) => {
       )}
       <div className={styles.cardContent}>
         {headline && (
-          <Heading as="h2" size={2} className={styles.cardHeading}>
+          <Heading size={2} className={styles.cardHeading}>
             <SbLink link={link} classes={styles.headingLink}>
               {headline}
             </SbLink>
@@ -51,7 +51,7 @@ export const SbMegaMenuCard = ({ blok }: SbMegaMenuCardProps) => {
             color="white"
             weight="semibold"
             icon={link?.linktype === 'url' ? 'external' : 'chevron-right'}
-            iconProps={{ className: 'group-hocus-within:translate-x-02em' }}
+            iconProps={{ className: styles.cardCtaTextIcon }}
           >
             {ctaText}
           </Paragraph>

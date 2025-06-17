@@ -13,21 +13,29 @@ export type SbLocalHeaderProps = {
   slug?: string;
 };
 
-export const SbLocalHeader = (props: SbLocalHeaderProps) => (
-  <header
-    {...storyblokEditable(props.blok)}
-    className="relative z-[130] ood-header shadow-md bg-white md:border-t-[1rem] border-t-cardinal-red"
-  >
-    <Skiplink />
-    <CreateBloks blokSection={props.blok.subMenu} />
-    <FlexBox justifyContent="between" className="cc pt-15 md:pt-26 lg:pt-0 lg:flex-col">
-      <div className="lg:pb-10 text-21 sm:text-25 md:text-[3.2rem]">
-        <CreateBloks blokSection={props.blok.lockup} />
-      </div>
-      <FlexBox className="gap-16 flex-row-reverse lg:flex-row lg:items-center lg:justify-center">
-        <CreateBloks blokSection={props.blok.megaMenu} slug={props.slug} />
-        <OpenSearchModalButton id="mastead-search-openmodal-mobile" />
+const styles = {
+  root: 'relative z-[130] ood-header shadow-md bg-white md:border-t-[1rem] border-t-cardinal-red',
+  wrapper: 'cc pt-15 md:pt-26 lg:pt-0 lg:flex-col',
+  lockupWrapper: 'lg:pb-10 text-21 sm:text-25 md:text-[3.2rem]',
+  menuSearchWrapper: 'gap-16 flex-row-reverse lg:flex-row lg:items-center lg:justify-center',
+};
+
+export const SbLocalHeader = ({ blok, slug }: SbLocalHeaderProps) => {
+  const { subMenu, lockup, megaMenu } = blok;
+
+  return (
+    <header {...storyblokEditable(blok)} className={styles.root}>
+      <Skiplink />
+      <CreateBloks blokSection={subMenu} />
+      <FlexBox justifyContent="between" className={styles.wrapper}>
+        <div className={styles.lockupWrapper}>
+          <CreateBloks blokSection={lockup} />
+        </div>
+        <FlexBox className={styles.menuSearchWrapper}>
+          <CreateBloks blokSection={megaMenu} slug={slug} />
+          <OpenSearchModalButton id="mastead-search-openmodal-mobile" />
+        </FlexBox>
       </FlexBox>
-    </FlexBox>
-  </header>
-);
+    </header>
+  );
+};

@@ -13,11 +13,11 @@ export type SbMegaMenuLinkGroupProps = {
   };
 };
 
-export const SbMegaMenuLinkGroup = (props: SbMegaMenuLinkGroupProps) => {
-  const { heading, links } = props.blok;
+export const SbMegaMenuLinkGroup = ({ blok }: SbMegaMenuLinkGroupProps) => {
+  const { heading, links } = blok;
 
   return (
-    <FlexCell {...storyblokEditable(props.blok)} md={4} className={styles.linkGroup}>
+    <FlexCell {...storyblokEditable(blok)} md={4} className={styles.linkGroup}>
       {heading && (
         <Heading font="sans" weight="bold" uppercase tracking="widest" className={styles.linkGroupHeading}>
           {heading}

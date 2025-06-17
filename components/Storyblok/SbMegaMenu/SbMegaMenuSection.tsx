@@ -20,13 +20,20 @@ export type SbMegaMenuSectionProps = {
   };
 };
 
-export const SbMegaMenuSection = (props: SbMegaMenuSectionProps) => {
+export const SbMegaMenuSection = ({ blok }: SbMegaMenuSectionProps) => {
+  const {
+    linkText,
+    linkGroups,
+    sectionCtaLink,
+    card,
+  } = blok;
+
   return (
-    <Popover as="li" className="mb-0">
+    <Popover as="li" className={styles.sectionRoot}>
       {({ open }) => (
         <>
           <PopoverButton aria-label={`${open ? 'Close' : 'Open'} main menu`} className={styles.panelButton}>
-            {props.blok.linkText}
+            {linkText}
             <HeroIcon icon="chevron-down" strokeWidth={1.8} noBaseStyle className={styles.panelButtonIcon} />
           </PopoverButton>
           <Transition
@@ -39,17 +46,17 @@ export const SbMegaMenuSection = (props: SbMegaMenuSectionProps) => {
           >
             <PopoverPanel className={styles.section}>
               <div className={styles.innerShadow} aria-hidden="true" />
-              <Grid {...storyblokEditable(props.blok)} gap="default" lg={3} pt={4} pb={5} className={styles.sectionContent}>
-                <div className="lg:col-span-2">
-                  <Grid gap="default" md={3} className="gap-y-40 lg:gap-y-0">
-                    <CreateBloks blokSection={props.blok.linkGroups} />
+              <Grid {...storyblokEditable(blok)} gap="default" lg={3} pt={4} pb={5} className={styles.sectionContent}>
+                <div className={styles.sectionLinksWrapper}>
+                  <Grid gap="default" md={3} className={styles.sectionLinkGroupGrid}>
+                    <CreateBloks blokSection={linkGroups} />
                   </Grid>
-                  <div className="rs-mt-4 empty:mt-0">
-                    <CreateBloks blokSection={props.blok.sectionCtaLink} />
+                  <div className={styles.sectionCtaWrapper}>
+                    <CreateBloks blokSection={sectionCtaLink} />
                   </div>
                 </div>
-                <div className="lg:col-span-1 mt-20 lg:mt-0">
-                  <CreateBloks blokSection={props.blok.card} />
+                <div className={styles.sectionCardWrapper}>
+                  <CreateBloks blokSection={card} />
                 </div>
               </Grid>
             </PopoverPanel>
