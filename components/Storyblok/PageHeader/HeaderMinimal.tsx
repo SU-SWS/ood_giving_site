@@ -19,7 +19,10 @@ export const HeaderMinimal = ({ blok }: HeaderMinimalProps) => {
       <Heading
         as="h1"
         id="page-title"
-        className={cnb('mb-0 mx-auto fluid-type-5 max-w-1200 text-balance', bgColor === 'fog-light' ? 'text-black' : 'text-white')}
+        size="f5"
+        mb="none"
+        color={bgColor === 'fog-light' ? 'black' : 'white'}
+        className="mx-auto max-w-1200 text-balance"
         align="center"
       >
         {title}

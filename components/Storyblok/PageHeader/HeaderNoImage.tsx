@@ -15,7 +15,7 @@ export const HeaderNoImage = ({ blok }: HeaderNoImageProps) => {
   } = blok;
 
   return (
-    <div className="break-words">
+    <div>
       <Container pt={7} pb={9} className={darkBgColors[bgColor || 'palo-alto-dark']}>
         <Heading
           as="h1"

@@ -1,4 +1,3 @@
-import React from 'react';
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
