@@ -1,6 +1,6 @@
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import {
-  HeaderFullWidthImage, HeaderMinimal, HeaderNoImage, type HeaderProps,
+  HeaderFullWidthImage, HeaderMinimal, HeaderNoImage, HeaderSmallImage, type HeaderProps,
 } from '@/components/Storyblok/Header';
 import { BodyLeftSidebar, type BodyLeftSidebarProps } from '@/components/Storyblok/partials/BodyLeftSidebar';
 import { BodyNoSidebar, type BodyNoSidebarProps } from '@/components/Storyblok/partials/BodyNoSidebar';
@@ -36,9 +36,9 @@ export const SbInteriorPage = (props: SbInteriorPageProps) => {
       <main id="main-content" className={`ood-interior-page ood-interior-page--${props.blok.headerStyle}`}>
         <article className="bg-fog-light">
           <header>
-            {/* {props.blok.headerStyle === 'has-image' && (
-              <HeaderWithImage {...props} />
-            )} */}
+            {props.blok.headerStyle === 'has-image' && (
+              <HeaderSmallImage {...props} />
+            )}
             {props.blok.headerStyle === 'no-image' && (
               <HeaderNoImage {...props} />
             )}
