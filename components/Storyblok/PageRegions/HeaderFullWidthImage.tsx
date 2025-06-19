@@ -5,7 +5,7 @@ import { RichText } from '@/components/RichText';
 import { hasRichText } from '@/utilities/hasRichText';
 import { type HeaderProps } from './Header.types';
 
-type HeaderFullWidthImageProps = Omit<HeaderProps, 'headerBackgroundColor'>;
+type HeaderFullWidthImageProps = Partial<HeaderProps>;
 
 export const HeaderFullWidthImage = ({ blok }: HeaderFullWidthImageProps) => {
   const {
@@ -51,7 +51,6 @@ export const HeaderFullWidthImage = ({ blok }: HeaderFullWidthImageProps) => {
           <Heading
             as="h1"
             id="page-title"
-            font="serif"
             align="center"
             className="text-black w-full mb-20 fluid-type-5 md:text-left"
           >

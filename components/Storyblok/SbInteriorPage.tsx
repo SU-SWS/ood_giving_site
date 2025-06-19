@@ -1,11 +1,10 @@
-import React from 'react';
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
-// import { HeaderMinimal, type HeaderMinimalProps } from '@/components/Storyblok/partials/HeaderMinimal';
 // import { HeaderNoImage, type HeaderNoImageProps } from '@/components/Storyblok/partials/HeaderNoImage';
 // import { HeaderWithImage, type HeaderWithImageProps } from '@/components/Storyblok/partials/HeaderWithImage';
 import { BelowContent, type BelowContentProps } from '@/components/Storyblok/partials/BelowContent';
-// import { HeaderFullWidthImage, type HeaderFullWidthImageProps } from '@/components/Storyblok/partials/HeaderFullWidthImage';
-import { HeaderFullWidthImage, type HeaderProps } from '@/components/Storyblok/PageRegions';
+import {
+  HeaderFullWidthImage, HeaderMinimal, type HeaderProps,
+} from '@/components/Storyblok/PageRegions';
 import { BodyLeftSidebar, type BodyLeftSidebarProps } from '@/components/Storyblok/partials/BodyLeftSidebar';
 import { BodyNoSidebar, type BodyNoSidebarProps } from '@/components/Storyblok/partials/BodyNoSidebar';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
@@ -43,8 +42,8 @@ export const SbInteriorPage = (props: SbInteriorPageProps) => {
           )}
           {props.blok.headerStyle === 'no-image' && (
             <HeaderNoImage {...props} />
-          )}
-          {props.blok.headerStyle === 'minimal' && <HeaderMinimal {...props} />} */}
+          )} */}
+          {props.blok.headerStyle === 'minimal' && <HeaderMinimal {...props} />}
           {props.blok.headerStyle === 'full-width-image' && (
             <HeaderFullWidthImage {...props} />
           )}
