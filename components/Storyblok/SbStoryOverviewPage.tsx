@@ -1,12 +1,17 @@
 import { type SbBlokData } from '@storyblok/react/rsc';
+import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { storyblokEditable } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
-import { HeaderNoImage, type HeaderNoImageProps } from '@/components/Storyblok/partials/HeaderNoImage';
+import { HeaderNoImage } from '@/components/Storyblok/PageHeader/HeaderNoImage';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
+import { type DarkBgColorsType } from '@/utilities/datasource';
 
-type SbStoryOverviewPageProps = HeaderNoImageProps & IconCardSectionProps & FooterProps & {
+type SbStoryOverviewPageProps = IconCardSectionProps & FooterProps & {
   blok: SbBlokData & {
+    title?: string;
+    intro?: StoryblokRichtext;
+    headerBackgroundColor?: DarkBgColorsType;
     localHeader: SbBlokData[];
     alertPicker: SbBlokData[];
     stories: SbBlokData[];

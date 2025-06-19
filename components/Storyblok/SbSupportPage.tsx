@@ -1,17 +1,23 @@
 'use client';
 import { type MouseEventHandler, useCallback, useEffect } from 'react';
+import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { useRouter } from 'next/navigation';
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
-import { HeaderNoImage, type HeaderNoImageProps } from '@/components/Storyblok/partials/HeaderNoImage';
+import { HeaderNoImage } from '@/components/Storyblok/PageHeader/HeaderNoImage';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
+import { Grid } from '@/components/Grid';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 import { Heading, SrOnlyText } from '@/components/Typography';
-import { Grid } from '../Grid';
+import { type DarkBgColorsType } from '@/utilities/datasource';
 
-export type SbSupportPageProps = HeaderNoImageProps & IconCardSectionProps & FooterProps & {
+
+export type SbSupportPageProps = IconCardSectionProps & FooterProps & {
   blok: SbBlokData & {
+    title?: string;
+    intro?: StoryblokRichtext;
+    headerBackgroundColor?: DarkBgColorsType;
     localHeader: SbBlokData[];
     alertPicker: SbBlokData[];
     belowContent: SbBlokData[];

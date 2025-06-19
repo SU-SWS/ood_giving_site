@@ -1,7 +1,7 @@
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import {
   HeaderFullWidthImage, HeaderMinimal, HeaderNoImage, HeaderSmallImage, type HeaderProps,
-} from '@/components/Storyblok/Header';
+} from '@/components/Storyblok/PageHeader';
 import { BodyLeftSidebar, type BodyLeftSidebarProps } from '@/components/Storyblok/partials/BodyLeftSidebar';
 import { BodyNoSidebar, type BodyNoSidebarProps } from '@/components/Storyblok/partials/BodyNoSidebar';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';

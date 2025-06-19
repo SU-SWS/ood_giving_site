@@ -1,7 +1,7 @@
 import { cnb } from 'cnbuilder';
 import { Container } from '@/components/Container';
 import { Heading } from '@/components/Typography';
-import { type HeaderProps } from '@/components/Storyblok/Header';
+import { type HeaderProps } from '@/components/Storyblok/PageHeader';
 import { darkBgColors } from '@/utilities/datasource';
 
 type HeaderMinimalProps = Partial<HeaderProps>;
