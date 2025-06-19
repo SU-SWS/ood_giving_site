@@ -1,10 +1,11 @@
 import React from 'react';
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
-import { HeaderMinimal, type HeaderMinimalProps } from '@/components/Storyblok/partials/HeaderMinimal';
-import { HeaderNoImage, type HeaderNoImageProps } from '@/components/Storyblok/partials/HeaderNoImage';
-import { HeaderWithImage, type HeaderWithImageProps } from '@/components/Storyblok/partials/HeaderWithImage';
+// import { HeaderMinimal, type HeaderMinimalProps } from '@/components/Storyblok/partials/HeaderMinimal';
+// import { HeaderNoImage, type HeaderNoImageProps } from '@/components/Storyblok/partials/HeaderNoImage';
+// import { HeaderWithImage, type HeaderWithImageProps } from '@/components/Storyblok/partials/HeaderWithImage';
 import { BelowContent, type BelowContentProps } from '@/components/Storyblok/partials/BelowContent';
-import { HeaderFullWidthImage, type HeaderFullWidthImageProps } from '@/components/Storyblok/partials/HeaderFullWidthImage';
+// import { HeaderFullWidthImage, type HeaderFullWidthImageProps } from '@/components/Storyblok/partials/HeaderFullWidthImage';
+import { HeaderFullWidthImage, type HeaderProps } from '@/components/Storyblok/PageRegions';
 import { BodyLeftSidebar, type BodyLeftSidebarProps } from '@/components/Storyblok/partials/BodyLeftSidebar';
 import { BodyNoSidebar, type BodyNoSidebarProps } from '@/components/Storyblok/partials/BodyNoSidebar';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
@@ -13,10 +14,7 @@ import { CenteredContainer } from '@/components/Storyblok/partials/CenteredConta
 import { Heading } from '@/components/Typography';
 import { CreateBloks } from '@/components/CreateBloks';
 
-export type SbInteriorPageProps = HeaderMinimalProps
-  & HeaderNoImageProps
-  & HeaderWithImageProps
-  & HeaderFullWidthImageProps
+export type SbInteriorPageProps = HeaderProps
   & BodyNoSidebarProps
   & BodyLeftSidebarProps
   & BelowContentProps
@@ -40,13 +38,13 @@ export const SbInteriorPage = (props: SbInteriorPageProps) => {
       <CreateBloks blokSection={props.blok.localHeader} slug={props.slug} />
       <main id="main-content" className={`ood-interior-page ood-interior-page--${props.blok.headerStyle}`}>
         <article className="bg-fog-light">
-          {props.blok.headerStyle === 'has-image' && (
+          {/* {props.blok.headerStyle === 'has-image' && (
             <HeaderWithImage {...props} />
           )}
           {props.blok.headerStyle === 'no-image' && (
             <HeaderNoImage {...props} />
           )}
-          {props.blok.headerStyle === 'minimal' && <HeaderMinimal {...props} />}
+          {props.blok.headerStyle === 'minimal' && <HeaderMinimal {...props} />} */}
           {props.blok.headerStyle === 'full-width-image' && (
             <HeaderFullWidthImage {...props} />
           )}
