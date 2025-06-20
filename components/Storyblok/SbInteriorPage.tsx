@@ -35,7 +35,7 @@ export const SbInteriorPage = (props: SbInteriorPageProps) => {
       <CreateBloks blokSection={props.blok.localHeader} slug={props.slug} />
       <main id="main-content" className={`ood-interior-page ood-interior-page--${props.blok.headerStyle}`}>
         <article className="bg-fog-light">
-          <header>
+          <header className="break-words">
             {props.blok.headerStyle === 'has-image' && (
               <HeaderSmallImage {...props} />
             )}

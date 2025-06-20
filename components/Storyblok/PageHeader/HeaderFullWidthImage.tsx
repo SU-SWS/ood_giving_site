@@ -35,7 +35,7 @@ export const HeaderFullWidthImage = ({ blok }: HeaderFullWidthImageProps) => {
   );
 
   return (
-    <div className="w-full relative break-words">
+    <div className="w-full relative">
       <div className="relative overflow-hidden w-full h-160 sm:h-240 md:h-[33rem] lg:h-400 xl:h-500 2xl:h-600">
         {fullWidthImage}
         {logoFilename && (
@@ -51,8 +51,10 @@ export const HeaderFullWidthImage = ({ blok }: HeaderFullWidthImageProps) => {
           <Heading
             as="h1"
             id="page-title"
+            size="f5"
             align="center"
-            className="text-black w-full mb-08em fluid-type-5 md:text-left text-balance"
+            mb="08em"
+            className="w-full md:text-left text-balance"
           >
             {title}
           </Heading>
