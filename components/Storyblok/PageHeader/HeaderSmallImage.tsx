@@ -31,7 +31,7 @@ export const HeaderSmallImage = ({ blok }: HeaderSmallImageProps) => {
           {title}
         </Heading>
         {hasRichText(intro) && (
-          <RichText wysiwyg={intro} className="text-20 md:text-23 lg:text-25 mb-07em md:mb-0" />
+          <RichText wysiwyg={intro} className="text-20 md:text-23 lg:text-25 mb-07em md:mb-0 [&_p]:text-pretty" />
         )}
       </div>
       {filename && (

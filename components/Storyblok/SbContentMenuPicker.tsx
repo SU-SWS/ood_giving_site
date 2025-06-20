@@ -3,10 +3,10 @@ import { type ISbStoryData } from '@storyblok/react/rsc';
 
 export type SbLocalFooterPickerProps = {
   blok: {
-    localFooter?: ISbStoryData[];
+    contentMenu?: ISbStoryData[];
   }
 }
 
-export const SbLocalFooterPicker = (props: SbLocalFooterPickerProps) => {
-  return <CreateStories stories={props.blok.localFooter} />;
+export const SbContentMenuPicker = (props: SbLocalFooterPickerProps) => {
+  return <CreateStories stories={props.blok.contentMenu} />;
 };
