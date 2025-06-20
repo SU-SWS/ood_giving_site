@@ -3,7 +3,7 @@ import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { RichText } from '@/components/RichText';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
-import { Heading } from '@/components/Storyblok/partials/Heading';
+// import { Heading } from '@/components/Storyblok/partials/Heading';
 import { CreateBloks } from '@/components/CreateBloks';
 import { config } from '@/utilities/config';
 import { useWindowSize } from 'usehooks-ts';
@@ -41,14 +41,14 @@ export const HeaderNoImage = (props: HeaderNoImageProps) => {
             props.blok.layout !== 'no-sidebar' && (
               <CreateBloks blokSection={props.blok.contentMenu} />
             )}
-          <Heading
+          {/* <Heading
             level={'h1'}
             serif={true}
             color={'white'}
             classes={'ood-interior-page__title flex-xl-10-of-12'}
           >
             {props.blok.title}
-          </Heading>
+          </Heading> */}
         </CenteredContainer>
       </div>
       <CenteredContainer

@@ -10,7 +10,7 @@ import { type DarkBgColorsType, type MarginType } from '@/utilities/datasource';
 export type HeaderProps = React.HTMLAttributes<HTMLDivElement> & {
   blok: SbBlokData & {
     contentMenu?: SbBlokData[];
-    title: string;
+    title?: string;
     intro?: StoryblokRichtext;
     headerSpacingBottom?: MarginType;
     headerBackgroundColor?: DarkBgColorsType;

@@ -1,19 +1,18 @@
-import React from 'react';
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
-import { BelowContent, type BelowContentProps } from '@/components/Storyblok/partials/BelowContent';
 import { Heading, Paragraph } from '@/components/Typography';
 import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
 import { FullWidthImage, type VisibleVerticalType } from '@/components/Image';
 import { type SbImageType } from '../Storyblok.types';
 
-export type SbStoryFullViewProps = IconCardSectionProps & FooterProps & BelowContentProps & {
+export type SbStoryFullViewProps = IconCardSectionProps & FooterProps & {
   blok: SbBlokData & {
     localHeader: SbBlokData[];
     alertPicker: SbBlokData[];
+    belowContent: SbBlokData[];
     publishedDate?: string;
     manualDate?: string;
     heroImage: SbImageType;
@@ -144,7 +143,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                 </CenteredContainer>
               </div>
             )}
-            <BelowContent {...props} />
+            <CreateBloks blokSection={props.blok.belowContent} />
             <IconCardSection {...props} />
           </footer>
         </article>

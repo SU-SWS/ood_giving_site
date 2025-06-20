@@ -1,17 +1,16 @@
-import React from 'react';
 import { type SbBlokData } from '@storyblok/react/rsc';
 import { storyblokEditable } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
 import { HeaderNoImage, type HeaderNoImageProps } from '@/components/Storyblok/partials/HeaderNoImage';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
-import { BelowContent, type BelowContentProps } from '@/components/Storyblok/partials/BelowContent';
 
-type SbStoryOverviewPageProps = HeaderNoImageProps & IconCardSectionProps & BelowContentProps & FooterProps & {
+type SbStoryOverviewPageProps = HeaderNoImageProps & IconCardSectionProps & FooterProps & {
   blok: SbBlokData & {
     localHeader: SbBlokData[];
     alertPicker: SbBlokData[];
     stories: SbBlokData[];
+    belowContent: SbBlokData[];
   }
 };
 
@@ -27,7 +26,7 @@ export const SbStoryOverviewPage = (props: SbStoryOverviewPageProps) => {
         <article className="bg-white">
           <HeaderNoImage {...props} />
           <CreateBloks blokSection={props.blok.stories} />
-          <BelowContent {...props} />
+          <CreateBloks blokSection={props.blok.belowContent} />
           <footer className="ood-interior-page__main-footer">
             <IconCardSection {...props} />
           </footer>

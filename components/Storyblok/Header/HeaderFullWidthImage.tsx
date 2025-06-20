@@ -52,7 +52,7 @@ export const HeaderFullWidthImage = ({ blok }: HeaderFullWidthImageProps) => {
             as="h1"
             id="page-title"
             align="center"
-            className="text-black w-full mb-20 fluid-type-5 md:text-left"
+            className="text-black w-full mb-08em fluid-type-5 md:text-left text-balance"
           >
             {title}
           </Heading>

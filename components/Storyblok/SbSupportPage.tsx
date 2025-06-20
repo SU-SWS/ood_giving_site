@@ -1,20 +1,20 @@
 'use client';
-import React, { type MouseEventHandler, useCallback, useEffect } from 'react';
+import { type MouseEventHandler, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { HeaderNoImage, type HeaderNoImageProps } from '@/components/Storyblok/partials/HeaderNoImage';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
-import { BelowContent, type BelowContentProps } from '@/components/Storyblok/partials/BelowContent';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 import { Heading, SrOnlyText } from '@/components/Typography';
 import { Grid } from '../Grid';
 
-export type SbSupportPageProps = HeaderNoImageProps & IconCardSectionProps & FooterProps & BelowContentProps & {
+export type SbSupportPageProps = HeaderNoImageProps & IconCardSectionProps & FooterProps & {
   blok: SbBlokData & {
     localHeader: SbBlokData[];
     alertPicker: SbBlokData[];
+    belowContent: SbBlokData[];
     bodyTitle: string;
     srText: string;
     undergraduate: SbBlokData[];
@@ -191,7 +191,7 @@ export const SbSupportPage = (props: SbSupportPageProps) => {
               </Grid>
             </CenteredContainer>
           </section>
-          <BelowContent {...props} />
+          <CreateBloks blokSection={props.blok.belowContent} />
           <footer className="ood-support-page__main-footer">
             <IconCardSection {...props} />
           </footer>

@@ -1,7 +1,7 @@
 import { cnb } from 'cnbuilder';
 import { Container } from '@/components/Container';
 import { Heading } from '@/components/Typography';
-import { type HeaderProps } from '@/components/Storyblok/PageRegions';
+import { type HeaderProps } from '@/components/Storyblok/Header';
 import { darkBgColors } from '@/utilities/datasource';
 
 type HeaderMinimalProps = Partial<HeaderProps>;
@@ -13,7 +13,7 @@ export const HeaderMinimal = ({ blok }: HeaderMinimalProps) => {
     <Container
       className={cnb(
         'py-38 md:py-72 lg:py-108 xl:py-[11.1rem] break-words',
-        darkBgColors[bgColor || 'palo-alto'],
+        darkBgColors[bgColor || 'palo-alto-dark'],
       )}
     >
       <Heading
