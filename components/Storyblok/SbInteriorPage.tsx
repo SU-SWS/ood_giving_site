@@ -2,10 +2,8 @@
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { useWindowSize } from 'usehooks-ts';
 import {
-  HeaderFullWidthImage, HeaderMinimal, HeaderNoImage, HeaderSmallImage, type HeaderProps,
+  HeaderFullWidthImage, HeaderMinimal, HeaderNoImage, HeaderSmallImage,
 } from '@/components/Storyblok/PageHeader';
-import { BodyLeftSidebar, type BodyLeftSidebarProps } from '@/components/Storyblok/partials/BodyLeftSidebar';
-import { BodyNoSidebar, type BodyNoSidebarProps } from '@/components/Storyblok/partials/BodyNoSidebar';
 import { Grid } from '@/components/Grid';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
