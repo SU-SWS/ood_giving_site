@@ -30,7 +30,7 @@ export const HeaderNoImage = ({ blok }: HeaderNoImageProps) => {
         </Heading>
       </Container>
       <Container mb="none">
-        <div className="bg-white w-full mb-0 mt-[-3em] md:mt-[-6em] rs-p-4 relative basis-0 shrink-0 max-w-full shadow-md">
+        <div className="relative bg-white w-full max-w-full -mt-[3em] md:-mt-[6em] rs-p-4 shadow-md">
           {hasRichText(introText) && (
             <div className="relative w-full xl:w-3/4 mx-auto">
               <RichText wysiwyg={introText} className="md:text-center text-20 md:text-25 lg:text-29" />
