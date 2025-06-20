@@ -9,7 +9,7 @@ export type SbCampaignPageProps = CampaignHeaderProps & IconCardSectionProps & F
   blok: SbBlokData & {
     alertPicker: SbBlokData[];
     content: SbBlokData[];
-  }
+  };
 };
 
 export const SbCampaignPage = (props: SbCampaignPageProps) => (

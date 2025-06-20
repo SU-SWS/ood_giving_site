@@ -6,6 +6,30 @@ export const lightPageBgColors = {
 };
 export type LightPageBgColorsType = keyof typeof lightPageBgColors;
 
+export const darkBgColors = {
+  'bay-dark': 'bg-bay-dark',
+  'palo-alto': 'bg-palo-alto',
+  'palo-alto-dark': 'bg-palo-alto-dark',
+  'palo-verde-dark': 'bg-palo-verde-dark',
+  'lagunita': 'bg-lagunita',
+  'lagunita-dark': 'bg-lagunita-dark',
+  'sky-dark': 'bg-sky-dark',
+  'cardinal-red': 'bg-cardinal-red',
+  'digital-red': 'bg-digital-red',
+  'black': 'bg-black',
+  'fog-light': 'bg-fog-light',
+  'cardinal-dark-to-spirited-dark': 'bg-gradient-to-tr from-cardinal-dark to-spirited-dark',
+  'plum-to-digital-red': 'bg-gradient-to-tr from-plum to-digital-red',
+  'plum-to-spirited-dark': 'bg-gradient-to-tr from-plum to-spirited-dark',
+  'palo-alto-dark-to-palo-verde-dark': 'bg-gradient-to-tr from-palo-alto-dark to-palo-verde-dark',
+  'sky-dark-to-olive-dark': 'bg-gradient-to-tr from-sky-dark to-olive-dark',
+  'sky-dark-to-bay-dark': 'bg-gradient-to-tr from-sky-dark to-bay-dark',
+  'palo-verde': 'bg-palo-verde',
+  'plum': 'bg-plum',
+  'brick': 'bg-brick',
+};
+export type DarkBgColorsType = keyof typeof darkBgColors;
+
 export const paddingTops = {
   none: '',
   base: 'rs-pt-0',

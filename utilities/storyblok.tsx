@@ -10,7 +10,7 @@ import { SbInteriorPage } from '@/components/Storyblok/SbInteriorPage';
 import { SbSupportPage } from '@/components/Storyblok/SbSupportPage';
 import { SbStoryPage } from '@/components/Storyblok/SbStoryPage';
 import { SbStoryPicker } from '@/components/Storyblok/SbStoryPage';
-import { Redirect } from '@/components/Redirect';
+import { SbRedirect } from '@/components/Storyblok/SbRedirect';
 import { SbLocalFooterPicker } from '@/components/Storyblok/SbLocalFooterPicker';
 import { SbLocalFooter } from '@/components/Storyblok/SbLocalFooter';
 import { SbCtaLink } from '@/components/Storyblok/SbCtaLink';
@@ -18,6 +18,16 @@ import { SbNavItem } from '@/components/Storyblok/SbNavItem';
 import { SbLockup } from '@/components/Storyblok/SbLockup';
 import { SbSingleColumnContent } from '@/components/Storyblok/SbSingleColumnContent';
 import { SbStoryImage } from '@/components/Storyblok/SbStoryImage';
+import { SbLocalHeader } from '@/components/Storyblok/SbLocalHeader';
+import { SbLocalHeaderPicker } from '@/components/Storyblok/SbLocalHeaderPicker';
+import { SbMegaMenu } from '@/components/Storyblok/SbMegaMenu/SbMegaMenu';
+import { SbSubMenu } from '@/components/Storyblok/SbSubMenu';
+import {
+  SbMegaMenuNavItem,
+  SbMegaMenuSection,
+  SbMegaMenuLinkGroup,
+  SbMegaMenuCard,
+} from '@/components/Storyblok/SbMegaMenu';
 import { SbSection } from '@/components/Storyblok/SbSection';
 import { SbRowOneColumn } from '@/components/Storyblok/SbRowOneColumn';
 import { SbBasicCard } from '@/components/Storyblok/SbBasicCard';
@@ -25,7 +35,7 @@ import { SbCtaGroup } from '@/components/Storyblok/SbCtaGroup';
 
 export const components = {
   page: SbPage,
-  redirect: Redirect,
+  redirect: SbRedirect,
   storyPicker: SbStoryPicker,
   ctaLink: SbCtaLink,
   ctaGroup: SbCtaGroup,
@@ -41,10 +51,18 @@ export const components = {
   oodSupportPage: SbSupportPage,
   storyOverview: SbStoryOverviewPage,
   // Identity
+  oodLocalHeader: SbLocalHeader,
+  localHeaderPicker: SbLocalHeaderPicker,
   globalFooter: SbGlobalFooter,
   globalFooterPicker: SbGlobalFooterPicker,
   localFooterPicker: SbLocalFooterPicker,
   oodLocalFooter: SbLocalFooter,
+  oodMegaMenu: SbMegaMenu,
+  oodSubMenu: SbSubMenu,
+  oodMegaMenuNavItem: SbMegaMenuNavItem,
+  oodMegaMenuSection: SbMegaMenuSection,
+  oodMegaMenuLinkGroup: SbMegaMenuLinkGroup,
+  oodMegaMenuCard: SbMegaMenuCard,
   // Layout
   rowOneColumn: SbRowOneColumn,
   section: SbSection,

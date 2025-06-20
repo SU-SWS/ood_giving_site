@@ -1,6 +1,5 @@
-import React from 'react';
-import { CreateBloks } from '../CreateBloks';
-import { type SbBlokData } from '@storyblok/react/rsc';
+import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
+import { CreateBloks } from '@/components/CreateBloks';
 
 type SbPageProps = {
   blok: SbBlokData & {
@@ -10,7 +9,7 @@ type SbPageProps = {
 
 // TODO DS-1417: Remove and clean this up after a quick check of SB
 export const SbPage = (props: SbPageProps) => (
-  <div className="page">
+  <div {...storyblokEditable(props.blok)}>
     <CreateBloks blokSection={props.blok.body} />
   </div>
 );

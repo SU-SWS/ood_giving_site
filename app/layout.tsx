@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { FlexBox } from '@/components/FlexBox';
 import { GAProvider, GTAG } from '@/components/GAProvider';
+import { SearchModalProvider } from '@/components/Search/Modal/SearchModalContext';
 
 type LayoutProps = {
   children: React.ReactNode,
@@ -30,22 +31,24 @@ const stanford = localFont({
 const RootLayout = ({ children }: LayoutProps) => {
   return (
     <GAProvider>
-      <html
-        lang="en"
-        className={cnb(
-          source_sans.variable,
-          source_serif.variable,
-          stanford.variable,
-        )}
-      >
-        {/* Absolutely necessary to have a body tag here, otherwise your components won't get any interactivity */}
-        <body>
-          <GTAG />
-          <FlexBox justifyContent="between" direction="col" className="min-h-screen relative">
-            {children}
-          </FlexBox>
-        </body>
-      </html>
+      <SearchModalProvider>
+        <html
+          lang="en"
+          className={cnb(
+            source_sans.variable,
+            source_serif.variable,
+            stanford.variable,
+          )}
+        >
+          {/* Absolutely necessary to have a body tag here, otherwise your components won't get any interactivity */}
+          <body>
+            <GTAG />
+            <FlexBox justifyContent="between" direction="col" className="min-h-screen relative">
+              {children}
+            </FlexBox>
+          </body>
+        </html>
+      </SearchModalProvider>
     </GAProvider>
   );
 };

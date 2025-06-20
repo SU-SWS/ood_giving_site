@@ -10,13 +10,14 @@ type SbLandingPageProps = IconCardSectionProps & FooterProps & {
     alertPicker: SbBlokData[];
     heroSection: SbBlokData[];
     sections: SbBlokData[];
-  }
+  };
+  slug?: string;
 };
 
 export const SbLandingPage = (props: SbLandingPageProps) => (
   <div {...storyblokEditable(props.blok)} className="ood-landing-page bg-fog-light">
     <CreateBloks blokSection={props.blok.alertPicker} />
-    <CreateBloks blokSection={props.blok.localHeader} />
+    <CreateBloks blokSection={props.blok.localHeader} slug={props.slug} />
     <main id="main-content" className="ood-landing-page__main">
       <article className="bg-fog-light">
         <header className="ood-landing-page__main-header">

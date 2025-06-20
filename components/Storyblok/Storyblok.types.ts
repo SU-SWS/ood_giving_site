@@ -68,3 +68,9 @@ export type SbNavItemProps = {
   link?: SbLinkType;
   linkClass?: CtaIconType;
 };
+
+export type SbOodMegaMenuNavItemProps = {
+  _uid: string;
+  linkText?: string;
+  link?: SbLinkType;
+}

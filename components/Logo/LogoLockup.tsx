@@ -1,8 +1,7 @@
-import React from 'react';
-import { type ClassValue, cnb } from 'cnbuilder';
+import { cnb } from 'cnbuilder';
 import Link from 'next/link';
 import { FlexBox } from '@/components/FlexBox';
-import { StanfordLogo } from './StanfordLogo';
+import { StanfordLogo } from '@/components/StanfordLogo';
 import * as styles from './LogoLockup.styles';
 
 /**
@@ -12,7 +11,8 @@ type LogoLockupProps = {
   text: string;
   isLink?: boolean;
   color?: styles.LogoTextColorType;
-  className?: ClassValue;
+  // TW font size classes can be added to scale the logo at different breakpoints
+  className?: string;
 }
 
 export const LogoLockup = ({

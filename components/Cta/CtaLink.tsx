@@ -15,6 +15,7 @@ export type CtaLinkProps = Omit<LinkProps, 'href'> & React.ComponentPropsWithout
   sbLink?: SbLinkType;
   href?: string;
   rel?: string;
+  slug?: string;
 };
 
 export const CtaLink = React.forwardRef<HTMLAnchorElement, CtaLinkProps>(

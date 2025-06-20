@@ -29,14 +29,15 @@ export type SbInteriorPageProps = HeaderMinimalProps
       aboveContent: SbBlokData[];
       content: SbBlokData[];
       bodyTitle: string;
-    }
+    };
+    slug?: string;
   };
 
 export const SbInteriorPage = (props: SbInteriorPageProps) => {
   return (
     <div {...storyblokEditable(props.blok)}>
       <CreateBloks blokSection={props.blok.alertPicker} />
-      <CreateBloks blokSection={props.blok.localHeader} />
+      <CreateBloks blokSection={props.blok.localHeader} slug={props.slug} />
       <main id="main-content" className={`ood-interior-page ood-interior-page--${props.blok.headerStyle}`}>
         <article className="bg-fog-light">
           {props.blok.headerStyle === 'has-image' && (
