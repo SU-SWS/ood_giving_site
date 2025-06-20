@@ -7,6 +7,7 @@ import {
 import { Grid } from '@/components/Grid';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
+import { Skiplink } from '@/components/SkipLink';
 import { Heading } from '@/components/Typography';
 import { CreateBloks } from '@/components/CreateBloks';
 import { getNumBloks } from '@/utilities/getNumBloks';
@@ -69,16 +70,21 @@ export const SbInteriorPage = (props: SbInteriorPageProps) => {
               </Heading>
             </header>
                 )}
-            <Grid pt={6} pb={6} gap="default" lg={props.blok.layout === 'left-sidebar' ? 12 : 1} className="ood-interior-page__body-container cc">
+            <Grid pt={6} pb={6} gap="default" lg={12} className="ood-interior-page__body-container cc">
               {props.blok.layout === 'left-sidebar' && (
                 <aside className="lg:col-span-4 xl:col-span-3">
                   {windowSize.width >= config.breakpoints.lg &&
-                    <CreateBloks blokSection={props.blok.contentMenu} />
+                    <>
+                      <Skiplink href="#body-content" className="hidden left-0 lg:block focus:block focus:w-fit focus:relative focus:bg-cardinal-red -top-60 focus:mx-auto">
+                        Skip past section menu to page content
+                      </Skiplink>
+                      <CreateBloks blokSection={props.blok.contentMenu} />
+                    </>
                   }
                   <CreateBloks blokSection={props.blok.contactInfo} />
                 </aside>
               )}
-              <div className={props.blok.layout === 'left-sidebar' && 'lg:col-span-8 xl:col-start-5'}>
+              <div id="body-content" className={props.blok.layout === 'left-sidebar' ? 'lg:col-span-8 xl:col-start-5' : 'lg:col-span-10 lg:col-start-2 xl:col-span-8 xl:col-start-3'}>
                 <CreateBloks blokSection={props.blok.pageContent} />
               </div>
             </Grid>

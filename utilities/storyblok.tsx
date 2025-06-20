@@ -21,6 +21,12 @@ import { SbSingleColumnContent } from '@/components/Storyblok/SbSingleColumnCont
 import { SbStoryImage } from '@/components/Storyblok/SbStoryImage';
 import { SbLocalHeader } from '@/components/Storyblok/SbLocalHeader';
 import { SbLocalHeaderPicker } from '@/components/Storyblok/SbLocalHeaderPicker';
+import {
+  SbContentMenu,
+  SbContentNestedMenu,
+  SbContentNavItem,
+  SbContentMenuParentItem,
+} from '@/components/Storyblok/SbContentMenu';
 import { SbMegaMenu } from '@/components/Storyblok/SbMegaMenu/SbMegaMenu';
 import { SbSubMenu } from '@/components/Storyblok/SbSubMenu';
 import {
@@ -33,6 +39,8 @@ import { SbSection } from '@/components/Storyblok/SbSection';
 import { SbRowOneColumn } from '@/components/Storyblok/SbRowOneColumn';
 import { SbBasicCard } from '@/components/Storyblok/SbBasicCard';
 import { SbCtaGroup } from '@/components/Storyblok/SbCtaGroup';
+import { SbIconCard } from '@/components/Storyblok/SbIconCard';
+import { SbSupportCard } from '@/components/Storyblok/SbSupportCard';
 
 export const components = {
   page: SbPage,
@@ -44,6 +52,8 @@ export const components = {
   lockup: SbLockup,
   // Cards
   basicCard: SbBasicCard,
+  oodIconCard: SbIconCard,
+  oodSupportCard: SbSupportCard,
   // Pages
   oodCampaignPage: SbCampaignPage,
   oodInteriorPage: SbInteriorPage,
@@ -60,6 +70,10 @@ export const components = {
   oodLocalFooter: SbLocalFooter,
   // Navigation'
   contentMenuPicker: SbContentMenuPicker,
+  oodContentMenu: SbContentMenu,
+  contentMenuParentItem: SbContentMenuParentItem,
+  contentNavItem: SbContentNavItem,
+  contentNestedMenu: SbContentNestedMenu,
   oodMegaMenu: SbMegaMenu,
   oodSubMenu: SbSubMenu,
   oodMegaMenuNavItem: SbMegaMenuNavItem,
