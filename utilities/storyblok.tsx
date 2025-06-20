@@ -6,7 +6,7 @@ import { SbLandingPage } from '@/components/Storyblok/SbLandingPage';
 import { SbGlobalFooterPicker } from '@/components/Storyblok/SbGlobalFooterPicker';
 import { SbPage } from '@/components/Storyblok/SbPage';
 import { SbStoryOverviewPage } from '@/components/Storyblok/SbStoryOverviewPage';
-import { SbCampaignPage } from '@/components/Storyblok/SbCampaignPage';
+import { SbCampaignPage } from '@/components/Storyblok/SbCampaignPage/SbCampaignPage';
 import { SbInteriorPage } from '@/components/Storyblok/SbInteriorPage';
 import { SbSupportPage } from '@/components/Storyblok/SbSupportPage';
 import { SbStoryPage } from '@/components/Storyblok/SbStoryPage';
@@ -15,7 +15,6 @@ import { SbRedirect } from '@/components/Storyblok/SbRedirect';
 import { SbLocalFooterPicker } from '@/components/Storyblok/SbLocalFooterPicker';
 import { SbLocalFooter } from '@/components/Storyblok/SbLocalFooter';
 import { SbCtaLink } from '@/components/Storyblok/SbCtaLink';
-import { SbNavItem } from '@/components/Storyblok/SbNavItem';
 import { SbLockup } from '@/components/Storyblok/SbLockup';
 import { SbSingleColumnContent } from '@/components/Storyblok/SbSingleColumnContent';
 import { SbStoryImage } from '@/components/Storyblok/SbStoryImage';
@@ -48,7 +47,6 @@ export const components = {
   storyPicker: SbStoryPicker,
   ctaLink: SbCtaLink,
   ctaGroup: SbCtaGroup,
-  navItem: SbNavItem,
   lockup: SbLockup,
   // Cards
   basicCard: SbBasicCard,

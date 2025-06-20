@@ -1,8 +1,8 @@
 import { type SbBlokData } from '@storyblok/react/rsc';
 import { storyblokEditable } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
+import { Container } from '@/components/Container';
 import { Heading } from '@/components/Typography';
-import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 
 export type IconCardSectionProps = {
   blok: SbBlokData & {
@@ -28,12 +28,11 @@ export const IconCardSection = (props: IconCardSectionProps) => {
           ? props.blok.iconCardHeading
           : 'Links to more information'}
       </Heading>
-      <CenteredContainer
-        flex={true}
-        classes={`ood-icon-card-section__container su-align-items-stretch su-flex-${numIconCards}-col`}
+      <Container
+        className={`flex ood-icon-card-section__container su-align-items-stretch su-flex-${numIconCards}-col`}
       >
         <CreateBloks blokSection={props.blok.iconCards} />
-      </CenteredContainer>
+      </Container>
     </div>
   );
 };

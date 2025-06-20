@@ -1,7 +1,7 @@
 import React from 'react';
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
-import { CampaignHeader, type CampaignHeaderProps } from '@/components/Storyblok/partials/CampaignHeader';
+import { CampaignHeader, type CampaignHeaderProps } from '@/components/Storyblok/SbCampaignPage/CampaignHeader';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
 

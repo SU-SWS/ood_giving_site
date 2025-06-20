@@ -5,6 +5,9 @@ import { hasRichText } from '@/utilities/hasRichText';
 import { type HeaderProps } from './Header.types';
 import { darkBgColors } from '@/utilities/datasource';
 
+/**
+ * This header variant is used for Interior Pages, Support Page and Story Overview Page.
+ */
 type HeaderNoImageProps = Partial<HeaderProps>;
 
 export const HeaderNoImage = ({ blok }: HeaderNoImageProps) => {

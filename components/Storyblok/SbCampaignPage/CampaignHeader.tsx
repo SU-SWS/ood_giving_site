@@ -1,7 +1,7 @@
 import React, { useId } from 'react';
 import { type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
-import { CampaignHero } from '@/components/Storyblok/partials/CampaignHero';
+import { CampaignHero } from '@/components/Storyblok/SbCampaignPage/CampaignHero';
 
 export type CampaignHeaderProps = {
   blok: SbBlokData & {

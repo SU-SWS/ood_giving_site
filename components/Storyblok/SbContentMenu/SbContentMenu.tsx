@@ -9,11 +9,13 @@ import { Heading } from '@/components/Typography';
 import { HeroIcon } from '@/components/HeroIcon';
 import { config } from '@/utilities/config';
 import { getNumBloks } from '@/utilities/getNumBloks';
+import * as styles from './SbContentMenu.styles';
 
 export type SbContentMenuProps = {
   blok: SbBlokData & {
     menuTitle?: string;
     relatedMenuTitle?: string;
+    // Either a content menu parent item or a content nav item can be added to the below two links fields
     menuLinks?: SbBlokData[];
     relatedMenuLinks?: SbBlokData[];
   };
@@ -34,7 +36,7 @@ const MenuContent = ({
   relatedLinks,
 }: MenuContentProps) => (
   <>
-    <div className={`ood-content-nav__menu-group`}>
+    <div className={`ood-content-nav__menu-group text-white`}>
       {title && (
         <Heading font="sans" uppercase tracking="widest" className="mt-26 lg:mt-0 text-18 ml-16 lg:ml-0">
           {title}
@@ -99,13 +101,13 @@ export const SbContentMenu = ({ blok, slug }: SbContentMenuProps) => {
       {({ open }) => (
         <>
           <PopoverButton
-            className={`ood-content-nav__toggle`}
+            className={styles.mobileButton}
           >
             {open ? 'Close' : 'Section Menu'}{' '}
             <HeroIcon
               icon={open ? 'close' : 'menu'}
               noBaseStyle
-              // className={styles.mobileButtonIcon}
+              className={styles.mobileButtonIcon}
             />
           </PopoverButton>
           <Transition

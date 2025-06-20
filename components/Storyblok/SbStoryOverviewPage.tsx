@@ -1,6 +1,5 @@
-import { type SbBlokData } from '@storyblok/react/rsc';
+import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
-import { storyblokEditable } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
 import { HeaderNoImage } from '@/components/Storyblok/PageHeader/HeaderNoImage';

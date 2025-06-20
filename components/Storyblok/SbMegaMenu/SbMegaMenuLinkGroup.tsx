@@ -1,6 +1,6 @@
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { CtaLink } from '@/components/Cta';
-import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
+import { FlexCell } from '@/components/FlexCell';
 import { Heading } from '@/components/Typography';
 import { getNumBloks } from '@/utilities/getNumBloks';
 import { type SbOodMegaMenuNavItemProps } from '@/components/Storyblok/Storyblok.types';

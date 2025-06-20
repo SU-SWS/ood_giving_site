@@ -1,14 +1,14 @@
 'use client';
 import { type MouseEventHandler, useCallback, useEffect } from 'react';
+import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { useRouter } from 'next/navigation';
-import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
+import { Container } from '@/components/Container';
 import { CreateBloks } from '@/components/CreateBloks';
 import { HeaderNoImage } from '@/components/Storyblok/PageHeader/HeaderNoImage';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
 import { Grid } from '@/components/Grid';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
-import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 import { Heading, SrOnlyText } from '@/components/Typography';
 import { type DarkBgColorsType } from '@/utilities/datasource';
 
@@ -88,7 +88,7 @@ export const SbSupportPage = (props: SbSupportPageProps) => {
               </header>
             )}
             <SrOnlyText as="p">{props.blok.srText}</SrOnlyText>
-            <CenteredContainer classes="ood-support-page__filter-container">
+            <Container className="ood-support-page__filter-container">
               <input
                 type="radio"
                 id="undergraduate"
@@ -195,7 +195,7 @@ export const SbSupportPage = (props: SbSupportPageProps) => {
                 <CreateBloks blokSection={props.blok.sustainability} />
                 <CreateBloks blokSection={props.blok.teaching} />
               </Grid>
-            </CenteredContainer>
+            </Container>
           </section>
           <CreateBloks blokSection={props.blok.belowContent} />
           <footer className="ood-support-page__main-footer">

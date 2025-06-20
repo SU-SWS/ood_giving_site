@@ -2,8 +2,9 @@
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { useWindowSize } from 'usehooks-ts';
 import {
-  HeaderFullWidthImage, HeaderMinimal, HeaderNoImage, HeaderSmallImage,
+  HeaderFullWidthImage, HeaderMinimal, HeaderNoImage, HeaderSmallImage, type HeaderProps,
 } from '@/components/Storyblok/PageHeader';
+import { Container } from '@/components/Container';
 import { Grid } from '@/components/Grid';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
@@ -12,13 +13,15 @@ import { Heading } from '@/components/Typography';
 import { CreateBloks } from '@/components/CreateBloks';
 import { getNumBloks } from '@/utilities/getNumBloks';
 import { config } from '@/utilities/config';
+import { darkBgColors } from '@/utilities/datasource';
 
 
-export type SbInteriorPageProps =
+export type SbInteriorPageProps = HeaderProps
   & IconCardSectionProps
   & FooterProps
   & {
     blok: SbBlokData & {
+      layout?: 'left-sidebar' | 'no-sidebar';
       localHeader: SbBlokData[];
       alertPicker: SbBlokData[];
       contentMenu: SbBlokData[];
@@ -33,6 +36,9 @@ export type SbInteriorPageProps =
 
 export const SbInteriorPage = (props: SbInteriorPageProps) => {
   const windowSize = useWindowSize();
+  const hasHeroImage = props.blok.headerStyle === 'has-image' || props.blok.headerStyle === 'full-width-image';
+  const hasContentMenu = !!getNumBloks(props.blok.contentMenu);
+  const showMobileContentMenu = windowSize.width < config.breakpoints.lg && hasContentMenu && props.blok.layout === 'left-sidebar';
 
   return (
     <div {...storyblokEditable(props.blok)}>
@@ -40,11 +46,17 @@ export const SbInteriorPage = (props: SbInteriorPageProps) => {
       <CreateBloks blokSection={props.blok.localHeader} slug={props.slug} />
       <main id="main-content" className={`ood-interior-page ood-interior-page--${props.blok.headerStyle}`}>
         <article className="bg-fog-light">
-          {/* Mobile content (section) menu */}
-          {windowSize.width < config.breakpoints.lg &&
-            <CreateBloks blokSection={props.blok.contentMenu} slug={props.slug} />
-          }
           <header className="break-words">
+            {/* Mobile content (section) menu */}
+            {showMobileContentMenu &&
+              <Container
+                pt={2}
+                pb={hasHeroImage ? 2 : undefined}
+                className={hasHeroImage ? 'bg-palo-alto-dark' : darkBgColors[props.blok.headerBackgroundColor || 'palo-alto-dark']}
+              >
+                <CreateBloks blokSection={props.blok.contentMenu} slug={props.slug} />
+              </Container>
+            }
             {props.blok.headerStyle === 'has-image' && (
               <HeaderSmallImage {...props} />
             )}

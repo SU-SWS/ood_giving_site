@@ -1,10 +1,10 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
-import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
+import { Container } from '@/components/Container';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
 import { Heading, Paragraph } from '@/components/Typography';
-import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
+import { FlexCell } from '@/components/FlexCell';
 import { FullWidthImage, type VisibleVerticalType } from '@/components/Image';
 import { type SbImageType } from '../Storyblok.types';
 
@@ -74,10 +74,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                   className="h-300 md:h-400 xl:h-500 2xl:h-[64rem]"
                 />
               )}
-            <CenteredContainer
-              flex
-              classes="ood-story__header-content"
-            >
+            <Container className="flex ood-story__header-content">
               <FlexCell
                 md={12}
                 lg={10}
@@ -106,7 +103,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                   </Paragraph>
                 )}
               </FlexCell>
-            </CenteredContainer>
+            </Container>
           </header>
           <div className="ood-story__content">
             <CreateBloks blokSection={props.blok.storyContent} />
@@ -114,7 +111,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
           <footer className="ood-story__main-footer">
             {(props.blok.author || publishedDate) && (
               <div className="ood-story__metadata">
-                <CenteredContainer flex={true}>
+                <Container className="flex">
                   <FlexCell lg={8} className="mx-auto">
                     <CreateBloks blokSection={props.blok.cta} />
                     <div className="ood-story__metadata rs-pb-5">
@@ -140,7 +137,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                       )}
                     </div>
                   </FlexCell>
-                </CenteredContainer>
+                </Container>
               </div>
             )}
             <CreateBloks blokSection={props.blok.belowContent} />
