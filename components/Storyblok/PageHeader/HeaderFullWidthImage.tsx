@@ -53,15 +53,13 @@ export const HeaderFullWidthImage = ({ blok }: HeaderFullWidthImageProps) => {
             id="page-title"
             size="f5"
             align="center"
-            mb="08em"
+            mb="04em"
             className="w-full md:text-left text-balance"
           >
             {title}
           </Heading>
           {hasRichText(intro) && (
-            <div className="w-full subheading">
-              <RichText wysiwyg={intro} />
-            </div>
+            <RichText wysiwyg={intro} className="w-full subheading [&_p]:text-pretty" />
           )}
         </div>
       </Container>

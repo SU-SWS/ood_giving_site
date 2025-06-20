@@ -1,27 +1,31 @@
+'use client';
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
+import { useWindowSize } from 'usehooks-ts';
 import {
   HeaderFullWidthImage, HeaderMinimal, HeaderNoImage, HeaderSmallImage, type HeaderProps,
 } from '@/components/Storyblok/PageHeader';
 import { BodyLeftSidebar, type BodyLeftSidebarProps } from '@/components/Storyblok/partials/BodyLeftSidebar';
 import { BodyNoSidebar, type BodyNoSidebarProps } from '@/components/Storyblok/partials/BodyNoSidebar';
+import { Grid } from '@/components/Grid';
 import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
 import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
-import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
 import { Heading } from '@/components/Typography';
 import { CreateBloks } from '@/components/CreateBloks';
 import { getNumBloks } from '@/utilities/getNumBloks';
+import { config } from '@/utilities/config';
 
-export type SbInteriorPageProps = HeaderProps
-  & BodyNoSidebarProps
-  & BodyLeftSidebarProps
+
+export type SbInteriorPageProps =
   & IconCardSectionProps
   & FooterProps
   & {
     blok: SbBlokData & {
       localHeader: SbBlokData[];
       alertPicker: SbBlokData[];
+      contentMenu: SbBlokData[];
+      contactInfo: SbBlokData[];
       aboveContent: SbBlokData[];
-      content: SbBlokData[];
+      pageContent: SbBlokData[];
       belowContent: SbBlokData[];
       bodyTitle: string;
     };
@@ -29,12 +33,18 @@ export type SbInteriorPageProps = HeaderProps
   };
 
 export const SbInteriorPage = (props: SbInteriorPageProps) => {
+  const windowSize = useWindowSize();
+
   return (
     <div {...storyblokEditable(props.blok)}>
       <CreateBloks blokSection={props.blok.alertPicker} />
       <CreateBloks blokSection={props.blok.localHeader} slug={props.slug} />
       <main id="main-content" className={`ood-interior-page ood-interior-page--${props.blok.headerStyle}`}>
         <article className="bg-fog-light">
+          {/* Mobile content (section) menu */}
+          {windowSize.width < config.breakpoints.lg &&
+            <CreateBloks blokSection={props.blok.contentMenu} slug={props.slug} />
+          }
           <header className="break-words">
             {props.blok.headerStyle === 'has-image' && (
               <HeaderSmallImage {...props} />
@@ -48,10 +58,10 @@ export const SbInteriorPage = (props: SbInteriorPageProps) => {
             )}
           </header>
           {!!getNumBloks(props.blok.aboveContent) && (
-          <div className="ood-interior-page__above-body">
-            <CreateBloks blokSection={props.blok.aboveContent} />
-          </div>
-            )}
+            <div className="ood-interior-page__above-body">
+              <CreateBloks blokSection={props.blok.aboveContent} />
+            </div>
+          )}
           {(props.blok.bodyTitle || !!getNumBloks(props.blok.pageContent)) && (
           <section className="ood-interior-page__body">
             {props.blok.bodyTitle && (
@@ -61,14 +71,19 @@ export const SbInteriorPage = (props: SbInteriorPageProps) => {
               </Heading>
             </header>
                 )}
-            <CenteredContainer flex={true} classes={`ood-interior-page__body-container`}>
-              {props.blok.layout === 'no-sidebar' && (
-              <BodyNoSidebar {...props} />
-                  )}
+            <Grid pt={6} pb={6} gap="default" lg={props.blok.layout === 'left-sidebar' ? 12 : 1} className="ood-interior-page__body-container cc">
               {props.blok.layout === 'left-sidebar' && (
-              <BodyLeftSidebar {...props} />
-                  )}
-            </CenteredContainer>
+                <aside className="lg:col-span-4 xl:col-span-3">
+                  {windowSize.width >= config.breakpoints.lg &&
+                    <CreateBloks blokSection={props.blok.contentMenu} />
+                  }
+                  <CreateBloks blokSection={props.blok.contactInfo} />
+                </aside>
+              )}
+              <div className={props.blok.layout === 'left-sidebar' && 'lg:col-span-8 xl:col-start-5'}>
+                <CreateBloks blokSection={props.blok.pageContent} />
+              </div>
+            </Grid>
           </section>
             )
           }

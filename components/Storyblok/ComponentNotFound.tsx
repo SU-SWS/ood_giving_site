@@ -7,8 +7,8 @@ type ComponentNotFoundProps = {
 }
 
 export const ComponentNotFound = ({ component: { blok } }: ComponentNotFoundProps) => (
-  <div className="rs-p-6 bg-red-600">
-    <h2 className="text-white">{blok.component} component is missing from the codebase.</h2>
+  <div className="rs-p-3 bg-red-600">
+    <h2 className="text-white type-2 break-words">{blok.component} component is missing from the codebase.</h2>
     <p className="text-white">Source blok UID: {blok._uid}</p>
   </div>
 );

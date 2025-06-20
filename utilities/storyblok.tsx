@@ -1,5 +1,6 @@
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 import { ComponentNotFound } from '@/components/Storyblok/ComponentNotFound';
+import { SbContentMenuPicker } from '@/components/Storyblok/SbContentMenuPicker';
 import { SbGlobalFooter } from '@/components/Storyblok/SbGlobalFooter';
 import { SbLandingPage } from '@/components/Storyblok/SbLandingPage';
 import { SbGlobalFooterPicker } from '@/components/Storyblok/SbGlobalFooterPicker';
@@ -57,6 +58,8 @@ export const components = {
   globalFooterPicker: SbGlobalFooterPicker,
   localFooterPicker: SbLocalFooterPicker,
   oodLocalFooter: SbLocalFooter,
+  // Navigation'
+  contentMenuPicker: SbContentMenuPicker,
   oodMegaMenu: SbMegaMenu,
   oodSubMenu: SbSubMenu,
   oodMegaMenuNavItem: SbMegaMenuNavItem,
