@@ -36,24 +36,24 @@ const MenuContent = ({
   relatedLinks,
 }: MenuContentProps) => (
   <>
-    <div className={`ood-content-nav__menu-group text-white`}>
+    <div className="rs-mb-1 last:mb-0">
       {title && (
-        <Heading font="sans" uppercase tracking="widest" className="mt-26 lg:mt-0 text-18 ml-16 lg:ml-0">
+        <Heading font="sans" uppercase tracking="widest" className={styles.menuTitle}>
           {title}
         </Heading>
       )}
-      <ul className="secondary-nav__menu secondary-nav__menu-lv1 ood-content-nav__menu ood-content-nav__menu-lv1">
+      <ul className="list-unstyled">
         <CreateBloks blokSection={links} />
       </ul>
     </div>
     {!!getNumBloks(relatedLinks) && (
       <div className={`ood-content-nav__menu-group`}>
         {relatedTitle && (
-          <Heading font="sans" uppercase tracking="widest" className="mt-26 lg:mt-0 text-18 ml-16 lg:ml-0">
+          <Heading font="sans" uppercase tracking="widest" className={styles.menuTitle}>
             {relatedTitle}
           </Heading>
         )}
-        <ul className="secondary-nav__menu secondary-nav__menu-lv1 ood-content-nav__menu ood-content-nav__menu-lv1 ood-content-nav__menu-related">
+        <ul className="list-unstyled">
           <CreateBloks blokSection={relatedLinks} />
         </ul>
       </div>
@@ -94,7 +94,7 @@ export const SbContentMenu = ({ blok, slug }: SbContentMenuProps) => {
   return (
     <Popover
       as="nav"
-      className="secondary-nav ood-content-nav"
+      className="group relative max-w-400 mx-auto"
       aria-label="Section Content Menu"
       {...storyblokEditable(blok)}
     >
@@ -118,7 +118,7 @@ export const SbContentMenu = ({ blok, slug }: SbContentMenuProps) => {
             leaveFrom="opacity-100 scale-y-100"
             leaveTo="opacity-0 scale-y-95"
           >
-            <PopoverPanel className={`ood-content-nav__menus`}>
+            <PopoverPanel className={styles.mobileMenu}>
               <MenuContent
                 title={menuTitle}
                 links={menuLinks}

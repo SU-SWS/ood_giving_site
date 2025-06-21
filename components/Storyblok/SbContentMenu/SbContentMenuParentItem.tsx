@@ -1,5 +1,6 @@
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
-// import { CreateBloks } from '@/components/CreateBloks';
+import { CtaLink } from '@/components/Cta/CtaLink';
+import { CreateBloks } from '@/components/CreateBloks';
 import { SbLinkType } from '@/components/Storyblok/Storyblok.types';
 
 /**
@@ -8,7 +9,7 @@ import { SbLinkType } from '@/components/Storyblok/Storyblok.types';
  */
 export type SbContentMenuParentItemProps = {
   blok: SbBlokData & {
-    parentitemText?: string;
+    parentItemText?: string;
     parentItemLink?: SbLinkType;
     nestedMenu?: SbBlokData[];
   };
@@ -16,7 +17,13 @@ export type SbContentMenuParentItemProps = {
 };
 
 export const SbContentMenuParentItem = ({ blok }: SbContentMenuParentItemProps) => {
+  const { parentItemText, parentItemLink, nestedMenu } = blok;
   return (
-    <div {...storyblokEditable(blok)}></div>
+    <li className="mb-0" {...storyblokEditable(blok)}>
+      <CtaLink sbLink={parentItemLink} variant="content-menu">
+        {parentItemText}
+      </CtaLink>
+      <CreateBloks blokSection={nestedMenu} />
+    </li>
   );
 };

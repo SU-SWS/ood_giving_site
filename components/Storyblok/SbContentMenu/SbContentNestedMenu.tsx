@@ -1,5 +1,6 @@
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
-// import { CreateBloks } from '@/components/CreateBloks';
+import { cnb } from 'cnbuilder';
+import { CreateBloks } from '@/components/CreateBloks';
 
 /**
  * This component renders a nested menu that can be added to the content menu parent item.
@@ -14,7 +15,13 @@ export type SbContentNestedMenuProps = {
 };
 
 export const SbContentNestedMenu = ({ blok }: SbContentNestedMenuProps) => {
+  const { menuItems, menuLevel } = blok;
   return (
-    <div {...storyblokEditable(blok)}></div>
+    <ul
+      className={cnb('list-unstyled *:pl-20 *:*:py-12', menuLevel === 'lv2' ? '*:*:text-18' : '*:*:text-16')}
+      {...storyblokEditable(blok)}
+    >
+      <CreateBloks blokSection={menuItems} />
+    </ul>
   );
 };

@@ -1,4 +1,5 @@
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
+import { CtaLink } from '@/components/Cta/CtaLink';
 import { SbLinkType } from '@/components/Storyblok/Storyblok.types';
 
 export type SbContentNavItemProps = {
@@ -10,7 +11,13 @@ export type SbContentNavItemProps = {
 };
 
 export const SbContentNavItem = ({ blok }: SbContentNavItemProps) => {
+  const { link, linkText } = blok;
+
   return (
-    <div {...storyblokEditable(blok)}></div>
+    <li {...storyblokEditable(blok)} className="mb-0">
+      <CtaLink sbLink={link} variant="content-menu">
+        {linkText}
+      </CtaLink>
+    </li>
   );
 };
