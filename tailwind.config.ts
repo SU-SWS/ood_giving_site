@@ -18,11 +18,11 @@ export default {
     './utilities/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
+    screens: screens(),
     extend: {
       fontFamily: fontFamily(),
       colors: colors(),
       keyframes: keyframes(),
-      screens: screens(),
     },
   },
   plugins: [
