@@ -99,6 +99,7 @@ export const iconLeftMarginDefault = 'ml-04em';
 export const iconLeftMargin: CtaIconLeftMarginType = {
   'su-link--action': 'ml-03em',
   'su-link--external': 'ml-03em',
+  'su-link--jump': 'ml-03em',
 };
 
 // Maps to linkIcon prop in SbCtaLink. Animation preselected based on the icon type
@@ -118,4 +119,4 @@ export const ctaAligns = {
   right: 'su-text-right ml-auto mr-0',
 };
 
-export const ctaGroup = 'list-unstyled gap-x-08em gap-y-1em [&_li]:mb-0 [&_a]:max-sm:text-09em [&_.cta-button]:max-sm:p-07em';
+export const ctaGroup = 'list-unstyled gap-x-08em gap-y-1em [&_li]:mb-0 [&_.cta-button]:max-sm:text-09em [&_.cta-button]:max-sm:p-07em';
