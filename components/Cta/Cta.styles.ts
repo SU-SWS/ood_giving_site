@@ -118,4 +118,4 @@ export const ctaAligns = {
   right: 'su-text-right ml-auto mr-0',
 };
 
-export const ctaGroup = 'list-unstyled gap-x-08em gap-y-1em [&_li]:mb-0 [&_a]:text-09em [&_a]:md:text-20 [&_.cta-button]:p-07em [&_.cta-button]:md:pt-11 [&_.cta-button]:md:pb-12 [&_.cta-button]:md:px-30';
+export const ctaGroup = 'list-unstyled gap-x-08em gap-y-1em [&_li]:mb-0 [&_a]:max-sm:text-09em [&_.cta-button]:max-sm:p-07em';
