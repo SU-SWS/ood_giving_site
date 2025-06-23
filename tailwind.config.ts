@@ -3,6 +3,7 @@ import decanter from 'decanter';
 import tailwindContainerQueries from '@tailwindcss/container-queries';
 
 import { base } from './tailwind/plugins/base/base';
+import { aria } from './tailwind/plugins/theme/aria';
 import { fontFamily } from './tailwind/plugins/theme/fontFamily';
 import { colors } from './tailwind/plugins/theme/colors';
 import { keyframes } from './tailwind/plugins/theme/keyframes';
@@ -20,6 +21,7 @@ export default {
   theme: {
     screens: screens(),
     extend: {
+      aria: aria(),
       fontFamily: fontFamily(),
       colors: colors(),
       keyframes: keyframes(),

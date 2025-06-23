@@ -18,7 +18,7 @@ export const HeaderSmallImage = ({ blok }: HeaderSmallImageProps) => {
   } = blok;
 
   return (
-    <Container pt={5} pb={5} className="relative bg-white break-words flex flex-col md:flex-row md:items-start grid-gap mx-auto">
+    <Container pt={6} pb={5} className="relative bg-white break-words flex flex-col md:flex-row md:items-start grid-gap mx-auto">
       <div className="w-full md:w-7/12 xl:w-6/12">
         <Heading
           as="h1"
@@ -48,7 +48,7 @@ export const HeaderSmallImage = ({ blok }: HeaderSmallImageProps) => {
             focus={focus}
             alt={alt}
             imageSize="header"
-            className="print:hidden relative md:w-5/12 xl:w-6/12 mr-0 -ml-20 w-[calc(100%+2rem)] sm:-ml-30 sm:w-[calc(100%+3rem)] md:ml-0 -mt-[57vw] md:mt-0 z-10 pb-0"
+            className="print:hidden relative md:w-5/12 xl:w-6/12 mr-0 -ml-20 w-[calc(100%+2rem)] sm:-ml-30 sm:w-[calc(100%+3rem)] md:ml-0 -mt-[59vw] md:mt-0 z-10 pb-0"
           />
         </>
       )}

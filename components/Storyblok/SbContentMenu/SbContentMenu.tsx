@@ -27,6 +27,7 @@ type MenuContentProps = {
   relatedTitle?: string;
   links?: SbBlokData[];
   relatedLinks?: SbBlokData[];
+  slug?: string;
 }
 
 const MenuContent = ({
@@ -34,6 +35,7 @@ const MenuContent = ({
   relatedTitle,
   links,
   relatedLinks,
+  slug,
 }: MenuContentProps) => (
   <>
     <div className="rs-mb-1 last:mb-0">
@@ -43,7 +45,7 @@ const MenuContent = ({
         </Heading>
       )}
       <ul className="list-unstyled">
-        <CreateBloks blokSection={links} />
+        <CreateBloks blokSection={links} slug={slug} />
       </ul>
     </div>
     {!!getNumBloks(relatedLinks) && (
@@ -54,7 +56,7 @@ const MenuContent = ({
           </Heading>
         )}
         <ul className="list-unstyled">
-          <CreateBloks blokSection={relatedLinks} />
+          <CreateBloks blokSection={relatedLinks} slug={slug} />
         </ul>
       </div>
     )}
@@ -74,19 +76,14 @@ export const SbContentMenu = ({ blok, slug }: SbContentMenuProps) => {
   // Desktop version of the content menu is always expanded
   if (windowSize.width >= config.breakpoints.lg) {
     return (
-      <nav
-        className="secondary-nav ood-content-nav"
-        aria-label="Section Content Menu"
-        {...storyblokEditable(blok)}
-      >
-        <div className={`ood-content-nav__menus`}>
-          <MenuContent
-            title={menuTitle}
-            links={menuLinks}
-            relatedTitle={relatedMenuTitle}
-            relatedLinks={relatedMenuLinks}
-          />
-        </div>
+      <nav aria-label="Section Content Menu" {...storyblokEditable(blok)}>
+        <MenuContent
+          title={menuTitle}
+          links={menuLinks}
+          relatedTitle={relatedMenuTitle}
+          relatedLinks={relatedMenuLinks}
+          slug={slug}
+        />
       </nav>
     );
   }
@@ -103,7 +100,7 @@ export const SbContentMenu = ({ blok, slug }: SbContentMenuProps) => {
           <PopoverButton
             className={styles.mobileButton}
           >
-            {open ? 'Close' : 'Section Menu'}{' '}
+            {open ? 'Close' : 'Section Menu'}
             <HeroIcon
               icon={open ? 'close' : 'menu'}
               noBaseStyle
@@ -124,6 +121,7 @@ export const SbContentMenu = ({ blok, slug }: SbContentMenuProps) => {
                 links={menuLinks}
                 relatedTitle={relatedMenuTitle}
                 relatedLinks={relatedMenuLinks}
+                slug={slug}
               />
             </PopoverPanel>
           </Transition>

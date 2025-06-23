@@ -22,7 +22,6 @@ export const mobileTopMenu = 'absolute left-0 top-[10.8rem] md:top-[14.1rem] pt-
  */
 export const navItem = 'mb-0';
 export const navItemChevron = 'lg:hidden text-digital-red';
-export const topLevelLinkActive = 'before:bg-black before:hocus:bg-digital-red lg:before:bg-black-40 before:scale-y-100 lg:before:scale-x-100';
 
 /**
  * Mega menu section/panel

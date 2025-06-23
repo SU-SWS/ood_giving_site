@@ -14,14 +14,14 @@ export type SbContentNestedMenuProps = {
   slug?: string;
 };
 
-export const SbContentNestedMenu = ({ blok }: SbContentNestedMenuProps) => {
+export const SbContentNestedMenu = ({ blok, slug }: SbContentNestedMenuProps) => {
   const { menuItems, menuLevel } = blok;
   return (
     <ul
-      className={cnb('list-unstyled *:pl-20 *:*:py-12', menuLevel === 'lv2' ? '*:*:text-18' : '*:*:text-16')}
+      className={cnb('list-unstyled mb-04em *:pl-20 *:*:py-12', menuLevel === 'lv2' ? '*:*:text-18' : '*:*:text-16')}
       {...storyblokEditable(blok)}
     >
-      <CreateBloks blokSection={menuItems} />
+      <CreateBloks blokSection={menuItems} slug={slug} />
     </ul>
   );
 };

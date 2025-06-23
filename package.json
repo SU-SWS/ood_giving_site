@@ -60,7 +60,7 @@
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
     "autoprefixer": "^10.4.21",
-    "decanter": "^7.3.1",
+    "decanter": "^7.3.2",
     "eslint": "^9.23.0",
     "eslint-config-next": "^15.3.3",
     "netlify-plugin-vault-variables": "^3.0.0",

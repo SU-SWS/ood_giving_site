@@ -90,7 +90,7 @@ export const SbInteriorPage = (props: SbInteriorPageProps) => {
                       <Skiplink href="#body-content" className="hidden left-0 lg:block focus:block focus:w-fit focus:relative focus:bg-cardinal-red -top-60 focus:mx-auto">
                         Skip past section menu to page content
                       </Skiplink>
-                      <CreateBloks blokSection={props.blok.contentMenu} />
+                      <CreateBloks blokSection={props.blok.contentMenu} slug={props.slug} />
                     </>
                   }
                   <CreateBloks blokSection={props.blok.contactInfo} />

@@ -22,7 +22,7 @@ export const HeaderMinimal = ({ blok }: HeaderMinimalProps) => {
         size="f5"
         mb="none"
         color={bgColor === 'fog-light' ? 'black' : 'white'}
-        className="mx-auto max-w-1200 text-balance"
+        className="mx-auto max-w-1200 text-pretty"
         align="center"
       >
         {title}
