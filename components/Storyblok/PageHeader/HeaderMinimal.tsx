@@ -6,9 +6,7 @@ import { darkBgColors } from '@/utilities/datasource';
 
 type HeaderMinimalProps = Partial<HeaderProps>;
 
-export const HeaderMinimal = ({ blok }: HeaderMinimalProps) => {
-  const { title, headerBackgroundColor: bgColor } = blok;
-
+export const HeaderMinimal = ({ title, headerBackgroundColor: bgColor }: HeaderMinimalProps) => {
   return (
     <Container
       className={cnb(

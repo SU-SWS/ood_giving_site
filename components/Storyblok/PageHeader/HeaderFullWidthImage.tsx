@@ -8,15 +8,13 @@ import { type HeaderProps } from './Header.types';
 
 type HeaderFullWidthImageProps = Partial<HeaderProps>;
 
-export const HeaderFullWidthImage = ({ blok }: HeaderFullWidthImageProps) => {
-  const {
-    title,
-    intro,
-    headerImage: { filename, alt } = {},
-    headerLogo: { filename: logoFilename, alt: logoAlt } = {},
-    visibleVertical,
-  } = blok;
-
+export const HeaderFullWidthImage = ({
+  title,
+  intro,
+  headerImage: { filename, alt } = {},
+  headerLogo: { filename: logoFilename, alt: logoAlt } = {},
+  visibleVertical,
+}: HeaderFullWidthImageProps) => {
   const hasIntro = hasRichText(intro);
 
   // Display fog light background color behind logo if there's a logo image but no hero image

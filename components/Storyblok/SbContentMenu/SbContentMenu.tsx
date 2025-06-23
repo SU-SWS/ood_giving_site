@@ -22,6 +22,26 @@ export type SbContentMenuProps = {
   slug?: string;
 };
 
+type LinkGroupProps = {
+  title?: string;
+  children?: React.ReactNode;
+};
+
+const LinkGroup = ({
+  title,
+  children,
+}: LinkGroupProps) => (
+  <div className="rs-mb-1">
+    {title && (
+      <Heading font="sans" uppercase tracking="widest" className={styles.menuTitle}>
+        {title}
+      </Heading>
+    )}
+    <ul className="list-unstyled">{children}</ul>
+  </div>
+);
+
+
 type MenuContentProps = {
   title?: string;
   relatedTitle?: string;
@@ -38,27 +58,13 @@ const MenuContent = ({
   slug,
 }: MenuContentProps) => (
   <>
-    <div className="rs-mb-1 last:mb-0">
-      {title && (
-        <Heading font="sans" uppercase tracking="widest" className={styles.menuTitle}>
-          {title}
-        </Heading>
-      )}
-      <ul className="list-unstyled">
-        <CreateBloks blokSection={links} slug={slug} />
-      </ul>
-    </div>
+    <LinkGroup title={title}>
+      <CreateBloks blokSection={links} slug={slug} />
+    </LinkGroup>
     {!!getNumBloks(relatedLinks) && (
-      <div className={`ood-content-nav__menu-group`}>
-        {relatedTitle && (
-          <Heading font="sans" uppercase tracking="widest" className={styles.menuTitle}>
-            {relatedTitle}
-          </Heading>
-        )}
-        <ul className="list-unstyled">
-          <CreateBloks blokSection={relatedLinks} slug={slug} />
-        </ul>
-      </div>
+      <LinkGroup title={relatedTitle}>
+        <CreateBloks blokSection={relatedLinks} slug={slug} />
+      </LinkGroup>
     )}
   </>
 );

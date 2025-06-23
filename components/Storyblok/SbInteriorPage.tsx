@@ -1,115 +1,175 @@
 'use client';
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
+import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { useWindowSize } from 'usehooks-ts';
 import {
-  HeaderFullWidthImage, HeaderMinimal, HeaderNoImage, HeaderSmallImage, type HeaderProps,
+  HeaderFullWidthImage, HeaderMinimal, HeaderNoImage, HeaderSmallImage,
 } from '@/components/Storyblok/PageHeader';
 import { Container } from '@/components/Container';
+import { CreateBloks } from '@/components/CreateBloks';
 import { Grid } from '@/components/Grid';
-import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
-import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
+import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
+import { Footer } from '@/components/Storyblok/partials/Footer';
 import { Skiplink } from '@/components/SkipLink';
 import { Heading } from '@/components/Typography';
-import { CreateBloks } from '@/components/CreateBloks';
+import { type VisibleVerticalType } from '@/components/Image';
 import { getNumBloks } from '@/utilities/getNumBloks';
 import { config } from '@/utilities/config';
-import { darkBgColors } from '@/utilities/datasource';
+import { darkBgColors, type DarkBgColorsType, type MarginType } from '@/utilities/datasource';
+import { type SbImageType } from './Storyblok.types';
 
 
-export type SbInteriorPageProps = HeaderProps
-  & IconCardSectionProps
-  & FooterProps
-  & {
-    blok: SbBlokData & {
-      layout?: 'left-sidebar' | 'no-sidebar';
-      localHeader: SbBlokData[];
-      alertPicker: SbBlokData[];
-      contentMenu: SbBlokData[];
-      contactInfo: SbBlokData[];
-      aboveContent: SbBlokData[];
-      pageContent: SbBlokData[];
-      belowContent: SbBlokData[];
-      bodyTitle: string;
-    };
-    slug?: string;
+export type SbInteriorPageProps = {
+  blok: SbBlokData & {
+    layout?: 'left-sidebar' | 'no-sidebar';
+    // Header
+    title?: string;
+    intro?: StoryblokRichtext;
+    headerStyle?: 'has-image' | 'no-image' | 'minimal' | 'full-width-image';
+    headerBackgroundColor?: DarkBgColorsType;
+    headerLogo?: SbImageType;
+    headerImage?: SbImageType;
+    headerSpacingBottom?: MarginType;
+    visibleVertical?: VisibleVerticalType;
+    localHeader?: SbBlokData[];
+    alertPicker?: SbBlokData[];
+    // Above content
+    aboveContent?: SbBlokData[];
+    // Main body content
+    pageContent?: SbBlokData[];
+    bodyTitle?: string;
+    // Sidebar
+    contentMenu?: SbBlokData[];
+    contactInfo?: SbBlokData[];
+    // Below content
+    belowContent?: SbBlokData[];
+    iconCardHeading?: string;
+    iconCards?: SbBlokData[];
+    // Footer
+    localFooter?: SbBlokData[];
+    globalFooter?: SbBlokData[];
   };
+  slug?: string;
+};
 
-export const SbInteriorPage = (props: SbInteriorPageProps) => {
+export const SbInteriorPage = ({ blok, slug }: SbInteriorPageProps) => {
+  const {
+    layout = 'left-sidebar',
+    title,
+    intro,
+    headerStyle,
+    headerLogo,
+    headerImage,
+    headerBackgroundColor = 'palo-alto-dark',
+    headerSpacingBottom,
+    visibleVertical,
+    localHeader,
+    alertPicker,
+    bodyTitle,
+    pageContent,
+    contactInfo,
+    contentMenu,
+    aboveContent,
+    belowContent,
+    iconCardHeading,
+    iconCards,
+    localFooter,
+    globalFooter,
+  } = blok;
+
   const windowSize = useWindowSize();
-  const hasHeroImage = props.blok.headerStyle === 'has-image' || props.blok.headerStyle === 'full-width-image';
-  const hasContentMenu = !!getNumBloks(props.blok.contentMenu);
-  const showMobileContentMenu = windowSize.width < config.breakpoints.lg && hasContentMenu && props.blok.layout === 'left-sidebar';
+  const hasHeroImage = headerStyle === 'has-image' || headerStyle === 'full-width-image';
+  const hasContentMenu = !!getNumBloks(contentMenu);
+  const showMobileContentMenu = windowSize.width < config.breakpoints.lg && hasContentMenu && layout === 'left-sidebar';
 
   return (
-    <div {...storyblokEditable(props.blok)}>
-      <CreateBloks blokSection={props.blok.alertPicker} />
-      <CreateBloks blokSection={props.blok.localHeader} slug={props.slug} />
-      <main id="main-content" className={`ood-interior-page ood-interior-page--${props.blok.headerStyle}`}>
+    <div {...storyblokEditable(blok)}>
+      <CreateBloks blokSection={alertPicker} />
+      <CreateBloks blokSection={localHeader} slug={slug} />
+      <main id="main-content">
         <article className="bg-fog-light">
-          <header className="break-words">
+          {/* Header */}
+          <Container as="header" width="full" mb={headerSpacingBottom} className="break-words">
             {/* Mobile content (section) menu */}
             {showMobileContentMenu &&
               <Container
                 pt={2}
                 pb={hasHeroImage ? 2 : undefined}
-                className={hasHeroImage ? 'bg-palo-alto-dark' : darkBgColors[props.blok.headerBackgroundColor || 'palo-alto-dark']}
+                className={hasHeroImage ? 'bg-palo-alto-dark' : darkBgColors[headerBackgroundColor || 'palo-alto-dark']}
               >
-                <CreateBloks blokSection={props.blok.contentMenu} slug={props.slug} />
+                <CreateBloks blokSection={contentMenu} slug={slug} />
               </Container>
             }
-            {props.blok.headerStyle === 'has-image' && (
-              <HeaderSmallImage {...props} />
+            {headerStyle === 'has-image' && (
+              <HeaderSmallImage
+                title={title}
+                intro={intro}
+                headerImage={headerImage}
+                headerBackgroundColor={headerBackgroundColor}
+              />
             )}
-            {props.blok.headerStyle === 'no-image' && (
-              <HeaderNoImage {...props} />
+            {headerStyle === 'no-image' && (
+              <HeaderNoImage title={title} intro={intro} headerBackgroundColor={headerBackgroundColor} />
             )}
-            {props.blok.headerStyle === 'minimal' && <HeaderMinimal {...props} />}
-            {props.blok.headerStyle === 'full-width-image' && (
-              <HeaderFullWidthImage {...props} />
+            {headerStyle === 'minimal' && <HeaderMinimal title={title} headerBackgroundColor={headerBackgroundColor} />}
+            {headerStyle === 'full-width-image' && (
+              <HeaderFullWidthImage
+                title={title}
+                intro={intro}
+                headerImage={headerImage}
+                headerLogo={headerLogo}
+                visibleVertical={visibleVertical}
+              />
             )}
-          </header>
-          {!!getNumBloks(props.blok.aboveContent) && (
-            <div className="ood-interior-page__above-body">
-              <CreateBloks blokSection={props.blok.aboveContent} />
+          </Container>
+          {!!getNumBloks(aboveContent) && (
+            <div>
+              <CreateBloks blokSection={aboveContent} />
             </div>
           )}
-          {(props.blok.bodyTitle || !!getNumBloks(props.blok.pageContent)) && (
-          <section className="ood-interior-page__body">
-            {props.blok.bodyTitle && (
-            <header className="centered-container ood-interior-page__body-header text-left">
-              <Heading className="ood-interior-page__body-header-title ood-has-tab-before">
-                {props.blok.bodyTitle}
-              </Heading>
-            </header>
-                )}
-            <Grid pt={6} pb={6} gap="default" lg={12} className="ood-interior-page__body-container cc">
-              {props.blok.layout === 'left-sidebar' && (
-                <aside className="lg:col-span-4 xl:col-span-3">
-                  {windowSize.width >= config.breakpoints.lg &&
-                    <>
-                      <Skiplink href="#body-content" className="hidden left-0 lg:block focus:block focus:w-fit focus:relative focus:bg-cardinal-red -top-60 focus:mx-auto">
-                        Skip past section menu to page content
-                      </Skiplink>
-                      <CreateBloks blokSection={props.blok.contentMenu} slug={props.slug} />
-                    </>
-                  }
-                  <CreateBloks blokSection={props.blok.contactInfo} />
-                </aside>
+          {(bodyTitle || !!getNumBloks(pageContent)) && (
+            <Container width="full" pt={6}>
+              {/* Main body header */}
+              {bodyTitle && (
+                <Container as="header" pb={5}>
+                  <Heading mb="none" className="max-w-1200 before:block before:mb-03em before:content-[''] before:h-10 before:w-80 before:bg-cardinal-red">
+                    {bodyTitle}
+                  </Heading>
+                </Container>
               )}
-              <div id="body-content" className={props.blok.layout === 'left-sidebar' ? 'lg:col-span-8 xl:col-start-5' : 'lg:col-span-10 lg:col-start-2 xl:col-span-8 xl:col-start-3'}>
-                <CreateBloks blokSection={props.blok.pageContent} />
-              </div>
-            </Grid>
-          </section>
-            )
-          }
-          <CreateBloks blokSection={props.blok.belowContent} />
+              <Grid pb={6} gap="default" lg={12} className="cc">
+                {/* Sidebar */}
+                {layout === 'left-sidebar' && (
+                  <aside className="lg:col-span-4 xl:col-span-3 gap-y-20 md:gap-y-26 2xl:gap-y-27">
+                    {windowSize.width >= config.breakpoints.lg &&
+                      <>
+                        <Skiplink href="#body-content" className="hidden left-0 lg:block focus:block focus:w-fit focus:relative focus:bg-cardinal-red -top-60 focus:mx-auto">
+                          Skip past section menu to page content
+                        </Skiplink>
+                        <CreateBloks blokSection={contentMenu} slug={slug} />
+                      </>
+                    }
+                    {!!getNumBloks(contactInfo) && (
+                      <div className="max-md:mb-45 md:max-lg:mb-72">
+                        <CreateBloks blokSection={contactInfo} />
+                      </div>
+                    )}
+                  </aside>
+                )}
+                {/* Main body content */}
+                <div id="body-content" className={layout === 'left-sidebar' ? 'lg:col-span-8 xl:col-start-5' : 'lg:col-span-10 lg:col-start-2 xl:col-span-8 xl:col-start-3'}>
+                  <CreateBloks blokSection={pageContent} />
+                </div>
+              </Grid>
+            </Container>
+          )}
+          <CreateBloks blokSection={belowContent} />
           <footer className="ood-interior-page__main-footer">
-            <IconCardSection {...props} />
+            <IconCardSection iconCards={iconCards} iconCardHeading={iconCardHeading} />
           </footer>
         </article>
       </main>
-      <Footer {...props} />
+      <Footer localFooter={localFooter} globalFooter={globalFooter} />
     </div>
   );
 };

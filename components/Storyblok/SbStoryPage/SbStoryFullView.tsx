@@ -1,18 +1,17 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Container } from '@/components/Container';
-import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
-import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
+import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
+import { Footer } from '@/components/Storyblok/partials/Footer';
 import { Heading, Paragraph } from '@/components/Typography';
 import { FlexCell } from '@/components/FlexCell';
 import { FullWidthImage, type VisibleVerticalType } from '@/components/Image';
 import { type SbImageType } from '../Storyblok.types';
 
-export type SbStoryFullViewProps = IconCardSectionProps & FooterProps & {
+export type SbStoryFullViewProps = {
   blok: SbBlokData & {
     localHeader: SbBlokData[];
     alertPicker: SbBlokData[];
-    belowContent: SbBlokData[];
     publishedDate?: string;
     manualDate?: string;
     heroImage: SbImageType;
@@ -22,6 +21,13 @@ export type SbStoryFullViewProps = IconCardSectionProps & FooterProps & {
     storyContent: SbBlokData[];
     cta: SbBlokData[];
     author?: string;
+    // Below content
+    belowContent?: SbBlokData[];
+    iconCardHeading?: string;
+    iconCards?: SbBlokData[];
+    // Footer
+    localFooter?: SbBlokData[];
+    globalFooter?: SbBlokData[];
   }
 };
 
@@ -141,11 +147,11 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
               </div>
             )}
             <CreateBloks blokSection={props.blok.belowContent} />
-            <IconCardSection {...props} />
+            <IconCardSection iconCards={props.blok.iconCards} iconCardHeading={props.blok.iconCardHeading} />
           </footer>
         </article>
       </main>
-      <Footer {...props} />
+      <Footer localFooter={props.blok.localFooter} globalFooter={props.blok.globalFooter} />
     </div>
   );
 };

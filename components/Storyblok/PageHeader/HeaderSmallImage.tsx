@@ -9,14 +9,12 @@ import { type HeaderProps } from './Header.types';
 
 type HeaderSmallImageProps = Partial<HeaderProps>;
 
-export const HeaderSmallImage = ({ blok }: HeaderSmallImageProps) => {
-  const {
-    title,
-    intro,
-    headerImage: { filename, focus, alt } = {},
-    headerBackgroundColor: bgColor,
-  } = blok;
-
+export const HeaderSmallImage = ({
+  title,
+  intro,
+  headerImage: { filename, focus, alt } = {},
+  headerBackgroundColor: bgColor,
+}: HeaderSmallImageProps) => {
   return (
     <Container pt={6} pb={5} className="relative bg-white break-words flex flex-col md:flex-row md:items-start grid-gap mx-auto">
       <div className="w-full md:w-7/12 xl:w-6/12">

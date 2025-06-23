@@ -10,13 +10,11 @@ import { darkBgColors } from '@/utilities/datasource';
  */
 type HeaderNoImageProps = Partial<HeaderProps>;
 
-export const HeaderNoImage = ({ blok }: HeaderNoImageProps) => {
-  const {
-    title,
-    intro: introText,
-    headerBackgroundColor: bgColor,
-  } = blok;
-
+export const HeaderNoImage = ({
+  title,
+  intro,
+  headerBackgroundColor: bgColor,
+}: HeaderNoImageProps) => {
   return (
     <div>
       <Container pt={7} pb={9} className={darkBgColors[bgColor || 'palo-alto-dark']}>
@@ -34,9 +32,9 @@ export const HeaderNoImage = ({ blok }: HeaderNoImageProps) => {
       </Container>
       <Container mb="none">
         <div className="relative bg-white w-full max-w-full -mt-[3em] md:-mt-[6em] rs-p-4 shadow-md">
-          {hasRichText(introText) && (
+          {hasRichText(intro) && (
             <div className="relative w-full xl:w-3/4 mx-auto">
-              <RichText wysiwyg={introText} className="md:text-center text-20 md:text-25 lg:text-29 [&_p]:text-pretty" />
+              <RichText wysiwyg={intro} className="md:text-center text-20 md:text-25 lg:text-29 [&_p]:text-pretty" />
             </div>
           )}
         </div>

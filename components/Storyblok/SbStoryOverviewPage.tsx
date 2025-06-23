@@ -1,12 +1,12 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { CreateBloks } from '@/components/CreateBloks';
-import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
+import { Footer } from '@/components/Storyblok/partials/Footer';
 import { HeaderNoImage } from '@/components/Storyblok/PageHeader/HeaderNoImage';
-import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
+import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
 import { type DarkBgColorsType } from '@/utilities/datasource';
 
-type SbStoryOverviewPageProps = IconCardSectionProps & FooterProps & {
+type SbStoryOverviewPageProps = {
   blok: SbBlokData & {
     title?: string;
     intro?: StoryblokRichtext;
@@ -14,7 +14,13 @@ type SbStoryOverviewPageProps = IconCardSectionProps & FooterProps & {
     localHeader: SbBlokData[];
     alertPicker: SbBlokData[];
     stories: SbBlokData[];
-    belowContent: SbBlokData[];
+    // Below content
+    belowContent?: SbBlokData[];
+    iconCardHeading?: string;
+    iconCards?: SbBlokData[];
+    // Footer
+    localFooter?: SbBlokData[];
+    globalFooter?: SbBlokData[];
   }
 };
 
@@ -28,15 +34,19 @@ export const SbStoryOverviewPage = (props: SbStoryOverviewPageProps) => {
         className="ood-interior-page ood-interior-page--no-image story-overview-page"
       >
         <article className="bg-white">
-          <HeaderNoImage {...props} />
+          <HeaderNoImage
+            title={props.blok.title}
+            intro={props.blok.intro}
+            headerBackgroundColor={props.blok.headerBackgroundColor}
+          />
           <CreateBloks blokSection={props.blok.stories} />
           <CreateBloks blokSection={props.blok.belowContent} />
           <footer className="ood-interior-page__main-footer">
-            <IconCardSection {...props} />
+            <IconCardSection iconCards={props.blok.iconCards} iconCardHeading={props.blok.iconCardHeading} />
           </footer>
         </article>
       </main>
-      <Footer {...props} />
+      <Footer localFooter={props.blok.localFooter} globalFooter={props.blok.globalFooter} />
     </div>
   );
 };

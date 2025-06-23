@@ -1,4 +1,4 @@
-export const root = 'w-full basefont-20 rs-py-1 text-white bg-cardinal-red';
+export const root = 'print:hidden w-full basefont-20 rs-py-1 text-white bg-cardinal-red';
 export const outerWrapper = 'lg:flex-row';
 export const logoWrapper = 'text-center mt-5 mb-9';
 export const logo = 'type-3';
