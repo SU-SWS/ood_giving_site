@@ -99,7 +99,7 @@ export const iconLeftMarginDefault = 'ml-04em';
 export const iconLeftMargin: CtaIconLeftMarginType = {
   'su-link--action': 'ml-03em',
   'su-link--external': 'ml-03em',
-  'su-link--jump': 'ml-03em',
+  'su-link--jump': 'ml-02em',
 };
 
 // Maps to linkIcon prop in SbCtaLink. Animation preselected based on the icon type
