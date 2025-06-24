@@ -3,6 +3,7 @@ import { CtaLink } from '@/components/Cta/CtaLink';
 import { CreateBloks } from '@/components/CreateBloks';
 import { SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { isActiveLink } from '@/utilities/isActiveLink';
+import * as styles from './SbContentMenu.styles';
 
 /**
  * This component renders a parent link in the content menu that has a nested menu.
@@ -27,12 +28,11 @@ export const SbContentMenuParentItem = ({ blok, slug }: SbContentMenuParentItemP
   const isActivePage = isActiveLink(slug, parentItemLink.cached_url);
 
   return (
-    <li className="mb-0" {...storyblokEditable(blok)}>
+    <li className={styles.parentItem} {...storyblokEditable(blok)}>
       <CtaLink
         sbLink={parentItemLink}
         variant="content-menu"
         aria-current={isActivePage ? 'page' : undefined}
-        className={isActivePage ? 'aria-current-page:text-black aria-current-page:underline' : ''}
       >
         {parentItemText}
       </CtaLink>

@@ -32,13 +32,13 @@ const LinkGroup = ({
   title,
   children,
 }: LinkGroupProps) => (
-  <div className="rs-mb-1">
+  <div className={styles.linkGroup}>
     {title && (
       <Heading font="sans" uppercase tracking="widest" className={styles.menuTitle}>
         {title}
       </Heading>
     )}
-    <ul className="list-unstyled">{children}</ul>
+    <ul className={styles.menu}>{children}</ul>
   </div>
 );
 
@@ -98,7 +98,7 @@ export const SbContentMenu = ({ blok, slug }: SbContentMenuProps) => {
   return (
     <Popover
       as="nav"
-      className="group relative max-w-400 mx-auto"
+      className={styles.mobileRoot}
       aria-label="Section Content Menu"
       {...storyblokEditable(blok)}
     >
@@ -120,7 +120,7 @@ export const SbContentMenu = ({ blok, slug }: SbContentMenuProps) => {
             leaveFrom="opacity-100 scale-y-100"
             leaveTo="opacity-0 scale-y-95"
           >
-            <PopoverPanel className={styles.mobileMenu}>
+            <PopoverPanel className={styles.mobilePanel}>
               <MenuContent
                 title={menuTitle}
                 links={menuLinks}

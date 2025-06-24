@@ -1,3 +1,4 @@
+import { cnb } from 'cnbuilder';
 import { Container } from '@/components/Container';
 import { Heading } from '@/components/Typography';
 import { RichText } from '@/components/RichText';
@@ -8,16 +9,25 @@ import { darkBgColors } from '@/utilities/datasource';
 /**
  * This header variant is used for Interior Pages, Support Page and Story Overview Page.
  */
-type HeaderNoImageProps = Partial<HeaderProps>;
+type HeaderNoImageProps = Partial<HeaderProps> & {
+  hasContentMenu?: boolean;
+};
 
 export const HeaderNoImage = ({
   title,
   intro,
   headerBackgroundColor: bgColor,
+  hasContentMenu,
 }: HeaderNoImageProps) => {
   return (
-    <div>
-      <Container pt={7} pb={9} className={darkBgColors[bgColor || 'palo-alto-dark']}>
+    <>
+      <Container
+        pb={9}
+        className={cnb(
+          darkBgColors[bgColor || 'palo-alto-dark'],
+          hasContentMenu ? 'pt-38 md:pt-72 lg:pt-108 2xl:pt-114' : 'rs-pt-7',
+        )}
+      >
         <Heading
           as="h1"
           id="page-title"
@@ -39,6 +49,6 @@ export const HeaderNoImage = ({
           )}
         </div>
       </Container>
-    </div>
+    </>
   );
 };

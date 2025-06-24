@@ -2,6 +2,7 @@ import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { CtaLink } from '@/components/Cta/CtaLink';
 import { SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { isActiveLink } from '@/utilities/isActiveLink';
+import * as styles from './SbContentMenu.styles';
 
 export type SbContentNavItemProps = {
   blok: SbBlokData & {
@@ -21,7 +22,7 @@ export const SbContentNavItem = ({ blok, slug }: SbContentNavItemProps) => {
   const isActivePage = isActiveLink(slug, link.cached_url);
 
   return (
-    <li {...storyblokEditable(blok)} className="mb-0">
+    <li className={styles.navItem} {...storyblokEditable(blok)}>
       <CtaLink
         sbLink={link}
         variant="content-menu"

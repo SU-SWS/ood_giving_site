@@ -109,7 +109,12 @@ export const SbInteriorPage = ({ blok, slug }: SbInteriorPageProps) => {
               />
             )}
             {headerStyle === 'no-image' && (
-              <HeaderNoImage title={title} intro={intro} headerBackgroundColor={headerBackgroundColor} />
+              <HeaderNoImage
+                title={title}
+                intro={intro}
+                headerBackgroundColor={headerBackgroundColor}
+                hasContentMenu={showMobileContentMenu}
+              />
             )}
             {headerStyle === 'minimal' && <HeaderMinimal title={title} headerBackgroundColor={headerBackgroundColor} />}
             {headerStyle === 'full-width-image' && (
@@ -164,7 +169,7 @@ export const SbInteriorPage = ({ blok, slug }: SbInteriorPageProps) => {
             </Container>
           )}
           <CreateBloks blokSection={belowContent} />
-          <footer className="ood-interior-page__main-footer">
+          <footer>
             <IconCardSection iconCards={iconCards} iconCardHeading={iconCardHeading} />
           </footer>
         </article>

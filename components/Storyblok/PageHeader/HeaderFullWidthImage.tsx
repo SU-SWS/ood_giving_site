@@ -21,7 +21,6 @@ export const HeaderFullWidthImage = ({
   const fullWidthImage = filename ? (
     <FullWidthImage
       filename={filename}
-      classPrefix="ood-interior-page"
       visibleVertical={visibleVertical}
       visibleHorizontal="center"
       alt={alt || ''}

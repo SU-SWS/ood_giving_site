@@ -8,6 +8,8 @@ export type SbLocalFooterPickerProps = {
   slug?: string;
 }
 
-export const SbContentMenuPicker = (props: SbLocalFooterPickerProps) => {
-  return <CreateStories stories={props.blok.contentMenu} slug={props.slug} />;
+export const SbContentMenuPicker = ({ blok, slug }: SbLocalFooterPickerProps) => {
+  const { contentMenu } = blok;
+
+  return <CreateStories stories={contentMenu} slug={slug} />;
 };

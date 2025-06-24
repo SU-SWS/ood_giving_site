@@ -10,7 +10,7 @@ export const HeaderMinimal = ({ title, headerBackgroundColor: bgColor }: HeaderM
   return (
     <Container
       className={cnb(
-        'py-38 md:py-72 lg:py-108 xl:py-[11.1rem] break-words',
+        'py-38 md:py-72 lg:py-108 2xl:py-114 break-words',
         darkBgColors[bgColor || 'palo-alto-dark'],
       )}
     >
