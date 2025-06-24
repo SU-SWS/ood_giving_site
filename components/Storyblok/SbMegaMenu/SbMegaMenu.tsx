@@ -15,6 +15,7 @@ export type SbMegaMenuProps = {
   blok: SbBlokData & {
     topLevelLinks?: SbBlokData[]; // Top level links and parent items for the panels
   };
+  // Slug is passed to children to check for active links
   slug?: string;
 };
 

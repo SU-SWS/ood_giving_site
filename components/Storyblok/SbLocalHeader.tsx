@@ -16,7 +16,7 @@ export type SbLocalHeaderProps = {
 const styles = {
   root: 'relative print:hidden z-[130] ood-header shadow-md bg-white md:border-t-[1rem] border-t-cardinal-red',
   wrapper: 'cc pt-15 md:pt-26 lg:pt-0 lg:flex-col',
-  lockupWrapper: 'lg:pb-10 text-21 sm:text-25 md:text-[3.2rem]',
+  lockupWrapper: 'max-sm:mt-2 lg:pb-10 text-21 sm:text-25 md:text-[3.2rem]',
   menuSearchWrapper: 'gap-16 flex-row-reverse lg:flex-row lg:items-center lg:justify-center',
 };
 

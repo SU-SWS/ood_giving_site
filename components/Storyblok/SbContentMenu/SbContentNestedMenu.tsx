@@ -18,7 +18,7 @@ export const SbContentNestedMenu = ({ blok, slug }: SbContentNestedMenuProps) =>
   const { menuItems, menuLevel } = blok;
   return (
     <ul
-      className={cnb('list-unstyled mb-04em *:pl-20 *:*:py-12', menuLevel === 'lv2' ? '*:*:text-18' : '*:*:text-16')}
+      className={cnb('list-unstyled mb-04em *:pl-20 *:*:py-8 *:*:lg:py-12', menuLevel === 'lv2' ? '*:*:text-18' : '*:*:text-16')}
       {...storyblokEditable(blok)}
     >
       <CreateBloks blokSection={menuItems} slug={slug} />

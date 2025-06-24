@@ -19,6 +19,7 @@ export type SbContentMenuProps = {
     menuLinks?: SbBlokData[];
     relatedMenuLinks?: SbBlokData[];
   };
+  // Slug is passed to children to check for active links
   slug?: string;
 };
 
@@ -103,9 +104,7 @@ export const SbContentMenu = ({ blok, slug }: SbContentMenuProps) => {
     >
       {({ open }) => (
         <>
-          <PopoverButton
-            className={styles.mobileButton}
-          >
+          <PopoverButton className={styles.mobileButton}>
             {open ? 'Close' : 'Section Menu'}
             <HeroIcon
               icon={open ? 'close' : 'menu'}
