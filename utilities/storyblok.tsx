@@ -1,5 +1,6 @@
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 import { ComponentNotFound } from '@/components/Storyblok/ComponentNotFound';
+import { SbEmbedScript } from '@/components/Storyblok/SbEmbedScript';
 import { SbGlobalFooter } from '@/components/Storyblok/SbGlobalFooter';
 import { SbLandingPage } from '@/components/Storyblok/SbLandingPage';
 import { SbGlobalFooterPicker } from '@/components/Storyblok/SbGlobalFooterPicker';
@@ -39,6 +40,7 @@ export const components = {
   storyPicker: SbStoryPicker,
   ctaLink: SbCtaLink,
   ctaGroup: SbCtaGroup,
+  embedScript: SbEmbedScript,
   navItem: SbNavItem,
   lockup: SbLockup,
   // Cards
