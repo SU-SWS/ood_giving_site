@@ -1,40 +1,30 @@
-import React from 'react';
 import { type SbBlokData } from '@storyblok/react/rsc';
-import { storyblokEditable } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
+import { Container } from '@/components/Container';
 import { Heading } from '@/components/Typography';
-import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
+import { getNumBloks } from '@/utilities/getNumBloks';
 
 export type IconCardSectionProps = {
-  blok: SbBlokData & {
-    iconCards: SbBlokData[];
-    iconCardHeading?: string;
-  };
+  iconCards?: SbBlokData[];
+  iconCardHeading?: string;
 }
 
 /*
  * The Icon Card Section component is referenced by the Interior Page, Landing Page, Story page, and Support page types.
  */
-export const IconCardSection = (props: IconCardSectionProps) => {
-  const numIconCards = props.blok.iconCards ? Object.keys(props.blok.iconCards).length : 0;
+export const IconCardSection = ({ iconCards, iconCardHeading }: IconCardSectionProps) => {
+  const numCards = getNumBloks(iconCards);
 
-  if (numIconCards === 0) {
+  if (!numCards) {
     return null;
   }
 
   return (
-    <div {...storyblokEditable(props.blok)}>
-      <Heading srOnly>
-        {props.blok.iconCardHeading
-          ? props.blok.iconCardHeading
-          : 'Links to more information'}
-      </Heading>
-      <CenteredContainer
-        flex={true}
-        classes={`ood-icon-card-section__container su-align-items-stretch su-flex-${numIconCards}-col`}
-      >
-        <CreateBloks blokSection={props.blok.iconCards} />
-      </CenteredContainer>
-    </div>
+    <section>
+      <Heading srOnly>{iconCardHeading || 'Links to more information'}</Heading>
+      <Container className={`flex ood-icon-card-section__container su-align-items-stretch su-flex-${numCards}-col`}>
+        <CreateBloks blokSection={iconCards} />
+      </Container>
+    </section>
   );
 };

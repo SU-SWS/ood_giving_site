@@ -40,7 +40,7 @@ export const SbMegaMenuCard = ({ blok }: SbMegaMenuCardProps) => {
       )}
       <div className={styles.cardContent}>
         {headline && (
-          <Heading size={2} className={styles.cardHeading}>
+          <Heading className={styles.cardHeading}>
             <SbLink link={link} classes={styles.headingLink}>
               {headline}
             </SbLink>

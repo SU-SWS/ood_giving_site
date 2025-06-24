@@ -1,16 +1,14 @@
-import React from 'react';
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
-import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
-import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
-import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
-import { BelowContent, type BelowContentProps } from '@/components/Storyblok/partials/BelowContent';
+import { Container } from '@/components/Container';
+import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
+import { Footer } from '@/components/Storyblok/partials/Footer';
 import { Heading, Paragraph } from '@/components/Typography';
-import { FlexCell } from '@/components/Storyblok/partials/FlexCell';
+import { FlexCell } from '@/components/FlexCell';
 import { FullWidthImage, type VisibleVerticalType } from '@/components/Image';
 import { type SbImageType } from '../Storyblok.types';
 
-export type SbStoryFullViewProps = IconCardSectionProps & FooterProps & BelowContentProps & {
+export type SbStoryFullViewProps = {
   blok: SbBlokData & {
     localHeader: SbBlokData[];
     alertPicker: SbBlokData[];
@@ -23,6 +21,13 @@ export type SbStoryFullViewProps = IconCardSectionProps & FooterProps & BelowCon
     storyContent: SbBlokData[];
     cta: SbBlokData[];
     author?: string;
+    // Below content
+    belowContent?: SbBlokData[];
+    iconCardHeading?: string;
+    iconCards?: SbBlokData[];
+    // Footer
+    localFooter?: SbBlokData[];
+    globalFooter?: SbBlokData[];
   }
 };
 
@@ -75,10 +80,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                   className="h-300 md:h-400 xl:h-500 2xl:h-[64rem]"
                 />
               )}
-            <CenteredContainer
-              flex
-              classes="ood-story__header-content"
-            >
+            <Container className="flex ood-story__header-content">
               <FlexCell
                 md={12}
                 lg={10}
@@ -107,7 +109,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                   </Paragraph>
                 )}
               </FlexCell>
-            </CenteredContainer>
+            </Container>
           </header>
           <div className="ood-story__content">
             <CreateBloks blokSection={props.blok.storyContent} />
@@ -115,7 +117,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
           <footer className="ood-story__main-footer">
             {(props.blok.author || publishedDate) && (
               <div className="ood-story__metadata">
-                <CenteredContainer flex={true}>
+                <Container className="flex">
                   <FlexCell lg={8} className="mx-auto">
                     <CreateBloks blokSection={props.blok.cta} />
                     <div className="ood-story__metadata rs-pb-5">
@@ -141,15 +143,15 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                       )}
                     </div>
                   </FlexCell>
-                </CenteredContainer>
+                </Container>
               </div>
             )}
-            <BelowContent {...props} />
-            <IconCardSection {...props} />
+            <CreateBloks blokSection={props.blok.belowContent} />
+            <IconCardSection iconCards={props.blok.iconCards} iconCardHeading={props.blok.iconCardHeading} />
           </footer>
         </article>
       </main>
-      <Footer {...props} />
+      <Footer localFooter={props.blok.localFooter} globalFooter={props.blok.globalFooter} />
     </div>
   );
 };

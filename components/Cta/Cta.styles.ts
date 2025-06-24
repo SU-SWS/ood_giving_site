@@ -1,6 +1,6 @@
 import { type CtaIconLeftMarginType } from './Cta.types';
 
-export const cta = 'group/cta transition-all';
+export const cta = 'group/cta transition-all print:hidden break-words';
 export const buttonBase = 'block cta-button font-normal w-fit no-underline hocus:underline leading-tight';
 // hocus to plum dark gradient instead of solid plum dark to avoid a flash of white background on hocus
 export const gradientButtonBase = 'bg-gradient-to-tr hocus:from-plum-dark hocus:to-plum-dark text-white hocus:text-white';
@@ -65,14 +65,16 @@ export const ctaVariants = {
   // Text links in the sub menu
   'sub-menu': 'text-14 sm:text-16 py-6 md:py-10 text-white leading-[4rem] md:leading-cozy hocus:text-white md:text-cool-grey md:hocus:text-digital-red font-normal no-underline hocus:underline',
   // For top level mega menu links
-  'mega-menu': 'relative flex w-full lg:w-fit text-20 lg:text-21 px-20 sm:px-30 md:px-50 py-16 lg:px-0 font-semibold leading-cozy no-underline hocus:underline lg:hocus:no-underline text-black hocus:text-digital-red before:absolute before:inline-block before:w-6 md:before:w-10 before:h-full before:left-0 before:bottom-0 before:hocus:bg-digital-red before:scale-y-0 before:transition-all hocus:before:scale-y-100 lg:before:h-10 lg:before:w-full before:left-0 before:bottom-0 lg:before:scale-y-100 lg:before:scale-x-0 lg:hocus:before:scale-x-100 outline-none',
+  'mega-menu': 'relative flex w-full lg:w-fit text-20 lg:text-21 px-20 sm:px-30 md:px-50 py-16 lg:px-0 font-semibold leading-cozy no-underline hocus:underline lg:hocus:no-underline text-black hocus:text-digital-red before:absolute before:inline-block before:w-6 md:before:w-10 before:h-full before:left-0 before:bottom-0 before:hocus:bg-digital-red before:scale-y-0 before:transition-all hocus:before:scale-y-100 lg:before:h-10 lg:before:w-full before:left-0 before:bottom-0 lg:before:scale-y-100 lg:before:scale-x-0 lg:hocus:before:scale-x-100 outline-none aria-current-page:before:bg-black aria-current-page:before:hocus:bg-digital-red aria-current-page:lg:before:bg-black-40 aria-current-page:before:scale-y-100 aria-current-page:lg:before:scale-x-100',
   // For mega men links inside dropdown panels/sections
   'mega-menu-link-lvl2': 'text-black hocus:text-digital-red no-underline hocus:underline leading-display font-normal text-19 *:[&_svg]:text-digital-red',
+  // Content menu links
+  'content-menu': 'relative flex w-full leading-cozy text-20 px-24 py-8 lg:py-12 font-semibold no-underline hocus:underline text-digital-red hocus:text-black before:absolute before:inline-block before:w-6 before:h-full before:left-0 before:bottom-0 before:bg-black before:scale-y-0 before:transition-transform hocus:before:scale-y-100 outline-none aria-current-page:text-black aria-current-page:underline aria-current-page:before:scale-y-100 aria-current-page:hocus:before:translate-x-6',
 };
 
 // Maps to linkButtonSize prop in SbCtaLink. Only used for the button styles
 export const ctaButtonSizes = {
-  default: 'pt-11 pb-12 px-30 text-18 md:text-20',
+  default: 'button-default pt-11 pb-12 px-30 text-18 md:text-20',
   'ood-cta__button--medium': 'pt-11 pb-12 px-30 md:py-14 md:px-34 text-20 md:text-24',
   'ood-cta__button--large': 'py-16 px-30 md:py-20 md:px-36 text-22 md:text-28',
 };
@@ -97,6 +99,7 @@ export const iconLeftMarginDefault = 'ml-04em';
 export const iconLeftMargin: CtaIconLeftMarginType = {
   'su-link--action': 'ml-03em',
   'su-link--external': 'ml-03em',
+  'su-link--jump': 'ml-02em',
 };
 
 // Maps to linkIcon prop in SbCtaLink. Animation preselected based on the icon type
@@ -111,9 +114,9 @@ export const iconAnimations = {
 };
 
 export const ctaAligns = {
-  left: 'su-text-left',
-  center: 'su-text-center mx-auto',
-  right: 'su-text-right ml-auto mr-0',
+  left: 'text-left',
+  center: 'text-center mx-auto',
+  right: 'text-right ml-auto mr-0',
 };
 
-export const ctaGroup = 'list-unstyled gap-x-08em gap-y-1em [&_li]:mb-0 [&_a]:text-09em [&_a]:md:text-20 [&_.cta-button]:p-07em [&_.cta-button]:md:pt-11 [&_.cta-button]:md:pb-12 [&_.cta-button]:md:px-30';
+export const ctaGroup = 'list-unstyled gap-1em [&_li]:mb-0 [&_.cta-button.button-default]:max-sm:text-09em [&_.cta-button]:max-sm:p-07em';

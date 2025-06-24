@@ -35,7 +35,7 @@ type FooterLinkGroupProps = {
 };
 
 const styles = {
-  root: 'w-full',
+  root: 'print:hidden w-full',
   logoWrapper: 'text-25 md:text-[3.2rem] rs-pb-3',
   grid: 'text-18 leading-snug gap-30 md:gap-60',
   address: 'gap-2',
