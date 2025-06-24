@@ -1,6 +1,6 @@
 import { type CtaIconLeftMarginType } from './Cta.types';
 
-export const cta = 'group/cta transition-all print:hidden';
+export const cta = 'group/cta transition-all print:hidden break-words';
 export const buttonBase = 'block cta-button font-normal w-fit no-underline hocus:underline leading-tight';
 // hocus to plum dark gradient instead of solid plum dark to avoid a flash of white background on hocus
 export const gradientButtonBase = 'bg-gradient-to-tr hocus:from-plum-dark hocus:to-plum-dark text-white hocus:text-white';
@@ -74,7 +74,7 @@ export const ctaVariants = {
 
 // Maps to linkButtonSize prop in SbCtaLink. Only used for the button styles
 export const ctaButtonSizes = {
-  default: 'pt-11 pb-12 px-30 text-18 md:text-20',
+  default: 'button-default pt-11 pb-12 px-30 text-18 md:text-20',
   'ood-cta__button--medium': 'pt-11 pb-12 px-30 md:py-14 md:px-34 text-20 md:text-24',
   'ood-cta__button--large': 'py-16 px-30 md:py-20 md:px-36 text-22 md:text-28',
 };
@@ -114,9 +114,9 @@ export const iconAnimations = {
 };
 
 export const ctaAligns = {
-  left: 'su-text-left',
-  center: 'su-text-center mx-auto',
-  right: 'su-text-right ml-auto mr-0',
+  left: 'text-left',
+  center: 'text-center mx-auto',
+  right: 'text-right ml-auto mr-0',
 };
 
-export const ctaGroup = 'list-unstyled gap-x-08em gap-y-1em [&_li]:mb-0 [&_.cta-button]:max-sm:text-09em [&_.cta-button]:max-sm:p-07em';
+export const ctaGroup = 'list-unstyled gap-x-08em gap-y-1em [&_li]:mb-0 [&_.cta-button.button-default]:max-sm:text-09em [&_.cta-button]:max-sm:p-07em';
