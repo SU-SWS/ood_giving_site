@@ -46,7 +46,7 @@ export const HeaderFullWidthImage = ({
         )}
       </div>
       <Container className="w-full md:-mt-[5em] mx-0 md:mx-auto px-0 md:px-19 lg:px-32 xl:px-58 2xl:px-65">
-        <div className="bg-white w-full 2xl:max-w-1300 rs-p-4 mx-0 md:mx-auto relative z-30 shadow-md">
+        <div className="bg-white w-full 2xl:max-w-[125rem] rs-p-4 mx-0 md:mx-auto relative z-30 shadow-md">
           <Heading
             as="h1"
             id="page-title"
@@ -58,7 +58,7 @@ export const HeaderFullWidthImage = ({
             {title}
           </Heading>
           {hasIntro && (
-            <RichText wysiwyg={intro} className="w-full subheading [&_p]:text-pretty" />
+            <RichText wysiwyg={intro} className="w-full text-20 md:text-23 lg:text-25 [&_p]:text-pretty" />
           )}
         </div>
       </Container>
