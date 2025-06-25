@@ -26,6 +26,7 @@ type SbIconCardProps = {
 export const SbIconCard = ({ blok }: SbIconCardProps) => {
   const {
     icon,
+    extraIcon,
     iconStyle,
     headline,
     link,
@@ -35,12 +36,14 @@ export const SbIconCard = ({ blok }: SbIconCardProps) => {
 
   // Remove fa- from the icon name if it exists
   const formattedIcon = icon?.icon.replace('fa-', '');
+  const finalIcon = extraIcon || formattedIcon;
+  const iconType = iconStyle || icon?.type || 'far';
 
   return (
     <IconCard
       {...storyblokEditable(blok)}
-      icon={formattedIcon as IconName}
-      iconStyle={iconStyle}
+      icon={finalIcon as IconName}
+      iconStyle={iconType}
       headline={headline}
       link={link}
       backgroundColor={backgroundColor}
