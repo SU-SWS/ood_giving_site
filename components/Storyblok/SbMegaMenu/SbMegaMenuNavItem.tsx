@@ -1,6 +1,7 @@
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { CtaLink } from '@/components/Cta';
 import { type SbLinkType } from '../Storyblok.types';
+import { isActiveLink } from '@/utilities/isActiveLink';
 import * as styles from './SbMegaMenu.styles';
 
 /**
@@ -19,13 +20,12 @@ export type SbMegaMenuNavItemProps = {
 
 export const SbMegaMenuNavItem = ({ blok, slug }: SbMegaMenuNavItemProps) => {
   const { link, linkText } = blok;
+
   if (!link.cached_url || !linkText) {
     return null;
   }
-  // Remove any trailing and leading slashes from the cached URL and slug
-  const sanitizedUrl = link?.cached_url.replace(/^\/|\/$/g, '');
-  const sanitizedSlug = slug?.replace(/^\/|\/$/g, '');
-  const isActivePage = sanitizedSlug === sanitizedUrl;
+
+  const isActivePage = isActiveLink(slug, link.cached_url);
 
   return (
     <li {...storyblokEditable(blok)} className={styles.navItem}>
@@ -35,7 +35,6 @@ export const SbMegaMenuNavItem = ({ blok, slug }: SbMegaMenuNavItemProps) => {
         icon="su-link--action"
         iconProps={{ className: styles.navItemChevron }}
         aria-current={isActivePage ? 'page' : undefined}
-        className={isActivePage && styles.topLevelLinkActive}
       >
         {linkText}
       </CtaLink>

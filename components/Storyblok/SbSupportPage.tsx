@@ -1,18 +1,23 @@
 'use client';
-import React, { type MouseEventHandler, useCallback, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { type MouseEventHandler, useCallback, useEffect } from 'react';
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
+import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
+import { useRouter } from 'next/navigation';
+import { Container } from '@/components/Container';
 import { CreateBloks } from '@/components/CreateBloks';
-import { HeaderNoImage, type HeaderNoImageProps } from '@/components/Storyblok/partials/HeaderNoImage';
-import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
-import { BelowContent, type BelowContentProps } from '@/components/Storyblok/partials/BelowContent';
-import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
-import { CenteredContainer } from '@/components/Storyblok/partials/CenteredContainer';
+import { HeaderNoImage } from '@/components/Storyblok/PageHeader/HeaderNoImage';
+import { Footer } from '@/components/Storyblok/partials/Footer';
+import { Grid } from '@/components/Grid';
+import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
 import { Heading, SrOnlyText } from '@/components/Typography';
-import { Grid } from '../Grid';
+import { type DarkBgColorsType } from '@/utilities/datasource';
 
-export type SbSupportPageProps = HeaderNoImageProps & IconCardSectionProps & FooterProps & BelowContentProps & {
+
+export type SbSupportPageProps = {
   blok: SbBlokData & {
+    title?: string;
+    intro?: StoryblokRichtext;
+    headerBackgroundColor?: DarkBgColorsType;
     localHeader: SbBlokData[];
     alertPicker: SbBlokData[];
     bodyTitle: string;
@@ -29,6 +34,13 @@ export type SbSupportPageProps = HeaderNoImageProps & IconCardSectionProps & Foo
     science: SbBlokData[];
     sustainability: SbBlokData[];
     teaching: SbBlokData[];
+    // Below content
+    belowContent?: SbBlokData[];
+    iconCardHeading?: string;
+    iconCards?: SbBlokData[];
+    // Footer
+    localFooter?: SbBlokData[];
+    globalFooter?: SbBlokData[];
   };
   slug?: string;
 };
@@ -72,7 +84,11 @@ export const SbSupportPage = (props: SbSupportPageProps) => {
         className="ood-interior-page--no-image ood-support-page"
       >
         <article className="bg-fog-light">
-          <HeaderNoImage {...props} />
+          <HeaderNoImage
+            title={props.blok.title}
+            intro={props.blok.intro}
+            headerBackgroundColor={props.blok.headerBackgroundColor}
+          />
           <section className="ood-interior-page__body ood-support-page__body">
             {props.blok.bodyTitle && (
               <header className="centered-container ood-interior-page__body-header text-left">
@@ -82,7 +98,7 @@ export const SbSupportPage = (props: SbSupportPageProps) => {
               </header>
             )}
             <SrOnlyText as="p">{props.blok.srText}</SrOnlyText>
-            <CenteredContainer classes="ood-support-page__filter-container">
+            <Container className="ood-support-page__filter-container">
               <input
                 type="radio"
                 id="undergraduate"
@@ -189,15 +205,15 @@ export const SbSupportPage = (props: SbSupportPageProps) => {
                 <CreateBloks blokSection={props.blok.sustainability} />
                 <CreateBloks blokSection={props.blok.teaching} />
               </Grid>
-            </CenteredContainer>
+            </Container>
           </section>
-          <BelowContent {...props} />
+          <CreateBloks blokSection={props.blok.belowContent} />
           <footer className="ood-support-page__main-footer">
-            <IconCardSection {...props} />
+            <IconCardSection iconCards={props.blok.iconCards} iconCardHeading={props.blok.iconCardHeading} />
           </footer>
         </article>
       </main>
-      <Footer {...props} />
+      <Footer localFooter={props.blok.localFooter} globalFooter={props.blok.globalFooter} />
     </div>
   );
 };

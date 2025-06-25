@@ -1,0 +1,30 @@
+import { cnb } from 'cnbuilder';
+import { Container } from '@/components/Container';
+import { Heading } from '@/components/Typography';
+import { type HeaderProps } from '@/components/Storyblok/PageHeader';
+import { darkBgColors } from '@/utilities/datasource';
+
+type HeaderMinimalProps = Partial<HeaderProps>;
+
+export const HeaderMinimal = ({ title, headerBackgroundColor: bgColor }: HeaderMinimalProps) => {
+  return (
+    <Container
+      className={cnb(
+        'py-38 md:py-72 lg:py-108 2xl:py-114 break-words',
+        darkBgColors[bgColor || 'palo-alto-dark'],
+      )}
+    >
+      <Heading
+        as="h1"
+        id="page-title"
+        size="f5"
+        mb="none"
+        color={bgColor === 'fog-light' ? 'black' : 'white'}
+        className="mx-auto max-w-1200 text-pretty"
+        align="center"
+      >
+        {title}
+      </Heading>
+    </Container>
+  );
+};

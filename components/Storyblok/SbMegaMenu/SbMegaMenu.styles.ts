@@ -22,7 +22,6 @@ export const mobileTopMenu = 'absolute left-0 top-[10.8rem] md:top-[14.1rem] pt-
  */
 export const navItem = 'mb-0';
 export const navItemChevron = 'lg:hidden text-digital-red';
-export const topLevelLinkActive = 'before:bg-black before:hocus:bg-digital-red lg:before:bg-black-40 before:scale-y-100 lg:before:scale-x-100';
 
 /**
  * Mega menu section/panel
@@ -61,6 +60,6 @@ export const cardRoot = (backgroundColor: DarkBgColorsType = 'digital-red') => c
 export const cardImageWrapper = 'hidden lg:block overflow-hidden';
 export const cardImage = 'group-hocus-within:scale-105 transition-transform';
 export const cardContent = 'rs-px-2 rs-pt-2 rs-pb-3 group-hover:bg-black-true/40 group-focus-within:bg-black-true/40 transition-colors';
-export const cardHeading = 'rs-mb-1';
+export const cardHeading = 'rs-mb-1 type-3 lg:type-2';
 export const headingLink = 'stretched-link no-underline text-white hocus:text-white hocus:underline';
 export const cardCtaTextIcon = 'group-hocus-within:translate-x-02em';

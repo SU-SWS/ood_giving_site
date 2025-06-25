@@ -74,3 +74,5 @@ export type SbOodMegaMenuNavItemProps = {
   linkText?: string;
   link?: SbLinkType;
 }
+
+export type SbContentNavItemProps = SbOodMegaMenuNavItemProps;
