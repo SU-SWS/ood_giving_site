@@ -30,8 +30,8 @@ export const IconCard = ({
       pb={5}
       className={styles.root(backgroundColor)}
     >
-      <FAIcon icon={icon} iconStyle={iconStyle} title={title} className={styles.icon(backgroundColor)} />
-      <SbLink link={link} classes="stretched-link *:hocus:underline">
+      <FAIcon icon={icon} iconStyle={iconStyle} title={title} size="2x" className={styles.icon(backgroundColor)} />
+      <SbLink link={link} classes={styles.link(backgroundColor)}>
         <Text
           as="span"
           size={2}

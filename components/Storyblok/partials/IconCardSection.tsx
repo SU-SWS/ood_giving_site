@@ -11,7 +11,7 @@ export type IconCardSectionProps = {
 }
 
 /*
- * The Icon Card Section component is referenced by the Interior Page, Landing Page, Story page, and Support page types.
+ * The Icon Card Section component is referenced by all page types - Interior, Landing, Story, Story Overview, Support, Campaign
  */
 export const IconCardSection = ({ iconCards, iconCardHeading }: IconCardSectionProps) => {
   const numCards = getNumBloks(iconCards);
@@ -21,9 +21,9 @@ export const IconCardSection = ({ iconCards, iconCardHeading }: IconCardSectionP
   }
 
   return (
-    <Container as="section" bgColor="black-10" py={6}>
+    <Container as="section" bgColor="black-10" py={6} className="print:hidden grow-0">
       <Heading srOnly>{iconCardHeading || 'Links to more information'}</Heading>
-      <FlexBox alignItems="stretch" className={`grid-gap flex-col lg:flex-row ood-icon-card-section__container su-flex-${numCards}-col`}>
+      <FlexBox alignItems="stretch" className="grid-gap flex-col lg:flex-row">
         <CreateBloks blokSection={iconCards} />
       </FlexBox>
     </Container>
