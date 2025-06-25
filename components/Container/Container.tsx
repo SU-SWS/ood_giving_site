@@ -1,7 +1,14 @@
 import { HTMLAttributes } from 'react';
 import { cnb } from 'cnbuilder';
 import {
-  paddingTops, paddingBottoms, type PaddingType, marginTops, marginBottoms, type MarginType,
+  marginTops,
+  marginBottoms,
+  marginVerticals,
+  paddingTops,
+  paddingBottoms,
+  paddingVerticals,
+  type PaddingType,
+  type MarginType,
 } from '@/utilities/datasource';
 import * as styles from './Container.styles';
 import * as types from './Container.types';
@@ -10,8 +17,10 @@ export type ContainerProps = HTMLAttributes<HTMLElement> & {
   as?: types.ContainerElementType;
   mt?: MarginType;
   mb?: MarginType;
+  my?: MarginType;
   pt?: PaddingType;
   pb?: PaddingType;
+  py?: PaddingType;
   width?: types.WidthType;
   bgColor?: types.BgColorType;
   style?: React.CSSProperties;
@@ -24,8 +33,10 @@ export const Container = ({
   style,
   mt,
   mb,
+  my,
   pt,
   pb,
+  py,
   className,
   children,
   ...props
@@ -36,10 +47,12 @@ export const Container = ({
     className={cnb(
       bgColor ? styles.bgColors[bgColor] : '',
       width ? styles.widths[width] : '',
-      mt ? marginTops[mt] : '',
-      mb ? marginBottoms[mb] : '',
+      py ? paddingVerticals[py] : '',
       pt ? paddingTops[pt] : '',
       pb ? paddingBottoms[pb] : '',
+      mt ? marginTops[mt] : '',
+      mb ? marginBottoms[mb] : '',
+      my ? marginVerticals[my] : '',
       className,
     )}
   >

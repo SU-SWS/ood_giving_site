@@ -1,6 +1,7 @@
 import { type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Container } from '@/components/Container';
+import { FlexBox } from '@/components/FlexBox';
 import { Heading } from '@/components/Typography';
 import { getNumBloks } from '@/utilities/getNumBloks';
 
@@ -20,11 +21,11 @@ export const IconCardSection = ({ iconCards, iconCardHeading }: IconCardSectionP
   }
 
   return (
-    <section>
+    <Container as="section" bgColor="black-10" py={6}>
       <Heading srOnly>{iconCardHeading || 'Links to more information'}</Heading>
-      <Container className={`flex ood-icon-card-section__container su-align-items-stretch su-flex-${numCards}-col`}>
+      <FlexBox alignItems="stretch" className={`grid-gap flex-col lg:flex-row ood-icon-card-section__container su-flex-${numCards}-col`}>
         <CreateBloks blokSection={iconCards} />
-      </Container>
-    </section>
+      </FlexBox>
+    </Container>
   );
 };
