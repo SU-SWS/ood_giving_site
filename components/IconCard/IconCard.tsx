@@ -31,13 +31,14 @@ export const IconCard = ({
       className={styles.root(backgroundColor)}
     >
       <FAIcon icon={icon} iconStyle={iconStyle} title={title} className={styles.icon(backgroundColor)} />
-      <SbLink link={link} classes="stretched-link">
+      <SbLink link={link} classes="stretched-link *:hocus:underline">
         <Text
           as="span"
           size={2}
           weight="semibold"
           color={backgroundColor === 'white' ? 'black' : 'white'}
-          mt={2}
+          mt={1}
+          align={contentAlign}
           className="inline-block"
         >
           {headline}

@@ -9,7 +9,7 @@ export const align = {
 export type ContentAlignType = keyof typeof align;
 
 export const root = (backgroundColor: CardBgColorType) => cnb(
-    'relative rs-px-3 w-full shadow-md',
+    'relative break-words mx-auto sm:w-3/4 rs-px-3 w-full shadow-md focus-within:shadow-lg hover:shadow-lg transition-shadow',
     cardBgColors[backgroundColor || 'white'],
     backgroundColor === 'white' ? 'text-black' : 'text-white',
 );
