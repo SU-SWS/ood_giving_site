@@ -4,7 +4,7 @@ export const lightPageBgColors = {
   white: 'bg-white',
   'fog-light': 'bg-fog-light',
 };
-export type LightPageBgColorsType = keyof typeof lightPageBgColors;
+export type LightPageBgColorType = keyof typeof lightPageBgColors;
 
 export const darkBgColors = {
   'bay-dark': 'bg-bay-dark',
@@ -28,7 +28,30 @@ export const darkBgColors = {
   'plum': 'bg-plum',
   'brick': 'bg-brick',
 };
-export type DarkBgColorsType = keyof typeof darkBgColors;
+export type DarkBgColorType = keyof typeof darkBgColors;
+
+export const cardBgColors = {
+  'white': 'bg-white',
+  'bay-dark': 'bg-bay-dark',
+  'palo-alto': 'bg-palo-alto',
+  'palo-alto-dark': 'bg-palo-alto-dark',
+  'palo-verde': 'bg-palo-verde',
+  'palo-verde-dark': 'bg-palo-verde-dark',
+  'lagunita': 'bg-lagunita',
+  'plum': 'bg-plum',
+  'lagunita-dark': 'bg-lagunita-dark',
+  'sky-dark': 'bg-sky-dark',
+  'digital-red': 'bg-digital-red',
+  'cardinal-red': 'bg-cardinal-red',
+  'brick': 'bg-brick',
+  'cardinal-dark-to-spirited-dark': 'bg-gradient-to-tr from-cardinal-dark to-spirited-dark',
+  'plum-to-digital-red': 'bg-gradient-to-tr from-plum to-digital-red',
+  'plum-to-spirited-dark': 'bg-gradient-to-tr from-plum to-spirited-dark',
+  'palo-alto-dark-to-palo-verde-dark': 'bg-gradient-to-tr from-palo-alto-dark to-palo-verde-dark',
+  'sky-dark-to-olive-dark': 'bg-gradient-to-tr from-sky-dark to-olive-dark',
+  'sky-dark-to-bay-dark': 'bg-gradient-to-tr from-sky-dark to-bay-dark',
+};
+export type CardBgColorType = keyof typeof cardBgColors;
 
 export const paddingTops = {
   none: '',

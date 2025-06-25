@@ -1,7 +1,7 @@
 import { cnb } from 'cnbuilder';
 import { type StoryImageWidthType } from '@/components/Image';
 import { type TextAlignType } from '@/components/Typography';
-import { lightPageBgColors, type LightPageBgColorsType } from '@/utilities/datasource';
+import { lightPageBgColors, type LightPageBgColorType } from '@/utilities/datasource';
 
 export const root = 'relative flex';
 export const wrapper = (imageWidth: StoryImageWidthType) => cnb('mx-auto', imageWidth === 'su-w-full' && 'w-full');
@@ -11,7 +11,7 @@ export const captionWrapper = 'mt-0 caption';
 export const caption = (
   isCard: boolean,
   imageWidth: StoryImageWidthType,
-  captionBgColor: LightPageBgColorsType,
+  captionBgColor: LightPageBgColorType,
   captionAlign: TextAlignType,
 ) => cnb(
   '*:*:leading-display *:*:xl:leading-snug first:*:*:mt-0',
