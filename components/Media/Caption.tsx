@@ -1,7 +1,7 @@
 import { cnb } from 'cnbuilder';
 import { Container } from '@/components/Container';
 import { type StoryImageWidthType } from '@/components/Image';
-import { lightPageBgColors, type LightPageBgColorsType } from '@/utilities/datasource';
+import { lightPageBgColors, type LightPageBgColorType } from '@/utilities/datasource';
 import { type TextAlignType } from '@/components/Typography';
 import * as styles from './MediaWrapper.styles';
 
@@ -17,7 +17,7 @@ export type CaptionProps = React.HTMLAttributes<HTMLDivElement> & {
   isCard?: boolean;
   // Inset the caption to centered container width when the media is edge-to-edge
   isCaptionInset?: boolean;
-  captionBgColor?: LightPageBgColorsType;
+  captionBgColor?: LightPageBgColorType;
 };
 
 export const Caption = ({

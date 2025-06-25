@@ -1,7 +1,7 @@
 import { cnb } from 'cnbuilder';
 import { useMemo } from 'react';
 import { MediaWrapper, type MediaWrapperProps } from '@/components/Media';
-import { type LightPageBgColorsType } from '@/utilities/datasource';
+import { type LightPageBgColorType } from '@/utilities/datasource';
 import { getImageSources } from '@/utilities/getImageSources';
 import { getSbImageSize } from '@/utilities/getSbImageSize';
 import * as styles from './Image.styles';
@@ -10,7 +10,7 @@ export type StoryImageProps = React.HTMLAttributes<HTMLDivElement> & MediaWrappe
   imageSrc: string;
   alt?: string;
   visibleVertical?: styles.VisibleVerticalType;
-  backgroundColor?: LightPageBgColorsType;
+  backgroundColor?: LightPageBgColorType;
   isCard?: boolean;
 };
 

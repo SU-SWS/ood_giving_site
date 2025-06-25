@@ -58,6 +58,13 @@ export type SbLinkType =
       [k: string]: unknown;
     };
 
+// Storyblok plugin Fontawesome Selector
+export type SbFontawesomeSelectorType = {
+  _uid: string;
+  icon?: string;
+  type?: 'fas' | 'far'
+};
+
 /**
  * Reusable types for custom Storyblok components
  */

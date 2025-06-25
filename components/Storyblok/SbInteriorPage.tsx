@@ -15,7 +15,7 @@ import { Heading } from '@/components/Typography';
 import { type VisibleVerticalType } from '@/components/Image';
 import { getNumBloks } from '@/utilities/getNumBloks';
 import { config } from '@/utilities/config';
-import { darkBgColors, type DarkBgColorsType, type MarginType } from '@/utilities/datasource';
+import { darkBgColors, type DarkBgColorType, type MarginType } from '@/utilities/datasource';
 import { type SbImageType } from './Storyblok.types';
 
 
@@ -26,7 +26,7 @@ export type SbInteriorPageProps = {
     title?: string;
     intro?: StoryblokRichtext;
     headerStyle?: 'has-image' | 'no-image' | 'minimal' | 'full-width-image';
-    headerBackgroundColor?: DarkBgColorsType;
+    headerBackgroundColor?: DarkBgColorType;
     headerLogo?: SbImageType;
     headerImage?: SbImageType;
     headerSpacingBottom?: MarginType;
@@ -60,7 +60,7 @@ export const SbInteriorPage = ({ blok, slug }: SbInteriorPageProps) => {
     headerStyle,
     headerLogo,
     headerImage,
-    headerBackgroundColor = 'palo-alto-dark',
+    headerBackgroundColor,
     headerSpacingBottom,
     visibleVertical,
     localHeader,

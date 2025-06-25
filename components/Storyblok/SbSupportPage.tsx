@@ -10,14 +10,14 @@ import { Footer } from '@/components/Storyblok/partials/Footer';
 import { Grid } from '@/components/Grid';
 import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
 import { Heading, SrOnlyText } from '@/components/Typography';
-import { type DarkBgColorsType } from '@/utilities/datasource';
+import { type DarkBgColorType } from '@/utilities/datasource';
 
 
 export type SbSupportPageProps = {
   blok: SbBlokData & {
     title?: string;
     intro?: StoryblokRichtext;
-    headerBackgroundColor?: DarkBgColorsType;
+    headerBackgroundColor?: DarkBgColorType;
     localHeader: SbBlokData[];
     alertPicker: SbBlokData[];
     bodyTitle: string;
