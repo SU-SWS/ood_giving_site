@@ -6,6 +6,11 @@ import { FlexBox } from '@/components/FlexBox';
 import { GAProvider, GTAG } from '@/components/GAProvider';
 import { SearchModalProvider } from '@/components/Search/Modal/SearchModalContext';
 
+// https://docs.fontawesome.com/web/use-with/react/use-with#getting-font-awesome-css-to-work
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
+
 type LayoutProps = {
   children: React.ReactNode,
 };

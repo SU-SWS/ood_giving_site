@@ -1,36 +1,53 @@
 import { type SbBlokData } from '@storyblok/react/rsc';
 import { storyblokEditable } from '@storyblok/react/rsc';
-import { IconCardSection, type IconCardSectionProps } from '@/components/Storyblok/partials/IconCardSection';
+import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
 import { CreateBloks } from '@/components/CreateBloks';
-import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer';
+import { Footer } from '@/components/Storyblok/partials/Footer';
 
-type SbLandingPageProps = IconCardSectionProps & FooterProps & {
+type SbLandingPageProps = {
   blok: SbBlokData & {
     localHeader: SbBlokData[];
     alertPicker: SbBlokData[];
     heroSection: SbBlokData[];
     sections: SbBlokData[];
+    iconCardHeading?: string;
+    iconCards?: SbBlokData[];
+    localFooter?: SbBlokData[];
+    globalFooter?: SbBlokData[];
   };
   slug?: string;
 };
 
-export const SbLandingPage = (props: SbLandingPageProps) => (
-  <div {...storyblokEditable(props.blok)} className="ood-landing-page bg-fog-light">
-    <CreateBloks blokSection={props.blok.alertPicker} />
-    <CreateBloks blokSection={props.blok.localHeader} slug={props.slug} />
-    <main id="main-content" className="ood-landing-page__main">
-      <article className="bg-fog-light">
-        <header className="ood-landing-page__main-header">
-          <CreateBloks blokSection={props.blok.heroSection} />
-        </header>
-        <section className="ood-landing-page__main-body">
-          <CreateBloks blokSection={props.blok.sections} />
-        </section>
-      </article>
-      <footer className="ood-landing-page__main-footer">
-        <IconCardSection {...props} />
-      </footer>
-    </main>
-    <Footer {...props} />
-  </div>
-);
+export const SbLandingPage = ({ blok, slug }: SbLandingPageProps) => {
+  const {
+    localHeader,
+    alertPicker,
+    heroSection,
+    sections,
+    iconCardHeading,
+    iconCards,
+    localFooter,
+    globalFooter,
+  } = blok;
+
+  return (
+    <div {...storyblokEditable(blok)} className="ood-landing-page bg-fog-light">
+      <CreateBloks blokSection={alertPicker} />
+      <CreateBloks blokSection={localHeader} slug={slug} />
+      <main id="main-content" className="ood-landing-page__main">
+        <article className="bg-fog-light">
+          <header className="ood-landing-page__main-header">
+            <CreateBloks blokSection={heroSection} />
+          </header>
+          <section className="ood-landing-page__main-body">
+            <CreateBloks blokSection={sections} />
+          </section>
+        </article>
+        <footer className="ood-landing-page__main-footer">
+          <IconCardSection iconCards={iconCards} iconCardHeading={iconCardHeading} />
+        </footer>
+      </main>
+      <Footer localFooter={localFooter} globalFooter={globalFooter} />
+    </div>
+  );
+};
