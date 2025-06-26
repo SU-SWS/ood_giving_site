@@ -4,13 +4,13 @@ import { CreateBloks } from '@/components/CreateBloks';
 import { Footer } from '@/components/Storyblok/partials/Footer';
 import { HeaderNoImage } from '@/components/Storyblok/PageHeader/HeaderNoImage';
 import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
-import { type DarkBgColorsType } from '@/utilities/datasource';
+import { type DarkBgColorType } from '@/utilities/datasource';
 
 type SbStoryOverviewPageProps = {
   blok: SbBlokData & {
     title?: string;
     intro?: StoryblokRichtext;
-    headerBackgroundColor?: DarkBgColorsType;
+    headerBackgroundColor?: DarkBgColorType;
     localHeader: SbBlokData[];
     alertPicker: SbBlokData[];
     stories: SbBlokData[];

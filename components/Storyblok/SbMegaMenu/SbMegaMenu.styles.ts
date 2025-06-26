@@ -1,5 +1,5 @@
 import { cnb } from 'cnbuilder';
-import { type DarkBgColorsType, darkBgColors } from '@/utilities/datasource';
+import { type DarkBgColorType, darkBgColors } from '@/utilities/datasource';
 
 export const innerShadow = 'absolute top-0 w-full h-15 bg-gradient-to-b from-black/10';
 
@@ -53,7 +53,7 @@ export const linkGroupItem = 'mb-20 last:mb-0';
 /**
  * Mega menu card
  */
-export const cardRoot = (backgroundColor: DarkBgColorsType = 'digital-red') => cnb(
+export const cardRoot = (backgroundColor: DarkBgColorType = 'digital-red') => cnb(
   'relative group',
   darkBgColors[backgroundColor],
 );
