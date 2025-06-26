@@ -10,6 +10,7 @@ import {
   type PaddingType,
   type MarginType,
 } from '@/utilities/datasource';
+import { gridGaps, type GridGapType } from '@/components/Grid';
 import * as styles from './FlexBox.styles';
 import * as types from './FlexBox.types';
 
@@ -17,7 +18,7 @@ type FlexBoxProps = HTMLAttributes<HTMLElement> & {
   as?: React.ElementType;
   direction?: types.FlexDirectionType;
   wrap?: types.FlexWrapType;
-  gap?: boolean;
+  gap?: GridGapType;
   justifyContent?: types.FlexJustifyContentType;
   alignContent?: types.FlexAlignContentType;
   alignItems?: types.FlexAlignItemsType;
@@ -58,7 +59,7 @@ export const FlexBox = forwardRef<HTMLElement, FlexBoxProps>(({
       justifyContent ? styles.flexJustifyContent[justifyContent] : '',
       alignContent ? styles.flexAlignContent[alignContent] : '',
       alignItems ? styles.flexAlignItems[alignItems] : '',
-      gap ? 'grid-gap' : '',
+      gap ? gridGaps[gap] : '',
       py ? paddingVerticals[py] : '',
       pt ? paddingTops[pt] : '',
       pb ? paddingBottoms[pb] : '',

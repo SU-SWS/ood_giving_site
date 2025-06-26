@@ -22,7 +22,7 @@ export const RowThreeColumns = ({
 }: RowThreeColumnProps) => {
   return (
     <Grid
-      gap="default"
+      gap="card"
       md={oneColumnMd ? undefined : 3}
       lg={oneColumnMd ? 3 : undefined}
       mb={mb}
