@@ -1,0 +1,49 @@
+import { cnb } from 'cnbuilder';
+import { Grid, type GridProps } from '@/components/Grid';
+import { type MarginType } from '@/utilities/datasource';
+import * as styles from './Row.styles';
+
+type RowTwoColumnProps = GridProps & {
+  columnOneContent?: React.ReactNode;
+  columnTwoContent?: React.ReactNode;
+  rowWidth?: styles.RowWidthType;
+  widthRatio?: styles.WidthRatioType;
+  // If true, have all content stacked vertically at MD breakpoint
+  oneColumnMd?: boolean;
+  // Vertical alignment of content in each column
+  contentAlignment?: 'start' | 'center' | 'end' | 'stretch';
+  // Horizontal alignment of the whole row if rowWidth is not 'full'
+  align?: 'left' | 'right' | 'center';
+  mb?: MarginType;
+}
+
+export const RowTwoColumns = ({
+  columnOneContent,
+  columnTwoContent,
+  rowWidth = 'full',
+  widthRatio = '1-to-1',
+  oneColumnMd,
+  contentAlignment = 'start',
+  align = 'center',
+  mb,
+  ...props
+}: RowTwoColumnProps) => {
+  return (
+    <Grid
+      gap="default"
+      md={oneColumnMd ? undefined : 6}
+      lg={oneColumnMd ? 6 : undefined}
+      mb={mb}
+      alignItems={contentAlignment}
+      className={styles.rowTwoColumns(contentAlignment)}
+      {...props}
+    >
+      <div className={styles.colOne(widthRatio, oneColumnMd)}>
+        {columnOneContent}
+      </div>
+      <div className={styles.colTwo(widthRatio, oneColumnMd)}>
+        {columnTwoContent}
+      </div>
+    </Grid>
+  );
+};

@@ -12,8 +12,8 @@ export type SbBasicCardProps = {
 
 export const SbBasicCard = (props: SbBasicCardProps) => {
   return (
-    <div {...storyblokEditable(props.blok)} className="bg-sky-dark rs-p-2">
-      <Heading size={2} color="white">Basic Card</Heading>
+    <div {...storyblokEditable(props.blok)} className="bg-white rs-p-2 shadow-md">
+      <Heading size={2} color="black">Basic Card</Heading>
       <CreateBloks blokSection={props.blok.ctaLink} />
     </div>
   );

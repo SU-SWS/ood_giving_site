@@ -37,6 +37,8 @@ import {
 } from '@/components/Storyblok/SbMegaMenu';
 import { SbSection } from '@/components/Storyblok/SbSection';
 import { SbRowOneColumn } from '@/components/Storyblok/SbRowOneColumn';
+import { SbRowTwoColumns } from '@/components/Storyblok/SbRowTwoColumns';
+import { SbRowThreeColumns } from '@/components/Storyblok/SbRowThreeColumns';
 import { SbBasicCard } from '@/components/Storyblok/SbBasicCard';
 import { SbCtaGroup } from '@/components/Storyblok/SbCtaGroup';
 import { SbIconCard } from '@/components/Storyblok/SbIconCard';
@@ -82,6 +84,8 @@ export const components = {
   oodMegaMenuCard: SbMegaMenuCard,
   // Layout
   rowOneColumn: SbRowOneColumn,
+  rowTwoColumns: SbRowTwoColumns,
+  rowThreeColumns: SbRowThreeColumns,
   section: SbSection,
   singleColumnContent: SbSingleColumnContent,
   // Media
