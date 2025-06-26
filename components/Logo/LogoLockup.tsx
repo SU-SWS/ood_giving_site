@@ -1,7 +1,7 @@
 import { cnb } from 'cnbuilder';
 import Link from 'next/link';
 import { FlexBox } from '@/components/FlexBox';
-import { StanfordLogo } from '@/components/StanfordLogo';
+import { StanfordLogo } from '@/components/Logo';
 import * as styles from './LogoLockup.styles';
 
 /**
