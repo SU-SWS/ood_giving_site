@@ -3,7 +3,7 @@ import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { StoryImage, type StoryImageWidthType, type VisibleVerticalType } from '@/components/Image';
 import { RichText } from '@/components/RichText';
 import { type TextAlignType } from '@/components/Typography';
-import { type LightPageBgColorsType, type PaddingType } from '@/utilities/datasource';
+import { type LightPageBgColorType, type PaddingType } from '@/utilities/datasource';
 import { hasRichText } from '@/utilities/hasRichText';
 import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
 
@@ -16,7 +16,7 @@ type SbStoryImageProps = {
     caption?: StoryblokRichtext;
     captionAlign?: TextAlignType;
     isCard?: boolean;
-    backgroundColor?: LightPageBgColorsType;
+    backgroundColor?: LightPageBgColorType;
     spacingTop?: PaddingType;
     spacingBottom?: PaddingType;
   };

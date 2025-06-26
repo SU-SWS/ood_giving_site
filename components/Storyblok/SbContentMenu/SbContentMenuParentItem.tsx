@@ -36,7 +36,7 @@ export const SbContentMenuParentItem = ({ blok, slug }: SbContentMenuParentItemP
       >
         {parentItemText}
       </CtaLink>
-      <CreateBloks blokSection={nestedMenu} />
+      <CreateBloks blokSection={nestedMenu} slug={slug} />
     </li>
   );
 };

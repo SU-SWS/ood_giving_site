@@ -3,13 +3,13 @@ import { AspectRatioImage } from '@/components/Image';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
 import { Heading, Paragraph } from '@/components/Typography';
 import { type SbImageType, type SbLinkType } from '@/components/Storyblok/Storyblok.types';
-import { type DarkBgColorsType } from '@/utilities/datasource';
+import { type DarkBgColorType } from '@/utilities/datasource';
 import * as styles from './SbMegaMenu.styles';
 
 export type SbMegaMenuCardProps = {
   blok: SbBlokData & {
     image?: SbImageType;
-    backgroundColor?: DarkBgColorsType
+    backgroundColor?: DarkBgColorType
     headline?: string;
     ctaText?: string;
     link?: SbLinkType;
