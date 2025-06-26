@@ -1,5 +1,6 @@
 import { Container, type ContainerProps } from '@/components/Container';
 import { Heading, type FontSizeType, type HeadingType } from '@/components/Typography';
+import { type DarkBeforeColorType } from '@/utilities/datasource';
 import * as styles from './Section.styles';
 
 type SectionProps = ContainerProps & {
@@ -9,7 +10,7 @@ type SectionProps = ContainerProps & {
   srOnlyHeader?: boolean;
   isEdgeToEdgeHeader?: boolean;
   titleStyle?: styles.TitleStyleType[];
-  tabColor?: string;
+  tabColor?: DarkBeforeColorType;
   titleSize?: FontSizeType;
   headingLevel?: HeadingType;
   // Campaign page only header options
@@ -25,7 +26,7 @@ export const Section = ({
   srOnlyHeader,
   isEdgeToEdgeHeader,
   titleStyle = [],
-  tabColor,
+  tabColor = 'cardinal-red',
   titleSize = 'f4',
   headingLevel = 'h2',
   isCenterAlignHeader,
@@ -43,6 +44,7 @@ export const Section = ({
   return (
     <Container
       {...props}
+      as={title ? 'section' : 'div'}
       id={id}
       width="full"
       // className={styles.container}
@@ -51,18 +53,19 @@ export const Section = ({
       pb={pb}
     >
       {hasHeader && (
-        <Container mb={3} as="header" width={isEdgeToEdgeHeader ? 'full' : 'site'}>
+        <Container mb={3} as="header" width={isEdgeToEdgeHeader ? 'full' : 'site'} className={srOnlyHeader && 'sr-only'}>
           {title && (
             <Heading
               as={headingLevel}
-              //className={styles.title(headerStyles)}
-              size={titleSize}
               srOnly={srOnlyHeader}
+              className={styles.title(titleStyle, tabColor)}
+              size={titleSize}
+              align={isCenterAlignHeader ? 'center' : undefined}
             >
               {title}
             </Heading>
           )}
-          {intro && <div>{intro}</div>}
+          {intro && <div className={srOnlyHeader && 'sr-only'}>{intro}</div>}
         </Container>
       )}
       <Container pt={!hasHeader ? 3 : undefined}>

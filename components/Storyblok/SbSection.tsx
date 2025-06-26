@@ -5,7 +5,7 @@ import { RichText } from '@/components/RichText';
 import { Section, type SectionContentWidthType, type TitleStyleType } from '@/components/Section';
 import { type HeadingType } from '@/components/Typography';
 import {
-  modTypeSizes, type PaddingType, type ModTypeSizeTypes, type LightPageBgColorType,
+  modTypeSizes, type PaddingType, type ModTypeSizeTypes, type LightPageBgColorType, type DarkBeforeColorType,
 } from '@/utilities/datasource';
 import { hasRichText } from '@/utilities/hasRichText';
 
@@ -19,7 +19,7 @@ type SbSectionProps = {
     srOnlyHeader?: boolean;
     disableWrapping?: boolean;
     titleStyle?: TitleStyleType[];
-    tabColor?: string;
+    tabColor?: DarkBeforeColorType;
     titleSize?: ModTypeSizeTypes;
     headingLevel?: HeadingType;
     // Campaign page only header options
@@ -57,7 +57,7 @@ export const SbSection = ({ blok }: SbSectionProps) => {
 
   if (hideSection) return null;
 
-  const Intro = hasRichText(intro) ? <RichText baseFontSize="base23" wysiwyg={intro} /> : null;
+  const Intro = hasRichText(intro) ? <RichText baseFontSize="base23" wysiwyg={intro} textAlign={isCenterAlign ? 'center' : 'left'} /> : null;
 
   return (
     <Section
