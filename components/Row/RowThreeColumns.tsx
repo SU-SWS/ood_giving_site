@@ -1,5 +1,4 @@
 import { Grid, type GridProps } from '@/components/Grid';
-import { type MarginType } from '@/utilities/datasource';
 import * as styles from './Row.styles';
 
 type RowThreeColumnProps = GridProps & {
@@ -10,9 +9,6 @@ type RowThreeColumnProps = GridProps & {
   oneColumnMd?: boolean;
   // Vertical alignment of content in each column
   contentAlignment?: 'start' | 'center' | 'end' | 'stretch';
-  // Horizontal alignment of the whole row if rowWidth is not 'full'
-  align?: 'left' | 'right' | 'center';
-  mb?: MarginType;
 }
 
 export const RowThreeColumns = ({
@@ -21,7 +17,6 @@ export const RowThreeColumns = ({
   columnThreeContent,
   oneColumnMd,
   contentAlignment = 'start',
-  align = 'center',
   mb,
   ...props
 }: RowThreeColumnProps) => {
@@ -35,15 +30,9 @@ export const RowThreeColumns = ({
       className={styles.root(contentAlignment)}
       {...props}
     >
-      <div>
-        {columnOneContent}
-      </div>
-      <div>
-        {columnTwoContent}
-      </div>
-      <div>
-        {columnThreeContent}
-      </div>
+      <div>{columnOneContent}</div>
+      <div>{columnTwoContent}</div>
+      <div>{columnThreeContent}</div>
     </Grid>
   );
 };

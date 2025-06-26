@@ -1,5 +1,5 @@
+import { cnb } from 'cnbuilder';
 import { Grid, type GridProps } from '@/components/Grid';
-import { type MarginType } from '@/utilities/datasource';
 import * as styles from './Row.styles';
 
 type RowTwoColumnProps = GridProps & {
@@ -12,8 +12,7 @@ type RowTwoColumnProps = GridProps & {
   // Vertical alignment of content in each column
   contentAlignment?: 'start' | 'center' | 'end' | 'stretch';
   // Horizontal alignment of the whole row if rowWidth is not 'full'
-  align?: 'left' | 'right' | 'center';
-  mb?: MarginType;
+  align?: styles.RowAlignType;
 }
 
 export const RowTwoColumns = ({
@@ -23,7 +22,7 @@ export const RowTwoColumns = ({
   widthRatio = '1-to-1',
   oneColumnMd,
   contentAlignment = 'start',
-  align = 'center',
+  align = 'su-mx-auto',
   mb,
   ...props
 }: RowTwoColumnProps) => {
@@ -34,7 +33,7 @@ export const RowTwoColumns = ({
       lg={oneColumnMd ? 6 : undefined}
       mb={mb}
       alignItems={contentAlignment}
-      className={styles.root(contentAlignment)}
+      className={cnb(styles.root(contentAlignment), styles.rowWidths[rowWidth], styles.rowAligns[align])}
       {...props}
     >
       <div className={styles.colOne(widthRatio, oneColumnMd)}>

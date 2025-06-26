@@ -10,7 +10,6 @@ export type SbRowThreeColumnProps = {
     columnThreeContent?: SbBlokData[];
     oneColumnMd?: boolean;
     contentAlignment?: 'start' | 'center' | 'end' | 'stretch';
-    align?: 'left' | 'right' | 'center';
     spacingBottom?: MarginType;
   };
 }
@@ -22,7 +21,6 @@ export const SbRowThreeColumns = ({ blok }: SbRowThreeColumnProps) => {
     columnThreeContent,
     oneColumnMd,
     contentAlignment,
-    align,
     spacingBottom,
   } = blok;
   const ColOneContent = <CreateBloks blokSection={columnOneContent} />;
@@ -37,7 +35,6 @@ export const SbRowThreeColumns = ({ blok }: SbRowThreeColumnProps) => {
       columnThreeContent={ColThreeContent}
       oneColumnMd={oneColumnMd}
       contentAlignment={contentAlignment}
-      align={align}
       mb={spacingBottom}
     />
   );
