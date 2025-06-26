@@ -34,7 +34,7 @@ export const RowTwoColumns = ({
       lg={oneColumnMd ? 6 : undefined}
       mb={mb}
       alignItems={contentAlignment}
-      className={styles.rowTwoColumns(contentAlignment)}
+      className={styles.root(contentAlignment)}
       {...props}
     >
       <div className={styles.colOne(widthRatio, oneColumnMd)}>

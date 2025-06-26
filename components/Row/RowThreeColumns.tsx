@@ -1,5 +1,6 @@
 import { Grid, type GridProps } from '@/components/Grid';
 import { type MarginType } from '@/utilities/datasource';
+import * as styles from './Row.styles';
 
 type RowThreeColumnProps = GridProps & {
   columnOneContent?: React.ReactNode;
@@ -31,6 +32,7 @@ export const RowThreeColumns = ({
       lg={oneColumnMd ? 3 : undefined}
       mb={mb}
       alignItems={contentAlignment}
+      className={styles.root(contentAlignment)}
       {...props}
     >
       <div>

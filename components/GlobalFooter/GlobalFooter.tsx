@@ -1,7 +1,7 @@
 import { cnb } from 'cnbuilder';
-import { StanfordLogo } from '../StanfordLogo';
-import { Container } from '../Container';
-import { FlexBox } from '../FlexBox';
+import { StanfordLogo } from '@/components/Logo';
+import { Container } from '@/components/Container';
+import { FlexBox } from '@/components/FlexBox';
 import * as styles from './GlobalFooter.styles';
 
 type GlobalFooterProps = {
