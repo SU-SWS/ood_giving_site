@@ -2,6 +2,7 @@ import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { RowThreeColumns } from '@/components/Row';
 import { type MarginType } from '@/utilities/datasource';
+import { getNumBloks } from '@/utilities/getNumBloks';
 
 export type SbRowThreeColumnProps = {
   blok: SbBlokData & {
@@ -23,6 +24,13 @@ export const SbRowThreeColumns = ({ blok }: SbRowThreeColumnProps) => {
     contentAlignment,
     spacingBottom,
   } = blok;
+
+  if (
+    !getNumBloks(columnOneContent) &&
+    !getNumBloks(columnTwoContent) &&
+    !getNumBloks(columnThreeContent)
+  ) return null;
+
   const ColOneContent = <CreateBloks blokSection={columnOneContent} />;
   const ColTwoContent = <CreateBloks blokSection={columnTwoContent} />;
   const ColThreeContent = <CreateBloks blokSection={columnThreeContent} />;

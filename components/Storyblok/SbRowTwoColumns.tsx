@@ -4,6 +4,7 @@ import {
   RowTwoColumns, type RowAlignType, type RowWidthType, type WidthRatioType,
 } from '@/components/Row';
 import { type MarginType } from '@/utilities/datasource';
+import { getNumBloks } from '@/utilities/getNumBloks';
 
 export type SbRowTwoColumnProps = {
   blok: SbBlokData & {
@@ -29,6 +30,9 @@ export const SbRowTwoColumns = ({ blok }: SbRowTwoColumnProps) => {
     align,
     spacingBottom,
   } = blok;
+
+  if (!getNumBloks(columnOneContent) && !getNumBloks(columnTwoContent)) return null;
+
   const ColOneContent = <CreateBloks blokSection={columnOneContent} />;
   const ColTwoContent = <CreateBloks blokSection={columnTwoContent} />;
 
