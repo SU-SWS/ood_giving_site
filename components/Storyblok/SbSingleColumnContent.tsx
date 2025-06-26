@@ -7,7 +7,7 @@ import { type PaddingType } from '@/utilities/datasource';
 import { hasRichText } from '@/utilities/hasRichText';
 
 const contentWidths = {
-  'fit-container': 'su-w-full',
+  'fit-container': 'w-full',
   'flex-lg-8-of-12': 'lg:basis-8/12',
   'flex-md-10-of-12 flex-lg-8-of-12 flex-2xl-7-of-12': 'md:basis-10/12 lg:basis-8/12 2xl:basis-7/12',
 };
@@ -42,7 +42,7 @@ export const SbSingleColumnContent = (props: SbSingleColumnContentProps) => {
       <div
         className={cnb(
           'ood-single-column-content__wrapper',
-          props.blok.contentWidth === 'fit-container' ? 'ml-none' : 'mx-auto',
+          !props.blok.contentWidth || props.blok.contentWidth === 'fit-container' ? 'ml-none' : 'mx-auto',
           contentWidths[props.blok.contentWidth],
         )}
       >
