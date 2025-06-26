@@ -6,6 +6,7 @@ import {
   MARK_STYLED,
   MARK_LINK,
   MARK_STRIKE,
+  MARK_TEXT_STYLE,
   NODE_HEADING,
   NODE_PARAGRAPH,
   NODE_IMAGE,
@@ -83,6 +84,7 @@ export const RichText = ({
       [MARK_BOLD]: (children) => <strong>{children}</strong>,
       [MARK_ITALIC]: (children) => <em>{children}</em>,
       [MARK_STRIKE]: (children) => <del>{children}</del>,
+      [MARK_TEXT_STYLE]: (children, { color }) => <>{children}</>,
       [MARK_LINK]: (children, props) => {
         const {
           href,
