@@ -12,6 +12,9 @@ export const rowAligns = {
 };
 export type RowAlignType = keyof typeof rowAligns;
 
+// TODO: Think about whether to finetune old flex width classes at the end
+// https://stanford.atlassian.net/browse/DS-1433
+
 /**
  * Row with 1 column
  */
@@ -30,8 +33,6 @@ export type RowOneColumnWidthType = keyof typeof rowOneColumnWidths;
  */
 export type WidthRatioType = '1-to-1' | '1-to-2' | '2-to-1';
 
-// TODO: Think about whether to finetune old flex width classes at the end
-// https://stanford.atlassian.net/browse/DS-1433
 export const rowTwoColumnWidths = {
   'full': 'w-full',
   'flex-xl-10-of-12': 'xl:w-10/12',
