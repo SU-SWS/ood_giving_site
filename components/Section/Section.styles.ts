@@ -11,13 +11,26 @@ export type SectionContentWidthType = keyof typeof sectionContentWidths;
 
 export const titleStyles = {
   'ood-has-tab-before': 'before:block before:mb-03em before:content-[""] before:h-10 before:w-80',
-  'su-italic': 'font-italic',
+  'su-italic': 'italic',
 };
 export type TitleStyleType = keyof typeof titleStyles;
 
-export const title = (titleStyle: TitleStyleType[], tabColor: DarkBeforeColorType) => cnb('', {
-  [titleStyles['ood-has-tab-before']]: titleStyle.includes('ood-has-tab-before'),
-  [titleStyles['su-italic']]: titleStyle.includes('su-italic'),
-},
-  titleStyle.includes('ood-has-tab-before') ? darkBeforeColors[tabColor || 'cardinal-red'] : '',
+export const title = (titleStyle: TitleStyleType[], tabColor: DarkBeforeColorType, isCenterAlignHeader: boolean) => {
+  const styleSet = new Set(titleStyle);
+  const hasTabBefore = styleSet.has('ood-has-tab-before');
+  const isItalic = styleSet.has('su-italic');
+
+  return cnb('w-fit max-w-1200', {
+    [titleStyles['ood-has-tab-before']]: hasTabBefore,
+    [titleStyles['su-italic']]: isItalic,
+  },
+    hasTabBefore && darkBeforeColors[tabColor || 'cardinal-red'],
+    isCenterAlignHeader && 'mx-auto',
+  );
+};
+
+export const intro = (srOnlyHeader: boolean, isCenterAlignHeader: boolean) => cnb(
+  'mb-1em *:*:max-w-prose-wide text-pretty',
+  srOnlyHeader && 'sr-only',
+  isCenterAlignHeader && '*:*:mx-auto *:*:max-w-800',
 );

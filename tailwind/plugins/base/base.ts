@@ -27,6 +27,7 @@ export const base = ({ addBase, config }: { addBase: Function, config: Function 
       },
     },
     p: {
+      lineHeight: '1.4',
       '&:empty': {
         display: 'none',
       },

@@ -5,7 +5,11 @@ import { RichText } from '@/components/RichText';
 import { Section, type SectionContentWidthType, type TitleStyleType } from '@/components/Section';
 import { type HeadingType } from '@/components/Typography';
 import {
-  modTypeSizes, type PaddingType, type ModTypeSizeTypes, type LightPageBgColorType, type DarkBeforeColorType,
+  modTypeSizes,
+  type PaddingType,
+  type ModTypeSizeTypes,
+  type LightPageBgColorType,
+  type DarkBeforeColorType,
 } from '@/utilities/datasource';
 import { hasRichText } from '@/utilities/hasRichText';
 
@@ -57,7 +61,7 @@ export const SbSection = ({ blok }: SbSectionProps) => {
 
   if (hideSection) return null;
 
-  const Intro = hasRichText(intro) ? <RichText baseFontSize="base23" wysiwyg={intro} textAlign={isCenterAlign ? 'center' : 'left'} /> : null;
+  const Intro = hasRichText(intro) ? <RichText wysiwyg={intro} baseFontSize="intro" textAlign={isCenterAlign ? 'center' : 'left'} /> : null;
 
   return (
     <Section
@@ -70,7 +74,7 @@ export const SbSection = ({ blok }: SbSectionProps) => {
       titleStyle={titleStyle}
       tabColor={tabColor}
       titleSize={modTypeSizes[titleSize || 'su-mod-type-4']}
-      headingLevel={headingLevel}
+      headingLevel={headingLevel || 'h2'}
       isCenterAlignHeader={isCenterAlign}
       isSansSemiboldTitle={isSansSemibold}
       contentWidth={contentWidth as SectionContentWidthType}

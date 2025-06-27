@@ -25,9 +25,9 @@ export const Section = ({
   intro,
   srOnlyHeader,
   isEdgeToEdgeHeader,
-  titleStyle = [],
+  titleStyle,
   tabColor = 'cardinal-red',
-  titleSize = 'f4',
+  titleSize = 4,
   headingLevel = 'h2',
   isCenterAlignHeader,
   isSansSemiboldTitle,
@@ -58,16 +58,20 @@ export const Section = ({
             <Heading
               as={headingLevel}
               srOnly={srOnlyHeader}
-              className={styles.title(titleStyle, tabColor)}
+              className={styles.title(titleStyle, tabColor, isCenterAlignHeader)}
               size={titleSize}
+              font={isSansSemiboldTitle ? 'sans' : 'serif'}
+              weight={isSansSemiboldTitle ? 'semibold' : 'bold'}
               align={isCenterAlignHeader ? 'center' : undefined}
+              mb={3}
             >
               {title}
             </Heading>
           )}
-          {intro && <div className={srOnlyHeader && 'sr-only'}>{intro}</div>}
+          {intro && <div className={styles.intro(srOnlyHeader, isCenterAlignHeader)}>{intro}</div>}
         </Container>
       )}
+      {/* On the Gatsby build, if there is no header, a spacer 3 is added above the content so we honor that here */}
       <Container pt={!hasHeader ? 3 : undefined}>
         {children}
       </Container>
