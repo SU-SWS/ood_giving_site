@@ -14,7 +14,7 @@ const Error = ({error}: {
   return (
     // global-error must include html and body tags
     // https://nextjs.org/docs/app/getting-started/error-handling#global-errors
-    <html>
+    <html lang="en">
       <body>
         <main>
           <Container width="site" className="rs-my-8 text-white">
