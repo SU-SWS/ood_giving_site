@@ -11,6 +11,8 @@ export const sectionContentWidths = {
 };
 export type SectionContentWidthType = keyof typeof sectionContentWidths;
 
+export const header = (srOnlyHeader: boolean) => srOnlyHeader && 'sr-only';
+
 export const titleStyles = {
   'ood-has-tab-before': 'before:block before:mb-03em before:content-[""] before:h-10 before:w-80',
   'su-italic': 'italic',

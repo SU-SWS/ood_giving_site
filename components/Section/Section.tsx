@@ -52,7 +52,7 @@ export const Section = ({
       pb={pb}
     >
       {hasHeader && (
-        <Container mb={3} as="header" width={isEdgeToEdgeHeader ? 'full' : 'site'} className={srOnlyHeader && 'sr-only'}>
+        <Container mb={3} as="header" width={isEdgeToEdgeHeader ? 'full' : 'site'} className={styles.header(srOnlyHeader)}>
           {title && (
             <Heading
               as={headingLevel}
@@ -72,8 +72,6 @@ export const Section = ({
       )}
       <Container
         width={contentWidth === 'edge-to-edge' ? 'full' : 'site'}
-        // In the Gatsby build, if there is no header, a spacer 3 is added above the content so we honor that here
-        pt={!hasHeader ? 3 : undefined}
         className={styles.content(contentWidth)}
       >
         {children}
