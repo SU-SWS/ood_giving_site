@@ -26,13 +26,11 @@ export const RowTwoColumns = ({
   mb,
   ...props
 }: RowTwoColumnProps) => {
-  const isColWidthSame = widthRatio === '1-to-1' || !widthRatio;
-
   return (
     <Grid
       gap="card"
-      md={!isColWidthSame ? 2 : 3}
-      lg={oneColumnMd && !isColWidthSame ? 3 : undefined}
+      md={oneColumnMd ? undefined : 6}
+      lg={oneColumnMd ? 6 : undefined}
       mb={mb}
       alignItems={contentAlignment}
       className={cnb(styles.root(contentAlignment), styles.rowTwoColumnWidths[rowWidth], styles.rowAligns[align])}
