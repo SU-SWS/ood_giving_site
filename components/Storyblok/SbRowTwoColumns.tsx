@@ -1,7 +1,7 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import {
-  RowTwoColumns, type RowAlignType, type RowWidthType, type WidthRatioType,
+  RowTwoColumns, type RowAlignType, type RowTwoColumnWidthType, type WidthRatioType,
 } from '@/components/Row';
 import { type MarginType } from '@/utilities/datasource';
 import { getNumBloks } from '@/utilities/getNumBloks';
@@ -10,7 +10,7 @@ export type SbRowTwoColumnProps = {
   blok: SbBlokData & {
     columnOneContent: SbBlokData[];
     columnTwoContent: SbBlokData[];
-    rowWidth?: RowWidthType;
+    rowWidth?: RowTwoColumnWidthType;
     widthRatio?: WidthRatioType;
     oneColumnMd?: boolean;
     contentAlignment?: 'start' | 'center' | 'end' | 'stretch';

@@ -1,21 +1,30 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
-import { RowOneColumn } from '@/components/Row';
+import { RowOneColumn, type RowOneColumnWidthType, type RowAlignType } from '@/components/Row';
 import { getNumBloks } from '@/utilities/getNumBloks';
+import { type MarginType } from '@/utilities/datasource';
 
 export type SbRowOneColumnProps = {
   blok: SbBlokData & {
-    columnContent: SbBlokData[];
+    columnContent?: SbBlokData[];
+    rowWidth?: RowOneColumnWidthType;
+    align?: RowAlignType;
+    spacingBottom?: MarginType;
   };
 }
 
 export const SbRowOneColumn = ({ blok }: SbRowOneColumnProps) => {
-  const { columnContent } = blok;
+  const {
+    columnContent,
+    rowWidth,
+    align,
+    spacingBottom,
+  } = blok;
 
   if (!getNumBloks(columnContent)) return null;
 
   return (
-    <RowOneColumn {...storyblokEditable(blok)}>
+    <RowOneColumn rowWidth={rowWidth} align={align} mb={spacingBottom} {...storyblokEditable(blok)}>
       <CreateBloks blokSection={columnContent} />
     </RowOneColumn>
   );

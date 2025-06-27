@@ -5,7 +5,7 @@ import * as styles from './Row.styles';
 type RowTwoColumnProps = GridProps & {
   columnOneContent?: React.ReactNode;
   columnTwoContent?: React.ReactNode;
-  rowWidth?: styles.RowWidthType;
+  rowWidth?: styles.RowTwoColumnWidthType;
   widthRatio?: styles.WidthRatioType;
   // If true, have all content stacked vertically at MD breakpoint
   oneColumnMd?: boolean;
@@ -35,7 +35,7 @@ export const RowTwoColumns = ({
       lg={oneColumnMd && !isColWidthSame ? 3 : undefined}
       mb={mb}
       alignItems={contentAlignment}
-      className={cnb(styles.root(contentAlignment), styles.rowWidths[rowWidth], styles.rowAligns[align])}
+      className={cnb(styles.root(contentAlignment), styles.rowTwoColumnWidths[rowWidth], styles.rowAligns[align])}
       {...props}
     >
       <div className={styles.colOne(widthRatio, oneColumnMd)}>
