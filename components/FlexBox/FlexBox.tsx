@@ -1,5 +1,16 @@
 import React, { ReactNode, HTMLAttributes, forwardRef } from 'react';
 import { cnb } from 'cnbuilder';
+import {
+  marginTops,
+  marginBottoms,
+  marginVerticals,
+  paddingTops,
+  paddingBottoms,
+  paddingVerticals,
+  type PaddingType,
+  type MarginType,
+} from '@/utilities/datasource';
+import { gridGaps, type GridGapType } from '@/components/Grid';
 import * as styles from './FlexBox.styles';
 import * as types from './FlexBox.types';
 
@@ -7,11 +18,17 @@ type FlexBoxProps = HTMLAttributes<HTMLElement> & {
   as?: React.ElementType;
   direction?: types.FlexDirectionType;
   wrap?: types.FlexWrapType;
-  gap?: boolean;
+  gap?: GridGapType;
   justifyContent?: types.FlexJustifyContentType;
   alignContent?: types.FlexAlignContentType;
   alignItems?: types.FlexAlignItemsType;
   children?: ReactNode;
+  mt?: MarginType;
+  mb?: MarginType;
+  my?: MarginType;
+  pt?: PaddingType;
+  pb?: PaddingType;
+  py?: PaddingType;
 };
 
 export const FlexBox = forwardRef<HTMLElement, FlexBoxProps>(({
@@ -22,6 +39,12 @@ export const FlexBox = forwardRef<HTMLElement, FlexBoxProps>(({
   justifyContent,
   alignContent,
   alignItems,
+  mt,
+  mb,
+  my,
+  pt,
+  pb,
+  py,
   children,
   className,
   ...props
@@ -36,7 +59,13 @@ export const FlexBox = forwardRef<HTMLElement, FlexBoxProps>(({
       justifyContent ? styles.flexJustifyContent[justifyContent] : '',
       alignContent ? styles.flexAlignContent[alignContent] : '',
       alignItems ? styles.flexAlignItems[alignItems] : '',
-      gap ? 'grid-gap' : '',
+      gap ? gridGaps[gap] : '',
+      py ? paddingVerticals[py] : '',
+      pt ? paddingTops[pt] : '',
+      pb ? paddingBottoms[pb] : '',
+      mt ? marginTops[mt] : '',
+      mb ? marginBottoms[mb] : '',
+      my ? marginVerticals[my] : '',
       className,
     )}
   >
