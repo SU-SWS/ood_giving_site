@@ -70,11 +70,8 @@ export const Section = ({
           {intro && <div className={styles.intro(srOnlyHeader, isCenterAlignHeader)}>{intro}</div>}
         </Container>
       )}
-      <Container
-        width={contentWidth === 'edge-to-edge' ? 'full' : 'site'}
-        className={styles.content(contentWidth)}
-      >
-        {children}
+      <Container width={contentWidth === 'edge-to-edge' ? 'full' : 'site'}>
+        <div className={styles.content(contentWidth)}>{children}</div>
       </Container>
     </Container>
   );

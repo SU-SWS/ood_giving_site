@@ -41,7 +41,6 @@ export const SbSingleColumnContent = (props: SbSingleColumnContentProps) => {
     >
       <div
         className={cnb(
-          'ood-single-column-content__wrapper',
           !props.blok.contentWidth || props.blok.contentWidth === 'fit-container' ? 'ml-none' : 'mx-auto',
           contentWidths[props.blok.contentWidth],
         )}
