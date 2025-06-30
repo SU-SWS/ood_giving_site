@@ -61,7 +61,7 @@ const Page = ({ params, searchParams }: ParamsType) => {
       <Heading id="endowedPositionHeading" className="w-full" size={3} font="sans" tabIndex={-1}>
         {matchingData.label}
       </Heading>
-      <Paragraph>
+      <Paragraph id="endowedPositionDescription">
         The information presented in the table below is arranged alphabetically by title.
         {matchingData.link && (
           <>
@@ -70,7 +70,7 @@ const Page = ({ params, searchParams }: ParamsType) => {
           </>
         )}
       </Paragraph>
-      <table className="rs-mt-0">
+      <table className="rs-mt-0" aria-labelledby="endowedPositionHeading" aria-describedby="endowedPositionDescription">
         <thead>
           <tr>
             <th>Title</th>
