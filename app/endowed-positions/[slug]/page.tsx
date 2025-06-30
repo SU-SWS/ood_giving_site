@@ -22,13 +22,20 @@ const Page = ({ params, searchParams }: ParamsType) => {
   const { slug } = use(params);
   const { page = '1' } = use(searchParams);
   const matchingData = ENDOWED_POSITIONS_MAP.find((p) => p.to === slug);
+
+  // Slug didn't match anything known
+  if (!matchingData) {
+    notFound();
+  }
+
   const positions = ENDOWED_POSITIONS.filter((p) => p.SUBCATEGORY === matchingData.id);
   const currentPage = (Array.isArray(page) ? parseInt(page[0], 10) : parseInt(page, 10)) || 1;
   const totalPages = Math.ceil(positions.length / 25);
   const start = (currentPage - 1) * 25;
   const pagedPositions = positions.slice(start, start + 25);
 
-  if (!matchingData || !pagedPositions.length) {
+  // Paging is out of bounds
+  if (!pagedPositions.length) {
     notFound();
   }
 
@@ -54,8 +61,8 @@ const Page = ({ params, searchParams }: ParamsType) => {
           </tr>
         </thead>
         <tbody>
-          {pagedPositions.map((p) => (
-            <tr key={`${p.Key}_${p['CURRENT HOLDER']}_${p.POSITION}`} className="odd:bg-black-10 even:bg-white">
+          {pagedPositions.map((p, index) => (
+            <tr key={index} className="odd:bg-black-10 even:bg-white">
               <th scope="row" className="font-semibold">{p.POSITION}</th>
               <td>{p['CURRENT HOLDER']}</td>
             </tr>
