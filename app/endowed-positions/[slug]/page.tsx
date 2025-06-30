@@ -17,15 +17,6 @@ type ParamsType = {
 };
 
 /**
- * Generate the list of stories to statically render.
- */
-export const generateStaticParams = () => {
-  const paths = ENDOWED_POSITIONS_MAP.map((p) => ['endowed-positions', p.to]);
-
-  return paths;
-};
-
-/**
  * Generate the SEO metadata for the page.
  */
 export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata> => {
@@ -44,21 +35,21 @@ export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata
 /**
  * Fetch the path data for the page and render it.
  */
-const Page = async ({ params, searchParams }: ParamsType) => {
-  const { slug } = await params;
-  const { page = '1' } = await searchParams;
-  const matchingData = ENDOWED_POSITIONS_MAP.find((p) => p.to === slug);
+const Page = ({ params, searchParams }: ParamsType) => {
+  const { slug } = use(params);
+  const { page = '1' } = use(searchParams);
+  const matchingData = useMemo(() => ENDOWED_POSITIONS_MAP.find((p) => p.to === slug), [slug]);
 
   // Slug didn't match anything known
   if (!matchingData) {
     notFound();
   }
 
-  const positions = ENDOWED_POSITIONS.filter((p) => p.SUBCATEGORY === matchingData.id);
-  const currentPage = (Array.isArray(page) ? parseInt(page[0], 10) : parseInt(page, 10)) || 1;
-  const totalPages = Math.ceil(positions.length / 25);
-  const start = (currentPage - 1) * 25;
-  const pagedPositions = positions.slice(start, start + 25);
+  const positions = useMemo(() => ENDOWED_POSITIONS.filter((p) => p.SUBCATEGORY === matchingData.id), [matchingData]);
+  const currentPage = useMemo(() => (Array.isArray(page) ? parseInt(page[0], 10) : parseInt(page, 10)) || 1, [page]);
+  const totalPages = useMemo(() => Math.ceil(positions.length / 25), [positions]);
+  const start = useMemo(() => (currentPage - 1) * 25, [currentPage]);
+  const pagedPositions = useMemo(() => positions.slice(start, start + 25), [positions, start]);
 
   // Paging is out of bounds
   if (!pagedPositions.length) {
