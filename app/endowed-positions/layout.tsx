@@ -4,19 +4,12 @@ import { EndowedPositionsFooter, EndowedPositionsHeader } from '@/components/End
 import { Footer } from '@/components/Storyblok/partials/Footer';
 import { StoryblokProvider } from '@/components/StoryblokProvider';
 import { getStoryDataCached } from '@/utilities/data';
-import { getStoryblokApi } from '@/utilities/storyblok';
 
 type EndowedPositionsLayoutProps = {
   children: React.ReactNode;
-  params: Promise<{ slug: string }>;
 };
 
-getStoryblokApi();
-
-const EndowedPositionsLayout = async ({ children, params }: EndowedPositionsLayoutProps) => {
-  const { slug = 'search' } = await params;
-
-  console.log({ slug });
+const EndowedPositionsLayout = async ({ children }: EndowedPositionsLayoutProps) => {
   const { data: endowedPositionsPage } = await getStoryDataCached({ path: 'endowed-positions' });
   const {
     localHeader,
@@ -50,7 +43,3 @@ const EndowedPositionsLayout = async ({ children, params }: EndowedPositionsLayo
 };
 
 export default EndowedPositionsLayout;
-
-// <CreateStories stories={[localHeader.story]} />
-// <CreateBloks blokSection={alertPicker} />
-//  <Footer localFooter={localFooter} globalFooter={globalFooter} />
