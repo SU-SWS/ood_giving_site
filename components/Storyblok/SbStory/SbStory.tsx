@@ -3,19 +3,16 @@ import { CreateBloks } from '@/components/CreateBloks';
 import { Container } from '@/components/Container';
 import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
 import { Footer } from '@/components/Storyblok/partials/Footer';
-import { Heading, Paragraph } from '@/components/Typography';
-import { FlexCell } from '@/components/FlexCell';
+import { Heading, Paragraph, Text } from '@/components/Typography';
 import { FullWidthImage, type VisibleVerticalType } from '@/components/Image';
-import {
-  bgColors,
-  type BgColorType,
-  lightBeforeColors,
-  type LightBeforeColorType,
-} from '@/utilities/datasource';
+import { type BgColorType, type LightBeforeColorType } from '@/utilities/datasource';
+import { formatDate } from '@/utilities/formatDate';
+import { getNumBloks } from '@/utilities/getNumBloks';
 import { type SbImageType } from '../Storyblok.types';
+import * as styles from './SbStory.styles';
 
 /**
- * This renders the Story page view
+ * Renders the Story page view
  */
 export type SbStoryProps = {
   blok: SbBlokData & {
@@ -25,7 +22,7 @@ export type SbStoryProps = {
     title?: string;
     intro?: string;
     heroImage: SbImageType;
-    displayImage?: 'show-image' | 'hide-image';
+    displayImage?: styles.DisplayImageType;
     headerBoxColor?: BgColorType;
     tabColor?: LightBeforeColorType;
     headerBackgroundColor?: BgColorType;
@@ -33,7 +30,7 @@ export type SbStoryProps = {
     // Story content
     storyContent: SbBlokData[];
     cta: SbBlokData[];
-    publishedDate?: string;
+    publishedDate?: string; // From the Storyblok date picker (no time)
     manualDate?: string;
     author?: string;
     // Below content
@@ -70,32 +67,21 @@ export const SbStory = ({ blok }: SbStoryProps) => {
     globalFooter,
   } = blok;
 
-  const dateOptions = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  } as const;
-  let pubDate;
+  const formattedDate = formatDate(publishedDate);
+  const {
+    dateTime: dateTimeString, year, monthLong, day, weekday,
+  } = formattedDate;
 
-  if (publishedDate) {
-    const publishedJsDateString = publishedDate.replace(' ', 'T');
-    const publishedUTCDate = new Date(`${publishedJsDateString}:00Z`);
-
-    pubDate = new Date(publishedUTCDate).toLocaleDateString(
-      'en-US',
-      dateOptions,
-    );
-  } else if (manualDate) {
-    pubDate = manualDate;
-  }
+  const showImage = !!filename && displayImage === 'show-image';
+  const isLightHeaderBox = headerBoxColor === 'white' || headerBoxColor == 'fog-light';
+  const hasCta = !!getNumBloks(cta);
 
   return (
     <div {...storyblokEditable(blok)}>
       <CreateBloks blokSection={alertPicker} />
       <CreateBloks blokSection={localHeader} />
       <main id="main-content">
-        <article className="ood-story bg-white">
+        <article className="bg-white">
           <header
             className={`ood-story__header
                     ${
@@ -106,82 +92,66 @@ export const SbStory = ({ blok }: SbStoryProps) => {
                     }
             `}
           >
-            {filename?.startsWith('http') &&
-              displayImage === 'show-image' && (
-                <FullWidthImage
-                  filename={filename}
-                  classPrefix="ood-story"
-                  visibleVertical={visibleVertical}
-                  visibleHorizontal="center"
-                  alt={alt ?? ''}
-                  className="h-300 md:h-400 xl:h-500 2xl:h-[64rem]"
-                />
-              )}
-            <Container className="flex ood-story__header-content">
-              <FlexCell
-                md={12}
-                lg={10}
-                xxl={9}
-                className={`ood-story__header-content-wrapper
-                     bg-${headerBoxColor}
-                     ${
-                       headerBoxColor !== 'white' &&
-                       headerBoxColor !== 'fog-light'
-                         ? 'text-white'
-                         : ''
-                     }
-                     `}
-              >
+            {showImage && (
+              <FullWidthImage
+                filename={filename}
+                visibleVertical={visibleVertical}
+                visibleHorizontal="center"
+                alt={alt || ''}
+                className="h-300 md:h-400 xl:h-500 2xl:h-[64rem]"
+              />
+            )}
+            <Container>
+              <Container pb={4} width="full" className={styles.introbox(headerBoxColor, showImage)}>
                 <Heading
                   as="h1"
                   font="sans"
                   weight="semibold"
-                  className={`ood-story__title ood-has-tab-before before:bg-${tabColor}`}
+                  color={isLightHeaderBox ? 'black' : 'white'}
+                  className={styles.title(tabColor)}
                 >
                   {title}
                 </Heading>
                 {intro && (
-                  <Paragraph variant="intro" className="ood-story__intro-text">
+                  <Paragraph variant="intro" color={isLightHeaderBox ? 'black' : 'white'}>
                     {intro}
                   </Paragraph>
                 )}
-              </FlexCell>
+              </Container>
             </Container>
           </header>
-          <div className="ood-story__content">
+          <div className="first:*:rs-pt-4 last:*:rs-pb-5">
             <CreateBloks blokSection={storyContent} />
           </div>
           <footer className="ood-story__main-footer">
-            {(author || publishedDate) && (
-              <div className="ood-story__metadata">
-                <Container className="flex">
-                  <FlexCell lg={8} className="mx-auto">
-                    <CreateBloks blokSection={cta} />
-                    <div className="ood-story__metadata rs-pb-5">
-                      {author && (
-                        <>
-                          <Paragraph weight="bold" uppercase className="ood-story__metadata-title">
-                            Author
-                          </Paragraph>
-                          <span className="ood-story__metadata-data">
-                            {author}
-                          </span>
-                        </>
-                      )}
-                      {publishedDate && (
-                        <>
-                          <Paragraph weight="bold" uppercase className="ood-story__metadata-title">
-                            Date
-                          </Paragraph>
-                          <span className="ood-story__metadata-data mb-0">
-                            {pubDate}
-                          </span>
-                        </>
-                      )}
-                    </div>
-                  </FlexCell>
-                </Container>
-              </div>
+            {(author || manualDate || formattedDate || hasCta) && (
+              <Container>
+                <CreateBloks blokSection={cta} />
+                {(author || manualDate || formattedDate) && (
+                  <Container width="full" pb={5} className="lg:w-8/12 mx-auto">
+                    {author && (
+                      <>
+                        <Heading font="sans" tracking="widest" uppercase mb="06em" className="text-16">
+                          Author
+                        </Heading>
+                        <div className="mb-[1.6em] last:mb-0">
+                          {author}
+                        </div>
+                      </>
+                    )}
+                    {(manualDate || formattedDate) && (
+                      <>
+                        <Heading font="sans" tracking="widest" uppercase mb="06em" className="text-16">
+                          Date
+                        </Heading>
+                        <Text as="time" dateTime={dateTimeString}>
+                          {manualDate ? manualDate : `${weekday}, ${monthLong} ${day}, ${year}`}
+                        </Text>
+                      </>
+                    )}
+                  </Container>
+                )}
+              </Container>
             )}
             <CreateBloks blokSection={belowContent} />
             <IconCardSection iconCards={iconCards} iconCardHeading={iconCardHeading} />
