@@ -142,7 +142,7 @@ export const SbInteriorPage = ({ blok, slug }: SbInteriorPageProps) => {
                   </Heading>
                 </Container>
               )}
-              <Grid pb={6} gap="default" lg={12} className="cc">
+              <Grid pb={6} lg={12} className="cc lg:grid-gap">
                 {/* Sidebar */}
                 {layout === 'left-sidebar' && (
                   <aside className="lg:col-span-4 xl:col-span-3 gap-y-20 md:gap-y-26 2xl:gap-y-27">

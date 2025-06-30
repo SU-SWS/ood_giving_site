@@ -44,7 +44,7 @@ export const HeaderNoImage = ({
         <div className="relative bg-white w-full max-w-full -mt-[3em] md:-mt-[6em] rs-p-4 shadow-md">
           {hasRichText(intro) && (
             <div className="relative w-full xl:w-3/4 mx-auto">
-              <RichText wysiwyg={intro} className="md:text-center text-20 md:text-25 lg:text-29 [&_p]:text-pretty [&_p]:leading-cozy" />
+              <RichText wysiwyg={intro} baseFontSize="intro" className="md:text-center [&_p]:text-pretty [&_p]:leading-cozy" />
             </div>
           )}
         </div>

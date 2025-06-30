@@ -72,13 +72,13 @@ export const textColors = {
 export const textVariants = {
   none: '', // Use default base/inherited style
   /**
-   * Decanter typography styles
+   * Decanter and custom typography styles
    */
   big: 'big-paragraph',
   subheading: 'subheading',
   caption: 'caption',
   card: 'card-paragraph',
-  intro: 'intro-text',
+  intro: 'text-20 md:text-25 lg:text-29',
   'base23': 'basefont-23',
 };
 

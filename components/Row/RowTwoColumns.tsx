@@ -5,7 +5,7 @@ import * as styles from './Row.styles';
 type RowTwoColumnProps = GridProps & {
   columnOneContent?: React.ReactNode;
   columnTwoContent?: React.ReactNode;
-  rowWidth?: styles.RowWidthType;
+  rowWidth?: styles.RowTwoColumnWidthType;
   widthRatio?: styles.WidthRatioType;
   // If true, have all content stacked vertically at MD breakpoint
   oneColumnMd?: boolean;
@@ -26,16 +26,14 @@ export const RowTwoColumns = ({
   mb,
   ...props
 }: RowTwoColumnProps) => {
-  const isColWidthSame = widthRatio === '1-to-1' || !widthRatio;
-
   return (
     <Grid
       gap="card"
-      md={!isColWidthSame ? 2 : 3}
-      lg={oneColumnMd && !isColWidthSame ? 3 : undefined}
+      md={oneColumnMd ? undefined : 6}
+      lg={oneColumnMd ? 6 : undefined}
       mb={mb}
       alignItems={contentAlignment}
-      className={cnb(styles.root(contentAlignment), styles.rowWidths[rowWidth], styles.rowAligns[align])}
+      className={cnb(styles.root(contentAlignment), styles.rowTwoColumnWidths[rowWidth], styles.rowAligns[align])}
       {...props}
     >
       <div className={styles.colOne(widthRatio, oneColumnMd)}>
