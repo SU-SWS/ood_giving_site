@@ -1,12 +1,7 @@
-'use client';
-import { use, useMemo } from 'react';
 import Fuse from 'fuse.js';
 import ENDOWED_POSITIONS from '@/fixtures/endowedPositions.json';
-import { Container } from '@/components/Container';
-import { Heading, Text } from '@/components/Typography';
+import { Heading, Paragraph } from '@/components/Typography';
 import { CtaLink } from '@/components/Cta';
-import { EndowedPositionsHeader } from '@/components/EndowedPositions';
-import { CreateStories } from '@/components/CreateStories';
 
 const fuse = new Fuse(ENDOWED_POSITIONS, {
   keys: ['SUBCATEGORY', 'POSITION', 'CURRENT HOLDER'],
@@ -20,45 +15,37 @@ type ParamsType = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-const Page = ({ searchParams }: ParamsType) => {
-  const { term = '', item = '' } = use(searchParams);
-  const searchTerm = useMemo(() => Array.isArray(term) ? term[0] : term, [term]);
-  const itemIndex = useMemo(() => Array.isArray(item) ? parseInt(item[0], 10) : parseInt(item, 10), [item]);
-  const searchResults = useMemo(() => {
-    const results = fuse.search(searchTerm);
-
-    if (!Number.isNaN(itemIndex) && !!results.at(itemIndex)) {
-      return [results[itemIndex]];
-    }
-
-    return results;
-  }, [searchTerm, itemIndex]);
-  const hasSearchResults = useMemo(() => !!searchResults?.length, [searchResults]);
+const Page = async ({ searchParams }: ParamsType) => {
+  const { term = '', item = '' } = await searchParams;
+  const searchTerm = Array.isArray(term) ? term[0] : term;
+  const itemIndex = Array.isArray(item) ? parseInt(item[0], 10) : parseInt(item, 10);
+  const results = fuse.search(searchTerm);
+  const searchResults = !Number.isNaN(itemIndex) && !!results.at(itemIndex)
+    ? [results[itemIndex]]
+    : results;
+  const hasSearchResults = !!searchResults?.length;
 
   return (
     <>
-      <CreateStories stories={[]} />
-      <EndowedPositionsHeader />
-      <section className="my-90">
-        <Container>
-          <Heading>
-            {hasSearchResults ? 'Search' : 'No'} results for &quot;{searchTerm}&quot;
-          </Heading>
-          {hasSearchResults && (
-            <ul>
-              {searchResults.map(({ item }, index) => (
-                <li key={item.Key}>
-                  <CtaLink href={`?term=${searchTerm}&item=${index}`}>
-                    <Heading as="h3">{item['CURRENT HOLDER']}</Heading>
-                    <Text>Title: {item['POSITION']}</Text>
-                    <Text>{item['SUBCATEGORY']}</Text>
-                  </CtaLink>
-                </li>
-              ))}
-            </ul>
-          )}
-        </Container>
-      </section>
+      <Heading className="w-full" size={3} font="sans">
+        {hasSearchResults ? 'Search' : 'No'} results for &quot;{searchTerm}&quot;
+      </Heading>
+      {hasSearchResults && (
+        <ul className="list-none m-0 p-0">
+          {searchResults.map(({ item }, index) => (
+            <li key={`${item.Key}_${item['CURRENT HOLDER']}_${item.POSITION}`} className="border-b border-black rs-mb-0 rs-pb-neg1">
+              <CtaLink href={`?term=${searchTerm}&item=${itemIndex ? itemIndex : index}`} className="group block w-full !no-underline !text-black">
+                <Heading as="h3" font="sans" size={2} className="group-hocus:underline mb-0">{item['CURRENT HOLDER']}</Heading>
+                <Paragraph weight="normal" className="text-16 md:text-18 2xl:text-19 leading-cozy">
+                  <strong>Title:</strong> {item['POSITION']}
+                  <br />
+                  {item['SUBCATEGORY']}
+                </Paragraph>
+              </CtaLink>
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   );
 };
