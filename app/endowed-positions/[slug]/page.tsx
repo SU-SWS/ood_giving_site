@@ -58,7 +58,7 @@ const Page = ({ params, searchParams }: ParamsType) => {
 
   return (
     <>
-      <Heading className="w-full" size={3} font="sans">
+      <Heading id="endowedPositionHeading" className="w-full" size={3} font="sans" tabIndex={-1}>
         {matchingData.label}
       </Heading>
       <Paragraph>
@@ -86,7 +86,7 @@ const Page = ({ params, searchParams }: ParamsType) => {
           ))}
         </tbody>
       </table>
-      <EndowedPositionsPagination currentPage={currentPage} totalPages={totalPages} />
+      <EndowedPositionsPagination currentPage={currentPage} totalPages={totalPages} focusOnPageChangeId="endowedPositionHeading" />
     </>
   );
 };

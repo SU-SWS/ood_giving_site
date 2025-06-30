@@ -1,15 +1,18 @@
 'use client';
+import { useCallback } from 'react';
 import { cnb } from 'cnbuilder';
 import Link from 'next/link';
 
 type EndowedPositionsPaginationProps = {
   currentPage: number;
   totalPages: number;
+  focusOnPageChangeId?: string;
 };
 
 export const EndowedPositionsPagination = ({
   currentPage,
   totalPages,
+  focusOnPageChangeId,
 }: EndowedPositionsPaginationProps) => {
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
@@ -52,6 +55,13 @@ export const EndowedPositionsPagination = ({
       return i + 1;
     });
 
+  const handlePageChange = useCallback(() => {
+    const el = document.getElementById(focusOnPageChangeId);
+    if (el) {
+      el.focus();
+    }
+  }, [focusOnPageChangeId]);
+
   return (
     <nav aria-label="Endowed positions pagination" className="flex justify-center rs-mt-4">
       <ol className="flex list-none m-0 p-0 gap-4 sm:gap-12 md:gap-16 xl:gap-24 text-28">
@@ -65,6 +75,8 @@ export const EndowedPositionsPagination = ({
               href={`?page=${currentPage - 1}`}
               aria-label="Previous page"
               className="flex items-center justify-center no-underline border-b-4 border-b-transparent hocus:border-b-digital-blue text-16 lg:text-18 xl:text-20 transition-colors"
+              scroll={false}
+              onClick={handlePageChange}
             >
               Prev<span className="hidden md:inline">ious</span>
             </Link>
@@ -84,6 +96,8 @@ export const EndowedPositionsPagination = ({
             <li key={page} className="flex items-center justify-center mb-0">
               <Link
                 href={`?page=${page}`}
+                scroll={false}
+                onClick={handlePageChange}
                 aria-label={i === shownPages.length - 1 ? `Last page, page ${page}` : `Page ${page}`}
                 aria-current={page === currentPage ? 'page' : undefined}
                 className={cnb(
@@ -108,6 +122,8 @@ export const EndowedPositionsPagination = ({
             <Link
               href={`?page=${currentPage + 1}`}
               aria-label="Next page"
+              scroll={false}
+              onClick={handlePageChange}
               className="flex items-center justify-center no-underline border-b-4 border-b-transparent hocus:border-b-digital-blue text-16 lg:text-18 xl:text-20 transition-colors"
             >
               Next
