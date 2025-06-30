@@ -56,7 +56,7 @@
     "node-vault": "^0.9.22",
     "postcss": "^8.4.31",
     "prettier": "2.3.2",
-    "react-refresh": "^0.13.0",
+    "react-refresh": "^0.17.0",
     "toml": "^3.0.0"
   },
   "keywords": [
