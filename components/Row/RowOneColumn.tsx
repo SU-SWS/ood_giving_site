@@ -1,7 +1,27 @@
-type RowOneColumnProps = React.HTMLAttributes<HTMLDivElement>;
+import { cnb } from 'cnbuilder';
+import { Container, type ContainerProps } from '@/components/Container';
+import * as styles from './Row.styles';
 
-export const RowOneColumn = ({ children, ...props }: RowOneColumnProps) => {
+type RowOneColumnProps = ContainerProps & {
+  rowWidth?: styles.RowOneColumnWidthType;
+  // Horizontal alignment of the whole row if rowWidth is not 'full'
+  align?: styles.RowAlignType;
+};
+
+export const RowOneColumn = ({
+  rowWidth = 'flex-lg-10-of-12 flex-xl-8-of-12',
+  align = 'su-mx-auto',
+  mb,
+  children,
+  ...props
+}: RowOneColumnProps) => {
   return (
-    <div {...props}>{children}</div>
+    <Container
+      mb={mb}
+      className={cnb(styles.rowOneColumnWidths[rowWidth], styles.rowAligns[align])}
+      {...props}
+    >
+      {children}
+    </Container>
   );
 };

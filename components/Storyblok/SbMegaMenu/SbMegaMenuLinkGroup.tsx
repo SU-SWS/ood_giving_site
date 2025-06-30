@@ -30,7 +30,6 @@ export const SbMegaMenuLinkGroup = ({ blok }: SbMegaMenuLinkGroupProps) => {
               <CtaLink
                 sbLink={link}
                 variant="mega-menu-link-lvl2"
-                align="right"
                 icon={link.linktype === 'story' ? 'su-link--no-icon' : 'su-link--external'}
               >
                 {linkText}

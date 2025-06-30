@@ -30,6 +30,31 @@ export const darkBgColors = {
 };
 export type DarkBgColorType = keyof typeof darkBgColors;
 
+// For pseudo elements like tabs above headings
+export const darkBeforeColors = {
+  'bay-dark': 'before:bg-bay-dark',
+  'palo-alto': 'before:bg-palo-alto',
+  'palo-alto-dark': 'before:bg-palo-alto-dark',
+  'palo-verde-dark': 'before:bg-palo-verde-dark',
+  'lagunita': 'before:bg-lagunita',
+  'lagunita-dark': 'before:bg-lagunita-dark',
+  'sky-dark': 'before:bg-sky-dark',
+  'cardinal-red': 'before:bg-cardinal-red',
+  'digital-red': 'before:bg-digital-red',
+  'black': 'before:bg-black',
+  'fog-light': 'before:bg-fog-light',
+  'cardinal-dark-to-spirited-dark': 'before:bg-gradient-to-tr before:from-cardinal-dark before:to-spirited-dark',
+  'plum-to-digital-red': 'before:bg-gradient-to-tr before:from-plum before:to-digital-red',
+  'plum-to-spirited-dark': 'before:bg-gradient-to-tr before:from-plum before:to-spirited-dark',
+  'palo-alto-dark-to-palo-verde-dark': 'before:bg-gradient-to-tr before:from-palo-alto-dark before:to-palo-verde-dark',
+  'sky-dark-to-olive-dark': 'before:bg-gradient-to-tr before:from-sky-dark before:to-olive-dark',
+  'sky-dark-to-bay-dark': 'before:bg-gradient-to-tr before:from-sky-dark before:to-bay-dark',
+  'palo-verde': 'before:bg-palo-verde',
+  'plum': 'before:bg-plum',
+  'brick': 'before:bg-brick',
+};
+export type DarkBeforeColorType = keyof typeof darkBeforeColors;
+
 export const cardBgColors = {
   'white': 'bg-white',
   'bay-dark': 'bg-bay-dark',
@@ -130,10 +155,10 @@ export const marginVerticals = {
  * Add more as needed
  */
 export const modTypeSizes: Record<string, FontSizeType> = {
-  'su-mod-type-3': 'f3',
-  'su-mod-type-4': 'f4',
-  'su-mod-type-5': 'f5',
-  'su-mod-type-6': 'f6',
+  'su-mod-type-3': 3,
+  'su-mod-type-4': 4,
+  'su-mod-type-5': 5,
+  'su-mod-type-6': 6,
 };
 export type ModTypeSizeTypes = keyof typeof modTypeSizes;
 

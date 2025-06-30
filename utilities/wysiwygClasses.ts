@@ -12,6 +12,7 @@ export const wysiwygClasses = {
   'su-semibold': 'font-semibold',
   'su-bold': 'font-bold',
   'su-italic': 'italic',
+  'intro-text': 'text-20 md:text-25 lg:text-29',
   'callout': 'leading-display font-sans type-2 font-semibold',
   'splash-text': 'leading-display font-serif type-3 font-bold',
   // CTA styles

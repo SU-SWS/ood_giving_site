@@ -17,6 +17,7 @@ export const CtaGroup = ({
     <FlexBox
       {...props}
       as="ul"
+      mb="1em" // Gatsby build adds a 1em margin-bottom to each cta inside a CTA group
       direction={display === 'inline-block' ? 'row' : 'col'}
       wrap={display === 'inline-block' ? 'wrap' : 'nowrap'}
       justifyContent={display === 'inline-block' ? 'center' : 'start'}
