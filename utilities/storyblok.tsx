@@ -10,8 +10,8 @@ import { SbStoryOverviewPage } from '@/components/Storyblok/SbStoryOverviewPage'
 import { SbCampaignPage } from '@/components/Storyblok/SbCampaignPage/SbCampaignPage';
 import { SbInteriorPage } from '@/components/Storyblok/SbInteriorPage';
 import { SbSupportPage } from '@/components/Storyblok/SbSupportPage';
-import { SbStoryPage } from '@/components/Storyblok/SbStoryPage';
-import { SbStoryPicker } from '@/components/Storyblok/SbStoryPage';
+import { SbStory } from '@/components/Storyblok/SbStory';
+import { SbStoryPicker } from '@/components/Storyblok/SbStory';
 import { SbRedirect } from '@/components/Storyblok/SbRedirect';
 import { SbLocalFooterPicker } from '@/components/Storyblok/SbLocalFooterPicker';
 import { SbLocalFooter } from '@/components/Storyblok/SbLocalFooter';
@@ -61,7 +61,7 @@ export const components = {
   oodCampaignPage: SbCampaignPage,
   oodInteriorPage: SbInteriorPage,
   oodLandingPage: SbLandingPage,
-  oodStory: SbStoryPage,
+  oodStory: SbStory,
   oodSupportPage: SbSupportPage,
   storyOverview: SbStoryOverviewPage,
   // Identity

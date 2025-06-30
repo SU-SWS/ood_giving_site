@@ -30,6 +30,12 @@ export const darkBgColors = {
 };
 export type DarkBgColorType = keyof typeof darkBgColors;
 
+export const bgColors = {
+  ...lightPageBgColors,
+  ...darkBgColors,
+};
+export type BgColorType = LightPageBgColorType | DarkBgColorType;
+
 // For pseudo elements like tabs above headings
 export const darkBeforeColors = {
   'bay-dark': 'before:bg-bay-dark',
@@ -54,6 +60,19 @@ export const darkBeforeColors = {
   'brick': 'before:bg-brick',
 };
 export type DarkBeforeColorType = keyof typeof darkBeforeColors;
+
+export const lightBeforeColors = {
+  'bay-light': 'before:bg-bay-light',
+  'palo-alto': 'before:bg-palo-alto',
+  'palo-alto-light': 'before:bg-palo-alto-light',
+  'palo-verde-light': 'before:bg-palo-verde-light',
+  'lagunita-light': 'before:bg-lagunita-light',
+  'sky-light': 'before:bg-sky-light',
+  'digital-red': 'before:bg-digital-red',
+  'cardinal-red': 'before:bg-cardinal-red',
+  'white': 'before:bg-white',
+};
+export type LightBeforeColorType = keyof typeof lightBeforeColors;
 
 export const cardBgColors = {
   'white': 'bg-white',

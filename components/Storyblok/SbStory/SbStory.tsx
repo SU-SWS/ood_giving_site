@@ -6,20 +6,35 @@ import { Footer } from '@/components/Storyblok/partials/Footer';
 import { Heading, Paragraph } from '@/components/Typography';
 import { FlexCell } from '@/components/FlexCell';
 import { FullWidthImage, type VisibleVerticalType } from '@/components/Image';
+import {
+  bgColors,
+  type BgColorType,
+  lightBeforeColors,
+  type LightBeforeColorType,
+} from '@/utilities/datasource';
 import { type SbImageType } from '../Storyblok.types';
 
-export type SbStoryFullViewProps = {
+/**
+ * This renders the Story page view
+ */
+export type SbStoryProps = {
   blok: SbBlokData & {
     localHeader: SbBlokData[];
     alertPicker: SbBlokData[];
-    publishedDate?: string;
-    manualDate?: string;
-    heroImage: SbImageType;
-    visibleVertical?: VisibleVerticalType;
+    // Story header
     title?: string;
     intro?: string;
+    heroImage: SbImageType;
+    displayImage?: 'show-image' | 'hide-image';
+    headerBoxColor?: BgColorType;
+    tabColor?: LightBeforeColorType;
+    headerBackgroundColor?: BgColorType;
+    visibleVertical?: VisibleVerticalType;
+    // Story content
     storyContent: SbBlokData[];
     cta: SbBlokData[];
+    publishedDate?: string;
+    manualDate?: string;
     author?: string;
     // Below content
     belowContent?: SbBlokData[];
@@ -31,52 +46,74 @@ export type SbStoryFullViewProps = {
   }
 };
 
-export const SbStoryFullView = (props: SbStoryFullViewProps) => {
+export const SbStory = ({ blok }: SbStoryProps) => {
+  const {
+    localHeader,
+    alertPicker,
+    heroImage: { filename, alt } = {},
+    displayImage = 'hide-image',
+    headerBoxColor = 'fog-light',
+    tabColor = 'cardinal-red',
+    headerBackgroundColor = 'bay-dark',
+    visibleVertical,
+    title,
+    intro,
+    storyContent,
+    cta,
+    author,
+    publishedDate,
+    manualDate,
+    belowContent,
+    iconCardHeading,
+    iconCards,
+    localFooter,
+    globalFooter,
+  } = blok;
+
   const dateOptions = {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   } as const;
-  let publishedDate;
+  let pubDate;
 
-  if (props.blok.publishedDate) {
-    const publishedJsDateString = props.blok.publishedDate.replace(' ', 'T');
+  if (publishedDate) {
+    const publishedJsDateString = publishedDate.replace(' ', 'T');
     const publishedUTCDate = new Date(`${publishedJsDateString}:00Z`);
 
-    publishedDate = new Date(publishedUTCDate).toLocaleDateString(
+    pubDate = new Date(publishedUTCDate).toLocaleDateString(
       'en-US',
       dateOptions,
     );
-  } else if (props.blok.manualDate) {
-    publishedDate = props.blok.manualDate;
+  } else if (manualDate) {
+    pubDate = manualDate;
   }
 
   return (
-    <div {...storyblokEditable(props.blok)}>
-      <CreateBloks blokSection={props.blok.alertPicker} />
-      <CreateBloks blokSection={props.blok.localHeader} />
+    <div {...storyblokEditable(blok)}>
+      <CreateBloks blokSection={alertPicker} />
+      <CreateBloks blokSection={localHeader} />
       <main id="main-content">
         <article className="ood-story bg-white">
           <header
             className={`ood-story__header
                     ${
-                      props.blok.heroImage.filename?.startsWith('http') &&
-                      props.blok.displayImage === 'show-image'
+                      filename?.startsWith('http') &&
+                      displayImage === 'show-image'
                         ? 'ood-story__header--has-image bg-white'
-                        : `ood-story__header--no-image bg-white border-${props.blok.headerBackgroundColor}`
+                        : `ood-story__header--no-image bg-white border-${headerBackgroundColor}`
                     }
             `}
           >
-            {props.blok.heroImage.filename?.startsWith('http') &&
-              props.blok.displayImage === 'show-image' && (
+            {filename?.startsWith('http') &&
+              displayImage === 'show-image' && (
                 <FullWidthImage
-                  {...props}
-                  filename={props.blok.heroImage.filename}
+                  filename={filename}
                   classPrefix="ood-story"
-                  visibleVertical={props.blok.visibleVertical}
+                  visibleVertical={visibleVertical}
                   visibleHorizontal="center"
-                  alt={props.blok.heroImage.alt ?? ''}
+                  alt={alt ?? ''}
                   className="h-300 md:h-400 xl:h-500 2xl:h-[64rem]"
                 />
               )}
@@ -86,10 +123,10 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                 lg={10}
                 xxl={9}
                 className={`ood-story__header-content-wrapper
-                     bg-${props.blok.headerBoxColor}
+                     bg-${headerBoxColor}
                      ${
-                       props.blok.headerBoxColor !== 'white' &&
-                       props.blok.headerBoxColor !== 'fog-light'
+                       headerBoxColor !== 'white' &&
+                       headerBoxColor !== 'fog-light'
                          ? 'text-white'
                          : ''
                      }
@@ -99,35 +136,35 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                   as="h1"
                   font="sans"
                   weight="semibold"
-                  className={`ood-story__title ood-has-tab-before before:bg-${props.blok.tabColor}`}
+                  className={`ood-story__title ood-has-tab-before before:bg-${tabColor}`}
                 >
-                  {props.blok.title}
+                  {title}
                 </Heading>
-                {props.blok.intro && (
+                {intro && (
                   <Paragraph variant="intro" className="ood-story__intro-text">
-                    {props.blok.intro}
+                    {intro}
                   </Paragraph>
                 )}
               </FlexCell>
             </Container>
           </header>
           <div className="ood-story__content">
-            <CreateBloks blokSection={props.blok.storyContent} />
+            <CreateBloks blokSection={storyContent} />
           </div>
           <footer className="ood-story__main-footer">
-            {(props.blok.author || publishedDate) && (
+            {(author || publishedDate) && (
               <div className="ood-story__metadata">
                 <Container className="flex">
                   <FlexCell lg={8} className="mx-auto">
-                    <CreateBloks blokSection={props.blok.cta} />
+                    <CreateBloks blokSection={cta} />
                     <div className="ood-story__metadata rs-pb-5">
-                      {props.blok.author && (
+                      {author && (
                         <>
                           <Paragraph weight="bold" uppercase className="ood-story__metadata-title">
                             Author
                           </Paragraph>
                           <span className="ood-story__metadata-data">
-                            {props.blok.author}
+                            {author}
                           </span>
                         </>
                       )}
@@ -137,7 +174,7 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                             Date
                           </Paragraph>
                           <span className="ood-story__metadata-data mb-0">
-                            {publishedDate}
+                            {pubDate}
                           </span>
                         </>
                       )}
@@ -146,12 +183,12 @@ export const SbStoryFullView = (props: SbStoryFullViewProps) => {
                 </Container>
               </div>
             )}
-            <CreateBloks blokSection={props.blok.belowContent} />
-            <IconCardSection iconCards={props.blok.iconCards} iconCardHeading={props.blok.iconCardHeading} />
+            <CreateBloks blokSection={belowContent} />
+            <IconCardSection iconCards={iconCards} iconCardHeading={iconCardHeading} />
           </footer>
         </article>
       </main>
-      <Footer localFooter={props.blok.localFooter} globalFooter={props.blok.globalFooter} />
+      <Footer localFooter={localFooter} globalFooter={globalFooter} />
     </div>
   );
 };
