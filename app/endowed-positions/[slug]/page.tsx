@@ -1,10 +1,10 @@
 'use client';
+import { use } from 'react';
 import { notFound } from 'next/navigation';
 import { Heading, Paragraph } from '@/components/Typography';
 import ENDOWED_POSITIONS_MAP from '@/constants/ENDOWED_POSITIONS_MAP.json';
 import ENDOWED_POSITIONS from '@/fixtures/endowedPositions.json';
 import { EndowedPositionsPagination } from '@/components/EndowedPositions';
-import { use } from 'react';
 
 type PathsType = {
   slug: string;
