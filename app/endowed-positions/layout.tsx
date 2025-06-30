@@ -20,24 +20,22 @@ const EndowedPositionsLayout = async ({ children }: EndowedPositionsLayoutProps)
 
   return (
     <StoryblokProvider>
-      <div>
-        <CreateBloks blokSection={alertPicker} />
-        <CreateBloks blokSection={localHeader} />
-        <main id="main-content">
-          <article className="bg-fog-light">
-            <Container width="full">
-              <EndowedPositionsHeader />
-              <Container as="section" className="py-90">
-                <div className="xl:w-3/4 mx-auto lg:rs-px-4">
-                  {children}
-                  <EndowedPositionsFooter />
-                </div>
-              </Container>
+      <CreateBloks blokSection={alertPicker} />
+      <CreateBloks blokSection={localHeader} />
+      <main id="main-content">
+        <article className="bg-fog-light">
+          <Container width="full">
+            <EndowedPositionsHeader />
+            <Container as="section" className="py-90">
+              <div className="xl:w-3/4 mx-auto lg:rs-px-4">
+                {children}
+                <EndowedPositionsFooter />
+              </div>
             </Container>
-          </article>
-        </main>
-        <Footer localFooter={localFooter} globalFooter={globalFooter} />
-      </div>
+          </Container>
+        </article>
+      </main>
+      <Footer localFooter={localFooter} globalFooter={globalFooter} />
     </StoryblokProvider>
   );
 };
