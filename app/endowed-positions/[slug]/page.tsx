@@ -1,10 +1,11 @@
-'use client';
 import { use, useMemo } from 'react';
+import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Heading, Paragraph } from '@/components/Typography';
 import ENDOWED_POSITIONS_MAP from '@/constants/ENDOWED_POSITIONS_MAP.json';
 import ENDOWED_POSITIONS from '@/fixtures/endowedPositions.json';
 import { EndowedPositionsPagination } from '@/components/EndowedPositions';
+import { config } from '@/utilities/config';
 
 type PathsType = {
   slug: string;
@@ -13,6 +14,31 @@ type PathsType = {
 type ParamsType = {
   params: Promise<PathsType>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+/**
+ * Generate the list of stories to statically render.
+ */
+export const generateStaticParams = () => {
+  const paths = ENDOWED_POSITIONS_MAP.map((p) => ['endowed-positions', p.to]);
+
+  return paths;
+};
+
+/**
+ * Generate the SEO metadata for the page.
+ */
+export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata> => {
+  const { slug } = await params;
+  const matchingData = ENDOWED_POSITIONS_MAP.find((p) => p.to === slug);
+
+  const title = `Endowed Positions at Stanford: "${matchingData.label}" | ${config.siteTitle}`;
+  const description = 'Endowed positions are gifted by donors to support outstanding faculty, staff, and campus leaders. Through these meaningful investments, donors help enhance the Stanford community and strengthen the university’s future.';
+
+  return {
+    title,
+    description,
+  };
 };
 
 /**
