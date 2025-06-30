@@ -1,5 +1,5 @@
 'use client';
-import { use } from 'react';
+import { use, useMemo } from 'react';
 import { notFound } from 'next/navigation';
 import { Heading, Paragraph } from '@/components/Typography';
 import ENDOWED_POSITIONS_MAP from '@/constants/ENDOWED_POSITIONS_MAP.json';
@@ -21,18 +21,18 @@ type ParamsType = {
 const Page = ({ params, searchParams }: ParamsType) => {
   const { slug } = use(params);
   const { page = '1' } = use(searchParams);
-  const matchingData = ENDOWED_POSITIONS_MAP.find((p) => p.to === slug);
+  const matchingData = useMemo(() => ENDOWED_POSITIONS_MAP.find((p) => p.to === slug), [slug]);
 
   // Slug didn't match anything known
   if (!matchingData) {
     notFound();
   }
 
-  const positions = ENDOWED_POSITIONS.filter((p) => p.SUBCATEGORY === matchingData.id);
-  const currentPage = (Array.isArray(page) ? parseInt(page[0], 10) : parseInt(page, 10)) || 1;
-  const totalPages = Math.ceil(positions.length / 25);
-  const start = (currentPage - 1) * 25;
-  const pagedPositions = positions.slice(start, start + 25);
+  const positions = useMemo(() => ENDOWED_POSITIONS.filter((p) => p.SUBCATEGORY === matchingData.id), [matchingData]);
+  const currentPage = useMemo(() => (Array.isArray(page) ? parseInt(page[0], 10) : parseInt(page, 10)) || 1, [page]);
+  const totalPages = useMemo(() => Math.ceil(positions.length / 25), [positions]);
+  const start = useMemo(() => (currentPage - 1) * 25, [currentPage]);
+  const pagedPositions = useMemo(() => positions.slice(start, start + 25), [positions, start]);
 
   // Paging is out of bounds
   if (!pagedPositions.length) {

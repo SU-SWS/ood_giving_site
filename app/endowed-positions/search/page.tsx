@@ -1,4 +1,5 @@
 'use client';
+import { useMemo } from 'react';
 import Fuse from 'fuse.js';
 import ENDOWED_POSITIONS from '@/fixtures/endowedPositions.json';
 import { Heading, Paragraph } from '@/components/Typography';
@@ -17,12 +18,16 @@ const Page = () => {
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get('term') || '';
   const item = searchParams.get('item');
-  const itemIndex = item ? parseInt(item, 10) : undefined;
-  const results = fuse.search(searchTerm);
-  const searchResults = item && !Number.isNaN(itemIndex) && !!results.at(itemIndex)
-    ? [results[itemIndex]]
-    : results;
-  const hasSearchResults = !!searchResults?.length;
+  const itemIndex = useMemo(() => item ? parseInt(item, 10) : undefined, [item]);
+  const results = useMemo(() => fuse.search(searchTerm), [searchTerm]);
+  const searchResults = useMemo(() => {
+    if (item && !Number.isNaN(itemIndex) && !!results.at(itemIndex)) {
+      return [results[itemIndex]];
+    }
+
+    return results;
+  }, [results, itemIndex, item]);
+  const hasSearchResults = useMemo(() => !!searchResults?.length, [searchResults]);
 
   return (
     <>
