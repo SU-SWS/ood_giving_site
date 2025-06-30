@@ -1,7 +1,9 @@
+'use client';
 import Fuse from 'fuse.js';
 import ENDOWED_POSITIONS from '@/fixtures/endowedPositions.json';
 import { Heading, Paragraph } from '@/components/Typography';
 import { CtaLink } from '@/components/Cta';
+import { useSearchParams } from 'next/navigation';
 
 const fuse = new Fuse(ENDOWED_POSITIONS, {
   keys: ['SUBCATEGORY', 'POSITION', 'CURRENT HOLDER'],
@@ -11,14 +13,11 @@ const fuse = new Fuse(ENDOWED_POSITIONS, {
   ignoreLocation: true,
 });
 
-type ParamsType = {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-};
-
-const Page = async ({ searchParams }: ParamsType) => {
-  const { term = '', item = '' } = await searchParams;
-  const searchTerm = Array.isArray(term) ? term[0] : term;
-  const itemIndex = Array.isArray(item) ? parseInt(item[0], 10) : parseInt(item, 10);
+const Page = () => {
+  const searchParams = useSearchParams();
+  const searchTerm = searchParams.get('term') || '';
+  const item = searchParams.get('item');
+  const itemIndex = item ? parseInt(item, 10) : undefined;
   const results = fuse.search(searchTerm);
   const searchResults = !Number.isNaN(itemIndex) && !!results.at(itemIndex)
     ? [results[itemIndex]]

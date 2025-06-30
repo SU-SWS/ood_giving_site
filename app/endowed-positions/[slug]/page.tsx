@@ -1,3 +1,4 @@
+'use client';
 import { notFound } from 'next/navigation';
 import { Heading, Paragraph } from '@/components/Typography';
 import ENDOWED_POSITIONS_MAP from '@/constants/ENDOWED_POSITIONS_MAP.json';
@@ -12,15 +13,6 @@ type PathsType = {
 type ParamsType = {
   params: Promise<PathsType>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-};
-
-/**
- * Generate the list of paths to statically render.
- */
-export const generateStaticParams = async () => {
-  const paths = ENDOWED_POSITIONS_MAP.map((p) => ['endowed-positions', p.to]);
-
-  return paths;
 };
 
 /**
