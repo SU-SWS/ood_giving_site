@@ -77,7 +77,7 @@ export const SbStory = ({ blok }: SbStoryProps) => {
   } = formattedDate || {};
 
   const showImage = !!filename && displayImage === 'show-image';
-  const isLightHeaderBox = headerBoxColor === 'white' || headerBoxColor == 'fog-light';
+  const isLightHeaderBox = headerBoxColor === 'white' || headerBoxColor === 'fog-light';
   const hasCta = !!getNumBloks(cta);
   const hasDate = !!(manualDate || formattedDate);
   const hasAuthorOrDate = !!(author || hasDate);
