@@ -1,43 +1,42 @@
 interface FormattedDate {
-  dateTime: string | null;
-  year: string | null;
-  monthShort: string | null;
-  monthLong: string | null;
-  day: string | null;
+  dateTime?: string;
+  year?: string;
+  monthShort?: string;
+  monthLong?: string;
+  day?: string;
+  weekday?: string;
 }
 
-// Utility function to parse a date string and return a Date object
-export const parseDate = (dateString: string): Date | null => {
-  return dateString ? new Date(dateString) : null;
-};
+const US_FORMATTERS = {
+  year: new Intl.DateTimeFormat('en-US', { year: 'numeric' }),
+  monthShort: new Intl.DateTimeFormat('en-US', { month: 'short' }),
+  monthLong: new Intl.DateTimeFormat('en-US', { month: 'long' }),
+  day: new Intl.DateTimeFormat('en-US', { day: 'numeric' }),
+  weekday: new Intl.DateTimeFormat('en-US', { weekday: 'long' }),
+} as const;
 
-// Utility function to format a Date object using the US locale
-export const formatDateUS = (dateObj: Date | null, options: Intl.DateTimeFormatOptions): string | null => {
-  return dateObj ? dateObj.toLocaleDateString('en-US', options) : null;
-};
+// Format dates from Storyblok date picker without time
+export const formatDate = (dateString: string): FormattedDate | null => {
+  if (!dateString) {
+    return null;
+  }
 
-// Function to format dates from Storyblok date picker without time
-export const formatDate = (dateString: string): FormattedDate => {
-  const dateObj = parseDate(dateString);
+  const dateObj = new Date(dateString);
+
+  // Return null if date is invalid
+  if (isNaN(dateObj.getTime())) {
+    return null;
+  }
 
   // For use in the datetime attribute in the HTML time element
-  const dateTime = dateString ? dateString.slice(0, 10) : null;
-
-  const year = formatDateUS(dateObj, { year: 'numeric' });
-
-  // 3-letter month
-  const monthShort = formatDateUS(dateObj, { month: 'short' });
-
-  // Full month name
-  const monthLong = formatDateUS(dateObj, { month: 'long' });
-
-  const day = formatDateUS(dateObj, { day: 'numeric' });
+  const dateTime = dateString.slice(0, 10);
 
   return {
     dateTime,
-    year,
-    monthShort,
-    monthLong,
-    day,
+    year: US_FORMATTERS.year.format(dateObj),
+    monthShort: US_FORMATTERS.monthShort.format(dateObj),
+    monthLong: US_FORMATTERS.monthLong.format(dateObj),
+    day: US_FORMATTERS.day.format(dateObj),
+    weekday: US_FORMATTERS.weekday.format(dateObj),
   };
 };
