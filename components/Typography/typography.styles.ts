@@ -78,6 +78,7 @@ export const textVariants = {
   subheading: 'subheading',
   caption: 'caption',
   card: 'card-paragraph',
+  'ood-card': 'text-16 md:text-20',
   intro: 'text-20 md:text-25 lg:text-29',
   'base23': 'basefont-23',
 };

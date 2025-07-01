@@ -40,12 +40,19 @@ export const BasicCard = ({
   ...props
 }: BasicCardProps) => {
   const displaySquareThumbnail = aspectRatio === '1x1' && orientation === 'horizontal';
+  const isDarkText = bgColor === 'white';
+
+  /**
+   * Color contrast of white text on palo verde background is 3.5:1 which is insufficient for small text
+   * If palo verde is chosen as background color, use palo verde dark instead (4.91:1 contrast ratio)
+   */
+  const a11yBgColor = bgColor === 'palo-verde' ? 'palo-verde-dark' : bgColor;
 
   return (
     <OverhangCard
       {...props}
       orientation={orientation}
-      bgColor={bgColor}
+      bgColor={a11yBgColor}
       filename={filename}
       alt={alt}
       focus={focus}
@@ -53,27 +60,38 @@ export const BasicCard = ({
       visibleVertical={visibleVertical}
       imageSize={displaySquareThumbnail ? 'thumbnail' : 'large-card'}
       aspectRatio={aspectRatio}
-      className={`bg-${bgColor} ${largeCardPadding ? 'p-8' : 'p-6'}`}
+      className=""
     >
-      {superheadline && (
-        <Text uppercase weight="semibold" tracking="wider" className="text-09em mb-[1.6em] -mt-04em">
-          {superheadline}
-        </Text>
-      )}
-      {headline && (
-        <Heading
-          as={headingLevel}
-          size={largeHeading ? 2 : 4}
-          font={isSansHeading ? 'sans' : 'serif'}
-          weight={isSansHeading ? 'semibold' : 'bold'}
-          align={textAlign}
-          className="mb-4"
-        >
-          {headline}
-        </Heading>
-      )}
-      {body && <div className="mb-4">{body}</div>}
-      {ctaLink && <div className="mt-4">{ctaLink}</div>}
+      <div className="rs-pt-2">
+        {superheadline && (
+          <Text
+            uppercase
+            weight="semibold"
+            tracking="wider"
+            color={isDarkText ? 'black' : 'white'}
+            className="text-09em mb-16 -mt-4"
+          >
+            {superheadline}
+          </Text>
+        )}
+        {headline && (
+          <Heading
+            as={headingLevel}
+            size={largeHeading ? 4 : 2}
+            font={isSansHeading ? 'sans' : 'serif'}
+            tracking="normal"
+            weight={isSansHeading ? 'semibold' : 'bold'}
+            align={textAlign}
+            color={isDarkText ? 'black' : 'white'}
+            mb="06em"
+            className="-mt-02em"
+          >
+            {headline}
+          </Heading>
+        )}
+        {body}
+        {ctaLink && <div className="rs-mt-1 mb-6">{ctaLink}</div>}
+      </div>
     </OverhangCard>
   );
 };

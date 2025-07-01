@@ -53,7 +53,7 @@ export const SbBasicCard = ({ blok }: SbBasicCardProps) => {
     headingLevel = 'h3',
   } = blok;
 
-  const RichTextContent = hasRichText(content) ? <RichText wysiwyg={content} /> : undefined;
+  const RichTextContent = hasRichText(content) ? <RichText wysiwyg={content} baseFontSize="ood-card" textColor={backgroundColor === 'white' ? 'black' : 'white'} /> : undefined;
   const CtaLink = <CreateBloks blokSection={ctaLink} />;
 
   return (
@@ -70,7 +70,7 @@ export const SbBasicCard = ({ blok }: SbBasicCardProps) => {
       visibleHorizontal={showImage ? visibleHorizontal : undefined}
       visibleVertical={showImage ? visibleVertical : undefined}
       orientation={orientation}
-      bgColor={backgroundColor}
+      bgColor={backgroundColor || 'white'}
       largeHeading={largeHeading}
       isSansHeading={isSansHeading}
       largeCardPadding={largeCardPadding}
