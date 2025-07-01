@@ -67,85 +67,90 @@ export const SbStory = ({ blok }: SbStoryProps) => {
     globalFooter,
   } = blok;
 
-  const formattedDate = formatDate(publishedDate);
+  const formattedDate = manualDate ? null : formatDate(publishedDate);
   const {
-    dateTime: dateTimeString, year, monthLong, day, weekday,
-  } = formattedDate;
+    dateTime: dateTimeString,
+    year,
+    monthLong,
+    day,
+    weekday,
+  } = formattedDate || {};
 
   const showImage = !!filename && displayImage === 'show-image';
   const isLightHeaderBox = headerBoxColor === 'white' || headerBoxColor == 'fog-light';
   const hasCta = !!getNumBloks(cta);
+  const hasDate = !!(manualDate || formattedDate);
+  const hasAuthorOrDate = !!(author || hasDate);
 
   return (
     <div {...storyblokEditable(blok)}>
       <CreateBloks blokSection={alertPicker} />
       <CreateBloks blokSection={localHeader} />
       <main id="main-content">
-        <article className="bg-white">
-          <header
-            className={`ood-story__header
-                    ${
-                      filename?.startsWith('http') &&
-                      displayImage === 'show-image'
-                        ? 'ood-story__header--has-image bg-white'
-                        : `ood-story__header--no-image bg-white border-${headerBackgroundColor}`
-                    }
-            `}
-          >
-            {showImage && (
+        <article className={styles.article}>
+          <header>
+            {showImage ? (
               <FullWidthImage
                 filename={filename}
                 visibleVertical={visibleVertical}
                 visibleHorizontal="center"
                 alt={alt || ''}
-                className="h-300 md:h-400 xl:h-500 2xl:h-[64rem]"
+                className={styles.image}
               />
-            )}
-            <Container>
-              <Container pb={4} width="full" className={styles.introbox(headerBoxColor, showImage)}>
+            ) :
+              <div className={styles.headerColorBlock(headerBackgroundColor)} aria-hidden="true" />
+            }
+            <Container className={styles.headerContent}>
+              <Container pb={4} width="full" className={styles.introbox(showImage, headerBoxColor)}>
                 <Heading
                   as="h1"
+                  size="f5"
                   font="sans"
                   weight="semibold"
                   color={isLightHeaderBox ? 'black' : 'white'}
+                  mb="04em"
                   className={styles.title(tabColor)}
                 >
                   {title}
                 </Heading>
                 {intro && (
-                  <Paragraph variant="intro" color={isLightHeaderBox ? 'black' : 'white'}>
+                  <Paragraph variant="intro" color={isLightHeaderBox ? 'black' : 'white'} className={styles.intro}>
                     {intro}
                   </Paragraph>
                 )}
               </Container>
             </Container>
           </header>
-          <div className="first:*:rs-pt-4 last:*:rs-pb-5">
+          <div className={styles.storyContent}>
             <CreateBloks blokSection={storyContent} />
           </div>
-          <footer className="ood-story__main-footer">
-            {(author || manualDate || formattedDate || hasCta) && (
+          <footer>
+            {(hasAuthorOrDate || hasCta) && (
               <Container>
-                <CreateBloks blokSection={cta} />
-                {(author || manualDate || formattedDate) && (
-                  <Container width="full" pb={5} className="lg:w-8/12 mx-auto">
+                {hasCta && (
+                  <div className={styles.cta}>
+                    <CreateBloks blokSection={cta} />
+                  </div>
+                )}
+                {hasAuthorOrDate && (
+                  <Container width="full" pb={5} className={styles.metadata}>
                     {author && (
                       <>
-                        <Heading font="sans" tracking="widest" uppercase mb="06em" className="text-16">
+                        <Heading font="sans" tracking="widest" uppercase mb="06em" className={styles.metadataHeading}>
                           Author
                         </Heading>
-                        <div className="mb-[1.6em] last:mb-0">
+                        <div className={styles.author}>
                           {author}
                         </div>
                       </>
                     )}
-                    {(manualDate || formattedDate) && (
+                    {hasDate && (
                       <>
-                        <Heading font="sans" tracking="widest" uppercase mb="06em" className="text-16">
+                        <Heading font="sans" tracking="widest" uppercase mb="06em" className={styles.metadataHeading}>
                           Date
                         </Heading>
-                        <Text as="time" dateTime={dateTimeString}>
-                          {manualDate ? manualDate : `${weekday}, ${monthLong} ${day}, ${year}`}
+                        <Text as="time" dateTime={manualDate ? undefined : dateTimeString}>
+                          {manualDate || `${weekday}, ${monthLong} ${day}, ${year}`}
                         </Text>
                       </>
                     )}
