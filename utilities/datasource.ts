@@ -55,6 +55,7 @@ export const darkBeforeColors = {
 };
 export type DarkBeforeColorType = keyof typeof darkBeforeColors;
 
+// This is slightly different from darkBgColors
 export const cardBgColors = {
   'white': 'bg-white',
   'bay-dark': 'bg-bay-dark',
