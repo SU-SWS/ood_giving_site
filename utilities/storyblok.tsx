@@ -44,6 +44,7 @@ import { SbBasicCard } from '@/components/Storyblok/SbBasicCard';
 import { SbCtaGroup } from '@/components/Storyblok/SbCtaGroup';
 import { SbIconCard } from '@/components/Storyblok/SbIconCard';
 import { SbSupportCard } from '@/components/Storyblok/SbSupportCard';
+import { SbEndowedPositionsSearch, SbEndowedPositionsSearchPicker } from '@/components/Storyblok/SbEndowedPositionsSearch';
 
 export const components = {
   page: SbPage,
@@ -71,7 +72,7 @@ export const components = {
   globalFooterPicker: SbGlobalFooterPicker,
   localFooterPicker: SbLocalFooterPicker,
   oodLocalFooter: SbLocalFooter,
-  // Navigation'
+  // Navigation
   contentMenuPicker: SbContentMenuPicker,
   oodContentMenu: SbContentMenu,
   contentMenuParentItem: SbContentMenuParentItem,
@@ -92,6 +93,9 @@ export const components = {
   singleColumnContent: SbSingleColumnContent,
   // Media
   storyImage: SbStoryImage,
+  // Endowed Positions
+  endowedPositionsSearch: SbEndowedPositionsSearch,
+  endowedPositionsSearchPicker: SbEndowedPositionsSearchPicker,
 };
 
 export type GetStoryblokApiConfig = {
