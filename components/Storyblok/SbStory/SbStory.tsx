@@ -104,7 +104,7 @@ export const SbStory = ({ blok }: SbStoryProps) => {
               <Container pb={4} width="full" className={styles.introbox(showImage, headerBoxColor)}>
                 <Heading
                   as="h1"
-                  size="f5"
+                  size="f4"
                   font="sans"
                   weight="semibold"
                   color={isLightHeaderBox ? 'black' : 'white'}
