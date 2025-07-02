@@ -7,12 +7,11 @@ export const root = (
   largeCardPadding: boolean,
   bgColor: CardBgColorType,
 ) => cnb(
-  'relative break-words shadow-md border',
+  'relative break-words shadow-md border border-black-10 px-32 pb-32',
   cardBgColors[bgColor], {
-    'rs-px-5 rs-pb-5': largeCardPadding,
-    'rs-px-2 rs-pb-2': !largeCardPadding,
+    'md:px-72 md:pb-72 2xl:px-78 2xl:pb-78': largeCardPadding,
+    'md:px-36 md:pb-36 2xl:px-38 2xl:pb-38': !largeCardPadding,
     'md:mt-80': isVertical && hasImage,
-    'border-black-10': bgColor === 'white',
   },
 );
 

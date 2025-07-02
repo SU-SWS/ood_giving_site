@@ -1,4 +1,5 @@
 import { OverhangCard, type OverhangCardProps } from '@/components/OverhangCard';
+import { SimpleCard } from '@/components/SimpleCard';
 import {
   Heading,
   Text,
@@ -7,7 +8,7 @@ import {
 } from '@/components/Typography';
 import * as styles from './BasicCard.styles';
 
-type BasicCardProps = OverhangCardProps & {
+type CardContentProps = {
   superheadline?: string;
   headline?: string;
   body?: React.ReactNode;
@@ -16,6 +17,55 @@ type BasicCardProps = OverhangCardProps & {
   isSansHeading?: boolean;
   textAlign?: TextAlignType;
   headingLevel?: HeadingType;
+  isDarkText?: boolean;
+}
+
+const CardContent = ({
+  superheadline,
+  headline,
+  body,
+  ctaLink,
+  largeHeading,
+  isSansHeading,
+  textAlign = 'left',
+  headingLevel = 'h3',
+  isDarkText,
+}: CardContentProps) => (
+  <>
+    {superheadline && (
+      <Text
+        uppercase
+        weight="semibold"
+        tracking="wider"
+        align={textAlign}
+        color={isDarkText ? 'black' : 'white'}
+        className="text-09em mb-16 -mt-4"
+      >
+        {superheadline}
+      </Text>
+    )}
+    {headline && (
+      <Heading
+        as={headingLevel}
+        size={3}
+        font={isSansHeading ? 'sans' : 'serif'}
+        tracking="normal"
+        weight={isSansHeading ? 'semibold' : 'bold'}
+        align={textAlign}
+        color={isDarkText ? 'black' : 'white'}
+        mb="06em"
+        className={styles.heading(largeHeading)}
+      >
+        {headline}
+      </Heading>
+    )}
+    {body}
+    {ctaLink && <div className="rs-mt-1 mb-6">{ctaLink}</div>}
+  </>
+);
+
+type BasicCardProps = OverhangCardProps & Omit<CardContentProps, 'isDarkText'> & {
+  largeCardPadding?: boolean;
 };
 
 export const BasicCard = ({
@@ -38,14 +88,36 @@ export const BasicCard = ({
   headingLevel = 'h3',
   ...props
 }: BasicCardProps) => {
-  const displaySquareThumbnail = aspectRatio === '1x1' && orientation === 'horizontal';
+  const hasImage = !!filename;
   const isDarkText = bgColor === 'white';
-
   /**
    * Color contrast of white text on palo verde background is 3.5:1 which is insufficient for small text
    * If palo verde is chosen as background color, use palo verde dark instead (4.91:1 contrast ratio)
    */
   const a11yBgColor = bgColor === 'palo-verde' ? 'palo-verde-dark' : bgColor;
+
+  // If there is no image, horizontal and vertical orientations should look exactly the same
+  if (!hasImage) {
+    return (
+      <SimpleCard {...props} bgColor={a11yBgColor} className={styles.rootNoImage(largeCardPadding)}>
+        <div className="max-w-[91rem] mx-auto">
+          <CardContent
+            superheadline={superheadline}
+            headline={headline}
+            body={body}
+            ctaLink={ctaLink}
+            largeHeading={largeHeading}
+            isSansHeading={isSansHeading}
+            textAlign={textAlign}
+            headingLevel={headingLevel}
+            isDarkText={isDarkText}
+          />
+        </div>
+      </SimpleCard>
+    );
+  }
+
+  const displaySquareThumbnail = aspectRatio === '1x1' && orientation === 'horizontal';
 
   return (
     <OverhangCard
@@ -63,35 +135,17 @@ export const BasicCard = ({
       className=""
     >
       <div className={styles.content(largeCardPadding)}>
-        {superheadline && (
-          <Text
-            uppercase
-            weight="semibold"
-            tracking="wider"
-            align={textAlign}
-            color={isDarkText ? 'black' : 'white'}
-            className="text-09em mb-16 -mt-4"
-          >
-            {superheadline}
-          </Text>
-        )}
-        {headline && (
-          <Heading
-            as={headingLevel}
-            size={largeHeading ? 4 : 2}
-            font={isSansHeading ? 'sans' : 'serif'}
-            tracking="normal"
-            weight={isSansHeading ? 'semibold' : 'bold'}
-            align={textAlign}
-            color={isDarkText ? 'black' : 'white'}
-            mb="06em"
-            className="-mt-02em text-pretty"
-          >
-            {headline}
-          </Heading>
-        )}
-        {body}
-        {ctaLink && <div className="rs-mt-1 mb-6">{ctaLink}</div>}
+        <CardContent
+          superheadline={superheadline}
+          headline={headline}
+          body={body}
+          ctaLink={ctaLink}
+          largeHeading={largeHeading}
+          isSansHeading={isSansHeading}
+          textAlign={textAlign}
+          headingLevel={headingLevel}
+          isDarkText={isDarkText}
+        />
       </div>
     </OverhangCard>
   );
