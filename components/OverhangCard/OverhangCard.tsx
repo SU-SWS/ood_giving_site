@@ -37,6 +37,7 @@ export const OverhangCard = ({
             visibleVertical={visibleVertical}
             imageSize={imageSize}
             aspectRatio={aspectRatio}
+            className="hidden md:block"
           />
         )}
         {children}

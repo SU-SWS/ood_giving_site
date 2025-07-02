@@ -12,7 +12,7 @@ import {
   NODE_IMAGE,
 } from 'storyblok-rich-text-react-renderer';
 import { cnb } from 'cnbuilder';
-import { SbLink } from '@/components/Storyblok/partials/SbLink';
+import { CtaLink } from '@/components/Cta';
 import {
   Heading,
   Paragraph,
@@ -32,11 +32,13 @@ import { getProcessedImage } from '@/utilities/getProcessedImage';
  * "card" means using the card-paragraph style as the base font size (smaller than default)
  */
 export type RichTextBaseFontSizeType = 'default' | 'card' | 'ood-card' | 'base23' | 'intro';
+export type RichTextLinkColorType = 'default' | 'white';
 
 export type RichTextProps = {
   wysiwyg: StoryblokRichtext;
   baseFontSize?: RichTextBaseFontSizeType;
   textColor?: TextColorType;
+  linkColor?: RichTextLinkColorType;
   textAlign?: TextAlignType;
   className?: string;
 };
@@ -45,6 +47,7 @@ export const RichText = ({
   wysiwyg,
   baseFontSize = 'default',
   textColor = 'black',
+  linkColor = 'default',
   textAlign = 'left',
   className,
 }: RichTextProps) => {
@@ -91,16 +94,10 @@ export const RichText = ({
           target,
           linktype,
           anchor,
-          custom,
         } = props;
-
-        // Prevents empty links in the WYSIWYG editor from rendering (a11y issue)
-        if (!children || (typeof children === 'string' && !children.trim())) {
-          return null;
-        }
         /**
          * The data shape of the inline links in WYSIWYG is different form regular Storyblok link field.
-         * Here we structure it to match the sbLink type so we can pass that into SbLink component.
+         * Here we structure it to match the sbLink type so we can pass that into CtaLink component.
          */
         const sbLink = {
           linktype,
@@ -110,16 +107,18 @@ export const RichText = ({
           anchor: linktype === 'story' ? anchor : '',
           // The WYSIWYG inline links automatically add a target="_self" by default which is unnecessary
           target: target === '_blank' ? '_blank' : undefined,
+          // Adding rel="noopener" for all eternal links that opens in new window/tab for security reasons
+          rel: linktype === 'url' && target === '_blank' ? 'noopener' : undefined,
         } as SbLinkType;
 
         return (
-          <SbLink
-            link={sbLink}
-            classes="group"
-            attributes={custom} // Custom link attributes
+          <CtaLink
+            sbLink={sbLink}
+            variant={linkColor === 'white' ? 'inline-white' : 'inline'}
+            className="*:inline"
           >
             {children}
-          </SbLink>
+          </CtaLink>
         );
       },
     },
