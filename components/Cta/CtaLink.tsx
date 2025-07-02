@@ -38,11 +38,11 @@ export const CtaLink = React.forwardRef<HTMLAnchorElement, CtaLinkProps>(
     } = sbLink || {};
 
     /**
-     * Filter out fieldtype and keep only props with non empty values from sbLinkProps.
+     * Filter out fieldtype and _uid and keep only props with non empty values from sbLinkProps.
      * These include additional attributes such as rel, title and custom attributes that the user can pass in.
      */
     const sbLinkPropsToKeep = Object.fromEntries(
-      Object.entries(sbLinkProps).filter(([key, value]) => key !== 'fieldtype' && value !== '' && value !== null && value !== undefined),
+      Object.entries(sbLinkProps).filter(([key, value]) => key !== 'fieldtype' && key !== '_uid' && value !== '' && value !== null && value !== undefined),
     );
 
     // Check for internal links
