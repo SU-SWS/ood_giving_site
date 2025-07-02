@@ -31,7 +31,7 @@ import { getProcessedImage } from '@/utilities/getProcessedImage';
  * "default" means using the inherited body font size as the base font size
  * "card" means using the card-paragraph style as the base font size (smaller than default)
  */
-export type RichTextBaseFontSizeType = 'default' | 'card' | 'ood-card' | 'base23' | 'intro';
+export type RichTextBaseFontSizeType = 'default' | 'card' | 'ood-small' | 'base23' | 'intro';
 export type RichTextLinkColorType = 'default' | 'white';
 
 export type RichTextProps = {

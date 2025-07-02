@@ -8,6 +8,7 @@ import { type VisibleVerticalType, type VisibleHorizontalType } from '@/componen
 import { hasRichText } from '@/utilities/hasRichText';
 import { type SbImageType } from './Storyblok.types';
 import { type CardBgColorType } from '@/utilities/datasource';
+import { getNumBloks } from '@/utilities/getNumBloks';
 
 // TODO: This is a placeholder
 export type SbBasicCardProps = {
@@ -56,12 +57,12 @@ export const SbBasicCard = ({ blok }: SbBasicCardProps) => {
   const RichTextContent = hasRichText(content) ?
     <RichText
       wysiwyg={content}
-      baseFontSize="ood-card"
+      baseFontSize="ood-small"
       textColor={backgroundColor === 'white' ? 'black' : 'white'}
       linkColor={backgroundColor === 'white' ? 'default' : 'white'}
       textAlign={textAlign}
     /> : undefined;
-  const CtaLink = <CreateBloks blokSection={ctaLink} />;
+  const CtaLink = !!getNumBloks(ctaLink) ? <CreateBloks blokSection={ctaLink} /> : null;
 
   return (
     <BasicCard

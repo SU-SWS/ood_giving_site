@@ -5,7 +5,7 @@ import {
   type HeadingType,
   type TextAlignType,
 } from '@/components/Typography';
-
+import * as styles from './BasicCard.styles';
 
 type BasicCardProps = OverhangCardProps & {
   superheadline?: string;
@@ -14,7 +14,6 @@ type BasicCardProps = OverhangCardProps & {
   ctaLink?: React.ReactNode;
   largeHeading?: boolean;
   isSansHeading?: boolean;
-  largeCardPadding?: boolean;
   textAlign?: TextAlignType;
   headingLevel?: HeadingType;
 };
@@ -32,9 +31,9 @@ export const BasicCard = ({
   visibleVertical,
   orientation = 'vertical',
   bgColor = 'white',
-  largeHeading = false,
-  isSansHeading = false,
-  largeCardPadding = false,
+  largeHeading,
+  isSansHeading,
+  largeCardPadding,
   textAlign = 'left',
   headingLevel = 'h3',
   ...props
@@ -60,14 +59,16 @@ export const BasicCard = ({
       visibleVertical={visibleVertical}
       imageSize={displaySquareThumbnail ? 'thumbnail' : 'large-card'}
       aspectRatio={aspectRatio}
+      largeCardPadding={largeCardPadding}
       className=""
     >
-      <div className="rs-pt-2">
+      <div className={styles.content(largeCardPadding)}>
         {superheadline && (
           <Text
             uppercase
             weight="semibold"
             tracking="wider"
+            align={textAlign}
             color={isDarkText ? 'black' : 'white'}
             className="text-09em mb-16 -mt-4"
           >
@@ -84,7 +85,7 @@ export const BasicCard = ({
             align={textAlign}
             color={isDarkText ? 'black' : 'white'}
             mb="06em"
-            className="-mt-02em"
+            className="-mt-02em text-pretty"
           >
             {headline}
           </Heading>

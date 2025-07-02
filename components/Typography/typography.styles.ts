@@ -72,15 +72,15 @@ export const textColors = {
 export const textVariants = {
   none: '', // Use default base/inherited style
   /**
-   * Decanter and custom typography styles
+   * Decanter and Giving custom typography styles
    */
   big: 'big-paragraph',
   subheading: 'subheading',
   caption: 'caption',
   card: 'card-paragraph',
-  'ood-card': 'text-16 md:text-20',
+  'ood-small': 'text-16 md:text-20 leading-snug', // OOD small paragraph mixin
   intro: 'text-20 md:text-25 lg:text-29',
-  'base23': 'basefont-23',
+  'base23': 'basefont-23 leading-normal',
 };
 
 export const icon = 'inline-block';

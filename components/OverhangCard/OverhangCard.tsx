@@ -6,6 +6,7 @@ import * as styles from './OverhangCard.styles';
 export type OverhangCardProps = AspectRatioImageProps & React.HTMLAttributes<HTMLDivElement> & {
   orientation?: 'vertical' | 'horizontal';
   bgColor?: CardBgColorType;
+  largeCardPadding?: boolean;
 };
 
 export const OverhangCard = ({
@@ -18,6 +19,7 @@ export const OverhangCard = ({
   visibleVertical,
   imageSize = 'default',
   aspectRatio = '3x2',
+  largeCardPadding,
   children,
   className,
   ...props
@@ -26,7 +28,7 @@ export const OverhangCard = ({
   const hasImage = !!filename;
 
   return (
-    <div className={cnb(styles.root(isVertical, hasImage, bgColor), className)} {...props}>
+    <article className={cnb(styles.root(isVertical, hasImage, largeCardPadding, bgColor), className)} {...props}>
       <div className={styles.imageWrapper(isVertical, hasImage)}>
         {filename && (
           <AspectRatioImage
@@ -42,6 +44,6 @@ export const OverhangCard = ({
         )}
         {children}
       </div>
-    </div>
+    </article>
   );
 };
