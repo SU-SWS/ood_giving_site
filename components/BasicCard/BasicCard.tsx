@@ -9,6 +9,7 @@ import {
 import * as styles from './BasicCard.styles';
 
 type CardContentProps = {
+  hasImage?: boolean;
   superheadline?: string;
   headline?: string;
   body?: React.ReactNode;
@@ -21,6 +22,7 @@ type CardContentProps = {
 }
 
 const CardContent = ({
+  hasImage,
   superheadline,
   headline,
   body,
@@ -39,7 +41,7 @@ const CardContent = ({
         tracking="wider"
         align={textAlign}
         color={isDarkText ? 'black' : 'white'}
-        className={styles.superhead}
+        className={hasImage ? styles.superheadHasImage : styles.superhead}
       >
         {superheadline}
       </Text>
@@ -102,6 +104,7 @@ export const BasicCard = ({
       <SimpleCard {...props} bgColor={a11yBgColor} className={styles.rootNoImage(largeCardPadding)}>
         <div className={styles.contentNoImage}>
           <CardContent
+            hasImage={hasImage}
             superheadline={superheadline}
             headline={headline}
             body={body}
@@ -137,6 +140,7 @@ export const BasicCard = ({
     >
       <div className={styles.contentHasImage(isVertical, largeCardPadding)}>
         <CardContent
+          hasImage={hasImage}
           superheadline={superheadline}
           headline={headline}
           body={body}
