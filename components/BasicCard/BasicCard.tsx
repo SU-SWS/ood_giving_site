@@ -39,7 +39,7 @@ const CardContent = ({
         tracking="wider"
         align={textAlign}
         color={isDarkText ? 'black' : 'white'}
-        className="text-09em mb-16 -mt-4"
+        className={styles.superhead}
       >
         {superheadline}
       </Text>
@@ -60,7 +60,7 @@ const CardContent = ({
       </Heading>
     )}
     {body}
-    {ctaLink && <div className="rs-mt-1 mb-6">{ctaLink}</div>}
+    {ctaLink && <div className={styles.ctaWrapper}>{ctaLink}</div>}
   </>
 );
 
@@ -79,7 +79,7 @@ export const BasicCard = ({
   aspectRatio = '1x1',
   visibleHorizontal,
   visibleVertical,
-  orientation = 'vertical',
+  isVertical = true,
   bgColor = 'white',
   largeHeading,
   isSansHeading,
@@ -90,7 +90,6 @@ export const BasicCard = ({
 }: BasicCardProps) => {
   const hasImage = !!filename;
   const isDarkText = bgColor === 'white';
-  const isVertical = orientation === 'vertical' || !orientation;
   /**
    * Color contrast of white text on palo verde background is 3.5:1 which is insufficient for small text
    * If palo verde is chosen as background color, use palo verde dark instead (4.91:1 contrast ratio)
@@ -118,13 +117,13 @@ export const BasicCard = ({
     );
   }
 
-  const displaySquareThumbnail = aspectRatio === '1x1' && orientation === 'horizontal';
+  const displaySquareThumbnail = aspectRatio === '1x1' && !isVertical;
 
   return (
     <OverhangCard
       {...props}
       variant="basic"
-      orientation={orientation}
+      isVertical={isVertical}
       bgColor={a11yBgColor}
       filename={filename}
       alt={alt}

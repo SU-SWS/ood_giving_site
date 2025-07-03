@@ -2,7 +2,6 @@ import { cnb } from 'cnbuilder';
 import { type ImageAspectRatioType } from '@/components/Image';
 import { type CardBgColorType, cardBgColors } from '@/utilities/datasource';
 
-export type OverhangCardOrientationType = 'vertical' | 'horizontal';
 export type OverhangCardVariantType = 'basic' | 'tile' | 'quote' | 'story';
 
 export const root = (
@@ -12,7 +11,7 @@ export const root = (
 ) => cnb(
   'relative break-words shadow-md border border-black-10',
   cardBgColors[bgColor], {
-    'md:mt-80 px-32 pb-32': isVertical,
+    'md:mt-80 px-32 pb-32 md:h-[calc(100%_-_8rem)]': isVertical,
     'md:ml-80 pr-32 py-32': !isVertical,
     'md:px-72 md:pb-72 2xl:px-78 2xl:pb-78': largeCardPadding && isVertical,
     'md:px-36 md:pb-36 2xl:px-38 2xl:pb-38': !largeCardPadding && isVertical,

@@ -10,29 +10,27 @@ import * as styles from './OverhangCard.styles';
  */
 export type OverhangCardProps = AspectRatioImageProps & React.HTMLAttributes<HTMLDivElement> & {
   variant: styles.OverhangCardVariantType;
-  orientation?: styles.OverhangCardOrientationType;
+  isVertical?: boolean;
   bgColor?: CardBgColorType;
   largeCardPadding?: boolean;
 };
 
 export const OverhangCard = ({
   variant,
-  orientation = 'vertical',
+  isVertical = true,
   bgColor = 'white',
   filename,
   alt,
   focus,
   visibleHorizontal,
   visibleVertical,
-  imageSize = 'default',
+  imageSize = 'large-card',
   aspectRatio = '3x2',
   largeCardPadding,
   children,
   className,
   ...props
 }: OverhangCardProps) => {
-  const isVertical = orientation === 'vertical' || !orientation;
-
   return (
     <FlexBox
       as="article"

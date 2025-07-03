@@ -10,7 +10,6 @@ import { type SbImageType } from './Storyblok.types';
 import { type CardBgColorType } from '@/utilities/datasource';
 import { getNumBloks } from '@/utilities/getNumBloks';
 
-// TODO: This is a placeholder
 export type SbBasicCardProps = {
   blok: SbBlokData & {
     superheadline?: string;
@@ -54,6 +53,7 @@ export const SbBasicCard = ({ blok }: SbBasicCardProps) => {
     headingLevel = 'h3',
   } = blok;
 
+  const isVertical = orientation === 'vertical' || !orientation;
   const RichTextContent = hasRichText(content) ?
     <RichText
       wysiwyg={content}
@@ -77,7 +77,7 @@ export const SbBasicCard = ({ blok }: SbBasicCardProps) => {
       aspectRatio={showImage ? imageAspectRatio : undefined}
       visibleHorizontal={showImage ? visibleHorizontal : undefined}
       visibleVertical={showImage ? visibleVertical : undefined}
-      orientation={orientation}
+      isVertical={isVertical}
       bgColor={backgroundColor || 'white'}
       largeHeading={largeHeading}
       isSansHeading={isSansHeading}
