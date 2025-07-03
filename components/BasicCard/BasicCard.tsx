@@ -64,7 +64,7 @@ const CardContent = ({
   </>
 );
 
-type BasicCardProps = OverhangCardProps & Omit<CardContentProps, 'isDarkText'> & {
+type BasicCardProps = Omit<OverhangCardProps, 'variant'> & Omit<CardContentProps, 'isDarkText'> & {
   largeCardPadding?: boolean;
 };
 
@@ -90,6 +90,7 @@ export const BasicCard = ({
 }: BasicCardProps) => {
   const hasImage = !!filename;
   const isDarkText = bgColor === 'white';
+  const isVertical = orientation === 'vertical' || !orientation;
   /**
    * Color contrast of white text on palo verde background is 3.5:1 which is insufficient for small text
    * If palo verde is chosen as background color, use palo verde dark instead (4.91:1 contrast ratio)
@@ -100,7 +101,7 @@ export const BasicCard = ({
   if (!hasImage) {
     return (
       <SimpleCard {...props} bgColor={a11yBgColor} className={styles.rootNoImage(largeCardPadding)}>
-        <div className="max-w-[91rem] mx-auto">
+        <div className={styles.contentNoImage}>
           <CardContent
             superheadline={superheadline}
             headline={headline}
@@ -122,6 +123,7 @@ export const BasicCard = ({
   return (
     <OverhangCard
       {...props}
+      variant="basic"
       orientation={orientation}
       bgColor={a11yBgColor}
       filename={filename}
@@ -134,7 +136,7 @@ export const BasicCard = ({
       largeCardPadding={largeCardPadding}
       className=""
     >
-      <div className={styles.content(largeCardPadding)}>
+      <div className={styles.contentHasImage(isVertical, largeCardPadding)}>
         <CardContent
           superheadline={superheadline}
           headline={headline}

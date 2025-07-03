@@ -1,15 +1,22 @@
 import { cnb } from 'cnbuilder';
 import { AspectRatioImage, type AspectRatioImageProps } from '@/components/Image';
+import { FlexBox } from '@/components/FlexBox';
 import { type CardBgColorType } from '@/utilities/datasource';
 import * as styles from './OverhangCard.styles';
 
+/**
+ * This card component has an image that extends outside the content container.
+ * Used as a base for Basic, Tile, Quote and Story cards with image.
+ */
 export type OverhangCardProps = AspectRatioImageProps & React.HTMLAttributes<HTMLDivElement> & {
-  orientation?: 'vertical' | 'horizontal';
+  variant: styles.OverhangCardVariantType;
+  orientation?: styles.OverhangCardOrientationType;
   bgColor?: CardBgColorType;
   largeCardPadding?: boolean;
 };
 
 export const OverhangCard = ({
+  variant,
   orientation = 'vertical',
   bgColor = 'white',
   filename,
@@ -25,25 +32,26 @@ export const OverhangCard = ({
   ...props
 }: OverhangCardProps) => {
   const isVertical = orientation === 'vertical' || !orientation;
-  const hasImage = !!filename;
 
   return (
-    <article className={cnb(styles.root(isVertical, hasImage, largeCardPadding, bgColor), className)} {...props}>
-      <div className={styles.imageWrapper(isVertical, hasImage)}>
-        {filename && (
-          <AspectRatioImage
-            filename={filename}
-            alt={alt}
-            focus={focus}
-            visibleHorizontal={visibleHorizontal}
-            visibleVertical={visibleVertical}
-            imageSize={imageSize}
-            aspectRatio={aspectRatio}
-            className="hidden md:block"
-          />
-        )}
-        {children}
+    <FlexBox
+      as="article"
+      direction={isVertical ? 'col' : 'row'}
+      className={cnb(styles.root(isVertical, largeCardPadding, bgColor), className)}
+      {...props}
+    >
+      <div className={styles.imageWrapper(isVertical, variant, aspectRatio)}>
+        <AspectRatioImage
+          filename={filename}
+          alt={alt}
+          focus={focus}
+          visibleHorizontal={visibleHorizontal}
+          visibleVertical={visibleVertical}
+          imageSize={imageSize}
+          aspectRatio={aspectRatio}
+        />
       </div>
-    </article>
+      {children}
+    </FlexBox>
   );
 };
