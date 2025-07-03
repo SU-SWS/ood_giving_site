@@ -55,7 +55,7 @@ const CardContent = ({
         weight={isSansHeading ? 'semibold' : 'bold'}
         align={textAlign}
         color={isDarkText ? 'black' : 'white'}
-        mb="06em"
+        mb="07em"
         className={styles.heading(largeHeading)}
       >
         {headline}
