@@ -1,6 +1,6 @@
 'use client';
 import React, { useContext } from 'react';
-import SearchModalContext from './SearchModalContext';
+import { SearchModalContext } from './SearchModalContext';
 import { HeroIcon } from '@/components/HeroIcon';
 import * as styles from '../Search.styles';
 

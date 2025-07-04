@@ -3,6 +3,7 @@
 import React, { createContext, useState, useRef } from 'react';
 import { useEscape } from '@/hooks/useEscape';
 import { useDisplay } from '@/hooks/useDisplay';
+import { type SearchConfig } from '@/utilities/data/getSearchConfigBlok';
 
 type SearchModalContextProps = {
   isOpen: boolean;
@@ -12,12 +13,13 @@ type SearchModalContextProps = {
   mobileButtonRef: React.RefObject<HTMLButtonElement>;
   modalSearchInputRef: React.RefObject<HTMLInputElement>;
   searchInputRef: React.RefObject<HTMLInputElement>;
+  searchConfig: SearchConfig;
 };
 
 /**
  * A context to manage the state of the search modal.
  */
-const SearchModalContext = createContext<SearchModalContextProps>({
+export const SearchModalContext = createContext<SearchModalContextProps>({
   isOpen: false,
   open: () => null,
   close: () => null,
@@ -25,16 +27,22 @@ const SearchModalContext = createContext<SearchModalContextProps>({
   mobileButtonRef: null,
   modalSearchInputRef: null,
   searchInputRef: null,
+  searchConfig: null,
 });
 export const SearchModalContextProvider = SearchModalContext.Provider;
-export default SearchModalContext;
+
+type SearchModalProviderProps = {
+  children: React.ReactElement;
+  searchConfig: SearchConfig;
+};
 
 /**
  * A provider to manage the state of the search modal.
- * @param {Object} props
- * @param {React.ReactNode} props.children
  */
-export function SearchModalProvider({ children }: { children: React.ReactElement }) {
+export function SearchModalProvider({
+  children,
+  searchConfig,
+}: SearchModalProviderProps) {
   const { showDesktop, showMobile } = useDisplay();
   const [isOpen, setIsOpen] = useState(false);
   const desktopButtonRef = useRef<HTMLButtonElement>(null);
@@ -82,6 +90,7 @@ export function SearchModalProvider({ children }: { children: React.ReactElement
         mobileButtonRef,
         modalSearchInputRef,
         searchInputRef,
+        searchConfig,
       }}
     >
       {children}

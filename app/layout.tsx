@@ -9,6 +9,7 @@ import { SearchModalProvider } from '@/components/Search/Modal/SearchModalContex
 // https://docs.fontawesome.com/web/use-with/react/use-with#getting-font-awesome-css-to-work
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { getSearchConfigBlokCached } from '@/utilities/data/getSearchConfigBlok';
 config.autoAddCss = false;
 
 type LayoutProps = {
@@ -33,10 +34,12 @@ const stanford = localFont({
   variable: '--font-stanford',
 });
 
-const RootLayout = ({ children }: LayoutProps) => {
+const RootLayout = async ({ children }: LayoutProps) => {
+  const searchConfig = await getSearchConfigBlokCached();
+
   return (
     <GAProvider>
-      <SearchModalProvider>
+      <SearchModalProvider searchConfig={searchConfig}>
         <html
           lang="en"
           className={cnb(

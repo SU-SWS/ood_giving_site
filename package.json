@@ -40,7 +40,7 @@
     "@netlify/functions": "^3.0.4",
     "@next/third-parties": "^15.3.3",
     "@storyblok/react": "^5.0.0",
-    "algoliasearch": "^5.23.0",
+    "algoliasearch": "^5.30.0",
     "cnbuilder": "^3.1.0",
     "cookies-next": "^5.1.0",
     "fuse.js": "^7.1.0",
