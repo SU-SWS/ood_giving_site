@@ -1,7 +1,6 @@
 'use client';
 import {
   type FormEventHandler,
-  type KeyboardEventHandler,
   useCallback,
   useContext,
   useEffect,
@@ -62,14 +61,6 @@ export const SearchForm = () => {
     router.push(`/search?q=${selected.title || query}`);
     close();
   }, [query, selected, router, close]);
-
-  const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback((e) => {
-    // Trigger a submit immediately anytime enter is pressed while focus is on the search input
-    return;
-    if (e.key === 'Enter') {
-      formRef.current.submit();
-    }
-  }, []);
 
   useEffect(() => {
     const fetchOptions = async () => {
@@ -141,7 +132,6 @@ export const SearchForm = () => {
               aria-describedby={showEmptyMessage ? 'search-field-modal-empty-message' : undefined}
               aria-required
               autoFocus
-              onKeyDown={handleKeyDown}
             />
             <ComboboxOptions portal={false} className="empty:invisible absolute top-full left-0 flex flex-col w-full z-[1000002] bg-palo-alto-dark text-white p-16 border border-t-0 border-white overflow-hidden rounded-bl rounded-br">
               {!!query && (
