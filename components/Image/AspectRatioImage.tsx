@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { cnb } from 'cnbuilder';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { getSbImageSize } from '@/utilities/getSbImageSize';
 import { getAspectRatioNumber } from '@/utilities/getAspectRatioNumber';
@@ -8,7 +7,6 @@ import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './Image.styles';
 
 export type AspectRatioImageProps = SbImageType & React.HTMLAttributes<HTMLImageElement> & {
-  classPrefix?: string;
   visibleVertical?: styles.VisibleVerticalType;
   visibleHorizontal?: styles.VisibleHorizontalType;
   imageSize?: styles.AspectRatioImageSizeType;
@@ -19,7 +17,6 @@ export const AspectRatioImage = ({
   filename,
   alt,
   focus,
-  classPrefix,
   imageSize = 'default',
   aspectRatio = '3x2',
   visibleHorizontal,
@@ -56,20 +53,9 @@ export const AspectRatioImage = ({
   const processedImg = getProcessedImage(filename, `${cropWidth}x${cropHeight}`, imageFocus);
 
   return (
-    <div
-      className={cnb(
-        'su-media su-media--image ood-media',
-        `ood-media--${aspectRatio}`,
-        classPrefix && `${classPrefix}__media`,
-        className,
-      )}
-    >
+    <div className={className}>
       <img
-        className={cnb(
-          'ood-media__image',
-          styles.imageAspectRatios[aspectRatio],
-          classPrefix && `${classPrefix}__image`,
-        )}
+        className={styles.imageAspectRatios[aspectRatio]}
         width={cropWidth}
         height={cropHeight}
         src={processedImg}

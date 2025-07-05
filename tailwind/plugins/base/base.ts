@@ -9,7 +9,7 @@ export const base = ({ addBase, config }: { addBase: Function, config: Function 
       width: '100%',
       overflowX: 'clip',
       fontSize: '1.6rem',
-      color: '#2e2d29',
+      color: config('theme.colors.black.DEFAULT'),
 
       '@screen md': {
         fontSize: '1.8rem',
@@ -27,7 +27,7 @@ export const base = ({ addBase, config }: { addBase: Function, config: Function 
       },
     },
     p: {
-      lineHeight: '1.4',
+      lineHeight: '1.5',
       '&:empty': {
         display: 'none',
       },
