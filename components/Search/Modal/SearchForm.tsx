@@ -44,7 +44,7 @@ export const SearchForm = () => {
   const [selected, setSelected] = useState<{ id: string, title: string }>(null);
   const [debouncedQuery, setDebouncedQuery] = useDebounceValue<string | null>(null, 500);
   const [showEmptyMessage, setShowEmptyMessage] = useState(false);
-  const { searchConfig, close } = useContext(SearchModalContext);
+  const { searchConfig } = useContext(SearchModalContext);
   const { emptySearchMessage } = searchConfig;
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -53,20 +53,21 @@ export const SearchForm = () => {
     e.stopPropagation();
 
     // Stop the form submit if the search input is empty
-    if (!selected && !query) {
+    if (!selected) {
       setShowEmptyMessage(true);
       return;
     }
 
-    router.push(`/search?q=${selected.title || query}`);
-    close();
-  }, [query, selected, router, close]);
+    router.push(`/search?q=${selected.title}`);
+  }, [selected, router]);
 
   const handleClear = useCallback(() => {
     const input = document.getElementById('search-field-input');
     setSelected(null);
     setQuery(null);
-    input.focus();
+    if (input) {
+      input.focus();
+    }
   }, []);
 
   useEffect(() => {
@@ -155,7 +156,7 @@ export const SearchForm = () => {
             </ComboboxOptions>
           </Combobox>
           {!!selected && (
-            <button onClick={handleClear} className="absolute top-14 sm:top-18 md:top-22 lg:top-28 right-70 sm:right-76 md:right-100 flex gap-6 items-center justify-center text-white text-16 sm:text-18 md:text-20 min-h-24 hocus:underline">
+            <button onClick={handleClear} type="reset" className="absolute top-14 sm:top-18 md:top-22 lg:top-28 right-70 sm:right-76 md:right-100 flex gap-6 items-center justify-center text-white text-16 sm:text-18 md:text-20 min-h-24 hocus:underline">
               Clear <HeroIcon aria-hidden icon="close" className="!stroke-[4.5]" />
             </button>
           )}
