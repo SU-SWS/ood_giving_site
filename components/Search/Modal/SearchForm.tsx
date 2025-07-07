@@ -121,6 +121,7 @@ export const SearchForm = () => {
         action="/search"
         role="search"
         onSubmit={handleSubmit}
+        onReset={handleClear}
         ref={formRef}
       >
         <Field className="relative flex items-start gap-16 w-full">
@@ -137,7 +138,7 @@ export const SearchForm = () => {
               placeholder="Search"
               className="w-full bg-transparent border-t-0 border-x-0 border-b-1 border-b-white text-26 sm:text-30 md:text-[4rem] lg:text-[4.5rem] pr-90 sm:pr-100 md:pr-110 text-white font-semibold placeholder:text-foggy focus:!ring-0 focus:border-b-white focus:bg-white/5"
               onChange={(e) => setQuery(e.currentTarget.value)}
-              displayValue={(option: { id: string, title: string }) => option ? option.title : ''}
+              displayValue={(option: { id: string, title: string }) => option?.title || ''}
               aria-describedby={showEmptyMessage ? 'search-field-modal-empty-message' : undefined}
               aria-required
               autoFocus
@@ -156,7 +157,7 @@ export const SearchForm = () => {
             </ComboboxOptions>
           </Combobox>
           {!!selected && (
-            <button onClick={handleClear} type="reset" className="absolute top-14 sm:top-18 md:top-22 lg:top-28 right-70 sm:right-76 md:right-100 flex gap-6 items-center justify-center text-white text-16 sm:text-18 md:text-20 min-h-24 hocus:underline">
+            <button type="reset" className="absolute top-14 sm:top-18 md:top-22 lg:top-28 right-70 sm:right-76 md:right-100 flex gap-6 items-center justify-center text-white text-16 sm:text-18 md:text-20 min-h-24 hocus:underline">
               Clear <HeroIcon aria-hidden icon="close" className="!stroke-[4.5]" />
             </button>
           )}
