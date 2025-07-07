@@ -1,9 +1,15 @@
 'use client';
 
-import React, { createContext, useState, useRef } from 'react';
+import React, {
+  createContext,
+  useState,
+  useRef,
+  useEffect,
+} from 'react';
 import { useEscape } from '@/hooks/useEscape';
 import { useDisplay } from '@/hooks/useDisplay';
 import { type SearchConfig } from '@/utilities/data/getSearchConfigBlok';
+import { usePathname } from 'next/navigation';
 
 type SearchModalContextProps = {
   isOpen: boolean;
@@ -43,6 +49,7 @@ export function SearchModalProvider({
   children,
   searchConfig,
 }: SearchModalProviderProps) {
+  const pathname = usePathname();
   const { showDesktop, showMobile } = useDisplay();
   const [isOpen, setIsOpen] = useState(false);
   const desktopButtonRef = useRef<HTMLButtonElement>(null);
@@ -78,6 +85,13 @@ export function SearchModalProvider({
   useEscape(() => {
     if (isOpen) close();
   });
+
+  // Close the modal on route change
+  useEffect(() => {
+    if (pathname) {
+      setIsOpen(false);
+    }
+  }, [pathname]);
 
   // Provider wrapper.
   return (

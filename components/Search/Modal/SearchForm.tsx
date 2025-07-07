@@ -62,6 +62,13 @@ export const SearchForm = () => {
     close();
   }, [query, selected, router, close]);
 
+  const handleClear = useCallback(() => {
+    const input = document.getElementById('search-field-input');
+    setSelected(null);
+    setQuery(null);
+    input.focus();
+  }, []);
+
   useEffect(() => {
     const fetchOptions = async () => {
       if (!debouncedQuery) {
@@ -115,7 +122,7 @@ export const SearchForm = () => {
         onSubmit={handleSubmit}
         ref={formRef}
       >
-        <Field className="flex items-start gap-16 w-full">
+        <Field className="relative flex items-start gap-16 w-full">
           <Label className="sr-only">Search Giving to Stanford</Label>
           <Combobox
             as="div"
@@ -124,9 +131,10 @@ export const SearchForm = () => {
             className="relative w-full"
           >
             <ComboboxInput
+              id="search-field-input"
               name="q"
               placeholder="Search"
-              className="w-full bg-transparent border-t-0 border-x-0 border-b-1 border-b-white text-26 sm:text-30 md:text-[4rem] lg:text-[4.5rem] pr-40 text-white font-semibold placeholder:text-foggy focus:!ring-0 focus:border-b-white focus:bg-white/5"
+              className="w-full bg-transparent border-t-0 border-x-0 border-b-1 border-b-white text-26 sm:text-30 md:text-[4rem] lg:text-[4.5rem] pr-90 sm:pr-100 md:pr-110 text-white font-semibold placeholder:text-foggy focus:!ring-0 focus:border-b-white focus:bg-white/5"
               onChange={(e) => setQuery(e.currentTarget.value)}
               displayValue={(option: { id: string, title: string }) => option ? option.title : ''}
               aria-describedby={showEmptyMessage ? 'search-field-modal-empty-message' : undefined}
@@ -146,6 +154,11 @@ export const SearchForm = () => {
               ))}
             </ComboboxOptions>
           </Combobox>
+          {!!selected && (
+            <button onClick={handleClear} className="absolute top-14 sm:top-18 md:top-22 lg:top-28 right-70 sm:right-76 md:right-100 flex gap-6 items-center justify-center text-white text-16 sm:text-18 md:text-20 min-h-24 hocus:underline">
+              Clear <HeroIcon aria-hidden icon="close" className="!stroke-[4.5]" />
+            </button>
+          )}
           <button type="submit" className="flex items-center justify-center rounded-full bg-cardinal-red p-12 hocus:bg-plum transition-colors">
             <HeroIcon icon="search" title="Search" className="text-white w-24 sm:w-30 md:w-40 lg:w-50 aspect-1" />
           </button>

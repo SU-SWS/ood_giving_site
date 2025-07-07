@@ -24,7 +24,7 @@ export const SearchModal = () => {
   return (
     <Dialog open={isOpen} onClose={close}>
       <DialogBackdrop className="fixed inset-0 bg-palo-alto-dark/90 backdrop-blur-[5px] z-[1000000]" />
-      <DialogPanel className="fixed w-full h-full top-0 left-0 rs-pt-5 z-[1000001]">
+      <DialogPanel className="fixed w-full h-full top-0 left-0 rs-py-5 z-[1000001] overflow-y-auto">
         <Container>
           <div className="lg:w-11/12 xl:w-3/4 2xl:w-2/3 mx-auto">
             <div className="flex justify-end">
