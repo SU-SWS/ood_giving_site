@@ -58,7 +58,6 @@ export const SbStoryCardView = (props: SbStoryCardViewProps) => {
             <AspectRatioImage
               filename={hasCardImage ? props.blok.cardImage.filename : props.blok.heroImage.filename}
               focus={hasCardImage ? props.blok.cardImage.focus : props.blok.heroImage.focus}
-              classPrefix="ood-story-card"
               imageSize={props.orientation === 'horizontal' ? 'horizontal-card' : 'card'}
               visibleHorizontal={props.visibleHorizontal}
               visibleVertical={props.visibleVertical}

@@ -18,7 +18,7 @@ export const darkBgColors = {
   'digital-red': 'bg-digital-red',
   'black': 'bg-black',
   'fog-light': 'bg-fog-light',
-  'cardinal-dark-to-spirited-dark': 'bg-gradient-to-tr from-cardinal-dark to-spirited-dark',
+  'cardinal-dark-to-spirited-dark': 'bg-gradient-to-tr from-cardinal-red-dark to-spirited-dark',
   'plum-to-digital-red': 'bg-gradient-to-tr from-plum to-digital-red',
   'plum-to-spirited-dark': 'bg-gradient-to-tr from-plum to-spirited-dark',
   'palo-alto-dark-to-palo-verde-dark': 'bg-gradient-to-tr from-palo-alto-dark to-palo-verde-dark',
@@ -36,6 +36,32 @@ export const bgColors = {
 };
 export type BgColorType = LightPageBgColorType | DarkBgColorType;
 
+// This is slightly different from darkBgColors
+export const cardBgColors = {
+  'white': 'bg-white',
+  'bay-dark': 'bg-bay-dark',
+  'palo-alto': 'bg-palo-alto',
+  'palo-alto-dark': 'bg-palo-alto-dark',
+  'palo-verde': 'bg-palo-verde',
+  'palo-verde-dark': 'bg-palo-verde-dark',
+  'lagunita': 'bg-lagunita',
+  'plum': 'bg-plum',
+  'lagunita-dark': 'bg-lagunita-dark',
+  'sky-dark': 'bg-sky-dark',
+  'digital-red': 'bg-digital-red',
+  'cardinal-red': 'bg-cardinal-red',
+  'brick': 'bg-brick',
+  'cardinal-dark-to-spirited-dark': 'bg-gradient-to-tr from-cardinal-red-dark to-spirited-dark',
+  'plum-to-digital-red': 'bg-gradient-to-tr from-plum to-digital-red',
+  'plum-to-spirited-dark': 'bg-gradient-to-tr from-plum to-spirited-dark',
+  'palo-alto-dark-to-palo-verde-dark': 'bg-gradient-to-tr from-palo-alto-dark to-palo-verde-dark',
+  // This item in the Colors: Card background datasource has an extra whitespace at the end
+  'sky-dark-to-olive-dark ': 'bg-gradient-to-tr from-sky-dark to-olive-dark',
+  'sky-dark-to-olive-dark': 'bg-gradient-to-tr from-sky-dark to-olive-dark',
+  'sky-dark-to-bay-dark': 'bg-gradient-to-tr from-sky-dark to-bay-dark',
+};
+export type CardBgColorType = keyof typeof cardBgColors;
+
 // For pseudo elements like tabs above headings
 export const darkBeforeColors = {
   'bay-dark': 'before:bg-bay-dark',
@@ -49,7 +75,7 @@ export const darkBeforeColors = {
   'digital-red': 'before:bg-digital-red',
   'black': 'before:bg-black',
   'fog-light': 'before:bg-fog-light',
-  'cardinal-dark-to-spirited-dark': 'before:bg-gradient-to-tr before:from-cardinal-dark before:to-spirited-dark',
+  'cardinal-dark-to-spirited-dark': 'before:bg-gradient-to-tr before:from-cardinal-red-dark before:to-spirited-dark',
   'plum-to-digital-red': 'before:bg-gradient-to-tr before:from-plum before:to-digital-red',
   'plum-to-spirited-dark': 'before:bg-gradient-to-tr before:from-plum before:to-spirited-dark',
   'palo-alto-dark-to-palo-verde-dark': 'before:bg-gradient-to-tr before:from-palo-alto-dark before:to-palo-verde-dark',
@@ -73,29 +99,6 @@ export const lightBeforeColors = {
   'white': 'before:bg-white',
 };
 export type LightBeforeColorType = keyof typeof lightBeforeColors;
-
-export const cardBgColors = {
-  'white': 'bg-white',
-  'bay-dark': 'bg-bay-dark',
-  'palo-alto': 'bg-palo-alto',
-  'palo-alto-dark': 'bg-palo-alto-dark',
-  'palo-verde': 'bg-palo-verde',
-  'palo-verde-dark': 'bg-palo-verde-dark',
-  'lagunita': 'bg-lagunita',
-  'plum': 'bg-plum',
-  'lagunita-dark': 'bg-lagunita-dark',
-  'sky-dark': 'bg-sky-dark',
-  'digital-red': 'bg-digital-red',
-  'cardinal-red': 'bg-cardinal-red',
-  'brick': 'bg-brick',
-  'cardinal-dark-to-spirited-dark': 'bg-gradient-to-tr from-cardinal-dark to-spirited-dark',
-  'plum-to-digital-red': 'bg-gradient-to-tr from-plum to-digital-red',
-  'plum-to-spirited-dark': 'bg-gradient-to-tr from-plum to-spirited-dark',
-  'palo-alto-dark-to-palo-verde-dark': 'bg-gradient-to-tr from-palo-alto-dark to-palo-verde-dark',
-  'sky-dark-to-olive-dark': 'bg-gradient-to-tr from-sky-dark to-olive-dark',
-  'sky-dark-to-bay-dark': 'bg-gradient-to-tr from-sky-dark to-bay-dark',
-};
-export type CardBgColorType = keyof typeof cardBgColors;
 
 export const paddingTops = {
   none: '',

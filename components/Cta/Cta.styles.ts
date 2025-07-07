@@ -60,7 +60,12 @@ export const ctaTextColors = {
 };
 
 // Additional CTA variants we use for this site, e.g., as subcomponents for other components. These include styles for sizes, colors, icon styles, and other properties.
+
+const inlineBase = 'inline underline decoration-1 hocus:decoration-2 underline-offset-2';
+
 export const ctaVariants = {
+  inline: inlineBase, // inline links in WYSIWYG for example
+  'inline-white': `${inlineBase} text-white hocus:text-white hocus:bg-black-true`, // inline links in WYSIWYG on dark backgrounds
   'local-footer': 'text-digital-red hocus:text-black underline leading-snug font-normal text-16 md:text-18 *:[&_svg]:hocus:text-digital-red',
   // Text links in the sub menu
   'sub-menu': 'text-14 sm:text-16 py-6 md:py-10 text-white leading-[4rem] md:leading-cozy hocus:text-white md:text-cool-grey md:hocus:text-digital-red font-normal no-underline hocus:underline',
