@@ -77,12 +77,12 @@ export const SearchForm = ({
 
   const handleEnter: KeyboardEventHandler<HTMLInputElement> = useCallback((e) => {
     if (e.key === 'Enter') {
-      formRef.current.requestSubmit();
+      setTimeout(() => formRef.current.requestSubmit());
     }
   }, []);
 
   const handleClick = useCallback(() => {
-    formRef.current.requestSubmit();
+    setTimeout(() => formRef.current.requestSubmit());
   }, []);
 
   useEffect(() => {
