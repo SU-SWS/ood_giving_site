@@ -1,4 +1,5 @@
 import { Search } from '@/components/Search';
+import { storyblokEditable } from '@storyblok/react/rsc';
 import { type SbBlokData } from '@storyblok/react/rsc';
 
 export type SbSearchResultsProps = {
@@ -11,12 +12,13 @@ export type SbSearchResultsProps = {
   },
 };
 
-export const SbSearchResults = (props: SbSearchResultsProps) => (
+export const SbSearchResults = ({ blok }: SbSearchResultsProps) => (
   <Search
-    emptySearchText={props?.blok?.emptySearchText}
-    emptySearchTitle={props?.blok?.emptySearchTitle}
-    suggestionsAmount={props?.blok?.suggestionsAmount}
-    noResultsErrorText={props?.blok?.noResultsErrorText}
-    noResultsErrorTitle={props?.blok?.noResultsErrorTitle}
+    {...storyblokEditable(blok)}
+    emptySearchText={blok?.emptySearchText}
+    emptySearchTitle={blok?.emptySearchTitle}
+    suggestionsAmount={blok?.suggestionsAmount}
+    noResultsErrorText={blok?.noResultsErrorText}
+    noResultsErrorTitle={blok?.noResultsErrorTitle}
   />
 );
