@@ -1,16 +1,19 @@
 import { cnb } from 'cnbuilder';
 import { type ImageAspectRatioType } from '@/components/Image';
-import { type CardBgColorType, cardBgColors } from '@/utilities/datasource';
+import { allCardBgColors, type AllCardBgColorType } from '@/utilities/datasource';
 
 export type OverhangCardVariantType = 'basic' | 'tile' | 'quote' | 'story';
 
 export const root = (
   isVertical: boolean,
+  isLink: boolean,
   largeCardPadding: boolean,
-  bgColor: CardBgColorType,
+  bgColor: AllCardBgColorType,
 ) => cnb(
   'relative break-words shadow-md border border-black-10',
-  cardBgColors[bgColor], {
+  isLink && 'focus-within:shadow-lg hover:shadow-lg',
+  allCardBgColors[bgColor],
+  {
     'md:mt-80 px-32 pb-32 md:h-[calc(100%_-_8rem)]': isVertical,
     'md:ml-80 pr-32 py-32': !isVertical,
     'md:px-72 md:pb-72 2xl:px-78 2xl:pb-78': largeCardPadding && isVertical,

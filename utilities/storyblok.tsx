@@ -19,6 +19,7 @@ import { SbCtaLink } from '@/components/Storyblok/SbCtaLink';
 import { SbLockup } from '@/components/Storyblok/SbLockup';
 import { SbSingleColumnContent } from '@/components/Storyblok/SbSingleColumnContent';
 import { SbStoryImage } from '@/components/Storyblok/SbStoryImage';
+import { SbStoryCard } from '@/components/Storyblok/SbStoryCard';
 import { SbLocalHeader } from '@/components/Storyblok/SbLocalHeader';
 import { SbLocalHeaderPicker } from '@/components/Storyblok/SbLocalHeaderPicker';
 import {
@@ -58,6 +59,7 @@ export const components = {
   basicCard: SbBasicCard,
   oodIconCard: SbIconCard,
   oodSupportCard: SbSupportCard,
+  oodStoryCard: SbStoryCard,
   // Pages
   oodCampaignPage: SbCampaignPage,
   oodInteriorPage: SbInteriorPage,

@@ -1,27 +1,30 @@
 import { cnb } from 'cnbuilder';
-import { cardBgColors, type CardBgColorType } from '@/utilities/datasource';
+import { allCardBgColors, type AllCardBgColorType } from '@/utilities/datasource';
 
 /**
  * Basic card component with background color options.
  * Used as or Basic, Tile, Story Cards and Poster components.
  */
 export type SimpleCardProps = React.HTMLAttributes<HTMLDivElement> & {
-  bgColor?: CardBgColorType;
+  bgColor?: AllCardBgColorType;
+  isLink?: boolean; // If true, the card has hover/focus styles
 };
 
-const styles = {
-  root: 'relative shadow-md border border-black-10',
-};
+const style = (isLink: boolean) => (cnb(
+  'relative shadow-md border border-black-10 transition-shadow',
+  isLink && 'focus-within:shadow-lg hover:shadow-lg',
+));
 
 export const SimpleCard = ({
   bgColor = 'white',
+  isLink,
   children,
   className,
   ...props
 }: SimpleCardProps) => {
 
   return (
-    <article className={cnb(styles.root, cardBgColors[bgColor], className)} {...props}>
+    <article className={cnb(style(isLink), allCardBgColors[bgColor], className)} {...props}>
       {children}
     </article>
   );

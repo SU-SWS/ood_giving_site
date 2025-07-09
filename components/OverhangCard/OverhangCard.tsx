@@ -1,7 +1,7 @@
 import { cnb } from 'cnbuilder';
 import { AspectRatioImage, type AspectRatioImageProps } from '@/components/Image';
 import { FlexBox } from '@/components/FlexBox';
-import { type CardBgColorType } from '@/utilities/datasource';
+import { type AllCardBgColorType } from '@/utilities/datasource';
 import * as styles from './OverhangCard.styles';
 
 /**
@@ -11,13 +11,15 @@ import * as styles from './OverhangCard.styles';
 export type OverhangCardProps = AspectRatioImageProps & React.HTMLAttributes<HTMLDivElement> & {
   variant: styles.OverhangCardVariantType;
   isVertical?: boolean;
-  bgColor?: CardBgColorType;
+  isLink?: boolean; // If true, the card has hover/focus styles
+  bgColor?: AllCardBgColorType;
   largeCardPadding?: boolean;
 };
 
 export const OverhangCard = ({
   variant,
   isVertical = true,
+  isLink,
   bgColor = 'white',
   filename,
   alt,
@@ -35,7 +37,7 @@ export const OverhangCard = ({
     <FlexBox
       as="article"
       direction={isVertical ? 'col' : 'row'}
-      className={cnb(styles.root(isVertical, largeCardPadding, bgColor), className)}
+      className={cnb(styles.root(isVertical, isLink, largeCardPadding, bgColor), className)}
       {...props}
     >
       <div className={styles.imageWrapper(isVertical, variant, aspectRatio)}>
