@@ -33,6 +33,13 @@ export type SearchFormProps = {
   setShowEmptyError?: (e: boolean) => void;
 };
 
+const testOption = (props: unknown) => {
+  console.log(props);
+  return (
+    <li>test</li>
+  );
+};
+
 export const SearchForm = ({
   variant = 'default',
   defaultValue = null,
@@ -77,11 +84,13 @@ export const SearchForm = ({
 
   const handleEnter: KeyboardEventHandler<HTMLInputElement> = useCallback((e) => {
     if (e.key === 'Enter') {
-      if (query) {
-        onSubmit(query);
-      }
+      formRef.current.requestSubmit();
     }
-  }, [query, onSubmit]);
+  }, []);
+
+  const handleClick = useCallback(() => {
+    formRef.current.requestSubmit();
+  }, []);
 
   useEffect(() => {
     const fetchOptions = async () => {
@@ -107,8 +116,6 @@ export const SearchForm = ({
             hitsPerPage: numSuggestions,
           }],
         });
-
-        console.log({ results: res?.results });
 
         const maxSuggestions = Math.floor(numSuggestions / 2);
 
@@ -188,9 +195,11 @@ export const SearchForm = ({
                 autoFocus
                 ref={inputRef}
               />
-              <ComboboxOptions portal={false} className={styles.searchFormOptions({ variant })}>
+              <ComboboxOptions as="ul" portal={false} className={styles.searchFormOptions({ variant })}>
                 {!!query && (
                   <ComboboxOption
+                    as="li"
+                    onMouseDown={handleClick}
                     value={query}
                     className={styles.searchFormOption({ variant })}
                   >
@@ -199,9 +208,11 @@ export const SearchForm = ({
                 )}
                 {options.map((option) => (
                   <ComboboxOption
+                    as="li"
                     key={option.id}
                     value={option.title}
                     className={styles.searchFormOption({ variant })}
+                    onMouseDown={handleClick}
                   >
                     {option.title}
                   </ComboboxOption>

@@ -27,7 +27,7 @@ export const searchFormErrorMessage = ({ variant = 'default', show = false }: { 
 });
 
 export const searchFormOptions = ({ variant = 'default' }: { variant?: SearchFormVariant } = {}) => cnb(
-  'empty:invisible absolute z-[1000002] top-full left-0 flex flex-col w-full p-16 border border-t-0 overflow-hidden rounded-bl rounded-br cursor-pointer',
+  'empty:invisible absolute z-[1000002] top-full left-0 flex flex-col w-full list-none m-0 p-16 border border-t-0 overflow-hidden rounded-bl rounded-br cursor-pointer',
   {
     'bg-white text-black border-cardinal-red': variant === 'default',
     'bg-palo-alto-dark text-white border-white': variant === 'modal',
@@ -35,7 +35,7 @@ export const searchFormOptions = ({ variant = 'default' }: { variant?: SearchFor
 );
 
 export const searchFormOption = ({ variant = 'default' }: { variant?: SearchFormVariant } = {}) => cnb(
-  'px-4 py-8 rounded',
+  'px-4 py-8 rounded mb-0',
   {
     'data-[focus]:bg-black-20 data-[focus]:underline data-[focus]:text-cardinal-red': variant === 'default',
     'data-[focus]:bg-palo-verde-light': variant === 'modal',
