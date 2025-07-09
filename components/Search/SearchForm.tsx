@@ -33,13 +33,6 @@ export type SearchFormProps = {
   setShowEmptyError?: (e: boolean) => void;
 };
 
-const testOption = (props: unknown) => {
-  console.log(props);
-  return (
-    <li>test</li>
-  );
-};
-
 export const SearchForm = ({
   variant = 'default',
   defaultValue = null,
