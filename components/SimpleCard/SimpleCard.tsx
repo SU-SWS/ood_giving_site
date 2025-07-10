@@ -7,7 +7,7 @@ import { allCardBgColors, type AllCardBgColorType } from '@/utilities/datasource
  */
 export type SimpleCardProps = React.HTMLAttributes<HTMLDivElement> & {
   bgColor?: AllCardBgColorType;
-  isLink?: boolean; // If true, the card has hover/focus styles
+  hasLink?: boolean; // If true, the card has hover/focus styles
 };
 
 const style = (isLink: boolean) => (cnb(
@@ -17,14 +17,14 @@ const style = (isLink: boolean) => (cnb(
 
 export const SimpleCard = ({
   bgColor = 'white',
-  isLink,
+  hasLink,
   children,
   className,
   ...props
 }: SimpleCardProps) => {
 
   return (
-    <article className={cnb(style(isLink), allCardBgColors[bgColor], className)} {...props}>
+    <article className={cnb(style(hasLink), allCardBgColors[bgColor], className)} {...props}>
       {children}
     </article>
   );

@@ -41,7 +41,14 @@ const StoryCardContent = ({
         {headline}
       </SbLink>
     </Heading>
-    <Paragraph variant="ood-small" mb="none">{teaser}</Paragraph>
+    <Paragraph
+      variant={isVertical ? 'ood-small' : undefined}
+      size={!isVertical ? 1 : undefined}
+      leading={isVertical ? 'snug' : 'cozy'}
+      mb="none"
+    >
+      {teaser}
+    </Paragraph>
   </>
 );
 
@@ -69,7 +76,7 @@ export const StoryCard = ({
       {...props}
       variant="story"
       isVertical={isVertical}
-      isLink
+      hasLink
       bgColor={bgColor}
       filename={filename}
       alt={alt}
@@ -90,7 +97,7 @@ export const StoryCard = ({
       </div>
     </OverhangCard>
   ) : (
-    <SimpleCard {...props} isLink bgColor={bgColor} className={styles.rootNoImage(isVertical)}>
+    <SimpleCard {...props} hasLink bgColor={bgColor} className={styles.rootNoImage(isVertical)}>
       <StoryCardContent
         isVertical={isVertical}
         headline={headline}

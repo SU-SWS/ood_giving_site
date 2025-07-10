@@ -11,7 +11,7 @@ import * as styles from './OverhangCard.styles';
 export type OverhangCardProps = AspectRatioImageProps & React.HTMLAttributes<HTMLDivElement> & {
   variant: styles.OverhangCardVariantType;
   isVertical?: boolean;
-  isLink?: boolean; // If true, the card has hover/focus styles
+  hasLink?: boolean; // If true, the card has hover/focus styles
   bgColor?: AllCardBgColorType;
   largeCardPadding?: boolean;
 };
@@ -19,7 +19,7 @@ export type OverhangCardProps = AspectRatioImageProps & React.HTMLAttributes<HTM
 export const OverhangCard = ({
   variant,
   isVertical = true,
-  isLink,
+  hasLink,
   bgColor = 'white',
   filename,
   alt,
@@ -36,8 +36,8 @@ export const OverhangCard = ({
   return (
     <FlexBox
       as="article"
-      direction={isVertical ? 'col' : 'row'}
-      className={cnb(styles.root(isVertical, isLink, largeCardPadding, bgColor), className)}
+      // direction={isVertical ? 'col' : 'row'}
+      className={cnb(styles.root(variant, isVertical, hasLink, largeCardPadding, bgColor), className)}
       {...props}
     >
       <div className={styles.imageWrapper(isVertical, variant, aspectRatio)}>
