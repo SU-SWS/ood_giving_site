@@ -2,7 +2,7 @@ import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { FlexBox } from '@/components/FlexBox';
 import { Skiplink } from '@/components/SkipLink';
-import { OpenSearchModalButton } from '@/components/Search/Modal/OpenSearchModalButton';
+import { OpenSearchModalButton, SearchModal } from '@/components/Search/Modal';
 
 export type SbLocalHeaderProps = {
   blok: SbBlokData & {
@@ -36,6 +36,7 @@ export const SbLocalHeader = ({ blok, slug }: SbLocalHeaderProps) => {
           <OpenSearchModalButton id="mastead-search-openmodal-mobile" />
         </FlexBox>
       </FlexBox>
+      <SearchModal />
     </header>
   );
 };
