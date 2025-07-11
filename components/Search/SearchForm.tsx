@@ -119,7 +119,7 @@ export const SearchForm = ({
 
         const newHits = (res?.results?.[1]?.hits as SearchHit[])?.map((hit) => ({
           id: hit.objectID,
-          title: hit.content.title,
+          title: hit.processed.title,
         }))?.slice(0, numSuggestions - newSuggestions.length) ?? [];
 
         const newOptions = [

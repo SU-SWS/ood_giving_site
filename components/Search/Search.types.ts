@@ -2,13 +2,16 @@ export type SearchFormVariant = 'default' | 'modal';
 
 export type SearchHit = {
   objectID: string;
-  content: {
+  processed: {
+    author?: string;
+    description?: string;
+    intro?: string;
+    path?: string;
+    shortText?: string;
+    teaser?: string;
+    text?: string;
     title?: string;
-    seo: {
-      description?: string;
-    }
   };
-  full_slug?: string;
 };
 
 export type SuggestionHit = {
