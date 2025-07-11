@@ -47,6 +47,7 @@ import { SbIconCard } from '@/components/Storyblok/SbIconCard';
 import { SbSupportCard } from '@/components/Storyblok/SbSupportCard';
 import { SbEndowedPositionsSearch, SbEndowedPositionsSearchPicker } from '@/components/Storyblok/SbEndowedPositionsSearch';
 import { SbCuratedStories } from '@/components/Storyblok/SbCuratedStories';
+import { SbSearchResults } from '@/components/Storyblok/SbSearchResults';
 
 export const components = {
   page: SbPage,
@@ -56,6 +57,7 @@ export const components = {
   ctaGroup: SbCtaGroup,
   embedScript: SbEmbedScript,
   lockup: SbLockup,
+  searchResults: SbSearchResults,
   // Cards
   basicCard: SbBasicCard,
   oodIconCard: SbIconCard,
