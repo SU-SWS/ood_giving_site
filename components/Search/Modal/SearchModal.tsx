@@ -1,6 +1,5 @@
 'use client';
 import { useContext } from 'react';
-import { SearchModalContext } from './SearchModalContext';
 import {
   Dialog,
   DialogBackdrop,
@@ -9,8 +8,9 @@ import {
 } from '@headlessui/react';
 import { Container } from '@/components/Container';
 import { HeroIcon } from '@/components/HeroIcon';
-import { SearchForm } from './SearchForm';
+import { SearchModalContext } from './SearchModalContext';
 import { SearchCategories } from './SearchCategories';
+import { SearchModalBox } from './SearchModalBox';
 
 export const SearchModal = () => {
   const {
@@ -37,7 +37,7 @@ export const SearchModal = () => {
                 <DialogTitle className="text-white text-center font-serif fluid-type-2">{introduction}</DialogTitle>
               )}
               <div className="rs-mt-4">
-                <SearchForm />
+                <SearchModalBox />
               </div>
             </div>
             <SearchCategories />

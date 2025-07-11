@@ -1,1 +1,1 @@
-export * from './SearchHeader';
+export * from './Search';
