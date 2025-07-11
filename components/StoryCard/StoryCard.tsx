@@ -5,6 +5,7 @@ import { SimpleCard } from '@/components/SimpleCard';
 import {
   Heading,
   Paragraph,
+  Text,
   type HeadingType,
 } from '@/components/Typography';
 import { SbLinkType } from '@/components/Storyblok/Storyblok.types';
@@ -32,16 +33,20 @@ const StoryCardContent = ({
     <Heading
       as={headingLevel}
       size={isVertical ? 3 : 'f3'}
-      font="sans"
-      weight="semibold"
-      color="black"
       mb="06em"
-      icon={link?.linktype !== 'story' ? 'external' : undefined}
-      iconProps={{ className: styles.icon, noBaseStyle: true }}
-      className={styles.heading}
     >
       <SbLink link={link} classes={styles.link}>
-        {headline}
+        <Text
+          as="span"
+          font="sans"
+          weight="semibold"
+          color="black"
+          icon={link?.linktype !== 'story' ? 'external' : undefined}
+          iconProps={{ className: styles.icon, noBaseStyle: true }}
+          className={styles.linkText}
+        >
+          {headline}
+        </Text>
       </SbLink>
     </Heading>
     <Paragraph
