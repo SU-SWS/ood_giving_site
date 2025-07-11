@@ -22,22 +22,22 @@ export const SbCuratedStories = ({ blok }: SbCuratedStoriesProps) => {
   } = blok;
 
   return (
-    <div {...storyblokEditable(blok)}>
+    <Grid {...storyblokEditable(blok)} className="gap-y-32 md:gap-y-45 2xl:gap-y-48">
       {!!getNumBloks(featuredStories) && (
-        <div className="xl:w-10/12 mx-auto rs-mb-3">
+        <Grid className="xl:w-10/12 mx-auto">
           <CreateBloks blokSection={featuredStories} />
-        </div>
+        </Grid>
       )}
       {!!getNumBloks(otherStories) && (
-        <Grid gap="card" alignItems="start" lg={layout} className={cnb('*:!h-auto', layout == 2 && 'xl:w-8/12 2xl:w-10/12 mx-auto')}>
-          <CreateBloks blokSection={otherStories} />
+        <Grid as="ul" gap="card" alignItems="start" md={2} xl={layout} className={cnb('pl-0 *:!h-auto *:list-unstyled', layout == 2 && 'xl:w-10/12 2xl:w-8/12 mx-auto')}>
+          <CreateBloks blokSection={otherStories} isListItems />
         </Grid>
       )}
       {!!getNumBloks(ctaLink) && (
-        <div className="rs-mt-3">
+        <div>
           <CreateBloks blokSection={ctaLink} />
         </div>
       )}
-    </div>
+    </Grid>
   );
 };

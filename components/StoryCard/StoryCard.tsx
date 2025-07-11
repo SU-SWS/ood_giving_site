@@ -92,7 +92,7 @@ export const StoryCard = ({
       focus={focus}
       visibleHorizontal={visibleHorizontal}
       visibleVertical={visibleVertical}
-      imageSize={isVertical ? 'card' : 'horizontal-card'}
+      imageSize={isVertical ? 'large-card' : 'horizontal-card'}
       aspectRatio="3x2"
       className="story-card"
     >
