@@ -1,6 +1,6 @@
 import { cnb } from 'cnbuilder';
 
-export const heading = 'before:block before:content-[""] before:h-10 before:w-80 before:bg-cardinal-red before:rs-mb-2';
+export const heading = 'before:block before:content-[""] before:h-10 before:w-80 before:bg-cardinal-red before:rs-mb-2 lg:leading-tight';
 
 export const rootNoImage = (isFeatured: boolean) => cnb(
   'relative px-32 md:px-36 rs-pb-4',

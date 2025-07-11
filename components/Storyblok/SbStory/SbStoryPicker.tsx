@@ -5,6 +5,12 @@ import { type VisibleVerticalType, type VisibleHorizontalType } from '@/componen
 import { type SbImageType, type SbLinkType } from '../Storyblok.types';
 import { type LightPageBgColorType } from '@/utilities/datasource';
 
+/**
+ * This Story Picker component renders a Story Card using fields from the story that it references.
+ * For Story Card that has manually entered content, see the `SbStoryCard` component instead.
+ */
+
+// The fields used from the Story page type
 type StoryContentType = {
   title?: string;
   intro?: string;
@@ -38,8 +44,8 @@ export const SbStoryPicker = ({
     story,
     hideImage,
     orientation = 'vertical',
-    backgroundColor = 'white',
-    headingLevel = 'h3',
+    backgroundColor,
+    headingLevel,
     visibleHorizontal = 'center',
     visibleVertical = 'center',
   },
@@ -55,7 +61,7 @@ export const SbStoryPicker = ({
     content: {
       title,
       intro,
-      heroImage: { filename, alt, focus } = {},
+      heroImage: { filename: heroFilename, alt: heroAlt, focus: heroFocus } = {},
       shortTitle,
       teaser,
       cardImage: { filename: cardFilename, alt: cardAlt, focus: cardFocus } = {},
@@ -68,19 +74,24 @@ export const SbStoryPicker = ({
   // If no orientation is selected, default to vertical
   const isVertical = orientation === 'vertical' || !orientation;
 
+  // Use card image if available, otherwise fallback to hero image
+  const imageData = cardFilename
+    ? { filename: cardFilename, alt: cardAlt, focus: cardFocus }
+    : { filename: heroFilename, alt: heroAlt, focus: heroFocus };
+
   return (
     <StoryCard
       {...storyblokEditable(blok)}
       headline={shortTitle || title}
       teaser={teaser || intro}
       link={storyPickerLink}
-      filename={!hideImage ? cardFilename || filename : ''}
-      alt={!hideImage ? cardAlt || alt : ''}
-      focus={!hideImage ? cardFocus || focus : ''}
-      visibleHorizontal={visibleHorizontal}
-      visibleVertical={visibleVertical}
+      filename={!hideImage ? imageData.filename : ''}
+      alt={!hideImage ? imageData.alt : ''}
+      focus={!hideImage ? imageData.focus : ''}
+      visibleHorizontal={!hideImage ? visibleHorizontal : undefined}
+      visibleVertical={!hideImage ? visibleVertical : undefined}
       isVertical={isVertical}
-      bgColor={backgroundColor}
+      bgColor={backgroundColor || 'fog-light'}
       headingLevel={headingLevel || 'h3'}
     />
   );

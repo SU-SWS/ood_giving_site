@@ -12,7 +12,7 @@ export const root = (
   largeCardPadding: boolean,
   bgColor: AllCardBgColorType,
 ) => cnb(
-  'relative break-words shadow-md border border-black-10',
+  'group relative break-words shadow-md border border-black-10',
   hasLink && 'focus-within:shadow-lg hover:shadow-lg transition-shadow',
   allCardBgColors[bgColor],
   {
@@ -28,6 +28,7 @@ export const root = (
     'md:px-36 md:pb-36 2xl:px-38 2xl:pb-38': !largeCardPadding && isVertical,
     'md:pr-72 md:py-72 2xl:pr-78 2xl:py-78': largeCardPadding && !isVertical && variant !== 'story',
     'md:pr-36 md:py-36 2xl:pr-38 2xl:py-38': !largeCardPadding && !isVertical && variant !== 'story',
+    'md:px-36 md:pb-45 2xl:px-38 2xl:pb-48': variant === 'story' && isVertical,
   },
 );
 
@@ -36,7 +37,7 @@ export const imageWrapper = (
   variant: OverhangCardVariantType,
   aspectRatio: ImageAspectRatioType,
 ) => cnb(
-  'shrink-0 grow-0',
+  'shrink-0 grow-0 overflow-hidden',
   {
     'hidden md:block': variant === 'basic',
     // Basic card
@@ -49,3 +50,5 @@ export const imageWrapper = (
     'w-[40vw] max-w-600 lg:-mr-[20vw] 2xl:-mr-300 lg:ml-38 rs-mt-3': variant === 'story' && !isVertical,
   },
 );
+
+export const image = (hasLink: boolean) => hasLink && 'group-hocus-within:scale-105 will-change transition-transform';

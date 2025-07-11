@@ -50,6 +50,7 @@ export const OverhangCard = ({
           visibleVertical={visibleVertical}
           imageSize={imageSize}
           aspectRatio={aspectRatio}
+          className={styles.image(hasLink)}
         />
       </div>
       {children}

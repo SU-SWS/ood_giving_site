@@ -34,7 +34,6 @@ const StoryCardContent = ({
       size={isVertical ? 3 : 'f3'}
       font="sans"
       weight="semibold"
-      leading="tight"
       color="black"
       mb="06em"
       icon={link?.linktype !== 'story' ? 'external' : undefined}
