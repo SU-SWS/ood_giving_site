@@ -11,7 +11,7 @@ export type SbRowOneColumnProps = {
     align?: RowAlignType;
     spacingBottom?: PaddingType;
   };
-}
+};
 
 export const SbRowOneColumn = ({ blok }: SbRowOneColumnProps) => {
   const {

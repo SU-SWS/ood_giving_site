@@ -35,9 +35,10 @@ const StoryCardContent = ({
       font="sans"
       weight="semibold"
       leading="tight"
-      tracking="normal"
       color="black"
       mb="06em"
+      icon={link?.linktype !== 'story' ? 'external' : undefined}
+      iconProps={{ className: styles.icon, noBaseStyle: true }}
       className={styles.heading}
     >
       <SbLink link={link} classes={styles.link}>
@@ -49,6 +50,7 @@ const StoryCardContent = ({
       size={!isVertical ? 1 : undefined}
       leading={isVertical ? 'snug' : 'cozy'}
       mb="none"
+      className="max-w-prose-wide"
     >
       {teaser}
     </Paragraph>
@@ -110,7 +112,7 @@ export const StoryCard = ({
       isFeatured={isFeatured}
       hasLink
       bgColor={bgColor}
-      className={styles.rootNoImage(isVertical)}
+      className={styles.rootNoImage(isFeatured)}
     >
       <StoryCardContent
         isVertical={isVertical}

@@ -46,6 +46,7 @@ import { SbCtaGroup } from '@/components/Storyblok/SbCtaGroup';
 import { SbIconCard } from '@/components/Storyblok/SbIconCard';
 import { SbSupportCard } from '@/components/Storyblok/SbSupportCard';
 import { SbEndowedPositionsSearch, SbEndowedPositionsSearchPicker } from '@/components/Storyblok/SbEndowedPositionsSearch';
+import { SbCuratedStories } from '@/components/Storyblok/SbCuratedStories';
 
 export const components = {
   page: SbPage,
@@ -88,6 +89,7 @@ export const components = {
   oodMegaMenuCard: SbMegaMenuCard,
   // Layout
   columnGrid: SbColumnGrid,
+  curatedStories: SbCuratedStories,
   rowOneColumn: SbRowOneColumn,
   rowTwoColumns: SbRowTwoColumns,
   rowThreeColumns: SbRowThreeColumns,

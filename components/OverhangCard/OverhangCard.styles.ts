@@ -18,10 +18,10 @@ export const root = (
   {
     'flex-col': isVertical,
     'flex-row': !isVertical && variant === 'basic',
-    'flex-row-reverse': !isVertical && variant !== 'basic',
+    'flex-row-reverse justify-between': !isVertical && variant !== 'basic',
     'md:mt-80 px-32 pb-32 md:h-[calc(100%_-_8rem)]': isVertical && variant === 'basic',
     'md:ml-80 pr-32 py-32': !isVertical && variant === 'basic',
-    'w-[90%] sm:w-3/4 lg:w-full mx-auto': variant === 'story' && !isFeatured,
+    'w-4/5 sm:w-3/4 lg:w-full mx-auto': variant === 'story' && !isFeatured,
     'mt-80 px-32 pb-32 !h-[calc(100%_-_8rem)]': variant === 'story' && isVertical,
     'lg:mr-[20vw] 2xl:mr-300 lg:pl-48 rs-pb-3': variant === 'story' && !isVertical,
     'md:px-72 md:pb-72 2xl:px-78 2xl:pb-78': largeCardPadding && isVertical,
