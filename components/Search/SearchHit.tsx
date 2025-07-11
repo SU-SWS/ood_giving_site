@@ -15,7 +15,7 @@ export const SearchHit = ({ hit }: HitProps) => {
     intro = '',
     teaser = '',
     description = '',
-    path
+    path,
   } = processed ?? {};
 
   return (
