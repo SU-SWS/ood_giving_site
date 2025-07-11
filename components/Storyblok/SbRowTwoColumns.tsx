@@ -3,7 +3,7 @@ import { CreateBloks } from '@/components/CreateBloks';
 import {
   RowTwoColumns, type RowAlignType, type RowTwoColumnWidthType, type WidthRatioType,
 } from '@/components/Row';
-import { type MarginType } from '@/utilities/datasource';
+import { type PaddingType } from '@/utilities/datasource';
 import { getNumBloks } from '@/utilities/getNumBloks';
 
 export type SbRowTwoColumnProps = {
@@ -15,7 +15,7 @@ export type SbRowTwoColumnProps = {
     oneColumnMd?: boolean;
     contentAlignment?: 'start' | 'center' | 'end' | 'stretch';
     align?: RowAlignType;
-    spacingBottom?: MarginType;
+    spacingBottom?: PaddingType;
   };
 }
 
@@ -46,7 +46,7 @@ export const SbRowTwoColumns = ({ blok }: SbRowTwoColumnProps) => {
       oneColumnMd={oneColumnMd}
       contentAlignment={contentAlignment}
       align={align || 'su-mx-auto'}
-      mb={spacingBottom}
+      pb={spacingBottom}
     />
   );
 };

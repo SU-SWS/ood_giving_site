@@ -7,16 +7,19 @@ import { allCardBgColors, type AllCardBgColorType } from '@/utilities/datasource
  */
 export type SimpleCardProps = React.HTMLAttributes<HTMLDivElement> & {
   bgColor?: AllCardBgColorType;
+  isFeatured?: boolean;
   hasLink?: boolean; // If true, the card has hover/focus styles
 };
 
-const style = (isLink: boolean) => (cnb(
+const style = (isFeatured: boolean, isLink: boolean) => (cnb(
   'relative shadow-md border border-black-10 transition-shadow',
+  !isFeatured && 'w-[90%] sm:w-3/4 lg:w-full mx-auto',
   isLink && 'focus-within:shadow-lg hover:shadow-lg',
 ));
 
 export const SimpleCard = ({
   bgColor = 'white',
+  isFeatured,
   hasLink,
   children,
   className,
@@ -24,7 +27,7 @@ export const SimpleCard = ({
 }: SimpleCardProps) => {
 
   return (
-    <article className={cnb(style(hasLink), allCardBgColors[bgColor], className)} {...props}>
+    <article className={cnb(style(isFeatured, hasLink), allCardBgColors[bgColor], className)} {...props}>
       {children}
     </article>
   );

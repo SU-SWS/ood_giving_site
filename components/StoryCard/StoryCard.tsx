@@ -1,3 +1,5 @@
+'use client';
+import { useWindowSize } from 'usehooks-ts';
 import { OverhangCard, type OverhangCardProps } from '@/components/OverhangCard';
 import { SimpleCard } from '@/components/SimpleCard';
 import {
@@ -7,6 +9,7 @@ import {
 } from '@/components/Typography';
 import { SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
+import { config } from '@/utilities/config';
 import * as styles from './StoryCard.styles';
 
 type StoryCardContentProps = {
@@ -70,12 +73,16 @@ export const StoryCard = ({
   ...props
 }: StoryCardProps) => {
   const hasImage = !!filename;
+  const isFeatured = !isVertical;
+  const windowSize = useWindowSize();
+  const useVerticalStyle = isVertical || windowSize?.width < config.breakpoints.lg;
 
   return hasImage ? (
     <OverhangCard
       {...props}
       variant="story"
-      isVertical={isVertical}
+      isVertical={useVerticalStyle}
+      isFeatured={isFeatured}
       hasLink
       bgColor={bgColor}
       filename={filename}
@@ -85,6 +92,7 @@ export const StoryCard = ({
       visibleVertical={visibleVertical}
       imageSize={isVertical ? 'card' : 'horizontal-card'}
       aspectRatio="3x2"
+      className="story-card"
     >
       <div>
         <StoryCardContent
@@ -97,7 +105,13 @@ export const StoryCard = ({
       </div>
     </OverhangCard>
   ) : (
-    <SimpleCard {...props} hasLink bgColor={bgColor} className={styles.rootNoImage(isVertical)}>
+    <SimpleCard
+      {...props}
+      isFeatured={isFeatured}
+      hasLink
+      bgColor={bgColor}
+      className={styles.rootNoImage(isVertical)}
+    >
       <StoryCardContent
         isVertical={isVertical}
         headline={headline}
