@@ -17,7 +17,7 @@ export const RowThreeColumns = ({
   columnThreeContent,
   oneColumnMd,
   contentAlignment = 'start',
-  mb,
+  pb,
   ...props
 }: RowThreeColumnProps) => {
   return (
@@ -25,7 +25,7 @@ export const RowThreeColumns = ({
       gap="card"
       md={oneColumnMd ? undefined : 3}
       lg={oneColumnMd ? 3 : undefined}
-      mb={mb}
+      pb={pb}
       alignItems={contentAlignment}
       className={styles.root(contentAlignment)}
       {...props}

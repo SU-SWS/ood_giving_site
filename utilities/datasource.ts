@@ -62,6 +62,12 @@ export const cardBgColors = {
 };
 export type CardBgColorType = keyof typeof cardBgColors;
 
+export const allCardBgColors = {
+  ...cardBgColors,
+  ...lightPageBgColors,
+};
+export type AllCardBgColorType = CardBgColorType | LightPageBgColorType;
+
 // For pseudo elements like tabs above headings
 export const darkBeforeColors = {
   'bay-dark': 'before:bg-bay-dark',

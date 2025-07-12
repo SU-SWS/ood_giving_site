@@ -1,7 +1,7 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { RowThreeColumns } from '@/components/Row';
-import { type MarginType } from '@/utilities/datasource';
+import { type PaddingType } from '@/utilities/datasource';
 import { getNumBloks } from '@/utilities/getNumBloks';
 
 export type SbRowThreeColumnProps = {
@@ -11,7 +11,7 @@ export type SbRowThreeColumnProps = {
     columnThreeContent?: SbBlokData[];
     oneColumnMd?: boolean;
     contentAlignment?: 'start' | 'center' | 'end' | 'stretch';
-    spacingBottom?: MarginType;
+    spacingBottom?: PaddingType;
   };
 }
 
@@ -43,7 +43,7 @@ export const SbRowThreeColumns = ({ blok }: SbRowThreeColumnProps) => {
       columnThreeContent={ColThreeContent}
       oneColumnMd={oneColumnMd}
       contentAlignment={contentAlignment}
-      mb={spacingBottom}
+      pb={spacingBottom}
     />
   );
 };
