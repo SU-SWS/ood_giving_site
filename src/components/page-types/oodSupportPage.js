@@ -105,11 +105,11 @@ const OodSupportPage = (props) => {
                 <label htmlFor="culture">Culture, Ethics, + Service</label>
                 <input
                   type="radio"
-                  id="dei"
+                  id="ideal"
                   name="areas-to-support"
                   onClick={updateHash}
                 />
-                <label htmlFor="dei">Diversity, Equity, + Inclusion</label>
+                <label htmlFor="ideal">IDEAL</label>
                 <input
                   type="radio"
                   id="law"
