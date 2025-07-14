@@ -8,15 +8,12 @@ const deploySucceeded = async () => {
   const key = process.env.ALGOLIA_TASK_KEY || '';
   const taskID = process.env.ALGOLIA_PROCESS_DATA_TASK_ID || '';
 
-  console.log({ context: process.env.CONTEXT });
-
   // Only trigger for prod deploy
   if (process.env.CONTEXT !== 'production') {
     return new Response();
   }
 
   try {
-
     if (!appID || !key || !taskID) {
       throw(new Error('Missing prerequisites.'));
     }
