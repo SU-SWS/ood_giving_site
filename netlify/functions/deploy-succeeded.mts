@@ -18,6 +18,7 @@ const deploySucceeded = async () => {
       throw(new Error('Missing prerequisites.'));
     }
 
+    // Trigger processing task in Algolia
     const client = algoliasearch(appID, key).initIngestion({ region: 'us' });
     await client.runTask({ taskID });
     console.log('Success!');
