@@ -23,7 +23,7 @@ export const RowTwoColumns = ({
   oneColumnMd,
   contentAlignment = 'start',
   align = 'su-mx-auto',
-  mb,
+  pb,
   ...props
 }: RowTwoColumnProps) => {
   return (
@@ -31,7 +31,7 @@ export const RowTwoColumns = ({
       gap="card"
       md={oneColumnMd ? undefined : 6}
       lg={oneColumnMd ? 6 : undefined}
-      mb={mb}
+      pb={pb}
       alignItems={contentAlignment}
       className={cnb(styles.root(contentAlignment), styles.rowTwoColumnWidths[rowWidth], styles.rowAligns[align])}
       {...props}

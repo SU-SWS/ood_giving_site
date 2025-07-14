@@ -41,13 +41,13 @@ export type AspectRatioImageSizeType = keyof typeof aspectImageSizes;
 
 export const imageFocusHorizontal = (imgWidth: number) => ({
   left: 1,
-  center: imgWidth / 2,
+  center: Math.round(imgWidth / 2),
   right: imgWidth - 1,
 });
 
 export const imageFocusVertical = (imgHeight: number) => ({
   top: 1,
-  center: imgHeight / 2,
+  center: Math.round(imgHeight / 2),
   bottom: imgHeight - 1,
 });
 

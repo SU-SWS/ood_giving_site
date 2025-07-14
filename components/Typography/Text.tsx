@@ -74,12 +74,16 @@ export const Text = ({
       }
     >
       {children}
+      {/* Use this whitespace-nowrap trick so icon won't get pushed to the next line on its own */}
       {icon && (
-        <HeroIcon
-          {...iProps}
-          icon={icon}
-          className={cnb(iconClasses, styles.icon)}
-        />
+        <span className="whitespace-nowrap">
+          &#65279;
+          <HeroIcon
+            {...iProps}
+            icon={icon}
+            className={cnb(iconClasses, styles.icon)}
+          />
+        </span>
       )}
     </AsComponent>
   );

@@ -24,29 +24,40 @@ type SbStoryOverviewPageProps = {
   }
 };
 
-export const SbStoryOverviewPage = (props: SbStoryOverviewPageProps) => {
+export const SbStoryOverviewPage = ({ blok }: SbStoryOverviewPageProps) => {
+  const {
+    title,
+    intro,
+    headerBackgroundColor = 'bay-dark',
+    localHeader,
+    alertPicker,
+    stories,
+    belowContent,
+    iconCardHeading,
+    iconCards,
+    localFooter,
+    globalFooter,
+  } = blok;
+
   return (
-    <div {...storyblokEditable(props.blok)}>
-      <CreateBloks blokSection={props.blok.alertPicker} />
-      <CreateBloks blokSection={props.blok.localHeader} />
-      <main
-        id="main-content"
-        className="ood-interior-page ood-interior-page--no-image story-overview-page"
-      >
+    <div {...storyblokEditable(blok)}>
+      <CreateBloks blokSection={alertPicker} />
+      <CreateBloks blokSection={localHeader} />
+      <main id="main-content">
         <article className="bg-white">
           <HeaderNoImage
-            title={props.blok.title}
-            intro={props.blok.intro}
-            headerBackgroundColor={props.blok.headerBackgroundColor}
+            title={title}
+            intro={intro}
+            headerBackgroundColor={headerBackgroundColor}
           />
-          <CreateBloks blokSection={props.blok.stories} />
-          <CreateBloks blokSection={props.blok.belowContent} />
-          <footer className="ood-interior-page__main-footer">
-            <IconCardSection iconCards={props.blok.iconCards} iconCardHeading={props.blok.iconCardHeading} />
+          <CreateBloks blokSection={stories} />
+          <CreateBloks blokSection={belowContent} />
+          <footer>
+            <IconCardSection iconCards={iconCards} iconCardHeading={iconCardHeading} />
           </footer>
         </article>
       </main>
-      <Footer localFooter={props.blok.localFooter} globalFooter={props.blok.globalFooter} />
+      <Footer localFooter={localFooter} globalFooter={globalFooter} />
     </div>
   );
 };

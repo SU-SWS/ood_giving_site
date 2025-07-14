@@ -12,7 +12,7 @@ export const CreateBloks = ({ blokSection, isListItems, ...props }: CreateBloksP
   if (!hasContent) return null;
 
   if (isListItems) {
-    return blokSection.map((blok) => <li key={blok._uid}><StoryblokServerComponent blok={blok} {...props} /></li>);
+    return blokSection.map((blok) => <li className="empty:hidden" key={blok._uid}><StoryblokServerComponent blok={blok} {...props} /></li>);
   }
 
   return blokSection.map((blok) => <StoryblokServerComponent key={blok._uid} blok={blok} {...props} />);

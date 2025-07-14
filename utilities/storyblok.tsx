@@ -19,6 +19,7 @@ import { SbCtaLink } from '@/components/Storyblok/SbCtaLink';
 import { SbLockup } from '@/components/Storyblok/SbLockup';
 import { SbSingleColumnContent } from '@/components/Storyblok/SbSingleColumnContent';
 import { SbStoryImage } from '@/components/Storyblok/SbStoryImage';
+import { SbStoryCard } from '@/components/Storyblok/SbStoryCard';
 import { SbLocalHeader } from '@/components/Storyblok/SbLocalHeader';
 import { SbLocalHeaderPicker } from '@/components/Storyblok/SbLocalHeaderPicker';
 import {
@@ -45,6 +46,8 @@ import { SbCtaGroup } from '@/components/Storyblok/SbCtaGroup';
 import { SbIconCard } from '@/components/Storyblok/SbIconCard';
 import { SbSupportCard } from '@/components/Storyblok/SbSupportCard';
 import { SbEndowedPositionsSearch, SbEndowedPositionsSearchPicker } from '@/components/Storyblok/SbEndowedPositionsSearch';
+import { SbCuratedStories } from '@/components/Storyblok/SbCuratedStories';
+import { SbSearchResults } from '@/components/Storyblok/SbSearchResults';
 
 export const components = {
   page: SbPage,
@@ -54,10 +57,12 @@ export const components = {
   ctaGroup: SbCtaGroup,
   embedScript: SbEmbedScript,
   lockup: SbLockup,
+  searchResults: SbSearchResults,
   // Cards
   basicCard: SbBasicCard,
   oodIconCard: SbIconCard,
   oodSupportCard: SbSupportCard,
+  oodStoryCard: SbStoryCard,
   // Pages
   oodCampaignPage: SbCampaignPage,
   oodInteriorPage: SbInteriorPage,
@@ -86,6 +91,7 @@ export const components = {
   oodMegaMenuCard: SbMegaMenuCard,
   // Layout
   columnGrid: SbColumnGrid,
+  curatedStories: SbCuratedStories,
   rowOneColumn: SbRowOneColumn,
   rowTwoColumns: SbRowTwoColumns,
   rowThreeColumns: SbRowThreeColumns,

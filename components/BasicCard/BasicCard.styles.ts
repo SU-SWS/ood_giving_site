@@ -5,7 +5,7 @@ import { cnb } from 'cnbuilder';
  */
 export const heading = (largeHeading: boolean) => cnb(
   '-mt-02em text-pretty whitespace-pre-line',
-  largeHeading ? 'md:type-4' : 'lg:type-2',
+  largeHeading ? 'md:fluid-type-3' : 'lg:type-2',
 );
 
 export const superhead = 'text-09em mb-16';
