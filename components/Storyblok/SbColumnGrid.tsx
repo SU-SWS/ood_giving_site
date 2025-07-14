@@ -1,7 +1,39 @@
-export const SbColumnGrid = () => {
+import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
+import { CreateBloks } from '@/components/CreateBloks';
+import { ColumnGrid } from '@/components/Grid';
+import { getNumBloks } from '@/utilities/getNumBloks';
+
+type SbColumnGridProps = {
+  blok: SbBlokData & {
+    columnOneContent: SbBlokData[];
+    columnTwoContent: SbBlokData[];
+    columnThreeContent?: SbBlokData[];
+    oneColumnMd?: boolean;
+  };
+};
+
+export const SbColumnGrid = ({ blok }: SbColumnGridProps) => {
+  const {
+    columnOneContent,
+    columnTwoContent,
+    columnThreeContent,
+    oneColumnMd,
+  } = blok;
+
+  if (!getNumBloks(columnOneContent) && !getNumBloks(columnTwoContent) && !getNumBloks(columnThreeContent)) {
+    return null;
+  }
+  const ColOneContent = <CreateBloks blokSection={columnOneContent} />;
+  const ColTwoContent = <CreateBloks blokSection={columnTwoContent} />;
+  const ColThreeContent = <CreateBloks blokSection={columnThreeContent} />;
+
   return (
-    <div className="bg-sky rs-p-2">
-      <h2 className="text-white type-2">Column Grid</h2>
-    </div>
+    <ColumnGrid
+      {...storyblokEditable(blok)}
+      columnOneContent={ColOneContent}
+      columnTwoContent={ColTwoContent}
+      columnThreeContent={ColThreeContent}
+      oneColumnMd={oneColumnMd}
+    />
   );
 };
