@@ -8,7 +8,7 @@ const test = async () => {
   const taskID = process.env.ALGOLIA_PROCESS_DATA_TASK_ID || '';
 
   console.log({
-    context: process.env.CONTEXT,
+    env: process.env,
     appID,
     key,
     taskID,
