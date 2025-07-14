@@ -159,7 +159,7 @@ const OodSupportPage = (props) => {
                   <CreateBloks blokSection={props.blok.athletics} />
                   <CreateBloks blokSection={props.blok.business} />
                   <CreateBloks blokSection={props.blok.culture} />
-                  <CreateBloks blokSection={props.blok.dei} />
+                  <CreateBloks blokSection={props.blok.ideal} />
                   <CreateBloks blokSection={props.blok.law} />
                   <CreateBloks blokSection={props.blok.medicine} />
                   <CreateBloks blokSection={props.blok.science} />
