@@ -40,8 +40,8 @@ const TileCardContent = ({
     )}
     <Heading
       as={headingLevel}
-      size="f2"
       mb="06em"
+      className={styles.heading}
     >
       <SbLink link={link} classes={styles.link}>
         <Text
@@ -50,8 +50,8 @@ const TileCardContent = ({
           weight="semibold"
           color={isDarkText ? 'black' : 'white'}
           icon={link?.linktype !== 'story' ? 'external' : undefined}
-          iconProps={{ className: styles.icon, noBaseStyle: true }}
-          className={styles.linkText}
+          iconProps={{ className: styles.icon(isDarkText), noBaseStyle: true }}
+          className={styles.linkText(isDarkText)}
         >
           {headline}
         </Text>
@@ -78,6 +78,11 @@ export const TileCard = ({
 }: TileCardProps) => {
   const hasImage = !!filename;
   const isDarkText = bgColor === 'white';
+  /**
+   * Color contrast of white text on palo verde background is 3.5:1 which is insufficient for small text (superheadline)
+   * If palo verde is chosen as background color, use palo verde dark instead (4.91:1 contrast ratio)
+   */
+  const a11yBgColor = bgColor === 'palo-verde' ? 'palo-verde-dark' : bgColor;
 
   return hasImage ? (
     <OverhangCard
@@ -85,7 +90,7 @@ export const TileCard = ({
       variant="tile"
       isVertical
       hasLink
-      bgColor={bgColor}
+      bgColor={a11yBgColor}
       filename={filename}
       alt={alt}
       focus={focus}

@@ -12,7 +12,7 @@ export type SimpleCardProps = React.HTMLAttributes<HTMLDivElement> & {
 };
 
 const style = (isFeatured: boolean, isLink: boolean) => (cnb(
-  'relative shadow-md border border-black-10 transition-shadow',
+  'relative break-words shadow-md border border-black-10 transition-shadow',
   !isFeatured && 'w-4/5 sm:w-3/4 md:w-full mx-auto',
   isLink && 'focus-within:shadow-lg hover:shadow-lg',
 ));
