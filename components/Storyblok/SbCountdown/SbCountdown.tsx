@@ -11,6 +11,12 @@ type SbCountdownProps = {
   };
 };
 
-export const SbCountdown = (props: SbCountdownProps) => (
-  <Countdown {...storyblokEditable(props.blok)} />
+export const SbCountdown = ({ blok }: SbCountdownProps) => (
+  <Countdown
+    {...storyblokEditable(blok)}
+    date={blok.date}
+    dayPieRange={blok.dayPieRange}
+    hourPieRange={blok.hourPieRange}
+    hasDays={blok.hasDays}
+  />
 );

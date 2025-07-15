@@ -1,7 +1,7 @@
 import { cnb } from 'cnbuilder';
 
 export const CountdownPie = cnb(
-  'w-180',
+  'w-180 aspect-1',
   'before:bg-[radial-gradient(farthest-side,#8C1515_98%,#000),_]',
-  'after:'
+  'after:',
 );

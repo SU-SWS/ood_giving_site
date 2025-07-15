@@ -1,19 +1,27 @@
 'use client';
-import { useEffect, useMemo, useState } from 'react';
+
 import {
-  parseJSON,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
+import {
+  parse,
   differenceInSeconds,
   secondsToMinutes,
   secondsToHours,
+  isAfter,
 } from 'date-fns';
-import { TZDate, tz } from '@date-fns/tz';
+import { TZDate } from '@date-fns/tz';
+import { CountdownPie } from './CountdownPie';
+import { FlexBox } from '@/components/FlexBox';
 
 type CountdownProps = {
   date?: string;
   dayPieRange?: number;
   hourPieRange?: number;
   hasDays?: boolean;
-  // isDST?: boolean;
 };
 
 export const Countdown = ({
@@ -21,36 +29,51 @@ export const Countdown = ({
   dayPieRange,
   hourPieRange,
   hasDays = false,
-  // isDST = false,
 }: CountdownProps) => {
+  const timerRef = useRef(null);
   const [nowInPT, setnowInPT] = useState(TZDate.tz('America/Los_Angeles'));
-  const targetDate = useMemo(() => new TZDate(parseJSON(date), 'America/Los_Angeles'), [date]);
-  const diffInSeconds = useMemo(() => differenceInSeconds(targetDate, nowInPT), [targetDate, nowInPT]);
+  const targetDateInPT = useMemo(() => date ? new TZDate(parse(date, 'yyyy-MM-dd HH:mm', TZDate.tz('UTC')), 'America/Los_Angeles') : undefined, [date]);
+  const diffInSeconds = useMemo(() => (
+    Math.max(differenceInSeconds(targetDateInPT, nowInPT), 0)
+  ), [targetDateInPT, nowInPT]);
   const seconds = useMemo(() => diffInSeconds % 60, [diffInSeconds]);
   const minutes = useMemo(() => secondsToMinutes(diffInSeconds) % 60, [diffInSeconds]);
   const hours = useMemo(() => (
     hasDays
-      ? secondsToHours(diffInSeconds)
-      : secondsToHours(diffInSeconds) % 24
+      ? secondsToHours(diffInSeconds) % 24
+      : secondsToHours(diffInSeconds)
     ), [hasDays, diffInSeconds]);
   const days = useMemo(() => (
     hasDays
-      ? secondsToHours(diffInSeconds) / 24
+      ? Math.floor(secondsToHours(diffInSeconds) / 24)
       : undefined
   ), [hasDays, diffInSeconds]);
 
-  // Reset now every second
+  // Reset "now" every second
   useEffect(() => {
-    const timer = setInterval(() => {
+    timerRef.current = setInterval(() => {
       setnowInPT(TZDate.tz('America/Los_Angeles'));
     }, 1000);
 
-    return () => clearInterval(timer);
+    return () => clearInterval(timerRef?.current);
   }, []);
 
-  return (
-    <div aria-atomic role="timer">
+  // Stop timer when we hit the target datetime
+  useEffect(() => {
+    if (!!timerRef?.current && isAfter(nowInPT, targetDateInPT)) {
+      console.log('STOP');
+      clearInterval(timerRef.current);
+    }
+  }, [nowInPT, targetDateInPT]);
 
-    </div>
+  return (
+    <FlexBox justifyContent="evenly" aria-atomic role="timer" className="max-w-[54rem] mx-auto">
+      {hasDays && (
+        <CountdownPie filled={days} total={dayPieRange} descriptor="Days" />
+      )}
+      <CountdownPie filled={hours} total={hasDays ? 24 : hourPieRange} descriptor="Hours" />
+      <CountdownPie filled={minutes} total={60} descriptor="Minutes" />
+      <CountdownPie filled={seconds} total={60} descriptor="Seconds" />
+    </FlexBox>
   );
 };
