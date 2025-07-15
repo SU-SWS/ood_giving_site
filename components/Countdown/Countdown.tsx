@@ -15,7 +15,8 @@ import {
 } from 'date-fns';
 import { TZDate } from '@date-fns/tz';
 import { CountdownPie } from './CountdownPie';
-import { FlexBox } from '@/components/FlexBox';
+import { Grid } from '@/components/Grid';
+import * as styles from './Countdown.styles';
 
 type CountdownProps = {
   date?: string;
@@ -67,13 +68,19 @@ export const Countdown = ({
   }, [nowInPT, targetDateInPT]);
 
   return (
-    <FlexBox justifyContent="evenly" aria-atomic role="timer" className="max-w-[54rem] mx-auto">
+    <Grid
+      xs={hasDays ? 2 : 3} md={hasDays ? 4 : 3}
+      justifyContent="evenly"
+      aria-atomic
+      role="timer"
+      className={styles.countdown({ hasDays })}
+      >
       {hasDays && (
-        <CountdownPie filled={days} total={dayPieRange} descriptor="Days" />
+        <CountdownPie filled={days} total={dayPieRange} description="Days" />
       )}
-      <CountdownPie filled={hours} total={hasDays ? 24 : hourPieRange} descriptor="Hours" />
-      <CountdownPie filled={minutes} total={60} descriptor="Minutes" />
-      <CountdownPie filled={seconds} total={60} descriptor="Seconds" />
-    </FlexBox>
+      <CountdownPie filled={hours} total={hasDays ? 24 : hourPieRange} description="Hours" />
+      <CountdownPie filled={minutes} total={60} description="Minutes" />
+      <CountdownPie filled={seconds} total={60} description="Seconds" />
+    </Grid>
   );
 };
