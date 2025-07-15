@@ -37,10 +37,12 @@ export const OverhangCard = ({
   className,
   ...props
 }: OverhangCardProps) => {
+  const isDarkBg = !!bgColor && bgColor !== 'white' && bgColor !== 'fog-light';
+
   return (
     <FlexBox
       as="article"
-      className={cnb(styles.root(variant, isVertical, hasLink, largeCardPadding, bgColor), className)}
+      className={cnb(styles.root(variant, isVertical, hasLink, largeCardPadding, bgColor, isDarkBg), className)}
       {...props}
     >
       <div className={cnb(styles.imageWrapper(isVertical), imageWrapperClassName)}>

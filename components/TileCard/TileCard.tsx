@@ -20,7 +20,6 @@ type TileCardContentProps = {
 
 const TileCardContent = ({
   isDarkText,
-  hasImage,
   superheadline,
   headline,
   link,
@@ -40,7 +39,7 @@ const TileCardContent = ({
     )}
     <Heading
       as={headingLevel}
-      mb="06em"
+      mb="none"
       className={styles.heading}
     >
       <SbLink link={link} classes={styles.link}>
@@ -98,7 +97,7 @@ export const TileCard = ({
       visibleVertical={visibleVertical}
       imageSize="card"
       aspectRatio="3x2"
-      className="tile-card"
+      className={styles.rootHasImage}
     >
       <div className={styles.contentHasImage}>
         <TileCardContent
@@ -117,13 +116,15 @@ export const TileCard = ({
       bgColor={bgColor}
       className={styles.rootNoImage}
     >
-      <TileCardContent
-        isDarkText={isDarkText}
-        superheadline={superheadline}
-        headline={headline}
-        link={link}
-        headingLevel={headingLevel}
-      />
+      <div className={styles.contentNoImage}>
+        <TileCardContent
+          isDarkText={isDarkText}
+          superheadline={superheadline}
+          headline={headline}
+          link={link}
+          headingLevel={headingLevel}
+        />
+      </div>
     </SimpleCard>
   );
 };
