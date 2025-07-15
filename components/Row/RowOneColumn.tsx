@@ -5,7 +5,7 @@ import * as styles from './Row.styles';
 type RowOneColumnProps = ContainerProps & {
   rowWidth?: styles.RowOneColumnWidthType;
   // Horizontal alignment of the whole row if rowWidth is not 'full'
-  align?: styles.RowAlignType;
+  align?: styles.RowOneColumnAlignType;
 };
 
 export const RowOneColumn = ({
@@ -18,7 +18,7 @@ export const RowOneColumn = ({
   return (
     <Container
       mb={mb}
-      className={cnb(styles.rowOneColumnWidths[rowWidth], styles.rowAligns[align])}
+      className={cnb(styles.rowOneColumnWidths[rowWidth], styles.rowOneColumnAligns[align])}
       {...props}
     >
       {children}

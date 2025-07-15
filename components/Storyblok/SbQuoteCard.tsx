@@ -13,21 +13,19 @@ export type SbQuoteCardProps = {
     quoteText?: StoryblokRichtext;
     quoteSource?: StoryblokRichtext;
     image?: SbImageType;
-    showImage?: boolean;
+    showImage?: 'has-image' | 'no-image';
     visibleHorizontal?: VisibleHorizontalType;
     visibleVertical?: VisibleVerticalType;
     imageShape?: 'round' | 'square';
     borderColor?: AllCardBgColorType;
     backgroundColor?: LightPageBgColorType;
     quotationMarkColor?: QuoteMarkColorType;
-    isSmallText?: boolean;
+    smallText?: boolean;
     textAlign?: TextAlignType;
   };
 };
 
-export const SbQuoteCard = ({
-  blok,
-}: SbQuoteCardProps) => {
+export const SbQuoteCard = ({ blok }: SbQuoteCardProps) => {
   const {
     quoteText,
     quoteSource,
@@ -39,10 +37,11 @@ export const SbQuoteCard = ({
     borderColor,
     backgroundColor = 'white',
     quotationMarkColor = 'palo-verde-light',
-    isSmallText,
+    smallText,
     textAlign,
   } = blok;
 
+  const displayImage = showImage === 'has-image';
   const hasQuoteText = hasRichText(quoteText);
   const hasQuoteSource = hasRichText(quoteSource);
 
@@ -54,7 +53,6 @@ export const SbQuoteCard = ({
     <RichText
       wysiwyg={quoteText}
       textAlign={textAlign}
-      className={isSmallText ? 'rs-text-sm' : ''}
     />
   ) : null;
 
@@ -62,7 +60,6 @@ export const SbQuoteCard = ({
     <RichText
       wysiwyg={quoteSource}
       textAlign={textAlign}
-      className={isSmallText ? 'rs-text-sm' : ''}
     />
   ) : null;
 
@@ -71,16 +68,16 @@ export const SbQuoteCard = ({
       {...storyblokEditable(blok)}
       quoteText={QuoteText}
       quoteSource={QuoteSource}
-      filename={showImage ? filename : ''}
-      alt={showImage ? alt : ''}
-      focus={showImage ? focus : ''}
-      visibleHorizontal={showImage ? visibleHorizontal : undefined}
-      visibleVertical={showImage ? visibleVertical : undefined}
+      filename={displayImage ? filename : ''}
+      alt={displayImage ? alt : ''}
+      focus={displayImage ? focus : ''}
+      visibleHorizontal={displayImage ? visibleHorizontal : undefined}
+      visibleVertical={displayImage ? visibleVertical : undefined}
       imageShape={imageShape || 'square'}
       borderColor={borderColor}
       bgColor={backgroundColor || 'white'}
       quotationMarkColor={quotationMarkColor || 'palo-verde-light'}
-      isSmallText={isSmallText}
+      isSmallText={smallText}
       textAlign={textAlign}
     />
   );

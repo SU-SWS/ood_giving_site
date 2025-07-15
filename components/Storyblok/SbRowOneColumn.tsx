@@ -1,6 +1,6 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
-import { RowOneColumn, type RowOneColumnWidthType, type RowAlignType } from '@/components/Row';
+import { RowOneColumn, type RowOneColumnWidthType, type RowOneColumnAlignType } from '@/components/Row';
 import { getNumBloks } from '@/utilities/getNumBloks';
 import { type PaddingType } from '@/utilities/datasource';
 
@@ -8,7 +8,7 @@ export type SbRowOneColumnProps = {
   blok: SbBlokData & {
     columnContent?: SbBlokData[];
     rowWidth?: RowOneColumnWidthType;
-    align?: RowAlignType;
+    align?: RowOneColumnAlignType;
     spacingBottom?: PaddingType;
   };
 };

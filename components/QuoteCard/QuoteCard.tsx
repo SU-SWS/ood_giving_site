@@ -10,9 +10,8 @@ type QuoteCardContentProps = {
   quoteText?: React.ReactNode;
   quoteSource?: React.ReactNode;
   quotationMarkColor?: styles.QuoteMarkColorType;
-  isSmallText?: boolean;
   textAlign?: TextAlignType;
-  smallText?: boolean;
+  isSmallText?: boolean;
 };
 
 const QuoteCardContent = ({
@@ -22,7 +21,6 @@ const QuoteCardContent = ({
   quotationMarkColor,
   isSmallText,
   textAlign,
-  smallText,
 }: QuoteCardContentProps) => (
   <div>
     {quoteText && (
@@ -30,7 +28,7 @@ const QuoteCardContent = ({
         <span aria-hidden="true" className={styles.quoteMark(quotationMarkColor)}>“</span>
         <Text
           as="blockquote"
-          size={isSmallText ? 'f3' : 'f2'}
+          size={isSmallText ? 1 : 2}
           align={textAlign}
           className={styles.quote(isSmallText)}
         >
@@ -64,7 +62,7 @@ export const QuoteCard = ({
   bgColor = 'white',
   quotationMarkColor = 'palo-verde-light',
   textAlign,
-  smallText,
+  isSmallText,
   ...props
 }: QuoteCardProps) => {
   const hasImage = !!filename;
@@ -90,7 +88,7 @@ export const QuoteCard = ({
           quoteText={quoteText}
           quoteSource={quoteSource}
           quotationMarkColor={quotationMarkColor}
-          isSmallText={smallText}
+          isSmallText={isSmallText}
           textAlign={textAlign}
         />
       </FlexBox>
@@ -108,7 +106,7 @@ export const QuoteCard = ({
           quoteText={quoteText}
           quoteSource={quoteSource}
           quotationMarkColor={quotationMarkColor}
-          isSmallText={smallText}
+          isSmallText={isSmallText}
           textAlign={textAlign}
         />
       </FlexBox>
