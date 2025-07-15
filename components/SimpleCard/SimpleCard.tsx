@@ -12,7 +12,7 @@ export type SimpleCardProps = React.HTMLAttributes<HTMLDivElement> & {
 
 const style = (isLink: boolean) => (cnb(
   'relative break-words shadow-md border border-black-10 transition-shadow',
-  isLink && 'focus-within:shadow-lg hover:shadow-lg',
+  isLink && 'focus-within:shadow-lg hover:shadow-lg transition-shadow before:absolute before:z-0 before:inset-0 hover:before:bg-black-true/40 focus-within:before:bg-black-true/40 before:transition-colors',
 ));
 
 export const SimpleCard = ({

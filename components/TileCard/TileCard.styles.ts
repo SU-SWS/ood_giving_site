@@ -18,4 +18,4 @@ export const icon = (hasDarkText: boolean) => cnb(
   hasDarkText ? 'text-digital-red group-hover:text-digital-red' : 'text-white group-hover:text-white',
 );
 
-export const contentHasImage = 'pt-32 md:pt-36 2xl:pt-38';
+export const contentHasImage = 'pt-32 md:pt-36 2xl:pt-38 z-10';

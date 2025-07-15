@@ -7,6 +7,8 @@ export const rootNoImage = (isFeatured: boolean) => cnb(
 
 export const rootHasImage = (isFeatured: boolean) => !isFeatured && 'w-4/5 sm:w-3/4 md:w-full mx-auto';
 
+export const imageWrapper = (isVertical: boolean) => !isVertical && 'w-[40vw] max-w-600 lg:-mr-[20vw] 2xl:-mr-300 lg:ml-38 rs-mt-3';
+
 export const link = 'group stretched-link font-semibold';
 
 export const linkText = 'before:block before:content-[""] before:h-10 before:w-80 before:bg-cardinal-red before:rs-mb-2 lg:leading-tight group-hocus:text-digital-red group-hocus:underline';

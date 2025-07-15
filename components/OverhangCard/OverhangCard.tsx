@@ -15,6 +15,7 @@ export type OverhangCardProps = AspectRatioImageProps & React.HTMLAttributes<HTM
   hasLink?: boolean; // If true, the card has hover/focus styles
   bgColor?: AllCardBgColorType;
   largeCardPadding?: boolean;
+  imageWrapperClassName?: string; // Custom classes for the image wrapper
 };
 
 export const OverhangCard = ({
@@ -32,16 +33,17 @@ export const OverhangCard = ({
   aspectRatio = '3x2',
   largeCardPadding,
   children,
+  imageWrapperClassName,
   className,
   ...props
 }: OverhangCardProps) => {
   return (
     <FlexBox
       as="article"
-      className={cnb(styles.root(variant, isVertical, isFeatured, hasLink, largeCardPadding, bgColor), className)}
+      className={cnb(styles.root(variant, isVertical, hasLink, largeCardPadding, bgColor), className)}
       {...props}
     >
-      <div className={styles.imageWrapper(isVertical, variant, aspectRatio)}>
+      <div className={cnb(styles.imageWrapper(isVertical), imageWrapperClassName)}>
         <AspectRatioImage
           filename={filename}
           alt={alt}

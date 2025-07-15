@@ -1,4 +1,5 @@
 import { cnb } from 'cnbuilder';
+import { type ImageAspectRatioType } from '@/components/Image';
 
 /**
  * Common styles
@@ -36,3 +37,11 @@ export const contentHasImage = (isVertical: boolean, largeCardPadding: boolean) 
 );
 
 export const superheadHasImage = cnb(superhead, '-mt-4');
+
+export const imageWrapper = (isVertical: boolean, aspectRatio: ImageAspectRatioType) => cnb(
+  'hidden md:block', {
+    '-ml-80': !isVertical,
+    'w-200': !isVertical && aspectRatio === '1x1',
+    'w-260 xl:w-[32rem] 2xl:w-[38rem]': !isVertical && aspectRatio === '3x2',
+  },
+);

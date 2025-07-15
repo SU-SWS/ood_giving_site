@@ -18,7 +18,7 @@ export const RowOneColumn = ({
   return (
     <Container
       mb={mb}
-      className={cnb(styles.rowOneColumnWidths[rowWidth], styles.rowOneColumnAligns[align])}
+      className={cnb('grid', styles.rowOneColumnWidths[rowWidth], styles.rowOneColumnAligns[align])}
       {...props}
     >
       {children}

@@ -97,8 +97,9 @@ export const StoryCard = ({
       focus={focus}
       visibleHorizontal={visibleHorizontal}
       visibleVertical={visibleVertical}
-      imageSize={isVertical ? 'large-card' : 'horizontal-card'}
+      imageSize={useVerticalStyle ? 'large-card' : 'horizontal-card'}
       aspectRatio="3x2"
+      imageWrapperClassName={styles.imageWrapper(useVerticalStyle)}
       className={cnb('story-card', styles.rootHasImage(isFeatured))}
     >
       <div>

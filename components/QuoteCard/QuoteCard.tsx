@@ -1,8 +1,12 @@
+'use client';
+import { cnb } from 'cnbuilder';
+import { useWindowSize } from 'usehooks-ts';
 import { OverhangCard, type OverhangCardProps } from '@/components/OverhangCard';
 import { SimpleCard } from '@/components/SimpleCard';
 import { FlexBox } from '@/components/FlexBox';
 import { Text, type TextAlignType } from '@/components/Typography';
-import { type AllCardBgColorType } from '@/utilities/datasource';
+import { type BorderColorType } from '@/utilities/datasource';
+import { config } from '@/utilities/config';
 import * as styles from './QuoteCard.styles';
 
 type QuoteCardContentProps = {
@@ -22,13 +26,13 @@ const QuoteCardContent = ({
   isSmallText,
   textAlign,
 }: QuoteCardContentProps) => (
-  <div>
+  <FlexBox direction="col" className={styles.content(textAlign)}>
     {quoteText && (
       <>
-        <span aria-hidden="true" className={styles.quoteMark(quotationMarkColor)}>“</span>
+        <span aria-hidden="true" className={styles.quoteMark(quotationMarkColor, isSmallText)}>“</span>
         <Text
           as="blockquote"
-          size={isSmallText ? 1 : 2}
+          font="serif"
           align={textAlign}
           className={styles.quote(isSmallText)}
         >
@@ -37,16 +41,16 @@ const QuoteCardContent = ({
       </>
     )}
     {quoteSource && (
-      <Text className={styles.source}>
+      <Text size={1} weight="semibold" className={styles.source}>
         {quoteSource}
       </Text>
     )}
-  </div>
+  </FlexBox>
 );
 
 type QuoteCardProps = Omit<OverhangCardProps, 'variant'> & QuoteCardContentProps & {
-  imageShape?: 'round' | 'square';
-  borderColor?: AllCardBgColorType;
+  imageShape?: styles.ImageShapeType;
+  borderColor?: BorderColorType;
 };
 
 export const QuoteCard = ({
@@ -66,12 +70,14 @@ export const QuoteCard = ({
   ...props
 }: QuoteCardProps) => {
   const hasImage = !!filename;
+  const windowSize = useWindowSize();
+  const useVerticalStyle = windowSize?.width < config.breakpoints.lg;
 
   return hasImage ? (
     <OverhangCard
       {...props}
       variant="quote"
-      isVertical={false}
+      isVertical={useVerticalStyle}
       bgColor={bgColor}
       filename={filename}
       alt={alt}
@@ -80,9 +86,10 @@ export const QuoteCard = ({
       visibleVertical={visibleVertical}
       imageSize="thumbnail"
       aspectRatio="1x1"
-      className="quote-card"
+      imageWrapperClassName={styles.imageWrapper(imageShape, useVerticalStyle)}
+      className={cnb('quote-card', styles.rootHasImage(borderColor))}
     >
-      <FlexBox className={styles.blockquote(hasImage)} alignItems="center" justifyContent="center">
+      <div className={styles.contentHasImage(bgColor)}>
         <QuoteCardContent
           hasImage={hasImage}
           quoteText={quoteText}
@@ -91,16 +98,16 @@ export const QuoteCard = ({
           isSmallText={isSmallText}
           textAlign={textAlign}
         />
-      </FlexBox>
+      </div>
     </OverhangCard>
   ) : (
     <SimpleCard
       {...props}
       hasLink={false}
       bgColor={bgColor}
-      // className={styles.root(borderColor, hasImage)}
+      className={styles.rootNoImage(borderColor)}
     >
-      <FlexBox className={styles.blockquote(hasImage)} alignItems="center" justifyContent="center">
+      <div className={styles.contentNoImage(bgColor)}>
         <QuoteCardContent
           hasImage={hasImage}
           quoteText={quoteText}
@@ -109,7 +116,7 @@ export const QuoteCard = ({
           isSmallText={isSmallText}
           textAlign={textAlign}
         />
-      </FlexBox>
+      </div>
     </SimpleCard>
   );
 };

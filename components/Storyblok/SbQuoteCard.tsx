@@ -6,7 +6,7 @@ import { SbImageType } from './Storyblok.types';
 import { type TextAlignType } from '@/components/Typography';
 import { type VisibleVerticalType, type VisibleHorizontalType } from '@/components/Image';
 import { hasRichText } from '@/utilities/hasRichText';
-import { type AllCardBgColorType, type LightPageBgColorType } from '@/utilities/datasource';
+import { type BorderColorType, type LightPageBgColorType } from '@/utilities/datasource';
 
 export type SbQuoteCardProps = {
   blok: SbBlokData & {
@@ -17,7 +17,7 @@ export type SbQuoteCardProps = {
     visibleHorizontal?: VisibleHorizontalType;
     visibleVertical?: VisibleVerticalType;
     imageShape?: 'round' | 'square';
-    borderColor?: AllCardBgColorType;
+    borderColor?: BorderColorType;
     backgroundColor?: LightPageBgColorType;
     quotationMarkColor?: QuoteMarkColorType;
     smallText?: boolean;
