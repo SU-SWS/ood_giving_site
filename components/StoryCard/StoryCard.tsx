@@ -1,4 +1,5 @@
 'use client';
+import { cnb } from 'cnbuilder';
 import { useWindowSize } from 'usehooks-ts';
 import { OverhangCard, type OverhangCardProps } from '@/components/OverhangCard';
 import { SimpleCard } from '@/components/SimpleCard';
@@ -98,7 +99,7 @@ export const StoryCard = ({
       visibleVertical={visibleVertical}
       imageSize={isVertical ? 'large-card' : 'horizontal-card'}
       aspectRatio="3x2"
-      className="story-card"
+      className={cnb('story-card', styles.rootHasImage(isFeatured))}
     >
       <div>
         <StoryCardContent
@@ -113,10 +114,9 @@ export const StoryCard = ({
   ) : (
     <SimpleCard
       {...props}
-      isFeatured={isFeatured}
       hasLink
       bgColor={bgColor}
-      className={styles.rootNoImage(isFeatured)}
+      className={cnb('story-card', styles.rootNoImage(isFeatured))}
     >
       <StoryCardContent
         isVertical={isVertical}

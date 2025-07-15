@@ -136,7 +136,6 @@ export const BasicCard = ({
       imageSize={displaySquareThumbnail ? 'thumbnail' : 'large-card'}
       aspectRatio={aspectRatio}
       largeCardPadding={largeCardPadding}
-      className=""
     >
       <div className={styles.contentHasImage(isVertical, largeCardPadding)}>
         <CardContent

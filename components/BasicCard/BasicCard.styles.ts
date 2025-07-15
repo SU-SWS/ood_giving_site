@@ -18,7 +18,7 @@ export const ctaWrapper = 'rs-mt-1 mb-6';
  * No image - rendered as Simple Card
  */
 export const rootNoImage = (largeCardPadding: boolean) => cnb(
-  'relative p-32',
+  'relative p-32 w-full',
   largeCardPadding ? 'md:p-72 2xl:p-76' : 'md:p-36 2xl:p-38',
 );
 
