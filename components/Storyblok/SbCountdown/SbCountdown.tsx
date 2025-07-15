@@ -15,8 +15,8 @@ export const SbCountdown = ({ blok }: SbCountdownProps) => (
   <Countdown
     {...storyblokEditable(blok)}
     date={blok.date}
-    dayPieRange={blok.dayPieRange}
-    hourPieRange={blok.hourPieRange}
+    dayPieRange={blok.dayPieRange ? parseInt(blok.dayPieRange, 10) : undefined}
+    hourPieRange={blok.hourPieRange ? parseInt(blok.hourPieRange, 10) : undefined}
     hasDays={blok.hasDays}
   />
 );
