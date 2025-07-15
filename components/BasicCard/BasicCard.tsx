@@ -137,6 +137,7 @@ export const BasicCard = ({
       aspectRatio={aspectRatio}
       largeCardPadding={largeCardPadding}
       imageWrapperClassName={styles.imageWrapper(isVertical, aspectRatio)}
+      className={styles.roothasImage(isVertical)}
     >
       <div className={styles.contentHasImage(isVertical, largeCardPadding)}>
         <CardContent

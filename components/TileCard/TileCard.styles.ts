@@ -16,10 +16,9 @@ export const icon = (hasDarkText: boolean) => cnb(
   hasDarkText ? 'text-digital-red group-hover:text-digital-red' : 'text-white group-hover:text-white',
 );
 
-
 export const rootHasImage = 'max-w-600 mx-auto !h-[calc(100%_-_8rem)] sm:w-3/4 md:w-full md:max-lg:px-24';
 
-export const contentHasImage = 'pt-32 pb-32 md:pt-24 lg:pt-36 md:pb-48 2xl:pt-38 z-10 md:min-h-[24rem] lg:min-h-300 xl:min-h-[34rem]';
+export const contentHasImage = 'pt-24 pb-32 sm:pt-32 md:pt-24 md:pb-48 lg:py-36 2xl:pt-38 z-10 md:min-h-[24rem] lg:min-h-300 xl:min-h-[34rem]';
 
 export const rootNoImage = 'max-w-600 mx-auto sm:w-3/4 md:w-full md:min-h-[22rem] lg:min-h-300 xl:min-h-[34rem]';
 

@@ -28,6 +28,9 @@ export const contentNoImage = cnb(content, 'mx-auto');
 /**
  * Has image - rendered as Overhang Card
  */
+export const roothasImage = (isVertical: boolean) => isVertical && 'pb-32 max-md:mt-0 md:mt-80';
+
+
 export const contentHasImage = (isVertical: boolean, largeCardPadding: boolean) => cnb(
   content, {
     'rs-pt-2': isVertical && !largeCardPadding,

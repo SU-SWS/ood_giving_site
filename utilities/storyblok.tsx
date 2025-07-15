@@ -50,6 +50,7 @@ import { SbCuratedStories } from '@/components/Storyblok/SbCuratedStories';
 import { SbSearchResults } from '@/components/Storyblok/SbSearchResults';
 import { SbTileCard } from '@/components/Storyblok/SbTileCard';
 import { SbQuoteCard } from '@/components/Storyblok/SbQuoteCard';
+import { SbGridThreeColumns } from '@/components/Storyblok/SbGridThreeColumns';
 
 export const components = {
   page: SbPage,
@@ -96,6 +97,7 @@ export const components = {
   // Layout
   columnGrid: SbColumnGrid,
   curatedStories: SbCuratedStories,
+  gridThreeColumns: SbGridThreeColumns,
   rowOneColumn: SbRowOneColumn,
   rowTwoColumns: SbRowTwoColumns,
   rowThreeColumns: SbRowThreeColumns,
