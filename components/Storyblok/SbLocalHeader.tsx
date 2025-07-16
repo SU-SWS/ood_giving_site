@@ -1,7 +1,6 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { FlexBox } from '@/components/FlexBox';
-import { Skiplink } from '@/components/SkipLink';
 import { OpenSearchModalButton, SearchModal } from '@/components/Search/Modal';
 
 export type SbLocalHeaderProps = {
@@ -21,11 +20,14 @@ const styles = {
 };
 
 export const SbLocalHeader = ({ blok, slug }: SbLocalHeaderProps) => {
-  const { subMenu, lockup, megaMenu } = blok;
+  const {
+    subMenu,
+    lockup,
+    megaMenu,
+  } = blok;
 
   return (
-    <header {...storyblokEditable(blok)} className={styles.root}>
-      <Skiplink />
+    <div {...storyblokEditable(blok)} className={styles.root}>
       <CreateBloks blokSection={subMenu} />
       <FlexBox justifyContent="between" className={styles.wrapper}>
         <div className={styles.lockupWrapper}>
@@ -37,6 +39,6 @@ export const SbLocalHeader = ({ blok, slug }: SbLocalHeaderProps) => {
         </FlexBox>
       </FlexBox>
       <SearchModal />
-    </header>
+    </div>
   );
 };

@@ -2,6 +2,7 @@ import { Container } from '@/components/Container';
 import { CreateBloks } from '@/components/CreateBloks';
 import { EndowedPositionsFooter, EndowedPositionsHeader } from '@/components/EndowedPositions';
 import { Footer } from '@/components/Storyblok/partials/Footer';
+import { Header } from '@/components/Storyblok/partials/Header';
 import { StoryblokProvider } from '@/components/StoryblokProvider';
 import { getStoryDataCached } from '@/utilities/data';
 
@@ -20,8 +21,7 @@ const EndowedPositionsLayout = async ({ children }: EndowedPositionsLayoutProps)
 
   return (
     <StoryblokProvider>
-      <CreateBloks blokSection={alertPicker} />
-      <CreateBloks blokSection={localHeader} />
+      <Header alertPicker={alertPicker} localHeader={localHeader} />
       <main id="main-content">
         <article className="bg-fog-light">
           <Container width="full">

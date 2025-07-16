@@ -2,6 +2,8 @@ import React, { useId } from 'react';
 import { type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { CampaignHero } from '@/components/Storyblok/SbCampaignPage/CampaignHero';
+import { Skiplink } from '@/components/SkipLink';
+import { GlobalAlerts } from '@/components/Alert/GlobalAlerts';
 
 export type CampaignHeaderProps = {
   blok: SbBlokData & {
@@ -16,10 +18,9 @@ export const CampaignHeader = (props: CampaignHeaderProps) => {
 
   return (
     <header>
+      <Skiplink href={`#${htmlId}`} />
+      <GlobalAlerts />
       <CreateBloks blokSection={props.blok.alertPicker} />
-      <a href={`#${htmlId}`}>
-        Skip to main content
-      </a>
       <div>
         <CreateBloks blokSection={props.blok.oodCampaignHeader} />
         <CampaignHero {...props} htmlId={htmlId} />

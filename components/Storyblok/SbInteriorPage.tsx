@@ -9,6 +9,7 @@ import { Container } from '@/components/Container';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Grid } from '@/components/Grid';
 import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
+import { Header } from '@/components/Storyblok/partials/Header';
 import { Footer } from '@/components/Storyblok/partials/Footer';
 import { Skiplink } from '@/components/SkipLink';
 import { Heading } from '@/components/Typography';
@@ -84,8 +85,7 @@ export const SbInteriorPage = ({ blok, slug }: SbInteriorPageProps) => {
 
   return (
     <div {...storyblokEditable(blok)}>
-      <CreateBloks blokSection={alertPicker} />
-      <CreateBloks blokSection={localHeader} slug={slug} />
+      <Header alertPicker={alertPicker} localHeader={localHeader} slug={slug} />
       <main id="main-content">
         <article className="bg-fog-light">
           {/* Header */}

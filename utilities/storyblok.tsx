@@ -48,8 +48,11 @@ import { SbSupportCard } from '@/components/Storyblok/SbSupportCard';
 import { SbEndowedPositionsSearch, SbEndowedPositionsSearchPicker } from '@/components/Storyblok/SbEndowedPositionsSearch';
 import { SbCuratedStories } from '@/components/Storyblok/SbCuratedStories';
 import { SbSearchResults } from '@/components/Storyblok/SbSearchResults';
+import { SbAlert, SbAlertPicker } from '@/components/Storyblok/SbAlert';
 
 export const components = {
+  alert: SbAlert,
+  alertPicker: SbAlertPicker,
   page: SbPage,
   redirect: SbRedirect,
   storyPicker: SbStoryPicker,
