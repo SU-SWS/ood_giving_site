@@ -17,7 +17,7 @@ export const ColumnGrid = ({
   return (
     <Grid
       {...props}
-      gap="default"
+      gap="card"
       md={oneColumnMd ? 1 : 3}
       lg={oneColumnMd ? 1 : 3}
     >
