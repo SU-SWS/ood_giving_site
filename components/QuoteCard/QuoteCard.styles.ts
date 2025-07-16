@@ -54,8 +54,8 @@ export const quoteMark = (quoteColor: QuoteMarkColorType, isSmallText: boolean) 
 );
 
 export const quote = (isSmallText: boolean) => cnb(
-  'mt-03em *:*:leading-cozy [&_p]:mb-06em text-20 md:text-23',
-  !isSmallText ? 'lg:text-28 2xl:text-30' : '2xl:text-24',
+  'mt-03em *:*:leading-cozy [&_p]:mb-06em [&_p]:text-20 md:[&_p]:text-23',
+  !isSmallText ? 'lg:[&_p]:text-28 2xl:[&_p]:text-30' : '2xl:[&_p]:text-24',
 );
 
 export const source = 'text-20 md:text-23 2xl:text-24 text-pretty max-w-550 *:*:leading-display rs-mt-2';

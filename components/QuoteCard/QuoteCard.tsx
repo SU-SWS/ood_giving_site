@@ -16,17 +16,18 @@ type QuoteCardContentProps = {
   quotationMarkColor?: styles.QuoteMarkColorType;
   textAlign?: TextAlignType;
   isSmallText?: boolean;
+  className?: string;
 };
 
-const QuoteCardContent = ({
-  hasImage,
+export const QuoteCardContent = ({
   quoteText,
   quoteSource,
   quotationMarkColor,
   isSmallText,
   textAlign,
+  className,
 }: QuoteCardContentProps) => (
-  <FlexBox direction="col" className={styles.content(textAlign)}>
+  <FlexBox direction="col" className={cnb(styles.content(textAlign), className)}>
     {quoteText && (
       <>
         <span aria-hidden="true" className={styles.quoteMark(quotationMarkColor, isSmallText)}>“</span>
