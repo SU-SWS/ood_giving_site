@@ -1,13 +1,19 @@
 import { cnb } from 'cnbuilder';
 
+// Simple Card
 export const rootNoImage = (isFeatured: boolean) => cnb(
   'relative px-32 md:px-36 rs-pb-4 mx-auto',
   isFeatured ? 'w-full lg:px-45 2xl:px-48' : 'w-4/5 sm:w-3/4 md:w-full 2xl:px-38',
 );
 
-export const rootHasImage = (isFeatured: boolean) => !isFeatured && 'w-4/5 sm:w-3/4 md:w-full mx-auto';
+// Overhang Card
+export const rootHasImage = (isFeatured: boolean) => cnb(
+  'px-32 pb-32 md:px-36 md:pb-45',
+  !isFeatured && 'mx-auto !h-[calc(100%_-_8rem)] w-4/5 sm:w-3/4 md:w-full 2xl:px-38 2xl:pb-48',
+  isFeatured && 'max-lg:w-full max-lg:!h-[calc(100%_-_8rem)] lg:flex-row-reverse lg:mt-0 lg:justify-between lg:mr-[18vw] xl:mr-[20vw] 2xl:mr-300 lg:pl-48 lg:pr-0 lg:rs-pb-3',
+);
 
-export const imageWrapper = (isVertical: boolean) => !isVertical && 'w-[40vw] max-w-600 lg:-mr-[20vw] 2xl:-mr-300 lg:ml-38 rs-mt-3';
+export const imageWrapper = (isFeatured: boolean) => isFeatured && 'lg:w-[36vw] xl:w-[40vw] lg:max-w-600 lg:-mr-[18vw] xl:-mr-[20vw] 2xl:-mr-300 lg:ml-38 lg:rs-mt-3';
 
 export const link = 'group stretched-link font-semibold';
 

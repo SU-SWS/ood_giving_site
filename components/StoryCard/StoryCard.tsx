@@ -1,6 +1,5 @@
 'use client';
 import { cnb } from 'cnbuilder';
-import { useWindowSize } from 'usehooks-ts';
 import { OverhangCard, type OverhangCardProps } from '@/components/OverhangCard';
 import { SimpleCard } from '@/components/SimpleCard';
 import {
@@ -11,7 +10,6 @@ import {
 } from '@/components/Typography';
 import { SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
-import { config } from '@/utilities/config';
 import * as styles from './StoryCard.styles';
 
 type StoryCardContentProps = {
@@ -80,15 +78,14 @@ export const StoryCard = ({
   ...props
 }: StoryCardProps) => {
   const hasImage = !!filename;
+  // Even the horizontal card is rendered as a vertical card from XS to MD, so make this logic clearer
   const isFeatured = !isVertical;
-  const windowSize = useWindowSize();
-  const useVerticalStyle = isVertical || windowSize?.width < config.breakpoints.lg;
 
   return hasImage ? (
     <OverhangCard
       {...props}
       variant="story"
-      isVertical={useVerticalStyle}
+      isVertical={isVertical}
       isFeatured={isFeatured}
       hasLink
       bgColor={bgColor}
@@ -97,9 +94,9 @@ export const StoryCard = ({
       focus={focus}
       visibleHorizontal={visibleHorizontal}
       visibleVertical={visibleVertical}
-      imageSize={useVerticalStyle ? 'large-card' : 'horizontal-card'}
+      imageSize={isVertical ? 'large-card' : 'horizontal-card'}
       aspectRatio="3x2"
-      imageWrapperClassName={styles.imageWrapper(useVerticalStyle)}
+      imageWrapperClassName={styles.imageWrapper(isFeatured)}
       className={cnb('story-card', styles.rootHasImage(isFeatured))}
     >
       <div>

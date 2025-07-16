@@ -41,9 +41,9 @@ export const OverhangCard = ({
 
   return (
     <FlexBox
+      {...props}
       as="article"
       className={cnb(styles.root(variant, isVertical, hasLink, largeCardPadding, bgColor, isDarkBg), className)}
-      {...props}
     >
       <div className={cnb(styles.imageWrapper(isVertical), imageWrapperClassName)}>
         <AspectRatioImage

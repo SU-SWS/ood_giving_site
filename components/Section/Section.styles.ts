@@ -24,7 +24,7 @@ export const title = (titleStyle: TitleStyleType[], tabColor: DarkBeforeColorTyp
   const hasTabBefore = styleSet.has('ood-has-tab-before');
   const isItalic = styleSet.has('su-italic');
 
-  return cnb('w-fit max-w-1200', {
+  return cnb('w-fit max-w-1200 last:mb-0', {
     [titleStyles['ood-has-tab-before']]: hasTabBefore,
     [titleStyles['su-italic']]: isItalic,
   },
@@ -34,10 +34,10 @@ export const title = (titleStyle: TitleStyleType[], tabColor: DarkBeforeColorTyp
 };
 
 export const intro = (srOnlyHeader: boolean, isCenterAlignHeader: boolean) => cnb(
-  'mb-1em text-pretty',
+  'text-pretty',
   srOnlyHeader && 'sr-only',
   // In Gatsby build, the intro width is 100% when left aligned, but I added max-w-prose-wide here for better readability
   isCenterAlignHeader ? '*:*:mx-auto *:*:max-w-800' : '*:*:max-w-prose-wide',
 );
 
-export const content = (contentWidth: SectionContentWidthType) => cnb('grid mx-auto', sectionContentWidths[contentWidth || 'centered-container']);
+export const content = (contentWidth: SectionContentWidthType) => cnb('mx-auto', sectionContentWidths[contentWidth || 'centered-container']);

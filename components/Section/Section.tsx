@@ -52,7 +52,7 @@ export const Section = ({
       pb={pb}
     >
       {hasHeader && (
-        <Container mb={3} as="header" width={isEdgeToEdgeHeader ? 'full' : 'site'} className={styles.header(srOnlyHeader)}>
+        <Container pb={3} as="header" width={isEdgeToEdgeHeader ? 'full' : 'site'} className={styles.header(srOnlyHeader)}>
           {title && (
             <Heading
               as={headingLevel}
