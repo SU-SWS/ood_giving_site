@@ -27,7 +27,7 @@ export const root = (
     'md:pr-72 md:py-72 2xl:pr-78 2xl:py-78': largeCardPadding && !isVertical && variant === 'basic',
     'md:pr-36 md:py-36 2xl:pr-38 2xl:py-38': !largeCardPadding && !isVertical && variant === 'basic',
     'md:px-36 md:pb-45 2xl:px-38 2xl:pb-48': variant === 'story' && isVertical,
-    'focus-within:shadow-lg hover:shadow-lg transition-shadow before:absolute before:z-0 before:inset-0 hover:before:bg-black-true/40 focus-within:before:bg-black-true': hasLink && isDarkBg,
+    'focus-within:shadow-lg hover:shadow-lg transition-shadow before:absolute before:z-0 before:inset-0 hover:before:bg-black-true/40 focus-within:before:bg-black-true/40': hasLink && isDarkBg,
   },
 );
 
