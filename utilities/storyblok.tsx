@@ -49,6 +49,7 @@ import { SbEndowedPositionsSearch, SbEndowedPositionsSearchPicker } from '@/comp
 import { SbCuratedStories } from '@/components/Storyblok/SbCuratedStories';
 import { SbSearchResults } from '@/components/Storyblok/SbSearchResults';
 import { SbCountdown, SbCountdownPicker } from '@/components/Storyblok/SbCountdown';
+import { SbAccordion } from '@/components/Storyblok/SbAccordion';
 
 export const components = {
   page: SbPage,
@@ -106,6 +107,8 @@ export const components = {
   // Countdown
   countdown: SbCountdown,
   countdownPicker: SbCountdownPicker,
+  // Complex
+  accordion: SbAccordion,
 };
 
 export type GetStoryblokApiConfig = {

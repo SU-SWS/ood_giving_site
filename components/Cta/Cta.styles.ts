@@ -93,6 +93,7 @@ export const ctaIcons = {
   'su-link--download': 'download',
   'su-link--video': 'video',
   'su-link--no-icon': '',
+  plus: 'plus',
 };
 
 // Common styles for CTA icons
