@@ -11,7 +11,6 @@ import * as styles from './TileCard.styles';
 
 type TileCardContentProps = {
   isDarkText?: boolean;
-  hasImage?: boolean;
   superheadline?: string;
   headline?: string;
   link?: SbLinkType;
