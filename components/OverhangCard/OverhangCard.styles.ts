@@ -12,7 +12,8 @@ export const root = (
   isDarkBg: boolean,
 ) => cnb(
   'group relative break-words shadow-md border border-black-10',
-  isVertical && 'flex-col mt-80 px-32 lg:px-36 2xl:px-38',
+  isVertical && 'flex-col mt-80',
+  (isVertical && variant !== 'quote') && 'px-32 lg:px-36 2xl:px-38',
   allCardBgColors[bgColor],
   {
     'flex-row': !isVertical && variant === 'basic',
@@ -26,7 +27,6 @@ export const root = (
     'md:pr-72 md:py-72 2xl:pr-78 2xl:py-78': largeCardPadding && !isVertical && variant === 'basic',
     'md:pr-36 md:py-36 2xl:pr-38 2xl:py-38': !largeCardPadding && !isVertical && variant === 'basic',
     'md:px-36 md:pb-45 2xl:px-38 2xl:pb-48': variant === 'story' && isVertical,
-    'mr-80 pl-36 py-36 2xl:pl-38 2xl:py-38': !isVertical && variant === 'quote',
     'focus-within:shadow-lg hover:shadow-lg transition-shadow before:absolute before:z-0 before:inset-0 hover:before:bg-black-true/40 focus-within:before:bg-black-true': hasLink && isDarkBg,
   },
 );

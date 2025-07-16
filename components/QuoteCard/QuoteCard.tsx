@@ -41,7 +41,7 @@ const QuoteCardContent = ({
       </>
     )}
     {quoteSource && (
-      <Text size={1} weight="semibold" className={styles.source}>
+      <Text weight="semibold" className={styles.source}>
         {quoteSource}
       </Text>
     )}
@@ -87,9 +87,9 @@ export const QuoteCard = ({
       imageSize="thumbnail"
       aspectRatio="1x1"
       imageWrapperClassName={styles.imageWrapper(imageShape, useVerticalStyle)}
-      className={cnb('quote-card', styles.rootHasImage(borderColor))}
+      className={cnb('quote-card', styles.rootHasImage(borderColor, useVerticalStyle))}
     >
-      <div className={styles.contentHasImage(bgColor)}>
+      <div className={styles.contentHasImage}>
         <QuoteCardContent
           hasImage={hasImage}
           quoteText={quoteText}
@@ -105,9 +105,9 @@ export const QuoteCard = ({
       {...props}
       hasLink={false}
       bgColor={bgColor}
-      className={styles.rootNoImage(borderColor)}
+      className={cnb('quote-card', styles.rootNoImage(borderColor))}
     >
-      <div className={styles.contentNoImage(bgColor)}>
+      <div className={styles.contentNoImage}>
         <QuoteCardContent
           hasImage={hasImage}
           quoteText={quoteText}
