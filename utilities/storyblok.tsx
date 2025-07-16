@@ -51,6 +51,7 @@ import { SbSearchResults } from '@/components/Storyblok/SbSearchResults';
 import { SbTileCard } from '@/components/Storyblok/SbTileCard';
 import { SbQuoteCard } from '@/components/Storyblok/SbQuoteCard';
 import { SbGridThreeColumns } from '@/components/Storyblok/SbGridThreeColumns';
+import { SbCountdown, SbCountdownPicker } from '@/components/Storyblok/SbCountdown';
 
 export const components = {
   page: SbPage,
@@ -108,6 +109,9 @@ export const components = {
   // Endowed Positions
   endowedPositionsSearch: SbEndowedPositionsSearch,
   endowedPositionsSearchPicker: SbEndowedPositionsSearchPicker,
+  // Countdown
+  countdown: SbCountdown,
+  countdownPicker: SbCountdownPicker,
 };
 
 export type GetStoryblokApiConfig = {
