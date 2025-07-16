@@ -9,9 +9,6 @@ import * as styles from './OverhangCard.styles';
  * Used as a base for Basic, Tile, Quote and Story cards with image.
  */
 export type OverhangCardProps = AspectRatioImageProps & React.HTMLAttributes<HTMLDivElement> & {
-  variant: styles.OverhangCardVariantType;
-  isVertical?: boolean;
-  isFeatured?: boolean;
   hasLink?: boolean; // If true, the card has hover/focus styles
   bgColor?: AllCardBgColorType;
   largeCardPadding?: boolean;
@@ -19,9 +16,6 @@ export type OverhangCardProps = AspectRatioImageProps & React.HTMLAttributes<HTM
 };
 
 export const OverhangCard = ({
-  variant,
-  isVertical = true,
-  isFeatured,
   hasLink,
   bgColor = 'white',
   filename,
@@ -43,9 +37,9 @@ export const OverhangCard = ({
     <FlexBox
       {...props}
       as="article"
-      className={cnb(styles.root(variant, isVertical, hasLink, largeCardPadding, bgColor, isDarkBg), className)}
+      className={cnb(styles.root(hasLink, bgColor, isDarkBg), className)}
     >
-      <div className={cnb(styles.imageWrapper(isVertical), imageWrapperClassName)}>
+      <div className={cnb(styles.imageWrapper, imageWrapperClassName)}>
         <AspectRatioImage
           filename={filename}
           alt={alt}

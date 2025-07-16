@@ -59,7 +59,7 @@ const TileCardContent = ({
   </>
 );
 
-type TileCardProps = Omit<OverhangCardProps, 'variant'> & TileCardContentProps;
+type TileCardProps = OverhangCardProps & TileCardContentProps;
 
 export const TileCard = ({
   superheadline,
@@ -86,8 +86,6 @@ export const TileCard = ({
   return hasImage ? (
     <OverhangCard
       {...props}
-      variant="tile"
-      isVertical
       hasLink
       bgColor={a11yBgColor}
       filename={filename}

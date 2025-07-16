@@ -46,7 +46,7 @@ export const QuoteCardContent = ({
   </FlexBox>
 );
 
-type QuoteCardProps = Omit<OverhangCardProps, 'variant'> & QuoteCardContentProps & {
+type QuoteCardProps = OverhangCardProps & QuoteCardContentProps & {
   imageShape?: styles.ImageShapeType;
   borderColor?: BorderColorType;
 };
@@ -72,8 +72,6 @@ export const QuoteCard = ({
   return hasImage ? (
     <OverhangCard
       {...props}
-      variant="quote"
-      isVertical
       bgColor={bgColor}
       filename={filename}
       alt={alt}

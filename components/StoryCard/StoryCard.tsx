@@ -59,7 +59,7 @@ const StoryCardContent = ({
   </>
 );
 
-type StoryCardProps = Omit<OverhangCardProps, 'variant'> & StoryCardContentProps;
+type StoryCardProps = OverhangCardProps & StoryCardContentProps;
 
 export const StoryCard = ({
   headline,
@@ -83,9 +83,6 @@ export const StoryCard = ({
   return hasImage ? (
     <OverhangCard
       {...props}
-      variant="story"
-      isVertical={isVertical}
-      isFeatured={isFeatured}
       hasLink
       bgColor={bgColor}
       filename={filename}
