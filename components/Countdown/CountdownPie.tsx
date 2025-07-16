@@ -11,7 +11,12 @@ export type CountdownPieProps = {
 };
 
 export const CountdownPie = ({ filled, total, description }: CountdownPieProps) => {
-  const percent = useMemo(() => Math.min(Math.floor((filled / total) * 100), 100), [filled, total]);
+  const isBlank = useMemo(() => Number.isNaN(filled) || Number.isNaN(total), [filled, total]);
+  const percent = useMemo(() => (
+    isBlank
+      ? 0
+      : Math.min(Math.floor((filled / total) * 100), 100)
+  ), [isBlank, filled, total]);
 
   return (
     <div className={styles.countdownPie}>
@@ -29,7 +34,7 @@ export const CountdownPie = ({ filled, total, description }: CountdownPieProps) 
           justifyContent="center"
           className={styles.countdownContent}
         >
-          <span className={styles.countdownNumber}>{filled}</span>
+          <span className={styles.countdownNumber}>{isBlank ? '-' : filled}</span>
           {!!description && (
             <span className={styles.countdownDescription}>{description}</span>
           )}
