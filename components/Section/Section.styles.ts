@@ -40,4 +40,4 @@ export const intro = (srOnlyHeader: boolean, isCenterAlignHeader: boolean) => cn
   isCenterAlignHeader ? '*:*:mx-auto *:*:max-w-800' : '*:*:max-w-prose-wide',
 );
 
-export const content = (contentWidth: SectionContentWidthType) => cnb('mx-auto', sectionContentWidths[contentWidth || 'centered-container']);
+export const content = (contentWidth: SectionContentWidthType) => cnb('grid mx-auto', sectionContentWidths[contentWidth || 'centered-container']);
