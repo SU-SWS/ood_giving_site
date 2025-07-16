@@ -1,12 +1,9 @@
-'use client';
 import { cnb } from 'cnbuilder';
-import { useWindowSize } from 'usehooks-ts';
 import { OverhangCard, type OverhangCardProps } from '@/components/OverhangCard';
 import { SimpleCard } from '@/components/SimpleCard';
 import { FlexBox } from '@/components/FlexBox';
 import { Text, type TextAlignType } from '@/components/Typography';
 import { type BorderColorType } from '@/utilities/datasource';
-import { config } from '@/utilities/config';
 import * as styles from './QuoteCard.styles';
 
 type QuoteCardContentProps = {
@@ -71,14 +68,12 @@ export const QuoteCard = ({
   ...props
 }: QuoteCardProps) => {
   const hasImage = !!filename;
-  const windowSize = useWindowSize();
-  const useVerticalStyle = windowSize?.width < config.breakpoints.lg;
 
   return hasImage ? (
     <OverhangCard
       {...props}
       variant="quote"
-      isVertical={useVerticalStyle}
+      isVertical
       bgColor={bgColor}
       filename={filename}
       alt={alt}
@@ -87,8 +82,8 @@ export const QuoteCard = ({
       visibleVertical={visibleVertical}
       imageSize="thumbnail"
       aspectRatio="1x1"
-      imageWrapperClassName={styles.imageWrapper(imageShape, useVerticalStyle)}
-      className={cnb('quote-card', styles.rootHasImage(borderColor, useVerticalStyle))}
+      imageWrapperClassName={styles.imageWrapper(imageShape)}
+      className={cnb('quote-card', styles.rootHasImage(borderColor))}
     >
       <div className={styles.contentHasImage}>
         <QuoteCardContent

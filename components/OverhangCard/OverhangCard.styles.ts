@@ -18,7 +18,7 @@ export const root = (
   allCardBgColors[bgColor],
   {
     'flex-row': !isVertical && variant === 'basic',
-    'flex-row-reverse justify-between': !isVertical && variant !== 'basic' && variant !== 'story',
+    // 'flex-row-reverse justify-between': !isVertical && variant !== 'basic' && variant !== 'story',
     'md:h-[calc(100%_-_8rem)]': isVertical && variant === 'basic',
     'md:ml-80 pr-32 py-32': !isVertical && variant === 'basic',
     // 'pb-32 !h-[calc(100%_-_8rem)] md:px-36 md:pb-45 2xl:px-38 2xl:pb-48': variant === 'story' && isVertical,

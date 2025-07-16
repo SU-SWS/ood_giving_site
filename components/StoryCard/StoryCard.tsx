@@ -1,4 +1,3 @@
-'use client';
 import { cnb } from 'cnbuilder';
 import { OverhangCard, type OverhangCardProps } from '@/components/OverhangCard';
 import { SimpleCard } from '@/components/SimpleCard';

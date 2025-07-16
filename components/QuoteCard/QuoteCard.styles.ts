@@ -29,14 +29,13 @@ export const contentNoImage = 'rs-pt-5 rs-pb-4 px-32 md:px-58 lg:px-72 2xl:px-76
 /**
  * Has image - rendered as Overhang Card
  */
-export const rootHasImage = (borderColor: BorderColorType, isVertical: boolean) => cnb(
+export const rootHasImage = (borderColor: BorderColorType) => cnb(
   borderColor && 'border-[.5rem]',
   borderColors[borderColor],
-  '@container px-32 md:px-58 mt-80 lg:mt-0 lg:w-[calc(100%-80px)] lg:min-h-[30rem] xl:min-h-[42rem]',
-  !isVertical && 'lg:mr-80 lg:pr-0 lg:pl-72 2xl:pl-78 2xl:py-38',
+  '@container lg:flex-row-reverse lg:justify-between px-32 md:px-58 mt-80 lg:mt-0 lg:w-[calc(100%-80px)] lg:min-h-[30rem] xl:min-h-[42rem] lg:mr-80 lg:pr-0 lg:pl-72 2xl:pl-78',
 );
 
-export const contentHasImage = 'flex flex-col lg:flex-row lg:items-center w-full pb-36 lg:pt-58 md:pb-58';
+export const contentHasImage = 'flex flex-col lg:flex-row lg:items-center w-full pb-36 md:pb-58 lg:pt-58';
 
 /**
  * Quote content
@@ -60,9 +59,8 @@ export const quote = (isSmallText: boolean) => cnb(
 
 export const source = 'text-20 md:text-23 2xl:text-24 text-pretty max-w-550 *:*:leading-display rs-mt-2';
 
-export const imageWrapper = (imageShape: ImageShapeType, isVertical: boolean) => cnb(
-  'self-end lg:self-center size-130 md:size-200 lg:size-[30cqw] 2xl:size-300',
-  !isVertical && 'lg:-mr-80 lg:ml-45',
+export const imageWrapper = (imageShape: ImageShapeType) => cnb(
+  'self-end lg:self-center size-130 md:size-200 lg:size-[30cqw] 2xl:size-300 lg:mt-0 lg:-mr-80 lg:ml-45',
   imageShapes[imageShape],
 );
 
