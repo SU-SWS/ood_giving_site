@@ -62,7 +62,6 @@ export const Countdown = ({
   // Stop timer when we hit the target datetime
   useEffect(() => {
     if (!!timerRef?.current && isAfter(nowInPT, targetDateInPT)) {
-      console.log('STOP');
       clearInterval(timerRef.current);
     }
   }, [nowInPT, targetDateInPT]);
