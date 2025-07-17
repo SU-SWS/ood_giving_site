@@ -10,9 +10,11 @@ import {
   NODE_HEADING,
   NODE_PARAGRAPH,
   NODE_IMAGE,
+  NODE_QUOTE,
 } from 'storyblok-rich-text-react-renderer';
 import { cnb } from 'cnbuilder';
 import { CtaLink } from '@/components/Cta';
+import { QuoteCardContent } from '@/components/QuoteCard';
 import {
   Heading,
   Paragraph,
@@ -122,7 +124,6 @@ export const RichText = ({
         );
       },
     },
-    // TODO: DS-1437 - Will add Blockquote styles later
     nodeResolvers: {
       [NODE_HEADING]: (children, props) => {
         const { level } = props;
@@ -138,6 +139,9 @@ export const RichText = ({
           </Heading>
         );
       },
+      [NODE_QUOTE]: (children) => (
+        <QuoteCardContent quoteText={children} quotationMarkColor="palo-verde-light" className="rs-p-3" />
+      ),
       [NODE_PARAGRAPH]: (children) => (
         <Paragraph variant={baseFontSize !== 'default'? baseFontSize : undefined}>{children}</Paragraph>
       ),

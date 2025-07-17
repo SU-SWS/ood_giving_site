@@ -68,6 +68,33 @@ export const allCardBgColors = {
 };
 export type AllCardBgColorType = CardBgColorType | LightPageBgColorType;
 
+const gradientBorderBase = '[border-image-slice:1]';
+
+export const borderColors = {
+  white: 'border-white',
+  'bay-dark': 'border-bay-dark',
+  'palo-alto': 'border-palo-alto',
+  'palo-alto-dark': 'border-palo-alto-dark',
+  'palo-verde-dark': 'border-palo-verde-dark',
+  'lagunita': 'border-lagunita',
+  'lagunita-dark': 'border-lagunita-dark',
+  'sky-dark': 'border-sky-dark',
+  'cardinal-red': 'border-cardinal-red',
+  'digital-red': 'border-digital-red',
+  'black': 'border-black',
+  'fog-light': 'border-fog-light',
+  'cardinal-dark-to-spirited-dark': `${gradientBorderBase} [border-image-source:linear-gradient(to_top_right,#820000,#C74632)]`,
+  'plum-to-digital-red': `${gradientBorderBase} [border-image-source:linear-gradient(to_top_right,#620059,#B1040E)]`,
+  'plum-to-spirited-dark': `${gradientBorderBase} [border-image-source:linear-gradient(to_top_right,#620059,#C74632)]`,
+  'palo-alto-dark-to-palo-verde-dark': `${gradientBorderBase} [border-image-source:linear-gradient(to_top_right,#014240,#017E7C)]`,
+  'sky-dark-to-olive-dark': `${gradientBorderBase} [border-image-source:linear-gradient(to_top_right,#016895,#7A863B)]`,
+  'sky-dark-to-bay-dark': `${gradientBorderBase} [border-image-source:linear-gradient(to_top_right,#016895,#417865)]`,
+  'palo-verde': 'border-palo-verde',
+  'plum': 'border-plum',
+  'brick': 'border-brick',
+};
+export type BorderColorType = keyof typeof borderColors;
+
 // For pseudo elements like tabs above headings
 export const darkBeforeColors = {
   'bay-dark': 'before:bg-bay-dark',

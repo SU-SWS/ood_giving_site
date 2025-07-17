@@ -5,19 +5,19 @@ export type ContentALignmentType = 'start' | 'center' | 'end' | 'stretch';
 
 export const root = (contentAlignment: ContentALignmentType) => contentAlignment === 'stretch' && '*:*:h-full';
 
-export const rowAligns = {
-  'su-mx-auto': 'mx-auto', // center
-  'su-ml-none': '', // left
-  'su-mr-none su-ml-auto': 'ml-auto', // right
-};
-export type RowAlignType = keyof typeof rowAligns;
-
 // TODO: Think about whether to finetune old flex width classes at the end
 // https://stanford.atlassian.net/browse/DS-1433
 
 /**
  * Row with 1 column
  */
+export const rowOneColumnAligns = {
+  'su-mx-auto': 'mx-auto', // center
+  'su-mr-auto': 'mr-auto ml-0', // left
+  'su-ml-auto': 'ml-auto mr-0', // right
+};
+export type RowOneColumnAlignType = keyof typeof rowOneColumnAligns;
+
 export const rowOneColumnWidths = {
   'flex-12-of-12': 'w-full', // 12 of 12 columns
   'flex-lg-10-of-12': 'lg:w-10/12', // 10 of 12 columns at LG
@@ -32,6 +32,13 @@ export type RowOneColumnWidthType = keyof typeof rowOneColumnWidths;
  * Row with 2 columns
  */
 export type WidthRatioType = '1-to-1' | '1-to-2' | '2-to-1';
+
+export const rowTwoColumnAligns = {
+  'su-mx-auto': 'mx-auto', // center
+  'su-ml-none': '', // left
+  'su-mr-none su-ml-auto': 'ml-auto', // right
+};
+export type RowTwoColumnAlignType = keyof typeof rowTwoColumnAligns;
 
 export const rowTwoColumnWidths = {
   'full': 'w-full',

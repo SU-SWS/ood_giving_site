@@ -48,6 +48,9 @@ import { SbSupportCard } from '@/components/Storyblok/SbSupportCard';
 import { SbEndowedPositionsSearch, SbEndowedPositionsSearchPicker } from '@/components/Storyblok/SbEndowedPositionsSearch';
 import { SbCuratedStories } from '@/components/Storyblok/SbCuratedStories';
 import { SbSearchResults } from '@/components/Storyblok/SbSearchResults';
+import { SbTileCard } from '@/components/Storyblok/SbTileCard';
+import { SbQuoteCard } from '@/components/Storyblok/SbQuoteCard';
+import { SbGridThreeColumns } from '@/components/Storyblok/SbGridThreeColumns';
 import { SbCountdown, SbCountdownPicker } from '@/components/Storyblok/SbCountdown';
 import { SbAccordion } from '@/components/Storyblok/SbAccordion';
 
@@ -63,8 +66,10 @@ export const components = {
   // Cards
   basicCard: SbBasicCard,
   oodIconCard: SbIconCard,
+  oodQuoteCard: SbQuoteCard,
   oodSupportCard: SbSupportCard,
   oodStoryCard: SbStoryCard,
+  oodTileCard: SbTileCard,
   // Pages
   oodCampaignPage: SbCampaignPage,
   oodInteriorPage: SbInteriorPage,
@@ -94,6 +99,7 @@ export const components = {
   // Layout
   columnGrid: SbColumnGrid,
   curatedStories: SbCuratedStories,
+  gridThreeColumns: SbGridThreeColumns,
   rowOneColumn: SbRowOneColumn,
   rowTwoColumns: SbRowTwoColumns,
   rowThreeColumns: SbRowThreeColumns,

@@ -1,5 +1,4 @@
-'use client';
-import { useWindowSize } from 'usehooks-ts';
+import { cnb } from 'cnbuilder';
 import { OverhangCard, type OverhangCardProps } from '@/components/OverhangCard';
 import { SimpleCard } from '@/components/SimpleCard';
 import {
@@ -10,7 +9,6 @@ import {
 } from '@/components/Typography';
 import { SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
-import { config } from '@/utilities/config';
 import * as styles from './StoryCard.styles';
 
 type StoryCardContentProps = {
@@ -61,7 +59,7 @@ const StoryCardContent = ({
   </>
 );
 
-type StoryCardProps = Omit<OverhangCardProps, 'variant'> & StoryCardContentProps;
+type StoryCardProps = OverhangCardProps & StoryCardContentProps;
 
 export const StoryCard = ({
   headline,
@@ -79,16 +77,12 @@ export const StoryCard = ({
   ...props
 }: StoryCardProps) => {
   const hasImage = !!filename;
+  // Even the horizontal card is rendered as a vertical card from XS to MD, so make this logic clearer
   const isFeatured = !isVertical;
-  const windowSize = useWindowSize();
-  const useVerticalStyle = isVertical || windowSize?.width < config.breakpoints.lg;
 
   return hasImage ? (
     <OverhangCard
       {...props}
-      variant="story"
-      isVertical={useVerticalStyle}
-      isFeatured={isFeatured}
       hasLink
       bgColor={bgColor}
       filename={filename}
@@ -98,7 +92,8 @@ export const StoryCard = ({
       visibleVertical={visibleVertical}
       imageSize={isVertical ? 'large-card' : 'horizontal-card'}
       aspectRatio="3x2"
-      className="story-card"
+      imageWrapperClassName={styles.imageWrapper(isFeatured)}
+      className={cnb('story-card', styles.rootHasImage(isFeatured))}
     >
       <div>
         <StoryCardContent
@@ -113,10 +108,9 @@ export const StoryCard = ({
   ) : (
     <SimpleCard
       {...props}
-      isFeatured={isFeatured}
       hasLink
       bgColor={bgColor}
-      className={styles.rootNoImage(isFeatured)}
+      className={cnb('story-card', styles.rootNoImage(isFeatured))}
     >
       <StoryCardContent
         isVertical={isVertical}
