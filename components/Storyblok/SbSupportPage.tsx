@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Container } from '@/components/Container';
 import { CreateBloks } from '@/components/CreateBloks';
 import { HeaderNoImage } from '@/components/Storyblok/PageHeader/HeaderNoImage';
+import { Header } from '@/components/Storyblok/partials/Header';
 import { Footer } from '@/components/Storyblok/partials/Footer';
 import { Grid } from '@/components/Grid';
 import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
@@ -77,8 +78,7 @@ export const SbSupportPage = (props: SbSupportPageProps) => {
 
   return (
     <div {...storyblokEditable(props.blok)}>
-      <CreateBloks blokSection={props.blok.alertPicker} />
-      <CreateBloks blokSection={props.blok.localHeader} slug={props.slug} />
+      <Header alertPicker={props.blok.alertPicker} localHeader={props.blok.localHeader} slug={props.slug} />
       <main
         id="main-content"
         className="ood-interior-page--no-image ood-support-page"
