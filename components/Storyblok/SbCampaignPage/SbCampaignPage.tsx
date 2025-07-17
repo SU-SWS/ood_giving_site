@@ -7,14 +7,12 @@ import { Footer, type FooterProps } from '@/components/Storyblok/partials/Footer
 
 export type SbCampaignPageProps = CampaignHeaderProps & IconCardSectionProps & FooterProps & {
   blok: SbBlokData & {
-    alertPicker: SbBlokData[];
     content: SbBlokData[];
   };
 };
 
 export const SbCampaignPage = (props: SbCampaignPageProps) => (
   <div {...storyblokEditable(props.blok)}>
-    <CreateBloks blokSection={props.blok.alertPicker} />
     <CampaignHeader {...props} />
     <main id="main-content" className="ood-campaign-page">
       <article className="bg-white">

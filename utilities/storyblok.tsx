@@ -48,12 +48,15 @@ import { SbSupportCard } from '@/components/Storyblok/SbSupportCard';
 import { SbEndowedPositionsSearch, SbEndowedPositionsSearchPicker } from '@/components/Storyblok/SbEndowedPositionsSearch';
 import { SbCuratedStories } from '@/components/Storyblok/SbCuratedStories';
 import { SbSearchResults } from '@/components/Storyblok/SbSearchResults';
+import { SbAlert, SbAlertPicker } from '@/components/Storyblok/SbAlert';
 import { SbTileCard } from '@/components/Storyblok/SbTileCard';
 import { SbQuoteCard } from '@/components/Storyblok/SbQuoteCard';
 import { SbGridThreeColumns } from '@/components/Storyblok/SbGridThreeColumns';
 import { SbCountdown, SbCountdownPicker } from '@/components/Storyblok/SbCountdown';
 
 export const components = {
+  alert: SbAlert,
+  alertPicker: SbAlertPicker,
   page: SbPage,
   redirect: SbRedirect,
   storyPicker: SbStoryPicker,

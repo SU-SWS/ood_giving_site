@@ -1,4 +1,3 @@
-import { isProduction } from '@/utilities/getActiveEnv';
 import { unstable_cache } from 'next/cache';
 import { getStoryblokApi } from '@/utilities/storyblok';
 import { type SbCtaProps } from '@/components/Storyblok/SbCtaLink';
@@ -30,13 +29,13 @@ export type SearchConfig = {
  */
 export const getSearchConfigBlok = async () => {
   const storyblokApi = getStoryblokApi();
-  const isProd = isProduction();
 
   // Get the global configuration.
   const { data: { story } } = await storyblokApi.get(
     'cdn/stories/global-components/search-overlay/search-overlay',
     {
-      version: isProd ? 'published' : 'draft',
+      // We have separate dev/prod spaces; we always want the published config from each space
+      version: 'published',
       token: process.env.STORYBLOK_ACCESS_TOKEN,
     },
   );

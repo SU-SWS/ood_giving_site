@@ -2,6 +2,7 @@ import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Container } from '@/components/Container';
 import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
+import { Header } from '@/components/Storyblok/partials/Header';
 import { Footer } from '@/components/Storyblok/partials/Footer';
 import { Heading, Paragraph, Text } from '@/components/Typography';
 import { FullWidthImage, type VisibleVerticalType } from '@/components/Image';
@@ -84,8 +85,7 @@ export const SbStory = ({ blok }: SbStoryProps) => {
 
   return (
     <div {...storyblokEditable(blok)}>
-      <CreateBloks blokSection={alertPicker} />
-      <CreateBloks blokSection={localHeader} />
+      <Header alertPicker={alertPicker} localHeader={localHeader} />
       <main id="main-content">
         <article className={styles.article}>
           <header>
