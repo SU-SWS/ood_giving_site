@@ -1,5 +1,5 @@
 import { cnb } from 'cnbuilder';
-import { type SbAlertBgColorType } from '@/components/Storyblok/SbAlert';
+import { SbAlertBgColors, type SbAlertBgColorType } from '@/components/Storyblok/SbAlert';
 
 export const alertBgTextColors: Record<SbAlertBgColorType, string> = {
   'blue': 'text-white',
@@ -9,7 +9,7 @@ export const alertBgTextColors: Record<SbAlertBgColorType, string> = {
   'yellow': 'text-black',
 };
 
-export const alert = (bg: SbAlertBgColorType) => cnb(alertBgTextColors[bg], {
+export const alert = (bg: SbAlertBgColorType) => cnb(SbAlertBgColors[bg], {
   'text-white': alertBgTextColors[bg] === 'text-white',
   'text-black': alertBgTextColors[bg] === 'text-black',
 });
