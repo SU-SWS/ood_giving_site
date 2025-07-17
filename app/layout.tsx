@@ -5,7 +5,7 @@ import './globals.css';
 import { FlexBox } from '@/components/FlexBox';
 import { GAProvider, GTAG } from '@/components/GAProvider';
 import { SearchModalProvider } from '@/components/Search/Modal/SearchModalContext';
-import { LazyMotionProvider } from './LazyMotionProvider';
+import { MotionProvider } from './MotionProvider';
 // https://docs.fontawesome.com/web/use-with/react/use-with#getting-font-awesome-css-to-work
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -40,7 +40,7 @@ const RootLayout = async ({ children }: LayoutProps) => {
   return (
     <GAProvider>
       <SearchModalProvider searchConfig={searchConfig}>
-        <LazyMotionProvider>
+        <MotionProvider>
           <html
             lang="en"
             className={cnb(
@@ -57,7 +57,7 @@ const RootLayout = async ({ children }: LayoutProps) => {
               </FlexBox>
             </body>
           </html>
-        </LazyMotionProvider>
+        </MotionProvider>
       </SearchModalProvider>
     </GAProvider>
   );
