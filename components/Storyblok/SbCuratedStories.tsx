@@ -22,7 +22,7 @@ export const SbCuratedStories = ({ blok }: SbCuratedStoriesProps) => {
   } = blok;
 
   return (
-    <Grid {...storyblokEditable(blok)} className="curated-stories gap-y-32 md:gap-y-45 2xl:gap-y-48 rs-mt-3">
+    <Grid {...storyblokEditable(blok)} className="curated-stories gap-y-32 md:gap-y-45 2xl:gap-y-48">
       {!!getNumBloks(featuredStories) && (
         <Grid className="xl:w-10/12 mx-auto">
           <CreateBloks blokSection={featuredStories} />

@@ -9,18 +9,13 @@ import * as styles from './OverhangCard.styles';
  * Used as a base for Basic, Tile, Quote and Story cards with image.
  */
 export type OverhangCardProps = AspectRatioImageProps & React.HTMLAttributes<HTMLDivElement> & {
-  variant: styles.OverhangCardVariantType;
-  isVertical?: boolean;
-  isFeatured?: boolean;
   hasLink?: boolean; // If true, the card has hover/focus styles
   bgColor?: AllCardBgColorType;
   largeCardPadding?: boolean;
+  imageWrapperClassName?: string; // Custom classes for the image wrapper
 };
 
 export const OverhangCard = ({
-  variant,
-  isVertical = true,
-  isFeatured,
   hasLink,
   bgColor = 'white',
   filename,
@@ -32,16 +27,19 @@ export const OverhangCard = ({
   aspectRatio = '3x2',
   largeCardPadding,
   children,
+  imageWrapperClassName,
   className,
   ...props
 }: OverhangCardProps) => {
+  const isDarkBg = !!bgColor && bgColor !== 'white' && bgColor !== 'fog-light';
+
   return (
     <FlexBox
-      as="article"
-      className={cnb(styles.root(variant, isVertical, isFeatured, hasLink, largeCardPadding, bgColor), className)}
       {...props}
+      as="article"
+      className={cnb(styles.root(hasLink, bgColor, isDarkBg), className)}
     >
-      <div className={styles.imageWrapper(isVertical, variant, aspectRatio)}>
+      <div className={cnb(styles.imageWrapper, imageWrapperClassName)}>
         <AspectRatioImage
           filename={filename}
           alt={alt}
