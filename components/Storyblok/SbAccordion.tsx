@@ -40,7 +40,7 @@ export const SbAccordion = ({
       id={id}
       headingLevel={headingLevel || 'h2'}
       items={accordionItems}
-      color={accordionColor || 'digital-red'}
+      color={accordionColor || 'palo-alto-light'}
       mt={spacingTop}
       mb={spacingBottom}
     />
