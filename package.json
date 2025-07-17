@@ -31,6 +31,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
+    "@date-fns/tz": "^1.2.0",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
@@ -43,6 +44,7 @@
     "algoliasearch": "^5.30.0",
     "cnbuilder": "^3.1.0",
     "cookies-next": "^5.1.0",
+    "date-fns": "^4.1.0",
     "fuse.js": "^7.1.0",
     "next": "^15.3.3",
     "react-instantsearch": "^7.16.0",

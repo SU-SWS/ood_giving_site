@@ -49,6 +49,7 @@ import { SbEndowedPositionsSearch, SbEndowedPositionsSearchPicker } from '@/comp
 import { SbCuratedStories } from '@/components/Storyblok/SbCuratedStories';
 import { SbSearchResults } from '@/components/Storyblok/SbSearchResults';
 import { SbAlert, SbAlertPicker } from '@/components/Storyblok/SbAlert';
+import { SbCountdown, SbCountdownPicker } from '@/components/Storyblok/SbCountdown';
 
 export const components = {
   alert: SbAlert,
@@ -105,6 +106,9 @@ export const components = {
   // Endowed Positions
   endowedPositionsSearch: SbEndowedPositionsSearch,
   endowedPositionsSearchPicker: SbEndowedPositionsSearchPicker,
+  // Countdown
+  countdown: SbCountdown,
+  countdownPicker: SbCountdownPicker,
 };
 
 export type GetStoryblokApiConfig = {
