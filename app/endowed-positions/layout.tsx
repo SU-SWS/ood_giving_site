@@ -1,5 +1,4 @@
 import { Container } from '@/components/Container';
-import { CreateBloks } from '@/components/CreateBloks';
 import { EndowedPositionsFooter, EndowedPositionsHeader } from '@/components/EndowedPositions';
 import { Footer } from '@/components/Storyblok/partials/Footer';
 import { Header } from '@/components/Storyblok/partials/Header';
