@@ -25,8 +25,8 @@ export type AlertProps = {
 };
 
 export const Alert = ({
-  bg = 'yellow',
-  icon = 'exclamation-triangle',
+  bg = 'light-grey',
+  icon = 'bell',
   label,
   ctaText,
   cta,
@@ -54,20 +54,23 @@ export const Alert = ({
       <FlexBox className={styles.alertContainer}>
         <FlexBox alignItems="center" className={styles.alertHeader}>
           <FAIcon icon={icon} iconStyle={icon === 'bell' ? 'far' : 'fas'} aria-hidden />
-          <span className={styles.alertLabel}>{label}:</span>
+          {!!label && (<span className={styles.alertLabel}>{label}:</span>)}
         </FlexBox>
         <FlexBox className={styles.alertMain}>
           <div className={styles.alertContentWrapper}>
-            <div className={styles.alertContent(bg)}>
-              {content}
-            </div>
+            {!!content && (
+              <div className={styles.alertContent(bg)}>
+                {content}
+              </div>
+            )}
             {!!cta && !!ctaText && (
               <div className={styles.alertCtaWrapper}>
                 <CtaLink
                   sbLink={cta}
                   variant="inline"
                   icon="su-link--action"
-                  className={styles.alertCta(bg)}>
+                  className={styles.alertCta(bg)}
+                >
                   {ctaText}
                 </CtaLink>
               </div>
