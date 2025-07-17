@@ -15,20 +15,18 @@ export type AlertContent = {
 };
 
 /**
- * Get the global search configuration from Storyblok.
+ * Get all the published (global) alerts from Storyblok.
  */
 export const getGlobalAlerts = async () => {
   const storyblokApi = getStoryblokApi();
 
-  // Get the global configuration.
+  // Get the global alerts.
   const { data: { stories } } = await storyblokApi.getStories({
     starts_with: 'global-components/alerts/',
-    // Only show published alerts; we don't want the dev site to always show EVERY existing alert
+    // Only show published alerts; we don't want the dev site to always show EVERY existing alert.
     version: 'published',
     token: process.env.STORYBLOK_ACCESS_TOKEN,
   });
-
-  console.log({ stories });
 
   return stories?.map(({ content, uuid }) => ({
     uuid,
@@ -42,7 +40,7 @@ export const getGlobalAlerts = async () => {
 };
 
 /**
- * Get the global search configuration from Storyblok through the cache.
+ * Get the global alerts from Storyblok through the cache.
  */
 export const getGlobalAlertsCached = unstable_cache(
   getGlobalAlerts,
