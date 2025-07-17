@@ -2,6 +2,7 @@ import { type CtaIconLeftMarginType } from './Cta.types';
 
 export const cta = 'group/cta transition-all print:hidden break-words';
 export const buttonBase = 'block cta-button font-normal w-fit no-underline hocus:underline leading-tight';
+export const secondaryButtonBase = 'bg-white shadow-[inset_0_0_0_1px] hocus:text-white hocus:after:text-white disabled:hover:no-underline disabled:pointer-events-none disabled:shadow-black-30 disabled:text-black-70 disabled:bg-black-20';
 // hocus to plum dark gradient instead of solid plum dark to avoid a flash of white background on hocus
 export const gradientButtonBase = 'bg-gradient-to-tr hocus:from-plum-dark hocus:to-plum-dark text-white hocus:text-white';
 export const textLinkBase = 'block font-semibold w-fit no-underline text-18 md:text-20 leading-tight';
@@ -11,8 +12,10 @@ export const gradientTextLinkBase = 'bg-clip-text bg-gradient-to-tr text-transpa
 export const ctaButtonStyles = {
   // Primary
   'ood-cta__button--primary su-after-bg-white': 'bg-bay-dark text-white hocus:bg-palo-alto hocus:text-white',
-  // Secondary
-  'ood-cta__button--secondary su-after-bg-bay-dark su-after-bg-hocus-white': 'bg-white text-bay-dark shadow-bay-dark shadow-[inset_0_0_0_1px] after:text-bay-dark after:bg-bay-dark hocus:bg-bay-dark hocus:text-white hocus:after:text-white ',
+  // Secondary buttons - also used for accordion controls
+  'ood-cta__button--secondary su-after-bg-bay-dark su-after-bg-hocus-white': `${secondaryButtonBase} text-bay-dark shadow-bay-dark after:text-bay-dark after:bg-bay-dark hocus:bg-bay-dark`,
+  'secondary-digital-red': `${secondaryButtonBase} text-digital-red shadow-digital-red after:text-digital-red after:bg-digital-red hocus:bg-digital-red`,
+  'secondary-palo-alto-light': `${secondaryButtonBase} text-palo-alto-light shadow-palo-alto-light after:text-palo-alto-light after:bg-palo-alto-light hocus:bg-palo-alto-light`,
   // Give Now Button
   'su-bg-digital-red su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white': 'bg-digital-red hocus:bg-plum-dark text-white hocus:text-white',
   // Secondary Give Now Button
@@ -80,6 +83,7 @@ export const ctaVariants = {
 // Maps to linkButtonSize prop in SbCtaLink. Only used for the button styles
 export const ctaButtonSizes = {
   default: 'button-default pt-11 pb-12 px-30 text-18 md:text-20',
+  small: 'py-9 pl-13 pr-12 md:pt-11 md:pb-12 md:px-30 text-16 md:text-20',
   'ood-cta__button--medium': 'pt-11 pb-12 px-30 md:py-14 md:px-34 text-20 md:text-24',
   'ood-cta__button--large': 'py-16 px-30 md:py-20 md:px-36 text-22 md:text-28',
 };
@@ -94,6 +98,7 @@ export const ctaIcons = {
   'su-link--video': 'video',
   'su-link--no-icon': '',
   plus: 'plus',
+  minus: 'minus',
 };
 
 // Common styles for CTA icons
@@ -117,6 +122,8 @@ export const iconAnimations = {
   'su-link--download': 'group-hover/cta:translate-y-02em group-focus-visible/cta:translate-y-02em',
   'su-link--video': 'group-hover/cta:translate-x-02em group-focus-visible/cta:translate-x-02em',
   'su-link--no-icon': '',
+  plus: '',
+  minus: '',
 };
 
 export const ctaAligns = {

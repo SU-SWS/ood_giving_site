@@ -90,7 +90,8 @@ export const iconBaseStyle: IconBaseStyleType = {
   lock: 'w-09em -mt-03em',
   link: 'w-09em -mt-01em',
   more: 'w-08em',
-  plus: 'w-08em',
+  plus: 'w-09em -mt-02em',
+  minus: 'w-09em -mt-02em',
   right: 'w-08em',
   video: 'w-09em -mt-01em',
 };

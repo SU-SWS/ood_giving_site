@@ -1,5 +1,7 @@
+'use client';
 import { useState, useEffect, useRef } from 'react';
-import { m } from 'motion/react';
+import { motion } from 'motion/react';
+import * as m from 'motion/react-m';
 import { CtaButton } from '@/components/Cta';
 import { Container } from '@/components/Container';
 import { FlexBox } from '@/components/FlexBox';
@@ -12,6 +14,10 @@ import { type HeadingType } from '@/components/Typography';
 import { type SbAccordionItemsTypes } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './Accordion.styles';
 
+/**
+ * We do not use HeadlessUI Disclosure here because it does not work well with
+ * adding the expand/collapse all functionality
+ */
 type AccordionProps = React.HTMLAttributes<HTMLDivElement> & {
   title?: string;
   headingLevel?: HeadingType;
@@ -34,6 +40,11 @@ export const Accordion = ({
   mb,
   ...props
 }: AccordionProps) => {
+  const isDigitalRed = color === 'digital-red';
+  const buttonStyle = isDigitalRed ? 'secondary-digital-red' : 'secondary-palo-alto-light';
+  const font = isDigitalRed ? 'sans' : 'serif';
+  const fontWeight = isDigitalRed ? 'semibold' : 'bold';
+
   const [openItems, setOpenItems] = useState<boolean[]>([]);
   const firstItemRef = useRef<HTMLButtonElement>(null);
 
@@ -67,30 +78,30 @@ export const Accordion = ({
 
   return (
     <Container id={id} mt={mt} mb={mb} className={styles.root} {...props}>
-      {title && <Heading size={3} as={headingLevel} className={styles.title}>{title}</Heading>}
+      {title &&
+        <Heading size={3} font={font} weight={fontWeight} as={headingLevel} className={styles.title}>{title}</Heading>
+      }
       {showControls && (
         <FlexBox justifyContent="end" className={styles.controls}>
           <CtaButton
+            isButton
             disabled={allExpanded}
-            variant="ghost"
-            size="small"
-            color={isDarkTheme ? 'white' : 'black'}
+            buttonStyle={buttonStyle}
+            buttonSize="small"
             icon="plus"
             iconProps={{ className: styles.expandAllIcon}}
             onClick={expandAll}
-            className={styles.controlButton(isDarkTheme)}
           >
             Expand All
           </CtaButton>
           <CtaButton
+            isButton
             disabled={allCollapsed}
-            variant="ghost"
-            size="small"
-            color={isDarkTheme ? 'white' : 'black'}
+            buttonStyle={buttonStyle}
+            buttonSize="small"
             icon="minus"
             iconProps={{ className: styles.collapseAllIcon}}
             onClick={collapseAll}
-            className={styles.controlButton(isDarkTheme)}
           >
             Collapse All
           </CtaButton>
@@ -98,22 +109,21 @@ export const Accordion = ({
       )}
       <ul className={styles.list}>
         {items?.map((item, index) => (
-          <li key={item._uid} className={styles.listItem}>
-            <Heading as={item.headingLevel || 'h3'} leading="tight" className={styles.itemHeading}>
-              <CtaButton
+          <li key={item._uid} className={styles.listItem(color)}>
+            <Heading as={item.headingLevel || 'h3'} font={font} weight={fontWeight} leading="tight" className={styles.itemHeading}>
+              <button
+                type="button"
                 id={`button-${item._uid}`}
                 ref={index === 0 ? firstItemRef : undefined}
                 onClick={() => toggleItem(index)}
-                variant="unset"
-                color={isDarkTheme ? 'white' : 'black'}
                 aria-expanded={openItems[index] || false}
                 aria-controls={`content-${item._uid}`}
-                className={styles.button}
+                className={styles.button(color)}
               >
                 <span aria-hidden="true" className={styles.bar} />
                 {item.title}
-                <HeroIcon icon={openItems[index] ? 'minus' : 'plus'} className={styles.circleIcon} />
-              </CtaButton>
+                <HeroIcon icon={openItems[index] ? 'minus' : 'plus'} noBaseStyle className={styles.circleIcon(color)} />
+              </button>
             </Heading>
             <m.div
               role="region"
@@ -128,14 +138,11 @@ export const Accordion = ({
               transition={{ duration: 0.3, ease: 'easeIn' }}
               className={styles.contentWrapper}
             >
-              {/* @ts-expect-error Reason: inert not fully support in React 18. Using '' sets it to true */}
-              <div className={styles.richtextWrapper} {...(!openItems[index] ? { inert: '' } : {})}>
+              <div className={styles.richtextWrapper} inert={!openItems[index]}>
                 {hasRichText(item.content) && (
                   <RichText
-                    type="card"
-                    textColor={isDarkTheme ? 'white' : 'black'}
-                    linkColor={isDarkTheme ? 'digital-red-xlight' : 'unset'}
                     wysiwyg={item.content}
+                    baseFontSize="base23"
                     className={styles.richtext}
                   />
                 )}

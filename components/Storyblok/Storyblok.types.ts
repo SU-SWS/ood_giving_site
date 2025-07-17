@@ -93,4 +93,5 @@ export type SbAccordionItemsTypes = {
   content?: StoryblokRichtext;
   headingLevel?: HeadingType;
   id?: string;
+  defaultOpen?: boolean;
 };
