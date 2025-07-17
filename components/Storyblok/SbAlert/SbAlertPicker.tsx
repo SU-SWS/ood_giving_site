@@ -7,6 +7,11 @@ export type SbAlertPickerProps = {
   };
 };
 
-export const SbAlertPicker = (props: SbAlertPickerProps) => (
-  <CreateStories stories={props.blok.alert} />
-);
+export const SbAlertPicker = (props: SbAlertPickerProps) => {
+  // Only render published alerts
+  const publishedAlerts = props?.blok?.alert?.filter((alert) => !!alert.published_at);
+
+  return (
+    <CreateStories stories={publishedAlerts} />
+  );
+};
