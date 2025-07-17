@@ -8,7 +8,7 @@ import { HeroIcon } from '@/components/HeroIcon';
 import { Heading } from '@/components/Typography';
 import { RichText } from '@/components/RichText';
 import { hasRichText } from '@/utilities/hasRichText';
-import { type MarginType } from '@/utilities/datasource';
+import { type PaddingType } from '@/utilities/datasource';
 import { type HeadingType } from '@/components/Typography';
 import { type SbAccordionItemsTypes } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './Accordion.styles';
@@ -24,8 +24,8 @@ type AccordionProps = React.HTMLAttributes<HTMLDivElement> & {
   id?: string;
   color?: styles.AccordionColorType;
   hideControls?: boolean;
-  mt?: MarginType;
-  mb?: MarginType;
+  pt?: PaddingType;
+  pb?: PaddingType;
 }
 
 export const Accordion = ({
@@ -35,8 +35,8 @@ export const Accordion = ({
   id,
   color,
   hideControls,
-  mt,
-  mb,
+  pt,
+  pb,
   ...props
 }: AccordionProps) => {
   const isDigitalRed = color === 'digital-red';
@@ -76,7 +76,7 @@ export const Accordion = ({
   const showControls = !hideControls && items?.length > 1;
 
   return (
-    <Container id={id} mt={mt} mb={mb} className={styles.root} {...props}>
+    <Container id={id} pt={pt} pb={pb} className={styles.root} {...props}>
       {title &&
         <Heading size={3} font={font} weight={fontWeight} as={headingLevel} className={styles.title}>{title}</Heading>
       }
@@ -117,7 +117,7 @@ export const Accordion = ({
                 onClick={() => toggleItem(index)}
                 aria-expanded={openItems[index] || false}
                 aria-controls={`content-${item._uid}`}
-                className={styles.button(color)}
+                className={styles.button}
               >
                 <span aria-hidden="true" className={styles.bar} />
                 {item.title}

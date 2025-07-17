@@ -1,7 +1,7 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { Accordion, type AccordionColorType } from '@/components/Accordion';
 import { type HeadingType } from '@/components/Typography';
-import { type MarginType } from '@/utilities/datasource';
+import { type PaddingType } from '@/utilities/datasource';
 import { type SbAccordionItemsTypes } from './Storyblok.types';
 import { getNumBloks } from '@/utilities/getNumBloks';
 
@@ -12,8 +12,8 @@ type SbAccordionProps = {
     headingLevel?: HeadingType;
     accordionItems?: SbAccordionItemsTypes[];
     accordionColor?: AccordionColorType;
-    spacingTop?: MarginType;
-    spacingBottom?: MarginType;
+    spacingTop?: PaddingType;
+    spacingBottom?: PaddingType;
   };
 };
 
@@ -41,8 +41,8 @@ export const SbAccordion = ({
       headingLevel={headingLevel || 'h2'}
       items={accordionItems}
       color={accordionColor || 'palo-alto-light'}
-      mt={spacingTop}
-      mb={spacingBottom}
+      pt={spacingTop}
+      pb={spacingBottom}
     />
   );
 };

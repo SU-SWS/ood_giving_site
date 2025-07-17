@@ -6,7 +6,7 @@ export const accordionColors = {
 };
 export type AccordionColorType = keyof typeof accordionColors;
 
-export const root = 'relative mx-auto w-full';
+export const root = 'relative mx-auto w-full max-w-1000';
 export const title = 'text-pretty';
 export const intro = '*:max-w-prose *:*:leading-snug *:*:md:leading-cozy';
 export const controls = 'mb-4 gap-20 rs-mt-2 first:mt-0';
@@ -14,15 +14,10 @@ export const expandAllIcon = '-mt-01em';
 export const collapseAllIcon = '-mt-02em';
 
 // Accordion item
-export const list = 'list-unstyled rs-mt-1 max-w-1000';
+export const list = 'list-unstyled rs-mt-1';
 export const listItem = (color: AccordionColorType) => cnb('relative mb-0 border-b first:border-t', accordionColors[color || 'palo-alto-light']);
 export const itemHeading = 'relative w-full mb-0 text-18 md:type-1 md:leading-display';
-
-export const button = (color: AccordionColorType) => cnb(
-  'group relative flex items-center w-full text-left pr-40 md:pr-60 pt-16 pb-18 pl-12 md:pl-20 hocus:underline',
-
-);
-
+export const button = 'group relative flex items-center w-full text-left pr-40 md:pr-60 pt-16 pb-18 pl-12 md:pl-20 hocus:underline';
 export const bar = 'absolute top-0 left-0 group-hocus:w-6 group-hocus:md:w-8 scale-y-0 transition-transform group-hocus:scale-y-100 bottom-0 bg-black';
 
 export const circleIcon = (color: AccordionColorType) => cnb(
