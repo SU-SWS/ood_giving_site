@@ -41,7 +41,7 @@ export function GlobalAlertsProvider({
   }, [setDismissedGlobalAlerts]);
 
   const shownGlobalAlerts = useMemo(() => (
-    globalAlerts.filter((alert) => dismissedGlobalAlerts.includes(alert.uuid))
+    globalAlerts.filter((alert) => !dismissedGlobalAlerts.includes(alert.uuid))
   ), [globalAlerts, dismissedGlobalAlerts]);
 
   // Provider wrapper.

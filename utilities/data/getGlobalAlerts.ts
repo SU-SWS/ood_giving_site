@@ -23,9 +23,17 @@ export const getGlobalAlerts = async () => {
   // Get the global alerts.
   const { data: { stories } } = await storyblokApi.getStories({
     starts_with: 'global-components/alerts/',
+    content_type: 'alert',
     // Only show published alerts; we don't want the dev site to always show EVERY existing alert.
     version: 'published',
     token: process.env.STORYBLOK_ACCESS_TOKEN,
+    sort_by: 'published_at:desc',
+    // Only alerts set as global.
+    filter_query: {
+      isGlobal: {
+        in: 'true',
+      },
+    },
   });
 
   return stories?.map(({ content, uuid }) => ({
