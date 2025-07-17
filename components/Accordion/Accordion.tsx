@@ -88,7 +88,7 @@ export const Accordion = ({
             buttonStyle={buttonStyle}
             buttonSize="small"
             icon="plus"
-            iconProps={{ className: styles.expandAllIcon}}
+            iconProps={{ className: styles.expandAllIcon }}
             onClick={expandAll}
           >
             Expand All
@@ -99,7 +99,7 @@ export const Accordion = ({
             buttonStyle={buttonStyle}
             buttonSize="small"
             icon="minus"
-            iconProps={{ className: styles.collapseAllIcon}}
+            iconProps={{ className: styles.collapseAllIcon }}
             onClick={collapseAll}
           >
             Collapse All
