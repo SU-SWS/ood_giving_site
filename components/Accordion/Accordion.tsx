@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { motion } from 'motion/react';
 import * as m from 'motion/react-m';
 import { CtaButton } from '@/components/Cta';
 import { Container } from '@/components/Container';
