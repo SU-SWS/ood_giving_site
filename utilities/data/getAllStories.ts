@@ -1,5 +1,4 @@
 import { type ISbStoriesParams } from '@storyblok/react/rsc';
-import { isProduction } from '@/utilities/getActiveEnv';
 import { unstable_cache } from 'next/cache';
 import { getStoryblokApi } from '@/utilities/storyblok';
 
@@ -7,12 +6,14 @@ import { getStoryblokApi } from '@/utilities/storyblok';
  * Fetches all stories from Storyblok.
  */
 export const getAllStories = async () => {
-  const isProd = isProduction();
   // Fetch new content from storyblok.
   const storyblokApi = getStoryblokApi();
 
   const sbParams: ISbStoriesParams = {
-    version: isProd ? 'published' : 'draft',
+    // We have separate dev/prod spaces; we only ever want published stories.
+    version: 'published',
+    // Always grab the latest stories.
+    cv: Date.now(),
     resolve_links: '0',
     resolve_assets: 0,
   };

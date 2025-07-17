@@ -3,6 +3,7 @@ import { storyblokEditable } from '@storyblok/react/rsc';
 import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Footer } from '@/components/Storyblok/partials/Footer';
+import { Header } from '@/components/Storyblok/partials/Header';
 
 type SbLandingPageProps = {
   blok: SbBlokData & {
@@ -32,8 +33,7 @@ export const SbLandingPage = ({ blok, slug }: SbLandingPageProps) => {
 
   return (
     <div {...storyblokEditable(blok)} className="ood-landing-page bg-fog-light">
-      <CreateBloks blokSection={alertPicker} />
-      <CreateBloks blokSection={localHeader} slug={slug} />
+      <Header alertPicker={alertPicker} localHeader={localHeader} slug={slug} />
       <main id="main-content" className="ood-landing-page__main">
         <article className="bg-fog-light">
           <header className="ood-landing-page__main-header">

@@ -5,7 +5,7 @@ import React, {
   useState,
   useEffect,
 } from 'react';
-import { type SearchConfig } from '@/utilities/data/getSearchConfigBlok';
+import { type SearchConfig } from '@/utilities/data';
 import { usePathname } from 'next/navigation';
 
 type SearchModalContextProps = {

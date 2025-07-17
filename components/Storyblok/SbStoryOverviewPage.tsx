@@ -1,6 +1,7 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { CreateBloks } from '@/components/CreateBloks';
+import { Header } from '@/components/Storyblok/partials/Header';
 import { Footer } from '@/components/Storyblok/partials/Footer';
 import { HeaderNoImage } from '@/components/Storyblok/PageHeader/HeaderNoImage';
 import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
@@ -41,8 +42,7 @@ export const SbStoryOverviewPage = ({ blok }: SbStoryOverviewPageProps) => {
 
   return (
     <div {...storyblokEditable(blok)}>
-      <CreateBloks blokSection={alertPicker} />
-      <CreateBloks blokSection={localHeader} />
+      <Header alertPicker={alertPicker} localHeader={localHeader} />
       <main id="main-content">
         <article className="bg-white">
           <HeaderNoImage

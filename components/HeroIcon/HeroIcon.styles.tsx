@@ -24,7 +24,7 @@ import {
   VideoCameraIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { CheckIcon, MagnifyingGlassIcon } from '@heroicons/react/16/solid';
+import { CheckIcon, MagnifyingGlassIcon, XCircleIcon } from '@heroicons/react/16/solid';
 import { PlayIcon, PauseIcon } from '@heroicons/react/20/solid';
 
 export const iconMap = {
@@ -44,6 +44,7 @@ export const iconMap = {
   expand: ArrowsPointingOutIcon,
   cursor: CursorArrowRaysIcon,
   close: XMarkIcon,
+  'close-circle': XCircleIcon,
   email: EnvelopeIcon,
   external: ArrowUpRightIcon,
   flip: ArrowPathIcon,
