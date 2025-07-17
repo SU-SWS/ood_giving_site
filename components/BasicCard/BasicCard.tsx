@@ -66,8 +66,9 @@ const CardContent = ({
   </>
 );
 
-type BasicCardProps = Omit<OverhangCardProps, 'variant'> & Omit<CardContentProps, 'isDarkText'> & {
+type BasicCardProps = OverhangCardProps & Omit<CardContentProps, 'isDarkText'> & {
   largeCardPadding?: boolean;
+  isVertical?: boolean;
 };
 
 export const BasicCard = ({
@@ -125,8 +126,6 @@ export const BasicCard = ({
   return (
     <OverhangCard
       {...props}
-      variant="basic"
-      isVertical={isVertical}
       bgColor={a11yBgColor}
       filename={filename}
       alt={alt}
@@ -136,7 +135,8 @@ export const BasicCard = ({
       imageSize={displaySquareThumbnail ? 'thumbnail' : 'large-card'}
       aspectRatio={aspectRatio}
       largeCardPadding={largeCardPadding}
-      className=""
+      imageWrapperClassName={styles.imageWrapper(isVertical, aspectRatio)}
+      className={styles.roothasImage(isVertical, largeCardPadding)}
     >
       <div className={styles.contentHasImage(isVertical, largeCardPadding)}>
         <CardContent

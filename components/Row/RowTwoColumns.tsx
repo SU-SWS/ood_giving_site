@@ -12,7 +12,7 @@ type RowTwoColumnProps = GridProps & {
   // Vertical alignment of content in each column
   contentAlignment?: 'start' | 'center' | 'end' | 'stretch';
   // Horizontal alignment of the whole row if rowWidth is not 'full'
-  align?: styles.RowAlignType;
+  align?: styles.RowTwoColumnAlignType;
 }
 
 export const RowTwoColumns = ({
@@ -33,7 +33,8 @@ export const RowTwoColumns = ({
       lg={oneColumnMd ? 6 : undefined}
       pb={pb}
       alignItems={contentAlignment}
-      className={cnb(styles.root(contentAlignment), styles.rowTwoColumnWidths[rowWidth], styles.rowAligns[align])}
+      className={cnb(
+        styles.root(contentAlignment), styles.rowTwoColumnWidths[rowWidth], styles.rowTwoColumnAligns[align])}
       {...props}
     >
       <div className={styles.colOne(widthRatio, oneColumnMd)}>
