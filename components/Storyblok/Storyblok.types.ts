@@ -1,4 +1,7 @@
+import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { type CtaIconType } from '@/components/Cta';
+import { type HeadingType } from '@/components/Typography';
+
 /**
  * Generic types for Storyblok fields
  */
@@ -83,3 +86,12 @@ export type SbOodMegaMenuNavItemProps = {
 }
 
 export type SbContentNavItemProps = SbOodMegaMenuNavItemProps;
+
+export type SbAccordionItemsTypes = {
+  _uid: string;
+  title?: string;
+  content?: StoryblokRichtext;
+  headingLevel?: HeadingType;
+  id?: string;
+  defaultOpen?: boolean;
+};

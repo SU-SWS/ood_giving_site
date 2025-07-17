@@ -6,6 +6,7 @@ import { FlexBox } from '@/components/FlexBox';
 import { GAProvider, GTAG } from '@/components/GAProvider';
 import { getGlobalAlertsCached, getSearchConfigBlokCached } from '@/utilities/data';
 import { SearchModalProvider } from '@/components/Search/Modal/SearchModalContext';
+import { MotionProvider } from './MotionProvider';
 import { GlobalAlertsProvider } from '@/components/Alert';
 
 // https://docs.fontawesome.com/web/use-with/react/use-with#getting-font-awesome-css-to-work
@@ -43,22 +44,24 @@ const RootLayout = async ({ children }: LayoutProps) => {
     <GAProvider>
       <GlobalAlertsProvider globalAlerts={globalAlerts}>
         <SearchModalProvider searchConfig={searchConfig}>
-          <html
-            lang="en"
-            className={cnb(
-              source_sans.variable,
-              source_serif.variable,
-              stanford.variable,
-            )}
-          >
-            {/* Absolutely necessary to have a body tag here, otherwise your components won't get any interactivity */}
-            <body>
-              <GTAG />
-              <FlexBox justifyContent="between" direction="col" className="min-h-screen relative">
-                {children}
-              </FlexBox>
-            </body>
-          </html>
+          <MotionProvider>
+            <html
+              lang="en"
+              className={cnb(
+                source_sans.variable,
+                source_serif.variable,
+                stanford.variable,
+              )}
+            >
+              {/* Absolutely necessary to have a body tag here, otherwise your components won't get any interactivity */}
+              <body>
+                <GTAG />
+                <FlexBox justifyContent="between" direction="col" className="min-h-screen relative">
+                  {children}
+                </FlexBox>
+              </body>
+            </html>
+          </MotionProvider>
         </SearchModalProvider>
       </GlobalAlertsProvider>
     </GAProvider>

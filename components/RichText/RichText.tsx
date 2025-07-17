@@ -117,7 +117,7 @@ export const RichText = ({
           <CtaLink
             sbLink={sbLink}
             variant={linkColor === 'white' ? 'inline-white' : 'inline'}
-            className="*:inline"
+            className="group *:inline"
           >
             {children}
           </CtaLink>
