@@ -9,6 +9,7 @@ type SbColumnGridProps = {
     columnTwoContent: SbBlokData[];
     columnThreeContent?: SbBlokData[];
     oneColumnMd?: boolean;
+    isNotStretched?: boolean
   };
 };
 
@@ -18,6 +19,7 @@ export const SbColumnGrid = ({ blok }: SbColumnGridProps) => {
     columnTwoContent,
     columnThreeContent,
     oneColumnMd,
+    isNotStretched,
   } = blok;
 
   if (!getNumBloks(columnOneContent) && !getNumBloks(columnTwoContent) && !getNumBloks(columnThreeContent)) {
@@ -34,6 +36,7 @@ export const SbColumnGrid = ({ blok }: SbColumnGridProps) => {
       columnTwoContent={ColTwoContent}
       columnThreeContent={ColThreeContent}
       oneColumnMd={oneColumnMd}
+      isNotStretched={isNotStretched}
     />
   );
 };
