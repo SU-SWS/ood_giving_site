@@ -25,7 +25,7 @@ type SbPosterProps = {
     backgroundColor?: LightPageBgColorType; // Background color next to the overhang of the card so it matches the section below
     headingLevel?: HeadingType;
   };
-}
+};
 
 export const SbPoster = ({ blok }: SbPosterProps) => {
   const {

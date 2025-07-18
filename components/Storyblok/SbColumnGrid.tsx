@@ -9,7 +9,7 @@ type SbColumnGridProps = {
     columnTwoContent: SbBlokData[];
     columnThreeContent?: SbBlokData[];
     oneColumnMd?: boolean;
-    isNotStretched?: boolean
+    isNotStretched?: boolean;
   };
 };
 
