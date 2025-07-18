@@ -40,23 +40,25 @@ export const Poster = ({
 
   return (
     <article className={styles.root(sectionBgColor)} {...props}>
-      <FullWidthImage
-        filename={filename}
-        alt={alt}
-        visibleVertical={visibleVertical}
-        className="h-[43rem] md:h-500 xl:h-[56rem] bg-black"
-      />
+      {filename && (
+        <FullWidthImage
+          filename={filename}
+          alt={alt}
+          visibleVertical={visibleVertical}
+          className={styles.imageWrapper}
+        />
+      )}
       {hasOverlay && (
         <div aria-hidden="true" className={styles.overlay(overlay)} />
       )}
-      <FlexBox alignItems="end" justifyContent={cardPosition === 'left' ? 'start' : 'end'} className="cc absolute inset-0">
-        <SimpleCard bgColor={a11yBgColor} className="relative -bottom-60 md:-bottom-80 rs-px-4 rs-pt-4 rs-pb-5 w-full sm:w-9/12 md:w-8/12 lg:w-7/12 xl:w-1/2 lg:min-h-[39rem]">
+      <FlexBox alignItems="end" justifyContent={cardPosition === 'left' ? 'start' : 'end'} className={styles.cardWrapper}>
+        <SimpleCard bgColor={a11yBgColor} className={styles.card}>
           {headline && (
-            <Heading color={isDarkText ? 'black' : 'white'} size={3} font="sans" weight="semibold">{headline}</Heading>
+            <Heading as={headingLevel} color={isDarkText ? 'black' : 'white'} size={3} font="sans" weight="semibold">{headline}</Heading>
           )}
           {bodyText}
           {ctaLink && (
-            <div className="rs-mt-3">
+            <div className={styles.ctaWrapper}>
               {ctaLink}
             </div>
           )}
