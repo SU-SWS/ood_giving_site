@@ -60,8 +60,6 @@ export const quote = (isSmallText: boolean) => cnb(
 export const source = 'text-20 md:text-23 2xl:text-24 text-pretty max-w-550 *:*:leading-display rs-mt-2';
 
 export const imageWrapper = (imageShape: ImageShapeType) => cnb(
-  'self-end lg:self-center size-130 md:size-200 lg:size-[30cqw] 2xl:size-300 lg:mt-0 lg:-mr-80 lg:ml-45',
+  'self-end lg:self-center size-130 md:size-200 lg:size-[30cqw] 2xl:size-300 lg:mt-0 lg:-mr-80 lg:ml-45 [&_img]:w-full',
   imageShapes[imageShape],
 );
-
-export const image = 'size-130 md:size-200 lg:size-[30cqw] 2xl:size-300';

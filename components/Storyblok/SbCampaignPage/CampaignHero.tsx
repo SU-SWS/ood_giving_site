@@ -63,7 +63,6 @@ export const CampaignHero = (props: CampaignHeroProps) => {
     blok.image?.filename != null ? (
       <FullWidthImage
         filename={blok.image?.filename}
-        classPrefix="campaign-page"
         visibleVertical="center"
         visibleHorizontal={blok.visibleHorizontal}
         alt={blok.image?.alt || ''}

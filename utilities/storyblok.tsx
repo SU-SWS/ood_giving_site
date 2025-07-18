@@ -54,6 +54,7 @@ import { SbQuoteCard } from '@/components/Storyblok/SbQuoteCard';
 import { SbGridThreeColumns } from '@/components/Storyblok/SbGridThreeColumns';
 import { SbCountdown, SbCountdownPicker } from '@/components/Storyblok/SbCountdown';
 import { SbAccordion } from '@/components/Storyblok/SbAccordion';
+import { SbPoster } from '@/components/Storyblok/SbPoster';
 
 export const components = {
   alert: SbAlert,
@@ -118,6 +119,7 @@ export const components = {
   countdownPicker: SbCountdownPicker,
   // Complex
   accordion: SbAccordion,
+  oodPoster: SbPoster,
 };
 
 export type GetStoryblokApiConfig = {
