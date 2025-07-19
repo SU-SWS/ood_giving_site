@@ -64,9 +64,10 @@ export type CardBgColorType = keyof typeof cardBgColors;
 
 export const allCardBgColors = {
   ...cardBgColors,
+  ...darkBgColors,
   ...lightPageBgColors,
 };
-export type AllCardBgColorType = CardBgColorType | LightPageBgColorType;
+export type AllCardBgColorType = CardBgColorType | DarkBgColorType | LightPageBgColorType;
 
 const gradientBorderBase = '[border-image-slice:1]';
 
@@ -132,6 +133,13 @@ export const lightBeforeColors = {
   'white': 'before:bg-white',
 };
 export type LightBeforeColorType = keyof typeof lightBeforeColors;
+
+export const gradientOverlays = {
+  none: '',
+  'su-gradient-black-bottom': 'bg-gradient-to-t from-black-true/40 via-40% to-80%',
+  'su-gradient-black-top': 'bg-gradient-to-b from-black-true/40 via-40% to-80%',
+};
+export type GradientOverlayType = keyof typeof gradientOverlays;
 
 export const paddingTops = {
   none: '',
