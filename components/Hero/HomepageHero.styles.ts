@@ -1,15 +1,28 @@
 import { cnb } from 'cnbuilder';
-import { type LightPageBgColorType } from '@/utilities/datasource';
+import { type LightPageBgColorType, type AllCardBgColorType, allCardBgColors } from '@/utilities/datasource';
 
 export const root = (sectionBgColor: LightPageBgColorType) => cnb(
-  'relative w-full z-0 border-b-[6rem] md:border-b-[8rem]',
+  'relative w-full z-0 border-b-[10rem] lg:border-b-[8rem]',
   sectionBgColor === 'fog-light' ? 'border-fog-light' : 'border-white',
 );
 
-export const imageWrapper = 'h-[43rem] md:h-500 xl:h-[56rem] bg-black';
+export const h1Wrapper = 'self-center';
 
-export const cardWrapper = 'cc absolute inset-0';
+export const h1 = 'mb-[.12em] text-shadow-lg';
 
-export const card = 'relative -bottom-60 md:-bottom-80 rs-px-4 rs-pt-4 rs-pb-5 w-full sm:w-9/12 md:w-8/12 lg:w-7/12 xl:w-1/2';
+export const tab = (tabColor: AllCardBgColorType) => cnb(
+  'h-10 w-[12.8rem]',
+  allCardBgColors[tabColor],
+);
 
-export const ctaWrapper = 'rs-mt-2';
+export const imageWrapper = 'bg-brick h-[36rem] md:h-400 lg:h-500 xl:h-600 bg-black';
+
+export const heroContent = 'cc absolute inset-0 flex-col lg:flex-row';
+
+export const card = 'group relative -bottom-100 lg:-bottom-80 w-full md:w-10/12 xl:w-5/12';
+
+export const cardContent = 'relative z-1 rs-p-3';
+
+export const cardHeading = 'group-hocus-within:underline';
+
+export const cta = 'rs-mt-1 stretched-link text-white hocus:text-white hocus:no-underline';
