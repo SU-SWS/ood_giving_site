@@ -14,7 +14,7 @@ import {
   isAfter,
 } from 'date-fns';
 import { TZDate } from '@date-fns/tz';
-import { CountdownPie } from './CountdownPie';
+import { CountdownPie } from '@/components/CountdownPie';
 import { Grid } from '@/components/Grid';
 import * as styles from './Countdown.styles';
 
@@ -75,11 +75,11 @@ export const Countdown = ({
       className={styles.countdown({ hasDays })}
       >
       {hasDays && (
-        <CountdownPie filled={days} total={dayPieRange} description="Days" />
+        <CountdownPie fillColor="cardinal-red" shrink filled={days} total={dayPieRange} description="Days" />
       )}
-      <CountdownPie filled={hours} total={hasDays ? 24 : hourPieRange} description="Hours" />
-      <CountdownPie filled={minutes} total={60} description="Minutes" />
-      <CountdownPie filled={seconds} total={60} description="Seconds" />
+      <CountdownPie fillColor="cardinal-red" shrink filled={hours} total={hasDays ? 24 : hourPieRange} description="Hours" />
+      <CountdownPie fillColor="cardinal-red" shrink filled={minutes} total={60} description="Minutes" />
+      <CountdownPie fillColor="cardinal-red" shrink filled={seconds} total={60} description="Seconds" />
     </Grid>
   );
 };

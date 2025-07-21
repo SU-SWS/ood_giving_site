@@ -54,6 +54,7 @@ import { SbQuoteCard } from '@/components/Storyblok/SbQuoteCard';
 import { SbGridThreeColumns } from '@/components/Storyblok/SbGridThreeColumns';
 import { SbCountdown, SbCountdownPicker } from '@/components/Storyblok/SbCountdown';
 import { SbAccordion } from '@/components/Storyblok/SbAccordion';
+import { SbCampaignImpact } from '@/components/Storyblok/SbCampaignImpact';
 
 export const components = {
   alert: SbAlert,
@@ -116,6 +117,8 @@ export const components = {
   // Countdown
   countdown: SbCountdown,
   countdownPicker: SbCountdownPicker,
+  // Campaign
+  oodCampaignImpact: SbCampaignImpact,
   // Complex
   accordion: SbAccordion,
 };
