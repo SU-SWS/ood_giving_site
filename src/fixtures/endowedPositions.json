@@ -91,6 +91,13 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
+    "Key": "BusinessKEJEO0",
+    "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
+    "POSITION": "The Orlando Bravo Professorship",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
+  },
+  {
     "Key": "BusinessKAQGC99992802",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Frank E. Buck Professorship in the Graduate School of Business",
@@ -364,6 +371,13 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
+    "Key": "BusinessKEJKD0",
+    "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
+    "POSITION": "The Jonsson Family Professorship",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
+  },
+  {
     "Key": "BusinessKJOSS7418726",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Robert L. Joss Adjunct Professorship",
@@ -406,10 +420,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "BusinessKAVGM3521424",
+    "Key": "BusinessKAVGM9688333",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
-    "POSITION": "The Philip H. Knight Professorship for the Dean of the Graduate School of Business (Interim)",
-    "CURRENT HOLDER": "Peter DeMarzo",
+    "POSITION": "The Philip H. Knight Professorship for the Dean of the Graduate School of Business",
+    "CURRENT HOLDER": "Sarah A. Soule",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -952,10 +966,10 @@
     "WEBSITE": "http://ed.stanford.edu/faculty/profiles"
   },
   {
-    "Key": "EducationKAREU0",
+    "Key": "EducationKAREU9957879",
     "SUBCATEGORY": "GRADUATE SCHOOL OF EDUCATION",
     "POSITION": "The Vida Jacks Professorship of Education",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Amado Padilla",
     "WEBSITE": "http://ed.stanford.edu/faculty/profiles"
   },
   {
@@ -1470,10 +1484,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKENSI0",
+    "Key": "EngineeringKENSI6002367",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The W. M. Keck Faculty Scholar",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Bo Wang",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1841,10 +1855,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "EngineeringKSING0",
+    "Key": "EngineeringKSING5667867",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Jagdeep and Roshni Singh Faculty Fellow",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Mark Zhandry",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -2387,6 +2401,13 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
+    "Key": "H&SKAQKL4419446",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Benjamin Scott Crocker Professorship in Human Biology",
+    "CURRENT HOLDER": "Aliya Saperstein",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
     "Key": "H&SKAQOO5584433",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Nina C. Crocker Faculty Scholar",
@@ -2685,6 +2706,13 @@
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Marjorie Mhoon Fair Professorship in Quantitative Science",
     "CURRENT HOLDER": "Iain M. Johnstone",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
+    "Key": "H&SKBCUM9677863",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Shadi and Omid Farokhzad Professorship in the School of Humanities and Sciences",
+    "CURRENT HOLDER": "Harold Hwang",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3507,13 +3535,6 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKAAMT0",
-    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
-    "POSITION": "The Charles Michael Professorship in Jewish History and Culture",
-    "CURRENT HOLDER": "To Be Named",
-    "WEBSITE": "http://humsci.stanford.edu"
-  },
-  {
     "Key": "H&SKARMV0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Harold A. Miller Professorship for the Director of Hopkins Marine Station",
@@ -3626,10 +3647,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "H&SKBJTH3161130",
+    "Key": "H&SKBJTH0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The John A. Overdeck Professorship",
-    "CURRENT HOLDER": "Trevor J. Hastie",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -5201,10 +5222,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKHASS0",
+    "Key": "MedicineKHASS5231349",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Roger and Joelle Burnell Professorship in Genomics and Precision Health",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Euan Ashley",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5329,7 +5350,7 @@
   {
     "Key": "MedicineKHALP0",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Harvey J. Cohen, MD, PhD, Professorship in Pediatrics",
+    "POSITION": "The Harvey J. Cohen, MD, PhD, Professorship in Pediatric Cancer",
     "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
@@ -5681,6 +5702,13 @@
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Ford Family Endowed Obstetrician-in-Chief Directorship",
     "CURRENT HOLDER": "Yasser El-Sayed",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "MedicineKHAFI50005694",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Fortinet Founders School of Medicine Professorship",
+    "CURRENT HOLDER": "Joo Ha Hwang",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6132,10 +6160,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKHABF0",
+    "Key": "MedicineKHABF5209024",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Sabine Kohler, MD, Professorship in Pathology",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Robert West",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6279,13 +6307,6 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineZBANL23346935",
-    "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Lillie Family Endowed Directorship for the President and CEO of Lucile Packard Children’s Hospital",
-    "CURRENT HOLDER": "Paul King",
-    "WEBSITE": "https://med.stanford.edu/profiles/"
-  },
-  {
     "Key": "MedicineKAROV9600705",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Lindhard Family Professorship in Pediatric Cancer Biology",
@@ -6384,10 +6405,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKHALI0",
+    "Key": "MedicineKHALI5270384",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Sue and Bob McCollum Professorship",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Erqi Pollom",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -7252,7 +7273,7 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineKHAPN0",
+    "Key": "MedicineKHAPN9606492",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Taube Research Faculty Scholar in the Youth Addiction Initiative",
     "CURRENT HOLDER": "Steven Tate",
@@ -7364,7 +7385,7 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "MedicineZBALK0",
+    "Key": "MedicineZBALK9583479",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The James Baxter Wood and Yvonne Craig Wood Endowed Directorship of the Cardiovascular Intensive Care Unit",
     "CURRENT HOLDER": "Michael-Alice Moga",
@@ -7427,14 +7448,14 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "CASBSKABGK9688333",
+    "Key": "CASBSKABGK9824426",
     "SUBCATEGORY": "CENTER FOR ADVANCED STUDY IN THE BEHAVIORAL SCIENCES",
     "POSITION": "The Sara Miller McCune Directorship of CASBS",
-    "CURRENT HOLDER": "Sarah A. Soule",
+    "CURRENT HOLDER": "Lara Tiedens",
     "WEBSITE": "https://casbs.stanford.edu/"
   },
   {
-    "Key": "DAPER KMMMJ50007647",
+    "Key": "DAPERKMMMJ50007647",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Alben Family Assistant Men’s Rowing Coachship",
     "CURRENT HOLDER": "Niles Garratt",
@@ -7826,10 +7847,10 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "DAPERKASSW5854490",
+    "Key": "DAPERKASSW50033592",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Paul A. Violich Directorship of Women’s Swimming",
-    "CURRENT HOLDER": "Greg Meehan",
+    "CURRENT HOLDER": "Chris Lindauer",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -8008,6 +8029,13 @@
     "WEBSITE": "http://www.hoover.org/"
   },
   {
+    "Key": "HooverHALDW2531754",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Martin and Illie Anderson Senior Fellow",
+    "CURRENT HOLDER": "Victor Davis Hanson",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
     "Key": "HooverKAQNE0",
     "SUBCATEGORY": "HOOVER INSTITUTION",
     "POSITION": "The Annenberg Distinguished Visiting Fellow",
@@ -8057,6 +8085,13 @@
     "WEBSITE": "http://www.hoover.org/"
   },
   {
+    "Key": "HooverGANLK",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Beal Family Hoover Fellow",
+    "CURRENT HOLDER": "Robert Fluegge",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
     "Key": "HooverKBBFS5637085",
     "SUBCATEGORY": "HOOVER INSTITUTION",
     "POSITION": "The Bechtel Directorship of Communications",
@@ -8071,6 +8106,27 @@
     "WEBSITE": "http://www.hoover.org/"
   },
   {
+    "Key": "HooverKBCKT32946113",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Booth Derbas Family/Edward Lazear Senior Fellow",
+    "CURRENT HOLDER": "Ross Levine",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
+    "Key": "HooverKBCQV24408825",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Botha-Chan Senior Fellowship Fund",
+    "CURRENT HOLDER": "Philip Zelikow",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
+    "Key": "HooverGANNC50017074",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Bruni Family Fellow",
+    "CURRENT HOLDER": "Michael Hartney",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
     "Key": "HooverKAQJR3935020",
     "SUBCATEGORY": "HOOVER INSTITUTION",
     "POSITION": "The W. Glenn Campbell Research Fellow",
@@ -8080,8 +8136,15 @@
   {
     "Key": "HooverKBBFW9787334",
     "SUBCATEGORY": "HOOVER INSTITUTION",
-    "POSITION": "The Virginia Hobbs Carpenter Fellow in Journalism",
+    "POSITION": "The Virginia Hobbs Carpenter Distinguished Policy Fellow in Journalism",
     "CURRENT HOLDER": "William “Bill” Whalen",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
+    "Key": "HooverKBCMC9851635",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Class of 84 Senior Fellow",
+    "CURRENT HOLDER": "Peter Henry",
     "WEBSITE": "http://www.hoover.org/"
   },
   {
@@ -8115,7 +8178,7 @@
   {
     "Key": "HooverKAQAF3075637",
     "SUBCATEGORY": "HOOVER INSTITUTION",
-    "POSITION": "The Peter and Frances Duignan Visiting Fellow",
+    "POSITION": "The Duignan Distinguished Visiting Fellow",
     "CURRENT HOLDER": "Jendayi E. Frazer",
     "WEBSITE": "http://www.hoover.org/"
   },
@@ -8127,10 +8190,10 @@
     "WEBSITE": "http://www.hoover.org/"
   },
   {
-    "Key": "HooverKALSD50007795",
+    "Key": "HooverKALSD5354576",
     "SUBCATEGORY": "HOOVER INSTITUTION",
     "POSITION": "The William C. Edwards Distinguished Visiting Fellow",
-    "CURRENT HOLDER": "George Osborne",
+    "CURRENT HOLDER": "Rishi Sunak",
     "WEBSITE": "http://www.hoover.org/"
   },
   {
@@ -8148,10 +8211,17 @@
     "WEBSITE": "http://www.hoover.org/"
   },
   {
-    "Key": "HooverKAQXW32384182",
+    "Key": "HooverKAQXW7039589",
     "SUBCATEGORY": "HOOVER INSTITUTION",
-    "POSITION": "The Rose and Milton Friedman Senior Fellow on Public Policy",
-    "CURRENT HOLDER": "Thomas Sowell",
+    "POSITION": "The Rose and Milton Friedman Emeritus Fellow",
+    "CURRENT HOLDER": "Michael J. Boskin",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
+    "Key": "HooverKBCOP4246724",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Maurice R. Greenberg Senior Fellow",
+    "CURRENT HOLDER": "Brandice Canes-Wrone",
     "WEBSITE": "http://www.hoover.org/"
   },
   {
@@ -8162,10 +8232,52 @@
     "WEBSITE": "http://www.hoover.org/"
   },
   {
+    "Key": "HooverGANMB",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Hargrove Hoover Fellow",
+    "CURRENT HOLDER": "Jacquelyn Schneider",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
+    "Key": "HooverKBCUG3520822",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Hargrove Senior Fellow",
+    "CURRENT HOLDER": "Elizabeth Economy",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
+    "Key": "HooverKBCKO",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Ilene and Morton Harris Senior Fellow",
+    "CURRENT HOLDER": "Dominic Parker",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
     "Key": "HooverKARDY3967650",
     "SUBCATEGORY": "HOOVER INSTITUTION",
     "POSITION": "The Keith and Jan Hurlbut Senior Fellow",
     "CURRENT HOLDER": "Daniel P. Kessler",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
+    "Key": "HooverKBCMF36944833",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Kleinheinz Family Senior Fellow",
+    "CURRENT HOLDER": "Stephen Kotkin",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
+    "Key": "HooverGBLST5401254",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Kleinheinz Fellow",
+    "CURRENT HOLDER": "Valentin Bolotnyy",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
+    "Key": "HooverGBLST",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Kleinheinz Fellow",
+    "CURRENT HOLDER": "Ria Roy",
     "WEBSITE": "http://www.hoover.org/"
   },
   {
@@ -8176,6 +8288,13 @@
     "WEBSITE": "http://www.hoover.org/"
   },
   {
+    "Key": "HooverGANLW",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Bonnie and Tom McCloskey Distinguished Visiting Fellow",
+    "CURRENT HOLDER": "Andrew Roberts",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
     "Key": "HooverKBARV7046600",
     "SUBCATEGORY": "HOOVER INSTITUTION",
     "POSITION": "The Robert and Carole McNeil Senior Fellow",
@@ -8183,9 +8302,16 @@
     "WEBSITE": "http://www.hoover.org/"
   },
   {
+    "Key": "HooverGALSD21909148",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Milbank Family Senior Fellow",
+    "CURRENT HOLDER": "Niall Ferguson",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
     "Key": "HooverKLSAA3847258",
     "SUBCATEGORY": "HOOVER INSTITUTION",
-    "POSITION": "The Rupert Murdoch Research Fellow",
+    "POSITION": "The Murdoch Distinguished Policy Fellow",
     "CURRENT HOLDER": "Peter Robinson",
     "WEBSITE": "http://www.hoover.org/"
   },
@@ -8204,10 +8330,31 @@
     "WEBSITE": "http://www.hoover.org/"
   },
   {
+    "Key": "HooverHASQX5838346",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Robert and Marion Oster Distinguished Military Fellow",
+    "CURRENT HOLDER": "Gary Roughead",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
+    "Key": "HooverHASQQ3817525",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Shepard Family Distinguished Visiting Fellow in Economics",
+    "CURRENT HOLDER": "Kevin Warsh",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
     "Key": "HooverKARXX1630854",
     "SUBCATEGORY": "HOOVER INSTITUTION",
     "POSITION": "The George P. Shultz Senior Fellow in Economics",
     "CURRENT HOLDER": "John B. Taylor",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
+    "Key": "HooverKBCLS5355394",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Thomas M. Siebel Senior Fellow",
+    "CURRENT HOLDER": "Eugene Volokh",
     "WEBSITE": "http://www.hoover.org/"
   },
   {
@@ -8232,10 +8379,31 @@
     "WEBSITE": "http://www.hoover.org/"
   },
   {
+    "Key": "HooverGANIS5071234",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Stephenson Family Policy Fellow",
+    "CURRENT HOLDER": "David Fedor",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
+    "Key": "HooverGANPD",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Styslinger Family Fellow",
+    "CURRENT HOLDER": "Natalie Millar",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
     "Key": "HooverKBBEX7396609",
     "SUBCATEGORY": "HOOVER INSTITUTION",
     "POSITION": "The Tad and Dianne Taube Directorship of the Hoover Institution",
     "CURRENT HOLDER": "Condoleezza Rice",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
+    "Key": "HooverGALSF3751955",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Tad and Dianne Taube Senior Fellow",
+    "CURRENT HOLDER": "Peter Berkowitz",
     "WEBSITE": "http://www.hoover.org/"
   },
   {
@@ -8253,9 +8421,23 @@
     "WEBSITE": "http://www.hoover.org/"
   },
   {
+    "Key": "HooverKAAIA",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Volker Distinguished Visiting Fellow",
+    "CURRENT HOLDER": "Benjamin Ginsberg",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
+    "Key": "HooverKAAIA",
+    "SUBCATEGORY": "HOOVER INSTITUTION",
+    "POSITION": "The Volker Senior Fellow",
+    "CURRENT HOLDER": "Chester Finn, Jr.",
+    "WEBSITE": "http://www.hoover.org/"
+  },
+  {
     "Key": "HooverKBAHV9825712",
     "SUBCATEGORY": "HOOVER INSTITUTION",
-    "POSITION": "The Robert Wesson Fellow in Scientific Philosophy and Public Policy",
+    "POSITION": "The Robert Wesson Senior Fellow in Scientific Philosophy and Public Policy",
     "CURRENT HOLDER": "Scott W. Atlas",
     "WEBSITE": "http://www.hoover.org/"
   },
@@ -8673,7 +8855,7 @@
     "WEBSITE": "https://hai.stanford.edu/"
   },
   {
-    "Key": "HAIKBFBB0",
+    "Key": "HAIKBFBB5145239",
     "SUBCATEGORY": "STANFORD INSTITUTE FOR HUMAN-CENTERED ARTIFICIAL INTELLIGENCE",
     "POSITION": "The Dieter Schwarz Foundation HAI Professorship",
     "CURRENT HOLDER": "Yejin Choi",
