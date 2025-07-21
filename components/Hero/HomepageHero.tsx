@@ -52,11 +52,11 @@ export const HomepageHero = ({
           className={styles.imageWrapper}
         />
       )}
-      <FlexBox alignItems="end" justifyContent="between" className={styles.heroContent}>
+      <FlexBox className={styles.heroContent}>
         <div className={styles.h1Wrapper}>
           <Heading
             as="h1"
-            size={splashTextSize === 9 ? 'f9' : 'f8'}
+            size={splashTextSize == 9 ? 'f8' : 'f7'}
             weight="semibold"
             color="white"
             leading="tight"

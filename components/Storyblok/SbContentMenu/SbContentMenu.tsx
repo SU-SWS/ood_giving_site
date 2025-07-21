@@ -1,13 +1,11 @@
 'use client';
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
-import { useWindowSize } from 'usehooks-ts';
 import {
   Popover, PopoverButton, PopoverPanel, Transition,
 } from '@headlessui/react';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Heading } from '@/components/Typography';
 import { HeroIcon } from '@/components/HeroIcon';
-import { config } from '@/utilities/config';
 import { getNumBloks } from '@/utilities/getNumBloks';
 import * as styles from './SbContentMenu.styles';
 
@@ -78,12 +76,10 @@ export const SbContentMenu = ({ blok, slug }: SbContentMenuProps) => {
     relatedMenuLinks,
   } = blok;
 
-  const windowSize = useWindowSize();
-
-  // Desktop version of the content menu is always expanded
-  if (windowSize.width >= config.breakpoints.lg) {
-    return (
-      <nav aria-label="Section Content Menu" {...storyblokEditable(blok)}>
+  // Mobile/tablet version of the content menu with toggle button and collapsable with aria labels
+  return (
+    <>
+      <nav aria-label="Section Content Menu" className={styles.root} {...storyblokEditable(blok)}>
         <MenuContent
           title={menuTitle}
           links={menuLinks}
@@ -92,46 +88,43 @@ export const SbContentMenu = ({ blok, slug }: SbContentMenuProps) => {
           slug={slug}
         />
       </nav>
-    );
-  }
-  // Mobile/tablet version of the content menu with toggle button and collapsable with aria labels
-  return (
-    <Popover
-      as="nav"
-      className={styles.mobileRoot}
-      aria-label="Section Content Menu"
-      {...storyblokEditable(blok)}
-    >
-      {({ open }) => (
-        <>
-          <PopoverButton className={styles.mobileButton}>
-            {open ? 'Close' : 'Section Menu'}
-            <HeroIcon
-              icon={open ? 'close' : 'menu'}
-              noBaseStyle
-              className={styles.mobileButtonIcon}
-            />
-          </PopoverButton>
-          <Transition
-            enter="duration-300 ease-out"
-            enterFrom="opacity-0 scale-y-95"
-            enterTo="opacity-100 scale-y-100"
-            leave="duration-200 ease-out"
-            leaveFrom="opacity-100 scale-y-100"
-            leaveTo="opacity-0 scale-y-95"
-          >
-            <PopoverPanel className={styles.mobilePanel}>
-              <MenuContent
-                title={menuTitle}
-                links={menuLinks}
-                relatedTitle={relatedMenuTitle}
-                relatedLinks={relatedMenuLinks}
-                slug={slug}
+      <Popover
+        as="nav"
+        className={styles.mobileRoot}
+        aria-label="Section Content Menu"
+        {...storyblokEditable(blok)}
+      >
+        {({ open }) => (
+          <>
+            <PopoverButton className={styles.mobileButton}>
+              {open ? 'Close' : 'Section Menu'}
+              <HeroIcon
+                icon={open ? 'close' : 'menu'}
+                noBaseStyle
+                className={styles.mobileButtonIcon}
               />
-            </PopoverPanel>
-          </Transition>
-        </>
-      )}
-    </Popover>
+            </PopoverButton>
+            <Transition
+              enter="duration-300 ease-out"
+              enterFrom="opacity-0 scale-y-95"
+              enterTo="opacity-100 scale-y-100"
+              leave="duration-200 ease-out"
+              leaveFrom="opacity-100 scale-y-100"
+              leaveTo="opacity-0 scale-y-95"
+            >
+              <PopoverPanel className={styles.mobilePanel}>
+                <MenuContent
+                  title={menuTitle}
+                  links={menuLinks}
+                  relatedTitle={relatedMenuTitle}
+                  relatedLinks={relatedMenuLinks}
+                  slug={slug}
+                />
+              </PopoverPanel>
+            </Transition>
+          </>
+        )}
+      </Popover>
+    </>
   );
 };
