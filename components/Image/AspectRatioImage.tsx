@@ -11,6 +11,7 @@ export type AspectRatioImageProps = SbImageType & React.HTMLAttributes<HTMLImage
   visibleHorizontal?: styles.VisibleHorizontalType;
   imageSize?: styles.AspectRatioImageSizeType;
   aspectRatio?: styles.ImageAspectRatioType;
+  fetchPriority?: 'low' | 'high' | 'auto';
 };
 
 export const AspectRatioImage = ({
@@ -21,6 +22,7 @@ export const AspectRatioImage = ({
   aspectRatio = '3x2',
   visibleHorizontal,
   visibleVertical,
+  fetchPriority,
   className,
   ...imageProps
 }: AspectRatioImageProps) => {
@@ -59,6 +61,7 @@ export const AspectRatioImage = ({
         width={cropWidth}
         height={cropHeight}
         src={processedImg}
+        fetchPriority={fetchPriority}
         alt={alt || ''}
         {...imageProps}
       />

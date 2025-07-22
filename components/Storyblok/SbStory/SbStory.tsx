@@ -99,6 +99,7 @@ export const SbStory = ({ blok }: SbStoryProps) => {
             filename={filename}
             visibleVertical={visibleVertical}
             visibleHorizontal="center"
+            fetchPriority="high"
             alt={alt || ''}
             className={styles.image}
           />

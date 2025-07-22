@@ -47,6 +47,7 @@ export const HomepageHero = ({
           visibleVertical={visibleVertical}
           visibleHorizontal={visibleHorizontal}
           className={styles.imageWrapper}
+          fetchPriority="high"
         />
       )}
       <FlexBox className={styles.heroContent}>
