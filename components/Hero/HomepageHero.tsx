@@ -1,3 +1,5 @@
+'use client';
+import * as m from 'motion/react-m';
 import { CtaLink } from '@/components/Cta';
 import { SimpleCard, type SimpleCardProps } from '@/components/SimpleCard';
 import { Heading } from '@/components/Typography';
@@ -35,11 +37,6 @@ export const HomepageHero = ({
   isDarkText,
   ...props
 }: HomepageHeroProps) => {
-  /**
-   * Color contrast of white text on palo verde background is 3.5:1 which is insufficient for small text
-   * If palo verde is chosen as background color, use palo verde dark instead (4.91:1 contrast ratio)
-   */
-  const a11yBgColor = bgColor === 'palo-verde' ? 'palo-verde-dark' : bgColor;
 
   return (
     <article className={styles.root(sectionBgColor)} {...props}>
@@ -53,7 +50,12 @@ export const HomepageHero = ({
         />
       )}
       <FlexBox className={styles.heroContent}>
-        <div className={styles.h1Wrapper}>
+        <m.div
+          initial={{ filter: 'blur(12px)'}}
+          animate={{ filter: 'blur(0px)' }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          className={styles.h1Wrapper}
+        >
           <Heading
             as="h1"
             size={splashTextSize == 9 ? 'f8' : 'f7'}
@@ -65,8 +67,8 @@ export const HomepageHero = ({
             {splashText}
           </Heading>
           <div className={styles.tab(tabColor)} />
-        </div>
-        <SimpleCard bgColor={a11yBgColor} className={styles.card} hasLink>
+        </m.div>
+        <SimpleCard bgColor={bgColor} className={styles.card} hasLink>
           <div className={styles.cardContent}>
             {ctaHeadline && (
               <Heading color={isDarkText ? 'black' : 'white'} size={3} font="sans" weight="semibold" className={styles.cardHeading}>

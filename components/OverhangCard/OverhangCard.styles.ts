@@ -6,10 +6,11 @@ export const root = (
   bgColor: AllCardBgColorType,
   isDarkBg: boolean,
 ) => cnb(
-  'group relative flex-col mt-80 break-words shadow-md border border-black-10',
+  'group relative flex-col mt-80 break-words shadow-md',
   allCardBgColors[bgColor],
   {
     'focus-within:shadow-lg hover:shadow-lg transition-shadow': hasLink,
+    'border border-black/10': !isDarkBg,
     'before:absolute before:z-0 before:inset-0 hover:before:bg-black-true/40 focus-within:before:bg-black-true/40': hasLink && isDarkBg,
   },
 );
