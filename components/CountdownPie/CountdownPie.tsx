@@ -43,34 +43,32 @@ export const CountdownPie = ({
   const fillColorHex = useMemo(() => colorHexMap[fillColor], [fillColor]);
 
   return (
-    <FlexBox direction="col" className={cnb('flex-1', className)}>
+    <FlexBox direction="col" className={cnb(className)}>
       <div className={styles.countdownPie}>
-        <FlexBox
-          alignItems="center"
-          justifyContent="center"
+        <div
+          aria-hidden
           className={styles.countdownRing}
           style={{
             background: `#eeedeb conic-gradient(${fillColorHex} calc(${percent} * 1%), transparent 0)`,
           }}
+        />
+        <FlexBox
+          direction="col"
+          alignItems="center"
+          justifyContent="center"
+          className={styles.countdownContent({ shrink })}
         >
           <FlexBox
-            direction="col"
+            as="span"
             alignItems="center"
             justifyContent="center"
-            className={styles.countdownContent({ shrink })}
+            className={styles.countdownNumber({ larger: descriptionPosition === 'bottom', font })}
           >
-            <FlexBox
-              as="span"
-              alignItems="center"
-              justifyContent="center"
-              className={styles.countdownNumber({ larger: descriptionPosition === 'bottom', font })}
-            >
-              {isBlank ? '-' : filled}{showPercent && '%'}
-            </FlexBox>
-            {!!description && descriptionPosition === 'center' && (
-              <span className={styles.countdownDescriptionCenter}>{description}</span>
-            )}
+            {isBlank ? '-' : filled}{showPercent && '%'}
           </FlexBox>
+          {!!description && descriptionPosition === 'center' && (
+            <span className={styles.countdownDescriptionCenter}>{description}</span>
+          )}
         </FlexBox>
       </div>
       {!!description && descriptionPosition === 'bottom' && (

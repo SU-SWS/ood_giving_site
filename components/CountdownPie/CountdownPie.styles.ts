@@ -1,9 +1,9 @@
 import { cnb } from 'cnbuilder';
 
-export const countdownPie = 'h-[min-content] aspect-1';
-export const countdownRing = 'rounded-full aspect-1';
+export const countdownPie = 'aspect-1 relative w-full';
+export const countdownRing = 'absolute left-0 top-0 w-full h-full rounded-full';
 export const countdownContent = ({ shrink = false }: { shrink?: boolean } = {}) => cnb(
-  'bg-white p-12  rounded-full aspect-1 w-full',
+  'bg-white p-12 rounded-full aspect-1 relative z-2',
   {
     'm-12 xs:m-20': shrink,
     'm-20': !shrink,
@@ -12,7 +12,7 @@ export const countdownContent = ({ shrink = false }: { shrink?: boolean } = {}) 
 export const countdownNumber = ({ larger = false, font }: { larger?: boolean, font: 'sans' | 'serif' }) => cnb(
   'font-bold text-center',
   {
-    'text-[clamp(2.6rem,_7.59vi_+_.0171rem,_6rem)] md:text-[6rem]': !larger,
+    'text-[clamp(1.6rem,_6vi_-_.1543rem,_6rem)] md:text-[6rem]': !larger,
     'text-[3.6rem] lg:text-[4rem] xl:text-[5rem] 2xl:text-[6rem]': larger,
     'font-sans': font === 'sans',
     'font-serif': font === 'serif',

@@ -75,11 +75,11 @@ export const Countdown = ({
       className={styles.countdown({ hasDays })}
       >
       {hasDays && (
-        <CountdownPie fillColor="cardinal-red" shrink filled={days} total={dayPieRange} description="Days" />
+        <CountdownPie className="grow-0 shrink-0 basis-[20rem] lg:basis-[25rem]" fillColor="cardinal-red" shrink filled={days} total={dayPieRange} description="Days" />
       )}
-      <CountdownPie fillColor="cardinal-red" shrink filled={hours} total={hasDays ? 24 : hourPieRange} description="Hours" />
-      <CountdownPie fillColor="cardinal-red" shrink filled={minutes} total={60} description="Minutes" />
-      <CountdownPie fillColor="cardinal-red" shrink filled={seconds} total={60} description="Seconds" />
+      <CountdownPie className="grow-0 shrink-0 basis-[20rem] lg:basis-[25rem]" fillColor="cardinal-red" shrink filled={hours} total={hasDays ? 24 : hourPieRange} description="Hours" />
+      <CountdownPie className="grow-0 shrink-0 basis-[20rem] lg:basis-[25rem]" fillColor="cardinal-red" shrink filled={minutes} total={60} description="Minutes" />
+      <CountdownPie className="grow-0 shrink-0 basis-[20rem] lg:basis-[25rem]" fillColor="cardinal-red" shrink filled={seconds} total={60} description="Seconds" />
     </Grid>
   );
 };
