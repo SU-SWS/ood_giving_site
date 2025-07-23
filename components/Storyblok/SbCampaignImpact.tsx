@@ -40,7 +40,7 @@ export const SbCampaignImpact = ({ blok }: SbCampaignImpactProps) => {
       }) => {
 
         return (
-          <div key={_uid} className="flex w-full md:w-1/2 lg:w-1/4 px-8 justify-center">
+          <div key={_uid} className="flex w-full md:w-1/2 lg:w-1/4 px-8 lg:px-15 justify-center">
             <CountdownPie
               showPercent
               filled={parseInt(percent, 10) || 0}
