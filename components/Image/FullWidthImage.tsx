@@ -6,7 +6,6 @@ import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './Image.styles';
 
 export type FullWidthImageProps = SbImageType & React.HTMLAttributes<HTMLImageElement> & {
-  classPrefix?: string;
   visibleVertical?: styles.VisibleVerticalType;
   visibleHorizontal?: styles.VisibleHorizontalType;
 };
@@ -14,7 +13,6 @@ export type FullWidthImageProps = SbImageType & React.HTMLAttributes<HTMLImageEl
 export const FullWidthImage = ({
   filename,
   alt,
-  classPrefix,
   visibleHorizontal,
   visibleVertical,
   className,
@@ -27,7 +25,7 @@ export const FullWidthImage = ({
   }, [originalWidth, filename]);
 
   return (
-    <div className={cnb('su-media', classPrefix && `${classPrefix}__media`, className)}>
+    <div className={className}>
       <picture>
         {imageSources.map(({ srcSet, media }, index) => (
           <source
@@ -44,8 +42,7 @@ export const FullWidthImage = ({
           className={cnb(
             'size-full object-cover',
             styles.objectPositions(visibleHorizontal, visibleVertical),
-            classPrefix && `${classPrefix}__image`)
-          }
+          )}
         />
       </picture>
     </div>
