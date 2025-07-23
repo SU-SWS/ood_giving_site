@@ -8,6 +8,7 @@ import * as styles from './Image.styles';
 export type FullWidthImageProps = SbImageType & React.HTMLAttributes<HTMLImageElement> & {
   visibleVertical?: styles.VisibleVerticalType;
   visibleHorizontal?: styles.VisibleHorizontalType;
+  fetchPriority?: 'low' | 'high' | 'auto';
 };
 
 export const FullWidthImage = ({
@@ -15,6 +16,7 @@ export const FullWidthImage = ({
   alt,
   visibleHorizontal,
   visibleVertical,
+  fetchPriority,
   className,
 }: FullWidthImageProps) => {
   const { width: originalWidth, height: originalHeight } = getSbImageSize(filename);
@@ -39,6 +41,7 @@ export const FullWidthImage = ({
           alt={alt || ''}
           width={originalWidth}
           height={originalHeight}
+          fetchPriority={fetchPriority}
           className={cnb(
             'size-full object-cover',
             styles.objectPositions(visibleHorizontal, visibleVertical),

@@ -6,13 +6,13 @@ export const innerShadow = 'absolute top-0 w-full h-15 bg-gradient-to-b from-bla
 /**
  * Desktop mega menu
  */
-export const root = 'grow';
+export const root = 'hidden lg:block grow';
 export const wrapper = 'list-unstyled gap-30 xl:gap-38';
 
 /**
  * Mobile mega menu
  */
-export const mobileRoot = 'flex z-[200] lg:items-center';
+export const mobileRoot = 'lg:hidden flex z-[200] lg:items-center';
 export const mobileButton = 'relative w-40 flex flex-col items-center pb-15 md:pb-25 font-semibold leading-[.7] md:leading-none text-digital-red hocus:text-black outline-none before:absolute before:h-6 md:before:h-10 before:w-full before:hocus:bg-digital-red before:left-0 before:bottom-0 before:scale-x-0 hocus:before:scale-x-100 before:transition-transform aria-expanded:before:scale-x-100 aria-expanded:before:hocus:bg-black';
 export const mobileButtonIcon = 'w-24 stroke-[2.4] mb-3';
 export const mobileTopMenu = 'absolute left-0 top-[10.8rem] md:top-[14.1rem] pt-12 pb-40 list-unstyled origin-top w-full bg-white shadow-xl [&_>li]:border-b [&_>li]:border-black-20';

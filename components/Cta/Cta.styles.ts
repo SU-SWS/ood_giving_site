@@ -38,6 +38,8 @@ export const ctaTextColors = {
   // The hocus color for this is actually sky-dark, so ignore the mismatch in the key
   'su-text-digital-red su-after-bg-digital-red su-text-hocus-plum-dark su-after-bg-hocus-plum-dark': 'text-digital-red hocus:text-sky-dark hocus:underline',
   'su-text-white su-text-hocus-white su-hocus-underline su-after-bg-white su-after-bg-hocus-white': 'text-white hocus:text-white hocus:underline',
+  white: 'text-white hocus:text-white',
+  black: 'text-black hocus:text-black',
   // Gradient text links for Campaign pages
   'ood-cta__link-gradient su-bg-sky-dark-to-bay-dark su-after-bg-sky-dark-to-bay-dark': `${gradientTextLinkBase} from-sky-dark to-bay-dark *:[&_svg]:text-bay-dark *:[&_svg]:hocus:text-bay-dark`,
   'ood-cta__link-gradient su-bg-cardinal-dark-to-spirited-dark su-after-bg-cardinal-dark-to-spirited-dark': `${gradientTextLinkBase} from-cardinal-red-dark to-spirited-dark *:[&_svg]:text-spirited-dark *:[&_svg]:hocus:text-spirited-dark`,

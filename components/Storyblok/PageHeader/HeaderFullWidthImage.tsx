@@ -23,6 +23,7 @@ export const HeaderFullWidthImage = ({
       filename={filename}
       visibleVertical={visibleVertical}
       visibleHorizontal="center"
+      fetchPriority="high"
       alt={alt || ''}
       className="print:hidden h-160 sm:h-240 md:h-[33rem] lg:h-400 xl:h-500 2xl:h-600"
     />

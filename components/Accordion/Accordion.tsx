@@ -108,7 +108,7 @@ export const Accordion = ({
       )}
       <ul className={styles.list}>
         {items?.map((item, index) => (
-          <li key={item._uid} className={styles.listItem(color)}>
+          <li key={item._uid} className={styles.listItem(isDigitalRed)}>
             <Heading as={item.headingLevel || 'h3'} font={font} weight={fontWeight} leading="tight" className={styles.itemHeading}>
               <button
                 type="button"
@@ -121,7 +121,7 @@ export const Accordion = ({
               >
                 <span aria-hidden="true" className={styles.bar} />
                 {item.title}
-                <HeroIcon icon={openItems[index] ? 'minus' : 'plus'} noBaseStyle className={styles.circleIcon(color)} />
+                <HeroIcon icon={openItems[index] ? 'minus' : 'plus'} noBaseStyle className={styles.circleIcon(isDigitalRed)} />
               </button>
             </Heading>
             <m.div

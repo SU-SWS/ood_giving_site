@@ -1,9 +1,6 @@
 import { type SbBlokData } from '@storyblok/react/rsc';
-import { storyblokEditable } from '@storyblok/react/rsc';
-import { IconCardSection } from '@/components/Storyblok/partials/IconCardSection';
+import { PageLayout } from '@/components/Storyblok/partials/PageLayout';
 import { CreateBloks } from '@/components/CreateBloks';
-import { Footer } from '@/components/Storyblok/partials/Footer';
-import { Header } from '@/components/Storyblok/partials/Header';
 
 type SbLandingPageProps = {
   blok: SbBlokData & {
@@ -32,22 +29,23 @@ export const SbLandingPage = ({ blok, slug }: SbLandingPageProps) => {
   } = blok;
 
   return (
-    <div {...storyblokEditable(blok)} className="ood-landing-page bg-fog-light">
-      <Header alertPicker={alertPicker} localHeader={localHeader} slug={slug} />
-      <main id="main-content" className="ood-landing-page__main">
-        <article className="bg-fog-light">
-          <header className="ood-landing-page__main-header">
-            <CreateBloks blokSection={heroSection} />
-          </header>
-          <section className="ood-landing-page__main-body">
-            <CreateBloks blokSection={sections} />
-          </section>
-        </article>
-        <footer className="ood-landing-page__main-footer">
-          <IconCardSection iconCards={iconCards} iconCardHeading={iconCardHeading} />
-        </footer>
-      </main>
-      <Footer localFooter={localFooter} globalFooter={globalFooter} />
-    </div>
+    <PageLayout
+      blok={blok}
+      slug={slug}
+      alertPicker={alertPicker}
+      localHeader={localHeader}
+      iconCards={iconCards}
+      iconCardHeading={iconCardHeading}
+      localFooter={localFooter}
+      globalFooter={globalFooter}
+      articleClassName="bg-fog-light"
+    >
+      <header>
+        <CreateBloks blokSection={heroSection} />
+      </header>
+      <section>
+        <CreateBloks blokSection={sections} />
+      </section>
+    </PageLayout>
   );
 };

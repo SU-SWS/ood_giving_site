@@ -65,15 +65,15 @@
     "@stylistic/eslint-plugin": "^4.4.1",
     "@tailwindcss/container-queries": "^0.1.1",
     "@types/node": "^20",
-    "@types/react": "^19.0.12",
-    "@types/react-dom": "^19.0.4",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
     "autoprefixer": "^10.4.21",
     "decanter": "^7.3.2",
     "eslint": "^9.23.0",
     "eslint-config-next": "^15.3.3",
     "netlify-plugin-vault-variables": "^3.0.1",
     "postcss": "^8.5.3",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   },
   "optionalDependencies": {
     "local-ssl-proxy": "^2.0.5",
