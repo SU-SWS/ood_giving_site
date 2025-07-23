@@ -55,6 +55,7 @@ import { SbGridThreeColumns } from '@/components/Storyblok/SbGridThreeColumns';
 import { SbCountdown, SbCountdownPicker } from '@/components/Storyblok/SbCountdown';
 import { SbAccordion } from '@/components/Storyblok/SbAccordion';
 import { SbHomepageHero } from '@/components/Storyblok/SbHomepageHero';
+import { SbCampaignImpact } from '@/components/Storyblok/SbCampaignImpact';
 import { SbPoster } from '@/components/Storyblok/SbPoster';
 
 export const components = {
@@ -118,6 +119,8 @@ export const components = {
   // Countdown
   countdown: SbCountdown,
   countdownPicker: SbCountdownPicker,
+  // Campaign
+  oodCampaignImpact: SbCampaignImpact,
   // Complex
   accordion: SbAccordion,
   oodHomepageHero: SbHomepageHero,
