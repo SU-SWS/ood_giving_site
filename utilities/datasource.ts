@@ -6,6 +6,19 @@ export const lightPageBgColors = {
 };
 export type LightPageBgColorType = keyof typeof lightPageBgColors;
 
+export const lightBgColors = {
+  'bay-light': 'bg-bay-light',
+  'palo-alto': 'bg-palo-alto',
+  'palo-alto-light': 'bg-palo-alto-light',
+  'palo-verde-light': 'bg-palo-verde-light',
+  'lagunita-light': 'bg-lagunita-light',
+  'sky-light': 'bg-sky-light',
+  'digital-red': 'bg-digital-red',
+  'cardinal-red': 'bg-cardinal-red',
+  'white': 'bg-white',
+};
+export type LightBgColorType = keyof typeof lightBgColors;
+
 export const darkBgColors = {
   'bay-dark': 'bg-bay-dark',
   'palo-alto': 'bg-palo-alto',

@@ -26,11 +26,13 @@ export const SbMegaMenu = ({ blok, slug }: SbMegaMenuProps) => {
 
   return (
     <>
+      {/* Desktop mega menu */}
       <nav {...storyblokEditable(blok)} className={styles.root} aria-label="Main Menu">
         <FlexBox as="ul" wrap="wrap" className={styles.wrapper}>
           <CreateBloks blokSection={topLevelLinks} slug={slug} />
         </FlexBox>
       </nav>
+      {/* Mobile collapsible mega menu */}
       <Popover as="nav" className={styles.mobileRoot} aria-label="Main Menu">
         {({ open }) => (
           <>

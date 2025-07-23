@@ -76,9 +76,9 @@ export const SbContentMenu = ({ blok, slug }: SbContentMenuProps) => {
     relatedMenuLinks,
   } = blok;
 
-  // Mobile/tablet version of the content menu with toggle button and collapsable with aria labels
   return (
     <>
+      {/* Desktop content menu in the sidebar */}
       <nav aria-label="Section Content Menu" className={styles.root} {...storyblokEditable(blok)}>
         <MenuContent
           title={menuTitle}
@@ -88,6 +88,7 @@ export const SbContentMenu = ({ blok, slug }: SbContentMenuProps) => {
           slug={slug}
         />
       </nav>
+      {/* Mobile collapsible content menu */}
       <Popover
         as="nav"
         className={styles.mobileRoot}

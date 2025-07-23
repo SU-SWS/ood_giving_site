@@ -1,7 +1,7 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
-import { HomepageHero } from '@/components/Hero';
+import { HomepageHero, type SplashTextSizeType } from '@/components/Hero';
 import { type VisibleVerticalType, type VisibleHorizontalType } from '@/components/Image';
-import { type DarkBgColorType, type LightPageBgColorType, type AllCardBgColorType } from '@/utilities/datasource';
+import { type DarkBgColorType, type LightPageBgColorType, type LightBgColorType } from '@/utilities/datasource';
 import { type SbImageType, type SbLinkType } from './Storyblok.types';
 
 type SbHomepageHeroProps = {
@@ -15,8 +15,8 @@ type SbHomepageHeroProps = {
     visibleVertical?: VisibleVerticalType;
     visibleHorizontal?: VisibleHorizontalType;
     // Options
-    splashTextSize: 8 | 9;
-    tabColor?: AllCardBgColorType;
+    splashTextSize: SplashTextSizeType;
+    tabColor?: LightBgColorType;
     ctaBackgroundColor?: DarkBgColorType; // Background color of the card
     backgroundColor?: LightPageBgColorType; // Background color next to the overhang of the card so it matches the section below
   };

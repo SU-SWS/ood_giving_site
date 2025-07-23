@@ -73,7 +73,6 @@ export const SbInteriorPage = ({ blok, slug }: SbInteriorPageProps) => {
     globalFooter,
   } = blok;
 
-  /// const windowSize = useWindowSize();
   const hasHeroImage = headerStyle === 'has-image' || headerStyle === 'full-width-image';
   const hasContentMenu = !!getNumBloks(contentMenu);
   const showMobileContentMenu = hasContentMenu && layout === 'left-sidebar';
