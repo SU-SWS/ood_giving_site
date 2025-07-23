@@ -5,7 +5,7 @@ export const countdownRing = 'absolute left-0 top-0 w-full h-full rounded-full';
 export const countdownContent = ({ shrink = false }: { shrink?: boolean } = {}) => cnb(
   'bg-white p-12 rounded-full aspect-1 relative z-2',
   {
-    'm-12 xs:m-20': shrink,
+    'm-12 min-[450px]:m-20': shrink,
     'm-20': !shrink,
   },
 );
@@ -18,5 +18,5 @@ export const countdownNumber = ({ larger = false, font }: { larger?: boolean, fo
     'font-serif': font === 'serif',
   },
 );
-export const countdownDescriptionCenter = 'uppercase text-[1rem] xs:text-14 md:text-18 text-center';
+export const countdownDescriptionCenter = 'uppercase text-[1rem] min-[450px]:text-14 md:text-18 text-center';
 export const countdownDescriptionBottom = 'font-semibold fluid-type-0 mt-17 text-center';
