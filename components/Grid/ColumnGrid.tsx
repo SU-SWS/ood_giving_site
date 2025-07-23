@@ -5,13 +5,15 @@ type ColumnGridProps = GridProps & {
   columnTwoContent?: React.ReactNode;
   columnThreeContent?: React.ReactNode;
   oneColumnMd?: boolean;
+  isNotStretched?: boolean;
 }
 
 export const ColumnGrid = ({
   columnOneContent,
   columnTwoContent,
   columnThreeContent,
-  oneColumnMd = false,
+  oneColumnMd,
+  isNotStretched,
   ...props
 }: ColumnGridProps) => {
   return (
@@ -19,7 +21,8 @@ export const ColumnGrid = ({
       {...props}
       gap="card"
       md={oneColumnMd ? 1 : 3}
-      lg={oneColumnMd ? 1 : 3}
+      lg={3}
+      alignItems={isNotStretched ? 'start' : 'stretch'}
     >
       {columnOneContent && <Grid gap="tile">{columnOneContent}</Grid>}
       {columnTwoContent && <Grid gap="tile">{columnTwoContent}</Grid>}
