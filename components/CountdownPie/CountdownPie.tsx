@@ -49,7 +49,7 @@ export const CountdownPie = ({
           className={styles.countdownRing({ shrink })}
           aria-hidden
           style={{
-            background: `conic-gradient(${fillColorHex} calc(${percent} * 1%), #eeedeb 0) border-box`,
+            background: `conic-gradient(${fillColorHex} calc(${percent} * 1%), rgba(93, 75, 60, 0.1) 0) border-box`,
             mask: 'linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0)',
             maskComposite: 'exclude',
           }}
