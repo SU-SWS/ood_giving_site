@@ -1,14 +1,14 @@
 import { cnb } from 'cnbuilder';
 
 export const countdownPie = 'aspect-1 relative w-full';
-export const countdownRing = 'absolute left-0 top-0 w-full h-full rounded-full';
-export const countdownContent = ({ shrink = false }: { shrink?: boolean } = {}) => cnb(
-  'bg-white p-12 rounded-full aspect-1 relative z-2',
+export const countdownRing = ({ shrink = false }: { shrink?: boolean } = {}) => cnb(
+  'absolute left-0 top-0 w-full h-full rounded-full border-transparent border-solid',
   {
-    'm-12 min-[450px]:m-20': shrink,
-    'm-20': !shrink,
+    'border-[1.2rem] min-[450px]:border-[2rem]': shrink,
+    'border-[2rem]': !shrink,
   },
 );
+export const countdownContent = 'p-12 rounded-full aspect-1 relative z-2';
 export const countdownNumber = ({ larger = false, font }: { larger?: boolean, font: 'sans' | 'serif' }) => cnb(
   'font-bold text-center',
   {

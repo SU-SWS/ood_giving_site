@@ -46,17 +46,19 @@ export const CountdownPie = ({
     <FlexBox direction="col" className={cnb(className)}>
       <div className={styles.countdownPie}>
         <div
+          className={styles.countdownRing({ shrink })}
           aria-hidden
-          className={styles.countdownRing}
           style={{
-            background: `#eeedeb conic-gradient(${fillColorHex} calc(${percent} * 1%), transparent 0)`,
+            background: `conic-gradient(${fillColorHex} calc(${percent} * 1%), #eeedeb 0) border-box`,
+            mask: 'linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0)',
+            maskComposite: 'exclude',
           }}
         />
         <FlexBox
           direction="col"
           alignItems="center"
           justifyContent="center"
-          className={styles.countdownContent({ shrink })}
+          className={styles.countdownContent}
         >
           <FlexBox
             as="span"
