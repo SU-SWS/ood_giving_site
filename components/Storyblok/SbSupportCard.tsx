@@ -1,13 +1,15 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { type IconName } from '@fortawesome/fontawesome-svg-core';
 import { SupportCard } from '@/components/SupportCard';
+import { type AreasToSupportType } from '@/components/Storyblok/SbSupportPage';
 import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { type SbFontawesomeSelectorType } from '@/components/Storyblok/Storyblok.types';
 import { type AllCardBgColorType } from '@/utilities/datasource';
 
-type SbSupportCardProps = {
+export type SbSupportCardProps = {
   blok: SbBlokData & {
-    taxonomy: string[];
+    _uid?: string;
+    taxonomy: AreasToSupportType[];
     headline: string;
     link: SbLinkType;
     // The input from the Storyblok plugin FontAwesome selector

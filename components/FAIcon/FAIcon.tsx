@@ -10,7 +10,7 @@ import { FontAwesomeIcon, type FontAwesomeIconProps } from '@fortawesome/react-f
  * https://docs.fontawesome.com/web/use-with/react/style
  */
 export type FAIconProps = Omit<FontAwesomeIconProps, 'icon'> & {
-  icon: IconName;
+  icon?: IconName;
   // For this project we only use the free outline "far" or solid "fas" icons
   iconStyle?: 'far' | 'fas';
 }

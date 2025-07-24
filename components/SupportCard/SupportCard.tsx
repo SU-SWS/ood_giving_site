@@ -4,15 +4,17 @@ import { SbLink } from '@/components/Storyblok/partials/SbLink';
 import { SimpleCard, type SimpleCardProps } from '@/components/SimpleCard';
 import { Text } from '@/components/Typography';
 import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
+import { type AreasToSupportType } from '../Storyblok/SbSupportPage';
 import * as styles from './SupportCard.styles';
 
 type SupportCardProps = SimpleCardProps & FAIconProps & {
-  taxonomy: string[];
-  headline: string;
-  link: SbLinkType;
+  taxonomy?: AreasToSupportType[];
+  headline?: string;
+  link?: SbLinkType;
 };
 
 export const SupportCard = ({
+  taxonomy,
   headline,
   link,
   icon,
@@ -28,6 +30,7 @@ export const SupportCard = ({
       hasLink
       bgColor={bgColor}
       className={styles.root}
+      data-areas-to-support={taxonomy?.join(', ')}
     >
       <FlexBox direction="col" alignItems="start" justifyContent="between" className={styles.wrapper}>
         <SbLink link={link} classes={styles.link(bgColor)}>
