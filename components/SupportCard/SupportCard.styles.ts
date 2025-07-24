@@ -10,6 +10,8 @@ export const link = (bgColor: AllCardBgColorType) => cnb(
   bgColor === 'white' ? '*:hocus:text-digital-red' : '*:hocus:text-white',
 );
 
+export const linkText = 'inline-block';
+
 export const linkIcon = 'ml-02em w-07em stroke-2 group-hocus:translate-x-01em group-hocus:-translate-y-01em';
 
 export const icon = (isDarkCardBg: boolean) => cnb(

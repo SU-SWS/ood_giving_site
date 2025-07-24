@@ -30,7 +30,6 @@ export const SupportCard = ({
       hasLink
       bgColor={bgColor}
       className={styles.root}
-      data-areas-to-support={taxonomy?.join(', ')}
     >
       <FlexBox direction="col" alignItems="start" justifyContent="between" className={styles.wrapper}>
         <SbLink link={link} classes={styles.link(bgColor)}>
@@ -42,7 +41,7 @@ export const SupportCard = ({
             color={bgColor === 'white' ? 'black' : 'white'}
             icon={link?.linktype !== 'story' ? 'external' : undefined}
             iconProps={{ className: styles.linkIcon, noBaseStyle: true }}
-            className="inline-block"
+            className={styles.linkText}
           >
             {headline}
           </Text>

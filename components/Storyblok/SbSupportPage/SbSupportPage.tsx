@@ -8,12 +8,11 @@ import { Container } from '@/components/Container';
 import { HeaderNoImage } from '@/components/Storyblok/PageHeader/HeaderNoImage';
 import { PageLayout } from '@/components/Storyblok/partials/PageLayout';
 import { Grid } from '@/components/Grid';
-import { Heading, SrOnlyText } from '@/components/Typography';
+import { Heading } from '@/components/Typography';
 import { CtaButton, CtaGroup } from '@/components/Cta';
 import { SbSupportCard } from '@/components/Storyblok/SbSupportCard';
+import { type SbSupportCardBlokProps } from '@/components/Storyblok/SbSupportCard';
 import { type AreasToSupportType, areasToSupport } from './taxonomy';
-import { type SbLinkType, type SbFontawesomeSelectorType } from '@/components/Storyblok/Storyblok.types';
-import { type AllCardBgColorType } from '@/utilities/datasource';
 import { type DarkBgColorType } from '@/utilities/datasource';
 import * as styles from './SbSupportPage.styles';
 
@@ -25,19 +24,18 @@ type SbSupportPageProps = {
     localHeader: SbBlokData[];
     alertPicker: SbBlokData[];
     bodyTitle: string;
-    srText: string;
-    undergraduate: SbBlokData[];
-    graduate: SbBlokData[];
-    arts: SbBlokData[];
-    athletics: SbBlokData[];
-    business: SbBlokData[];
-    culture: SbBlokData[];
-    ideal: SbBlokData[];
-    law: SbBlokData[];
-    medicine: SbBlokData[];
-    science: SbBlokData[];
-    sustainability: SbBlokData[];
-    teaching: SbBlokData[];
+    undergraduate: SbSupportCardBlokProps[];
+    graduate: SbSupportCardBlokProps[];
+    arts: SbSupportCardBlokProps[];
+    athletics: SbSupportCardBlokProps[];
+    business: SbSupportCardBlokProps[];
+    culture: SbSupportCardBlokProps[];
+    ideal: SbSupportCardBlokProps[];
+    law: SbSupportCardBlokProps[];
+    medicine: SbSupportCardBlokProps[];
+    science: SbSupportCardBlokProps[];
+    sustainability: SbSupportCardBlokProps[];
+    teaching: SbSupportCardBlokProps[];
     // Below content
     belowContent?: SbBlokData[];
     iconCardHeading?: string;
@@ -53,11 +51,10 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
   const {
     title,
     intro,
-    headerBackgroundColor = 'palo-alto-dark',
+    headerBackgroundColor,
     localHeader,
     alertPicker,
     bodyTitle,
-    srText,
     undergraduate,
     graduate,
     arts,
@@ -92,7 +89,7 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
    * Note: The name of these regions does not match the taxonomy values, and they don't actually affect the filtering logic.
    * The filtering logic is based on the list of taxonomy terms selected in each Support Card.
    */
-  const supportCardData = useMemo(() => [
+  const allSupportCards = useMemo(() => [
     ...undergraduate,
     ...graduate,
     ...arts,
@@ -110,19 +107,14 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
     ideal, law, medicine, science, sustainability, teaching,
   ]);
 
-  // Filter cards based on active filter
   const filteredCards = useMemo(() => {
     if (activeFilter === 'all') {
-      return supportCardData;
+      return allSupportCards;
     }
 
-    return supportCardData.filter((cardBlok) => {
-      const cardData = cardBlok as SbBlokData & {
-        taxonomy: AreasToSupportType[];
-      };
-      return cardData.taxonomy?.includes(activeFilter);
-    });
-  }, [supportCardData, activeFilter]);
+    // Keep only cards that have same taxonomy as active filter
+    return allSupportCards.filter((card) => card.taxonomy?.includes(activeFilter));
+  }, [allSupportCards, activeFilter]);
 
   // Handle filter button click
   const handleFilterClick = (area: AreasToSupportType) => {
@@ -151,7 +143,7 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
       <HeaderNoImage
         title={title}
         intro={intro}
-        headerBackgroundColor={headerBackgroundColor}
+        headerBackgroundColor={headerBackgroundColor || 'palo-alto-dark'}
       />
       <Container as="section" pt={6}>
         {bodyTitle && (
@@ -161,7 +153,6 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
             </Heading>
           </Container>
         )}
-        <SrOnlyText as="p">{srText}</SrOnlyText>
         <Container>
           <CtaGroup role="group" aria-label="Filter by area to support" display="inline-block">
             {Object.entries(areasToSupport).map(([key, label]) => (
@@ -171,7 +162,7 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
                 buttonStyle="ood-cta__button--secondary su-after-bg-bay-dark su-after-bg-hocus-white"
                 onClick={() => handleFilterClick(key as AreasToSupportType)}
                 aria-pressed={activeFilter === key}
-                className="aria-pressed:bg-palo-alto-dark aria-pressed:text-white aria-pressed:focus:bg-palo-alto-dark max-md:w-[calc(50%_-_10px)]"
+                className={styles.filterButton}
               >
                 {label}
               </CtaButton>
@@ -180,6 +171,7 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
           <Grid
             role="region"
             aria-live="polite"
+            aria-label="Filtered results"
             as="ul"
             sm={2}
             lg={3}
@@ -197,20 +189,9 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.7 }}
                   transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  className="mb-0 *:h-full"
+                  className={styles.listItem}
                 >
-                  <SbSupportCard
-                    blok={cardBlok as SbBlokData & {
-                      _uid?: string;
-                      taxonomy: AreasToSupportType[];
-                      headline: string;
-                      link: SbLinkType;
-                      icon?: SbFontawesomeSelectorType;
-                      extraIcon?: string;
-                      iconStyle?: 'fas' | 'far';
-                      backgroundColor?: AllCardBgColorType;
-                    }}
-                  />
+                  <SbSupportCard blok={cardBlok} />
                 </m.li>
               ))}
             </AnimatePresence>

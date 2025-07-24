@@ -13,9 +13,9 @@ export const ctaButtonStyles = {
   // Primary
   'ood-cta__button--primary su-after-bg-white': 'bg-bay-dark text-white hocus:bg-palo-alto hocus:text-white',
   // Secondary buttons - also used for accordion controls
-  'ood-cta__button--secondary su-after-bg-bay-dark su-after-bg-hocus-white': `${secondaryButtonBase} text-bay-dark shadow-bay-dark after:text-bay-dark after:bg-bay-dark hocus:bg-bay-dark`,
-  'secondary-digital-red': `${secondaryButtonBase} text-digital-red shadow-digital-red after:text-digital-red after:bg-digital-red hocus:bg-digital-red`,
-  'secondary-palo-alto-light': `${secondaryButtonBase} text-palo-alto-light shadow-palo-alto-light after:text-palo-alto-light after:bg-palo-alto-light hocus:bg-palo-alto-light`,
+  'ood-cta__button--secondary su-after-bg-bay-dark su-after-bg-hocus-white': `${secondaryButtonBase} text-bay-dark shadow-bay-dark hocus:bg-bay-dark`,
+  'secondary-digital-red': `${secondaryButtonBase} text-digital-red shadow-digital-red hocus:bg-digital-red`,
+  'secondary-palo-alto-light': `${secondaryButtonBase} text-palo-alto-light shadow-palo-alto-light hocus:bg-palo-alto-light`,
   // Give Now Button
   'su-bg-digital-red su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white': 'bg-digital-red hocus:bg-plum-dark text-white hocus:text-white',
   // Secondary Give Now Button
