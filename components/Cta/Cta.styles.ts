@@ -19,7 +19,7 @@ export const ctaButtonStyles = {
   // Give Now Button
   'su-bg-digital-red su-bg-hocus-plum-dark su-text-white su-text-hocus-white su-after-bg-white su-after-bg-hocus-white': 'bg-digital-red hocus:bg-plum-dark text-white hocus:text-white',
   // Secondary Give Now Button
-  'su-bg-white su-bg-hocus-plum-dark su-text-digital-red su-text-hocus-white su-after-bg-digital-red su-after-bg-hocus-white': 'bg-white hocus:bg-plum-dark text-digital-red hocus:text-white after:bg-digital-red ',
+  'su-bg-white su-bg-hocus-plum-dark su-text-digital-red su-text-hocus-white su-after-bg-digital-red su-after-bg-hocus-white': 'bg-white hocus:bg-plum-dark text-digital-red hocus:text-white after:bg-digital-red',
   // Ghost Button
   'ood-cta__button--ghost su-after-bg-white': 'text-white bg-transparent shadow-white shadow-[inset_0_0_0_1px] transition-shadow hocus:text-white hocus:shadow-[inset_0_0_0_3px]',
   // Solid Campaign Plum Button

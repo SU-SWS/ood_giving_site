@@ -1,5 +1,5 @@
 'use client';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { type SbBlokData } from '@storyblok/react/rsc';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { Container } from '@/components/Container';
@@ -75,10 +75,21 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
     globalFooter,
   } = blok;
 
-  // State for active filter
   const [activeFilter, setActiveFilter] = useState<AreasToSupportType>('all');
 
-  // Get an array of all the support card data from undergraduate, graduate, arts, athletics, business, culture, ideal, law, medicine, science, sustainability, and teaching regions.
+  // Initialize filter from URL hash on mount
+  useEffect(() => {
+    const hash = window.location.hash.substring(1); // Remove the '#' symbol
+    if (hash && Object.keys(areasToSupport).includes(hash)) {
+      setActiveFilter(hash as AreasToSupportType);
+    }
+  }, []);
+
+  /**
+   * Get a combined array of all the support card data added to the below Storyblok regions.
+   * Note: The name of these regions does not match the taxonomy values, and they don't actually affect the filtering logic.
+   * The filtering logic is based on the list of taxonomy terms selected in each Support Card.
+   */
   const supportCardData = useMemo(() => [
     ...undergraduate,
     ...graduate,
@@ -112,8 +123,15 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
   }, [supportCardData, activeFilter]);
 
   // Handle filter button click
-  const handleFilterClick = (filterType: AreasToSupportType) => {
-    setActiveFilter(filterType);
+  const handleFilterClick = (area: AreasToSupportType) => {
+    setActiveFilter(area);
+
+    // Update URL hash without adding to browser history
+    const url = area === 'all'
+      ? window.location.pathname
+      : `${window.location.pathname}#${area}`;
+
+    window.history.replaceState(null, '', url);
   };
 
   return (
@@ -151,13 +169,13 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
                 buttonStyle="ood-cta__button--secondary su-after-bg-bay-dark su-after-bg-hocus-white"
                 onClick={() => handleFilterClick(key as AreasToSupportType)}
                 aria-pressed={activeFilter === key}
-                className="aria-pressed:bg-palo-alto-dark aria-pressed:text-white aria-pressed:focus:bg-palo-alto-dark"
+                className="aria-pressed:bg-palo-alto-dark aria-pressed:text-white aria-pressed:focus:bg-palo-alto-dark max-md:w-[calc(50%_-_10px)]"
               >
                 {label}
               </CtaButton>
             ))}
           </CtaGroup>
-          <Grid aria-live="polite" sm={2} lg={3} gap="default" mt={4} mb={4}>
+          <Grid aria-live="polite" sm={2} lg={3} gap="default" mt={4} mb={9}>
             {filteredCards.map((cardBlok) => (
               <SbSupportCard
                 key={cardBlok._uid}
