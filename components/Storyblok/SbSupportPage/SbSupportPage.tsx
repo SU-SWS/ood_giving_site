@@ -1,5 +1,7 @@
 'use client';
 import { useState, useMemo, useEffect } from 'react';
+import { AnimatePresence } from 'motion/react';
+import * as m from 'motion/react-m';
 import { type SbBlokData } from '@storyblok/react/rsc';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { Container } from '@/components/Container';
@@ -175,22 +177,43 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
               </CtaButton>
             ))}
           </CtaGroup>
-          <Grid aria-live="polite" sm={2} lg={3} gap="default" mt={4} mb={9}>
-            {filteredCards.map((cardBlok) => (
-              <SbSupportCard
-                key={cardBlok._uid}
-                blok={cardBlok as SbBlokData & {
-                  _uid?: string;
-                  taxonomy: AreasToSupportType[];
-                  headline: string;
-                  link: SbLinkType;
-                  icon?: SbFontawesomeSelectorType;
-                  extraIcon?: string;
-                  iconStyle?: 'fas' | 'far';
-                  backgroundColor?: AllCardBgColorType;
-                }}
-              />
-            ))}
+          <Grid
+            role="region"
+            aria-live="polite"
+            as="ul"
+            sm={2}
+            lg={3}
+            gap="default"
+            mt={4}
+            mb={9}
+            alignItems="stretch"
+            className="list-unstyled"
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredCards.map((cardBlok) => (
+                <m.li
+                  key={cardBlok._uid}
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.7 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  className="mb-0 *:h-full"
+                >
+                  <SbSupportCard
+                    blok={cardBlok as SbBlokData & {
+                      _uid?: string;
+                      taxonomy: AreasToSupportType[];
+                      headline: string;
+                      link: SbLinkType;
+                      icon?: SbFontawesomeSelectorType;
+                      extraIcon?: string;
+                      iconStyle?: 'fas' | 'far';
+                      backgroundColor?: AllCardBgColorType;
+                    }}
+                  />
+                </m.li>
+              ))}
+            </AnimatePresence>
           </Grid>
         </Container>
       </Container>

@@ -37,6 +37,7 @@ export const SupportCard = ({
           <Text
             as="span"
             size="f2"
+            leading="display"
             weight="semibold"
             color={bgColor === 'white' ? 'black' : 'white'}
             icon={link?.linktype !== 'story' ? 'external' : undefined}
