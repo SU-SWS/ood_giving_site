@@ -32,7 +32,7 @@ export const SbMegaMenuSection = ({ blok }: SbMegaMenuSectionProps) => {
     <Popover as="li" className={styles.sectionRoot}>
       {({ open }) => (
         <>
-          <PopoverButton aria-label={`${open ? 'Close' : 'Open'} main menu`} className={styles.panelButton}>
+          <PopoverButton className={styles.panelButton}>
             {linkText}
             <HeroIcon icon="chevron-down" strokeWidth={1.8} noBaseStyle className={styles.panelButtonIcon} />
           </PopoverButton>

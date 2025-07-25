@@ -35,7 +35,7 @@ export const SbIconCard = ({ blok }: SbIconCardProps) => {
   } = blok;
 
   // Remove fa- from the icon name if it exists
-  const formattedIcon = icon?.icon.replace('fa-', '');
+  const formattedIcon = icon?.icon?.replace('fa-', '') || '';
   const finalIcon = extraIcon || formattedIcon;
   const iconType = iconStyle || icon?.type || 'far';
 
