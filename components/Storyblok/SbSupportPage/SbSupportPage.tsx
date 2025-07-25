@@ -154,7 +154,7 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
           </Container>
         )}
         <Container>
-          <CtaGroup role="group" aria-label="Filter by area to support" display="inline-block">
+          <CtaGroup aria-label="Filter by area to support" display="inline-block">
             {Object.entries(areasToSupport).map(([key, label]) => (
               <li key={key} className={styles.filterButtonListItem}>
                 <CtaButton
