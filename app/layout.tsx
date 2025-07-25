@@ -53,9 +53,9 @@ const RootLayout = async ({ children }: LayoutProps) => {
                 stanford.variable,
               )}
             >
+              <GTAG />
               {/* Absolutely necessary to have a body tag here, otherwise your components won't get any interactivity */}
               <body>
-                <GTAG />
                 <FlexBox justifyContent="between" direction="col" className="min-h-screen relative">
                   {children}
                 </FlexBox>
