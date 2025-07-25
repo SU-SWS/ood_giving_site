@@ -156,16 +156,17 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
         <Container>
           <CtaGroup role="group" aria-label="Filter by area to support" display="inline-block">
             {Object.entries(areasToSupport).map(([key, label]) => (
-              <CtaButton
-                key={key}
-                isButton
-                buttonStyle="ood-cta__button--secondary su-after-bg-bay-dark su-after-bg-hocus-white"
-                onClick={() => handleFilterClick(key as AreasToSupportType)}
-                aria-pressed={activeFilter === key}
-                className={styles.filterButton}
-              >
-                {label}
-              </CtaButton>
+              <li key={key} className={styles.filterButtonListItem}>
+                <CtaButton
+                  isButton
+                  buttonStyle="ood-cta__button--secondary su-after-bg-bay-dark su-after-bg-hocus-white"
+                  onClick={() => handleFilterClick(key as AreasToSupportType)}
+                  aria-pressed={activeFilter === key}
+                  className={styles.filterButton}
+                >
+                  {label}
+                </CtaButton>
+              </li>
             ))}
           </CtaGroup>
           <Grid
