@@ -170,7 +170,6 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
             ))}
           </CtaGroup>
           <Grid
-            role="region"
             aria-live="polite"
             aria-label="Filtered results"
             as="ul"
