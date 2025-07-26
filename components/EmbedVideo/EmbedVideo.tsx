@@ -48,7 +48,7 @@ export const EmbedVideo = ({
           width="100%"
           height="100%"
           controls
-          playsInline
+          playsinline
           config={{
             youtube: { playerVars: { start: startTimeInSeconds } },
           }}
