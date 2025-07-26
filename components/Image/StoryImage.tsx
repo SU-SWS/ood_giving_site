@@ -6,7 +6,7 @@ import { getImageSources } from '@/utilities/getImageSources';
 import { getSbImageSize } from '@/utilities/getSbImageSize';
 import * as styles from './Image.styles';
 
-export type StoryImageProps = React.HTMLAttributes<HTMLDivElement> & MediaWrapperProps & {
+export type StoryImageProps = MediaWrapperProps & {
   imageSrc: string;
   alt?: string;
   visibleVertical?: styles.VisibleVerticalType;
@@ -16,7 +16,7 @@ export type StoryImageProps = React.HTMLAttributes<HTMLDivElement> & MediaWrappe
 
 export const StoryImage = ({
   imageSrc,
-  imageWidth,
+  mediaWidth,
   alt,
   caption,
   captionAlign,
@@ -36,8 +36,8 @@ export const StoryImage = ({
 
   return (
     <MediaWrapper
-      width={imageWidth !== 'su-w-full' && imageWidth !== 'fit-container' ? 'site' : 'full'}
-      imageWidth={imageWidth || 'su-w-story'}
+      width={mediaWidth !== 'su-w-full' && mediaWidth !== 'fit-container' ? 'site' : 'full'}
+      mediaWidth={mediaWidth || 'su-w-story'}
       caption={caption}
       captionAlign={captionAlign}
       captionBgColor={backgroundColor}

@@ -1,6 +1,6 @@
 import { cnb } from 'cnbuilder';
 import { Container } from '@/components/Container';
-import { type StoryImageWidthType } from '@/components/Image';
+import { type MediaWidthType } from './MediaWrapper.styles';
 import { lightPageBgColors, type LightPageBgColorType } from '@/utilities/datasource';
 import { type TextAlignType } from '@/components/Typography';
 import * as styles from './MediaWrapper.styles';
@@ -11,7 +11,7 @@ import * as styles from './MediaWrapper.styles';
  */
 
 export type CaptionProps = React.HTMLAttributes<HTMLDivElement> & {
-  imageWidth?: StoryImageWidthType;
+  mediaWidth?: MediaWidthType;
   caption?: React.ReactNode;
   captionAlign?: TextAlignType;
   isCard?: boolean;
@@ -21,12 +21,12 @@ export type CaptionProps = React.HTMLAttributes<HTMLDivElement> & {
 };
 
 export const Caption = ({
-  imageWidth,
+  mediaWidth,
   caption,
   captionAlign,
   isCaptionInset,
   isCard,
-  captionBgColor = 'white',
+  captionBgColor,
   className,
   ...props
 }: CaptionProps) => {
@@ -39,7 +39,7 @@ export const Caption = ({
       className={cnb(styles.captionWrapper, lightPageBgColors[captionBgColor])}
       {...props}
     >
-      <div className={styles.caption(isCard, imageWidth, captionBgColor, captionAlign)}>
+      <div className={styles.caption(isCard, mediaWidth, captionBgColor, captionAlign)}>
         {caption}
       </div>
     </Container>
