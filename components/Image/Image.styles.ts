@@ -96,14 +96,4 @@ export const imageCropsMobile = {
   'free': '600x0',
 };
 
-// Image Width (from Storyblok)
-export const storyImageWidths = {
-  'su-w-full': '', // This is labeled as the edge-to-edge option
-  'centered-container': '',
-  'su-w-story': 'lg:basis-8/12',
-  'su-w-inset': 'sm:basis-10/12 md:basis-8/12 lg:basis-7/12 lg:basis-6/12 2xl:basis-5/12',
-  'fit-container': '',
-};
-export type StoryImageWidthType = keyof typeof storyImageWidths;
-
 export const image = 'size-full object-cover';
