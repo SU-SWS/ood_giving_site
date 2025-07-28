@@ -4,11 +4,11 @@ import { lightPageBgColors, type LightPageBgColorType } from '@/utilities/dataso
 
 // Image Width (from Storyblok)
 export const storyImageWidths = {
-  'su-w-full': 'w-full', // This is labeled as the edge-to-edge option
-  'centered-container': 'w-full',
+  'su-w-full': '', // This is labeled as the edge-to-edge option
+  'centered-container': '',
   'su-w-story': 'lg:basis-8/12',
   'su-w-inset': 'sm:basis-10/12 md:basis-8/12 lg:basis-7/12 xl:basis-6/12 2xl:basis-5/12',
-  'fit-container': 'w-full',
+  'fit-container': '',
 };
 export type StoryImageWidthType = keyof typeof storyImageWidths;
 
@@ -28,7 +28,7 @@ export const mediaWidths = {
 export type MediaWidthType = StoryImageWidthType | VideoWidthType;
 
 export const root = 'relative flex';
-export const wrapper = 'mx-auto';
+export const wrapper = 'mx-auto w-full';
 
 // Caption component styles
 export const captionWrapper = 'mt-0 caption';
