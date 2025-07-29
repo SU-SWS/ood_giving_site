@@ -1,71 +1,84 @@
-import React from 'react';
 import { type SbBlokData } from '@storyblok/react/rsc';
-import { storyblokEditable } from '@storyblok/react/rsc';
+import { SimpleCard } from '@/components/SimpleCard';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Heading } from '@/components/Typography';
+import { FlexBox } from '@/components/FlexBox';
 import { FullWidthImage, type VisibleHorizontalType } from '@/components/Image';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
-import { modTypeSizes, type ModTypeSizeTypes } from '@/utilities/datasource';
+import { modTypeSizes, type ModTypeSizeTypes, type AllCardBgColorType } from '@/utilities/datasource';
+import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
+import * as styles from './SbCampaignPage.styles';
 
-export type CampaignHeroProps = {
-  blok: SbBlokData & {
-    title?: string;
-    oodCampaignHeader: SbBlokData[];
-    heroStyle?: string;
-    heroContentPosition?: string;
-    heroBgColor?: string;
-    heroContentColor?: string;
-    heroContentAlignment?: string;
-    heroTitleType?: ModTypeSizeTypes;
-    heroTitleFontSerif?: boolean;
-    image?: {
-      filename?: string;
-      alt?: string;
-    },
-    logo?: {
-      filename?: string;
-      alt?: string;
-    },
-    logoAlignment?: string;
-    visibleHorizontal?: VisibleHorizontalType;
-    bar?: string;
-    barBgColor?: string;
-    barAlignment?: string;
-    intro?: string;
-    heroIntroFontSerif?: string;
-    heroCta?: SbBlokData[];
-  },
-  htmlId: string;
+type CampaignHeroProps = {
+  title?: string;
+  intro?: string;
+  image?: SbImageType;
+  logo?: SbImageType;
+  // options
+  heroStyle?: 'fullwidth-image' | 'left-image';
+  heroTitleFontSerif?: boolean;
+  heroIntroFontSerif?: boolean;
+  visibleHorizontal?: VisibleHorizontalType;
+  logoAlignment?: string;
+  heroBgColor?: AllCardBgColorType;
+  heroContentColor?: string; // Deprecated
+  heroContentAlignment?: string;
+  heroContentPosition?: string;
+  heroTitleType?: ModTypeSizeTypes;
+  bar?: boolean;
+  barBgColor?: string;
+  barAlignment?: string;
+  heroCta?: SbBlokData[];
+  // htmlId?: string;
 };
 
 /* The Hero section with fullwidth image is referenced by the Campaign Page type. */
-export const CampaignHero = (props: CampaignHeroProps) => {
-  const { blok, htmlId } = props;
-
-  const isFullWidthImage = blok.heroStyle === 'fullwidth-image';
+export const CampaignHero = ({
+  title,
+  intro,
+  image,
+  logo,
+  heroStyle = 'fullwidth-image',
+  heroTitleFontSerif,
+  heroIntroFontSerif,
+  visibleHorizontal,
+  logoAlignment,
+  heroBgColor = 'bay-dark',
+  heroContentColor = 'white',
+  heroContentAlignment = 'center',
+  heroContentPosition = 'left',
+  heroTitleType,
+  bar,
+  barBgColor = 'cardinal-red',
+  barAlignment = 'center',
+  heroCta,
+  // tmlId,
+}: CampaignHeroProps) => {
+  const isFullWidthImage = heroStyle !== 'left-image';
+  const isDarkContent = heroBgColor === 'white' || heroBgColor === 'fog-light';
 
   const campaignContentClasses = `campaign-page__hero-content
-  campaign-page__hero-${blok.heroContentPosition}
-  su-bg-${blok.heroBgColor}
-  su-${blok.heroContentColor}
+  campaign-page__hero-${heroContentPosition}
+  su-bg-${heroBgColor}
+  su-${heroContentColor}
   ${
     isFullWidthImage
       ? 'flex-container column-grid centered-container su-align-items-center'
       : ''
   }
   ${
-    blok.heroContentPosition === 'right' && isFullWidthImage
+    heroContentPosition === 'right' && isFullWidthImage
       ? 'su-flex-row-reverse'
       : ''
   }`;
 
   const full_width_image =
-    blok.image?.filename != null ? (
+    image?.filename != null ? (
       <FullWidthImage
-        filename={blok.image?.filename}
+        filename={image?.filename}
         visibleVertical="center"
-        visibleHorizontal={blok.visibleHorizontal}
-        alt={blok.image?.alt || ''}
+        visibleHorizontal={visibleHorizontal}
+        alt={image?.alt || ''}
       />
     ) : (
       <div className={'full-width-image-placeholder'} aria-hidden="true" />
@@ -73,43 +86,42 @@ export const CampaignHero = (props: CampaignHeroProps) => {
 
   return (
     <div
-      id={htmlId}
-      className={`campaign-page__hero campaign-page__hero--${blok.heroStyle}`}
-      {...storyblokEditable(props.blok)}
+      className={styles.heroRoot}
+      // id={htmlId}
     >
       <div className="campaign-page__image-wrapper">{full_width_image}</div>
-      <div className={campaignContentClasses}>
-        <div>
-          {blok.logo?.filename && (
-            <img
-              src={getProcessedImage(blok.logo?.filename)}
-              alt={blok.logo?.alt}
+      <SimpleCard bgColor={heroBgColor} className={styles.contentWrapper}>
+        {logo?.filename && (
+          <img
+            src={getProcessedImage(logo?.filename)}
+            alt={logo?.alt}
+          />
+        )}
+        <FlexBox direction="col">
+          <Heading
+            as="h1"
+            color={isDarkContent ? 'black' : 'white'}
+            size={modTypeSizes[heroTitleType] || 'f4'}
+            weight={isFullWidthImage ? 'normal' : 'semibold'}
+            font={heroStyle === 'fullwidth-image' && heroTitleFontSerif ? 'serif' : 'sans'}
+            className="campaign-page__title"
+          >
+            {title}
+          </Heading>
+          {bar && (
+            <div
+              aria-hidden="true"
+              className={`campaign-page__hero-bar su-bg-${barBgColor} ${barAlignment}`}
             />
           )}
-          <div>
-            <Heading
-              as="h1"
-              size={modTypeSizes[blok.heroTitleType] || 'f4'}
-              weight={isFullWidthImage ? 'normal' : 'semibold'}
-              font={blok.heroStyle === 'fullwidth-image' && blok.heroTitleFontSerif ? 'serif' : 'sans'}
-              className="campaign-page__title"
-            >
-              {blok.title}
-            </Heading>
-            {blok.bar && (
-              <div
-                className={`campaign-page__hero-bar su-bg-${blok.barBgColor} ${blok.barAlignment}`}
-              />
-            )}
-            {blok.intro && (
-              <p>
-                {blok.intro}
-              </p>
-            )}
-            {blok.heroCta && <CreateBloks blokSection={blok.heroCta} />}
-          </div>
-        </div>
-      </div>
+          {intro && (
+            <p>
+              {intro}
+            </p>
+          )}
+          {heroCta && <CreateBloks blokSection={heroCta} />}
+        </FlexBox>
+      </SimpleCard>
     </div>
   );
 };

@@ -57,6 +57,7 @@ import { SbAccordion } from '@/components/Storyblok/SbAccordion';
 import { SbHomepageHero } from '@/components/Storyblok/SbHomepageHero';
 import { SbCampaignImpact } from '@/components/Storyblok/SbCampaignImpact';
 import { SbPoster } from '@/components/Storyblok/SbPoster';
+import { SbCampaignHeader } from '@/components/Storyblok/SbCampaignPage';
 
 export const components = {
   alert: SbAlert,
@@ -120,6 +121,7 @@ export const components = {
   countdown: SbCountdown,
   countdownPicker: SbCountdownPicker,
   // Campaign
+  oodCampaignHeader: SbCampaignHeader,
   oodCampaignImpact: SbCampaignImpact,
   // Complex
   accordion: SbAccordion,

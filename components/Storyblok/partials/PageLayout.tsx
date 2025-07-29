@@ -12,6 +12,7 @@ export interface PageLayoutProps {
   // Header props
   alertPicker?: SbBlokData[];
   localHeader?: SbBlokData[];
+  oodCampaignHeader?: SbBlokData[];
   // Below content props
   belowContent?: SbBlokData[];
   // Icon card props
@@ -31,6 +32,7 @@ export const PageLayout = ({
   children,
   alertPicker,
   localHeader,
+  oodCampaignHeader,
   belowContent,
   iconCards,
   iconCardHeading,
@@ -44,6 +46,7 @@ export const PageLayout = ({
       <Header
         alertPicker={alertPicker}
         localHeader={localHeader}
+        oodCampaignHeader={oodCampaignHeader}
         slug={slug}
       />
       <main id="main-content" className={mainClassName}>

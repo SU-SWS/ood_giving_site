@@ -80,6 +80,9 @@ export const ctaVariants = {
   'mega-menu-link-lvl2': 'text-black hocus:text-digital-red no-underline hocus:underline leading-display font-normal text-19 *:[&_svg]:text-digital-red',
   // Content menu links
   'content-menu': 'relative flex w-full leading-cozy text-20 px-24 py-8 lg:py-12 font-semibold no-underline hocus:underline text-digital-red hocus:text-black before:absolute before:inline-block before:w-6 before:h-full before:left-0 before:bottom-0 before:bg-black before:scale-y-0 before:transition-transform hocus:before:scale-y-100 outline-none aria-current-page:text-black aria-current-page:underline aria-current-page:before:scale-y-100 aria-current-page:hocus:before:translate-x-6',
+  // Campaign header
+  'campaign-home': 'no-underline hocus:underline text-black hocus:text-black',
+  'campaign-home-white': 'no-underline hocus:underline text-white hocus:text-white',
 };
 
 // Maps to linkButtonSize prop in SbCtaLink. Only used for the button styles
@@ -101,6 +104,7 @@ export const ctaIcons = {
   'su-link--no-icon': '',
   plus: 'plus',
   minus: 'minus',
+  home: 'home',
 };
 
 // Common styles for CTA icons
@@ -113,6 +117,7 @@ export const iconLeftMargin: CtaIconLeftMarginType = {
   'su-link--action': 'ml-03em',
   'su-link--external': 'ml-03em',
   'su-link--jump': 'ml-02em',
+  home: 'ml-0',
 };
 
 // Maps to linkIcon prop in SbCtaLink. Animation preselected based on the icon type
@@ -126,6 +131,7 @@ export const iconAnimations = {
   'su-link--no-icon': '',
   plus: '',
   minus: '',
+  home: '',
 };
 
 export const ctaAligns = {
