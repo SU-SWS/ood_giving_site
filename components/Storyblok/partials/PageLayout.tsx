@@ -22,7 +22,6 @@ export interface PageLayoutProps {
   localFooter?: SbBlokData[];
   globalFooter?: SbBlokData[];
   // Optional wrapper props
-  mainClassName?: string;
   articleClassName?: string;
 }
 
@@ -38,7 +37,6 @@ export const PageLayout = ({
   iconCardHeading,
   localFooter,
   globalFooter,
-  mainClassName,
   articleClassName = 'bg-fog-light',
 }: PageLayoutProps) => {
   return (
@@ -49,7 +47,7 @@ export const PageLayout = ({
         oodCampaignHeader={oodCampaignHeader}
         slug={slug}
       />
-      <main id="main-content" className={mainClassName}>
+      <main id="main-content">
         <article className={articleClassName}>
           {children}
           <CreateBloks blokSection={belowContent} />

@@ -5,7 +5,7 @@ import { type AllCardBgColorType, allCardBgColors } from '@/utilities/datasource
  * Campaign Header
  */
 export const headerRoot = (isWhiteHeader: boolean) => cnb(
-  'relative cc h-80 md:h-120',
+  'relative cc h-80 md:h-150',
   isWhiteHeader && 'after:absolute after:z-[4] after:inset-0 after:bg-gradient-to-b after:from-sky-dark via:sky-dark/80 via-40%',
 );
 
@@ -50,8 +50,8 @@ export const barAlignments = {
 };
 
 export const heroRoot = (isFullWidthImage: boolean) => cnb(
-  'relative flex flex-col -mt-80 md:-mt-120 lg:min-h-[75rem]',
-  isFullWidthImage ? 'cc lg:justify-center rs-pb-6 pt-110 md:pt-160' : 'lg:flex-row *:basis-1/2',
+  'relative flex flex-col -mt-80 md:-mt-150 lg:min-h-[75rem]',
+  isFullWidthImage ? 'cc lg:justify-center rs-pb-6 pt-110 md:pt-180' : 'lg:flex-row *:basis-1/2',
 );
 
 export const heroBgNoImage = 'bg-fog-light';

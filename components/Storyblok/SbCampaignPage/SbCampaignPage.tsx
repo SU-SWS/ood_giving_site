@@ -81,6 +81,7 @@ export const SbCampaignPage = ({ blok }: SbCampaignPageProps) => {
       iconCardHeading={iconCardHeading}
       localFooter={localFooter}
       globalFooter={globalFooter}
+      articleClassName="bg-white"
     >
       <CampaignHero
         title={title}
@@ -93,13 +94,11 @@ export const SbCampaignPage = ({ blok }: SbCampaignPageProps) => {
         visibleHorizontal={visibleHorizontal}
         logoAlignment={logoAlignment || 'su-mr-auto'}
         heroBgColor={heroBgColor || 'cardinal-red'}
-        // heroContentColor={heroContentColor}
         heroContentAlignment={heroContentAlignment}
         heroContentPosition={heroContentPosition || 'right'}
         heroTitleType={heroTitleType}
         bar={bar}
         barBgColor={barBgColor || 'white'}
-        // barAlignment={barAlignment}
         heroCta={heroCta}
       />
       <CreateBloks blokSection={content} />
