@@ -73,7 +73,7 @@ export const CampaignHero = ({
         visibleHorizontal={visibleHorizontal}
         fetchPriority="high"
         alt={alt || ''}
-        className={styles.heroImage}
+        className={styles.heroImage(isFullWidthImage)}
       />
     ) : (
       <div className={styles.heroBgNoImage} aria-hidden="true" />
@@ -102,7 +102,7 @@ export const CampaignHero = ({
                   width={originalWidth}
                   height={originalHeight}
                   fetchPriority="high"
-                  className={styles.heroLogo(logoAlignment)}
+                  className={styles.heroLogo(logoAlignment, isFullWidthImage)}
                 />
               </picture>
             )}
