@@ -36,12 +36,18 @@ export const heroContentPositions = {
 };
 export type HeroContentPositionType = keyof typeof heroContentPositions;
 
-export const heroTextAlignments = {
+export const heroContentAlignments = {
   'su-text-align-left': 'text-left',
   'su-text-align-center': 'text-center',
   'su-text-align-right': 'text-right',
 };
-export type HeroTextAlignmentType = keyof typeof heroTextAlignments;
+export type HeroContentAlignmentType = keyof typeof heroContentAlignments;
+
+export const barAlignments = {
+  'su-text-align-left': 'mr-auto ml-0',
+  'su-text-align-center': 'mx-auto',
+  'su-text-align-right': 'ml-auto mr-0',
+};
 
 export const heroRoot = (isFullWidthImage: boolean) => cnb(
   'relative flex flex-col -mt-80 md:-mt-120 lg:min-h-[75rem]',
@@ -69,7 +75,7 @@ export const contentInnerWrapper = (
   heroBgColor: AllCardBgColorType,
 ) => cnb(
   isFullWidthImage && allCardBgColors[heroBgColor],
-  isFullWidthImage ? 'rs-p-4' : 'md:mt-120 sm:max-md:max-w-[42.5rem] 2xl:max-w-[75rem] rs-pt-6 px-20 sm:px-30 rs-pb-5',
+  isFullWidthImage ? 'rs-p-4' : 'md:mt-120 sm:max-md:max-w-prose sm:max-md:mx-auto 3xl:max-w-[75rem] rs-pt-6 px-20 sm:px-30 md:px-50 lg:pr-80 xl:pl-80 xl:pr-100 2xl:pl-100 3xl:pr-0 rs-pb-5',
 );
 
 export const heroLogo = (logoAlignment: LogoAlignmentType) => cnb(
@@ -77,19 +83,20 @@ export const heroLogo = (logoAlignment: LogoAlignmentType) => cnb(
   logoAlignments[logoAlignment],
 );
 
-export const heading = (heroContentAlignment: HeroTextAlignmentType) => cnb(
-  'first:mt-0',
-  heroTextAlignments[heroContentAlignment],
+export const heading = (heroContentAlignment: HeroContentAlignmentType) => cnb(
+  'first:mt-0 text-pretty',
+  heroContentAlignments[heroContentAlignment],
 );
 
-export const intro = (heroContentAlignment: HeroTextAlignmentType) => cnb(
-  'text-20 md:text-25 leading-cozy',
-  heroTextAlignments[heroContentAlignment],
+export const intro = (heroContentAlignment: HeroContentAlignmentType) => cnb(
+  'text-20 md:text-25 leading-cozy text-pretty',
+  heroContentAlignments[heroContentAlignment],
 );
 
-export const bar = (barBgColor: AllCardBgColorType) => cnb(
+export const bar = (barBgColor: AllCardBgColorType, heroContentAlignment: HeroContentAlignmentType) => cnb(
   'w-100 h-10 mt-15 sm:mt-30',
   allCardBgColors[barBgColor || 'white'],
+  barAlignments[heroContentAlignment],
 );
 
 export const ctaWrapper = 'rs-mt-4';

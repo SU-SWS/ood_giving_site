@@ -1,10 +1,10 @@
 import { type SbBlokData } from '@storyblok/react/rsc';
 import { PageLayout } from '@/components/Storyblok/partials/PageLayout';
 import { CampaignHero } from './CampaignHero';
-import { type HeroTextAlignmentType, type LogoAlignmentType } from './SbCampaignPage.styles';
+import { type HeroContentAlignmentType, type LogoAlignmentType } from './SbCampaignPage.styles';
 import { CreateBloks } from '@/components/CreateBloks';
 import { type VisibleHorizontalType } from '@/components/Image';
-import {type ModTypeSizeTypes, type AllCardBgColorType } from '@/utilities/datasource';
+import { type ModTypeSizeTypes, type AllCardBgColorType } from '@/utilities/datasource';
 import { type SbImageType } from '../Storyblok.types';
 
 export type SbCampaignPageProps = {
@@ -26,7 +26,7 @@ export type SbCampaignPageProps = {
     heroBgColor?: AllCardBgColorType;
     // heroContentColor?: 'text-white' | 'text-black'; // Deprecated, use heroBgColor to determine text color
     heroContentPosition?: 'left' | 'right' | 'center'; // Box alignment
-    heroContentAlignment?: HeroTextAlignmentType; // Text alignment
+    heroContentAlignment?: HeroContentAlignmentType; // Text alignment
     heroTitleType?: ModTypeSizeTypes;
     bar?: boolean;
     barBgColor?: AllCardBgColorType;

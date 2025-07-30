@@ -8,6 +8,7 @@ import { getSbImageSize } from '@/utilities/getSbImageSize';
 import { modTypeSizes, type ModTypeSizeTypes, type AllCardBgColorType } from '@/utilities/datasource';
 import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
 import { getImageSources } from '@/utilities/getImageSources';
+import { getNumBloks } from '@/utilities/getNumBloks';
 import * as styles from './SbCampaignPage.styles';
 
 type CampaignHeroProps = {
@@ -24,7 +25,7 @@ type CampaignHeroProps = {
   heroBgColor?: AllCardBgColorType;
   // heroContentColor?: 'text-white' | 'text-black'; // Deprecated
   heroContentPosition?: styles.HeroContentPositionType; // Position of the content box for the fullwidth image style
-  heroContentAlignment?: styles.HeroTextAlignmentType; // Text alignment
+  heroContentAlignment?: styles.HeroContentAlignmentType; // Text alignment
   heroTitleType?: ModTypeSizeTypes;
   bar?: boolean;
   barBgColor?: AllCardBgColorType;
@@ -108,7 +109,7 @@ export const CampaignHero = ({
             <Heading
               as="h1"
               color={isDarkContent ? 'black' : 'white'}
-              size={modTypeSizes[heroTitleType] || 'f4'}
+              size={modTypeSizes[heroTitleType]}
               weight={isFullWidthImage ? 'normal' : 'semibold'}
               font={heroTitleFontSerif || isFullWidthImage ? 'serif' : 'sans'}
               mt={3}
@@ -118,7 +119,7 @@ export const CampaignHero = ({
               {title}
             </Heading>
             {bar && (
-              <div aria-hidden="true" className={styles.bar(barBgColor)} />
+              <div aria-hidden="true" className={styles.bar(barBgColor, heroContentAlignment)} />
             )}
             {intro && (
               <Paragraph
@@ -131,7 +132,7 @@ export const CampaignHero = ({
                 {intro}
               </Paragraph>
             )}
-            {heroCta && (
+            {!!getNumBloks(heroCta) && (
               <div className={styles.ctaWrapper}><CreateBloks blokSection={heroCta} /></div>
             )}
           </FlexBox>
