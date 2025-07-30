@@ -1,12 +1,13 @@
+import { useMemo } from 'react';
 import { type SbBlokData } from '@storyblok/react/rsc';
-import { SimpleCard } from '@/components/SimpleCard';
 import { CreateBloks } from '@/components/CreateBloks';
-import { Heading } from '@/components/Typography';
+import { Heading, Paragraph } from '@/components/Typography';
 import { FlexBox } from '@/components/FlexBox';
 import { FullWidthImage, type VisibleHorizontalType } from '@/components/Image';
-import { getProcessedImage } from '@/utilities/getProcessedImage';
+import { getSbImageSize } from '@/utilities/getSbImageSize';
 import { modTypeSizes, type ModTypeSizeTypes, type AllCardBgColorType } from '@/utilities/datasource';
 import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
+import { getImageSources } from '@/utilities/getImageSources';
 import * as styles from './SbCampaignPage.styles';
 
 type CampaignHeroProps = {
@@ -19,15 +20,15 @@ type CampaignHeroProps = {
   heroTitleFontSerif?: boolean;
   heroIntroFontSerif?: boolean;
   visibleHorizontal?: VisibleHorizontalType;
-  logoAlignment?: string;
+  logoAlignment?: styles.LogoAlignmentType;
   heroBgColor?: AllCardBgColorType;
-  heroContentColor?: string; // Deprecated
-  heroContentAlignment?: string;
-  heroContentPosition?: string;
+  // heroContentColor?: 'text-white' | 'text-black'; // Deprecated
+  heroContentPosition?: styles.HeroContentPositionType; // Position of the content box for the fullwidth image style
+  heroContentAlignment?: styles.HeroTextAlignmentType; // Text alignment
   heroTitleType?: ModTypeSizeTypes;
   bar?: boolean;
-  barBgColor?: string;
-  barAlignment?: string;
+  barBgColor?: AllCardBgColorType;
+  // barAlignment?: 'su-mr-auto' | 'su-ml-auto' | 'su-mx-auto'; // Deprecated, use heroContentAlignment
   heroCta?: SbBlokData[];
   // htmlId?: string;
 };
@@ -36,92 +37,106 @@ type CampaignHeroProps = {
 export const CampaignHero = ({
   title,
   intro,
-  image,
-  logo,
+  image: { filename, alt } = {},
+  logo: { filename: logoFilename, alt: logoAlt } = {},
   heroStyle = 'fullwidth-image',
   heroTitleFontSerif,
   heroIntroFontSerif,
   visibleHorizontal,
-  logoAlignment,
-  heroBgColor = 'bay-dark',
-  heroContentColor = 'white',
-  heroContentAlignment = 'center',
-  heroContentPosition = 'left',
+  logoAlignment = 'su-mr-auto',
+  heroBgColor = 'cardinal-red',
+  //heroContentColor = 'text-white',
+  heroContentAlignment,
+  heroContentPosition = 'right',
   heroTitleType,
   bar,
   barBgColor = 'cardinal-red',
-  barAlignment = 'center',
+  //barAlignment = 'su-mr-auto',
   heroCta,
   // tmlId,
 }: CampaignHeroProps) => {
   const isFullWidthImage = heroStyle !== 'left-image';
   const isDarkContent = heroBgColor === 'white' || heroBgColor === 'fog-light';
 
-  const campaignContentClasses = `campaign-page__hero-content
-  campaign-page__hero-${heroContentPosition}
-  su-bg-${heroBgColor}
-  su-${heroContentColor}
-  ${
-    isFullWidthImage
-      ? 'flex-container column-grid centered-container su-align-items-center'
-      : ''
-  }
-  ${
-    heroContentPosition === 'right' && isFullWidthImage
-      ? 'su-flex-row-reverse'
-      : ''
-  }`;
+  const { width: originalWidth, height: originalHeight } = getSbImageSize(logoFilename);
+  // Get corresponding image sources for responsive images
+  const logoImageSources = useMemo(() => {
+    return getImageSources(logoFilename, originalWidth);
+  }, [originalWidth, logoFilename]);
 
   const full_width_image =
-    image?.filename != null ? (
+    !!filename ? (
       <FullWidthImage
-        filename={image?.filename}
+        filename={filename}
         visibleVertical="center"
         visibleHorizontal={visibleHorizontal}
-        alt={image?.alt || ''}
+        fetchPriority="high"
+        alt={alt || ''}
+        className={styles.heroImage}
       />
     ) : (
-      <div className={'full-width-image-placeholder'} aria-hidden="true" />
+      <div className={styles.heroBgNoImage} aria-hidden="true" />
     );
 
   return (
-    <div
-      className={styles.heroRoot}
+    <div className={styles.heroRoot(isFullWidthImage)}
       // id={htmlId}
     >
-      <div className="campaign-page__image-wrapper">{full_width_image}</div>
-      <SimpleCard bgColor={heroBgColor} className={styles.contentWrapper}>
-        {logo?.filename && (
-          <img
-            src={getProcessedImage(logo?.filename)}
-            alt={logo?.alt}
-          />
-        )}
-        <FlexBox direction="col">
-          <Heading
-            as="h1"
-            color={isDarkContent ? 'black' : 'white'}
-            size={modTypeSizes[heroTitleType] || 'f4'}
-            weight={isFullWidthImage ? 'normal' : 'semibold'}
-            font={heroStyle === 'fullwidth-image' && heroTitleFontSerif ? 'serif' : 'sans'}
-            className="campaign-page__title"
-          >
-            {title}
-          </Heading>
-          {bar && (
-            <div
-              aria-hidden="true"
-              className={`campaign-page__hero-bar su-bg-${barBgColor} ${barAlignment}`}
-            />
-          )}
-          {intro && (
-            <p>
-              {intro}
-            </p>
-          )}
-          {heroCta && <CreateBloks blokSection={heroCta} />}
-        </FlexBox>
-      </SimpleCard>
+      <div className={styles.heroImageWrapper(isFullWidthImage)}>{full_width_image}</div>
+      <div className={styles.contentWrapper(isFullWidthImage, heroContentPosition, heroBgColor)}>
+        <div className={styles.contentInnerWrapper(isFullWidthImage, heroBgColor)}>
+          <FlexBox direction="col">
+            {!!logoFilename && (
+              <picture>
+                {logoImageSources.map(({ srcSet, media }, index) => (
+                  <source
+                    key={`logo-${index}`}
+                    srcSet={srcSet}
+                    media={media}
+                  />
+                ))}
+                <img
+                  src={logoImageSources[0].srcSet} // Use the first source as the default image
+                  alt={logoAlt || 'Campaign logo'}
+                  width={originalWidth}
+                  height={originalHeight}
+                  fetchPriority="high"
+                  className={styles.heroLogo(logoAlignment)}
+                />
+              </picture>
+            )}
+            <Heading
+              as="h1"
+              color={isDarkContent ? 'black' : 'white'}
+              size={modTypeSizes[heroTitleType] || 'f4'}
+              weight={isFullWidthImage ? 'normal' : 'semibold'}
+              font={heroTitleFontSerif || isFullWidthImage ? 'serif' : 'sans'}
+              mt={3}
+              mb="none"
+              className={styles.heading(heroContentAlignment)}
+            >
+              {title}
+            </Heading>
+            {bar && (
+              <div aria-hidden="true" className={styles.bar(barBgColor)} />
+            )}
+            {intro && (
+              <Paragraph
+                mb="none"
+                mt={2}
+                color={isDarkContent ? 'black' : 'white'}
+                font={heroIntroFontSerif ? 'serif' : 'sans'}
+                className={styles.intro(heroContentAlignment)}
+              >
+                {intro}
+              </Paragraph>
+            )}
+            {heroCta && (
+              <div className={styles.ctaWrapper}><CreateBloks blokSection={heroCta} /></div>
+            )}
+          </FlexBox>
+        </div>
+      </div>
     </div>
   );
 };

@@ -58,6 +58,7 @@ import { SbHomepageHero } from '@/components/Storyblok/SbHomepageHero';
 import { SbCampaignImpact } from '@/components/Storyblok/SbCampaignImpact';
 import { SbPoster } from '@/components/Storyblok/SbPoster';
 import { SbCampaignHeader } from '@/components/Storyblok/SbCampaignPage';
+import { SbCampaignCard } from '@/components/Storyblok/SbCampaignCard';
 
 export const components = {
   alert: SbAlert,
@@ -123,6 +124,7 @@ export const components = {
   // Campaign
   oodCampaignHeader: SbCampaignHeader,
   oodCampaignImpact: SbCampaignImpact,
+  oodCampaignCard: SbCampaignCard,
   // Complex
   accordion: SbAccordion,
   oodHomepageHero: SbHomepageHero,

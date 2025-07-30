@@ -1,11 +1,8 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
-import Link from 'next/link';
 import { CreateBloks } from '@/components/CreateBloks';
 import { CtaLink } from '@/components/Cta';
 import { FlexBox } from '@/components/FlexBox';
 import { SbLink } from '@/components/Storyblok/partials';
-import { SbLockup } from '@/components/Storyblok/SbLockup';
-import { HeroIcon } from '@/components/HeroIcon';
 import { SbImageType, SbLinkType } from '../Storyblok.types';
 import { getNumBloks } from '@/utilities/getNumBloks';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
@@ -32,17 +29,18 @@ export const SbCampaignHeader = ({ blok }: SbCampaignHeaderProps) => {
     hideHomeLink,
   } = blok;
 
+  // Use all white text and links in the header if no color is chosen or if white is chosen
   const isWhiteHeader = headerColor !== 'su-text-black';
 
   return (
     <FlexBox
       {...storyblokEditable(blok)}
-      className={styles.headerRoot}
+      className={styles.headerRoot(isWhiteHeader)}
       justifyContent="between"
       alignItems="center"
       gap="default"
     >
-      {!!getNumBloks(lockup) && (
+      {!!getNumBloks(lockup) && !filename && (
         <div className={styles.lockupWrapper}>
           <CreateBloks blokSection={lockup} color={isWhiteHeader ? 'white' : 'default'} />
         </div>

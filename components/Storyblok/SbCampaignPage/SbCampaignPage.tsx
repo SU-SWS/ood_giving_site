@@ -1,6 +1,7 @@
 import { type SbBlokData } from '@storyblok/react/rsc';
 import { PageLayout } from '@/components/Storyblok/partials/PageLayout';
 import { CampaignHero } from './CampaignHero';
+import { type HeroTextAlignmentType, type LogoAlignmentType } from './SbCampaignPage.styles';
 import { CreateBloks } from '@/components/CreateBloks';
 import { type VisibleHorizontalType } from '@/components/Image';
 import {type ModTypeSizeTypes, type AllCardBgColorType } from '@/utilities/datasource';
@@ -21,15 +22,15 @@ export type SbCampaignPageProps = {
     heroTitleFontSerif?: boolean;
     heroIntroFontSerif?: boolean;
     visibleHorizontal?: VisibleHorizontalType;
-    logoAlignment?: 'su-mr-auto' | 'su-ml-auto' | 'su-mr-auto';
+    logoAlignment?: LogoAlignmentType;
     heroBgColor?: AllCardBgColorType;
-    heroContentColor?: 'text-white' | 'text-black'; // Deprecated, use heroBgColor to determine text color
+    // heroContentColor?: 'text-white' | 'text-black'; // Deprecated, use heroBgColor to determine text color
     heroContentPosition?: 'left' | 'right' | 'center'; // Box alignment
-    heroContentAlignment?: 'su-text-align-left' | 'su-text-align-center' | 'su-text-align-right'; // Text alignment
+    heroContentAlignment?: HeroTextAlignmentType; // Text alignment
     heroTitleType?: ModTypeSizeTypes;
     bar?: boolean;
     barBgColor?: AllCardBgColorType;
-    barAlignment?: 'su-mr-auto' | 'su-ml-auto' | 'su-mr-auto';
+    // barAlignment?: 'su-mr-auto' | 'su-ml-auto' | 'su-mx-auto'; // Deprecated, use heroContentAlignment
     heroCta?: SbBlokData[];
     // Main content
     content: SbBlokData[];
@@ -50,19 +51,19 @@ export const SbCampaignPage = ({ blok }: SbCampaignPageProps) => {
     intro,
     image,
     logo,
-    heroStyle = 'fullwidth-image',
+    heroStyle,
     heroTitleFontSerif,
     heroIntroFontSerif,
     visibleHorizontal,
-    logoAlignment = 'su-mr-auto',
-    heroBgColor = 'cardinal-red',
-    heroContentColor = 'white',
+    logoAlignment,
+    heroBgColor,
+    // heroContentColor,
     heroContentAlignment = 'su-text-align-left',
-    heroContentPosition = 'right',
+    heroContentPosition,
     heroTitleType,
     bar,
-    barBgColor = 'cardinal-red',
-    barAlignment = 'su-mr-auto',
+    barBgColor,
+    //barAlignment = 'su-mr-auto',
     heroCta,
     content,
     iconCardHeading,
@@ -86,19 +87,19 @@ export const SbCampaignPage = ({ blok }: SbCampaignPageProps) => {
         intro={intro}
         image={image}
         logo={logo}
-        heroStyle={heroStyle}
+        heroStyle={heroStyle || 'fullwidth-image'}
         heroTitleFontSerif={heroTitleFontSerif}
         heroIntroFontSerif={heroIntroFontSerif}
         visibleHorizontal={visibleHorizontal}
-        logoAlignment={logoAlignment}
-        heroBgColor={heroBgColor}
-        heroContentColor={heroContentColor}
+        logoAlignment={logoAlignment || 'su-mr-auto'}
+        heroBgColor={heroBgColor || 'cardinal-red'}
+        // heroContentColor={heroContentColor}
         heroContentAlignment={heroContentAlignment}
-        heroContentPosition={heroContentPosition}
+        heroContentPosition={heroContentPosition || 'right'}
         heroTitleType={heroTitleType}
         bar={bar}
-        barBgColor={barBgColor}
-        barAlignment={barAlignment}
+        barBgColor={barBgColor || 'white'}
+        // barAlignment={barAlignment}
         heroCta={heroCta}
       />
       <CreateBloks blokSection={content} />
