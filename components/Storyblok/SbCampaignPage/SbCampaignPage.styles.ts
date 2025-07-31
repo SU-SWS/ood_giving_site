@@ -75,7 +75,7 @@ export const contentInnerWrapper = (
   heroBgColor: AllCardBgColorType,
 ) => cnb(
   isFullWidthImage && allCardBgColors[heroBgColor],
-  isFullWidthImage ? 'rs-p-4' : 'lg:mt-120 sm:max-lg:max-w-prose sm:max-lg:mx-auto 3xl:max-w-[75rem] py-45 lg:pt-90 2xl:pt-95 lg:pb-72 2xl:pb-76 px-20 sm:px-30 md:px-50 lg:pr-80 xl:pl-80 xl:pr-100 2xl:pl-100 3xl:pr-0',
+  isFullWidthImage ? 'rs-p-4' : 'lg:mt-120 3xl:max-w-[75rem] py-45 lg:pt-90 2xl:pt-95 lg:pb-72 2xl:pb-76 px-20 sm:px-30 md:px-50 lg:pr-80 xl:pl-80 xl:pr-100 2xl:pl-100 3xl:pr-0',
 );
 
 export const heroLogo = (logoAlignment: LogoAlignmentType, isFullWidthImage: boolean) => cnb(
