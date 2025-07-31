@@ -29,7 +29,7 @@ export const EmbedVideo = ({
    */
   const isClient = useIsClient();
 
-  const startTimeInSeconds = parseInt(startMinute) * 60 + parseInt(startSecond);
+  const startTimeInSeconds = parseInt(startMinute, 10) * 60 + parseInt(startSecond, 10);
 
   return (
     <MediaWrapper

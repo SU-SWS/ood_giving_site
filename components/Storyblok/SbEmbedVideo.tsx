@@ -1,4 +1,3 @@
-
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { EmbedVideo, type VideoAspectRatioType } from '@/components/EmbedVideo';
