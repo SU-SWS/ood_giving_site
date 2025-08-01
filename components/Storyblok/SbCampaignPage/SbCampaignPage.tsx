@@ -7,6 +7,10 @@ import { type VisibleHorizontalType } from '@/components/Image';
 import { type ModTypeSizeTypes, type AllCardBgColorType } from '@/utilities/datasource';
 import { type SbImageType } from '../Storyblok.types';
 
+/**
+ * The heroContentColor and barAlignment options are deprecated.
+ * We will now use heroBgColor to determine the text color, and heroContentAlignment for the alignment of the content box.
+ */
 export type SbCampaignPageProps = {
   blok: SbBlokData & {
     // Header
@@ -24,13 +28,11 @@ export type SbCampaignPageProps = {
     visibleHorizontal?: VisibleHorizontalType;
     logoAlignment?: LogoAlignmentType;
     heroBgColor?: AllCardBgColorType;
-    // heroContentColor?: 'text-white' | 'text-black'; // Deprecated, use heroBgColor to determine text color
     heroContentPosition?: 'left' | 'right' | 'center'; // Box alignment
     heroContentAlignment?: HeroContentAlignmentType; // Text alignment
     heroTitleType?: ModTypeSizeTypes;
     bar?: boolean;
     barBgColor?: AllCardBgColorType;
-    // barAlignment?: 'su-mr-auto' | 'su-ml-auto' | 'su-mx-auto'; // Deprecated, use heroContentAlignment
     heroCta?: SbBlokData[];
     // Main content
     content: SbBlokData[];
@@ -57,13 +59,11 @@ export const SbCampaignPage = ({ blok }: SbCampaignPageProps) => {
     visibleHorizontal,
     logoAlignment,
     heroBgColor,
-    // heroContentColor,
     heroContentAlignment = 'su-text-align-left',
     heroContentPosition,
     heroTitleType,
     bar,
     barBgColor,
-    //barAlignment = 'su-mr-auto',
     heroCta,
     content,
     iconCardHeading,
