@@ -23,15 +23,12 @@ type CampaignHeroProps = {
   visibleHorizontal?: VisibleHorizontalType;
   logoAlignment?: styles.LogoAlignmentType;
   heroBgColor?: AllCardBgColorType;
-  // heroContentColor?: 'text-white' | 'text-black'; // Deprecated
   heroContentPosition?: styles.HeroContentPositionType; // Position of the content box for the fullwidth image style
   heroContentAlignment?: styles.HeroContentAlignmentType; // Text alignment
   heroTitleType?: ModTypeSizeTypes;
   bar?: boolean;
   barBgColor?: AllCardBgColorType;
-  // barAlignment?: 'su-mr-auto' | 'su-ml-auto' | 'su-mx-auto'; // Deprecated, use heroContentAlignment
   heroCta?: SbBlokData[];
-  // htmlId?: string;
 };
 
 /* The Hero section with fullwidth image is referenced by the Campaign Page type. */
@@ -46,15 +43,12 @@ export const CampaignHero = ({
   visibleHorizontal,
   logoAlignment = 'su-mr-auto',
   heroBgColor = 'cardinal-red',
-  //heroContentColor = 'text-white',
   heroContentAlignment,
   heroContentPosition = 'right',
   heroTitleType,
   bar,
   barBgColor = 'cardinal-red',
-  //barAlignment = 'su-mr-auto',
   heroCta,
-  // tmlId,
 }: CampaignHeroProps) => {
   const isFullWidthImage = heroStyle !== 'left-image';
   const isDarkContent = heroBgColor === 'white' || heroBgColor === 'fog-light';
@@ -80,9 +74,7 @@ export const CampaignHero = ({
     );
 
   return (
-    <div className={styles.heroRoot(isFullWidthImage)}
-      // id={htmlId}
-    >
+    <div className={styles.heroRoot(isFullWidthImage)}>
       <div className={styles.heroImageWrapper(isFullWidthImage)}>{full_width_image}</div>
       <div className={styles.contentWrapper(isFullWidthImage, heroContentPosition, heroBgColor)}>
         <div className={styles.contentInnerWrapper(isFullWidthImage, heroBgColor)}>
