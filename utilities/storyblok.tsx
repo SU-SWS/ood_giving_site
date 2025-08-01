@@ -59,6 +59,7 @@ import { SbCampaignImpact } from '@/components/Storyblok/SbCampaignImpact';
 import { SbPoster } from '@/components/Storyblok/SbPoster';
 import { SbCampaignHeader } from '@/components/Storyblok/SbCampaignPage';
 import { SbCampaignCard } from '@/components/Storyblok/SbCampaignCard';
+import { SbEmbedVideo } from '@/components/Storyblok/SbEmbedVideo';
 
 export const components = {
   alert: SbAlert,
@@ -115,6 +116,7 @@ export const components = {
   singleColumnContent: SbSingleColumnContent,
   // Media
   storyImage: SbStoryImage,
+  embedVideo: SbEmbedVideo,
   // Endowed Positions
   endowedPositionsSearch: SbEndowedPositionsSearch,
   endowedPositionsSearchPicker: SbEndowedPositionsSearchPicker,
