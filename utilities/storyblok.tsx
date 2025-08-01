@@ -57,6 +57,7 @@ import { SbAccordion } from '@/components/Storyblok/SbAccordion';
 import { SbHomepageHero } from '@/components/Storyblok/SbHomepageHero';
 import { SbCampaignImpact } from '@/components/Storyblok/SbCampaignImpact';
 import { SbPoster } from '@/components/Storyblok/SbPoster';
+import { SbEmbedVideo } from '@/components/Storyblok/SbEmbedVideo';
 
 export const components = {
   alert: SbAlert,
@@ -113,6 +114,7 @@ export const components = {
   singleColumnContent: SbSingleColumnContent,
   // Media
   storyImage: SbStoryImage,
+  embedVideo: SbEmbedVideo,
   // Endowed Positions
   endowedPositionsSearch: SbEndowedPositionsSearch,
   endowedPositionsSearchPicker: SbEndowedPositionsSearchPicker,
