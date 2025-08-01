@@ -100,4 +100,4 @@ export const bar = (barBgColor: AllCardBgColorType, heroContentAlignment: HeroCo
   barAlignments[heroContentAlignment],
 );
 
-export const ctaWrapper = 'rs-mt-4';
+export const ctaWrapper = 'rs-mt-4 empty:hidden';
