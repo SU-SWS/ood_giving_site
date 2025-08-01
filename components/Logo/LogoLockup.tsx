@@ -1,7 +1,8 @@
 import { cnb } from 'cnbuilder';
-import Link from 'next/link';
+import { SbLink } from '@/components/Storyblok/partials';
 import { FlexBox } from '@/components/FlexBox';
 import { StanfordLogo } from '@/components/Logo';
+import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './LogoLockup.styles';
 
 /**
@@ -9,7 +10,7 @@ import * as styles from './LogoLockup.styles';
  */
 type LogoLockupProps = {
   text: string;
-  isLink?: boolean;
+  link?: SbLinkType;
   color?: styles.LogoTextColorType;
   // TW font size classes can be added to scale the logo at different breakpoints
   className?: string;
@@ -17,7 +18,7 @@ type LogoLockupProps = {
 
 export const LogoLockup = ({
   text,
-  isLink,
+  link,
   color = 'default',
   className,
   ...rest
@@ -36,15 +37,15 @@ export const LogoLockup = ({
     </FlexBox>
   );
 
-  if (isLink) {
+  if (link?.url || link?.cached_url) {
     return (
-      <Link
-        className={cnb(styles.root, className)}
-        href="/"
+      <SbLink
+        classes={cnb(styles.root, className)}
+        link={link}
         {...rest}
       >
         {LockupContent}
-      </Link>
+      </SbLink>
     );
   }
 

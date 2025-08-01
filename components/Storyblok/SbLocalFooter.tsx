@@ -8,7 +8,7 @@ import { FlexBox } from '@/components/FlexBox';
 import { Heading } from '@/components/Typography';
 import { type SbNavItemProps } from './Storyblok.types';
 
-export type SbLocalFooterProps = {
+type SbLocalFooterProps = {
   blok: SbBlokData & {
     contactHeading?: string;
     addressLine1?: string;

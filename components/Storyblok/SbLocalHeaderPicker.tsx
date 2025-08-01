@@ -1,7 +1,7 @@
 import { CreateStories } from '../CreateStories';
 import { type ISbStoryData } from '@storyblok/react/rsc';
 
-export type SbLocalHeaderPickerProps = {
+type SbLocalHeaderPickerProps = {
   blok: {
     localHeader?: ISbStoryData[];
   };

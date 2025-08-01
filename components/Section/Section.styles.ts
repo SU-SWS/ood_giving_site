@@ -33,9 +33,8 @@ export const title = (titleStyle: TitleStyleType[], tabColor: DarkBeforeColorTyp
   );
 };
 
-export const intro = (srOnlyHeader: boolean, isCenterAlignHeader: boolean) => cnb(
-  'text-pretty',
-  srOnlyHeader && 'sr-only',
+export const intro = (isCenterAlignHeader: boolean) => cnb(
+  'text-pretty [&_h2]:font-sans',
   // In Gatsby build, the intro width is 100% when left aligned, but I added max-w-prose-wide here for better readability
   isCenterAlignHeader ? '*:*:mx-auto *:*:max-w-800' : '*:*:max-w-prose-wide',
 );

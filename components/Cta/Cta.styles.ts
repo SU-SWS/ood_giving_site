@@ -6,7 +6,7 @@ export const secondaryButtonBase = 'bg-white shadow-[inset_0_0_0_1px] hocus:text
 // hocus to plum dark gradient instead of solid plum dark to avoid a flash of white background on hocus
 export const gradientButtonBase = 'bg-gradient-to-tr hocus:from-plum-dark hocus:to-plum-dark text-white hocus:text-white';
 export const textLinkBase = 'block font-semibold w-fit no-underline text-18 md:text-20 leading-tight';
-export const gradientTextLinkBase = 'bg-clip-text bg-gradient-to-tr text-transparent hocus:text-transparent';
+export const gradientTextLinkBase = 'bg-clip-text bg-gradient-to-tr text-transparent hocus:text-plum-dark hocus:underline *:[&_svg]:hocus:text-plum-dark';
 
 // Maps to linkButtonStyle props in SbCtaLink. Only used for the Button style.
 export const ctaButtonStyles = {
@@ -41,14 +41,14 @@ export const ctaTextColors = {
   white: 'text-white hocus:text-white',
   black: 'text-black hocus:text-black',
   // Gradient text links for Campaign pages
-  'ood-cta__link-gradient su-bg-sky-dark-to-bay-dark su-after-bg-sky-dark-to-bay-dark': `${gradientTextLinkBase} from-sky-dark to-bay-dark *:[&_svg]:text-bay-dark *:[&_svg]:hocus:text-bay-dark`,
-  'ood-cta__link-gradient su-bg-cardinal-dark-to-spirited-dark su-after-bg-cardinal-dark-to-spirited-dark': `${gradientTextLinkBase} from-cardinal-red-dark to-spirited-dark *:[&_svg]:text-spirited-dark *:[&_svg]:hocus:text-spirited-dark`,
-  'ood-cta__link-gradient su-bg-plum-to-digital-red su-after-bg-plum-to-digital-red': `${gradientTextLinkBase} from-plum to-digital-red *:[&_svg]:text-digital-red *:[&_svg]:hocus:text-digital-red`,
-  'ood-cta__link-gradient su-bg-plum-to-spirited-dark su-after-bg-plum-to-spirited-dark': `${gradientTextLinkBase} from-plum to-spirited-dark *:[&_svg]:text-spirited-dark *:[&_svg]:hocus:text-spirited-dark`,
-  'ood-cta__link-gradient su-bg-palo-alto-dark-to-palo-verde-dark su-after-bg-palo-alto-dark-to-palo-verde-dark': `${gradientTextLinkBase} from-palo-alto-dark to-palo-verde-dark *:[&_svg]:text-palo-verde-dark *:[&_svg]:hocus:text-palo-verde-dark`,
-  'ood-cta__link-gradient su-bg-sky-dark-to-olive-dark su-after-bg-sky-dark-to-olive-dark': `${gradientTextLinkBase} from-sky-dark to-olive-dark *:[&_svg]:text-olive-dark *:[&_svg]:hocus:text-olive-dark`,
+  'ood-cta__link-gradient su-bg-sky-dark-to-bay-dark su-after-bg-sky-dark-to-bay-dark': `${gradientTextLinkBase} from-sky-dark to-bay-dark *:[&_svg]:text-bay-dark`,
+  'ood-cta__link-gradient su-bg-cardinal-dark-to-spirited-dark su-after-bg-cardinal-dark-to-spirited-dark': `${gradientTextLinkBase} from-cardinal-red-dark to-spirited-dark *:[&_svg]:text-spirited-dark`,
+  'ood-cta__link-gradient su-bg-plum-to-digital-red su-after-bg-plum-to-digital-red': `${gradientTextLinkBase} from-plum to-digital-red *:[&_svg]:text-digital-red`,
+  'ood-cta__link-gradient su-bg-plum-to-spirited-dark su-after-bg-plum-to-spirited-dark': `${gradientTextLinkBase} from-plum to-spirited-dark *:[&_svg]:text-spirited-dark`,
+  'ood-cta__link-gradient su-bg-palo-alto-dark-to-palo-verde-dark su-after-bg-palo-alto-dark-to-palo-verde-dark': `${gradientTextLinkBase} from-palo-alto-dark to-palo-verde-dark *:[&_svg]:text-palo-verde-dark`,
+  'ood-cta__link-gradient su-bg-sky-dark-to-olive-dark su-after-bg-sky-dark-to-olive-dark': `${gradientTextLinkBase} from-sky-dark to-olive-dark *:[&_svg]:text-olive-dark`,
   // Has an extra su-after-bg-sky-dark-to-bay-dark in SB, but it seems to work here without the dupe string
-  'ood-cta__link-gradient su-bg-sky-dark-to-bay-dark': `${gradientTextLinkBase} from-sky-dark to-bay-dark *:[&_svg]:text-bay-dark *:[&_svg]:hocus:text-bay-dark`,
+  'ood-cta__link-gradient su-bg-sky-dark-to-bay-dark': `${gradientTextLinkBase} from-sky-dark to-bay-dark *:[&_svg]:text-bay-dark`,
   /**
    * Campaign page only solid text colors - seems on live site the intent was to use plum-dark as the hocus color, but it was overridden by the base link hocus color
    * Here we honor the original intent by using plum-dark as the hocus color
@@ -80,6 +80,9 @@ export const ctaVariants = {
   'mega-menu-link-lvl2': 'text-black hocus:text-digital-red no-underline hocus:underline leading-display font-normal text-19 *:[&_svg]:text-digital-red',
   // Content menu links
   'content-menu': 'relative flex w-full leading-cozy text-20 px-24 py-8 lg:py-12 font-semibold no-underline hocus:underline text-digital-red hocus:text-black before:absolute before:inline-block before:w-6 before:h-full before:left-0 before:bottom-0 before:bg-black before:scale-y-0 before:transition-transform hocus:before:scale-y-100 outline-none aria-current-page:text-black aria-current-page:underline aria-current-page:before:scale-y-100 aria-current-page:hocus:before:translate-x-6',
+  // Campaign header
+  'campaign-home': 'no-underline hocus:underline text-black hocus:text-black',
+  'campaign-home-white': 'no-underline hocus:underline text-white hocus:text-white',
 };
 
 // Maps to linkButtonSize prop in SbCtaLink. Only used for the button styles
@@ -101,6 +104,7 @@ export const ctaIcons = {
   'su-link--no-icon': '',
   plus: 'plus',
   minus: 'minus',
+  home: 'home',
 };
 
 // Common styles for CTA icons
@@ -113,6 +117,7 @@ export const iconLeftMargin: CtaIconLeftMarginType = {
   'su-link--action': 'ml-03em',
   'su-link--external': 'ml-03em',
   'su-link--jump': 'ml-02em',
+  home: 'ml-0',
 };
 
 // Maps to linkIcon prop in SbCtaLink. Animation preselected based on the icon type
@@ -126,6 +131,7 @@ export const iconAnimations = {
   'su-link--no-icon': '',
   plus: '',
   minus: '',
+  home: '',
 };
 
 export const ctaAligns = {

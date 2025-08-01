@@ -1,113 +1,133 @@
-import React from 'react';
+import { useMemo } from 'react';
 import { type SbBlokData } from '@storyblok/react/rsc';
-import { storyblokEditable } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
-import { Heading } from '@/components/Typography';
+import { Heading, Paragraph } from '@/components/Typography';
+import { FlexBox } from '@/components/FlexBox';
 import { FullWidthImage, type VisibleHorizontalType } from '@/components/Image';
-import { getProcessedImage } from '@/utilities/getProcessedImage';
-import { modTypeSizes, type ModTypeSizeTypes } from '@/utilities/datasource';
+import { getSbImageSize } from '@/utilities/getSbImageSize';
+import { modTypeSizes, type ModTypeSizeTypes, type AllCardBgColorType } from '@/utilities/datasource';
+import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
+import { getImageSources } from '@/utilities/getImageSources';
+import { getNumBloks } from '@/utilities/getNumBloks';
+import * as styles from './SbCampaignPage.styles';
 
-export type CampaignHeroProps = {
-  blok: SbBlokData & {
-    title?: string;
-    oodCampaignHeader: SbBlokData[];
-    heroStyle?: string;
-    heroContentPosition?: string;
-    heroBgColor?: string;
-    heroContentColor?: string;
-    heroContentAlignment?: string;
-    heroTitleType?: ModTypeSizeTypes;
-    heroTitleFontSerif?: boolean;
-    image?: {
-      filename?: string;
-      alt?: string;
-    },
-    logo?: {
-      filename?: string;
-      alt?: string;
-    },
-    logoAlignment?: string;
-    visibleHorizontal?: VisibleHorizontalType;
-    bar?: string;
-    barBgColor?: string;
-    barAlignment?: string;
-    intro?: string;
-    heroIntroFontSerif?: string;
-    heroCta?: SbBlokData[];
-  },
-  htmlId: string;
+type CampaignHeroProps = {
+  title?: string;
+  intro?: string;
+  image?: SbImageType;
+  logo?: SbImageType;
+  // options
+  heroStyle?: 'fullwidth-image' | 'left-image';
+  heroTitleFontSerif?: boolean;
+  heroIntroFontSerif?: boolean;
+  visibleHorizontal?: VisibleHorizontalType;
+  logoAlignment?: styles.LogoAlignmentType;
+  heroBgColor?: AllCardBgColorType;
+  heroContentPosition?: styles.HeroContentPositionType; // Position of the content box for the fullwidth image style
+  heroContentAlignment?: styles.HeroContentAlignmentType; // Text alignment
+  heroTitleType?: ModTypeSizeTypes;
+  bar?: boolean;
+  barBgColor?: AllCardBgColorType;
+  heroCta?: SbBlokData[];
 };
 
 /* The Hero section with fullwidth image is referenced by the Campaign Page type. */
-export const CampaignHero = (props: CampaignHeroProps) => {
-  const { blok, htmlId } = props;
+export const CampaignHero = ({
+  title,
+  intro,
+  image: { filename, alt } = {},
+  logo: { filename: logoFilename, alt: logoAlt } = {},
+  heroStyle = 'fullwidth-image',
+  heroTitleFontSerif,
+  heroIntroFontSerif,
+  visibleHorizontal,
+  logoAlignment = 'su-mr-auto',
+  heroBgColor = 'cardinal-red',
+  heroContentAlignment,
+  heroContentPosition = 'right',
+  heroTitleType,
+  bar,
+  barBgColor = 'cardinal-red',
+  heroCta,
+}: CampaignHeroProps) => {
+  const isFullWidthImage = heroStyle !== 'left-image';
+  const isDarkContent = heroBgColor === 'white' || heroBgColor === 'fog-light';
 
-  const isFullWidthImage = blok.heroStyle === 'fullwidth-image';
-
-  const campaignContentClasses = `campaign-page__hero-content
-  campaign-page__hero-${blok.heroContentPosition}
-  su-bg-${blok.heroBgColor}
-  su-${blok.heroContentColor}
-  ${
-    isFullWidthImage
-      ? 'flex-container column-grid centered-container su-align-items-center'
-      : ''
-  }
-  ${
-    blok.heroContentPosition === 'right' && isFullWidthImage
-      ? 'su-flex-row-reverse'
-      : ''
-  }`;
+  const { width: originalWidth, height: originalHeight } = getSbImageSize(logoFilename);
+  // Get corresponding image sources for responsive images
+  const logoImageSources = useMemo(() => {
+    return getImageSources(logoFilename, originalWidth);
+  }, [originalWidth, logoFilename]);
 
   const full_width_image =
-    blok.image?.filename != null ? (
+    !!filename ? (
       <FullWidthImage
-        filename={blok.image?.filename}
+        filename={filename}
         visibleVertical="center"
-        visibleHorizontal={blok.visibleHorizontal}
-        alt={blok.image?.alt || ''}
+        visibleHorizontal={visibleHorizontal}
+        fetchPriority="high"
+        alt={alt || ''}
+        className={styles.heroImage(isFullWidthImage)}
       />
     ) : (
-      <div className={'full-width-image-placeholder'} aria-hidden="true" />
+      <div className={styles.heroBgNoImage} aria-hidden="true" />
     );
 
   return (
-    <div
-      id={htmlId}
-      className={`campaign-page__hero campaign-page__hero--${blok.heroStyle}`}
-      {...storyblokEditable(props.blok)}
-    >
-      <div className="campaign-page__image-wrapper">{full_width_image}</div>
-      <div className={campaignContentClasses}>
-        <div>
-          {blok.logo?.filename && (
-            <img
-              src={getProcessedImage(blok.logo?.filename)}
-              alt={blok.logo?.alt}
-            />
-          )}
-          <div>
+    <div className={styles.heroRoot(isFullWidthImage)}>
+      <div className={styles.heroImageWrapper(isFullWidthImage)}>{full_width_image}</div>
+      <div className={styles.contentWrapper(isFullWidthImage, heroContentPosition, heroBgColor)}>
+        <div className={styles.contentInnerWrapper(isFullWidthImage, heroBgColor)}>
+          <FlexBox direction="col">
+            {!!logoFilename && (
+              <picture>
+                {logoImageSources.map(({ srcSet, media }, index) => (
+                  <source
+                    key={`logo-${index}`}
+                    srcSet={srcSet}
+                    media={media}
+                  />
+                ))}
+                <img
+                  src={logoImageSources[0].srcSet} // Use the first source as the default image
+                  alt={logoAlt || 'Campaign logo'}
+                  width={originalWidth}
+                  height={originalHeight}
+                  fetchPriority="high"
+                  className={styles.heroLogo(logoAlignment, isFullWidthImage)}
+                />
+              </picture>
+            )}
             <Heading
               as="h1"
-              size={modTypeSizes[blok.heroTitleType] || 'f4'}
+              color={isDarkContent ? 'black' : 'white'}
+              size={modTypeSizes[heroTitleType]}
               weight={isFullWidthImage ? 'normal' : 'semibold'}
-              font={blok.heroStyle === 'fullwidth-image' && blok.heroTitleFontSerif ? 'serif' : 'sans'}
-              className="campaign-page__title"
+              font={heroTitleFontSerif || isFullWidthImage ? 'serif' : 'sans'}
+              mt={3}
+              mb="none"
+              className={styles.heading(heroContentAlignment)}
             >
-              {blok.title}
+              {title}
             </Heading>
-            {blok.bar && (
-              <div
-                className={`campaign-page__hero-bar su-bg-${blok.barBgColor} ${blok.barAlignment}`}
-              />
+            {bar && (
+              <div aria-hidden="true" className={styles.bar(barBgColor, heroContentAlignment)} />
             )}
-            {blok.intro && (
-              <p>
-                {blok.intro}
-              </p>
+            {intro && (
+              <Paragraph
+                mb="none"
+                mt={2}
+                color={isDarkContent ? 'black' : 'white'}
+                font={heroIntroFontSerif ? 'serif' : 'sans'}
+                className={styles.intro(heroContentAlignment)}
+              >
+                {intro}
+              </Paragraph>
             )}
-            {blok.heroCta && <CreateBloks blokSection={blok.heroCta} />}
-          </div>
+            {!!getNumBloks(heroCta) && (
+              <div className={styles.ctaWrapper}><CreateBloks blokSection={heroCta} /></div>
+            )}
+          </FlexBox>
         </div>
       </div>
     </div>
