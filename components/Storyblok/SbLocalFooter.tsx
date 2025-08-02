@@ -1,11 +1,12 @@
-import { storyblokEditable } from '@storyblok/react/rsc';
-import { type SbBlokData } from '@storyblok/react/rsc';
+import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSquareInstagram, faSquareFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { CreateBloks } from '@/components/CreateBloks';
 import { CtaLink } from '@/components/Cta';
 import { Container } from '@/components/Container';
 import { Grid } from '@/components/Grid';
 import { FlexBox } from '@/components/FlexBox';
-import { Heading } from '@/components/Typography';
+import { Heading, SrOnlyText } from '@/components/Typography';
 import { type SbNavItemProps } from './Storyblok.types';
 
 export type SbLocalFooterProps = {
@@ -42,15 +43,17 @@ const styles = {
   ctaWrapper: 'rs-mt-2',
   linkGroup: 'list-unstyled *:mb-10',
   linkGroupHeading: 'text-20 mb-08em',
+  socialInstagram: 'text-black hocus:text-instagram transition-colors',
+  socialFacebook: 'text-black hocus:text-facebook transition-colors',
+  socialLinkedin: 'text-black hocus:text-linkedin transition-colors',
 };
 
 // Extract subcomponent for the link groups
 const FooterLinkGroup = ({
   heading,
   links,
-  ariaLabel,
 }: FooterLinkGroupProps) => (
-  <nav aria-label={ariaLabel}>
+  <div>
     {heading && (
       <Heading tracking="normal" className={styles.linkGroupHeading}>
         {heading}
@@ -65,7 +68,7 @@ const FooterLinkGroup = ({
         </li>
       ))}
     </ul>
-  </nav>
+  </div>
 );
 
 export const SbLocalFooter = (props: SbLocalFooterProps) => {
@@ -88,7 +91,7 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => {
   } = props.blok;
 
   return (
-    <Container {...storyblokEditable(props.blok)} bgColor="white" pt={4} pb={5} className={styles.root}>
+    <Container {...storyblokEditable(props.blok)} as="nav" aria-label="Local footer" bgColor="white" pt={4} pb={5} className={styles.root}>
       <div className={styles.logoWrapper}>
         <CreateBloks blokSection={websiteLogo} />
       </div>
@@ -119,17 +122,35 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => {
               <CreateBloks blokSection={cta} />
             </div>
           )}
+          <FlexBox as="ul" className="list-unstyled gap-x-20 rs-mt-3 *:mb-0">
+            <li>
+              <a href="https://www.instagram.com/stanfordgiving/" className={styles.socialInstagram}>
+                <SrOnlyText>Stanford Giving Instagram</SrOnlyText>
+                <FontAwesomeIcon icon={faSquareInstagram} size="2x" widthAuto />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/stanford.university.giving/" className={styles.socialFacebook}>
+                <SrOnlyText>Stanford University Giving Facebook</SrOnlyText>
+                <FontAwesomeIcon icon={faSquareFacebook} size="2x" widthAuto className="" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/school/stanford-giving/" className={styles.socialLinkedin}>
+                <SrOnlyText>Stanford Giving LinkedIn</SrOnlyText>
+                <FontAwesomeIcon icon={faLinkedin} size="2x" widthAuto className="" />
+              </a>
+            </li>
+          </FlexBox>
         </div>
         <FooterLinkGroup
           heading={headingGroupOod}
           links={linkGroupOod}
-          ariaLabel="Local footer Office of Development links"
         />
         <div>
           <FooterLinkGroup
             heading={headingGroupGift}
             links={linkGroupGift}
-            ariaLabel="Local footer Make a Gift links"
           />
           <Heading tracking="normal" mt={2} className={styles.linkGroupHeading}>Tax ID</Heading>
           <span>{taxId}</span>
@@ -137,7 +158,6 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => {
         <FooterLinkGroup
           heading={headingGroupInfo}
           links={linkGroupInfo}
-          ariaLabel="Local footer information links"
         />
       </Grid>
     </Container>
