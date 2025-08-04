@@ -43,6 +43,7 @@ const styles = {
   ctaWrapper: 'rs-mt-2',
   linkGroup: 'list-unstyled *:mb-10',
   linkGroupHeading: 'text-20 mb-08em',
+  socialList: 'list-unstyled gap-x-20 rs-mt-3 *:mb-0',
   socialInstagram: 'text-black hocus:text-instagram transition-colors',
   socialFacebook: 'text-black hocus:text-facebook transition-colors',
   socialLinkedin: 'text-black hocus:text-linkedin transition-colors',
@@ -71,7 +72,7 @@ const FooterLinkGroup = ({
   </div>
 );
 
-export const SbLocalFooter = (props: SbLocalFooterProps) => {
+export const SbLocalFooter = ({ blok }: SbLocalFooterProps) => {
   const {
     contactHeading,
     addressLine1,
@@ -88,10 +89,10 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => {
     linkGroupOod,
     linkGroupGift,
     linkGroupInfo,
-  } = props.blok;
+  } = blok;
 
   return (
-    <Container {...storyblokEditable(props.blok)} as="nav" aria-label="Local footer" bgColor="white" pt={4} pb={5} className={styles.root}>
+    <Container {...storyblokEditable(blok)} as="nav" aria-label="Local footer" bgColor="white" pt={4} pb={5} className={styles.root}>
       <div className={styles.logoWrapper}>
         <CreateBloks blokSection={websiteLogo} />
       </div>
@@ -122,7 +123,7 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => {
               <CreateBloks blokSection={cta} />
             </div>
           )}
-          <FlexBox as="ul" className="list-unstyled gap-x-20 rs-mt-3 *:mb-0">
+          <FlexBox as="ul" className={styles.socialList}>
             <li>
               <a href="https://www.instagram.com/stanfordgiving/" className={styles.socialInstagram}>
                 <SrOnlyText>Stanford Giving Instagram</SrOnlyText>
@@ -132,13 +133,13 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => {
             <li>
               <a href="https://www.facebook.com/stanford.university.giving/" className={styles.socialFacebook}>
                 <SrOnlyText>Stanford University Giving Facebook</SrOnlyText>
-                <FontAwesomeIcon icon={faSquareFacebook} size="2x" widthAuto className="" />
+                <FontAwesomeIcon icon={faSquareFacebook} size="2x" widthAuto />
               </a>
             </li>
             <li>
               <a href="https://www.linkedin.com/school/stanford-giving/" className={styles.socialLinkedin}>
                 <SrOnlyText>Stanford Giving LinkedIn</SrOnlyText>
-                <FontAwesomeIcon icon={faLinkedin} size="2x" widthAuto className="" />
+                <FontAwesomeIcon icon={faLinkedin} size="2x" widthAuto />
               </a>
             </li>
           </FlexBox>
