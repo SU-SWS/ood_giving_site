@@ -43,7 +43,7 @@
     "sa11y": "^3.2.1",
     "sanitize-html": "^2.7.3",
     "slick-carousel": "^1.8.1",
-    "storyblok-js-client": "^4.1.6",
+    "storyblok-js-client": "^7.1.1",
     "storyblok-react": "^0.1.2",
     "tabbable": "^5.2.1",
     "trim": "^1.0.1"
