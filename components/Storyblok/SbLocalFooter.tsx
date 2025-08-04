@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareInstagram, faSquareFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -8,8 +9,9 @@ import { Grid } from '@/components/Grid';
 import { FlexBox } from '@/components/FlexBox';
 import { Heading, SrOnlyText } from '@/components/Typography';
 import { type SbNavItemProps } from './Storyblok.types';
+import { getNumBloks } from '@/utilities/getNumBloks';
 
-export type SbLocalFooterProps = {
+type SbLocalFooterProps = {
   blok: SbBlokData & {
     contactHeading?: string;
     addressLine1?: string;
@@ -30,9 +32,8 @@ export type SbLocalFooterProps = {
 };
 
 type FooterLinkGroupProps = {
-  heading?: string;
-  links?: SbNavItemProps[];
-  ariaLabel?: string;
+  heading: string;
+  links: SbNavItemProps[];
 };
 
 const styles = {
@@ -53,24 +54,26 @@ const styles = {
 const FooterLinkGroup = ({
   heading,
   links,
-}: FooterLinkGroupProps) => (
-  <div>
-    {heading && (
-      <Heading tracking="normal" className={styles.linkGroupHeading}>
+}: FooterLinkGroupProps) => {
+  const headingId = useId();
+
+  return (
+    <nav aria-labelledby={headingId}>
+      <Heading id={headingId} tracking="normal" className={styles.linkGroupHeading}>
         {heading}
       </Heading>
-    )}
-    <ul className={styles.linkGroup}>
-      {links?.map((navItem) => (
-        <li key={navItem._uid}>
-          <CtaLink sbLink={navItem.link} variant="local-footer" icon={navItem.linkClass}>
-            {navItem.linkTextLabel}
-          </CtaLink>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+      <ul className={styles.linkGroup}>
+        {links.map((navItem) => (
+          <li key={navItem._uid}>
+            <CtaLink sbLink={navItem.link} variant="local-footer" icon={navItem.linkClass}>
+              {navItem.linkTextLabel}
+            </CtaLink>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
 
 export const SbLocalFooter = ({ blok }: SbLocalFooterProps) => {
   const {
@@ -92,12 +95,12 @@ export const SbLocalFooter = ({ blok }: SbLocalFooterProps) => {
   } = blok;
 
   return (
-    <Container {...storyblokEditable(blok)} as="nav" aria-label="Local footer" bgColor="white" pt={4} pb={5} className={styles.root}>
+    <Container {...storyblokEditable(blok)} bgColor="white" pt={4} pb={5} className={styles.root}>
       <div className={styles.logoWrapper}>
         <CreateBloks blokSection={websiteLogo} />
       </div>
-      <Grid as="section" md={2} xl={4} className={styles.grid}>
-        <div>
+      <Grid md={2} xl={4} className={styles.grid}>
+        <section>
           {contactHeading && (
             <Heading tracking="normal" className={styles.linkGroupHeading}>
               {contactHeading}
@@ -123,43 +126,51 @@ export const SbLocalFooter = ({ blok }: SbLocalFooterProps) => {
               <CreateBloks blokSection={cta} />
             </div>
           )}
-          <FlexBox as="ul" className={styles.socialList}>
-            <li>
-              <a href="https://www.instagram.com/stanfordgiving/" className={styles.socialInstagram}>
-                <SrOnlyText>Stanford Giving Instagram</SrOnlyText>
-                <FontAwesomeIcon icon={faSquareInstagram} size="2x" widthAuto />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.facebook.com/stanford.university.giving/" className={styles.socialFacebook}>
-                <SrOnlyText>Stanford University Giving Facebook</SrOnlyText>
-                <FontAwesomeIcon icon={faSquareFacebook} size="2x" widthAuto />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/school/stanford-giving/" className={styles.socialLinkedin}>
-                <SrOnlyText>Stanford Giving LinkedIn</SrOnlyText>
-                <FontAwesomeIcon icon={faLinkedin} size="2x" widthAuto />
-              </a>
-            </li>
-          </FlexBox>
-        </div>
-        <FooterLinkGroup
-          heading={headingGroupOod}
-          links={linkGroupOod}
-        />
-        <div>
+          <nav aria-label="Social Media">
+            <FlexBox as="ul" className={styles.socialList}>
+              <li>
+                <a href="https://www.instagram.com/stanfordgiving/" className={styles.socialInstagram}>
+                  <SrOnlyText>Stanford Giving Instagram</SrOnlyText>
+                  <FontAwesomeIcon icon={faSquareInstagram} size="2x" widthAuto />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/stanford.university.giving/" className={styles.socialFacebook}>
+                  <SrOnlyText>Stanford University Giving Facebook</SrOnlyText>
+                  <FontAwesomeIcon icon={faSquareFacebook} size="2x" widthAuto />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/school/stanford-giving/" className={styles.socialLinkedin}>
+                  <SrOnlyText>Stanford Giving LinkedIn</SrOnlyText>
+                  <FontAwesomeIcon icon={faLinkedin} size="2x" widthAuto />
+                </a>
+              </li>
+            </FlexBox>
+          </nav>
+        </section>
+        {!!getNumBloks(linkGroupOod) && (
           <FooterLinkGroup
-            heading={headingGroupGift}
-            links={linkGroupGift}
+            heading={headingGroupOod}
+            links={linkGroupOod}
           />
+        )}
+        <div>
+          {!!getNumBloks(linkGroupGift) && (
+            <FooterLinkGroup
+              heading={headingGroupGift}
+              links={linkGroupGift}
+            />
+          )}
           <Heading tracking="normal" mt={2} className={styles.linkGroupHeading}>Tax ID</Heading>
           <span>{taxId}</span>
         </div>
-        <FooterLinkGroup
-          heading={headingGroupInfo}
-          links={linkGroupInfo}
-        />
+        {!!getNumBloks(linkGroupInfo) && (
+          <FooterLinkGroup
+            heading={headingGroupInfo}
+            links={linkGroupInfo}
+          />
+        )}
       </Grid>
     </Container>
   );
