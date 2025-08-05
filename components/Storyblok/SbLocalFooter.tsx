@@ -1,12 +1,15 @@
-import { storyblokEditable } from '@storyblok/react/rsc';
-import { type SbBlokData } from '@storyblok/react/rsc';
+import { useId } from 'react';
+import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSquareInstagram, faSquareFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { CreateBloks } from '@/components/CreateBloks';
 import { CtaLink } from '@/components/Cta';
 import { Container } from '@/components/Container';
 import { Grid } from '@/components/Grid';
 import { FlexBox } from '@/components/FlexBox';
-import { Heading } from '@/components/Typography';
+import { Heading, SrOnlyText } from '@/components/Typography';
 import { type SbNavItemProps } from './Storyblok.types';
+import { getNumBloks } from '@/utilities/getNumBloks';
 
 type SbLocalFooterProps = {
   blok: SbBlokData & {
@@ -29,9 +32,8 @@ type SbLocalFooterProps = {
 };
 
 type FooterLinkGroupProps = {
-  heading?: string;
-  links?: SbNavItemProps[];
-  ariaLabel?: string;
+  heading: string;
+  links: SbNavItemProps[];
 };
 
 const styles = {
@@ -42,33 +44,38 @@ const styles = {
   ctaWrapper: 'rs-mt-2',
   linkGroup: 'list-unstyled *:mb-10',
   linkGroupHeading: 'text-20 mb-08em',
+  socialList: 'list-unstyled gap-x-20 rs-mt-3 *:mb-0',
+  socialInstagram: 'flex text-black hocus:text-instagram transition-colors',
+  socialFacebook: 'flex text-black hocus:text-facebook transition-colors',
+  socialLinkedin: 'flex text-black hocus:text-linkedin transition-colors',
 };
 
 // Extract subcomponent for the link groups
 const FooterLinkGroup = ({
   heading,
   links,
-  ariaLabel,
-}: FooterLinkGroupProps) => (
-  <nav aria-label={ariaLabel}>
-    {heading && (
-      <Heading tracking="normal" className={styles.linkGroupHeading}>
+}: FooterLinkGroupProps) => {
+  const headingId = useId();
+
+  return (
+    <nav aria-labelledby={headingId}>
+      <Heading id={headingId} tracking="normal" className={styles.linkGroupHeading}>
         {heading}
       </Heading>
-    )}
-    <ul className={styles.linkGroup}>
-      {links?.map((navItem) => (
-        <li key={navItem._uid}>
-          <CtaLink sbLink={navItem.link} variant="local-footer" icon={navItem.linkClass}>
-            {navItem.linkTextLabel}
-          </CtaLink>
-        </li>
-      ))}
-    </ul>
-  </nav>
-);
+      <ul className={styles.linkGroup}>
+        {links.map((navItem) => (
+          <li key={navItem._uid}>
+            <CtaLink sbLink={navItem.link} variant="local-footer" icon={navItem.linkClass}>
+              {navItem.linkTextLabel}
+            </CtaLink>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
 
-export const SbLocalFooter = (props: SbLocalFooterProps) => {
+export const SbLocalFooter = ({ blok }: SbLocalFooterProps) => {
   const {
     contactHeading,
     addressLine1,
@@ -85,15 +92,15 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => {
     linkGroupOod,
     linkGroupGift,
     linkGroupInfo,
-  } = props.blok;
+  } = blok;
 
   return (
-    <Container {...storyblokEditable(props.blok)} bgColor="white" pt={4} pb={5} className={styles.root}>
+    <Container {...storyblokEditable(blok)} bgColor="white" pt={4} pb={5} className={styles.root}>
       <div className={styles.logoWrapper}>
         <CreateBloks blokSection={websiteLogo} />
       </div>
-      <Grid as="section" md={2} xl={4} className={styles.grid}>
-        <div>
+      <Grid md={2} xl={4} className={styles.grid}>
+        <section>
           {contactHeading && (
             <Heading tracking="normal" className={styles.linkGroupHeading}>
               {contactHeading}
@@ -119,26 +126,51 @@ export const SbLocalFooter = (props: SbLocalFooterProps) => {
               <CreateBloks blokSection={cta} />
             </div>
           )}
-        </div>
-        <FooterLinkGroup
-          heading={headingGroupOod}
-          links={linkGroupOod}
-          ariaLabel="Local footer Office of Development links"
-        />
-        <div>
+          <nav aria-label="Social Media">
+            <FlexBox as="ul" className={styles.socialList}>
+              <li>
+                <a href="https://www.instagram.com/stanfordgiving/" className={styles.socialInstagram}>
+                  <SrOnlyText>Stanford Giving Instagram</SrOnlyText>
+                  <FontAwesomeIcon icon={faSquareInstagram} size="2x" widthAuto />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/stanford.university.giving/" className={styles.socialFacebook}>
+                  <SrOnlyText>Stanford University Giving Facebook</SrOnlyText>
+                  <FontAwesomeIcon icon={faSquareFacebook} size="2x" widthAuto />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/school/stanford-giving/" className={styles.socialLinkedin}>
+                  <SrOnlyText>Stanford Giving LinkedIn</SrOnlyText>
+                  <FontAwesomeIcon icon={faLinkedin} size="2x" widthAuto />
+                </a>
+              </li>
+            </FlexBox>
+          </nav>
+        </section>
+        {!!getNumBloks(linkGroupOod) && (
           <FooterLinkGroup
-            heading={headingGroupGift}
-            links={linkGroupGift}
-            ariaLabel="Local footer Make a Gift links"
+            heading={headingGroupOod}
+            links={linkGroupOod}
           />
+        )}
+        <div>
+          {!!getNumBloks(linkGroupGift) && (
+            <FooterLinkGroup
+              heading={headingGroupGift}
+              links={linkGroupGift}
+            />
+          )}
           <Heading tracking="normal" mt={2} className={styles.linkGroupHeading}>Tax ID</Heading>
           <span>{taxId}</span>
         </div>
-        <FooterLinkGroup
-          heading={headingGroupInfo}
-          links={linkGroupInfo}
-          ariaLabel="Local footer information links"
-        />
+        {!!getNumBloks(linkGroupInfo) && (
+          <FooterLinkGroup
+            heading={headingGroupInfo}
+            links={linkGroupInfo}
+          />
+        )}
       </Grid>
     </Container>
   );
