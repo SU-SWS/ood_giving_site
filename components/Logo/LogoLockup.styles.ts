@@ -8,6 +8,7 @@ export const textColors = {
   white: 'text-white',
 };
 export type LogoTextColorType = keyof typeof textColors;
+
 export const barColors = {
   default: 'bg-black',
   white: 'bg-white',

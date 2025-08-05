@@ -38,7 +38,6 @@ export const SbLandingPage = ({ blok, slug }: SbLandingPageProps) => {
       iconCardHeading={iconCardHeading}
       localFooter={localFooter}
       globalFooter={globalFooter}
-      articleClassName="bg-fog-light"
     >
       <header>
         <CreateBloks blokSection={heroSection} />

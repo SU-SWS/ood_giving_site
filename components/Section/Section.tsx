@@ -1,5 +1,10 @@
 import { Container, type ContainerProps } from '@/components/Container';
-import { Heading, type FontSizeType, type HeadingType } from '@/components/Typography';
+import {
+  Heading,
+  Text,
+  type FontSizeType,
+  type HeadingType,
+} from '@/components/Typography';
 import { type DarkBeforeColorType } from '@/utilities/datasource';
 import * as styles from './Section.styles';
 
@@ -67,7 +72,7 @@ export const Section = ({
               {title}
             </Heading>
           )}
-          {intro && <div className={styles.intro(srOnlyHeader, isCenterAlignHeader)}>{intro}</div>}
+          {intro && <Text variant="intro" srOnly={srOnlyHeader} className={styles.intro(isCenterAlignHeader)}>{intro}</Text>}
         </Container>
       )}
       <Container width={contentWidth === 'edge-to-edge' ? 'full' : 'site'}>

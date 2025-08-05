@@ -12,6 +12,7 @@ export interface PageLayoutProps {
   // Header props
   alertPicker?: SbBlokData[];
   localHeader?: SbBlokData[];
+  oodCampaignHeader?: SbBlokData[];
   // Below content props
   belowContent?: SbBlokData[];
   // Icon card props
@@ -21,7 +22,6 @@ export interface PageLayoutProps {
   localFooter?: SbBlokData[];
   globalFooter?: SbBlokData[];
   // Optional wrapper props
-  mainClassName?: string;
   articleClassName?: string;
 }
 
@@ -31,12 +31,12 @@ export const PageLayout = ({
   children,
   alertPicker,
   localHeader,
+  oodCampaignHeader,
   belowContent,
   iconCards,
   iconCardHeading,
   localFooter,
   globalFooter,
-  mainClassName,
   articleClassName = 'bg-fog-light',
 }: PageLayoutProps) => {
   return (
@@ -44,9 +44,10 @@ export const PageLayout = ({
       <Header
         alertPicker={alertPicker}
         localHeader={localHeader}
+        oodCampaignHeader={oodCampaignHeader}
         slug={slug}
       />
-      <main id="main-content" className={mainClassName}>
+      <main id="main-content">
         <article className={articleClassName}>
           {children}
           <CreateBloks blokSection={belowContent} />
