@@ -3,7 +3,7 @@ import { CreateBloks } from '@/components/CreateBloks';
 import { FlexBox } from '@/components/FlexBox';
 import { OpenSearchModalButton, SearchModal } from '@/components/Search/Modal';
 
-export type SbLocalHeaderProps = {
+type SbLocalHeaderProps = {
   blok: SbBlokData & {
     subMenu: SbBlokData[];
     lockup: SbBlokData[];
