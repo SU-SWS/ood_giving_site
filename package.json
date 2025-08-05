@@ -19,9 +19,9 @@
     "not dead"
   ],
   "scripts": {
-    "dev": "next dev --experimental-https --turbopack",
+    "dev": "next dev --experimental-https",
     "inspect": "NODE_OPTIONS='--inspect' next dev",
-    "build": "next build --turbopack",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint --max-warnings=0",
     "vault": "netlify-plugin-vault-variables",
@@ -70,7 +70,7 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "autoprefixer": "^10.4.21",
-    "decanter": "github:SU-SWS/decanter#bugfix/turbopack",
+    "decanter": "^7.3.2",
     "eslint": "^9.23.0",
     "eslint-config-next": "^15.3.3",
     "netlify-plugin-vault-variables": "^3.0.1",
