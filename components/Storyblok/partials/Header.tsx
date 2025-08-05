@@ -6,12 +6,14 @@ import { GlobalAlerts } from '@/components/Alert/GlobalAlerts';
 export type HeaderProps = {
   alertPicker?: SbBlokData[];
   localHeader?: SbBlokData[];
+  oodCampaignHeader?: SbBlokData[];
   slug?: string;
 }
 
 export const Header = ({
   alertPicker,
   localHeader,
+  oodCampaignHeader,
   slug,
 }: HeaderProps) => (
   <header>
@@ -19,5 +21,6 @@ export const Header = ({
     <GlobalAlerts />
     <CreateBloks blokSection={alertPicker} />
     <CreateBloks blokSection={localHeader} slug={slug} />
+    <CreateBloks blokSection={oodCampaignHeader} />
   </header>
 );
