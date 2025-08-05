@@ -45,9 +45,9 @@ const styles = {
   linkGroup: 'list-unstyled *:mb-10',
   linkGroupHeading: 'text-20 mb-08em',
   socialList: 'list-unstyled gap-x-20 rs-mt-3 *:mb-0',
-  socialInstagram: 'text-black hocus:text-instagram transition-colors',
-  socialFacebook: 'text-black hocus:text-facebook transition-colors',
-  socialLinkedin: 'text-black hocus:text-linkedin transition-colors',
+  socialInstagram: 'flex text-black hocus:text-instagram transition-colors',
+  socialFacebook: 'flex text-black hocus:text-facebook transition-colors',
+  socialLinkedin: 'flex text-black hocus:text-linkedin transition-colors',
 };
 
 // Extract subcomponent for the link groups
