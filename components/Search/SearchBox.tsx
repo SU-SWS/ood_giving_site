@@ -31,6 +31,7 @@ export const SearchBox = ({
     <>
       <div className="rs-mb-4">
         <SearchForm
+          key={query ?? ''}
           defaultValue={query || undefined}
           onSubmit={handleSubmit}
           onClear={handleClear}
