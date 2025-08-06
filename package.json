@@ -31,54 +31,53 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "@date-fns/tz": "^1.2.0",
+    "@date-fns/tz": "^1.3.1",
     "@fortawesome/fontawesome-svg-core": "^7.0.0",
     "@fortawesome/free-brands-svg-icons": "^7.0.0",
     "@fortawesome/free-regular-svg-icons": "^7.0.0",
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
     "@fortawesome/react-fontawesome": "^0.2.3",
-    "@headlessui/react": "^2.2.4",
+    "@headlessui/react": "^2.2.7",
     "@heroicons/react": "^2.2.0",
     "@netlify/functions": "^3.0.4",
-    "@next/third-parties": "^15.3.3",
-    "@storyblok/react": "^5.0.0",
-    "algoliasearch": "^5.30.0",
+    "@next/third-parties": "^15.4.5",
+    "@storyblok/react": "^5.4.3",
+    "algoliasearch": "^5.35.0",
     "cnbuilder": "^3.1.0",
     "cookies-next": "^5.1.0",
     "date-fns": "^4.1.0",
     "fuse.js": "^7.1.0",
-    "motion": "^12.23.6",
-    "next": "^15.3.3",
+    "motion": "^12.23.12",
+    "next": "^15.4.5",
     "react-instantsearch": "^7.16.0",
     "react-instantsearch-nextjs": "^0.5.0",
     "react-player": "^2.16.1",
-    "sa11y": "^4.1.9",
+    "sa11y": "^4.1.10",
     "slick-carousel": "^1.8.1",
-    "storyblok-js-client": "^7.0.0",
+    "storyblok-js-client": "^7.1.2",
     "storyblok-rich-text-react-renderer": "^3.0.1",
     "usehooks-ts": "^3.1.1"
   },
   "peerDependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@stylistic/eslint-plugin": "^4.4.1",
     "@tailwindcss/container-queries": "^0.1.1",
     "@types/node": "^20",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
     "autoprefixer": "^10.4.21",
     "decanter": "^7.3.2",
-    "eslint": "^9.23.0",
-    "eslint-config-next": "^15.3.3",
+    "eslint": "^9.32.0",
+    "eslint-config-next": "^15.4.5",
     "netlify-plugin-vault-variables": "^3.0.1",
-    "postcss": "^8.5.3",
-    "typescript": "^5.8.3"
+    "postcss": "^8.5.6",
+    "typescript": "^5.9.2"
   },
   "optionalDependencies": {
-    "local-ssl-proxy": "^2.0.5",
     "netlify-cli": "^17.36.4",
     "storyblok": "^3.36.0"
   },
@@ -88,8 +87,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/SU-SWS/ood_giving_site"
-  },
-  "bugs": {
-    "url": "https://github.com/SU-SWS/ood_giving_site/issues"
   }
 }
