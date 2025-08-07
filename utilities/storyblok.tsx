@@ -60,6 +60,7 @@ import { SbPoster } from '@/components/Storyblok/SbPoster';
 import { SbCampaignHeader } from '@/components/Storyblok/SbCampaignPage';
 import { SbCampaignCard } from '@/components/Storyblok/SbCampaignCard';
 import { SbEmbedVideo } from '@/components/Storyblok/SbEmbedVideo';
+import { SbGallerySlideshow } from '@/components/Storyblok/SbGallerySlideshow';
 
 export const components = {
   alert: SbAlert,
@@ -131,6 +132,7 @@ export const components = {
   accordion: SbAccordion,
   oodHomepageHero: SbHomepageHero,
   oodPoster: SbPoster,
+  oodGallerySlideshow: SbGallerySlideshow,
 };
 
 export type GetStoryblokApiConfig = {

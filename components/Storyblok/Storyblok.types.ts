@@ -95,3 +95,11 @@ export type SbAccordionItemsTypes = {
   id?: string;
   defaultOpen?: boolean;
 };
+
+// Used for Gallery Slider component
+export type SbGalleryImageType = {
+  _uid: string;
+  image?: SbImageType;
+  alt?: string;
+  caption?: StoryblokRichtext;
+};

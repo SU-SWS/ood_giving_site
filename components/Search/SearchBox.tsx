@@ -31,6 +31,7 @@ export const SearchBox = ({
     <>
       <div className="rs-mb-4">
         <SearchForm
+          // Ensure the form re-renders when query changes thus updating the input value accordingly
           key={query ?? ''}
           defaultValue={query || undefined}
           onSubmit={handleSubmit}
