@@ -1,5 +1,5 @@
 import { storyblokEditable } from '@storyblok/react/rsc';
-import { GallerySlideshow } from '@/components/GallerySlideshow';
+import { GallerySlideshow, type ContainerWidthType } from '@/components/GallerySlideshow';
 import { type MarginType } from '@/utilities/datasource';
 import { type SbGalleryImageType } from '@/components/Storyblok/Storyblok.types';
 
@@ -10,6 +10,7 @@ type SbGallerySlideshowProps = {
     ariaLabel?: string;
     showCounter?: boolean;
     showExpandLink?: boolean;
+    containerWidth?: ContainerWidthType;
     spacingTop?: MarginType;
     spacingBottom?: MarginType;
     isHidden?: boolean;
@@ -22,6 +23,7 @@ export const SbGallerySlideshow = ({
     ariaLabel,
     showCounter,
     showExpandLink,
+    containerWidth,
     spacingTop,
     spacingBottom,
     isHidden,
@@ -32,13 +34,13 @@ export const SbGallerySlideshow = ({
     return null;
   }
 
-  // Sanitize the images array to remove all empty or undefined entries
-  // return null if no valid images are present
+  // Sanitize the slides array to remove all empty or undefined entries
+  // return null if no valid slides are present
   const sanitizedImages = slides?.filter(
     (slide) => slide && slide.image && slide.image.filename,
   );
 
-  // If no valid images are present, return null.
+  // If no valid slides are present, return null.
   if (!sanitizedImages || sanitizedImages.length === 0) {
     return null;
   }
@@ -50,6 +52,7 @@ export const SbGallerySlideshow = ({
       ariaLabel={ariaLabel}
       showCounter={showCounter}
       showExpandLink={showExpandLink}
+      containerWidth={containerWidth}
       mt={spacingTop}
       mb={spacingBottom}
     />

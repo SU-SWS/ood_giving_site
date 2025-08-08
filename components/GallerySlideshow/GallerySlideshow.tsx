@@ -1,7 +1,7 @@
 'use client';
 
 import {
-  useCallback, useEffect, useMemo, useState, useRef,
+  useCallback, useEffect, useMemo, useState, useRef, useId,
 } from 'react';
 import {
   Dialog, DialogPanel, DialogTitle, Transition, TransitionChild,
@@ -14,7 +14,6 @@ import { HeroIcon } from '@/components/HeroIcon';
 import { NextPrevButton } from '@/components/GallerySlideshow/NextPrevButton';
 import { ThumbnailButton } from '@/components/GallerySlideshow/ThumbnailButton';
 import { Slide } from '@/components/GallerySlideshow/Slide';
-import { RichText } from '@/components/RichText';
 import { SrOnlyText, Text } from '@/components/Typography';
 import { type SbGalleryImageType } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './GallerySlideshow.styles';
@@ -24,6 +23,7 @@ type GallerySlideshowProps = ContainerProps & {
   ariaLabel?: string;
   showCounter?: boolean;
   showExpandLink?: boolean;
+  containerWidth?: styles.ContainerWidthType;
 }
 
 export const GallerySlideshow = ({
@@ -31,10 +31,13 @@ export const GallerySlideshow = ({
   ariaLabel,
   showCounter,
   showExpandLink,
+  containerWidth,
   mt,
   mb,
   ...props
 }: GallerySlideshowProps) => {
+  const slideId = useId();
+  const modalSlideId = useId();
   const [activeSlide, setActiveSlide] = useState(0);
   const [pagerOffset, setPagerOffset] = useState(0);
   const pagerWindowRef = useRef<HTMLDivElement | null>(null);
@@ -43,8 +46,39 @@ export const GallerySlideshow = ({
 
   // Modal states and refs
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const modalSliderRef = useRef<Slider | null>(null);
   const modalContentRef = useRef<HTMLDivElement | null>(null);
+  const modalSliderRef = useRef<Slider | null>(null);
+
+  // Helper to set aria-live, id, and role on modal slider track
+  const updateModalTrackAttrs = useCallback(() => {
+    if (!modalSliderRef.current) return;
+    const modalTrackEl = modalSliderRef.current.innerSlider?.list?.querySelector('.slick-track');
+    if (!modalTrackEl) return;
+    modalTrackEl.setAttribute('aria-live', 'polite');
+    (modalTrackEl as HTMLElement).id = modalSlideId;
+    modalTrackEl.querySelectorAll('.slick-slide').forEach((slide) => slide.setAttribute('role', 'slide'));
+  }, [modalSlideId]);
+
+  // Add aria-live and id to the main slider's slick-track for accessibility
+  useEffect(() => {
+    if (!sliderRef.current) return;
+    const trackEl = sliderRef.current.innerSlider?.list?.querySelector('.slick-track');
+    if (!trackEl) return;
+
+    trackEl.setAttribute('aria-live', 'polite');
+    (trackEl as HTMLElement).id = slideId;
+    // Set role="slide" on each slide for accessibility
+    const slidesEls = trackEl.querySelectorAll('.slick-slide');
+    slidesEls.forEach((slide) => slide.setAttribute('role', 'slide'));
+  }, [slideId]);
+
+  // When modal opens, set aria-live, id and roles on the modal slider track
+  useEffect(() => {
+    if (!isModalOpen) return;
+    // Delay to allow modal slider DOM to render
+    const id = setTimeout(updateModalTrackAttrs, 0);
+    return () => clearTimeout(id);
+  }, [isModalOpen, updateModalTrackAttrs]);
 
   useOnClickOutside(modalContentRef, () => {
     setIsModalOpen(false);
@@ -99,13 +133,14 @@ export const GallerySlideshow = ({
     swipeToSlide: true,
     lazyLoad: 'ondemand' as const,
     dots: true,
-    dotsClass: 'relative @container',
+    dotsClass: '@container',
     customPaging: (i: number) => (
       <ThumbnailButton
         slide={slides[i]}
         isActive={activeSlide === i}
         onFocus={() => adjustPagerPosition(i)}
         ariaLabel={`Go to slide ${i + 1} ${slides[i]?.alt || ''}`}
+        aria-disabled={activeSlide === i}
       />
     ),
     afterChange: (i: number) => {
@@ -118,18 +153,22 @@ export const GallerySlideshow = ({
           <NextPrevButton
             direction="prev"
             onClick={clickPrev}
+            slideId={slideId}
             className={styles.nextButton}
           />
           <NextPrevButton
             direction="next"
             onClick={clickNext}
+            slideId={slideId}
             className={styles.prevButton}
           />
         </FlexBox>
         <FlexBox justifyContent="center" className={styles.counterExpandWrapper}>
-          <Text as="span" aria-hidden="true" leading="none" align="center">
-            {`${activeSlide + 1}/${slides?.length}`}
-          </Text>
+          {showCounter && (
+            <Text as="span" aria-hidden="true" leading="none" align="center">
+              {`${activeSlide + 1}/${slides?.length}`}
+            </Text>
+          )}
           <SrOnlyText>{`Slide ${activeSlide + 1} of ${slides?.length}`}</SrOnlyText>
           {showExpandLink && (
             <button
@@ -144,12 +183,6 @@ export const GallerySlideshow = ({
             </button>
           )}
         </FlexBox>
-        <RichText
-          textColor="black-70"
-          // linkColor={isLightText ? 'digital-red-xlight' : 'unset'}
-          wysiwyg={slides[activeSlide]?.caption}
-          className={styles.caption}
-        />
         <button
           type="button"
           onClick={focusLastThumb}
@@ -157,7 +190,7 @@ export const GallerySlideshow = ({
         >
           {`Below is a navigation for ${slides?.length} total slides. Skip to the last item.`}
         </button>
-        <nav aria-label={`${ariaLabel || 'Photo gallery'} thumbnail`} ref={pagerWindowRef} className={styles.pagerWindow}>
+        <nav aria-label={`${ariaLabel || 'Image gallery'} thumbnails`} ref={pagerWindowRef} className={styles.pagerWindow}>
           <FlexBox
             as="ul"
             alignItems="end"
@@ -171,6 +204,7 @@ export const GallerySlideshow = ({
       </div>
     ),
   }), [
+    slideId,
     activeSlide,
     adjustPagerPosition,
     ariaLabel,
@@ -179,6 +213,7 @@ export const GallerySlideshow = ({
     focusLastThumb,
     openModal,
     pagerOffset,
+    showCounter,
     showExpandLink,
     slides,
   ]);
@@ -188,20 +223,34 @@ export const GallerySlideshow = ({
     swipeToSlide: true,
     lazyLoad: 'ondemand' as const,
     nextArrow: (
-      <NextPrevButton direction="next" isLightText />
+      <NextPrevButton slideId={modalSlideId} direction="next" isLightText />
     ),
     prevArrow: (
-      <NextPrevButton direction="prev" isLightText />
+      <NextPrevButton slideId={modalSlideId} direction="prev" isLightText />
     ),
-    afterChange: (i: number) => setActiveSlide(i),
+    afterChange: (i: number) => {
+      setActiveSlide(i);
+      updateModalTrackAttrs();
+    },
     initialSlide: activeSlide,
-  }), [activeSlide]);
+  }), [activeSlide, modalSlideId, updateModalTrackAttrs]);
 
   return (
     <>
-      <Container as="section" width="full" mt={mt} mb={mb} aria-label={ariaLabel} className={styles.root} {...props}>
+      {/* Carousel not in modal */}
+      <Container
+        as="section"
+        aria-roledescription="carousel"
+        width={containerWidth === 'constrain-max-width' ? 'site' : 'full'}
+        mt={mt}
+        mb={mb}
+        aria-label={ariaLabel}
+        className={styles.root}
+        {...props}
+      >
         <Slider
-          className={styles.slider}
+          className={styles.slider(containerWidth)}
+          aria-live="polite"
           ref={sliderRef}
           {...sliderSettings}
         >
@@ -209,12 +258,14 @@ export const GallerySlideshow = ({
             <Slide
               key={slide._uid}
               imageSrc={slide.image?.filename}
+              caption={slide.caption}
               alt={slide.alt}
             />
           ))}
         </Slider>
         {/* Content from appendDots appears here */}
       </Container>
+      {/* Modal with carousel */}
       <Transition show={isModalOpen}>
         <Dialog onClose={closeModal} className={styles.dialog}>
           <TransitionChild
@@ -237,7 +288,7 @@ export const GallerySlideshow = ({
           >
             <div className={styles.dialogWrapper}>
               <DialogPanel className={styles.dialogPanel}>
-                <DialogTitle className={styles.srOnly}>{`${ariaLabel || 'Photo gallery' } full screen view`}</DialogTitle>
+                <DialogTitle className={styles.srOnly}>{`${ariaLabel || 'Image gallery' } full screen view`}</DialogTitle>
                 <div ref={modalContentRef} className={styles.contentWrapper}>
                   <button
                     type="button"
@@ -253,7 +304,7 @@ export const GallerySlideshow = ({
                       className={styles.modalIcon}
                     />
                   </button>
-                  <section aria-label={`${ariaLabel || 'Photo gallery'}`}>
+                  <section aria-roledescription="carousel" aria-label={`${ariaLabel || 'Image gallery'}`}>
                     <div className={styles.modalSliderWrapper}>
                       <Slider
                         className={styles.modalSlider}
@@ -264,7 +315,9 @@ export const GallerySlideshow = ({
                           <Slide
                             key={slide._uid}
                             imageSrc={slide.image?.filename}
+                            caption={slide.caption}
                             alt={slide.alt}
+                            isModalSlide
                           />
                         ))}
                       </Slider>
@@ -274,12 +327,6 @@ export const GallerySlideshow = ({
                         {`${activeSlide + 1}/${slides?.length}`}
                       </Text>
                       <SrOnlyText>{`Slide ${activeSlide + 1} of ${slides?.length}`}</SrOnlyText>
-                      <RichText
-                        textColor="white"
-                        // linkColor="digital-red-xlight"
-                        wysiwyg={slides[activeSlide]?.caption}
-                        className={styles.modalCaption}
-                      />
                     </div>
                   </section>
                 </div>

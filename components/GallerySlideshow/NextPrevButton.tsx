@@ -10,16 +10,19 @@ type NextPrevButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
   direction: 'next' | 'prev';
   isLightText?: boolean;
   onClick?: VoidFunction;
+  slideId?: string;
 };
 
 export const NextPrevButton = ({
   direction = 'next',
   isLightText,
   onClick,
+  slideId,
   className,
 }: NextPrevButtonProps) => (
   <button
     type="button"
+    aria-controls={slideId}
     className={cnb(styles.root(isLightText), className)}
     onClick={onClick}
   >
