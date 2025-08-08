@@ -1,3 +1,5 @@
+'use client';
+
 import { isSbImagePortrait } from '@/utilities/isSbImagePortrait';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { type SbGalleryImageType } from '@/components/Storyblok/Storyblok.types';

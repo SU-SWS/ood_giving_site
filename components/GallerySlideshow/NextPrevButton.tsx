@@ -1,3 +1,5 @@
+'use client';
+
 import { HeroIcon } from '@/components/HeroIcon';
 import { SrOnlyText } from '@/components/Typography';
 import { cnb } from 'cnbuilder';

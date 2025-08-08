@@ -1,3 +1,5 @@
+'use client';
+
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 import * as styles from './Slide.styles';
 
