@@ -1,11 +1,10 @@
-import { storyblokEditable } from '@storyblok/react/rsc';
+import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { GallerySlideshow, type ContainerWidthType } from '@/components/GallerySlideshow';
 import { type MarginType } from '@/utilities/datasource';
 import { type SbGalleryImageType } from '@/components/Storyblok/Storyblok.types';
 
 type SbGallerySlideshowProps = {
-  blok: {
-    _uid: string;
+  blok: SbBlokData & {
     slides: SbGalleryImageType[];
     ariaLabel?: string;
     showCounter?: boolean;
@@ -36,8 +35,8 @@ export const SbGallerySlideshow = ({
 
   // Sanitize the slides array to remove all empty or undefined entries
   // return null if no valid slides are present
-  const sanitizedImages = slides?.filter(
-    (slide) => slide && slide.image && slide.image.filename,
+  const sanitizedImages: SbGalleryImageType[] = slides?.filter(
+    (slide: SbGalleryImageType) => slide && slide.image && slide.image.filename,
   );
 
   // If no valid slides are present, return null.

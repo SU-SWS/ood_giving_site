@@ -4,7 +4,6 @@ import { HeroIcon } from '@/components/HeroIcon';
 import { SrOnlyText } from '@/components/Typography';
 import { cnb } from 'cnbuilder';
 import * as styles from './NextPrevButton.styles';
-import React from 'react';
 
 type NextPrevButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
   direction: 'next' | 'prev';

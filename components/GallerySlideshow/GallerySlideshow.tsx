@@ -14,7 +14,6 @@ import { HeroIcon } from '@/components/HeroIcon';
 import { NextPrevButton } from '@/components/GallerySlideshow/NextPrevButton';
 import { ThumbnailButton } from '@/components/GallerySlideshow/ThumbnailButton';
 import { Slide } from '@/components/GallerySlideshow/Slide';
-import { SrOnlyText, Text } from '@/components/Typography';
 import { type SbGalleryImageType } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './GallerySlideshow.styles';
 
@@ -37,27 +36,11 @@ export const GallerySlideshow = ({
   ...props
 }: GallerySlideshowProps) => {
   const slideId = useId();
-  const modalSlideId = useId();
   const [activeSlide, setActiveSlide] = useState(0);
   const [pagerOffset, setPagerOffset] = useState(0);
   const pagerWindowRef = useRef<HTMLDivElement | null>(null);
   const pagerRef = useRef<HTMLUListElement | null>(null);
   const sliderRef = useRef<Slider | null>(null);
-
-  // Modal states and refs
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const modalContentRef = useRef<HTMLDivElement | null>(null);
-  const modalSliderRef = useRef<Slider | null>(null);
-
-  // Helper to set aria-live, id, and role on modal slider track
-  const updateModalTrackAttrs = useCallback(() => {
-    if (!modalSliderRef.current) return;
-    const modalTrackEl = modalSliderRef.current.innerSlider?.list?.querySelector('.slick-track');
-    if (!modalTrackEl) return;
-    modalTrackEl.setAttribute('aria-live', 'polite');
-    (modalTrackEl as HTMLElement).id = modalSlideId;
-    modalTrackEl.querySelectorAll('.slick-slide').forEach((slide) => slide.setAttribute('role', 'slide'));
-  }, [modalSlideId]);
 
   // Add aria-live and id to the main slider's slick-track for accessibility
   useEffect(() => {
@@ -72,12 +55,30 @@ export const GallerySlideshow = ({
     slidesEls.forEach((slide) => slide.setAttribute('role', 'slide'));
   }, [slideId]);
 
+  // Modal states and refs
+  const modalSlideId = useId();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const modalContentRef = useRef<HTMLDivElement | null>(null);
+  const modalSliderRef = useRef<Slider | null>(null);
+
+  // Helper to set aria-live, id, and role on modal slider track
+  const updateModalTrackAttrs = useCallback(() => {
+    if (!modalSliderRef.current) return;
+    const modalTrackEl = modalSliderRef.current.innerSlider?.list?.querySelector('.slick-track');
+    if (!modalTrackEl) return;
+    modalTrackEl.setAttribute('aria-live', 'polite');
+    (modalTrackEl as HTMLElement).id = modalSlideId;
+    modalTrackEl.querySelectorAll('.slick-slide').forEach((slide) => slide.setAttribute('role', 'slide'));
+  }, [modalSlideId]);
+
   // When modal opens, set aria-live, id and roles on the modal slider track
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   useEffect(() => {
-    if (!isModalOpen) return;
-    // Delay to allow modal slider DOM to render
-    const id = setTimeout(updateModalTrackAttrs, 0);
-    return () => clearTimeout(id);
+    if (isModalOpen) {
+      timeoutRef.current = setTimeout(updateModalTrackAttrs, 0);
+    }
+    return () => clearTimeout(timeoutRef.current!);
   }, [isModalOpen, updateModalTrackAttrs]);
 
   useOnClickOutside(modalContentRef, () => {
