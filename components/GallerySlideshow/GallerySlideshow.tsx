@@ -139,7 +139,7 @@ export const GallerySlideshow = ({
         slide={slides[i]}
         isActive={activeSlide === i}
         onFocus={() => adjustPagerPosition(i)}
-        ariaLabel={`Go to slide ${i + 1} ${slides[i]?.alt || ''}`}
+        ariaLabel={`Slide ${i + 1}`}
         aria-disabled={activeSlide === i}
       />
     ),
@@ -162,26 +162,6 @@ export const GallerySlideshow = ({
             slideId={slideId}
             className={styles.prevButton}
           />
-        </FlexBox>
-        <FlexBox justifyContent="center" className={styles.counterExpandWrapper}>
-          {showCounter && (
-            <Text as="span" aria-hidden="true" leading="none" align="center">
-              {`${activeSlide + 1}/${slides?.length}`}
-            </Text>
-          )}
-          <SrOnlyText>{`Slide ${activeSlide + 1} of ${slides?.length}`}</SrOnlyText>
-          {showExpandLink && (
-            <button
-              type="button"
-              onClick={openModal}
-              aria-haspopup="dialog"
-              className={styles.expandButton}
-              aria-label="Expand gallery in full screen modal"
-            >
-              Expand
-              <HeroIcon icon="expand" className={styles.expandIcon} />
-            </button>
-          )}
         </FlexBox>
         <button
           type="button"
@@ -211,10 +191,7 @@ export const GallerySlideshow = ({
     clickNext,
     clickPrev,
     focusLastThumb,
-    openModal,
     pagerOffset,
-    showCounter,
-    showExpandLink,
     slides,
   ]);
 
@@ -248,18 +225,32 @@ export const GallerySlideshow = ({
         className={styles.root}
         {...props}
       >
+        {showExpandLink && (
+          <button
+            type="button"
+            onClick={openModal}
+            aria-haspopup="dialog"
+            className={styles.expandButton}
+            aria-label="Expand gallery in full screen modal"
+          >
+            Expand
+            <HeroIcon icon="expand" className={styles.expandIcon} />
+          </button>
+        )}
         <Slider
           className={styles.slider(containerWidth)}
           aria-live="polite"
           ref={sliderRef}
           {...sliderSettings}
         >
-          {slides?.map((slide) => (
+          {slides?.map((slide, index) => (
             <Slide
               key={slide._uid}
               imageSrc={slide.image?.filename}
               caption={slide.caption}
-              alt={slide.alt}
+              num={showCounter ? index + 1 : undefined}
+              numSlides={showCounter ? slides.length : undefined}
+              alt={slide.image?.alt || ''}
             />
           ))}
         </Slider>
@@ -311,22 +302,18 @@ export const GallerySlideshow = ({
                         ref={modalSliderRef}
                         {...modalSliderSettings}
                       >
-                        {slides?.map((slide) => (
+                        {slides?.map((slide, index) => (
                           <Slide
                             key={slide._uid}
                             imageSrc={slide.image?.filename}
                             caption={slide.caption}
-                            alt={slide.alt}
+                            alt={slide.image?.alt || ''}
+                            num={showCounter ? index + 1 : undefined}
+                            numSlides={showCounter ? slides.length : undefined}
                             isModalSlide
                           />
                         ))}
                       </Slider>
-                    </div>
-                    <div className={styles.belowModalSlider}>
-                      <Text as="span" leading="none" align="center" aria-hidden="true" className={styles.modalCounter}>
-                        {`${activeSlide + 1}/${slides?.length}`}
-                      </Text>
-                      <SrOnlyText>{`Slide ${activeSlide + 1} of ${slides?.length}`}</SrOnlyText>
                     </div>
                   </section>
                 </div>

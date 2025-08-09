@@ -2,6 +2,7 @@
 
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
+import { Text, SrOnlyText } from '@/components/Typography';
 import { RichText } from '@/components/RichText';
 import * as styles from './Slide.styles';
 
@@ -10,6 +11,8 @@ type SlideProps = React.HTMLAttributes<HTMLDivElement> & {
   alt?: string;
   caption?: StoryblokRichtext;
   isModalSlide?: boolean;
+  num?: number;
+  numSlides?: number;
 }
 
 export const Slide = ({
@@ -17,6 +20,8 @@ export const Slide = ({
   alt,
   caption,
   isModalSlide,
+  num,
+  numSlides,
   ...props
 }: SlideProps) => {
   if (!imageSrc) {
@@ -24,7 +29,7 @@ export const Slide = ({
   }
 
   return (
-    <>
+    <figure>
       <div className={styles.root} {...props}>
         <picture>
           <source
@@ -50,11 +55,20 @@ export const Slide = ({
           />
         </picture>
       </div>
-      <RichText
-        textColor={isModalSlide ? 'white' : 'black-70'}
-        wysiwyg={caption}
-        className={isModalSlide ? styles.modalCaption : styles.caption}
-      />
-    </>
+      <figcaption className={isModalSlide ? styles.modalCaption : styles.caption}>
+        {num && numSlides && (
+          <>
+            <Text mb="04em" as="span" variant="big" color={isModalSlide ? 'white' : 'black'} aria-hidden="true" align={isModalSlide ? 'center' : 'left'} leading="none" className="block">
+              {`${num}/${numSlides}`}
+            </Text>
+            <SrOnlyText>{`Slide ${num} of ${numSlides}`}</SrOnlyText>
+          </>
+        )}
+        <RichText
+          textColor={isModalSlide ? 'white' : 'black-70'}
+          wysiwyg={caption}
+        />
+      </figcaption>
+    </figure>
   );
 };
