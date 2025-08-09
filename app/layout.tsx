@@ -3,6 +3,7 @@ import { Source_Sans_3, Source_Serif_4 } from 'next/font/google';
 import localFont from 'next/font/local';
 import '@/styles/globals.css';
 import '@/styles/slick.css';
+import '@/styles/tables.css';
 import { FlexBox } from '@/components/FlexBox';
 import { GAProvider, GTAG } from '@/components/GAProvider';
 import { getGlobalAlertsCached, getSearchConfigBlokCached } from '@/utilities/data';
