@@ -4,6 +4,7 @@ import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { Text, SrOnlyText } from '@/components/Typography';
 import { RichText } from '@/components/RichText';
+import { hasRichText } from '@/utilities/hasRichText';
 import * as styles from './Slide.styles';
 
 type SlideProps = React.HTMLAttributes<HTMLDivElement> & {
@@ -55,20 +56,31 @@ export const Slide = ({
           />
         </picture>
       </div>
-      <figcaption className={isModalSlide ? styles.modalCaption : styles.caption}>
-        {num && numSlides && (
-          <>
-            <Text mb="04em" as="span" variant="big" color={isModalSlide ? 'white' : 'black'} aria-hidden="true" align={isModalSlide ? 'center' : 'left'} leading="none" className="block">
-              {`${num}/${numSlides}`}
-            </Text>
-            <SrOnlyText>{`Slide ${num} of ${numSlides}`}</SrOnlyText>
-          </>
-        )}
-        <RichText
-          textColor={isModalSlide ? 'white' : 'cool-grey'}
-          wysiwyg={caption}
-        />
-      </figcaption>
+      {hasRichText(caption) && (
+        <figcaption className={isModalSlide ? styles.modalCaption : styles.caption}>
+          {num && numSlides && (
+            <>
+              <Text
+                mb="04em"
+                as="span"
+                variant="big"
+                color={isModalSlide ? 'white' : 'black'}
+                aria-hidden="true"
+                align={isModalSlide ? 'center' : 'left'}
+                leading="none"
+                className={styles.counter}
+              >
+                {`${num}/${numSlides}`}
+              </Text>
+              <SrOnlyText>{`Slide ${num} of ${numSlides}`}</SrOnlyText>
+            </>
+          )}
+          <RichText
+            textColor={isModalSlide ? 'white' : 'cool-grey'}
+            wysiwyg={caption}
+          />
+        </figcaption>
+      )}
     </figure>
   );
 };
