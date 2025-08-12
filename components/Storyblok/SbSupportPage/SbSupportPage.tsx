@@ -1,4 +1,5 @@
 'use client';
+
 import { useState, useMemo, useEffect } from 'react';
 import { AnimatePresence } from 'motion/react';
 import * as m from 'motion/react-m';
@@ -128,6 +129,11 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
     window.history.replaceState(null, '', url);
   };
 
+  const numResults = filteredCards.length;
+  const resultsMessage = activeFilter === 'all'
+    ? `Showing all ${numResults} ways to support Stanford`
+    : `Showing ${numResults} ways to support ${areasToSupport[activeFilter]} at Stanford`;
+
   return (
     <PageLayout
       blok={blok}
@@ -169,9 +175,8 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
               </li>
             ))}
           </CtaGroup>
+          <Heading srOnly aria-live="polite" aria-atomic>{resultsMessage}</Heading>
           <Grid
-            aria-live="polite"
-            aria-label="Filtered results"
             as="ul"
             sm={2}
             lg={3}
