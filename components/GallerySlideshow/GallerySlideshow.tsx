@@ -43,10 +43,10 @@ export const GallerySlideshow = ({
   const pagerWindowRef = useRef<HTMLDivElement | null>(null);
   const pagerRef = useRef<HTMLUListElement | null>(null);
 
-  // Add a11y enhancement to the Slick slider code
-  useEffect(() => {
-    if (!sliderRef.current) return;
-    const trackEl = sliderRef.current.innerSlider?.list?.querySelector('.slick-track');
+  // Helper function to add a11y attributes to any slider
+  const enhanceSliderA11y = useCallback((ref: React.RefObject<Slider>, slideTrackid: string, addIdToSlides = false) => {
+    if (!ref.current) return;
+    const trackEl = ref.current.innerSlider?.list?.querySelector('.slick-track');
     if (!trackEl) return;
 
     /**
@@ -56,42 +56,32 @@ export const GallerySlideshow = ({
     trackEl.setAttribute('aria-live', 'polite');
 
     // Add an id to the slider track so it can be referenced by the prev/next buttons
-    (trackEl as HTMLElement).id = slideId;
+    (trackEl as HTMLElement).id = slideTrackid;
 
-    const slidesEls = trackEl.querySelectorAll('.slick-slide');
-    slidesEls.forEach((slide, index) => {
+    const slideEls = trackEl.querySelectorAll('.slick-slide');
+    slideEls.forEach((slide, index) => {
       slide.setAttribute('role', 'group');
       slide.setAttribute('aria-roledescription', 'slide');
-
-      /**
-       * Add an id to each slide so the thumbnail button can reference it using aria-controls
-       * Note: here index 1 is actually the first slide because of how Slick structure the infinite loop of the slider
-       */
-      slide.id = `${slideId}-${index}`;
+      if (addIdToSlides) {
+        /**
+         * Add an id to each slide so the thumbnail button can reference it using aria-controls
+         * Note: Slick uses cloned slides for infinite loop, so the slide with index=1 is actually the first slide.
+         */
+        slide.id = `${slideTrackid}-${index}`;
+      }
     });
-  }, [slideId]);
+  }, []);
+
+  // Main slider a11y
+  useEffect(() => {
+    enhanceSliderA11y(sliderRef, slideId, true);
+  }, [slideId, enhanceSliderA11y]);
 
   // Modal states and refs
   const modalSlideId = useId();
   const modalSliderRef = useRef<Slider | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalContentRef = useRef<HTMLDivElement | null>(null);
-
-  // Helper to add a11y enhancements to the modal slider
-  const updateModalSliderA11y = useCallback(() => {
-    if (!modalSliderRef.current) return;
-    const modalTrackEl = modalSliderRef.current.innerSlider?.list?.querySelector('.slick-track');
-    if (!modalTrackEl) return;
-
-    modalTrackEl.setAttribute('aria-live', 'polite');
-    (modalTrackEl as HTMLElement).id = modalSlideId;
-
-    const modalSlidesEls = modalTrackEl.querySelectorAll('.slick-slide');
-    modalSlidesEls.forEach((slide) => {
-      slide.setAttribute('role', 'group');
-      slide.setAttribute('aria-roledescription', 'slide');
-    });
-  }, [modalSlideId]);
 
   useOnClickOutside(modalContentRef, () => {
     setIsModalOpen(false);
@@ -270,7 +260,7 @@ export const GallerySlideshow = ({
         {/* Content from appendDots appears here */}
       </Container>
       {/* Modal with carousel; use the afterEnter prop to run the updateModalSliderA11y helper after modal is fully mounted */}
-      <Transition show={isModalOpen} afterEnter={updateModalSliderA11y}>
+      <Transition show={isModalOpen} afterEnter={() => enhanceSliderA11y(modalSliderRef, modalSlideId)}>
         <Dialog onClose={closeModal} className={styles.dialog}>
           <TransitionChild
             enter="ease-out duration-300"
