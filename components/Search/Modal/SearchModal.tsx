@@ -5,8 +5,6 @@ import {
   DialogBackdrop,
   DialogPanel,
   DialogTitle,
-  Transition,
-  TransitionChild,
 } from '@headlessui/react';
 import { Container } from '@/components/Container';
 import { Text } from '@/components/Typography';
