@@ -216,7 +216,7 @@ export const SearchForm = ({
         </Combobox>
         {!!query && (
           <button type="reset" className={styles.searchFormResetButton({ variant })}>
-            Clear <HeroIcon aria-hidden icon="close" className="!stroke-[4.5]" />
+            Clear <HeroIcon aria-hidden icon="close" />
           </button>
         )}
         <button type="submit" className={styles.searchFormSubmitButton({ variant })}>

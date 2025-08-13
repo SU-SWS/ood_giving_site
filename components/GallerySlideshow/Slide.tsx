@@ -7,7 +7,7 @@ import { RichText } from '@/components/RichText';
 import { hasRichText } from '@/utilities/hasRichText';
 import * as styles from './Slide.styles';
 
-type SlideProps = React.HTMLAttributes<HTMLDivElement> & {
+type SlideProps = React.HTMLAttributes<HTMLElement> & {
   imageSrc?: string;
   alt?: string;
   caption?: StoryblokRichtext;
@@ -30,8 +30,8 @@ export const Slide = ({
   }
 
   return (
-    <figure>
-      <div className={styles.root} {...props}>
+    <figure {...props}>
+      <div className={styles.imageWrapper}>
         <picture>
           <source
             srcSet={getProcessedImage(imageSrc, '0x800')}
