@@ -93,16 +93,6 @@ export const GallerySlideshow = ({
     });
   }, [modalSlideId]);
 
-  // When modal opens, set aria-live, id and roles on the modal slider track
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    if (isModalOpen) {
-      timeoutRef.current = setTimeout(updateModalSliderA11y, 0);
-    }
-    return () => clearTimeout(timeoutRef.current!);
-  }, [isModalOpen, updateModalSliderA11y]);
-
   useOnClickOutside(modalContentRef, () => {
     setIsModalOpen(false);
   });
@@ -279,8 +269,8 @@ export const GallerySlideshow = ({
         </Slider>
         {/* Content from appendDots appears here */}
       </Container>
-      {/* Modal with carousel */}
-      <Transition show={isModalOpen}>
+      {/* Modal with carousel; use the afterEnter prop to run the updateModalSliderA11y helper after modal is fully mounted */}
+      <Transition show={isModalOpen} afterEnter={updateModalSliderA11y}>
         <Dialog onClose={closeModal} className={styles.dialog}>
           <TransitionChild
             enter="ease-out duration-300"

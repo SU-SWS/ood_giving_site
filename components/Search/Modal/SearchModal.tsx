@@ -28,7 +28,7 @@ export const SearchModal = () => {
         <Container>
           <div className="lg:w-11/12 xl:w-3/4 2xl:w-2/3 mx-auto">
             <div className="flex justify-end">
-              <button onClick={close} className="hocus:underline">
+              <button onClick={close} className="text-white hocus:underline">
                 <Text icon="close" size={1} className="flex gap-6">Close</Text>
               </button>
             </div>
