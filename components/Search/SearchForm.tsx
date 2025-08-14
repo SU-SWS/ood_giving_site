@@ -176,7 +176,6 @@ export const SearchForm = ({
           {({ activeOption }) => (
             <>
               <ComboboxInput
-                id="search-field-input"
                 name="q"
                 placeholder="Search"
                 className={styles.searchFormInput({ variant })}

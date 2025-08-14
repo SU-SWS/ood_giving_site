@@ -26,10 +26,14 @@ export const SearchModalBox = () => {
         setShowEmptyError={setShowEmptyError}
       />
       <Paragraph
-        className={styles.searchFormErrorMessage({ variant: 'modal', show: showEmptyError })}
+        className={styles.searchFormErrorMessage({ show: showEmptyError })}
+        font="serif"
+        weight="bold"
+        color="white"
+        mt={1}
         aria-hidden={!showEmptyError}
         id="search-field-modal-empty-message"
-        size="f0"
+        size={1}
       >
         {emptySearchMessage}
       </Paragraph>
