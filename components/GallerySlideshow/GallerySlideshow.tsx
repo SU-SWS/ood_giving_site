@@ -145,6 +145,13 @@ export const GallerySlideshow = ({
         aria-controls={`${slideId}-${i + 1}`}
       />
     ),
+    beforeChange: (_oldIndex: number, newIndex: number) => {
+      /**
+       * Update React state immediately when slider is about to change
+       * We need this to ensure the thumbnail navigation updates reliably when a longer caption in a slide causes a layout shift
+       */
+      setActiveSlide(newIndex);
+    },
     afterChange: (i: number) => {
       setActiveSlide(i);
     },
