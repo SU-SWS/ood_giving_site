@@ -3,19 +3,17 @@
 import {
   useCallback, useEffect, useMemo, useState, useRef, useId,
 } from 'react';
-import {
-  Dialog, DialogPanel, DialogTitle, DialogBackdrop, Transition, TransitionChild,
-} from '@headlessui/react';
 import Slider from 'react-slick';
+import { DialogTitle } from '@headlessui/react';
 import { useOnClickOutside } from 'usehooks-ts';
 import { Container, type ContainerProps } from '@/components/Container';
 import { FlexBox } from '@/components/FlexBox';
 import { HeroIcon } from '@/components/HeroIcon';
-import { Text } from '@/components/Typography';
 import { NextPrevButton } from '@/components/GallerySlideshow/NextPrevButton';
 import { ThumbnailButton } from '@/components/GallerySlideshow/ThumbnailButton';
 import { Slide } from '@/components/GallerySlideshow/Slide';
 import { type SbGalleryImageType } from '@/components/Storyblok/Storyblok.types';
+import { Modal } from '@/components/Modal';
 import * as styles from './GallerySlideshow.styles';
 
 type GallerySlideshowProps = ContainerProps & {
@@ -260,65 +258,39 @@ export const GallerySlideshow = ({
         {/* Content from appendDots appears here */}
       </Container>
       {/* Modal with carousel; use the afterEnter prop to run the updateModalSliderA11y helper after modal is fully mounted */}
-      <Transition show={isModalOpen} afterEnter={() => enhanceSliderA11y(modalSliderRef, modalSlideId)}>
-        <Dialog onClose={closeModal} className={styles.dialog}>
-          <TransitionChild
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-300"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <DialogBackdrop className={styles.dialogOverlay} />
-          </TransitionChild>
-          <TransitionChild
-            enter="ease-out duration-300"
-            enterFrom="opacity-0 scale-95"
-            enterTo="opacity-100 scale-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100 scale-100"
-            leaveTo="opacity-0 scale-95"
-          >
-            <div className={styles.dialogWrapper}>
-              <DialogPanel className={styles.dialogPanel}>
-                <DialogTitle className={styles.srOnly}>{`${ariaLabel} full screen view`}</DialogTitle>
-                <div ref={modalContentRef} className={styles.contentWrapper}>
-                  <button
-                    type="button"
-                    aria-label="Close modal"
-                    onClick={closeModal}
-                    className={styles.modalClose}
-                  >
-                    <Text icon="close" size={1} className={styles.modalCloseText}>Close</Text>
-                  </button>
-                  <section aria-roledescription="carousel" aria-label={ariaLabel}>
-                    <div className={styles.modalSliderWrapper}>
-                      <Slider
-                        className={styles.modalSlider}
-                        ref={modalSliderRef}
-                        {...modalSliderSettings}
-                      >
-                        {slides?.map((slide, index) => (
-                          <Slide
-                            key={slide._uid}
-                            imageSrc={slide.image?.filename}
-                            caption={slide.caption}
-                            alt={slide.image?.alt || ''}
-                            num={showCounter ? index + 1 : undefined}
-                            numSlides={showCounter ? slides.length : undefined}
-                            isModalSlide
-                          />
-                        ))}
-                      </Slider>
-                    </div>
-                  </section>
-                </div>
-              </DialogPanel>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        afterEnter={() => {
+          enhanceSliderA11y(modalSliderRef, modalSlideId);
+        }}
+        className={styles.dialog}
+      >
+        <DialogTitle className={styles.srOnly}>{`${ariaLabel} full screen view`}</DialogTitle>
+        <div ref={modalContentRef} className={styles.modalContentWrapper}>
+          <section aria-roledescription="carousel" aria-label={ariaLabel}>
+            <div className={styles.modalSliderWrapper}>
+              <Slider
+                className={styles.modalSlider}
+                ref={modalSliderRef}
+                {...modalSliderSettings}
+              >
+                {slides?.map((slide, index) => (
+                  <Slide
+                    key={slide._uid}
+                    imageSrc={slide.image?.filename}
+                    caption={slide.caption}
+                    alt={slide.image?.alt || ''}
+                    num={showCounter ? index + 1 : undefined}
+                    numSlides={showCounter ? slides.length : undefined}
+                    isModalSlide
+                  />
+                ))}
+              </Slider>
             </div>
-          </TransitionChild>
-        </Dialog>
-      </Transition>
+          </section>
+        </div>
+      </Modal>
     </>
   );
 };

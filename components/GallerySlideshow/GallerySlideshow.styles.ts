@@ -28,12 +28,7 @@ export const skipButton = 'hidden sm:block skiplink focus:!relative left-0 -top-
 // Modal styles
 export const dialog = 'hidden sm:block';
 export const srOnly = 'sr-only';
-export const dialogOverlay = 'fixed inset-0 bg-palo-alto-dark/90 backdrop-blur-lg w-screen';
-export const dialogWrapper = 'fixed inset-0 w-screen bg-black-true/20 overflow-y-auto overscroll-contain overflow-x-hidden';
-export const dialogPanel = 'relative cc flex flex-col w-screen inset-0 break-words justify-start text-white';
-export const modalClose = 'block mr-0 ml-auto rs-mt-3 hocus-visible:underline';
-export const modalCloseText = 'flex gap-6';
-export const contentWrapper = 'relative w-full rs-pb-4';
+export const modalContentWrapper = 'relative w-full rs-pb-4';
 
 // Modal Slider elements
 export const modalSliderWrapper = 'relative rs-mt-4 mx-auto';
