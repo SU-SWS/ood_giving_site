@@ -9,11 +9,11 @@ import { useOnClickOutside } from 'usehooks-ts';
 import { Container, type ContainerProps } from '@/components/Container';
 import { FlexBox } from '@/components/FlexBox';
 import { HeroIcon } from '@/components/HeroIcon';
-import { NextPrevButton } from '@/components/GallerySlideshow/NextPrevButton';
-import { ThumbnailButton } from '@/components/GallerySlideshow/ThumbnailButton';
-import { Slide } from '@/components/GallerySlideshow/Slide';
-import { type SbGalleryImageType } from '@/components/Storyblok/Storyblok.types';
 import { Modal } from '@/components/Modal';
+import { Slide } from './Slide';
+import { Controls } from './Controls';
+import { ThumbnailButton } from './ThumbnailButton';
+import { type SbGalleryImageType } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './GallerySlideshow.styles';
 
 type GallerySlideshowProps = ContainerProps & {
@@ -29,7 +29,7 @@ export const GallerySlideshow = ({
   ariaLabel = 'Image gallery',
   showCounter,
   showExpandLink,
-  containerWidth,
+  containerWidth = 'fit-container',
   mt,
   mb,
   ...props
@@ -87,6 +87,8 @@ export const GallerySlideshow = ({
 
   const clickPrev = useCallback(() => sliderRef.current?.slickPrev(), []);
   const clickNext = useCallback(() => sliderRef.current?.slickNext(), []);
+  const modalClickPrev = useCallback(() => modalSliderRef.current?.slickPrev(), []);
+  const modalClickNext = useCallback(() => modalSliderRef.current?.slickNext(), []);
 
   const focusLastThumb = useCallback(() => {
     const lastThumb = pagerRef.current?.lastElementChild as HTMLElement;
@@ -133,92 +135,28 @@ export const GallerySlideshow = ({
     accessibility: true,
     swipeToSlide: true,
     lazyLoad: 'ondemand' as const,
-    dots: true,
-    dotsClass: '@container',
-    customPaging: (i: number) => (
-      <ThumbnailButton
-        slide={slides[i]}
-        isActive={activeSlide === i}
-        onFocus={() => adjustPagerPosition(i)}
-        ariaLabel={`Slide ${i + 1}`}
-        aria-disabled={activeSlide === i}
-        aria-controls={`${slideId}-${i + 1}`}
-      />
-    ),
     beforeChange: (_oldIndex: number, newIndex: number) => {
-      /**
-       * Update React state immediately when slider is about to change
-       * We need this to ensure the thumbnail navigation updates reliably when a longer caption in a slide causes a layout shift
-       */
+      // update React state immediately when slider is about to change
       setActiveSlide(newIndex);
     },
     afterChange: (i: number) => {
       setActiveSlide(i);
+      // ensure thumbnail pager is adjusted after animation/dom settled
+      adjustPagerPosition(i);
     },
-    // The bottom half of the Slider which includes the prev/next buttons and thumbnail nav.
-    appendDots: (dots: React.ReactNode) => (
-      <div>
-        <FlexBox justifyContent="center" className={styles.buttonWrapper}>
-          <NextPrevButton
-            direction="prev"
-            onClick={clickPrev}
-            slideId={slideId}
-            className={styles.nextButton}
-          />
-          <NextPrevButton
-            direction="next"
-            onClick={clickNext}
-            slideId={slideId}
-            className={styles.prevButton}
-          />
-        </FlexBox>
-        <button
-          type="button"
-          onClick={focusLastThumb}
-          className={styles.skipButton}
-        >
-          {`Below is a navigation for ${slides?.length} total slides. Skip to the last item.`}
-        </button>
-        <nav aria-label={`${ariaLabel} thumbnails`} ref={pagerWindowRef} className={styles.pagerWindow}>
-          <FlexBox
-            as="ul"
-            alignItems="end"
-            className={styles.pagerList}
-            ref={pagerRef}
-            style={{ transform: `translateX(${pagerOffset}px)` }}
-          >
-            {dots}
-          </FlexBox>
-        </nav>
-      </div>
-    ),
-  }), [
-    slideId,
-    activeSlide,
-    adjustPagerPosition,
-    ariaLabel,
-    clickNext,
-    clickPrev,
-    focusLastThumb,
-    pagerOffset,
-    slides,
-  ]);
+    // Prev/next buttons and additional UI are rendered outside the slider
+  }), [adjustPagerPosition]);
 
   const modalSliderSettings = useMemo(() => ({
+    arrows: false,
     accessibility: true,
     swipeToSlide: true,
     lazyLoad: 'ondemand' as const,
-    nextArrow: (
-      <NextPrevButton slideId={modalSlideId} direction="next" isLightText />
-    ),
-    prevArrow: (
-      <NextPrevButton slideId={modalSlideId} direction="prev" isLightText />
-    ),
     afterChange: (i: number) => {
       setActiveSlide(i);
     },
     initialSlide: activeSlide,
-  }), [activeSlide, modalSlideId]);
+  }), [activeSlide]);
 
   return (
     <>
@@ -233,36 +171,79 @@ export const GallerySlideshow = ({
         className={styles.root}
         {...props}
       >
-        {showExpandLink && (
-          <button
-            type="button"
-            onClick={openModal}
-            aria-haspopup="dialog"
-            className={styles.expandButton}
-            aria-label="Expand gallery in full screen modal"
-          >
-            Expand
-            <HeroIcon icon="expand" className={styles.expandIcon} />
-          </button>
-        )}
-        <Slider
-          className={styles.slider(containerWidth)}
-          aria-live="polite"
-          ref={sliderRef}
-          {...sliderSettings}
-        >
-          {slides?.map((slide, index) => (
-            <Slide
-              key={slide._uid}
-              imageSrc={slide.image?.filename}
-              caption={slide.caption}
-              num={showCounter ? index + 1 : undefined}
-              numSlides={showCounter ? slides.length : undefined}
-              alt={slide.image?.alt || ''}
-            />
-          ))}
-        </Slider>
-        {/* Content from appendDots appears here */}
+        <div className={styles.widthWrapper(containerWidth)}>
+          {showExpandLink && (
+            <button
+              type="button"
+              onClick={openModal}
+              aria-haspopup="dialog"
+              className={styles.expandButton}
+              aria-label="Expand gallery in full screen modal"
+            >
+              Expand
+              <HeroIcon icon="expand" className={styles.expandIcon} />
+            </button>
+          )}
+          <div className={styles.sliderWrapper}>
+            <Controls onPrev={clickPrev} onNext={clickNext} slideId={slideId} showExpandLink={showExpandLink} />
+            <Slider
+              className={styles.slider}
+              aria-live="polite"
+              ref={sliderRef}
+              {...sliderSettings}
+            >
+              {slides?.map((slide, index) => (
+                <Slide
+                  key={slide._uid}
+                  imageSrc={slide.image?.filename}
+                  caption={slide.caption}
+                  num={showCounter ? index + 1 : undefined}
+                  numSlides={showCounter ? slides.length : undefined}
+                  alt={slide.image?.alt || ''}
+                />
+              ))}
+            </Slider>
+            {/* Thumbnail navigation */}
+            <button
+              type="button"
+              onClick={focusLastThumb}
+              className={styles.skipButton}
+            >
+              {`Below is a navigation for ${slides?.length} total slides. Skip to the last item.`}
+            </button>
+            <nav aria-label={`${ariaLabel} thumbnails`} ref={pagerWindowRef} className={styles.pagerWindow}>
+              <FlexBox
+                as="ul"
+                alignItems="end"
+                className={styles.pagerList}
+                ref={pagerRef}
+                style={{ transform: `translateX(${pagerOffset}px)` }}
+              >
+                {slides.map((s, i) => (
+                  <li key={s._uid} className={i === activeSlide ? 'active' : ''}>
+                    <ThumbnailButton
+                      slide={s}
+                      isActive={activeSlide === i}
+                      onFocus={() => {
+                        setActiveSlide(i);
+                        adjustPagerPosition(i);
+                        sliderRef.current?.slickGoTo(i);
+                      }}
+                      onClick={() => {
+                        setActiveSlide(i);
+                        sliderRef.current?.slickGoTo(i);
+                        adjustPagerPosition(i);
+                      }}
+                      ariaLabel={`Slide ${i + 1}`}
+                      aria-disabled={activeSlide === i}
+                      aria-controls={`${slideId}-${i + 1}`}
+                    />
+                  </li>
+                ))}
+              </FlexBox>
+            </nav>
+          </div>
+        </div>
       </Container>
       {/* Modal with carousel; use the afterEnter prop to run the updateModalSliderA11y helper after modal is fully mounted */}
       <Modal
@@ -275,13 +256,11 @@ export const GallerySlideshow = ({
       >
         <DialogTitle className={styles.srOnly}>{`${ariaLabel} full screen view`}</DialogTitle>
         <div ref={modalContentRef} className={styles.modalContentWrapper}>
-          <section aria-roledescription="carousel" aria-label={ariaLabel}>
+          {/* Controls for modal slider */}
+          <section aria-roledescription="carousel" aria-label={ariaLabel} className={styles.modalSliderRoot}>
             <div className={styles.modalSliderWrapper}>
-              <Slider
-                className={styles.modalSlider}
-                ref={modalSliderRef}
-                {...modalSliderSettings}
-              >
+              <Controls onPrev={modalClickPrev} onNext={modalClickNext} slideId={modalSlideId} isModal />
+              <Slider ref={modalSliderRef} {...modalSliderSettings}>
                 {slides?.map((slide, index) => (
                   <Slide
                     key={slide._uid}

@@ -6,13 +6,10 @@ export const containerWidths = {
 };
 export type ContainerWidthType = keyof typeof containerWidths;
 
-export const root = 'relative max-sm:mt-50 mx-auto sm:w-[calc(100%_-12rem)] md:w-[calc(100%_-17rem)]';
-
-export const slider = (containerWidth: ContainerWidthType) => cnb('leading-none', containerWidths[containerWidth]);
-export const buttonWrapper = 'gap-16 mt-10 sm:mt-0';
-export const buttonBase = 'absolute -top-50 sm:top-[calc(33cqw_-2rem)] sm:top-[calc(33cqw_-2.7rem)]';
-export const nextButton = `${buttonBase} right-55 sm:-left-60 md:-left-80`;
-export const prevButton = `${buttonBase} right-0 sm:-right-60 md:-right-80`;
+export const root = 'relative mx-auto';
+export const widthWrapper = (containerWidth: ContainerWidthType) => cnb('relative', containerWidths[containerWidth]);
+export const slider = 'leading-none';
+export const sliderWrapper = '@container w-full sm:w-[calc(100%_-12rem)] md:w-[calc(100%_-_17rem)] mx-auto';
 
 export const pagerWindow = 'rs-pt-0 relative hidden sm:block overflow-hidden';
 export const pagerList = 'list-unstyled *:mb-0 *:leading-[0] gap-10 transition-transform';
@@ -28,10 +25,20 @@ export const skipButton = 'hidden sm:block skiplink focus:!relative left-0 -top-
 // Modal styles
 export const dialog = 'hidden sm:block';
 export const srOnly = 'sr-only';
-export const modalContentWrapper = 'relative w-full rs-pb-4';
+export const modalContentWrapper = 'relative w-full rs-py-4';
 
 // Modal Slider elements
-export const modalSliderWrapper = 'relative rs-mt-4 mx-auto';
-export const modalSlider = 'relative !flex items-center gap-20 md:gap-30 leading-none';
-export const belowModalSlider = 'relative mt-9';
-export const modalCounter = 'block';
+export const modalSliderRoot = 'relative';
+export const modalSliderWrapper = '@container/modal sm:w-[calc(100%_-12rem)] md:w-[calc(100%_-_17rem)] mx-auto';
+export const modalSlider = 'relative leading-none';
+
+// Controls styles
+export const controlsWrapper = 'max-sm:flex max-sm:gap-20 max-sm:mb-10 w-fit mx-auto sm:w-full';
+export const modalControlsWrapper = 'w-full';
+
+export const controlsBase = (showExpandButton: boolean) => cnb('sm:absolute',
+  showExpandButton ? 'sm:top-[33cqw] md:top-[calc(33cqw_-0.7rem)]' : 'sm:top-[calc(33cqw_-2rem)] md:top-[calc(33cqw_-2.7rem)]',
+);
+export const controlLeft = 'sm:left-0';
+export const controlRight = 'sm:right-0';
+
