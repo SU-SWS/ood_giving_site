@@ -54,9 +54,9 @@ export const GallerySlideshow = ({
     trackEl.setAttribute('aria-live', 'polite');
 
     // Add an id to the slider track so it can be referenced by the prev/next buttons
-    (trackEl as HTMLElement).id = slideTrackid;
+    trackEl.id = slideTrackid;
 
-    const slideEls = trackEl.querySelectorAll('.slick-slide');
+    const slideEls = Array.from(trackEl.querySelectorAll('.slick-slide'));
     slideEls.forEach((slide, index) => {
       slide.setAttribute('role', 'group');
       slide.setAttribute('aria-roledescription', 'slide');
@@ -69,11 +69,6 @@ export const GallerySlideshow = ({
       }
     });
   }, []);
-
-  // Main slider a11y
-  useEffect(() => {
-    enhanceSliderA11y(sliderRef, slideId, true);
-  }, [slideId, enhanceSliderA11y]);
 
   // Modal states and refs
   const modalSlideId = useId();
@@ -90,17 +85,21 @@ export const GallerySlideshow = ({
   const modalClickPrev = useCallback(() => modalSliderRef.current?.slickPrev(), []);
   const modalClickNext = useCallback(() => modalSliderRef.current?.slickNext(), []);
 
-  const focusLastThumb = useCallback(() => {
-    const lastThumb = pagerRef.current?.lastElementChild as HTMLElement;
-    const button: HTMLButtonElement = lastThumb?.querySelector('button');
-    button?.focus();
-  }, []);
-
   const openModal = useCallback(() => setIsModalOpen(true), []);
   const closeModal = useCallback(() => {
     setIsModalOpen(false);
     sliderRef.current?.slickGoTo(activeSlide, true);
   }, [activeSlide]);
+
+  /**
+   * We add a skip button before the thumbnail nav for the user to skip to the last thumbnail button,
+   * since some galleries can have many slides.
+   */
+  const focusLastThumb = useCallback(() => {
+    const lastThumb = pagerRef.current?.lastElementChild;
+    const button = lastThumb?.querySelector('button');
+    button?.focus();
+  }, []);
 
   // This moves the thumbnail into view when the active slide changes.
   const adjustPagerPosition = useCallback(
@@ -126,9 +125,33 @@ export const GallerySlideshow = ({
     }, [activeSlide],
   );
 
+  // Helper to set inactive slides to inert so that the links in the captions of inactive slides won't get focused
+  const setInactiveSlidesInert = useCallback((ref: React.RefObject<Slider>) => {
+    const trackEl = ref.current?.innerSlider?.list?.querySelector('.slick-track');
+    if (!trackEl) return;
+
+    const slidesEls = Array.from(trackEl.querySelectorAll('.slick-slide'));
+
+    // Find the active slide which has aria-hidden set to false
+    slidesEls.forEach((slide) => {
+      if (slide.getAttribute('aria-hidden') === 'false') {
+        slide.removeAttribute('inert');
+      } else {
+        slide.setAttribute('inert', '');
+      }
+    });
+  }, []);
+
+  // On mount, set inert on inactive slides and enhance a11y for the slider
   useEffect(() => {
-    adjustPagerPosition();
-  }, [activeSlide, adjustPagerPosition]);
+    setInactiveSlidesInert(sliderRef);
+    enhanceSliderA11y(sliderRef, slideId, true);
+  }, [
+    activeSlide,
+    enhanceSliderA11y,
+    setInactiveSlidesInert,
+    slideId,
+  ]);
 
   const sliderSettings = useMemo(() => ({
     arrows: false,
@@ -144,11 +167,10 @@ export const GallerySlideshow = ({
       setActiveSlide(newIndex);
     },
     afterChange: (i: number) => {
-      setActiveSlide(i);
-      // Ensure thumbnail pager is in sync after changes settled
       adjustPagerPosition(i);
+      setInactiveSlidesInert(sliderRef);
     },
-  }), [adjustPagerPosition]);
+  }), [adjustPagerPosition, setInactiveSlidesInert]);
 
   const modalSliderSettings = useMemo(() => ({
     arrows: false,
@@ -157,9 +179,10 @@ export const GallerySlideshow = ({
     lazyLoad: 'ondemand' as const,
     afterChange: (i: number) => {
       setActiveSlide(i);
+      setInactiveSlidesInert(modalSliderRef);
     },
     initialSlide: activeSlide,
-  }), [activeSlide]);
+  }), [activeSlide, setInactiveSlidesInert]);
 
   return (
     <>
@@ -212,7 +235,7 @@ export const GallerySlideshow = ({
               onClick={focusLastThumb}
               className={styles.skipButton}
             >
-              {`Below is a navigation for ${slides?.length} total slides. Skip to the last item.`}
+              {`Below is a navigation for ${slides?.length} total slides. Skip to the last button.`}
             </button>
             <nav aria-label={`${ariaLabel} thumbnails`} ref={pagerWindowRef} className={styles.pagerWindow}>
               <FlexBox
@@ -250,6 +273,7 @@ export const GallerySlideshow = ({
         onClose={closeModal}
         afterEnter={() => {
           enhanceSliderA11y(modalSliderRef, modalSlideId);
+          setInactiveSlidesInert(modalSliderRef);
         }}
         className={styles.dialog}
       >

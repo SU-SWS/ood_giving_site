@@ -77,6 +77,7 @@ export const Slide = ({
           )}
           <RichText
             textColor={isModalSlide ? 'white' : 'cool-grey'}
+            linkColor={isModalSlide ? 'white' : 'default'}
             wysiwyg={caption}
           />
         </figcaption>
