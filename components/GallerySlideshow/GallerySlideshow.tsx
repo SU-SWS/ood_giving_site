@@ -92,7 +92,7 @@ export const GallerySlideshow = ({
 
   const focusLastThumb = useCallback(() => {
     const lastThumb = pagerRef.current?.lastElementChild as HTMLElement;
-    const button = lastThumb?.querySelector('button') as HTMLButtonElement;
+    const button: HTMLButtonElement = lastThumb?.querySelector('button');
     button?.focus();
   }, []);
 
@@ -136,15 +136,18 @@ export const GallerySlideshow = ({
     swipeToSlide: true,
     lazyLoad: 'ondemand' as const,
     beforeChange: (_oldIndex: number, newIndex: number) => {
-      // update React state immediately when slider is about to change
+      /**
+       * Update React state immediately when slider is about to change
+       * Need this to ensure the correct active thumbnail button is set
+       * even when there is a delay due to layout shift caused by caption spanning more lines in some slides.
+       */
       setActiveSlide(newIndex);
     },
     afterChange: (i: number) => {
       setActiveSlide(i);
-      // ensure thumbnail pager is adjusted after animation/dom settled
+      // Ensure thumbnail pager is in sync after changes settled
       adjustPagerPosition(i);
     },
-    // Prev/next buttons and additional UI are rendered outside the slider
   }), [adjustPagerPosition]);
 
   const modalSliderSettings = useMemo(() => ({
@@ -225,14 +228,10 @@ export const GallerySlideshow = ({
                       slide={s}
                       isActive={activeSlide === i}
                       onFocus={() => {
-                        setActiveSlide(i);
                         adjustPagerPosition(i);
-                        sliderRef.current?.slickGoTo(i);
                       }}
                       onClick={() => {
-                        setActiveSlide(i);
                         sliderRef.current?.slickGoTo(i);
-                        adjustPagerPosition(i);
                       }}
                       ariaLabel={`Slide ${i + 1}`}
                       aria-disabled={activeSlide === i}
@@ -256,7 +255,6 @@ export const GallerySlideshow = ({
       >
         <DialogTitle className={styles.srOnly}>{`${ariaLabel} full screen view`}</DialogTitle>
         <div ref={modalContentRef} className={styles.modalContentWrapper}>
-          {/* Controls for modal slider */}
           <section aria-roledescription="carousel" aria-label={ariaLabel} className={styles.modalSliderRoot}>
             <div className={styles.modalSliderWrapper}>
               <Controls onPrev={modalClickPrev} onNext={modalClickNext} slideId={modalSlideId} isModal />
