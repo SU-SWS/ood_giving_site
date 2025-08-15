@@ -161,7 +161,7 @@ export const SbInteriorPage = ({ blok, slug }: SbInteriorPageProps) => {
               </aside>
             )}
             {/* Main body content */}
-            <div id="body-content" className={layout === 'left-sidebar' ? 'lg:col-span-8 xl:col-start-5' : 'slg:col-span-10 lg:col-start-2 xl:col-span-8 xl:col-start-3'}>
+            <div id="body-content" className={layout === 'left-sidebar' ? 'lg:col-span-8 xl:col-start-5' : 'lg:col-span-10 lg:col-start-2 xl:col-span-8 xl:col-start-3'}>
               <CreateBloks blokSection={pageContent} />
             </div>
           </Container>
