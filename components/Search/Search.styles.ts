@@ -19,15 +19,13 @@ export const searchFormInput = ({ variant = 'default' }: { variant?: SearchFormV
   },
 );
 
-export const searchFormErrorMessage = ({ variant = 'default', show = false }: { variant?: SearchFormVariant, show?: boolean } = {}) => cnb('font-bold' , {
+export const searchFormErrorMessage = ({ show = false }: { show?: boolean } = {}) => cnb({
   'invisible': !show,
   'visible': show,
-  'text-black rs-mt-1 text-28': variant === 'default',
-  'text-white rs-mt-2 text-22': variant === 'modal',
 });
 
 export const searchFormOptions = ({ variant = 'default' }: { variant?: SearchFormVariant } = {}) => cnb(
-  'empty:invisible absolute z-[1000002] top-full left-0 flex flex-col w-full list-none m-0 p-16 border border-t-0 overflow-hidden rounded-bl rounded-br cursor-pointer',
+  'empty:invisible absolute z-[1000002] top-full left-0 flex flex-col w-full list-none m-0 p-16 border border-t-0 overflow-hidden rounded-bl-[8px] rounded-br-[8px] cursor-pointer',
   {
     'bg-white text-black border-cardinal-red': variant === 'default',
     'bg-palo-alto-dark text-white border-white': variant === 'modal',
@@ -35,10 +33,10 @@ export const searchFormOptions = ({ variant = 'default' }: { variant?: SearchFor
 );
 
 export const searchFormOption = ({ variant = 'default' }: { variant?: SearchFormVariant } = {}) => cnb(
-  'px-4 py-8 rounded mb-0',
+  'p-8 rounded-[6px] mb-0',
   {
-    'data-[focus]:bg-black-20 data-[focus]:underline data-[focus]:text-cardinal-red': variant === 'default',
-    'data-[focus]:bg-palo-verde-light': variant === 'modal',
+    'data-[focus]:bg-black-10 data-[focus]:underline data-[focus]:text-cardinal-red-dark': variant === 'default',
+    'data-[focus]:bg-bay-light data-[focus]:text-palo-alto-dark data-[focus]:underline': variant === 'modal',
   },
 );
 

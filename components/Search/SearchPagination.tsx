@@ -1,3 +1,5 @@
+'use client';
+
 import { useCallback, useMemo } from 'react';
 import { usePagination } from 'react-instantsearch';
 import * as styles from './Search.styles';

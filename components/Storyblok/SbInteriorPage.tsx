@@ -6,7 +6,6 @@ import {
 } from '@/components/Storyblok/PageHeader';
 import { Container } from '@/components/Container';
 import { CreateBloks } from '@/components/CreateBloks';
-import { Grid } from '@/components/Grid';
 import { PageLayout } from '@/components/Storyblok/partials/PageLayout';
 import { Skiplink } from '@/components/SkipLink';
 import { Heading } from '@/components/Typography';
@@ -144,7 +143,7 @@ export const SbInteriorPage = ({ blok, slug }: SbInteriorPageProps) => {
               </Heading>
             </Container>
           )}
-          <Grid pb={6} lg={12} className="cc lg:grid-gap">
+          <Container pb={6} className="cc lg:grid lg:grid-cols-12 lg:grid-gap">
             {/* Sidebar */}
             {layout === 'left-sidebar' && (
               <aside className="lg:col-span-4 xl:col-span-3 gap-y-20 md:gap-y-26 2xl:gap-y-27">
@@ -165,7 +164,7 @@ export const SbInteriorPage = ({ blok, slug }: SbInteriorPageProps) => {
             <div id="body-content" className={layout === 'left-sidebar' ? 'lg:col-span-8 xl:col-start-5' : 'lg:col-span-10 lg:col-start-2 xl:col-span-8 xl:col-start-3'}>
               <CreateBloks blokSection={pageContent} />
             </div>
-          </Grid>
+          </Container>
         </Container>
       )}
     </PageLayout>

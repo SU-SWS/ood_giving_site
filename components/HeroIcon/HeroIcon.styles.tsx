@@ -85,7 +85,7 @@ export const iconBaseStyle: IconBaseStyleType = {
   'arrow-right': 'w-09em -mt-01em',
   'chevron-right': 'w-09em stroke-[2.5] -mt-01em',
   'chevron-down': 'w-09em -mt-01em',
-  close: 'w-1em stroke-[2.5]',
+  close: 'w-1em stroke-[3] -mt-01em',
   download: 'w-09em -mt-02em',
   expand: 'w-1em -mt-02em',
   external: 'w-08em stroke-[2.5] -mt-01em',

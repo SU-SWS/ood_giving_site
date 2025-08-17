@@ -67,7 +67,7 @@ export const SearchCategories = () => {
             </Heading>
             <nav className="rs-mt-1" aria-labelledby={categoriesRightHeadline ? 'searchCategoriesRightHeadline' : 'searchCategoriesHeadline'}>
               <ul className="list-none p-0 m-0 flex flex-col gap-16">
-                {categoriesLeftBox.map((cta) => (
+                {categoriesRightBox.map((cta) => (
                   <li key={cta._uid} className="mb-0"><CreateBloks blokSection={[cta]} /></li>
                 ))}
               </ul>
