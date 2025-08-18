@@ -154,5 +154,5 @@ export const initStoryblokClient = ({
     customFallbackComponent: (component) => {
       return <ComponentNotFound component={component} />;
     },
-  });
+  })();
 };
