@@ -1,5 +1,5 @@
 'use client';
-import { getStoryblokApi } from '@/utilities/storyblok';
+import { initStoryblokClient } from '@/utilities/storyblok';
 
 type ProviderProps = {
   children: React.ReactNode;
@@ -17,7 +17,7 @@ export const StoryblokProvider = ({ children, isEditor = false }: ProviderProps)
     }
   }
 
-  getStoryblokApi({ accessToken, isEditor });
+  initStoryblokClient({ accessToken, isEditor });
 
   return children;
 };

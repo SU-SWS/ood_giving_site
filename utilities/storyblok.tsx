@@ -140,7 +140,7 @@ export type GetStoryblokApiConfig = {
   isEditor?: boolean;
 };
 
-export const getStoryblokApi = ({
+export const initStoryblokClient = ({
   accessToken,
   isEditor,
 }: GetStoryblokApiConfig = {}) => {
@@ -154,5 +154,5 @@ export const getStoryblokApi = ({
     customFallbackComponent: (component) => {
       return <ComponentNotFound component={component} />;
     },
-  })();
+  });
 };

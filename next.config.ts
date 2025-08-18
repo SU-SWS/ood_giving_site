@@ -1,5 +1,5 @@
 import type { NextConfig } from 'next';
-import { getStoryblokRedirects } from '@/utilities/data/getStoryblokRedirects.mjs';
+import { getStoryblokRedirects } from '@/utilities/data/getStoryblokRedirects';
 
 const nextConfig: NextConfig = {
   eslint: {

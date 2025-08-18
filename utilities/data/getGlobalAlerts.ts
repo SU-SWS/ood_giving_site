@@ -1,8 +1,8 @@
 import { unstable_cache } from 'next/cache';
-import { getStoryblokApi } from '@/utilities/storyblok';
 import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { type SbAlertBgColorType, type SbAlertIconType } from '@/components/Storyblok/SbAlert';
+import { getStoryblokApi, type StoryblokClient } from '@storyblok/react/rsc';
 
 export type AlertContent = {
   uuid: string;
@@ -18,7 +18,7 @@ export type AlertContent = {
  * Get all the published (global) alerts from Storyblok.
  */
 export const getGlobalAlerts = async () => {
-  const storyblokApi = getStoryblokApi();
+  const storyblokApi: StoryblokClient = getStoryblokApi();
 
   // Get the global alerts.
   const { data: { stories } } = await storyblokApi.getStories({

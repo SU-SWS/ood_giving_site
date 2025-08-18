@@ -25,7 +25,6 @@ type PageMetadataProps = {
       seo?: SbSEOType;
     };
   };
-  sbConfig: ISbStoryData;
   slug: string;
 };
 

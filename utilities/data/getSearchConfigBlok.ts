@@ -1,6 +1,6 @@
 import { unstable_cache } from 'next/cache';
-import { getStoryblokApi } from '@/utilities/storyblok';
 import { type SbCtaProps } from '@/components/Storyblok/SbCtaLink';
+import { getStoryblokApi } from '@storyblok/react/rsc';
 
 type SearchConfigBlokContent = {
   introduction?: string;

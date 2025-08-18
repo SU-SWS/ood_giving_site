@@ -3,8 +3,9 @@ import { StoryblokStory } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getPageMetadata } from '@/utilities/getPageMetadata';
 import { notFound } from 'next/navigation';
-import { getStoryDataCached, getConfigBlokCached, getAllStoriesCached } from '@/utilities/data/';
+import { getStoryDataCached, getAllStoriesCached } from '@/utilities/data/';
 import { isProduction } from '@/utilities/getActiveEnv';
+import { initStoryblokClient } from '@/utilities/storyblok';
 
 type PathsType = {
   slug: string[];
@@ -29,6 +30,11 @@ export const revalidate = 31536000;
 
 // Force static rendering.
 export const dynamic = 'force-static';
+
+/**
+ * Init on the server.
+ */
+initStoryblokClient();
 
 /**
  * Generate the list of stories to statically render.
@@ -77,13 +83,12 @@ export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata
   // Convert the slug to a path.
   // Slug will be falsy if root/home route
   const slugPath = slug ? slug.join('/') : 'home';
-  const config = await getConfigBlokCached();
 
   // Get the story data.
   const { data: { story } } = await getStoryDataCached({ path: slugPath });
 
   // Generate the metadata.
-  const meta = getPageMetadata({ story, sbConfig: config, slug: slugPath });
+  const meta = getPageMetadata({ story, slug: slugPath });
   return meta;
 };
 
