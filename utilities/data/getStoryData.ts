@@ -1,13 +1,9 @@
 import type { getStoryDataProps } from '@/utilities/data/types';
-import {
-  type ISbStoriesParams,
-  type ISbResult,
-  type StoryblokClient,
-  getStoryblokApi,
-} from '@storyblok/react/rsc';
+import { type ISbStoriesParams, type ISbResult } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
-import { isProduction } from '../getActiveEnv';
+import { isProduction } from '@/utilities/getActiveEnv';
 import { unstable_cache } from 'next/cache';
+import { getStoryblokClient } from '@/utilities/storyblok';
 
 /**
  * Get the data out of the Storyblok API for the page.
@@ -16,7 +12,7 @@ export const getStoryData = async ({
   path,
   isEditor = false,
 }: getStoryDataProps): Promise<ISbResult | { data: 404 }> => {
-    const storyblokApi: StoryblokClient = getStoryblokApi();
+    const storyblokApi = getStoryblokClient();
     const isProd = isProduction();
 
     const sbParams: ISbStoriesParams = {

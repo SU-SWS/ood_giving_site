@@ -1,6 +1,6 @@
 import { unstable_cache } from 'next/cache';
 import { type SbCtaProps } from '@/components/Storyblok/SbCtaLink';
-import { getStoryblokApi } from '@storyblok/react/rsc';
+import { getStoryblokClient } from '@/utilities/storyblok';
 
 type SearchConfigBlokContent = {
   introduction?: string;
@@ -28,7 +28,7 @@ export type SearchConfig = {
  * Get the global search configuration from Storyblok.
  */
 export const getSearchConfigBlok = async () => {
-  const storyblokApi = getStoryblokApi();
+  const storyblokApi = getStoryblokClient();
 
   // Get the global configuration.
   const { data: { story } } = await storyblokApi.get(

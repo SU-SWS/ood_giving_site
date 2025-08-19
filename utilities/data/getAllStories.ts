@@ -1,12 +1,13 @@
-import { getStoryblokApi, type StoryblokClient, type ISbStoriesParams } from '@storyblok/react/rsc';
+import { type ISbStoriesParams } from '@storyblok/react/rsc';
 import { unstable_cache } from 'next/cache';
+import { getStoryblokClient } from '@/utilities/storyblok';
 
 /**
  * Fetches all stories from Storyblok.
  */
 export const getAllStories = async () => {
   // Fetch new content from storyblok.
-  const storyblokApi: StoryblokClient = getStoryblokApi();
+  const storyblokApi = getStoryblokClient();
 
   const sbParams: ISbStoriesParams = {
     // We have separate dev/prod spaces; we only ever want published stories.

@@ -140,7 +140,7 @@ export type GetStoryblokApiConfig = {
   isEditor?: boolean;
 };
 
-export const initStoryblokClient = ({
+export const getStoryblokClient = ({
   accessToken,
   isEditor,
 }: GetStoryblokApiConfig = {}) => {
