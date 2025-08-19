@@ -13,9 +13,7 @@ export const dynamic = 'force-static';
 
 const StoryblokLayout = ({ children }: StoryblokLayoutProps) => {
   return (
-    <StoryblokProvider>
-      {children}
-    </StoryblokProvider>
+    {children}
   );
 };
 

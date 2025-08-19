@@ -1,12 +1,16 @@
 'use client';
 import { getStoryblokClient } from '@/utilities/storyblok';
+import { usePathname } from 'next/navigation';
+import { useMemo } from 'react';
 
 type ProviderProps = {
   children: React.ReactNode;
   isEditor?: boolean;
 };
 
-export const StoryblokProvider = ({ children, isEditor = false }: ProviderProps) => {
+export const StoryblokProvider = ({ children }: ProviderProps) => {
+  const pathname = usePathname();
+  const isEditor = useMemo(() => !!pathname?.startsWith('/editor/'), [pathname]);
   // No access token because this is in client side code.
   let accessToken = 'thisisnotarealtokenasitisontheclientsideandgoesintothecode';
 
