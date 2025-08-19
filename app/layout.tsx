@@ -8,13 +8,12 @@ import { FlexBox } from '@/components/FlexBox';
 import { GAProvider, GTAG } from '@/components/GAProvider';
 import { getGlobalAlertsCached, getSearchConfigBlokCached } from '@/utilities/data';
 import { SearchModalProvider } from '@/components/Search/Modal/SearchModalContext';
-import { MotionProvider } from './MotionProvider';
+import { MotionProvider } from '@/components/MotionProvider';
 import { GlobalAlertsProvider } from '@/components/Alert';
 
 // https://docs.fontawesome.com/web/use-with/react/use-with#getting-font-awesome-css-to-work
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import { StoryblokProvider } from '@/components/StoryblokProvider';
 config.autoAddCss = false;
 
 type LayoutProps = {
@@ -48,24 +47,22 @@ const RootLayout = async ({ children }: LayoutProps) => {
       <GlobalAlertsProvider globalAlerts={globalAlerts}>
         <SearchModalProvider searchConfig={searchConfig}>
           <MotionProvider>
-            <StoryblokProvider>
-              <html
-                lang="en"
-                className={cnb(
-                  source_sans.variable,
-                  source_serif.variable,
-                  stanford.variable,
-                )}
-              >
-                <GTAG />
-                {/* Absolutely necessary to have a body tag here, otherwise your components won't get any interactivity */}
-                <body>
-                  <FlexBox justifyContent="between" direction="col" className="min-h-screen relative">
-                    {children}
-                  </FlexBox>
-                </body>
-              </html>
-            </StoryblokProvider>
+            <html
+              lang="en"
+              className={cnb(
+                source_sans.variable,
+                source_serif.variable,
+                stanford.variable,
+              )}
+            >
+              <GTAG />
+              {/* Absolutely necessary to have a body tag here, otherwise your components won't get any interactivity */}
+              <body>
+                <FlexBox justifyContent="between" direction="col" className="min-h-screen relative">
+                  {children}
+                </FlexBox>
+              </body>
+            </html>
           </MotionProvider>
         </SearchModalProvider>
       </GlobalAlertsProvider>

@@ -12,7 +12,9 @@ const StoryblokLayout = ({ children }: StoryblokLayoutProps) => {
   return (
     <>
       <Sa11yInit />
-      {children}
+      <StoryblokProvider isEditor={true}>
+        {children}
+      </StoryblokProvider>
     </>
   );
 };
