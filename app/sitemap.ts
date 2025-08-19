@@ -25,8 +25,6 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   // We use the `cdn/stories` endpoint because it has the last published time which `cdn/links` does not.
   const response = await storyblokClient.getAll('cdn/stories', sbParams);
 
-  console.log( response );
-
   // Exclude any stories with noindex set to true and those inside the Global Components or Test folders in Storyblok
   const indexStories = response.filter(
     (story) => {

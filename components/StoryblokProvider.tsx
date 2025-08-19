@@ -19,7 +19,5 @@ export const StoryblokProvider = ({ children, isEditor = false }: ProviderProps)
 
   initStoryblokClient({ accessToken, isEditor });
 
-  console.log('SBProvider: ', { accessToken, isEditor });
-
   return children;
 };
