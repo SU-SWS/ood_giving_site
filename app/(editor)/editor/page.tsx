@@ -2,7 +2,6 @@ import { StoryblokStory } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { notFound } from 'next/navigation';
 import { getStoryData } from '@/utilities/data/getStoryData';
-import { getStoryblokClient } from '@/utilities/storyblok';
 
 type PageSearchParams = {
   access_key: string;
@@ -31,11 +30,6 @@ const bridgeOptions = {
   preventClicks: true,
   resolveLinks: 'story',
 };
-
-/**
- * Init on the server.
- */
-getStoryblokClient();
 
 /**
  * Fetch the path data for the page and render it.

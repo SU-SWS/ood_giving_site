@@ -12,7 +12,7 @@ export const getStoryData = async ({
   path,
   isEditor = false,
 }: getStoryDataProps): Promise<ISbResult | { data: 404 }> => {
-    const storyblokApi = getStoryblokClient();
+    const storyblokApi = getStoryblokClient({ isEditor });
     const isProd = isProduction();
 
     const sbParams: ISbStoriesParams = {
@@ -20,7 +20,6 @@ export const getStoryData = async ({
       cv: isEditor ? Date.now() : undefined,
       resolve_relations: resolveRelations,
       resolve_links: 'url',
-      token: isEditor ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN,
     };
 
     const slug = path.replace(/\/$/, ''); // Remove trailing slash.

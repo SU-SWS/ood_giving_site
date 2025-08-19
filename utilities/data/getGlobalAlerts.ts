@@ -26,7 +26,6 @@ export const getGlobalAlerts = async () => {
     content_type: 'alert',
     // Only show published alerts; we don't want the dev site to always show EVERY existing alert.
     version: 'published',
-    token: process.env.STORYBLOK_ACCESS_TOKEN,
     sort_by: 'published_at:desc',
     // Only alerts set as global.
     filter_query: {

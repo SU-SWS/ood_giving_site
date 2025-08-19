@@ -36,7 +36,6 @@ export const getSearchConfigBlok = async () => {
     {
       // We have separate dev/prod spaces; we always want the published config from each space
       version: 'published',
-      token: process.env.STORYBLOK_ACCESS_TOKEN,
     },
   );
 
