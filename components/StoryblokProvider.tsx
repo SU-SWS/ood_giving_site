@@ -7,17 +7,17 @@ type ProviderProps = {
 };
 
 export const StoryblokProvider = ({ children, isEditor = false }: ProviderProps) => {
-  // // No access token because this is in client side code.
-  // let accessToken = 'thisisnotarealtokenasitisontheclientsideandgoesintothecode';
+  // No access token because this is in client side code.
+  let accessToken = 'thisisnotarealtokenasitisontheclientsideandgoesintothecode';
 
-  // if (isEditor) {
-  //   if (typeof window !== 'undefined') {
-  //     const urlParams = new URLSearchParams(window.location.search);
-  //     accessToken = urlParams.get('access_key') || accessToken;
-  //   }
-  // }
+  if (isEditor) {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      accessToken = urlParams.get('access_key') || accessToken;
+    }
+  }
 
-  getStoryblokClient({ isEditor });
+  getStoryblokClient({ accessToken, isEditor });
 
   return children;
 };
