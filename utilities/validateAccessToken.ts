@@ -7,7 +7,7 @@ export type ValidateAccessToken = {
   timestamp: string;
 };
 
-export const isEditorValid = ({
+export const isEditorValid = async ({
   accessToken,
   validationToken,
   spaceId,
@@ -18,7 +18,10 @@ export const isEditorValid = ({
   }
 
   const validationString = `${spaceId}:${accessToken}:${timestamp}`;
-  const generatedToken = crypto.createHash('sha1').update(validationString).digest('hex');
+  const encoder = new TextEncoder();
+  const data = encoder.encode(validationString);
+  const hash = await crypto.subtle.digest('SHA-1', data);
+  const generatedToken = Array.from(new Uint8Array(hash)).map((byte) => byte.toString(16).padStart(2, '0')).join('');
 
   return generatedToken === validationToken;
 };
