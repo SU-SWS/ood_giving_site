@@ -38,7 +38,7 @@ const Page = () => {
   return (
     <StoryblokComponent
       blok={story.content}
-      slug={path}
+      slug={story.full_slug}
       name={story.name}
     />
   );
