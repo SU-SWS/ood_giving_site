@@ -1,6 +1,4 @@
-import crypto from 'crypto';
-
-export type ValidateAccessToken = {
+export type IsEditorValidProps = {
   accessToken: string;
   validationToken: string;
   spaceId: string;
@@ -12,7 +10,7 @@ export const isEditorValid = async ({
   validationToken,
   spaceId,
   timestamp,
-}: ValidateAccessToken) => {
+}: IsEditorValidProps) => {
   if (!accessToken || !validationToken || !spaceId || !timestamp) {
     return false;
   }

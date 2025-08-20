@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server';
-import { isEditorValid } from '@/utilities/validateAccessToken';
+import { isEditorValid } from '@/utilities/isEditorValid';
 
 export const middleware = (request: NextRequest) => {
   const { searchParams, pathname } = request.nextUrl;
