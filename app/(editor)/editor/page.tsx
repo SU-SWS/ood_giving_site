@@ -56,7 +56,7 @@ const Page = () => {
     getData();
   }, [storyblokApi, path]);
 
-  console.log({ isLoading, data });
+  console.log({ path, isLoading, data });
 
   if (isLoading) {
     return (
