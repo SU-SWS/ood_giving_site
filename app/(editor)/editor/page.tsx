@@ -1,9 +1,10 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
-import { StoryblokComponent, useStoryblok } from '@storyblok/react';
+import { notFound, useSearchParams } from 'next/navigation';
+import { StoryblokComponent, getStoryblokApi } from '@storyblok/react';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { Grid } from '@/components/Grid';
+import { useEffect, useState } from 'react';
 
 // type PageSearchParams = {
 //   access_key: string;
@@ -23,27 +24,40 @@ import { Grid } from '@/components/Grid';
  * Fetch the path data for the page and render it.
  */
 const Page = () => {
-  // access key is already handled in the storyblok provider
+  // api init and access key are already handled in the storyblok provider
+  const storyblokApi = getStoryblokApi();
   const searchParams = useSearchParams();
   const path = searchParams.get('path');
+  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState(null);
 
-  const story = useStoryblok(
-    path,
-    {
-      version: 'draft',
-      resolve_relations: resolveRelations,
-      resolve_links: 'story',
-    },
-    {
-      resolveRelations,
-      preventClicks: true,
-      resolveLinks: 'story',
-    },
-  );
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        setIsLoading(true);
+        const response = await storyblokApi.get(
+          path,
+          {
+            version: 'draft',
+            resolve_relations: resolveRelations,
+            resolve_links: 'story',
+          },
+        );
+        setData(response.data);
+        setIsLoading(false);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch(_err) {
+        setData(null);
+        setIsLoading(false);
+      }
+    };
 
-  console.log({ story });
+    getData();
+  }, [storyblokApi, path]);
 
-  if (!story?.content) {
+  console.log({ isLoading, data });
+
+  if (isLoading) {
     return (
       <Grid gap="default" mt={10} mb={10} className="cc bg-white animate-[skeleton_2s_linear_infinite]">
         <div className="w-full h-300 bg-black-10" />
@@ -52,10 +66,14 @@ const Page = () => {
     );
   }
 
+  if (!data) {
+    notFound();
+  }
+
   // Return the story.
   return (
     <StoryblokComponent
-      blok={story.content}
+      blok={data}
     />
   );
 };
