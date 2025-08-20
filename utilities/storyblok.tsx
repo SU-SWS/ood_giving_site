@@ -148,7 +148,7 @@ export const getStoryblokClient = ({
 
   return storyblokInit({
     accessToken,
-    use: [apiPlugin],
+    use: isEditor ? [apiPlugin] : undefined,
     components,
     enableFallbackComponent: true,
     customFallbackComponent: (component) => {
