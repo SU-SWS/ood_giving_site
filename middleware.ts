@@ -25,6 +25,15 @@ export const middleware = async (request: NextRequest, event: NextFetchEvent) =>
     console.error(err);
   }
 
+  console.log({
+    isValid,
+    pathname,
+    accessToken,
+    spaceId,
+    timestamp,
+    validationToken,
+  });
+
   if (!isValid) {
     return NextResponse.redirect(new URL('/404', request.url));
   }
