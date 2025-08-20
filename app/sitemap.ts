@@ -25,8 +25,6 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   // We use the `cdn/stories` endpoint because it has the last published time which `cdn/links` does not.
   const response = await storyblokClient.getAll('cdn/stories', sbParams);
 
-  console.log( response );
-
   // Exclude any stories with noindex set to true and those inside the Global Components or Test folders in Storyblok
   const indexStories = response.filter(
     (story) => {
@@ -34,7 +32,8 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
         return false;
       }
 
-      if (story.full_slug.includes('global-components/') || story.full_slug.includes('test/') || story.full_slug.includes('test-items/')) {
+      // Currently we only have a /test-items/ folder in Storyblok. Added the /test/ folder in case someone adds it in the future.
+      if (story.full_slug.includes('/global-components/') || story.full_slug.includes('/test/') || story.full_slug.includes('/test-items/')) {
         return false;
       }
 

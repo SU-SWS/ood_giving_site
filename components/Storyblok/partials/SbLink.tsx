@@ -82,8 +82,6 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
         ref={ref}
         href={linkUrl}
         className={className}
-        // TODO DS-1495: Figure out what to do here
-        // activeClassName={activeClass}
         {...otherAttributes}
       >
         {children}
