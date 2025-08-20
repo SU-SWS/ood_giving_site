@@ -60,7 +60,12 @@ const Page = () => {
     }
   }, [storyblokApi, path, accessToken]);
 
-  console.log({ accessToken, path, isLoading, data });
+  console.log({
+    accessToken,
+    path,
+    isLoading,
+    data,
+  });
 
   if (isLoading) {
     return (
