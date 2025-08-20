@@ -9,7 +9,7 @@ export const middleware = (request: NextRequest) => {
     return NextResponse.next();
   }
 
-  const accessToken = process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN ?? '';
+  const accessToken = process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN || '';
   const spaceId = searchParams.get('_storyblok_tk[space_id]') || '';
   const timestamp = searchParams.get('_storyblok_tk[timestamp]') || '';
   const validationToken = searchParams.get('_storyblok_tk[token]') || '';
