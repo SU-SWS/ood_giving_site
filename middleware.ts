@@ -19,6 +19,14 @@ export const middleware = (request: NextRequest) => {
     timestamp,
   });
 
+  console.log({
+    accessToken,
+    spaceId,
+    timestamp,
+    validationToken,
+    isValid,
+  });
+
   if (!isValid) {
     return NextResponse.redirect(new URL('/404', request.url));
   }
