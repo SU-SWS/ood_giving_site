@@ -94,7 +94,7 @@ export const getPageMetadata = ({ story, slug }: PageMetadataProps) => {
   // Description priority: Story SEO > Hardcoded Site Description
   return {
     title: `${title || name} | ${siteTitle}`,
-    description: siteDescription,
+    description: seo?.description || seo?.og_description || seo?.twitter_description || siteDescription,
     metadataBase: new URL(siteUrlProd),
     openGraph:{
       title: seo?.og_title || title || name,
