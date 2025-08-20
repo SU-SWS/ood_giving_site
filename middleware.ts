@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { isEditorValid } from '@/utilities/isEditorValid';
 
-export const middleware = (request: NextRequest) => {
+export const middleware = async (request: NextRequest) => {
   const { searchParams, pathname } = request.nextUrl;
 
   if (pathname !== '/editor') {
@@ -12,7 +12,7 @@ export const middleware = (request: NextRequest) => {
   const spaceId = searchParams.get('_storyblok_tk[space_id]') || '';
   const timestamp = searchParams.get('_storyblok_tk[timestamp]') || '';
   const validationToken = searchParams.get('_storyblok_tk[token]') || '';
-  const isValid = isEditorValid({
+  const isValid = await isEditorValid({
     accessToken,
     validationToken,
     spaceId,
