@@ -1,8 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server';
-import dotenv from 'dotenv';
 import { isEditorValid } from '@/utilities/validateAccessToken';
-
-dotenv.config();
+import '@/utilities/envConfig';
 
 export const middleware = (request: NextRequest) => {
   const { searchParams, pathname } = request.nextUrl;
