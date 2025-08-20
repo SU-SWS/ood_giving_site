@@ -1,8 +1,9 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
 import { StoryblokComponent, useStoryblok } from '@storyblok/react';
 import { resolveRelations } from '@/utilities/resolveRelations';
-import { useSearchParams } from 'next/navigation';
+import { Grid } from '@/components/Grid';
 
 // type PageSearchParams = {
 //   access_key: string;
@@ -43,7 +44,12 @@ const Page = () => {
   console.log({ story });
 
   if (!story?.content) {
-    return <div>Loading...</div>;
+    return (
+      <Grid gap="default" mt={10} mb={10} className="cc bg-white animate-[skeleton_2s_linear_infinite]">
+        <div className="w-full h-300 bg-black-10" />
+        <div className="w-full h-300 bg-black-10" />
+      </Grid>
+    );
   }
 
   // Return the story.
