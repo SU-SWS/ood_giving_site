@@ -1,10 +1,11 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { notFound, useSearchParams } from 'next/navigation';
-import { StoryblokComponent, getStoryblokApi } from '@storyblok/react';
+import { StoryblokComponent } from '@storyblok/react';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { Grid } from '@/components/Grid';
-import { useEffect, useState } from 'react';
+import { getStoryblokClient } from '@/utilities/storyblok';
 
 // type PageSearchParams = {
 //   access_key: string;
@@ -24,10 +25,10 @@ import { useEffect, useState } from 'react';
  * Fetch the path data for the page and render it.
  */
 const Page = () => {
-  // api init and access key are already handled in the storyblok provider
-  const storyblokApi = getStoryblokApi();
   const searchParams = useSearchParams();
   const path = searchParams.get('path');
+  const accessToken = searchParams.get('access_key');
+  const storyblokApi = getStoryblokClient({ accessToken, isEditor: true });
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
 
@@ -53,8 +54,12 @@ const Page = () => {
       }
     };
 
-    getData();
-  }, [storyblokApi, path]);
+    if (path && accessToken) {
+      getData();
+    } else {
+      setIsLoading(false);
+    }
+  }, [storyblokApi, path, accessToken]);
 
   console.log({ path, isLoading, data });
 
