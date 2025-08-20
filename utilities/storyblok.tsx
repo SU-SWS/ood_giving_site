@@ -1,4 +1,4 @@
-import { apiPlugin, StoryblokClient, storyblokInit } from '@storyblok/react/rsc';
+import { apiPlugin, storyblokInit, StoryblokClient } from '@storyblok/react/rsc';
 import { ComponentNotFound } from '@/components/Storyblok/ComponentNotFound';
 import { SbContentMenuPicker } from '@/components/Storyblok/SbContentMenu';
 import { SbEmbedScript } from '@/components/Storyblok/SbEmbedScript';
@@ -148,7 +148,7 @@ export const getStoryblokClient = ({
 
   return storyblokInit({
     accessToken,
-    use: isEditor ? [apiPlugin] : [],
+    use: [apiPlugin],
     components,
     enableFallbackComponent: true,
     customFallbackComponent: (component) => {
