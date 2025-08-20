@@ -1,7 +1,7 @@
-import { NextResponse, type NextRequest } from 'next/server';
+import { NextResponse, type NextRequest, type NextFetchEvent } from 'next/server';
 import { isEditorValid } from '@/utilities/isEditorValid';
 
-export const middleware = async (request: NextRequest) => {
+export const middleware = (request: NextRequest, event: NextFetchEvent) => {
   const { searchParams, pathname } = request.nextUrl;
 
   if (pathname !== '/editor') {
@@ -12,24 +12,21 @@ export const middleware = async (request: NextRequest) => {
   const spaceId = searchParams.get('_storyblok_tk[space_id]') || '';
   const timestamp = searchParams.get('_storyblok_tk[timestamp]') || '';
   const validationToken = searchParams.get('_storyblok_tk[token]') || '';
-  const isValid = await isEditorValid({
-    accessToken,
-    validationToken,
-    spaceId,
-    timestamp,
-  });
 
-  console.log({
-    accessToken,
-    spaceId,
-    timestamp,
-    validationToken,
-    isValid,
-  });
-
-  if (!isValid) {
-    return NextResponse.redirect(new URL('/404', request.url));
-  }
+  event.waitUntil(
+    isEditorValid({
+      accessToken,
+      validationToken,
+      spaceId,
+      timestamp,
+    }).then((isValid) => {
+      if (!isValid) {
+        return NextResponse.redirect(new URL('/404', request.url));
+      }
+    }).catch(() => {
+      // Nothing...
+    }),
+  );
 
   return NextResponse.next();
 };
