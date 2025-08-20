@@ -32,8 +32,8 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
         return false;
       }
 
-      // Currently we only have a /test-items/ folder in Storyblok. Added the /test/ folder in case someone adds it in the future.
-      if (story.full_slug.includes('/global-components/') || story.full_slug.includes('/test/') || story.full_slug.includes('/test-items/')) {
+      // Currently we only have a test-items/ folder in Storyblok. Added the /test/ folder in case someone adds it in the future.
+      if (story.full_slug.startsWith('global-components/') || story.full_slug.startsWith('test/') || story.full_slug.startsWith('test-items/')) {
         return false;
       }
 
