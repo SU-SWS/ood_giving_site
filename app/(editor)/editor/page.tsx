@@ -28,7 +28,7 @@ const Page = () => {
   const storyblokApi = getStoryblokApi();
   const searchParams = useSearchParams();
   const path = searchParams.get('path');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
 
   useEffect(() => {
