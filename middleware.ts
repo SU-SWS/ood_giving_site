@@ -1,6 +1,8 @@
 import { NextResponse, type NextRequest } from 'next/server';
+import dotenv from 'dotenv';
 import { isEditorValid } from '@/utilities/validateAccessToken';
-import '@/utilities/envConfig';
+
+dotenv.config();
 
 export const middleware = (request: NextRequest) => {
   const { searchParams, pathname } = request.nextUrl;
@@ -9,7 +11,7 @@ export const middleware = (request: NextRequest) => {
     return NextResponse.next();
   }
 
-  const accessToken = process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN || '';
+  const accessToken = process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN ?? '';
   const spaceId = searchParams.get('_storyblok_tk[space_id]') || '';
   const timestamp = searchParams.get('_storyblok_tk[timestamp]') || '';
   const validationToken = searchParams.get('_storyblok_tk[token]') || '';
