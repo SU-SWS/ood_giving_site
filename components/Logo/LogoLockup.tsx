@@ -40,7 +40,7 @@ export const LogoLockup = ({
   if (link?.url || link?.cached_url) {
     return (
       <SbLink
-        classes={cnb(styles.root, className)}
+        className={cnb(styles.root, className)}
         link={link}
         {...rest}
       >

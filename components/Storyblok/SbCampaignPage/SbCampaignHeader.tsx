@@ -46,7 +46,7 @@ export const SbCampaignHeader = ({ blok }: SbCampaignHeaderProps) => {
         </div>
       )}
       {filename && (
-        <SbLink link={logoLink} classes={styles.logoLink}>
+        <SbLink link={logoLink} className={styles.logoLink}>
           <img
             src={getProcessedImage(filename, '400x0')}
             alt={alt || 'Campaign logo'}

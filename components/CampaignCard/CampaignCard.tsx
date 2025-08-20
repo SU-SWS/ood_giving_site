@@ -1,8 +1,4 @@
-import {
-  Text,
-  Paragraph,
-  type HeadingType,
-} from '@/components/Typography';
+import { Text, Paragraph, type HeadingType } from '@/components/Typography';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
 import { AspectRatioImage, type AspectRatioImageProps } from '@/components/Image';
 import { SbLinkType } from '@/components/Storyblok/Storyblok.types';
@@ -32,6 +28,7 @@ export const CampaignCard = ({
   ...props
 }: CampaignCardProps) => {
   const hasImage = !!filename;
+  const isExternalLink = link?.linktype !== 'story';
 
   return (
     <div className={styles.root} {...props}>
@@ -64,15 +61,19 @@ export const CampaignCard = ({
         weight="semibold"
         mb="none"
       >
-        <SbLink link={link} classes={styles.link}>
+        <SbLink link={link} className={styles.link}>
           <Text
             as="span"
             font="sans"
             weight="semibold"
             tracking="tight"
             leading="tight"
-            icon={link?.linktype !== 'story' ? 'external' : undefined}
-            iconProps={{ className: styles.icon, noBaseStyle: true }}
+            icon={isExternalLink ? 'external' : undefined}
+            iconProps={{
+              className: styles.icon,
+              noBaseStyle: true,
+              title: isExternalLink ? '(external link)' : undefined,
+            }}
             className={styles.linkText(headlineColor)}
           >
             {headline}

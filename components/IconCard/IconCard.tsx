@@ -31,7 +31,7 @@ export const IconCard = ({
       className={styles.root(backgroundColor)}
     >
       <FAIcon icon={icon} iconStyle={iconStyle} title={title} size="2x" className={styles.icon(backgroundColor)} />
-      <SbLink link={link} classes={styles.link(backgroundColor)}>
+      <SbLink link={link} className={styles.link(backgroundColor)}>
         <Text
           as="span"
           size={2}

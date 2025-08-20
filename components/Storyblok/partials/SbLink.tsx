@@ -1,22 +1,15 @@
 'use client';
 import React from 'react';
 import { config } from '@/utilities/config';
-import { cnb } from 'cnbuilder';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { SrOnlyText } from '@/components/Typography';
 import { type SbLinkType } from '../Storyblok.types';
 import { getMaskedAsset } from '@/utilities/getMaskedAsset';
 
 // TODO DS-1495: Let's see if we can clean this up a bit
 export type SbLinkProps = {
   link: SbLinkType;
-  classes?: string;
-  internalClasses?: string;
-  externalClasses?: string;
-  activeClass?: string;
-  assetClasses?: string;
-  hasExternalIcon?: boolean;
+  className?: string;
   attributes?: Record<string, unknown>;
   children: React.ReactNode;
 };
@@ -26,20 +19,20 @@ export type SbLinkProps = {
  * eg: internal, external, asset
  **/
 export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, ref) => {
+  const {
+    link,
+    className,
+    attributes,
+    children,
+  } = props;
+
   const basePath = config.basePath;
 
   // Storyblok link object either has a url (external links)
   // or cached_url (internal or asset links)
-  let linkUrl = (props.link.url || props.link.cached_url || '') as string;
+  let linkUrl = (link.url || link.cached_url || '') as string;
 
-  // Default Classes for all links.
-  const linkClasses = props.classes ?? '';
-  const storyClasses = props.internalClasses ?? '';
-  const urlClasses = props.externalClasses ?? '';
-  // TODO DS-1495
-  // const activeClass = props.activeClass ?? '';
-  const assetClasses = props.assetClasses ?? '';
-  const otherAttributes = props.attributes ?? {};
+  const otherAttributes = attributes ?? {};
 
   // Get out of the url and keep track of specific utm parameters.
   const location = useSearchParams();
@@ -65,7 +58,7 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
 
   // Story or Internal type link.
   // ---------------------------------------------------------------------------
-  if (props.link.linktype === 'story') {
+  if (link.linktype === 'story') {
     // If the internal link already starts with a slash (eg, WYSIWYG inline internal links), remove it.
     if (linkUrl.startsWith('/')) {
       linkUrl = linkUrl.substring(1);
@@ -74,8 +67,8 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
     linkUrl = linkUrl === 'home' ? basePath : basePath + linkUrl;
     linkUrl += linkUrl.endsWith('/') ? '' : '/';
     // If there's an anchor, add it to the end of the url.
-    if (props.link.anchor) {
-      linkUrl += '#' + props.link.anchor;
+    if (link.anchor) {
+      linkUrl += '#' + link.anchor;
     }
 
     if (linkUrl.match(/\?/) && utms.length) {
@@ -88,35 +81,34 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
       <Link
         ref={ref}
         href={linkUrl}
-        className={cnb(linkClasses, storyClasses)}
+        className={className}
         // TODO DS-1495: Figure out what to do here
         // activeClassName={activeClass}
         {...otherAttributes}
       >
-        {props.children}
+        {children}
       </Link>
     );
   }
 
   // External or absolute url type link.
   // ---------------------------------------------------------------------------
-  if (props.link.linktype === 'url') {
+  if (link.linktype === 'url') {
     return (
       <a
         ref={ref}
         href={linkUrl}
-        className={cnb(linkClasses, urlClasses)}
+        className={className}
         {...otherAttributes}
       >
-        {props.children}
-        <SrOnlyText />
+        {children}
       </a>
     );
   }
 
   // A link to a file or other asset.
   // ---------------------------------------------------------------------------
-  if (props.link.linktype === 'asset') {
+  if (link.linktype === 'asset') {
     // Rewrite the URL to the redirect link to mask the API endpoint.
     linkUrl = getMaskedAsset(linkUrl);
 
@@ -124,11 +116,11 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
       <a
         ref={ref}
         href={linkUrl}
-        className={cnb(linkClasses, assetClasses)}
-        target={`_blank`}
+        className={className}
+        target="_blank"
         {...otherAttributes}
       >
-        {props.children}
+        {children}
       </a>
     );
   }
@@ -136,8 +128,8 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
   // Default if we don't know what type this is.
   // ---------------------------------------------------------------------------
   return (
-    <a ref={ref} href={linkUrl} className={linkClasses} {...otherAttributes}>
-      {props.children}
+    <a ref={ref} href={linkUrl} className={className} {...otherAttributes}>
+      {children}
     </a>
   );
 });
