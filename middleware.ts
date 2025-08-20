@@ -24,7 +24,7 @@ export const middleware = (request: NextRequest, event: NextFetchEvent) => {
         return NextResponse.redirect(new URL('/404', request.url));
       }
     }).catch(() => {
-      // Nothing...
+      return NextResponse.redirect(new URL('/404', request.url));
     }),
   );
 
