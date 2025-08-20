@@ -1,5 +1,5 @@
 import { type ISbStoryData } from '@storyblok/react/rsc';
-import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
+import { type SbLinkType, type SbImageType } from '@/components/Storyblok/Storyblok.types';
 import { config } from '@/utilities/config';
 import { sbStripSlugURL } from '@/utilities/sbStripSlugUrl';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
@@ -22,9 +22,11 @@ type PageMetadataProps = {
       title?: string
       canonicalUrl?: SbLinkType;
       seo?: SbSEOType;
+      headerImage?: SbImageType;
+      heroImage?: SbImageType;
+      image?: SbImageType;
     };
   };
-  sbConfig: ISbStoryData;
   slug: string;
 };
 
@@ -46,6 +48,9 @@ export const getPageMetadata = ({ story, slug }: PageMetadataProps) => {
       seo,
       title,
       canonicalUrl,
+      headerImage: { filename: headerImageSrc, focus: headerImageFocus } = {}, // from Interior Page
+      heroImage: { filename: heroImageSrc, focus: heroImageFocus } = {}, // from Story
+      image: { filename: storyImageSrc, focus: storyImageFocus } = {}, // from Campaign Page
     },
   } = story;
 
@@ -78,12 +83,15 @@ export const getPageMetadata = ({ story, slug }: PageMetadataProps) => {
 
   // Process the images.
   // Use the explicitly set image from the SEO component if available,
-  const ogImage = seo?.og_image ? getProcessedImage(seo.og_image, '1200x630') : undefined;
+  const contentImage = getProcessedImage(headerImageSrc, '1200x630', headerImageFocus)
+    || getProcessedImage(heroImageSrc, '1200x630', heroImageFocus)
+    || getProcessedImage(storyImageSrc, '1200x630', storyImageFocus);
+  const ogImage = seo?.og_image ? getProcessedImage(seo.og_image, '1200x630') : contentImage;
   const twitterImage = seo?.twitter_image ? getProcessedImage(seo.twitter_image, '1200x600') : undefined;
 
   // SEO metadata.
-  // Title priority: Story SEO > Story Title > Config Blok Site Title
-  // Description priority: Story SEO > Config Blok Site Description > Hardcoded Site Description
+  // Title priority: Story SEO > Story Title
+  // Description priority: Story SEO > Hardcoded Site Description
   return {
     title: `${title || name} | ${siteTitle}`,
     description: siteDescription,
