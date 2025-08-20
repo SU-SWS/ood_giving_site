@@ -37,7 +37,7 @@ const Page = () => {
       try {
         setIsLoading(true);
         const response = await storyblokApi.get(
-          path,
+          `cdn/stories/${path}`,
           {
             version: 'draft',
             resolve_relations: resolveRelations,
@@ -46,9 +46,8 @@ const Page = () => {
         );
         setData(response.data);
         setIsLoading(false);
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch(_err) {
-        console.log(_err);
+      } catch(err) {
+        console.log(err);
         setData(null);
         setIsLoading(false);
       }
@@ -61,7 +60,7 @@ const Page = () => {
     }
   }, [storyblokApi, path, accessToken]);
 
-  console.log({ path, isLoading, data });
+  console.log({ accessToken, path, isLoading, data });
 
   if (isLoading) {
     return (
