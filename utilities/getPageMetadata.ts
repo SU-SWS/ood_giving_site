@@ -1,11 +1,10 @@
 import { type ISbStoryData } from '@storyblok/react/rsc';
 import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
-import { config } from './config';
+import { config } from '@/utilities/config';
 import { sbStripSlugURL } from '@/utilities/sbStripSlugUrl';
-import { getFirstImage } from './getFirstImage';
-import { getProcessedImage } from './getProcessedImage';
+import { getProcessedImage } from '@/utilities/getProcessedImage';
 
-export type SbSEOType = {
+type SbSEOType = {
   title?: string;
   description?: string;
   og_title?: string;
@@ -79,15 +78,8 @@ export const getPageMetadata = ({ story, slug }: PageMetadataProps) => {
 
   // Process the images.
   // Use the explicitly set image from the SEO component if available,
-  // then use a known field if the CT has it,
-  // otherwise use the first image in the content.
-  const knownImageFields = ['heroImage']; // order of priority
-  const firstImage = getFirstImage(knownImageFields, story.content);
-  const firstImageProcessed = firstImage ? getProcessedImage(firstImage.filename, '1200x630', firstImage.focus) : undefined;
-  // Process the images. Use the explicitly set image if available, otherwise use the first image in the content.
-  const ogImage = seo?.og_image ? getProcessedImage(seo.og_image, '1200x630') : firstImageProcessed;
-  const twitterImage = seo?.twitter_image ? getProcessedImage(seo.twitter_image, '1200x600') : firstImageProcessed;
-  const defaultImage = firstImageProcessed;
+  const ogImage = seo?.og_image ? getProcessedImage(seo.og_image, '1200x630') : undefined;
+  const twitterImage = seo?.twitter_image ? getProcessedImage(seo.twitter_image, '1200x600') : undefined;
 
   // SEO metadata.
   // Title priority: Story SEO > Story Title > Config Blok Site Title
@@ -99,14 +91,14 @@ export const getPageMetadata = ({ story, slug }: PageMetadataProps) => {
     openGraph:{
       title: seo?.og_title || title || name,
       description: seo?.og_description || seo?.description || siteDescription,
-      images: ogImage || defaultImage,
+      images: ogImage,
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
       title: seo?.twitter_title || title || name,
       description: seo?.twitter_description || seo?.description || siteDescription,
-      images: twitterImage || defaultImage,
+      images: twitterImage,
     },
     alternates: {
       canonical,
