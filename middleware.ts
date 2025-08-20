@@ -13,22 +13,20 @@ export const middleware = (request: NextRequest, event: NextFetchEvent) => {
   const timestamp = searchParams.get('_storyblok_tk[timestamp]') || '';
   const validationToken = searchParams.get('_storyblok_tk[token]') || '';
 
-  event.waitUntil(
-    isEditorValid({
-      accessToken,
-      validationToken,
-      spaceId,
-      timestamp,
-    }).then((isValid) => {
-      if (!isValid) {
-        return NextResponse.redirect(new URL('/404', request.url));
-      }
-    }).catch(() => {
+  isEditorValid({
+    accessToken,
+    validationToken,
+    spaceId,
+    timestamp,
+  }).then((isValid) => {
+    if (!isValid) {
       return NextResponse.redirect(new URL('/404', request.url));
-    }),
-  );
+    }
 
-  return NextResponse.next();
+    return NextResponse.next();
+  }).catch(() => {
+    return NextResponse.redirect(new URL('/404', request.url));
+  });
 };
 
 export const config = {
