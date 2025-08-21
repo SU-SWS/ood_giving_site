@@ -2,7 +2,7 @@ import React from 'react';
 import { StoryblokProvider } from '@/components/StoryblokProvider';
 import { StoryblokStory } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
-import { getStoryData } from '@/utilities/data/getStoryData';
+import { getStoryDataCached } from '@/utilities/data';
 
 export const dynamic = 'force-static';
 
@@ -16,7 +16,7 @@ const bridgeOptions = {
  * Get the story data from the Storyblok API through the cache.
  */
 const PageNotFound = async () => {
-  const { data } = await getStoryData({ path: '404-page-page-not-found' });
+  const { data } = await getStoryDataCached({ path: '404-page-page-not-found' });
 
   if (data === 404) {
     return (

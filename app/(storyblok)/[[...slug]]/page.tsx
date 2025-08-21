@@ -3,7 +3,7 @@ import { StoryblokStory } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getPageMetadata } from '@/utilities/getPageMetadata';
 import { notFound } from 'next/navigation';
-import { getStoryData, getAllStoriesCached } from '@/utilities/data/';
+import { getStoryDataCached, getAllStoriesCached } from '@/utilities/data/';
 import { isProduction } from '@/utilities/getActiveEnv';
 
 type PathsType = {
@@ -79,7 +79,7 @@ export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata
   const slugPath = slug ? slug.join('/') : 'home';
 
   // Get the story data.
-  const { data: { story } } = await getStoryData({ path: slugPath });
+  const { data: { story } } = await getStoryDataCached({ path: slugPath });
 
   // Generate the metadata.
   const meta = getPageMetadata({ story, slug: slugPath });
@@ -97,7 +97,7 @@ const Page = async ({ params }: ParamsType) => {
   const slugPath = slug ? slug.join('/') : 'home';
 
   // Get data out of the API.
-  const { data } = await getStoryData({ path: slugPath });
+  const { data } = await getStoryDataCached({ path: slugPath });
 
   // Failed to fetch from API because story slug was not found.
   if (data === 404) {

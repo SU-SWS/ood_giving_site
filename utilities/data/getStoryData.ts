@@ -1,5 +1,6 @@
 import type { getStoryDataProps } from '@/utilities/data/types';
 import { type ISbStoriesParams, type ISbResult } from '@storyblok/react/rsc';
+import { unstable_cache } from 'next/cache';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getStoryblokClient } from '@/utilities/storyblok';
 
@@ -29,3 +30,14 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
     throw error;
   }
 };
+
+/**
+ * Get the data out of the Storyblok API for the page through the cache.
+ */
+export const getStoryDataCached = unstable_cache(
+  getStoryData,
+  [],
+  {
+    tags: ['story', 'page'],
+  },
+);
