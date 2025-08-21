@@ -26,6 +26,8 @@ export const Sa11yInit: React.FC = () => {
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
           const sa11y = new Sa11y({
             checkRoot: 'body',
+            // Ignore all storyblok overlay elements
+            containerIgnore: "[class^='storyblok__']",
           });
         }
       })();

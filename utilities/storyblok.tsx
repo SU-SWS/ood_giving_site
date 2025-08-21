@@ -1,4 +1,4 @@
-import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
+import { apiPlugin, storyblokInit, StoryblokClient } from '@storyblok/react/rsc';
 import { ComponentNotFound } from '@/components/Storyblok/ComponentNotFound';
 import { SbContentMenuPicker } from '@/components/Storyblok/SbContentMenu';
 import { SbEmbedScript } from '@/components/Storyblok/SbEmbedScript';
@@ -140,10 +140,10 @@ export type GetStoryblokApiConfig = {
   isEditor?: boolean;
 };
 
-export const getStoryblokApi = ({
+export const getStoryblokClient = ({
   accessToken,
   isEditor,
-}: GetStoryblokApiConfig = {}) => {
+}: GetStoryblokApiConfig = {}): StoryblokClient => {
   accessToken ??= isEditor ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
 
   return storyblokInit({

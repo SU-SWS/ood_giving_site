@@ -1,5 +1,8 @@
 'use client';
-import { getStoryblokApi } from '@/utilities/storyblok';
+
+import { useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { getStoryblokClient } from '@/utilities/storyblok';
 
 type ProviderProps = {
   children: React.ReactNode;
@@ -7,17 +10,14 @@ type ProviderProps = {
 };
 
 export const StoryblokProvider = ({ children, isEditor = false }: ProviderProps) => {
-  // No access token because this is in client side code.
-  let accessToken = 'thisisnotarealtokenasitisontheclientsideandgoesintothecode';
+  const searchParams = useSearchParams();
+  const accessToken = useMemo(() => (
+    isEditor && searchParams?.has('access_key')
+      ? searchParams.get('access_key')
+      : 'thisisnotarealtokenasitisontheclientsideandgoesintothecode'
+  ), [isEditor, searchParams]);
 
-  if (isEditor) {
-    if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search);
-      accessToken = urlParams.get('access_key') || accessToken;
-    }
-  }
-
-  getStoryblokApi({ accessToken, isEditor });
+  getStoryblokClient({ accessToken, isEditor });
 
   return children;
 };
