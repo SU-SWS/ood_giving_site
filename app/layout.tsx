@@ -8,7 +8,7 @@ import { FlexBox } from '@/components/FlexBox';
 import { GAProvider, GTAG } from '@/components/GAProvider';
 import { getGlobalAlertsCached, getSearchConfigBlokCached } from '@/utilities/data';
 import { SearchModalProvider } from '@/components/Search/Modal/SearchModalContext';
-import { MotionProvider } from './MotionProvider';
+import { MotionProvider } from '@/components/MotionProvider';
 import { GlobalAlertsProvider } from '@/components/Alert';
 
 // https://docs.fontawesome.com/web/use-with/react/use-with#getting-font-awesome-css-to-work

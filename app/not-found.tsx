@@ -2,19 +2,15 @@ import React from 'react';
 import { StoryblokProvider } from '@/components/StoryblokProvider';
 import { StoryblokStory } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
-import { getStoryDataCached } from '@/utilities/data/getStoryData';
-import { getStoryblokApi } from '@/utilities/storyblok';
+import { getStoryDataCached } from '@/utilities/data';
+
+export const dynamic = 'force-static';
 
 // Storyblok bridge options.
 const bridgeOptions = {
   resolveRelations,
   resolveLinks: 'story',
 };
-
-/**
- * Init on the server.
- */
-getStoryblokApi();
 
 /**
  * Get the story data from the Storyblok API through the cache.

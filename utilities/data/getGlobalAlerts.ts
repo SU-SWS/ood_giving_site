@@ -1,8 +1,8 @@
 import { unstable_cache } from 'next/cache';
-import { getStoryblokApi } from '@/utilities/storyblok';
 import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { type SbAlertBgColorType, type SbAlertIconType } from '@/components/Storyblok/SbAlert';
+import { getStoryblokClient } from '@/utilities/storyblok';
 
 export type AlertContent = {
   uuid: string;
@@ -18,7 +18,7 @@ export type AlertContent = {
  * Get all the published (global) alerts from Storyblok.
  */
 export const getGlobalAlerts = async () => {
-  const storyblokApi = getStoryblokApi();
+  const storyblokApi = getStoryblokClient();
 
   // Get the global alerts.
   const { data: { stories } } = await storyblokApi.getStories({
@@ -26,7 +26,6 @@ export const getGlobalAlerts = async () => {
     content_type: 'alert',
     // Only show published alerts; we don't want the dev site to always show EVERY existing alert.
     version: 'published',
-    token: process.env.STORYBLOK_ACCESS_TOKEN,
     sort_by: 'published_at:desc',
     // Only alerts set as global.
     filter_query: {
