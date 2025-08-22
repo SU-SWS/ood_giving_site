@@ -1,5 +1,5 @@
 /**
- * SR fonts
+ * Giving fonts
  */
 export const fontFamily = () => ({
     sans: ['var(--font-source-sans)', 'sans-serif'],
