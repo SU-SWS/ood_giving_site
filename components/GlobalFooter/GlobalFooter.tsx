@@ -1,16 +1,15 @@
-import { cnb } from 'cnbuilder';
 import { StanfordLogo } from '@/components/Logo';
 import { Container } from '@/components/Container';
 import { FlexBox } from '@/components/FlexBox';
 import * as styles from './GlobalFooter.styles';
 
 type GlobalFooterProps = {
-  color?: string;
+  color?: styles.FooterColorType;
 };
 
 // TODO: Fix custom bg colors
 export const GlobalFooter = ({ color, ...rest }: GlobalFooterProps) => (
-  <Container className={cnb(styles.root)} {...rest}>
+  <Container className={styles.root(color)} {...rest}>
     <FlexBox direction="col" className={styles.outerWrapper}>
       <div className={styles.logoWrapper}>
         <StanfordLogo isLink tabIndex={-1} aria-hidden className={styles.logo} type="stacked" color="white" />
