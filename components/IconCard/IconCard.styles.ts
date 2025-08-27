@@ -8,7 +8,6 @@ export const align = {
 };
 export type ContentAlignType = keyof typeof align;
 
-// TODO DS-1433: Container query for smaller x padding when card is narrow
 export const root = (backgroundColor: CardBgColorType) => cnb(
   'relative print:hidden break-words mx-auto w-full sm:w-3/4 lg:w-full rs-px-3 border border-black/10 shadow-md focus-within:shadow-lg hover:shadow-lg transition-shadow',
   cardBgColors[backgroundColor || 'white'],

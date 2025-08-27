@@ -7,7 +7,6 @@ type GlobalFooterProps = {
   color?: styles.FooterColorType;
 };
 
-// TODO: Fix custom bg colors
 export const GlobalFooter = ({ color, ...rest }: GlobalFooterProps) => (
   <Container className={styles.root(color)} {...rest}>
     <FlexBox direction="col" className={styles.outerWrapper}>

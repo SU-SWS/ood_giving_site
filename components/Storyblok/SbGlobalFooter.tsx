@@ -7,7 +7,6 @@ export type SbGlobalFooterProps = {
   }
 };
 
-// TODO: Fix custom bg colors
 export const SbGlobalFooter = ({ blok }: SbGlobalFooterProps) => (
   <GlobalFooter color={blok.color || 'cardinal-red'} {...storyblokEditable(blok)} />
 );

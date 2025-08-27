@@ -3,10 +3,9 @@ import React from 'react';
 import { config } from '@/utilities/config';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { type SbLinkType } from '../Storyblok.types';
+import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { getMaskedAsset } from '@/utilities/getMaskedAsset';
 
-// TODO DS-1495: Let's see if we can clean this up a bit
 export type SbLinkProps = {
   link: SbLinkType;
   className?: string;
