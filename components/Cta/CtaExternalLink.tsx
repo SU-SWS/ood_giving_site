@@ -36,7 +36,6 @@ export const CtaExternalLink = React.forwardRef<HTMLAnchorElement, CtaExternalLi
   const { isStanfordUrl, addUTMsToUrl } = useUTMs();
   const [myHref, setMyHref] = useState<string>(href);
   useEffect(() => {
-    if (typeof window === 'undefined') return;
     if (isStanfordUrl(href)) {
       setMyHref(addUTMsToUrl(href));
     }
