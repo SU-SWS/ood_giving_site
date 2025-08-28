@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { cnb } from 'cnbuilder';
 import { CtaContent } from './CtaContent';
 import { type CtaCommonProps } from './Cta.types';
@@ -34,7 +34,13 @@ export const CtaExternalLink = React.forwardRef<HTMLAnchorElement, CtaExternalLi
 
   // Add UTM params to Stanford URLs.
   const { isStanfordUrl, addUTMsToUrl } = useUTMs();
-  const myHref = isStanfordUrl(href) ? addUTMsToUrl(href) : href;
+  const [myHref, setMyHref] = useState<string>(href);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (isStanfordUrl(href)) {
+      setMyHref(addUTMsToUrl(href));
+    }
+  }, [href, isStanfordUrl, addUTMsToUrl]);
 
   return (
     <a

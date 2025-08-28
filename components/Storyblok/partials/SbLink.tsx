@@ -1,9 +1,10 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { config } from '@/utilities/config';
 import Link from 'next/link';
 import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { getMaskedAsset } from '@/utilities/getMaskedAsset';
+import useUTMs from '@/hooks/useUTMs';
 
 export type SbLinkProps = {
   link: SbLinkType;
@@ -25,12 +26,24 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
   } = props;
 
   const basePath = config.basePath;
+  const { isStanfordUrl, addUTMsToUrl } = useUTMs();
 
   // Storyblok link object either has a url (external links)
   // or cached_url (internal or asset links)
-  let linkUrl = (link.url || link.cached_url || '') as string;
+  let linkUrl = link.url || link.cached_url || '';
+  const isExternalLink = link.linktype === 'url';
 
   const otherAttributes = attributes ?? {};
+
+  // State for external URL with UTMs
+  const [externalHref, setExternalHref] = useState<string>(linkUrl);
+
+  // Update external href when UTMs are available
+  useEffect(() => {
+    if (isExternalLink && isStanfordUrl(linkUrl)) {
+      setExternalHref(addUTMsToUrl(linkUrl));
+    }
+  }, [isExternalLink, linkUrl, isStanfordUrl, addUTMsToUrl]);
 
   // Story or Internal type link.
   // ---------------------------------------------------------------------------
@@ -61,11 +74,11 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
 
   // External or absolute url type link.
   // ---------------------------------------------------------------------------
-  if (link.linktype === 'url') {
+  if (isExternalLink) {
     return (
       <a
         ref={ref}
-        href={linkUrl}
+        href={externalHref}
         className={className}
         {...otherAttributes}
       >
