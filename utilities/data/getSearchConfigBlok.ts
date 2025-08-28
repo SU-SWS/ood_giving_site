@@ -1,11 +1,11 @@
 import { unstable_cache } from 'next/cache';
-import { type SbCtaProps } from '@/components/Storyblok/SbCtaLink';
+import { type SbCtaLinkProps } from '@/components/Storyblok/SbCtaLink';
 import { getStoryblokClient } from '@/utilities/storyblok';
 
 type SearchConfigBlokContent = {
   introduction?: string;
-  categoriesLeftBox?: SbCtaProps['blok'][];
-  categoriesRightBox?: SbCtaProps['blok'][];
+  categoriesLeftBox?: SbCtaLinkProps['blok'][];
+  categoriesRightBox?: SbCtaLinkProps['blok'][];
   categoriesHeadline?: string;
   emptySearchMessage?: string;
   categoriesLeftHeadline?: string;
@@ -15,8 +15,8 @@ type SearchConfigBlokContent = {
 
 export type SearchConfig = {
   introduction: string;
-  categoriesLeftBox?: SbCtaProps['blok'][];
-  categoriesRightBox?: SbCtaProps['blok'][];
+  categoriesLeftBox?: SbCtaLinkProps['blok'][];
+  categoriesRightBox?: SbCtaLinkProps['blok'][];
   categoriesHeadline: string;
   emptySearchMessage: string;
   categoriesLeftHeadline: string;
