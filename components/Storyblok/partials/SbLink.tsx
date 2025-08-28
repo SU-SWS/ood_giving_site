@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import { config } from '@/utilities/config';
-import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { getMaskedAsset } from '@/utilities/getMaskedAsset';
@@ -33,28 +32,6 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
 
   const otherAttributes = attributes ?? {};
 
-  // Get out of the url and keep track of specific utm parameters.
-  const location = useSearchParams();
-  const parsedSearch = new URLSearchParams(location);
-  // utms variable will create a string of just the valid params we want to keep.
-  let utms = '';
-  const passParams = [
-    'utm_source',
-    'utm_medium',
-    'utm_campaign',
-    'utm_term',
-    'utm_content',
-  ];
-  // Loop through the paramaters we want to continue to track and check to see
-  // if the existing page url has them.
-  passParams.forEach((queryParam) => {
-    if (parsedSearch.has(queryParam)) {
-      utms += `${queryParam}=${parsedSearch.get(queryParam)}&`;
-    }
-  });
-  // Strip off the last ampersand.
-  utms = utms.replace(new RegExp('&$'), '');
-
   // Story or Internal type link.
   // ---------------------------------------------------------------------------
   if (link.linktype === 'story') {
@@ -68,12 +45,6 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
     // If there's an anchor, add it to the end of the url.
     if (link.anchor) {
       linkUrl += '#' + link.anchor;
-    }
-
-    if (linkUrl.match(/\?/) && utms.length) {
-      linkUrl += '&' + utms;
-    } else if (utms.length) {
-      linkUrl += '?' + utms;
     }
 
     return (
