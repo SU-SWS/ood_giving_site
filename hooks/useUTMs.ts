@@ -83,9 +83,10 @@ const useUTMs = () => {
 
   /**
    * A function that returns a boolean if the passed in string is an absolute URL and is under the stanford.edu domain.
+   * Handles multiple subdomain levels like www.gsb.stanford.edu
    */
   const isStanfordUrl = (url: string) => {
-    const stanfordRegex = new RegExp('^(https?:)?(\/\/)?([a-zA-Z0-9-]+\.)?(stanford\.edu).*');
+    const stanfordRegex = new RegExp('^(https?:)?(\/\/)?([a-zA-Z0-9-]+\.)*?(stanford\.edu).*');
     return stanfordRegex.test(url);
   };
 
