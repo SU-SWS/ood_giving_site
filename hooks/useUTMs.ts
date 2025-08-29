@@ -86,7 +86,7 @@ const useUTMs = () => {
    * Handles multiple subdomain levels like www.gsb.stanford.edu
    */
   const isStanfordUrl = (url: string) => {
-    const stanfordRegex = new RegExp('^(https?:)?(\/\/)?([a-zA-Z0-9-]+\.)*?(stanford\.edu).*');
+    const stanfordRegex = /^(https?:)?(\/\/)?([a-zA-Z0-9.-]*\.)?stanford\.edu/;
     return stanfordRegex.test(url);
   };
 
