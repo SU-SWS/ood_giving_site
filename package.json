@@ -88,6 +88,6 @@
     "url": "https://github.com/SU-SWS/ood_giving_site/issues"
   },
   "optionalDependencies": {
-    "netlify-cli": "^15.9.1"
+    "netlify-cli": "^23.5.0"
   }
 }
