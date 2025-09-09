@@ -9,9 +9,6 @@ export const GAProvider = ({ children }: { children: React.ReactNode }) => {
   const { setUTMCookie, deleteUTMCookie } = useUTMs();
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
     setUTMCookie();
     return () => {
       deleteUTMCookie();

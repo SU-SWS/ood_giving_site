@@ -6,6 +6,7 @@ import { type CtaCommonProps } from './Cta.types';
 import { marginTops, marginBottoms } from '@/utilities/datasource';
 import * as styles from './Cta.styles';
 import useUTMs from '@/hooks/useUTMs';
+import { isStanfordUrl } from '@/utilities/isStanfordUrl';
 
 export type CtaExternalLinkProps = React.ComponentPropsWithoutRef<'a'> & CtaCommonProps & {
   href: string;
@@ -33,13 +34,13 @@ export const CtaExternalLink = React.forwardRef<HTMLAnchorElement, CtaExternalLi
   } = props;
 
   // Add UTM params to Stanford URLs.
-  const { isStanfordUrl, addUTMsToUrl } = useUTMs();
+  const { addUTMsToUrl } = useUTMs();
   const [myHref, setMyHref] = useState<string>(href);
   useEffect(() => {
     if (isStanfordUrl(href)) {
       setMyHref(addUTMsToUrl(href));
     }
-  }, [href, isStanfordUrl, addUTMsToUrl]);
+  }, [href, addUTMsToUrl]);
 
   return (
     <a

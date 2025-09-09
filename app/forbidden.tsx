@@ -1,4 +1,3 @@
-import React from 'react';
 import { StoryblokProvider } from '@/components/StoryblokProvider';
 import { StoryblokStory } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';

@@ -1,4 +1,5 @@
 'use client';
+import { useCallback } from 'react';
 import { getCookie, setCookie } from 'cookies-next/client';
 
 export type UTMs = {
@@ -9,21 +10,21 @@ export type UTMs = {
   utm_term: string;
 };
 
-const useUTMs = () => {
-  const cookieName = 'SU-GC-UTMs';
+const COOKIE_NAME = 'SU-GC-UTMs';
 
+const useUTMs = () => {
   /**
    * Returns UTMs from cookie.
    */
-  const getUTMsFromCookie = (): Partial<UTMs> => {
-    const cookie = getCookie(cookieName);
-    return cookie ? JSON.parse(cookie) : null;
-  };
+  const getUTMsFromCookie = useCallback((): Partial<UTMs> | null => {
+    const cookie = getCookie(COOKIE_NAME);
+    return cookie ? JSON.parse(String(cookie)) : null;
+  }, []);
 
   /**
    * Sets the tracking cookie.
    */
-  const setUTMCookie = () => {
+  const setUTMCookie = useCallback(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const utm_source = urlParams.get('utm_source') || undefined;
     const utm_medium = urlParams.get('utm_medium') || undefined;
@@ -40,63 +41,56 @@ const useUTMs = () => {
 
     // UTM source is a required param for GA to work.
     if (utm_source) {
-      setCookie(cookieName, UTMs, {
+      setCookie(COOKIE_NAME, UTMs, {
         path: '/',
         domain: window.location.hostname,
-        secure: window.location.protocol === 'https' ? true : false,
+        secure: window.location.protocol === 'https',
         httpOnly: false,
         sameSite: 'strict',
       });
     }
-  };
+  }, []);
 
   /**
    * Deletes the tracking cookie.
    */
-  const deleteUTMCookie = () => {
-    setCookie(cookieName, '', {
+  const deleteUTMCookie = useCallback(() => {
+    setCookie(COOKIE_NAME, '', {
       path: '/',
       domain: window.location.hostname,
-      secure: window.location.protocol === 'https' ? true : false,
+      secure: window.location.protocol === 'https',
       httpOnly: false,
       sameSite: 'strict',
       expires: new Date(0),
     });
-  };
+  }, []);
 
   /**
    *
    * @param url URL to add UTMs to
    * @returns URL string with UTMs added to searchParams
    */
-  const addUTMsToUrl = (url: string) => {
+  const addUTMsToUrl = useCallback((url: string) => {
     const urlObj = new URL(url);
     const utms = getUTMsFromCookie();
     if (!utms) return url;
     const searchParams = new URLSearchParams(urlObj.search);
     Object.entries(utms).forEach(([key, value]) => {
-      searchParams.append(key, value);
+      // Only append defined, non-empty values
+      if (value !== undefined && value !== null && String(value).length > 0) {
+        searchParams.append(key, String(value));
+      }
     });
     urlObj.search = searchParams.toString();
     return urlObj.toString();
-  };
-
-  /**
-   * A function that returns a boolean if the passed in string is an absolute URL and is under the stanford.edu domain.
-   * Handles multiple subdomain levels like www.gsb.stanford.edu
-   */
-  const isStanfordUrl = (url: string) => {
-    const stanfordRegex = /^(https?:)?(\/\/)?([a-zA-Z0-9.-]*\.)?stanford\.edu/;
-    return stanfordRegex.test(url);
-  };
+  }, [getUTMsFromCookie]);
 
   return {
-    cookieName,
+    cookieName: COOKIE_NAME,
     getUTMsFromCookie,
     setUTMCookie,
     deleteUTMCookie,
     addUTMsToUrl,
-    isStanfordUrl,
   };
 };
 

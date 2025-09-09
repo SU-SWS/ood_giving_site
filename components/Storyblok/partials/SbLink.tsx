@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { getMaskedAsset } from '@/utilities/getMaskedAsset';
 import useUTMs from '@/hooks/useUTMs';
+import { isStanfordUrl } from '@/utilities/isStanfordUrl';
 
 export type SbLinkProps = {
   link: SbLinkType;
@@ -26,7 +27,7 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
   } = props;
 
   const basePath = config.basePath;
-  const { isStanfordUrl, addUTMsToUrl } = useUTMs();
+  const { addUTMsToUrl } = useUTMs();
 
   // Storyblok link object either has a url (external links)
   // or cached_url (internal or asset links)
@@ -43,7 +44,7 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
     if (isExternalLink && isStanfordUrl(linkUrl)) {
       setExternalHref(addUTMsToUrl(linkUrl));
     }
-  }, [isExternalLink, linkUrl, isStanfordUrl, addUTMsToUrl]);
+  }, [isExternalLink, linkUrl, addUTMsToUrl]);
 
   // Story or Internal type link.
   // ---------------------------------------------------------------------------
