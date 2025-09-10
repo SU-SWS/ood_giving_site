@@ -2,11 +2,12 @@
 # ###############################################################################################
 https://mysite.stanford.edu/* https://giving.stanford.edu/your-report-has-moved 301!
 https://thankyou.stanford.edu/* https://giving.stanford.edu/:splat 301!
-https://intl.stanford.edu https://giving.stanford.edu/how-to-make-a-gift/international/ 301!
-https://makeasecuritytransfern.stanford.edu https://giving.stanford.edu/how-to-make-a-gift/transfers/securities/ 301!
-https://makeawiretransfern.stanford.edu https://giving.stanford.edu/how-to-make-a-gift/transfers/wire/ 301!
-https://mygift.stanford.edu https://giving.stanford.edu/why-give/ 301!
-https://mygiftmatters.stanford.edu https://giving.stanford.edu/why-give/seven-reasons-why-giving-matters/ 301!
+https://intl.stanford.edu/* https://giving.stanford.edu/how-to-make-a-gift/international/ 301!
+https://makeasecuritytransfern.stanford.edu/* https://giving.stanford.edu/how-to-make-a-gift/transfers/securities/ 301!
+https://makeawiretransfern.stanford.edu/* https://giving.stanford.edu/how-to-make-a-gift/transfers/wire/ 301!
+https://mygift.stanford.edu/* https://giving.stanford.edu/why-give/ 301!
+https://mygiftmatters.stanford.edu/* https://giving.stanford.edu/why-give/seven-reasons-why-giving-matters/ 301!
+https://soar.stanford.edu/* https://giving.stanford.edu/how-to-make-a-gift/international/ 301!
 
 # DYNAMIC REDIRECTS
 # ###############################################################################################
