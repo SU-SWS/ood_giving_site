@@ -1,7 +1,7 @@
 # DOMAIN REDIRECTS
 # ###############################################################################################
 https://mysite.stanford.edu https://giving.stanford.edu/your-report-has-moved 301!
-https://thankyou.stanford.edu https://giving.stanford.edu/:splat 301!
+https://thankyou.stanford.edu/* https://giving.stanford.edu/:splat 301!
 https://intl.stanford.edu https://giving.stanford.edu/how-to-make-a-gift/international/ 301!
 https://makeasecuritytransfern.stanford.edu https://giving.stanford.edu/how-to-make-a-gift/transfers/securities/ 301!
 https://makeawiretransfern.stanford.edu https://giving.stanford.edu/how-to-make-a-gift/transfers/wire/ 301!
