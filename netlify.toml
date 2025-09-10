@@ -6,6 +6,8 @@
 
 # PLUGINS
 # ##############################################################################
+[[plugins]]
+  package = '/netlify/build-plugins/netlify-plugin-storyblok-redirects'
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
