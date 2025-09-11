@@ -1,7 +1,7 @@
 import { cnb } from 'cnbuilder';
 import { type AllCardBgColorType } from '@/utilities/datasource';
 
-export const root = 'group/root print:hidden';
+export const root = 'ood-support-card group/root print:hidden';
 
 export const wrapper = 'relative h-full min-h-200 sm:min-h-230 xl:min-h-300 2xl:min-h-400 p-32 xl:p-48 2xl:p-61 z-10';
 

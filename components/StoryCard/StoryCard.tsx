@@ -101,7 +101,7 @@ export const StoryCard = ({
       imageSize={isVertical ? 'large-card' : 'horizontal-card'}
       aspectRatio="3x2"
       imageWrapperClassName={styles.imageWrapper(isFeatured)}
-      className={cnb('story-card', styles.rootHasImage(isFeatured))}
+      className={cnb('ood-story-card', styles.rootHasImage(isFeatured))}
     >
       <div>
         <StoryCardContent
@@ -118,7 +118,7 @@ export const StoryCard = ({
       {...props}
       hasLink
       bgColor={bgColor}
-      className={cnb('story-card', styles.rootNoImage(isFeatured))}
+      className={cnb('ood-story-card', styles.rootNoImage(isFeatured))}
     >
       <StoryCardContent
         isVertical={isVertical}
