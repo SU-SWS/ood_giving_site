@@ -6,6 +6,10 @@
 
 # PLUGINS
 # ##############################################################################
+[[plugins]]
+  package = '/netlify/build-plugins/netlify-plugin-storyblok-redirects/index.mjs'
+    [plugins.inputs]
+      region = 'eu'
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
@@ -25,7 +29,7 @@
     addContext = true
 
 [[plugins]]
-  package = '/plugins/netlify-plugin-contextual-auth'
+  package = '/netlify/build-plugins/netlify-plugin-contextual-auth/index.mjs'
   [plugins.inputs]
     username = 'adapt'
     password = 'letmein2021'
