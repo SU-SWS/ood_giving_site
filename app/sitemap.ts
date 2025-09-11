@@ -1,6 +1,6 @@
 import { type MetadataRoute } from 'next';
 import StoryblokClient from 'storyblok-js-client';
-import { type ISbStoriesParams } from '@storyblok/react/rsc';
+import type { ISbStoriesParams } from 'storyblok-js-client';
 import { isProduction } from '@/utilities/getActiveEnv';
 import { sbStripSlugURL } from '@/utilities/sbStripSlugUrl';
 
