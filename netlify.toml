@@ -7,7 +7,7 @@
 # PLUGINS
 # ##############################################################################
 [[plugins]]
-  package = '/netlify/build-plugins/netlify-plugin-storyblok-redirects'
+  package = '/netlify/build-plugins/netlify-plugin-storyblok-redirects/index.mjs'
     [plugins.inputs]
       region = 'eu'
 
