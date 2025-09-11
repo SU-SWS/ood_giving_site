@@ -72,6 +72,7 @@
     "@types/react-slick": "^0.23.13",
     "autoprefixer": "^10.4.21",
     "decanter": "^7.3.2",
+    "dotenv": "^17.2.2",
     "eslint": "^9.33.0",
     "eslint-config-next": "^15.4.6",
     "netlify-plugin-vault-variables": "^3.0.1",
