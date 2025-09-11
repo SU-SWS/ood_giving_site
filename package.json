@@ -21,7 +21,7 @@
   "scripts": {
     "dev": "next dev --experimental-https --turbopack",
     "inspect": "NODE_OPTIONS='--inspect' next dev",
-    "build": "next build --turbopack",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint --max-warnings=0 .",
     "lint:fix": "eslint --fix .",
