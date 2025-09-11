@@ -23,10 +23,10 @@
     "inspect": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --max-warnings=0",
+    "lint": "eslint --max-warnings=0 .",
+    "lint:fix": "eslint --fix .",
     "vault": "netlify-plugin-vault-variables",
     "vault:local": "NODE_ENV=development netlify-plugin-vault-variables",
-    "lint:fix": "next lint --fix",
     "typecheck": "tsc --noEmit",
     "tsc": "tsc"
   },
