@@ -8,6 +8,8 @@
 # ##############################################################################
 [[plugins]]
   package = '/netlify/build-plugins/netlify-plugin-storyblok-redirects'
+    [plugins.inputs]
+      region = 'eu'
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
