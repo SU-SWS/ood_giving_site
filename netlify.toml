@@ -29,7 +29,7 @@
     addContext = true
 
 [[plugins]]
-  package = '/netlify/build-plugins/netlify-plugin-contextual-auth'
+  package = '/netlify/build-plugins/netlify-plugin-contextual-auth/index.mjs'
   [plugins.inputs]
     username = 'adapt'
     password = 'letmein2021'
