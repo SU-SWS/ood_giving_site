@@ -1,6 +1,6 @@
 import { type MetadataRoute } from 'next';
 import StoryblokClient from 'storyblok-js-client';
-import { type ISbStoriesParams } from '@storyblok/react/rsc';
+import type { ISbStoriesParams } from 'storyblok-js-client';
 import { isProduction } from '@/utilities/getActiveEnv';
 import { sbStripSlugURL } from '@/utilities/sbStripSlugUrl';
 
@@ -32,7 +32,8 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
         return false;
       }
 
-      if (story.full_slug.includes('global-components/') || story.full_slug.includes('test/') || story.full_slug.includes('test-items/')) {
+      // Currently we only have a test-items/ folder in Storyblok. Added the /test/ folder in case someone adds it in the future.
+      if (story.full_slug.startsWith('global-components/') || story.full_slug.startsWith('test/') || story.full_slug.startsWith('test-items/')) {
         return false;
       }
 

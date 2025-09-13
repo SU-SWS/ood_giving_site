@@ -10,7 +10,7 @@ import {
 } from '@/components/Cta';
 import { type SbLinkType } from './Storyblok.types';
 
-export type SbCtaProps = {
+export type SbCtaLinkProps = {
   blok: SbBlokData & {
     align?: CtaAlignType;
     link: SbLinkType;
@@ -25,7 +25,7 @@ export type SbCtaProps = {
   }
 };
 
-export const SbCtaLink = React.forwardRef<HTMLAnchorElement, SbCtaProps>((props, ref) => {
+export const SbCtaLink = React.forwardRef<HTMLAnchorElement, SbCtaLinkProps>((props, ref) => {
   const {
     linkText,
     link,

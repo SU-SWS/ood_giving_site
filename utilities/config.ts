@@ -19,14 +19,11 @@ export const config = {
   isNetlify: process.env.NETLIFY ?? false,
   basePath: `${appUrl}/`,
   siteTitle: 'Giving to Stanford',
-  // TODO: default description?
-  siteDescription: '',
+  siteDescription: 'When you give to Stanford, you drive positive change in the world.',
   siteUrlProd: 'https://giving.stanford.edu',
   assetCdn: 'https://assets.stanford.edu/',
   imageService: 'https://a.storyblok.com/',
   breakpoints: {
-    '2xs': 0,
-    xs: 320,
     sm: 576,
     md: 768,
     lg: 992,

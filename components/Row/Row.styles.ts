@@ -5,9 +5,6 @@ export type ContentALignmentType = 'start' | 'center' | 'end' | 'stretch';
 
 export const root = (contentAlignment: ContentALignmentType) => contentAlignment === 'stretch' && '*:*:h-full';
 
-// TODO: Think about whether to finetune old flex width classes at the end
-// https://stanford.atlassian.net/browse/DS-1433
-
 /**
  * Row with 1 column
  */

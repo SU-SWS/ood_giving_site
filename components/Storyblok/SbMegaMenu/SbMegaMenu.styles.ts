@@ -26,9 +26,9 @@ export const navItemChevron = 'lg:hidden text-digital-red';
 /**
  * Mega menu section/panel
  */
-const hocusBarMobile = 'before:absolute before:inline-block before:w-6 md:before:w-10 before:h-full before:left-0 before:bottom-0 before:bg-digital-red before:scale-y-0 before:transition-all hocus:before:scale-y-100';
+const hocusBarMobile = 'before:absolute before:inline-block before:w-6 md:before:w-10 before:h-full before:left-0 before:bottom-0 before:bg-digital-red before:scale-y-0 before:transition-all hocus:before:scale-y-100 aria-expanded:before:scale-y-100';
 
-const hocusBar = 'lg:before:h-10 lg:before:w-full lg:before:scale-y-100 lg:before:scale-x-0 lg:hocus:before:scale-x-100';
+const hocusBar = 'lg:before:h-10 lg:before:w-full lg:before:scale-y-100 lg:before:scale-x-0 lg:hocus:before:scale-x-100 lg:aria-expanded:before:scale-x-100';
 
 export const panelButton = cnb('relative group flex items-center justify-between w-full text-left text-20 lg:text-21 px-20 sm:px-30 md:px-50 py-14 lg:px-0 lg:py-16 font-semibold leading-cozy no-underline hocus:underline lg:hocus:no-underline text-black hocus:text-digital-red outline-none', hocusBarMobile, hocusBar);
 

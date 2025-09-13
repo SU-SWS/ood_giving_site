@@ -23,40 +23,48 @@ const TileCardContent = ({
   headline,
   link,
   headingLevel = 'h3',
-}: TileCardContentProps) => (
-  <>
-    {superheadline && (
-      <Text
-        uppercase
-        weight="semibold"
-        tracking="wider"
-        color={isDarkText ? 'black' : 'white'}
-        className={styles.superhead}
-      >
-        {superheadline}
-      </Text>
-    )}
-    <Heading
-      as={headingLevel}
-      mb="none"
-      className={styles.heading}
-    >
-      <SbLink link={link} classes={styles.link}>
+}: TileCardContentProps) => {
+  const isExternalLink = link?.linktype !== 'story';
+
+  return (
+    <>
+      {superheadline && (
         <Text
-          as="span"
-          font="sans"
+          uppercase
           weight="semibold"
+          tracking="wider"
           color={isDarkText ? 'black' : 'white'}
-          icon={link?.linktype !== 'story' ? 'external' : undefined}
-          iconProps={{ className: styles.icon(isDarkText), noBaseStyle: true }}
-          className={styles.linkText(isDarkText)}
+          className={styles.superhead}
         >
-          {headline}
+          {superheadline}
         </Text>
-      </SbLink>
-    </Heading>
-  </>
-);
+      )}
+      <Heading
+        as={headingLevel}
+        mb="none"
+        className={styles.heading}
+      >
+        <SbLink link={link} className={styles.link}>
+          <Text
+            as="span"
+            font="sans"
+            weight="semibold"
+            color={isDarkText ? 'black' : 'white'}
+            icon={isExternalLink ? 'external' : undefined}
+            iconProps={{
+              className: styles.icon(isDarkText),
+              noBaseStyle: true,
+              title: isExternalLink ? '(external link)' : undefined,
+            }}
+            className={styles.linkText(isDarkText)}
+          >
+            {headline}
+          </Text>
+        </SbLink>
+      </Heading>
+    </>
+  );
+};
 
 type TileCardProps = OverhangCardProps & TileCardContentProps;
 

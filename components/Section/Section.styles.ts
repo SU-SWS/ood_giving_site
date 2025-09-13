@@ -1,8 +1,6 @@
 import { cnb } from 'cnbuilder';
 import { type DarkBeforeColorType, darkBeforeColors } from '@/utilities/datasource';
 
-// TODO: Think about whether to finetune old flex width classes at the end
-// https://stanford.atlassian.net/browse/DS-1433
 export const sectionContentWidths = {
   'edge-to-edge': 'w-full',
   'centered-container': 'w-full',

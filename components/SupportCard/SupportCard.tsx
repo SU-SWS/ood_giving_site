@@ -23,6 +23,7 @@ export const SupportCard = ({
   ...props
 }: SupportCardProps) => {
   const isDarkCardBg = bgColor !== 'white';
+  const isExternalLink = link?.linktype !== 'story';
 
   return (
     <SimpleCard
@@ -32,15 +33,19 @@ export const SupportCard = ({
       className={styles.root}
     >
       <FlexBox direction="col" alignItems="start" justifyContent="between" className={styles.wrapper}>
-        <SbLink link={link} classes={styles.link(bgColor)}>
+        <SbLink link={link} className={styles.link(bgColor)}>
           <Text
             as="span"
             size="f2"
             leading="display"
             weight="semibold"
             color={bgColor === 'white' ? 'black' : 'white'}
-            icon={link?.linktype !== 'story' ? 'external' : undefined}
-            iconProps={{ className: styles.linkIcon, noBaseStyle: true }}
+            icon={isExternalLink ? 'external' : undefined}
+            iconProps={{
+              className: styles.linkIcon,
+              noBaseStyle: true,
+              title: isExternalLink ? '(external link)' : undefined,
+            }}
             className={styles.linkText}
           >
             {headline}

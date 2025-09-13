@@ -26,38 +26,46 @@ const StoryCardContent = ({
   teaser,
   link,
   headingLevel = 'h3',
-}: StoryCardContentProps) => (
-  <>
-    <Heading
-      as={headingLevel}
-      size={isVertical ? 3 : 'f3'}
-      mb="06em"
-    >
-      <SbLink link={link} classes={styles.link}>
-        <Text
-          as="span"
-          font="sans"
-          weight="semibold"
-          color="black"
-          icon={link?.linktype !== 'story' ? 'external' : undefined}
-          iconProps={{ className: styles.icon, noBaseStyle: true }}
-          className={styles.linkText}
-        >
-          {headline}
-        </Text>
-      </SbLink>
-    </Heading>
-    <Paragraph
-      variant={isVertical ? 'ood-small' : undefined}
-      size={!isVertical ? 1 : undefined}
-      leading={isVertical ? 'snug' : 'cozy'}
-      mb="none"
-      className="max-w-prose-wide"
-    >
-      {teaser}
-    </Paragraph>
-  </>
-);
+}: StoryCardContentProps) => {
+  const isExternalLink = link?.linktype !== 'story';
+
+  return (
+    <>
+      <Heading
+        as={headingLevel}
+        size={isVertical ? 3 : 'f3'}
+        mb="06em"
+      >
+        <SbLink link={link} className={styles.link}>
+          <Text
+            as="span"
+            font="sans"
+            weight="semibold"
+            color="black"
+            icon={isExternalLink ? 'external' : undefined}
+            iconProps={{
+              className: styles.icon,
+              noBaseStyle: true,
+              title: isExternalLink ? '(external link)' : undefined,
+            }}
+            className={styles.linkText}
+          >
+            {headline}
+          </Text>
+        </SbLink>
+      </Heading>
+      <Paragraph
+        variant={isVertical ? 'ood-small' : undefined}
+        size={!isVertical ? 1 : undefined}
+        leading={isVertical ? 'snug' : 'cozy'}
+        mb="none"
+        className="max-w-prose-wide"
+      >
+        {teaser}
+      </Paragraph>
+    </>
+  );
+};
 
 type StoryCardProps = OverhangCardProps & StoryCardContentProps;
 
@@ -93,7 +101,7 @@ export const StoryCard = ({
       imageSize={isVertical ? 'large-card' : 'horizontal-card'}
       aspectRatio="3x2"
       imageWrapperClassName={styles.imageWrapper(isFeatured)}
-      className={cnb('story-card', styles.rootHasImage(isFeatured))}
+      className={cnb('ood-story-card', styles.rootHasImage(isFeatured))}
     >
       <div>
         <StoryCardContent
@@ -110,7 +118,7 @@ export const StoryCard = ({
       {...props}
       hasLink
       bgColor={bgColor}
-      className={cnb('story-card', styles.rootNoImage(isFeatured))}
+      className={cnb('ood-story-card', styles.rootNoImage(isFeatured))}
     >
       <StoryCardContent
         isVertical={isVertical}

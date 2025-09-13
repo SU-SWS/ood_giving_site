@@ -1,6 +1,5 @@
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { CtaLink } from '@/components/Cta';
-import { FlexCell } from '@/components/FlexCell';
 import { Heading } from '@/components/Typography';
 import { getNumBloks } from '@/utilities/getNumBloks';
 import { type SbOodMegaMenuNavItemProps } from '@/components/Storyblok/Storyblok.types';
@@ -17,7 +16,7 @@ export const SbMegaMenuLinkGroup = ({ blok }: SbMegaMenuLinkGroupProps) => {
   const { heading, links } = blok;
 
   return (
-    <FlexCell {...storyblokEditable(blok)} md={4} className={styles.linkGroup}>
+    <div {...storyblokEditable(blok)} className={styles.linkGroup}>
       {heading && (
         <Heading font="sans" weight="bold" uppercase tracking="widest" className={styles.linkGroupHeading}>
           {heading}
@@ -38,6 +37,6 @@ export const SbMegaMenuLinkGroup = ({ blok }: SbMegaMenuLinkGroupProps) => {
           ))}
         </ul>
       )}
-    </FlexCell>
+    </div>
   );
 };

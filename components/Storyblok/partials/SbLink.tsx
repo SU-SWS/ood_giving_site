@@ -1,22 +1,15 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { config } from '@/utilities/config';
-import { cnb } from 'cnbuilder';
-import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { SrOnlyText } from '@/components/Typography';
-import { type SbLinkType } from '../Storyblok.types';
+import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { getMaskedAsset } from '@/utilities/getMaskedAsset';
+import useUTMs from '@/hooks/useUTMs';
+import { isStanfordUrl } from '@/utilities/isStanfordUrl';
 
-// TODO DS-1495: Let's see if we can clean this up a bit
 export type SbLinkProps = {
   link: SbLinkType;
-  classes?: string;
-  internalClasses?: string;
-  externalClasses?: string;
-  activeClass?: string;
-  assetClasses?: string;
-  hasExternalIcon?: boolean;
+  className?: string;
   attributes?: Record<string, unknown>;
   children: React.ReactNode;
 };
@@ -26,46 +19,36 @@ export type SbLinkProps = {
  * eg: internal, external, asset
  **/
 export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, ref) => {
+  const {
+    link,
+    className,
+    attributes,
+    children,
+  } = props;
+
   const basePath = config.basePath;
+  const { addUTMsToUrl } = useUTMs();
 
   // Storyblok link object either has a url (external links)
   // or cached_url (internal or asset links)
-  let linkUrl = (props.link.url || props.link.cached_url || '') as string;
+  let linkUrl = link.url || link.cached_url || '';
+  const isExternalLink = link.linktype === 'url';
 
-  // Default Classes for all links.
-  const linkClasses = props.classes ?? '';
-  const storyClasses = props.internalClasses ?? '';
-  const urlClasses = props.externalClasses ?? '';
-  // TODO DS-1495
-  // const activeClass = props.activeClass ?? '';
-  const assetClasses = props.assetClasses ?? '';
-  const otherAttributes = props.attributes ?? {};
+  const otherAttributes = attributes ?? {};
 
-  // Get out of the url and keep track of specific utm parameters.
-  const location = useSearchParams();
-  const parsedSearch = new URLSearchParams(location);
-  // utms variable will create a string of just the valid params we want to keep.
-  let utms = '';
-  const passParams = [
-    'utm_source',
-    'utm_medium',
-    'utm_campaign',
-    'utm_term',
-    'utm_content',
-  ];
-  // Loop through the paramaters we want to continue to track and check to see
-  // if the existing page url has them.
-  passParams.forEach((queryParam) => {
-    if (parsedSearch.has(queryParam)) {
-      utms += `${queryParam}=${parsedSearch.get(queryParam)}&`;
+  // State for external URL with UTMs
+  const [externalHref, setExternalHref] = useState<string>(linkUrl);
+
+  // Update external href when UTMs are available
+  useEffect(() => {
+    if (isExternalLink && isStanfordUrl(linkUrl)) {
+      setExternalHref(addUTMsToUrl(linkUrl));
     }
-  });
-  // Strip off the last ampersand.
-  utms = utms.replace(new RegExp('&$'), '');
+  }, [isExternalLink, linkUrl, addUTMsToUrl]);
 
   // Story or Internal type link.
   // ---------------------------------------------------------------------------
-  if (props.link.linktype === 'story') {
+  if (link.linktype === 'story') {
     // If the internal link already starts with a slash (eg, WYSIWYG inline internal links), remove it.
     if (linkUrl.startsWith('/')) {
       linkUrl = linkUrl.substring(1);
@@ -74,49 +57,40 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
     linkUrl = linkUrl === 'home' ? basePath : basePath + linkUrl;
     linkUrl += linkUrl.endsWith('/') ? '' : '/';
     // If there's an anchor, add it to the end of the url.
-    if (props.link.anchor) {
-      linkUrl += '#' + props.link.anchor;
-    }
-
-    if (linkUrl.match(/\?/) && utms.length) {
-      linkUrl += '&' + utms;
-    } else if (utms.length) {
-      linkUrl += '?' + utms;
+    if (link.anchor) {
+      linkUrl += '#' + link.anchor;
     }
 
     return (
       <Link
         ref={ref}
         href={linkUrl}
-        className={cnb(linkClasses, storyClasses)}
-        // TODO DS-1495: Figure out what to do here
-        // activeClassName={activeClass}
+        className={className}
         {...otherAttributes}
       >
-        {props.children}
+        {children}
       </Link>
     );
   }
 
   // External or absolute url type link.
   // ---------------------------------------------------------------------------
-  if (props.link.linktype === 'url') {
+  if (isExternalLink) {
     return (
       <a
         ref={ref}
-        href={linkUrl}
-        className={cnb(linkClasses, urlClasses)}
+        href={externalHref}
+        className={className}
         {...otherAttributes}
       >
-        {props.children}
-        <SrOnlyText />
+        {children}
       </a>
     );
   }
 
   // A link to a file or other asset.
   // ---------------------------------------------------------------------------
-  if (props.link.linktype === 'asset') {
+  if (link.linktype === 'asset') {
     // Rewrite the URL to the redirect link to mask the API endpoint.
     linkUrl = getMaskedAsset(linkUrl);
 
@@ -124,11 +98,11 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
       <a
         ref={ref}
         href={linkUrl}
-        className={cnb(linkClasses, assetClasses)}
-        target={`_blank`}
+        className={className}
+        target="_blank"
         {...otherAttributes}
       >
-        {props.children}
+        {children}
       </a>
     );
   }
@@ -136,8 +110,8 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
   // Default if we don't know what type this is.
   // ---------------------------------------------------------------------------
   return (
-    <a ref={ref} href={linkUrl} className={linkClasses} {...otherAttributes}>
-      {props.children}
+    <a ref={ref} href={linkUrl} className={className} {...otherAttributes}>
+      {children}
     </a>
   );
 });

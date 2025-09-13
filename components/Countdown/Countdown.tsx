@@ -15,10 +15,10 @@ import {
 } from 'date-fns';
 import { TZDate } from '@date-fns/tz';
 import { CountdownPie } from '@/components/CountdownPie';
-import { Grid } from '@/components/Grid';
+import { Grid, type GridProps } from '@/components/Grid';
 import * as styles from './Countdown.styles';
 
-type CountdownProps = {
+type CountdownProps = GridProps & {
   date?: string;
   dayPieRange?: number;
   hourPieRange?: number;
@@ -30,6 +30,7 @@ export const Countdown = ({
   dayPieRange,
   hourPieRange,
   hasDays = false,
+  ...props
 }: CountdownProps) => {
   const timerRef = useRef(null);
   const [nowInPT, setnowInPT] = useState(TZDate.tz('America/Los_Angeles'));
@@ -68,12 +69,13 @@ export const Countdown = ({
 
   return (
     <Grid
+      {...props}
       xs={hasDays ? 2 : 3} md={hasDays ? 4 : 3}
       justifyContent="evenly"
       aria-atomic
       role="timer"
       className={styles.countdown({ hasDays })}
-      >
+    >
       {hasDays && (
         <CountdownPie fillColor="cardinal-red" shrink filled={days} total={dayPieRange} description="Days" />
       )}

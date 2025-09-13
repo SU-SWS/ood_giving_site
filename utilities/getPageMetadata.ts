@@ -1,11 +1,10 @@
 import { type ISbStoryData } from '@storyblok/react/rsc';
-import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
-import { config } from './config';
+import { type SbLinkType, type SbImageType } from '@/components/Storyblok/Storyblok.types';
+import { config } from '@/utilities/config';
 import { sbStripSlugURL } from '@/utilities/sbStripSlugUrl';
-import { getFirstImage } from './getFirstImage';
-import { getProcessedImage } from './getProcessedImage';
+import { getProcessedImage } from '@/utilities/getProcessedImage';
 
-export type SbSEOType = {
+type SbSEOType = {
   title?: string;
   description?: string;
   og_title?: string;
@@ -23,6 +22,9 @@ type PageMetadataProps = {
       title?: string
       canonicalUrl?: SbLinkType;
       seo?: SbSEOType;
+      headerImage?: SbImageType;
+      heroImage?: SbImageType;
+      image?: SbImageType;
     };
   };
   slug: string;
@@ -46,6 +48,9 @@ export const getPageMetadata = ({ story, slug }: PageMetadataProps) => {
       seo,
       title,
       canonicalUrl,
+      headerImage: { filename: headerImageSrc, focus: headerImageFocus } = {}, // from Interior Page
+      heroImage: { filename: heroImageSrc, focus: heroImageFocus } = {}, // from Story
+      image: { filename: storyImageSrc, focus: storyImageFocus } = {}, // from Campaign Page
     },
   } = story;
 
@@ -76,36 +81,44 @@ export const getPageMetadata = ({ story, slug }: PageMetadataProps) => {
     }
   }
 
-  // Process the images.
-  // Use the explicitly set image from the SEO component if available,
-  // then use a known field if the CT has it,
-  // otherwise use the first image in the content.
-  const knownImageFields = ['heroImage']; // order of priority
-  const firstImage = getFirstImage(knownImageFields, story.content);
-  const firstImageProcessed = firstImage ? getProcessedImage(firstImage.filename, '1200x630', firstImage.focus) : undefined;
-  // Process the images. Use the explicitly set image if available, otherwise use the first image in the content.
-  const ogImage = seo?.og_image ? getProcessedImage(seo.og_image, '1200x630') : firstImageProcessed;
-  const twitterImage = seo?.twitter_image ? getProcessedImage(seo.twitter_image, '1200x600') : firstImageProcessed;
-  const defaultImage = firstImageProcessed;
+  // Only process content image fallback if neither og image nor twitter image is set in the SEO field
+  const needsContentImage = !seo?.og_image && !seo?.twitter_image;
+  const contentImage = needsContentImage
+    ? getProcessedImage(headerImageSrc, '1200x630', headerImageFocus)
+      || getProcessedImage(heroImageSrc, '1200x630', heroImageFocus)
+      || getProcessedImage(storyImageSrc, '1200x630', storyImageFocus)
+    : undefined;
 
-  // SEO metadata.
-  // Title priority: Story SEO > Story Title > Config Blok Site Title
-  // Description priority: Story SEO > Config Blok Site Description > Hardcoded Site Description
+  const ogImage = seo?.og_image ? getProcessedImage(seo.og_image, '1200x630') : contentImage;
+
+  // Whatever is used for og:image will be used for twitter card image, so no need to fallback to contentImage again
+  const twitterImage = seo?.twitter_image ? getProcessedImage(seo.twitter_image, '1200x600') : undefined;
+
+  // Title priority: Story SEO field title > Story title field > Story name
+  const baseStoryTitle = seo?.title || title || name;
+
+  // Description priority: SEO field description > Hardcoded site description in config
+  const baseDescription = seo?.description || siteDescription;
+
   return {
-    title: `${title || name} | ${siteTitle}`,
-    description: siteDescription,
+    title: `${baseStoryTitle} | ${siteTitle}`,
+    description: baseDescription,
     metadataBase: new URL(siteUrlProd),
     openGraph:{
-      title: seo?.og_title || title || name,
-      description: seo?.og_description || seo?.description || siteDescription,
-      images: ogImage || defaultImage,
+      title: seo?.og_title || baseStoryTitle,
+      description: seo?.og_description || baseDescription,
+      images: ogImage ? [{ url: ogImage, width: 1200, height: 630 }] : undefined,
       type: 'website',
     },
+    /**
+     * Twitter automatically uses og:title, og:description, and og:image if twitter:title, twitter:description, and twitter:image are not provided
+     * So we don't really need to provide twitter fallbacks since fallbacks are already provided in the og tags
+     */
     twitter: {
       card: 'summary_large_image',
-      title: seo?.twitter_title || title || name,
-      description: seo?.twitter_description || seo?.description || siteDescription,
-      images: twitterImage || defaultImage,
+      title: seo?.twitter_title,
+      description: seo?.twitter_description,
+      images: twitterImage,
     },
     alternates: {
       canonical,

@@ -25,6 +25,7 @@ import {
   type FontSizeType,
   type TextAlignType,
 } from '@/components/Typography';
+import { SbCtaLink, type SbCtaLinkProps } from '@/components/Storyblok/SbCtaLink';
 import { wysiwygClasses, type WysiwygClassesType } from '@/utilities/wysiwygClasses';
 import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
@@ -155,6 +156,11 @@ export const RichText = ({
           />
         );
       },
+    },
+    blokResolvers: {
+      ['ctaLink']: (props) => (
+        <SbCtaLink blok={props as SbCtaLinkProps['blok']} />
+      ),
     },
     defaultBlokResolver: (name) => (
       <Paragraph weight="bold">

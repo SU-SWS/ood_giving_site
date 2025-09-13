@@ -3,14 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { cnb } from 'cnbuilder';
 import { CtaContent } from './CtaContent';
 import { type CtaCommonProps } from './Cta.types';
-import { type SbLinkType } from '../Storyblok/Storyblok.types';
 import { marginTops, marginBottoms } from '@/utilities/datasource';
 import * as styles from './Cta.styles';
 import useUTMs from '@/hooks/useUTMs';
+import { isStanfordUrl } from '@/utilities/isStanfordUrl';
 
 export type CtaExternalLinkProps = React.ComponentPropsWithoutRef<'a'> & CtaCommonProps & {
-  sbLink?: SbLinkType;
-  href?: string;
+  href: string;
   rel?: string;
 };
 
@@ -35,14 +34,13 @@ export const CtaExternalLink = React.forwardRef<HTMLAnchorElement, CtaExternalLi
   } = props;
 
   // Add UTM params to Stanford URLs.
-  const { isStanfordUrl, addUTMsToUrl } = useUTMs();
+  const { addUTMsToUrl } = useUTMs();
   const [myHref, setMyHref] = useState<string>(href);
   useEffect(() => {
-    if (typeof window === 'undefined') return;
     if (isStanfordUrl(href)) {
       setMyHref(addUTMsToUrl(href));
     }
-  }, [href, isStanfordUrl, addUTMsToUrl]);
+  }, [href, addUTMsToUrl]);
 
   return (
     <a
