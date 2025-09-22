@@ -1,0 +1,55 @@
+/* Table styles for Giving */
+table:not(.life-income-gifts) tr {
+  @apply even:bg-fog-light;
+}
+
+/* Wrapper styles that adds the horizontal scroll if the table is wider than the viewport */
+.table-scroll {
+  @apply overflow-x-auto max-w-full mb-72;
+}
+
+.table-scroll table {
+  @apply md:mb-0;
+}
+
+/* Specific for the Compare Life Income Gifts tables */
+.life-income-gifts {
+  @apply rs-p-2 bg-white border-separate;
+}
+
+.life-income-gifts th {
+  @apply bg-white border border-white;
+}
+
+.life-income-gifts td {
+  @apply border border-white border-t border-t-black-40 rs-px-2;
+}
+
+.life-income-gifts th.table-header {
+  @apply font-bold type-1 rs-pt-3;
+}
+
+.life-income-gifts th.table-header--first {
+  @apply rs-pt-0;
+}
+
+.life-income-gifts tfoot .footnote {
+  @apply rs-pt-2 rs-px-0;
+}
+
+.life-income-gifts thead th {
+  @apply text-center;
+}
+
+.life-income-gifts thead td {
+  @apply empty:border-0;
+}
+
+.life-income-gifts tbody td,
+.life-income-gifts tbody th[scope="row"] {
+  @apply rs-px-0 border border-white border-t border-t-black-40;
+};
+
+.life-income-gifts tbody th[scope="row"] {
+  @apply font-semibold min-w-200 lg:min-w-300;
+}

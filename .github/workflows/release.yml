@@ -95,7 +95,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ADMIN_GITHUB_TOKEN }}
 
       - name: Merge release back into dev
-        uses: devmasx/merge-branch@v1.3.1
+        uses: devmasx/merge-branch@v1.4.0
         with:
           type: now
           from_branch: main

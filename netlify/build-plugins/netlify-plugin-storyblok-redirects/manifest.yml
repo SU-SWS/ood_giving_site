@@ -1,0 +1,11 @@
+name: netlify-plugin-storyblok-redirects
+inputs:
+  - name: keyvar
+    description: The environment variable name to store the Storyblok API key
+    default: 'STORYBLOK_ACCESS_TOKEN'
+  - name: region
+    description: The Storyblok space region
+    default: 'eu'
+  - name: storypath
+    description: The path to the Storyblok stories (starts_with filter)
+    default: 'global-components/redirects'
