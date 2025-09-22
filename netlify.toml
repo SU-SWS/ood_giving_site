@@ -1,65 +1,49 @@
 # BUILD Settings:
 # ##############################################################################
-[dev]
-  publish = "public"
-  port = 64946
-  autolaunch = true
-
-# HEADERS - BASIC AUTH
-# ##############################################################################
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Content-Security-Policy = "form-action https:"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "origin-when-cross-origin"
-    Strict-Transport-Security = "max-age=31536000"
-    Permissions-Policy = "vibrate=(), geolocation=(), midi=(), notifications=(), push=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), speaker=()"
-    X-Frame-Options = "DENY"
-[[headers]]
-  for = "/editor"
-  [headers.values]
-    X-Frame-Options = "ALLOWALL"
+[build]
+  command = "npm run build"
+  publish = ".next"
 
 # PLUGINS
 # ##############################################################################
+[[plugins]]
+  package = '/netlify/build-plugins/netlify-plugin-storyblok-redirects/index.mjs'
+    [plugins.inputs]
+      region = 'eu'
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 # Fetch vault plugin needs to come before any of the contextual environment
 # variable plugins so they can act on the new vars.
 [[plugins]]
   package = "netlify-plugin-vault-variables"
   [plugins.inputs]
+    # The vault service endpoint
     endpoint = 'https://vault.stanford.edu'
-    # Order doesn't matter here as these will be fetch asyncronously. Try not to have dupes.
+    # Order doesn't matter here as these will be fetched asynchronously. Try not to have dupes.
     secrets = ['secret/data/projects/adapt/giving']
     # Set which environment variables to use for the approle login
     secretId = 'VAULT_SECRET_ID'
     roleId = 'VAULT_ROLE_ID'
+    addContext = true
 
 [[plugins]]
-  package = "@netlify/plugin-gatsby"
-
-[[plugins]]
-  package = '/plugins/netlify-plugin-contextual-auth'
+  package = '/netlify/build-plugins/netlify-plugin-contextual-auth/index.mjs'
   [plugins.inputs]
     username = 'adapt'
     password = 'letmein2021'
     context = ['branch-deploy', 'deploy-preview']
+    file = '.next/_headers'
 
-# CONTEXTUAL PLUGINS
+# HEADERS
 # ##############################################################################
-# Production context:
-# All deploys from the main repository branch
-# will inherit these settings.
-[context.main]
-  # Deploys from main branch run this plugin in the build.
-  # Plugins context requires double brackets.
-  [[context.main.plugins]]
-    package = "netlify-plugin-submit-sitemap"
-    [context.main.plugins.inputs]
-      # Path to the sitemap URL (optional, default = /sitemap.xml)
-      sitemapPath = "/sitemap/sitemap-index.xml"
-
-# REDIRECTS are located in static/_redirects
-# ###############################################################################
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Content-Security-Policy = "default-src https: 'unsafe-inline' 'unsafe-eval'; form-action https:; img-src https: data:; frame-ancestors https://app.storyblok.com"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000"
+    Permissions-Policy = "vibrate=(), geolocation=(), midi=(), notifications=(), push=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), speaker=()"

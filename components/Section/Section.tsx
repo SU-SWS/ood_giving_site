@@ -1,0 +1,83 @@
+import { Container, type ContainerProps } from '@/components/Container';
+import {
+  Heading,
+  Text,
+  type FontSizeType,
+  type HeadingType,
+} from '@/components/Typography';
+import { type DarkBeforeColorType } from '@/utilities/datasource';
+import * as styles from './Section.styles';
+
+type SectionProps = ContainerProps & {
+  // Header
+  title?: string;
+  intro?: React.ReactNode;
+  srOnlyHeader?: boolean;
+  isEdgeToEdgeHeader?: boolean;
+  titleStyle?: styles.TitleStyleType[];
+  tabColor?: DarkBeforeColorType;
+  titleSize?: FontSizeType;
+  headingLevel?: HeadingType;
+  // Campaign page only header options
+  isCenterAlignHeader?: boolean;
+  isSansSemiboldTitle?: boolean;
+  // Content
+  contentWidth?: styles.SectionContentWidthType;
+};
+
+export const Section = ({
+  title,
+  intro,
+  srOnlyHeader,
+  isEdgeToEdgeHeader,
+  titleStyle,
+  tabColor = 'cardinal-red',
+  titleSize = 4,
+  headingLevel = 'h2',
+  isCenterAlignHeader,
+  isSansSemiboldTitle,
+  children,
+  contentWidth = 'edge-to-edge',
+  id,
+  bgColor = 'white',
+  pt,
+  pb,
+  ...props
+}: SectionProps) => {
+  const hasHeader = !!title || !!intro;
+
+  return (
+    <Container
+      {...props}
+      as={title ? 'section' : 'div'}
+      id={id}
+      width="full"
+      bgColor={bgColor}
+      pt={pt}
+      pb={pb}
+    >
+      {hasHeader && (
+        <Container pb={3} as="header" width={isEdgeToEdgeHeader ? 'full' : 'site'} className={styles.header(srOnlyHeader)}>
+          {title && (
+            <Heading
+              as={headingLevel}
+              srOnly={srOnlyHeader}
+              className={styles.title(titleStyle, tabColor, isCenterAlignHeader)}
+              size={titleSize}
+              font={isSansSemiboldTitle ? 'sans' : 'serif'}
+              weight={isSansSemiboldTitle ? 'semibold' : 'bold'}
+              align={isCenterAlignHeader ? 'center' : undefined}
+              mb={3}
+            >
+              {title}
+            </Heading>
+          )}
+          {intro && <Text variant="intro" srOnly={srOnlyHeader} className={styles.intro(isCenterAlignHeader)}>{intro}</Text>}
+        </Container>
+      )}
+      <Container width={contentWidth === 'edge-to-edge' ? 'full' : 'site'}>
+        <div className={styles.content(contentWidth)}>{children}</div>
+      </Container>
+    </Container>
+  );
+};
