@@ -47,7 +47,7 @@
     "cookies-next": "^6.1.0",
     "date-fns": "^4.1.0",
     "fuse.js": "^7.1.0",
-    "motion": "^12.23.12",
+    "motion": "^12.23.18",
     "next": "^15.5.3",
     "react-instantsearch": "^7.16.2",
     "react-instantsearch-nextjs": "^1.0.1",
