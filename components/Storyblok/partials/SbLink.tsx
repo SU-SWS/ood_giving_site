@@ -26,7 +26,6 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
     children,
   } = props;
 
-  const basePath = config.basePath;
   const { addUTMsToUrl } = useUTMs();
 
   // Storyblok link object either has a url (external links)
