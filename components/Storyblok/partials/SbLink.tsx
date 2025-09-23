@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { config } from '@/utilities/config';
 import Link from 'next/link';
 import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { getMaskedAsset } from '@/utilities/getMaskedAsset';
@@ -26,13 +25,17 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
     children,
   } = props;
 
-  const basePath = config.basePath;
   const { addUTMsToUrl } = useUTMs();
 
   // Storyblok link object either has a url (external links)
   // or cached_url (internal or asset links)
   let linkUrl = link.url || link.cached_url || '';
   const isExternalLink = link.linktype === 'url';
+
+  // Ensure linkUrl is always a string and not undefined/null
+  if (typeof linkUrl !== 'string') {
+    linkUrl = '';
+  }
 
   const otherAttributes = attributes ?? {};
 
@@ -49,13 +52,18 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
   // Story or Internal type link.
   // ---------------------------------------------------------------------------
   if (link.linktype === 'story') {
-    // If the internal link already starts with a slash (eg, WYSIWYG inline internal links), remove it.
-    if (linkUrl.startsWith('/')) {
-      linkUrl = linkUrl.substring(1);
+    // Ensure internal links start with a slash for relative paths
+    if (!linkUrl.startsWith('/')) {
+      linkUrl = '/' + linkUrl;
     }
     // Handle the home slug.
-    linkUrl = linkUrl === 'home' ? basePath : basePath + linkUrl;
-    linkUrl += linkUrl.endsWith('/') ? '' : '/';
+    if (linkUrl === '/home') {
+      linkUrl = '/';
+    }
+    // Ensure trailing slash for non-root paths
+    if (linkUrl !== '/' && !linkUrl.endsWith('/')) {
+      linkUrl += '/';
+    }
     // If there's an anchor, add it to the end of the url.
     if (link.anchor) {
       linkUrl += '#' + link.anchor;
