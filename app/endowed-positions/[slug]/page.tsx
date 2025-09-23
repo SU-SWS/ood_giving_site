@@ -7,6 +7,19 @@ import ENDOWED_POSITIONS from '@/fixtures/endowedPositions.json';
 import { EndowedPositionsPagination } from '@/components/EndowedPositions';
 import { config } from '@/utilities/config';
 
+// Force static rendering for optimal Netlify atomic deployment
+export const dynamic = 'force-static';
+
+// Generate all position category slugs at build time
+export const generateStaticParams = async () => {
+  return ENDOWED_POSITIONS_MAP.map((position) => ({
+    slug: position.to,
+  }));
+};
+
+// Cache for one year to align with atomic deployment strategy
+export const revalidate = 31536000;
+
 type PathsType = {
   slug: string;
 };

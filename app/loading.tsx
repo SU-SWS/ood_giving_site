@@ -1,6 +1,12 @@
 import { Grid } from '@/components/Grid';
 import { LogoLockup } from '@/components/Logo';
 
+// Force static rendering for optimal Netlify atomic deployment
+export const dynamic = 'force-static';
+
+// Cache for one year to align with atomic deployment strategy
+export const revalidate = 31536000;
+
 const Loading = () => {
   return (
     <div className="bg-white">

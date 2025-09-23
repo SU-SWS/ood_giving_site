@@ -4,6 +4,12 @@ import type { ISbStoriesParams } from 'storyblok-js-client';
 import { isProduction } from '@/utilities/getActiveEnv';
 import { sbStripSlugURL } from '@/utilities/sbStripSlugUrl';
 
+// Force static rendering for optimal Netlify atomic deployment
+export const dynamic = 'force-static';
+
+// Cache for one year to align with atomic deployment strategy
+export const revalidate = 31536000;
+
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const storyblokClient = new StoryblokClient({
     accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
