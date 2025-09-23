@@ -5,12 +5,6 @@ import { Header } from '@/components/Storyblok/partials/Header';
 import { StoryblokProvider } from '@/components/StoryblokProvider';
 import { getStoryDataCached } from '@/utilities/data';
 
-// Force static rendering for optimal Netlify atomic deployment
-export const dynamic = 'force-static';
-
-// Cache for one year to align with atomic deployment strategy
-export const revalidate = 31536000;
-
 type EndowedPositionsLayoutProps = {
   children: React.ReactNode;
 };

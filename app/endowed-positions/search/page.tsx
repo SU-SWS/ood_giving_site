@@ -6,12 +6,6 @@ import { Heading, Paragraph } from '@/components/Typography';
 import Link from 'next/link';
 import { config } from '@/utilities/config';
 
-// Force static rendering for optimal Netlify atomic deployment
-export const dynamic = 'force-static';
-
-// Cache for one year to align with atomic deployment strategy
-export const revalidate = 31536000;
-
 const fuse = new Fuse(ENDOWED_POSITIONS, {
   keys: ['SUBCATEGORY', 'POSITION', 'CURRENT HOLDER'],
   includeScore: true,
