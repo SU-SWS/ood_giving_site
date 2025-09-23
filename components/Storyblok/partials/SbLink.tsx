@@ -29,10 +29,18 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
   const basePath = config.basePath;
   const { addUTMsToUrl } = useUTMs();
 
+  // Ensure basePath is properly formatted (should end with /)
+  const normalizedBasePath = basePath.endsWith('/') ? basePath : `${basePath}/`;
+
   // Storyblok link object either has a url (external links)
   // or cached_url (internal or asset links)
   let linkUrl = link.url || link.cached_url || '';
   const isExternalLink = link.linktype === 'url';
+
+  // Ensure linkUrl is always a string and not undefined/null
+  if (typeof linkUrl !== 'string') {
+    linkUrl = '';
+  }
 
   const otherAttributes = attributes ?? {};
 
@@ -54,7 +62,7 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
       linkUrl = linkUrl.substring(1);
     }
     // Handle the home slug.
-    linkUrl = linkUrl === 'home' ? basePath : basePath + linkUrl;
+    linkUrl = linkUrl === 'home' ? normalizedBasePath : normalizedBasePath + linkUrl;
     linkUrl += linkUrl.endsWith('/') ? '' : '/';
     // If there's an anchor, add it to the end of the url.
     if (link.anchor) {

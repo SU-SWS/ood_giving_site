@@ -3,10 +3,10 @@ let appUrl = '';
 
 if (process.env.CONTEXT === 'production') {
   // Support for Production app builds.
-  appUrl = process.env.URL;
+  appUrl = process.env.URL || '';
 } else if (process.env.CONTEXT !== 'production' && process.env.NETLIFY) {
   // Support for non-production netlify builds (branch/preview)
-  appUrl = process.env.DEPLOY_PRIME_URL;
+  appUrl = process.env.DEPLOY_PRIME_URL || '';
 } else if (process.env.NETLIFY_DEV) {
   // Support for Netlify CLI.
   appUrl = 'http://localhost:64946';
@@ -17,7 +17,7 @@ if (process.env.CONTEXT === 'production') {
  */
 export const config = {
   isNetlify: process.env.NETLIFY ?? false,
-  basePath: `${appUrl}/`,
+  basePath: appUrl ? `${appUrl}/` : '/',
   siteTitle: 'Giving to Stanford',
   siteDescription: 'When you give to Stanford, you drive positive change in the world.',
   siteUrlProd: 'https://giving.stanford.edu',
