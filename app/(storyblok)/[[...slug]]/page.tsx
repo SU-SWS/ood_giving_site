@@ -20,12 +20,11 @@ const bridgeOptions = {
   resolveLinks: 'story',
 };
 
-// Force the 404 page for anything that isn't statically generated.
-export const dynamicParams = false;
+// Allow dynamic params for content published between builds
+export const dynamicParams = true;
 
-// Cache for one year.
-// I have no concrete evidence but this seems to work best with Netlify's edge caching over caching for infinity.
-export const revalidate = 30;
+// Cache indefinitely - rely on atomic rebuilds for content updates
+export const revalidate = false;
 
 // Force static rendering.
 export const dynamic = 'force-static';
@@ -36,36 +35,81 @@ export const dynamic = 'force-static';
 export const generateStaticParams = async () => {
   const isProd = isProduction();
 
-  // Get all the stories.
-  let stories = await getAllStoriesCached();
+  try {
+    // Get all the stories.
+    let stories = await getAllStoriesCached();
 
-  // Filter out folders.
-  stories = stories.filter((link) => link.is_folder === false);
-  // Filter out test content by filtering out the `test` folder.
-  if (isProd) {
-    stories = stories.filter((link) => !link.slug.startsWith('test'));
-  }
-  // Filter out globals by filtering out the `global-components` folder.
-  stories = stories.filter((link) => !link.slug.startsWith('global-components'));
-
-  const paths: PathsType[] = [];
-
-  stories.forEach((story) => {
-    const slug = story.slug;
-    const splitSlug = slug.split('/');
-
-    // Remove any empty strings.
-    const cleanSlug = splitSlug.filter((s:string) => s.length);
-
-    if (cleanSlug.length === 1 && cleanSlug[0] === 'home') {
-      // Pass and empty array for the home slug
-      paths.push({ slug: [] });
-    } else {
-      paths.push({ slug: cleanSlug });
+    // Filter out folders.
+    stories = stories.filter((link) => link.is_folder === false);
+    // Filter out test content by filtering out the `test` folder.
+    if (isProd) {
+      stories = stories.filter((link) => !link.slug.startsWith('test'));
     }
-  });
+    // Filter out globals by filtering out the `global-components` folder.
+    stories = stories.filter((link) => !link.slug.startsWith('global-components'));
 
-  return paths;
+    const paths: PathsType[] = [];
+
+    stories.forEach((story) => {
+      const slug = story.slug;
+      const splitSlug = slug.split('/');
+
+      // Remove any empty strings.
+      const cleanSlug = splitSlug.filter((s:string) => s.length);
+
+      if (cleanSlug.length === 1 && cleanSlug[0] === 'home') {
+        // Pass and empty array for the home slug
+        paths.push({ slug: [] });
+      } else {
+        paths.push({ slug: cleanSlug });
+      }
+    });
+
+    return paths;
+  } catch (error) {
+    console.error('Failed to generate static params for Storyblok:', error);
+    // Return minimal paths to prevent build failure
+    return [{ slug: [] }]; // At least include home page
+  }
+};
+
+/**
+ * Cache of known story slugs for validation (populated at build time)
+ */
+let knownSlugsCache: Set<string> | null = null;
+
+/**
+ * Initialize and get the cache of known story slugs
+ */
+const getKnownSlugs = async (): Promise<Set<string>> => {
+  if (knownSlugsCache) {
+    return knownSlugsCache;
+  }
+
+  try {
+    const stories = await getAllStoriesCached();
+    const isProd = isProduction();
+
+    // Apply same filters as generateStaticParams
+    const filteredStories = stories
+      .filter((link) => link.is_folder === false)
+      .filter((link) => isProd ? !link.slug.startsWith('test') : true)
+      .filter((link) => !link.slug.startsWith('global-components'));
+
+    const slugs = new Set<string>();
+    slugs.add('home'); // Always include home
+
+    filteredStories.forEach((story) => {
+      slugs.add(story.slug);
+    });
+
+    knownSlugsCache = slugs;
+    return slugs;
+  } catch (error) {
+    console.error('Failed to load known slugs:', error);
+    // Return minimal set to prevent failures
+    return new Set(['home']);
+  }
 };
 
 /**
@@ -78,11 +122,39 @@ export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata
   // Slug will be falsy if root/home route
   const slugPath = slug ? slug.join('/') : 'home';
 
+  // For dynamic params, check if this slug is known before making API call
+  if (slug && slug.length > 0) {
+    const knownSlugs = await getKnownSlugs();
+    if (!knownSlugs.has(slugPath)) {
+      // Return 404 metadata without making API call
+      return {
+        title: 'Page Not Found | Stanford Giving',
+        description: 'The page you are looking for could not be found.',
+      };
+    }
+  }
+
   // Get the story data.
-  const { data: { story } } = await getStoryDataCached({ path: slugPath });
+  const { data } = await getStoryDataCached({ path: slugPath });
+
+  // If story not found, return basic metadata and let Page component handle 404
+  if (data === 404) {
+    return {
+      title: 'Page Not Found | Stanford Giving',
+      description: 'The page you are looking for could not be found.',
+    };
+  }
+
+  // Additional safety check for story structure
+  if (!data.story || !data.story.content) {
+    return {
+      title: 'Page Error | Stanford Giving',
+      description: 'There was an error loading this page.',
+    };
+  }
 
   // Generate the metadata.
-  const meta = getPageMetadata({ story, slug: slugPath });
+  const meta = getPageMetadata({ story: data.story, slug: slugPath });
   return meta;
 };
 
@@ -96,11 +168,26 @@ const Page = async ({ params }: ParamsType) => {
   // Slug will be falsy if root/home route
   const slugPath = slug ? slug.join('/') : 'home';
 
+  // For dynamic params, check if this slug is known before making API call
+  if (slug && slug.length > 0) {
+    const knownSlugs = await getKnownSlugs();
+    if (!knownSlugs.has(slugPath)) {
+      // Immediately return 404 without making API call
+      notFound();
+    }
+  }
+
   // Get data out of the API.
   const { data } = await getStoryDataCached({ path: slugPath });
 
   // Failed to fetch from API because story slug was not found.
   if (data === 404) {
+    notFound();
+  }
+
+  // Additional safety checks for story structure
+  if (!data.story || !data.story.content) {
+    console.error(`Story structure invalid for path: ${slugPath}`, data);
     notFound();
   }
 

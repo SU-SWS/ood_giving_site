@@ -10,7 +10,9 @@ import { config } from '@/utilities/config';
 // Force static rendering for optimal Netlify atomic deployment
 export const dynamic = 'force-static';
 // Cache for one year to align with atomic deployment strategy
-export const revalidate = 30;
+export const revalidate = false;
+// Allow dynamic params for content published between builds
+export const dynamicParams = true;
 
 // Generate all position category slugs at build time
 export const generateStaticParams = async () => {
@@ -33,10 +35,21 @@ type ParamsType = {
  */
 export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata> => {
   const { slug } = await params;
+
+  // Early validation: check if slug exists in our known positions
   const matchingData = ENDOWED_POSITIONS_MAP.find((p) => p.to === slug);
 
+  // If slug is unknown, return 404 metadata without processing further
+  if (!matchingData) {
+    return {
+      title: 'Position Category Not Found | Stanford Giving',
+      description: 'The endowed position category you are looking for could not be found.',
+    };
+  }
+
+  // Safe to use matchingData.label since we've validated it exists
   const title = `Endowed Positions at Stanford: "${matchingData.label}" | ${config.siteTitle}`;
-  const description = 'Endowed positions are gifted by donors to support outstanding faculty, staff, and campus leaders. Through these meaningful investments, donors help enhance the Stanford community and strengthen the university’s future.';
+  const description = 'Endowed positions are gifted by donors to support outstanding faculty, staff, and campus leaders. Through these meaningful investments, donors help enhance the Stanford community and strengthen the university\'s future.';
 
   return {
     title,
