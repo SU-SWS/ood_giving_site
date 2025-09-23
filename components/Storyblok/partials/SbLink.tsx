@@ -29,9 +29,6 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
   const basePath = config.basePath;
   const { addUTMsToUrl } = useUTMs();
 
-  // Ensure basePath is properly formatted (should end with /)
-  const normalizedBasePath = basePath.endsWith('/') ? basePath : `${basePath}/`;
-
   // Storyblok link object either has a url (external links)
   // or cached_url (internal or asset links)
   let linkUrl = link.url || link.cached_url || '';
@@ -57,13 +54,18 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
   // Story or Internal type link.
   // ---------------------------------------------------------------------------
   if (link.linktype === 'story') {
-    // If the internal link already starts with a slash (eg, WYSIWYG inline internal links), remove it.
-    if (linkUrl.startsWith('/')) {
-      linkUrl = linkUrl.substring(1);
+    // Ensure internal links start with a slash for relative paths
+    if (!linkUrl.startsWith('/')) {
+      linkUrl = '/' + linkUrl;
     }
     // Handle the home slug.
-    linkUrl = linkUrl === 'home' ? normalizedBasePath : normalizedBasePath + linkUrl;
-    linkUrl += linkUrl.endsWith('/') ? '' : '/';
+    if (linkUrl === '/home') {
+      linkUrl = '/';
+    }
+    // Ensure trailing slash for non-root paths
+    if (linkUrl !== '/' && !linkUrl.endsWith('/')) {
+      linkUrl += '/';
+    }
     // If there's an anchor, add it to the end of the url.
     if (link.anchor) {
       linkUrl += '#' + link.anchor;
