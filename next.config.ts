@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
     DEPLOY_PRIME_URL: process.env.DEPLOY_PRIME_URL,
     CONTEXT: process.env.CONTEXT || 'development',
     STORYBLOK_PREVIEW_EDITOR_TOKEN: process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN,
+    URL: process.env.URL || '',
   },
   /**
    * Hack to get over the 2MB limit on cacheHandler
