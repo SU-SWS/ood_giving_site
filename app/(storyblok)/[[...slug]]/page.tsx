@@ -122,15 +122,17 @@ export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata
   // Slug will be falsy if root/home route
   const slugPath = slug ? slug.join('/') : 'home';
 
-  // For dynamic params, check if this slug is known before making API call
+  // For dynamic params, validate but don't block - let API handle it gracefully
   if (slug && slug.length > 0) {
-    const knownSlugs = await getKnownSlugs();
-    if (!knownSlugs.has(slugPath)) {
-      // Return 404 metadata without making API call
-      return {
-        title: 'Page Not Found | Stanford Giving',
-        description: 'The page you are looking for could not be found.',
-      };
+    try {
+      const knownSlugs = await getKnownSlugs();
+      if (!knownSlugs.has(slugPath)) {
+        console.log(`Unknown slug in metadata: ${slugPath}`, { knownSlugs: Array.from(knownSlugs).slice(0, 5) });
+        // Don't block here - let the API call determine if it's truly invalid
+      }
+    } catch (error) {
+      console.error('Error checking known slugs in metadata:', error);
+      // Continue without validation if check fails
     }
   }
 
@@ -168,12 +170,17 @@ const Page = async ({ params }: ParamsType) => {
   // Slug will be falsy if root/home route
   const slugPath = slug ? slug.join('/') : 'home';
 
-  // For dynamic params, check if this slug is known before making API call
+  // For dynamic params, validate but don't block - let API handle it gracefully
   if (slug && slug.length > 0) {
-    const knownSlugs = await getKnownSlugs();
-    if (!knownSlugs.has(slugPath)) {
-      // Immediately return 404 without making API call
-      notFound();
+    try {
+      const knownSlugs = await getKnownSlugs();
+      if (!knownSlugs.has(slugPath)) {
+        console.log(`Unknown slug in page: ${slugPath}`, { knownSlugs: Array.from(knownSlugs).slice(0, 5) });
+        // Don't block here - let the API call determine if it's truly invalid
+      }
+    } catch (error) {
+      console.error('Error checking known slugs in page:', error);
+      // Continue without validation if check fails
     }
   }
 

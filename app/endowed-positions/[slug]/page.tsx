@@ -9,7 +9,7 @@ import { config } from '@/utilities/config';
 
 // Force static rendering for optimal Netlify atomic deployment
 export const dynamic = 'force-static';
-// Cache for one year to align with atomic deployment strategy
+// Cache indefinitely - rely on atomic rebuilds for content updates
 export const revalidate = false;
 // Allow dynamic params for content published between builds
 export const dynamicParams = true;
