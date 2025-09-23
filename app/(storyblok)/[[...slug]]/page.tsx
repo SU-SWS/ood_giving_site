@@ -127,7 +127,7 @@ export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata
     try {
       const knownSlugs = await getKnownSlugs();
       if (!knownSlugs.has(slugPath)) {
-        console.log(`Unknown slug in metadata: ${slugPath}`, { knownSlugs: Array.from(knownSlugs).slice(0, 5) });
+        // console.log(`Unknown slug in metadata: ${slugPath}`, { knownSlugs: Array.from(knownSlugs).slice(0, 5) });
         // Don't block here - let the API call determine if it's truly invalid
       }
     } catch (error) {
