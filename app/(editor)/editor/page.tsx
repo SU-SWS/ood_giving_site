@@ -8,9 +8,6 @@ import { Grid } from '@/components/Grid';
 // Force dynamic rendering for editor preview functionality
 export const dynamic = 'force-dynamic';
 
-// Disable caching for real-time editor preview
-export const revalidate = 0;
-
 /**
  * Fetch the path data for the page and render it.
  */

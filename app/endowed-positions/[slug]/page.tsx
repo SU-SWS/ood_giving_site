@@ -9,6 +9,8 @@ import { config } from '@/utilities/config';
 
 // Force static rendering for optimal Netlify atomic deployment
 export const dynamic = 'force-static';
+// Cache for one year to align with atomic deployment strategy
+export const revalidate = 31536000;
 
 // Generate all position category slugs at build time
 export const generateStaticParams = async () => {
@@ -16,9 +18,6 @@ export const generateStaticParams = async () => {
     slug: position.to,
   }));
 };
-
-// Cache for one year to align with atomic deployment strategy
-export const revalidate = 31536000;
 
 type PathsType = {
   slug: string;

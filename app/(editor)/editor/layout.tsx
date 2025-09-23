@@ -6,9 +6,6 @@ import { Sa11yInit } from '@/components/Sa11yInit';
 // Force dynamic rendering for editor functionality
 export const dynamic = 'force-dynamic';
 
-// Disable caching for real-time editor preview
-export const revalidate = 0;
-
 type StoryblokLayoutProps = {
   children: React.ReactNode,
 };
