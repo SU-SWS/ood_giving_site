@@ -1,6 +1,6 @@
 import { storyblokEditable, type SbBlokData } from '@storyblok/react/rsc';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
-import { StoryImage, type VisibleVerticalType } from '@/components/Image';
+import { StoryImage, type VisibleVerticalType, ImageAspectRatioType } from '@/components/Image';
 import { StoryImageWidthType } from '@/components/Media';
 import { RichText } from '@/components/RichText';
 import { type TextAlignType } from '@/components/Typography';
@@ -12,6 +12,7 @@ type SbStoryImageProps = {
   blok: SbBlokData & {
     image: SbImageType;
     alt?: string;
+    aspectRatio?: ImageAspectRatioType;
     imageWidth?: StoryImageWidthType;
     visibleVertical?: VisibleVerticalType;
     caption?: StoryblokRichtext;
@@ -25,7 +26,8 @@ type SbStoryImageProps = {
 
 export const SbStoryImage = ({
   blok: {
-    image: { filename, alt } = {},
+    image: { filename, alt, focus } = {},
+    aspectRatio,
     caption,
     captionAlign,
     isCard,
@@ -50,9 +52,11 @@ export const SbStoryImage = ({
     <StoryImage
       {...storyblokEditable(blok)}
       imageSrc={filename}
+      imageFocus={focus}
+      alt={alt}
+      aspectRatio={aspectRatio || 'free'}
       mediaWidth={imageWidth}
       visibleVertical={visibleVertical}
-      alt={alt}
       caption={Caption}
       captionAlign={captionAlign}
       isCard={isCard}

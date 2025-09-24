@@ -12,6 +12,7 @@ export type AspectRatioImageProps = SbImageType & React.HTMLAttributes<HTMLImage
   imageSize?: styles.AspectRatioImageSizeType;
   aspectRatio?: styles.ImageAspectRatioType;
   fetchPriority?: 'low' | 'high' | 'auto';
+  loading?: 'eager' | 'lazy';
 };
 
 export const AspectRatioImage = ({
@@ -23,6 +24,7 @@ export const AspectRatioImage = ({
   visibleHorizontal,
   visibleVertical,
   fetchPriority,
+  loading = fetchPriority === 'high' ? 'eager' : 'lazy',
   className,
   ...imageProps
 }: AspectRatioImageProps) => {
@@ -55,16 +57,15 @@ export const AspectRatioImage = ({
   const processedImg = getProcessedImage(filename, `${cropWidth}x${cropHeight}`, imageFocus);
 
   return (
-    <div className={className}>
-      <img
-        className={styles.imageAspectRatios[aspectRatio]}
-        width={cropWidth}
-        height={cropHeight}
-        src={processedImg}
-        fetchPriority={fetchPriority}
-        alt={alt || ''}
-        {...imageProps}
-      />
-    </div>
+    <img
+      {...imageProps}
+      width={cropWidth}
+      height={cropHeight}
+      src={processedImg}
+      fetchPriority={fetchPriority}
+      loading={loading}
+      alt={alt || ''}
+      className={className}
+    />
   );
 };

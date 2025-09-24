@@ -1,4 +1,5 @@
-import { getProcessedImage } from './getProcessedImage';
+import { getProcessedImage } from '@/utilities/getProcessedImage';
+import { getAspectRatioNumber } from '@/utilities/getAspectRatioNumber';
 
 type ResponsiveBreakpointType = {
   cropWidth: number;
@@ -32,10 +33,13 @@ const defaultResponsiveBreakpoints: ResponsiveBreakpointType[] = [
 export const getImageSources = (
   filename: string,
   originalWidth: number,
+  imageFocus?: string,
+  aspectRatio?: string,
   customBreakpoints?: ResponsiveBreakpointType[],
 ): ImageSourceType[] => {
   const sources: ImageSourceType[] = [];
   const breakpoints = customBreakpoints || defaultResponsiveBreakpoints;
+  const aspectRatioDecimal = !!aspectRatio ? getAspectRatioNumber(aspectRatio) : undefined;
 
   // If the original image width is < 2000px, find out what breakpoint range it falls into
   const largestBp = breakpoints.find(bp => originalWidth >= bp.minWidth && originalWidth < bp.cropWidth);
@@ -57,10 +61,10 @@ export const getImageSources = (
     // Otherwise, keep only the breakpoints that are smaller than the largestBp
     .filter(bp => !largestBp || bp.minWidth < largestBp.minWidth)
     .forEach(bp => {
-      const cropSize = `${bp.cropWidth}x0`;
+      const cropSize = !!aspectRatio ? `${bp.cropWidth}x${bp.cropWidth / aspectRatioDecimal}` : `${bp.cropWidth}x0`;
 
       sources.push({
-        srcSet: getProcessedImage(filename, cropSize),
+        srcSet: getProcessedImage(filename, cropSize, imageFocus),
         // The smaller source uses max-width while the larger uses min-width for the media attribute
         media: bp.minWidth > 0 ? `(min-width: ${bp.minWidth}px)` : `(max-width: ${bp.cropWidth}px)`,
       });

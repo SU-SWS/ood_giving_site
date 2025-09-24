@@ -56,13 +56,6 @@ export const imageFocusVertical = (imgHeight: number) => ({
  * StoryImage styles
  */
 
-export const imageAspectRatios = {
-  '1x1': 'aspect-1',
-  '3x2': 'aspect-[3/2]',
-  '16x9': 'aspect-[16/9]',
-};
-export type ImageAspectRatioType = keyof typeof imageAspectRatios;
-
 // 2XL and up >= 1500px
 export const imageCropsDesktop = {
   '1x1': '1400x1400', // We rarely have square or portrait images edge to edge so they can be smaller than the viewport size
@@ -78,7 +71,7 @@ export const imageCropsDesktop = {
   '16x9': '2000x1125',
   'free': '2000x0',
 };
-export type ImageCropType = keyof typeof imageCropsDesktop;
+export type ImageAspectRatioType = keyof typeof imageCropsDesktop;
 
 // LG-XL - 992px - 1499px
 export const imageCropsSmallDesktop = {
