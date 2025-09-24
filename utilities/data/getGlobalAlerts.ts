@@ -54,5 +54,6 @@ export const getGlobalAlertsCached = unstable_cache(
   ['global-alerts'],
   {
     tags: ['global', 'alerts'],
+    revalidate: 600, // Revalidate every 10 minutes
   },
 );

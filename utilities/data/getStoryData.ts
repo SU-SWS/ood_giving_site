@@ -39,5 +39,6 @@ export const getStoryDataCached = unstable_cache(
   [],
   {
     tags: ['story', 'page'],
+    revalidate: 600, // Revalidate every 10 minutes
   },
 );

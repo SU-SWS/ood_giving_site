@@ -3,10 +3,10 @@ import { StoryblokStory } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getStoryDataCached } from '@/utilities/data';
 
+// Force static rendering for optimal Netlify.
 export const dynamic = 'force-static';
-
-// Cache for one year to align with atomic deployment strategy
-export const revalidate = 31536000;
+// Cache for 10 minutes
+export const revalidate = 600;
 
 // Storyblok bridge options.
 const bridgeOptions = {

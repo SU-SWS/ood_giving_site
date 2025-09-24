@@ -9,8 +9,8 @@ import { config } from '@/utilities/config';
 
 // Force static rendering for optimal Netlify atomic deployment
 export const dynamic = 'force-static';
-// Cache indefinitely - rely on atomic rebuilds for content updates
-export const revalidate = false;
+// Cache for 10 minutes
+export const revalidate = 600;
 // Allow dynamic params for content published between builds
 export const dynamicParams = true;
 

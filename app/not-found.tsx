@@ -6,8 +6,8 @@ import { getStoryDataCached } from '@/utilities/data';
 
 export const dynamic = 'force-static';
 
-// Cache for one year to align with atomic deployment strategy
-export const revalidate = 31536000;
+// Cache for 10 minutes
+export const revalidate = 600;
 
 // Storyblok bridge options.
 const bridgeOptions = {

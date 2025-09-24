@@ -4,8 +4,8 @@ type StoryblokLayoutProps = {
   children: React.ReactNode,
 };
 
-// Cache for one year.
-export const revalidate = 31536000;
+// Cache for 10 minutes.
+export const revalidate = 600;
 
 // Force static rendering.
 export const dynamic = 'force-static';

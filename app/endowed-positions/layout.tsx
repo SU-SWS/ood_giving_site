@@ -5,6 +5,9 @@ import { Header } from '@/components/Storyblok/partials/Header';
 import { StoryblokProvider } from '@/components/StoryblokProvider';
 import { getStoryDataCached } from '@/utilities/data';
 
+export const dynamic = 'force-static';
+export const revalidate = 600;
+
 type EndowedPositionsLayoutProps = {
   children: React.ReactNode;
 };

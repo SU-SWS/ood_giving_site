@@ -70,5 +70,6 @@ export const getSearchConfigBlokCached = unstable_cache(
   ['search-configuration'],
   {
     tags: ['global', 'config', 'search'],
+    revalidate: 600, // Revalidate every 10 minutes
   },
 );

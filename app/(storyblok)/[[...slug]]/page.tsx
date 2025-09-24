@@ -23,8 +23,8 @@ const bridgeOptions = {
 // Allow dynamic params for content published between builds
 export const dynamicParams = true;
 
-// Cache indefinitely - rely on atomic rebuilds for content updates
-export const revalidate = false;
+// Revalidate every 10 minutes
+export const revalidate = 600;
 
 // Force static rendering.
 export const dynamic = 'force-static';
