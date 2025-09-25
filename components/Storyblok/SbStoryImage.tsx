@@ -39,6 +39,7 @@ export const SbStoryImage = ({
   },
   blok,
 }: SbStoryImageProps) => {
+  const effectiveAspectRatio = imageWidth === 'su-w-full' ? '10x3' : aspectRatio || 'free';
   const Caption = hasRichText(caption)
     ? <RichText
         textColor="cool-grey"
@@ -54,7 +55,7 @@ export const SbStoryImage = ({
       imageSrc={filename}
       imageFocus={focus}
       alt={alt}
-      aspectRatio={aspectRatio || 'free'}
+      aspectRatio={effectiveAspectRatio}
       mediaWidth={imageWidth}
       visibleVertical={visibleVertical}
       caption={Caption}

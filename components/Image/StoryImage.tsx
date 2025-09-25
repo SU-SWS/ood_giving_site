@@ -18,8 +18,8 @@ export type StoryImageProps = MediaWrapperProps & {
 export const StoryImage = ({
   imageSrc,
   imageFocus,
-  aspectRatio = 'free',
   mediaWidth,
+  aspectRatio = mediaWidth === 'su-w-full' ? '10x3' : 'free',
   alt,
   caption,
   captionAlign,
@@ -51,9 +51,10 @@ export const StoryImage = ({
               filename={imageSrc}
               imageSize="gallery-slide"
               focus={imageFocus}
+              visibleVertical={visibleVertical}
               alt={alt}
               aspectRatio={aspectRatio}
-              className={cnb(styles.image)}
+              className={cnb(styles.image, styles.objectPositions('center', visibleVertical))}
             />
           ) : (
             <FullWidthImage

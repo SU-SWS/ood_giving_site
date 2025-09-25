@@ -20,7 +20,7 @@ type PageMetadataProps = {
     content: ISbStoryData['content'] & {
       noindex?: boolean;
       title?: string
-      canonicalUrl?: SbLinkType;
+      canonicalURL?: SbLinkType;
       seo?: SbSEOType;
       headerImage?: SbImageType;
       heroImage?: SbImageType;
