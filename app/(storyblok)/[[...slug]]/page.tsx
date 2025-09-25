@@ -10,8 +10,12 @@ type PathsType = {
   slug: string[];
 };
 
-type ParamsType = {
-  params: Promise<PathsType>;
+type PageParams = {
+  slug?: string | string[];
+};
+
+type PageProps = {
+  params: Promise<PageParams>;
 };
 
 // Storyblok bridge options.
@@ -70,74 +74,69 @@ export const generateStaticParams = async () => {
 };
 
 /**
- * Generate the SEO metadata for the page.
+ * Resolve the slug path for a given slug array.
+ * @param slug string array from the URL
+ * @returns string
  */
-export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata> => {
+const normalizeSlugSegments = (slug?: string | string[]) => {
+  if (!slug) {
+    return [] as string[];
+  }
+
+  const segments = Array.isArray(slug) ? slug : [slug];
+
+  return segments.filter((segment) => segment.length);
+};
+
+const resolveSlugPath = async (params: PageProps['params']) => {
   const { slug } = await params;
-
-  // Convert the slug to a path.
-  // Slug will be falsy if root/home route
-  const slugPath = slug ? slug.join('/') : 'home';
-
-  // Get the story data.
-  const { data } = await getStoryData({ path: slugPath });
-
-  // If story not found during metadata generation, return basic 404 metadata.
-  // Avoid calling notFound() here because metadata generation can run during
-  // build/fallback phases; throwing notFound from metadata may lead to
-  // internal NoFallbackError for routes that are not statically generated.
-  if (data === 404) {
-    // return {
-    //   title: 'Page Not Found | Stanford Giving',
-    //   description: 'The page you are looking for could not be found.',
-    // };
-    return;
-  }
-
-  // Additional safety check for story structure
-  if (!data.story || !data.story.content) {
-    return {
-      title: 'Page Error | Stanford Giving',
-      description: 'There was an error loading this page.',
-    };
-  }
-
-  // Generate the metadata.
-  const meta = getPageMetadata({ story: data.story, slug: slugPath });
-  return meta;
+  const segments = normalizeSlugSegments(slug);
+  return segments.length ? segments.join('/') : 'home';
 };
 
 /**
- * Fetch the path data for the page and render it.
+ * Fetch the story data or throw a 404 if not found.
+ * @param slugPath string path to fetch
+ * @returns story or throws notFound()
  */
-const Page = async ({ params }: ParamsType) => {
-  const { slug } = await params;
-
-  // Convert the slug to a path.
-  // Slug will be falsy if root/home route
-  const slugPath = slug ? slug.join('/') : 'home';
-
-  // Get data out of the API.
+const getStoryOrThrowNotFound = async (slugPath: string) => {
   const { data } = await getStoryData({ path: slugPath });
 
-  // Failed to fetch from API because story slug was not found.
   if (data === 404) {
     notFound();
   }
 
-  // Additional safety checks for story structure
   if (!data.story || !data.story.content) {
     console.error(`Story structure invalid for path: ${slugPath}`, data);
     notFound();
   }
 
-  // Return the story.
+  return data.story;
+};
+
+/**
+ * Generate the SEO metadata for the page.
+ */
+export const generateMetadata = async ({ params }: PageProps): Promise<Metadata> => {
+  const slugPath = await resolveSlugPath(params);
+  const story = await getStoryOrThrowNotFound(slugPath);
+
+  return getPageMetadata({ story, slug: slugPath });
+};
+
+/**
+ * Fetch the path data for the page and render it.
+ */
+const Page = async ({ params }: PageProps) => {
+  const slugPath = await resolveSlugPath(params);
+  const story = await getStoryOrThrowNotFound(slugPath);
+
   return (
     <StoryblokStory
-      story={data.story}
+      story={story}
       bridgeOptions={bridgeOptions}
       slug={slugPath}
-      name={data.story.name}
+      name={story.name}
     />
   );
 };
