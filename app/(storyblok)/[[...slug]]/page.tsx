@@ -20,7 +20,9 @@ const bridgeOptions = {
   resolveLinks: 'story',
 };
 
-// Do not allow dynamic params — only the statically generated paths will be served
+// Do not allow dynamic params — only the statically generated paths will be served.
+// This ensures requests for unknown paths return the Next.js 404 instead of
+// triggering runtime fallback logic that can produce a NoFallbackError.
 export const dynamicParams = false;
 
 /**
@@ -80,12 +82,16 @@ export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata
   // Get the story data.
   const { data } = await getStoryData({ path: slugPath });
 
-  // If story not found, return basic metadata and let Page component handle 404
+  // If story not found during metadata generation, return basic 404 metadata.
+  // Avoid calling notFound() here because metadata generation can run during
+  // build/fallback phases; throwing notFound from metadata may lead to
+  // internal NoFallbackError for routes that are not statically generated.
   if (data === 404) {
-    return {
-      title: 'Page Not Found | Stanford Giving',
-      description: 'The page you are looking for could not be found.',
-    };
+    // return {
+    //   title: 'Page Not Found | Stanford Giving',
+    //   description: 'The page you are looking for could not be found.',
+    // };
+    return;
   }
 
   // Additional safety check for story structure
