@@ -6,8 +6,7 @@ import { Heading, Paragraph } from '@/components/Typography';
 import Link from 'next/link';
 import { config } from '@/utilities/config';
 
-export const dynamic = 'force-static';
-export const revalidate = 600;
+export const dynamic = 'force-dynamic';
 
 const fuse = new Fuse(ENDOWED_POSITIONS, {
   keys: ['SUBCATEGORY', 'POSITION', 'CURRENT HOLDER'],
