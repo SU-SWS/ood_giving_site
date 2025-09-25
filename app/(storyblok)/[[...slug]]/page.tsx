@@ -3,7 +3,7 @@ import { StoryblokStory } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getPageMetadata } from '@/utilities/getPageMetadata';
 import { notFound } from 'next/navigation';
-import { getStoryDataCached, getAllStoriesCached } from '@/utilities/data/';
+import { getStoryData, getAllStories } from '@/utilities/data/';
 import { isProduction } from '@/utilities/getActiveEnv';
 
 type PathsType = {
@@ -20,14 +20,8 @@ const bridgeOptions = {
   resolveLinks: 'story',
 };
 
-// Allow dynamic params for content published between builds
-export const dynamicParams = true;
-
-// Revalidate every 10 minutes
-export const revalidate = 600;
-
-// Force static rendering.
-export const dynamic = 'force-static';
+// Do not allow dynamic params — only the statically generated paths will be served
+export const dynamicParams = false;
 
 /**
  * Generate the list of stories to statically render.
@@ -36,8 +30,8 @@ export const generateStaticParams = async () => {
   const isProd = isProduction();
 
   try {
-    // Get all the stories.
-    let stories = await getAllStoriesCached();
+    // In production builds we want the freshest list of stories — call the uncached fetch.
+    let stories = await getAllStories();
 
     // Filter out folders.
     stories = stories.filter((link) => link.is_folder === false);
@@ -74,45 +68,6 @@ export const generateStaticParams = async () => {
 };
 
 /**
- * Cache of known story slugs for validation (populated at build time)
- */
-let knownSlugsCache: Set<string> | null = null;
-
-/**
- * Initialize and get the cache of known story slugs
- */
-const getKnownSlugs = async (): Promise<Set<string>> => {
-  if (knownSlugsCache) {
-    return knownSlugsCache;
-  }
-
-  try {
-    const stories = await getAllStoriesCached();
-    const isProd = isProduction();
-
-    // Apply same filters as generateStaticParams
-    const filteredStories = stories
-      .filter((link) => link.is_folder === false)
-      .filter((link) => isProd ? !link.slug.startsWith('test') : true)
-      .filter((link) => !link.slug.startsWith('global-components'));
-
-    const slugs = new Set<string>();
-    slugs.add('home'); // Always include home
-
-    filteredStories.forEach((story) => {
-      slugs.add(story.slug);
-    });
-
-    knownSlugsCache = slugs;
-    return slugs;
-  } catch (error) {
-    console.error('Failed to load known slugs:', error);
-    // Return minimal set to prevent failures
-    return new Set(['home']);
-  }
-};
-
-/**
  * Generate the SEO metadata for the page.
  */
 export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata> => {
@@ -122,22 +77,8 @@ export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata
   // Slug will be falsy if root/home route
   const slugPath = slug ? slug.join('/') : 'home';
 
-  // For dynamic params, validate but don't block - let API handle it gracefully
-  if (slug && slug.length > 0) {
-    try {
-      const knownSlugs = await getKnownSlugs();
-      if (!knownSlugs.has(slugPath)) {
-        // console.log(`Unknown slug in metadata: ${slugPath}`, { knownSlugs: Array.from(knownSlugs).slice(0, 5) });
-        // Don't block here - let the API call determine if it's truly invalid
-      }
-    } catch (error) {
-      console.error('Error checking known slugs in metadata:', error);
-      // Continue without validation if check fails
-    }
-  }
-
   // Get the story data.
-  const { data } = await getStoryDataCached({ path: slugPath });
+  const { data } = await getStoryData({ path: slugPath });
 
   // If story not found, return basic metadata and let Page component handle 404
   if (data === 404) {
@@ -170,22 +111,8 @@ const Page = async ({ params }: ParamsType) => {
   // Slug will be falsy if root/home route
   const slugPath = slug ? slug.join('/') : 'home';
 
-  // For dynamic params, validate but don't block - let API handle it gracefully
-  if (slug && slug.length > 0) {
-    try {
-      const knownSlugs = await getKnownSlugs();
-      if (!knownSlugs.has(slugPath)) {
-        console.log(`Unknown slug in page: ${slugPath}`, { knownSlugs: Array.from(knownSlugs).slice(0, 5) });
-        // Don't block here - let the API call determine if it's truly invalid
-      }
-    } catch (error) {
-      console.error('Error checking known slugs in page:', error);
-      // Continue without validation if check fails
-    }
-  }
-
   // Get data out of the API.
-  const { data } = await getStoryDataCached({ path: slugPath });
+  const { data } = await getStoryData({ path: slugPath });
 
   // Failed to fetch from API because story slug was not found.
   if (data === 404) {

@@ -6,7 +6,7 @@ import '@/styles/slick.css';
 import '@/styles/tables.css';
 import { FlexBox } from '@/components/FlexBox';
 import { GAProvider, GTAG } from '@/components/GAProvider';
-import { getGlobalAlertsCached, getSearchConfigBlokCached } from '@/utilities/data';
+import { getGlobalAlerts, getSearchConfigBlok } from '@/utilities/data';
 import { SearchModalProvider } from '@/components/Search/Modal/SearchModalContext';
 import { MotionProvider } from '@/components/MotionProvider';
 import { GlobalAlertsProvider } from '@/components/Alert';
@@ -39,8 +39,8 @@ const stanford = localFont({
 });
 
 const RootLayout = async ({ children }: LayoutProps) => {
-  const searchConfig = await getSearchConfigBlokCached();
-  const globalAlerts = await getGlobalAlertsCached();
+  const searchConfig = await getSearchConfigBlok();
+  const globalAlerts = await getGlobalAlerts();
 
   return (
     <GAProvider>

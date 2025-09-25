@@ -7,12 +7,8 @@ import ENDOWED_POSITIONS from '@/fixtures/endowedPositions.json';
 import { EndowedPositionsPagination } from '@/components/EndowedPositions';
 import { config } from '@/utilities/config';
 
-// Force static rendering for optimal Netlify atomic deployment
-export const dynamic = 'force-static';
-// Cache for 10 minutes
-export const revalidate = 600;
 // Allow dynamic params for content published between builds
-export const dynamicParams = true;
+export const dynamicParams = false;
 
 // Generate all position category slugs at build time
 export const generateStaticParams = async () => {

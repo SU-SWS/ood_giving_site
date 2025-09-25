@@ -7,9 +7,6 @@ import { sbStripSlugURL } from '@/utilities/sbStripSlugUrl';
 // Force static rendering for optimal Netlify atomic deployment
 export const dynamic = 'force-static';
 
-// Cache for 10 minutes
-export const revalidate = 600;
-
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const storyblokClient = new StoryblokClient({
     accessToken: process.env.STORYBLOK_ACCESS_TOKEN,

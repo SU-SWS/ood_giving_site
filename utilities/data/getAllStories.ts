@@ -32,6 +32,6 @@ export const getAllStoriesCached = unstable_cache(
   [],
   {
     tags: ['story', 'all'],
-    revalidate: 600, // Revalidate every 10 minutes
+    revalidate: 3600, // Revalidate every hour
   },
 );
