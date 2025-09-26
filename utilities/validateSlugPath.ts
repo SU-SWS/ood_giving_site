@@ -4,6 +4,7 @@ import { unstable_cache } from 'next/cache';
 
 /**
  * Get the array of all valid slug paths for runtime validation
+ * Uses the same logic as generateStaticParams to ensure consistency
  */
 const getValidSlugs = async (): Promise<string[]> => {
   const isProd = isProduction();
@@ -24,13 +25,17 @@ const getValidSlugs = async (): Promise<string[]> => {
 
   stories.forEach((story) => {
     const slug = story.slug;
+    const splitSlug = slug.split('/');
 
-    if (slug === 'home') {
-      // Add both empty string and 'home' for the home page
+    // Remove any empty strings - same logic as generateStaticParams
+    const cleanSlug = splitSlug.filter((s: string) => s.length);
+
+    if (cleanSlug.length === 1 && cleanSlug[0] === 'home') {
+      // Add empty string for the home page (matches generateStaticParams logic)
       validSlugs.push('');
-      validSlugs.push('home');
     } else {
-      validSlugs.push(slug);
+      // Join the clean slug array back to a path
+      validSlugs.push(cleanSlug.join('/'));
     }
   });
 
