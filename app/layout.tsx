@@ -1,8 +1,11 @@
 import { cnb } from 'cnbuilder';
 import { Source_Sans_3, Source_Serif_4 } from 'next/font/google';
 import localFont from 'next/font/local';
+// @ts-expect-error: allow importing global CSS in this file for Next.js layout
 import '@/styles/globals.css';
+// @ts-expect-error: allow importing global CSS in this file for Next.js layout
 import '@/styles/slick.css';
+// @ts-expect-error: allow importing global CSS in this file for Next.js layout
 import '@/styles/tables.css';
 import { FlexBox } from '@/components/FlexBox';
 import { GAProvider, GTAG } from '@/components/GAProvider';
@@ -13,6 +16,7 @@ import { GlobalAlertsProvider } from '@/components/Alert';
 
 // https://docs.fontawesome.com/web/use-with/react/use-with#getting-font-awesome-css-to-work
 import { config } from '@fortawesome/fontawesome-svg-core';
+// @ts-expect-error: allow importing global CSS in this file for Next.js layout
 import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
 
