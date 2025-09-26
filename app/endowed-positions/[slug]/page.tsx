@@ -16,6 +16,25 @@ type ParamsType = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
+// Allow dynamic params but handle 404s in code to avoid noFallback bug
+export const dynamicParams = true;
+
+// Cache for one year to align with Netlify edge caching
+export const revalidate = 31536000;
+
+// Allow dynamic rendering for search parameters (pagination)
+// This enables search parameters while still pre-generating the base pages
+export const dynamic = 'auto';
+
+/**
+ * Generate static params for all endowed position categories
+ */
+export const generateStaticParams = async () => {
+  return ENDOWED_POSITIONS_MAP.map((position) => ({
+    slug: position.to,
+  }));
+};
+
 /**
  * Generate the SEO metadata for the page.
  */
@@ -23,8 +42,16 @@ export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata
   const { slug } = await params;
   const matchingData = ENDOWED_POSITIONS_MAP.find((p) => p.to === slug);
 
+  // If no matching data found, return 404 metadata
+  if (!matchingData) {
+    return {
+      title: 'Page Not Found',
+      description: 'The requested endowed position page could not be found.',
+    };
+  }
+
   const title = `Endowed Positions at Stanford: "${matchingData.label}" | ${config.siteTitle}`;
-  const description = 'Endowed positions are gifted by donors to support outstanding faculty, staff, and campus leaders. Through these meaningful investments, donors help enhance the Stanford community and strengthen the university’s future.';
+  const description = 'Endowed positions are gifted by donors to support outstanding faculty, staff, and campus leaders. Through these meaningful investments, donors help enhance the Stanford community and strengthen the university\'s future.';
 
   return {
     title,

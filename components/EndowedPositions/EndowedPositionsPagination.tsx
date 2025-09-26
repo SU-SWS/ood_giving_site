@@ -1,5 +1,6 @@
 'use client';
-import { useCallback } from 'react';
+import { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { cnb } from 'cnbuilder';
 import Link from 'next/link';
 
@@ -14,6 +15,24 @@ export const EndowedPositionsPagination = ({
   totalPages,
   focusOnPageChangeId,
 }: EndowedPositionsPaginationProps) => {
+  const searchParams = useSearchParams();
+
+  // Smooth scroll when page parameter changes
+  useEffect(() => {
+    if (focusOnPageChangeId && currentPage > 1) {
+      const el = document.getElementById(focusOnPageChangeId);
+      if (el) {
+        const reduceMotion = !!window.matchMedia('(prefers-reduced-motion: reduce)')?.matches;
+        el.scrollIntoView({
+          behavior: reduceMotion ? 'instant' : 'smooth',
+          block: 'start',
+          inline: 'nearest',
+        });
+        el.focus({ preventScroll: true });
+      }
+    }
+  }, [searchParams, focusOnPageChangeId, currentPage]);
+
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
   const showLeftBreak = totalPages > 7 && currentPage > 4;
@@ -55,13 +74,6 @@ export const EndowedPositionsPagination = ({
       return i + 1;
     });
 
-  const handlePageChange = useCallback(() => {
-    const el = document.getElementById(focusOnPageChangeId);
-    if (el) {
-      el.focus();
-    }
-  }, [focusOnPageChangeId]);
-
   return (
     <nav aria-label="Endowed positions pagination" className="flex justify-center rs-mt-4">
       <ol className="flex list-none m-0 p-0 gap-4 sm:gap-12 md:gap-16 xl:gap-24 text-28">
@@ -76,7 +88,6 @@ export const EndowedPositionsPagination = ({
               aria-label="Previous page"
               className="flex items-center justify-center no-underline border-b-4 border-b-transparent hocus:border-b-digital-blue text-16 lg:text-18 xl:text-20 transition-colors"
               scroll={false}
-              onClick={handlePageChange}
             >
               Prev<span className="hidden md:inline">ious</span>
             </Link>
@@ -97,7 +108,6 @@ export const EndowedPositionsPagination = ({
               <Link
                 href={`?page=${page}`}
                 scroll={false}
-                onClick={handlePageChange}
                 aria-label={i === shownPages.length - 1 ? `Last page, page ${page}` : `Page ${page}`}
                 aria-current={page === currentPage ? 'page' : undefined}
                 className={cnb(
@@ -123,7 +133,6 @@ export const EndowedPositionsPagination = ({
               href={`?page=${currentPage + 1}`}
               aria-label="Next page"
               scroll={false}
-              onClick={handlePageChange}
               className="flex items-center justify-center no-underline border-b-4 border-b-transparent hocus:border-b-digital-blue text-16 lg:text-18 xl:text-20 transition-colors"
             >
               Next
