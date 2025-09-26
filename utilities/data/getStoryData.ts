@@ -37,7 +37,7 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
  */
 export const getStoryDataCached = unstable_cache(
   getStoryData,
-  ['story-data'], // Proper cache key
+  ({ path }) => ['story-data', path], // Cache key includes path
   {
     tags: ['story', 'page'],
     // Cache for 10 minutes to balance freshness with performance
