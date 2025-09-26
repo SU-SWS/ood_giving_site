@@ -22,8 +22,9 @@ export const dynamicParams = true;
 // Cache for one year to align with Netlify edge caching
 export const revalidate = 31536000;
 
-// Force static rendering for optimal performance
-export const dynamic = 'force-static';
+// Allow dynamic rendering for search parameters (pagination)
+// This enables search parameters while still pre-generating the base pages
+export const dynamic = 'auto';
 
 /**
  * Generate static params for all endowed position categories
