@@ -22,12 +22,13 @@ export const EndowedPositionsPagination = ({
     if (focusOnPageChangeId && currentPage > 1) {
       const el = document.getElementById(focusOnPageChangeId);
       if (el) {
+        const reduceMotion = !!window.matchMedia('(prefers-reduced-motion: reduce)')?.matches;
         el.scrollIntoView({
-          behavior: 'smooth',
+          behavior: reduceMotion ? 'instant' : 'smooth'
           block: 'start',
           inline: 'nearest',
         });
-        el.focus();
+        el.focus({ preventScroll: true });
       }
     }
   }, [searchParams, focusOnPageChangeId, currentPage]);
