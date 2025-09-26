@@ -9,6 +9,12 @@ type EndowedPositionsLayoutProps = {
   children: React.ReactNode;
 };
 
+// Cache for one year to align with Netlify edge caching
+export const revalidate = 31536000;
+
+// Force static rendering for optimal performance
+export const dynamic = 'force-static';
+
 const EndowedPositionsLayout = async ({ children }: EndowedPositionsLayoutProps) => {
   const { data: endowedPositionsPage } = await getStoryDataCached({ path: 'endowed-positions' });
   const {

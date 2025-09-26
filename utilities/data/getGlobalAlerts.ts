@@ -27,6 +27,7 @@ export const getGlobalAlerts = async () => {
     // Only show published alerts; we don't want the dev site to always show EVERY existing alert.
     version: 'published',
     sort_by: 'published_at:desc',
+    // Let Storyblok handle cache invalidation automatically
     // Only alerts set as global.
     filter_query: {
       isGlobal: {
@@ -54,5 +55,7 @@ export const getGlobalAlertsCached = unstable_cache(
   ['global-alerts'],
   {
     tags: ['global', 'alerts'],
+    // Cache for 5 minutes since alerts may need faster updates
+    revalidate: 300,
   },
 );

@@ -36,6 +36,7 @@ export const getSearchConfigBlok = async () => {
     {
       // We have separate dev/prod spaces; we always want the published config from each space
       version: 'published',
+      // Let Storyblok handle cache invalidation automatically
     },
   );
 
@@ -70,5 +71,7 @@ export const getSearchConfigBlokCached = unstable_cache(
   ['search-configuration'],
   {
     tags: ['global', 'config', 'search'],
+    // Cache for 10 minutes as config changes are infrequent
+    revalidate: 600,
   },
 );

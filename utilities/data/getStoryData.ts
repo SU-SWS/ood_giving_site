@@ -15,6 +15,7 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
     version: 'published',
     resolve_relations: resolveRelations,
     resolve_links: 'url',
+    // Let Storyblok handle cache invalidation automatically
   };
 
   const slug = path.replace(/\/$/, ''); // Remove trailing slash.
@@ -36,8 +37,10 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
  */
 export const getStoryDataCached = unstable_cache(
   getStoryData,
-  [],
+  ['story-data'], // Proper cache key
   {
     tags: ['story', 'page'],
+    // Cache for 10 minutes to balance freshness with performance
+    revalidate: 600,
   },
 );

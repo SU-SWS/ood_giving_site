@@ -5,6 +5,8 @@ import { StoryblokComponent, useStoryblok } from '@storyblok/react';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { Grid } from '@/components/Grid';
 
+export const dynamic = 'force-dynamic';
+
 /**
  * Fetch the path data for the page and render it.
  */
