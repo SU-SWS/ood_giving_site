@@ -51,7 +51,7 @@ export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata
   }
 
   const title = `Endowed Positions at Stanford: "${matchingData.label}" | ${config.siteTitle}`;
-  const description = 'Endowed positions are gifted by donors to support outstanding faculty, staff, and campus leaders. Through these meaningful investments, donors help enhance the Stanford community and strengthen the university\'s future.';
+  const description = 'Endowed positions are gifted by donors to support outstanding faculty, staff, and campus leaders. Through these meaningful investments, donors help enhance the Stanford community and strengthen the university's future.';
 
   return {
     title,
