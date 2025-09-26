@@ -26,7 +26,9 @@ const defaultResponsiveBreakpoints: ResponsiveBreakpointType[] = [
  *
  * @param filename - The image filename from Storyblok
  * @param originalWidth - Original width of the image
- * @param originalHeight - Original height of the image
+ * @param imageFocus - Optional focus point for cropping
+ * @param aspectRatio - Optional aspect ratio string (e.g., "16x9")
+ * @param targetCropWidth - Optional maximum crop width to limit the largest generated image
  * @param customBreakpoints - Optional custom breakpoints to override defaults
  * @returns Array of image sources with srcSet and media queries
  */
@@ -35,14 +37,20 @@ export const getImageSources = (
   originalWidth: number,
   imageFocus?: string,
   aspectRatio?: string,
+  targetCropWidth?: number,
   customBreakpoints?: ResponsiveBreakpointType[],
 ): ImageSourceType[] => {
   const sources: ImageSourceType[] = [];
   const breakpoints = customBreakpoints || defaultResponsiveBreakpoints;
   const aspectRatioDecimal = !!aspectRatio ? getAspectRatioNumber(aspectRatio) : undefined;
 
+  // Filter breakpoints to not exceed targetCropWidth if specified
+  const filteredBreakpoints = targetCropWidth
+    ? breakpoints.filter(bp => bp.cropWidth <= targetCropWidth)
+    : breakpoints;
+
   // If the original image width is < 2000px, find out what breakpoint range it falls into
-  const largestBp = breakpoints.find(bp => originalWidth >= bp.minWidth && originalWidth < bp.cropWidth);
+  const largestBp = filteredBreakpoints.find(bp => originalWidth >= bp.minWidth && originalWidth < bp.cropWidth);
 
   // If we found an appropriate breakpoint, insert the original image at that breakpoint
   // For example, if the original image is 1100px, it will be used for the min-width: 992px breakpoint
@@ -54,14 +62,14 @@ export const getImageSources = (
   }
 
   // Add all smaller sizes that are relevant
-  breakpoints
-    // First pass: always include the mobile size, and keep all the breakpoints with minWidth < the original image width
-    .filter(bp => bp.cropWidth < originalWidth || bp.cropWidth === 460)
+  filteredBreakpoints
+    // First pass: always include the mobile size, and keep all the breakpoints with minWidth <= the original image width
+    .filter(bp => bp.cropWidth <= originalWidth || bp.cropWidth === 460)
     // If the original image is wider than 2000px (no largestBp assigned), keep all the breakpoints from the first pass
     // Otherwise, keep only the breakpoints that are smaller than the largestBp
     .filter(bp => !largestBp || bp.minWidth < largestBp.minWidth)
     .forEach(bp => {
-      const cropSize = !!aspectRatio ? `${bp.cropWidth}x${bp.cropWidth / aspectRatioDecimal}` : `${bp.cropWidth}x0`;
+      const cropSize = !!aspectRatio ? `${bp.cropWidth}x${Math.round(bp.cropWidth / aspectRatioDecimal)}` : `${bp.cropWidth}x0`;
 
       sources.push({
         srcSet: getProcessedImage(filename, cropSize, imageFocus),
