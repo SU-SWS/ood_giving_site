@@ -24,7 +24,7 @@ export const EndowedPositionsPagination = ({
       if (el) {
         const reduceMotion = !!window.matchMedia('(prefers-reduced-motion: reduce)')?.matches;
         el.scrollIntoView({
-          behavior: reduceMotion ? 'instant' : 'smooth'
+          behavior: reduceMotion ? 'instant' : 'smooth',
           block: 'start',
           inline: 'nearest',
         });
