@@ -14,6 +14,8 @@ export type AlertContent = {
   fontAwesomeIcon?: SbAlertIconType;
 };
 
+const BUILD_ID = process.env.BUILD_ID || '';
+
 /**
  * Get all the published (global) alerts from Storyblok.
  */
@@ -52,10 +54,10 @@ export const getGlobalAlerts = async () => {
  */
 export const getGlobalAlertsCached = unstable_cache(
   getGlobalAlerts,
-  ['global-alerts'],
+  ['global-alerts', BUILD_ID], // Include BUILD_ID for fresh content per build
   {
     tags: ['global', 'alerts'],
-    // Cache for 5 minutes since alerts may need faster updates
-    revalidate: 300,
+    // Cache for 10 minutes.
+    revalidate: 600,
   },
 );

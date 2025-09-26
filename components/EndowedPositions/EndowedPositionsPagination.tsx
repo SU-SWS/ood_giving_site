@@ -73,8 +73,6 @@ export const EndowedPositionsPagination = ({
       return i + 1;
     });
 
-
-
   return (
     <nav aria-label="Endowed positions pagination" className="flex justify-center rs-mt-4">
       <ol className="flex list-none m-0 p-0 gap-4 sm:gap-12 md:gap-16 xl:gap-24 text-28">

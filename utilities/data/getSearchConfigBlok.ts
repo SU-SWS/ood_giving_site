@@ -24,6 +24,8 @@ export type SearchConfig = {
   suggestionsAmount: number;
 };
 
+const BUILD_ID = process.env.BUILD_ID || '';
+
 /**
  * Get the global search configuration from Storyblok.
  */
@@ -68,7 +70,7 @@ export const getSearchConfigBlok = async () => {
  */
 export const getSearchConfigBlokCached = unstable_cache(
   getSearchConfigBlok,
-  ['search-configuration'],
+  ['search-configuration', BUILD_ID], // Include BUILD_ID for fresh content per build
   {
     tags: ['global', 'config', 'search'],
     // Cache for 10 minutes as config changes are infrequent

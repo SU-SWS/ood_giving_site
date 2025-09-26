@@ -42,12 +42,14 @@ const getValidSlugs = async (): Promise<string[]> => {
   return validSlugs;
 };
 
+const BUILD_ID = process.env.BUILD_ID || '';
+
 /**
  * Cached version of getValidSlugs to avoid repeated API calls
  */
 const getValidSlugsCached = unstable_cache(
   getValidSlugs,
-  [],
+  [BUILD_ID], // Include BUILD_ID for fresh content per build
   {
     tags: ['story', 'all', 'slugs'],
     // Cache for 10 minutes to balance performance with content updates

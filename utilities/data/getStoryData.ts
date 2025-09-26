@@ -4,6 +4,8 @@ import { unstable_cache } from 'next/cache';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getStoryblokClient } from '@/utilities/storyblok';
 
+const BUILD_ID = process.env.BUILD_ID || '';
+
 /**
  * Get the data out of the Storyblok API for the page.
  */
@@ -34,10 +36,11 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
 
 /**
  * Get the data out of the Storyblok API for the page through the cache.
+ * BUILD_ID ensures fresh content for each build while enabling deduplication within builds.
  */
 export const getStoryDataCached = unstable_cache(
   getStoryData,
-  ({ path }) => ['story-data', path], // Cache key includes path
+  ['story-data', BUILD_ID], // Include BUILD_ID for fresh content per build
   {
     tags: ['story', 'page'],
     // Cache for 10 minutes to balance freshness with performance
