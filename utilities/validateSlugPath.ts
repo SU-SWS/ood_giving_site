@@ -49,7 +49,7 @@ const BUILD_ID = process.env.BUILD_ID || '';
  */
 const getValidSlugsCached = unstable_cache(
   getValidSlugs,
-  [BUILD_ID], // Include BUILD_ID for fresh content per build
+  ['valid-slugs', BUILD_ID], // Use a descriptive cache key to avoid conflicts
   {
     tags: ['story', 'all', 'slugs'],
     // Cache for 10 minutes to balance performance with content updates
