@@ -28,13 +28,13 @@
     roleId = 'VAULT_ROLE_ID'
     addContext = true
 
-[[plugins]]
-  package = '/netlify/build-plugins/netlify-plugin-contextual-auth/index.mjs'
-  [plugins.inputs]
-    username = 'adapt'
-    password = 'letmein2021'
-    context = ['branch-deploy', 'deploy-preview']
-    file = '.next/_headers'
+# [[plugins]]
+#   package = '/netlify/build-plugins/netlify-plugin-contextual-auth/index.mjs'
+#   [plugins.inputs]
+#     username = 'adapt'
+#     password = 'letmein2021'
+#     context = ['branch-deploy', 'deploy-preview']
+#     file = '.next/_headers'
 
 # HEADERS
 # ##############################################################################
