@@ -56,10 +56,20 @@ export const EndowedPositionsPagination = ({
     });
 
   const handlePageChange = useCallback(() => {
-    const el = document.getElementById(focusOnPageChangeId);
-    if (el) {
-      el.focus();
-    }
+    // Small delay to allow the page to update first
+    setTimeout(() => {
+      const el = document.getElementById(focusOnPageChangeId);
+      if (el) {
+        // Smooth scroll to the element instead of jumping
+        el.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest',
+        });
+        // Focus for accessibility after scrolling
+        el.focus();
+      }
+    }, 100);
   }, [focusOnPageChangeId]);
 
   return (
