@@ -69,7 +69,9 @@ export const getImageSources = (
     // Otherwise, keep only the breakpoints that are smaller than the largestBp
     .filter(bp => !largestBp || bp.minWidth < largestBp.minWidth)
     .forEach(bp => {
-      const cropSize = !!aspectRatio ? `${bp.cropWidth}x${Math.round(bp.cropWidth / aspectRatioDecimal)}` : `${bp.cropWidth}x0`;
+      const cropSize = !!aspectRatio
+        ? `${bp.cropWidth}x${Math.round(bp.cropWidth / aspectRatioDecimal)}`
+        : `${bp.cropWidth}x0`;
 
       sources.push({
         srcSet: getProcessedImage(filename, cropSize, imageFocus),
