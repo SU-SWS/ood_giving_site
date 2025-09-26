@@ -14,6 +14,8 @@ export type AlertContent = {
   fontAwesomeIcon?: SbAlertIconType;
 };
 
+const BUILD_ID = process.env.BUILD_ID || '';
+
 /**
  * Get all the published (global) alerts from Storyblok.
  */
@@ -27,6 +29,7 @@ export const getGlobalAlerts = async () => {
     // Only show published alerts; we don't want the dev site to always show EVERY existing alert.
     version: 'published',
     sort_by: 'published_at:desc',
+    // Let Storyblok handle cache invalidation automatically
     // Only alerts set as global.
     filter_query: {
       isGlobal: {
@@ -51,8 +54,10 @@ export const getGlobalAlerts = async () => {
  */
 export const getGlobalAlertsCached = unstable_cache(
   getGlobalAlerts,
-  ['global-alerts'],
+  ['global-alerts', BUILD_ID], // Include BUILD_ID for fresh content per build
   {
     tags: ['global', 'alerts'],
+    // Cache for 10 minutes.
+    revalidate: 600,
   },
 );

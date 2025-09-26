@@ -2,6 +2,8 @@ import { type ISbStoriesParams } from '@storyblok/react/rsc';
 import { unstable_cache } from 'next/cache';
 import { getStoryblokClient } from '@/utilities/storyblok';
 
+const BUILD_ID = process.env.BUILD_ID || '';
+
 /**
  * Fetches all stories from Storyblok.
  */
@@ -12,10 +14,9 @@ export const getAllStories = async () => {
   const sbParams: ISbStoriesParams = {
     // We have separate dev/prod spaces; we only ever want published stories.
     version: 'published',
-    // Always grab the latest stories.
-    cv: Date.now(),
     resolve_links: '0',
     resolve_assets: 0,
+    // Let Storyblok handle cache invalidation automatically
   };
 
   // Use the `cdn/links` endpoint to get a list of all stories without all the extra data.
@@ -29,8 +30,10 @@ export const getAllStories = async () => {
  */
 export const getAllStoriesCached = unstable_cache(
   getAllStories,
-  [],
+  ['all-stories', BUILD_ID], // Proper cache key with BUILD_ID for fresh content per build
   {
     tags: ['story', 'all'],
+    // Cache for 10 minutes to balance freshness with performance
+    revalidate: 600,
   },
 );

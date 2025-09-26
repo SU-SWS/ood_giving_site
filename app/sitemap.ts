@@ -1,29 +1,26 @@
 import { type MetadataRoute } from 'next';
+import { type ISbStoriesParams } from '@storyblok/react/rsc';
 import StoryblokClient from 'storyblok-js-client';
-import type { ISbStoriesParams } from 'storyblok-js-client';
-import { isProduction } from '@/utilities/getActiveEnv';
 import { sbStripSlugURL } from '@/utilities/sbStripSlugUrl';
 
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
-  const storyblokClient = new StoryblokClient({
+  // Use direct Storyblok client to avoid component mapping overhead
+  const storyblokApi = new StoryblokClient({
     accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
-    cache: {
-      clear: 'auto',
-      type: 'memory',
-    },
   });
 
-  const isProd = isProduction();
   // Fetch new content from storyblok.
+  // Always use 'published' version like other utilities - we have separate dev/prod spaces
   const sbParams: ISbStoriesParams = {
-    version: isProd ? 'published' : 'draft',
+    version: 'published',
     resolve_links: '0',
     resolve_assets: 0,
+    // Let Storyblok handle cache invalidation automatically
   };
 
   // Fetch all the stories from SB.
   // We use the `cdn/stories` endpoint because it has the last published time which `cdn/links` does not.
-  const response = await storyblokClient.getAll('cdn/stories', sbParams);
+  const response = await storyblokApi.getAll('cdn/stories', sbParams);
 
   // Exclude any stories with noindex set to true and those inside the Global Components or Test folders in Storyblok
   const indexStories = response.filter(
