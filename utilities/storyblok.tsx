@@ -133,8 +133,6 @@ export const components = {
   oodHomepageHero: SbHomepageHero,
   oodPoster: SbPoster,
   oodGallerySlideshow: SbGallerySlideshow,
-
-
 };
 
 export type GetStoryblokApiConfig = {
@@ -147,8 +145,6 @@ export const getStoryblokClient = ({
   isEditor,
 }: GetStoryblokApiConfig = {}): StoryblokClient => {
   accessToken ??= isEditor ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
-
-
 
   const client = storyblokInit({
     accessToken,
