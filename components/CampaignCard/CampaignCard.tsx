@@ -37,6 +37,7 @@ export const CampaignCard = ({
           filename={filename}
           alt={alt}
           focus={focus}
+          imageSize="card"
           visibleHorizontal={visibleHorizontal}
           visibleVertical={visibleVertical}
           className={styles.image}

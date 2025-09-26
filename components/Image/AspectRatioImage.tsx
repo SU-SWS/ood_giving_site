@@ -19,7 +19,7 @@ export const AspectRatioImage = ({
   filename,
   alt,
   focus,
-  imageSize = 'default',
+  imageSize,
   aspectRatio = '3x2',
   visibleHorizontal,
   visibleVertical,
@@ -39,7 +39,7 @@ export const AspectRatioImage = ({
   }, [focus, originalWidth, originalHeight, visibleHorizontal, visibleVertical]);
 
   const { cropHeight, cropWidth } = useMemo(() => {
-    const targetCropWidth = styles.aspectImageSizes[imageSize];
+    const targetCropWidth = imageSize ? styles.aspectImageSizes[imageSize] : originalWidth;
 
     // E.g. '3x2' => 1.5
     const aspectRatioDecimal = getAspectRatioNumber(aspectRatio);

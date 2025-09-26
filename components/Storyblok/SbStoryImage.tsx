@@ -39,6 +39,11 @@ export const SbStoryImage = ({
   },
   blok,
 }: SbStoryImageProps) => {
+  /**
+   * If user chooses the "Edge to edge" option (su-w-full), use the 10x3 aspect ratio for cropping
+   * Previously we didn't crop the image, but use a container height of 30vw to simulate the 10x3 ratio
+   * Cropping the image is better because the user can now set an image focus and it reduces the image size
+   */
   const effectiveAspectRatio = imageWidth === 'su-w-full' ? '10x3' : aspectRatio || 'free';
   const Caption = hasRichText(caption)
     ? <RichText

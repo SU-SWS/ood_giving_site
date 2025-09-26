@@ -19,7 +19,7 @@ export const StoryImage = ({
   imageSrc,
   imageFocus,
   mediaWidth,
-  aspectRatio = mediaWidth === 'su-w-full' ? '10x3' : 'free',
+  aspectRatio = 'free',
   alt,
   caption,
   captionAlign,
@@ -49,7 +49,6 @@ export const StoryImage = ({
           {hasAspectRatio ? (
             <AspectRatioImage
               filename={imageSrc}
-              imageSize="gallery-slide"
               focus={imageFocus}
               visibleVertical={visibleVertical}
               alt={alt}
