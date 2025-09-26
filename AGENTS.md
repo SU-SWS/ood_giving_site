@@ -131,6 +131,10 @@ Root layout loads global data for:
 
 ## Common Patterns & Conventions
 
+### Code Style
+- Follow existing code styles
+- Don't forget to add the EOF newline
+
 ### Error Handling
 - Each route group has dedicated error.tsx components
 - Global error boundary in `app/global-error.tsx`
