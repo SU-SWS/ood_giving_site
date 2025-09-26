@@ -47,7 +47,7 @@ export const getPageMetadata = ({ story, slug }: PageMetadataProps) => {
       noindex,
       seo,
       title,
-      canonicalUrl,
+      canonicalURL,
       headerImage: { filename: headerImageSrc, focus: headerImageFocus } = {}, // from Interior Page
       heroImage: { filename: heroImageSrc, focus: heroImageFocus } = {}, // from Story
       image: { filename: storyImageSrc, focus: storyImageFocus } = {}, // from Campaign Page
@@ -64,17 +64,17 @@ export const getPageMetadata = ({ story, slug }: PageMetadataProps) => {
   // Canonical URL.
   // Canonical priority: Story Canonical URL > Config Site URL + Slug
   let canonical = `${siteUrlProd}${sbStripSlugURL(slug)}`;
-  if (canonicalUrl) {
-    switch (canonicalUrl.linktype) {
+  if (canonicalURL) {
+    switch (canonicalURL.linktype) {
       case 'story': {
-          if (canonicalUrl.cached_url && canonicalUrl.cached_url.length) {
-            canonical = `${siteUrlProd}${sbStripSlugURL(canonicalUrl.cached_url)}`;
+          if (canonicalURL.cached_url && canonicalURL.cached_url.length) {
+            canonical = `${siteUrlProd}${sbStripSlugURL(canonicalURL.cached_url)}`;
           }
         }
         break;
       case 'url': {
-        if (canonicalUrl.url && (canonicalUrl.url as string).length) {
-          canonical = canonicalUrl.url as string;
+        if (canonicalURL.url && (canonicalURL.url as string).length) {
+          canonical = canonicalURL.url as string;
         }
       }
       break;
