@@ -33,12 +33,42 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
 
 /**
  * Get the data out of the Storyblok API for the page through the cache.
+ * Uses long cache duration (7 days) for optimal edge caching between builds.
  */
 export const getStoryDataCached = unstable_cache(
   getStoryData,
   [],
   {
     tags: ['story', 'page'],
-    revalidate: 3600, // Revalidate every hour
+    revalidate: 604800, // Revalidate every 7 days for better edge caching
   },
 );
+
+/**
+ * Get story data with build-time cache busting for fresh builds.
+ * This ensures generateMetadata and page rendering get the latest content during builds.
+ */
+export const getStoryDataForBuild = (path: string) => unstable_cache(
+  getStoryData,
+  [`build-${Date.now()}-${path}`], // Cache key includes timestamp and path for fresh builds
+  {
+    tags: ['story', 'page', 'build'],
+    revalidate: false, // No revalidation - fresh for each build
+  },
+)({ path });
+
+/**
+ * Get story data with appropriate caching strategy.
+ * Uses build-specific caching during static generation, regular caching during runtime.
+ */
+export const getStoryDataSmart = async ({ path }: getStoryDataProps) => {
+  // Check if we're in a Netlify build context using Netlify-specific environment variables
+  // NETLIFY is always true during builds, but is not available at runtime
+  const isBuildTime = process.env.NETLIFY === 'true';
+
+  if (isBuildTime) {
+    return getStoryDataForBuild(path);
+  }
+
+  return getStoryDataCached({ path });
+};

@@ -26,12 +26,26 @@ export const getAllStories = async () => {
 
 /**
  * Get all stories from Storyblok through the cache.
+ * Long cache duration for edge caching, but uses build timestamp for fresh builds.
  */
 export const getAllStoriesCached = unstable_cache(
   getAllStories,
   [],
   {
     tags: ['story', 'all'],
-    revalidate: 3600, // Revalidate every hour
+    revalidate: 604800, // Revalidate every 7 days for better edge caching
+  },
+);
+
+/**
+ * Get all stories with build-time cache busting for fresh builds.
+ * This ensures generateStaticParams always gets the latest content during builds.
+ */
+export const getAllStoriesForBuild = unstable_cache(
+  getAllStories,
+  [`build-${Date.now()}`], // Cache key includes timestamp to ensure fresh builds
+  {
+    tags: ['story', 'all', 'build'],
+    revalidate: false, // No revalidation - fresh for each build
   },
 );

@@ -7,8 +7,11 @@ import ENDOWED_POSITIONS from '@/fixtures/endowedPositions.json';
 import { EndowedPositionsPagination } from '@/components/EndowedPositions';
 import { config } from '@/utilities/config';
 
-// Allow dynamic params for content published between builds
-export const dynamicParams = false;
+// Allow dynamic params for safety - prevents NoFallbackError if new positions added
+export const dynamicParams = true;
+
+// Optimize for static generation and edge caching
+export const revalidate = 604800; // 7 days for edge caching
 
 // Generate all position category slugs at build time
 export const generateStaticParams = async () => {

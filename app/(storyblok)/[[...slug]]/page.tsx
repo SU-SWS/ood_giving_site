@@ -3,8 +3,7 @@ import { StoryblokStory } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getPageMetadata } from '@/utilities/getPageMetadata';
 import { notFound } from 'next/navigation';
-import { getStoryData, getAllStories } from '@/utilities/data/';
-import { isProduction } from '@/utilities/getActiveEnv';
+import { getStoryDataSmart, getKnownSlugs, getKnownSlugsCached } from '@/utilities/data/';
 
 type PathsType = {
   slug: string[];
@@ -24,44 +23,30 @@ const bridgeOptions = {
   resolveLinks: 'story',
 };
 
-// Do not allow dynamic params — only the statically generated paths will be served.
-// This ensures requests for unknown paths return the Next.js 404 instead of
-// triggering runtime fallback logic that can produce a NoFallbackError.
-export const dynamicParams = false;
+// Allow dynamic params so that unknown paths can be handled by runtime guards
+// (which call notFound) rather than triggering a framework-level NoFallbackError
+// in serverless environments like Netlify.
+export const dynamicParams = true;
+
+// Optimize for static generation and edge caching
+export const revalidate = 604800; // 7 days for edge caching
 
 /**
  * Generate the list of stories to statically render.
  */
 export const generateStaticParams = async () => {
-  const isProd = isProduction();
-
   try {
-    // In production builds we want the freshest list of stories — call the uncached fetch.
-    let stories = await getAllStories();
-
-    // Filter out folders.
-    stories = stories.filter((link) => link.is_folder === false);
-    // Filter out test content by filtering out the `test` folder.
-    if (isProd) {
-      stories = stories.filter((link) => !link.slug.startsWith('test'));
-    }
-    // Filter out globals by filtering out the `global-components` folder.
-    stories = stories.filter((link) => !link.slug.startsWith('global-components'));
-
+    // Use the known slugs function with build=true to get fresh content during builds
+    const knownSlugs = await getKnownSlugs(true);
     const paths: PathsType[] = [];
 
-    stories.forEach((story) => {
-      const slug = story.slug;
-      const splitSlug = slug.split('/');
-
-      // Remove any empty strings.
-      const cleanSlug = splitSlug.filter((s:string) => s.length);
-
-      if (cleanSlug.length === 1 && cleanSlug[0] === 'home') {
-        // Pass and empty array for the home slug
+    knownSlugs.forEach((slugPath) => {
+      if (slugPath === '' || slugPath === 'home') {
+        // Empty array for the home slug
         paths.push({ slug: [] });
       } else {
-        paths.push({ slug: cleanSlug });
+        const splitSlug = slugPath.split('/');
+        paths.push({ slug: splitSlug });
       }
     });
 
@@ -82,12 +67,15 @@ const normalizeSlugSegments = (slug?: string | string[]) => {
   if (!slug) {
     return [] as string[];
   }
-
   const segments = Array.isArray(slug) ? slug : [slug];
-
   return segments.filter((segment) => segment.length);
 };
 
+/**
+ * Resolve the slug path for a given slug array.
+ * @param slug string array from the URL
+ * @returns string
+ */
 const resolveSlugPath = async (params: PageProps['params']) => {
   const { slug } = await params;
   const segments = normalizeSlugSegments(slug);
@@ -100,7 +88,13 @@ const resolveSlugPath = async (params: PageProps['params']) => {
  * @returns story or throws notFound()
  */
 const getStoryOrThrowNotFound = async (slugPath: string) => {
-  const { data } = await getStoryData({ path: slugPath });
+  // Early validation: check if slug is known to avoid unnecessary Storyblok requests
+  const knownSlugs = await getKnownSlugsCached();
+  if (!knownSlugs.has(slugPath)) {
+    notFound();
+  }
+
+  const { data } = await getStoryDataSmart({ path: slugPath });
 
   if (data === 404) {
     notFound();
