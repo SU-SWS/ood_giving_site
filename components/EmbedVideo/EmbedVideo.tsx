@@ -39,21 +39,22 @@ export const EmbedVideo = ({
       captionAlign={captionAlign}
       pt={pt}
       pb={pb}
-      childrenWrapperClass={styles.videoAspectRatios[aspectRatio]}
       {...props}
     >
-      {isClient && (
-        <ReactPlayer
-          url={videoUrl}
-          width="100%"
-          height="100%"
-          controls
-          playsinline
-          config={{
-            youtube: { playerVars: { start: startTimeInSeconds } },
-          }}
-        />
-      )}
+      <div className={styles.videoAspectRatios[aspectRatio]}>
+        {isClient && (
+          <ReactPlayer
+            url={videoUrl}
+            width="100%"
+            height="100%"
+            controls
+            playsinline
+            config={{
+              youtube: { playerVars: { start: startTimeInSeconds } },
+            }}
+          />
+        )}
+      </div>
     </MediaWrapper>
   );
 };

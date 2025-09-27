@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
+import { getImageSources } from '@/utilities/getImageSources';
 import { getSbImageSize } from '@/utilities/getSbImageSize';
 import { getAspectRatioNumber } from '@/utilities/getAspectRatioNumber';
 import { visiblePositionToFocus } from '@/utilities/visiblePositionToFocus';
@@ -12,17 +13,19 @@ export type AspectRatioImageProps = SbImageType & React.HTMLAttributes<HTMLImage
   imageSize?: styles.AspectRatioImageSizeType;
   aspectRatio?: styles.ImageAspectRatioType;
   fetchPriority?: 'low' | 'high' | 'auto';
+  loading?: 'eager' | 'lazy';
 };
 
 export const AspectRatioImage = ({
   filename,
   alt,
   focus,
-  imageSize = 'default',
+  imageSize,
   aspectRatio = '3x2',
   visibleHorizontal,
   visibleVertical,
   fetchPriority,
+  loading = fetchPriority === 'high' ? 'eager' : 'lazy',
   className,
   ...imageProps
 }: AspectRatioImageProps) => {
@@ -36,9 +39,21 @@ export const AspectRatioImage = ({
     return visiblePositionToFocus(originalWidth, originalHeight, visibleHorizontal, visibleVertical);
   }, [focus, originalWidth, originalHeight, visibleHorizontal, visibleVertical]);
 
-  const { cropHeight, cropWidth } = useMemo(() => {
-    const targetCropWidth = styles.aspectImageSizes[imageSize];
+  const targetCropWidth = imageSize ? styles.aspectImageSizes[imageSize] : originalWidth;
+  const createSourceSet = targetCropWidth >= 800;
 
+   // Get corresponding image sources for responsive images
+  const imageSources = useMemo(() => {
+    return getImageSources(
+      filename,
+      originalWidth,
+      imageFocus,
+      aspectRatio,
+      targetCropWidth,
+    );
+  }, [filename, originalWidth, imageFocus, aspectRatio, targetCropWidth]);
+
+  const { cropHeight, cropWidth } = useMemo(() => {
     // E.g. '3x2' => 1.5
     const aspectRatioDecimal = getAspectRatioNumber(aspectRatio);
 
@@ -46,7 +61,7 @@ export const AspectRatioImage = ({
     const cropHeight = Math.round(cropWidth / aspectRatioDecimal);
 
     return { cropWidth, cropHeight };
-  }, [aspectRatio, imageSize, originalWidth]);
+  }, [aspectRatio, originalWidth, targetCropWidth]);
 
   if (!filename) {
     return null;
@@ -55,16 +70,39 @@ export const AspectRatioImage = ({
   const processedImg = getProcessedImage(filename, `${cropWidth}x${cropHeight}`, imageFocus);
 
   return (
-    <div className={className}>
-      <img
-        className={styles.imageAspectRatios[aspectRatio]}
-        width={cropWidth}
-        height={cropHeight}
-        src={processedImg}
-        fetchPriority={fetchPriority}
-        alt={alt || ''}
-        {...imageProps}
-      />
-    </div>
+    <>
+      {createSourceSet ? (
+        <picture>
+          {imageSources.map((source, index) => (
+            <source
+              key={index}
+              srcSet={source.srcSet}
+              media={source.media}
+            />
+          ))}
+          <img
+            {...imageProps}
+            width={originalWidth}
+            // height={cropHeight}
+            src={imageSources[0]?.srcSet}
+            fetchPriority={fetchPriority}
+            loading={loading}
+            alt={alt || ''}
+            className={className}
+          />
+        </picture>
+      ) : (
+        <img
+          {...imageProps}
+          width={cropWidth}
+          height={cropHeight}
+          src={processedImg}
+          fetchPriority={fetchPriority}
+          loading={loading}
+          alt={alt || ''}
+          className={className}
+        />
+      )}
+    </>
   );
 };

@@ -40,9 +40,7 @@ export const MediaWrapper = ({
       {...props}
     >
       <div className={cnb(styles.wrapper, mediaWidths[mediaWidth])}>
-        <div className={cnb(mediaWidth === 'su-w-full' && 'h-[30vw]', childrenWrapperClass)}>
-          {children}
-        </div>
+        {children}
         {caption && (
           <Caption
             mediaWidth={mediaWidth}
