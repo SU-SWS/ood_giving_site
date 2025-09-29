@@ -1,6 +1,7 @@
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { AspectRatioImage } from '@/components/Image';
 import { SbLink } from '@/components/Storyblok/partials/SbLink';
+import { CtaLink } from '@/components/Cta';
 import { Heading, Paragraph } from '@/components/Typography';
 import { type SbImageType, type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { type DarkBgColorType } from '@/utilities/datasource';
@@ -40,21 +41,19 @@ export const SbMegaMenuCard = ({ blok }: SbMegaMenuCardProps) => {
       )}
       <div className={styles.cardContent}>
         {headline && (
-          <Heading className={styles.cardHeading}>
-            <SbLink link={link} className={styles.headingLink}>
-              {headline}
-            </SbLink>
+          <Heading color="white" className={styles.cardHeading}>
+            {headline}
           </Heading>
         )}
         {ctaText && (
-          <Paragraph
-            color="white"
-            weight="semibold"
-            icon={link?.linktype === 'url' ? 'external' : 'chevron-right'}
-            iconProps={{ className: styles.cardCtaTextIcon }}
+          <CtaLink
+            sbLink={link}
+            icon={link?.linktype === 'url' ? 'su-link--external' : 'su-link--action'}
+            textColor="white"
+            className={styles.cta}
           >
             {ctaText}
-          </Paragraph>
+          </CtaLink>
         )}
       </div>
     </article>
