@@ -69,7 +69,6 @@ export const TileCard = ({
   headline,
   link,
   filename,
-  alt,
   focus,
   visibleHorizontal,
   visibleVertical,
@@ -92,7 +91,6 @@ export const TileCard = ({
       hasLink
       bgColor={a11yBgColor}
       filename={filename}
-      alt={alt}
       focus={focus}
       visibleHorizontal={visibleHorizontal}
       visibleVertical={visibleVertical}
