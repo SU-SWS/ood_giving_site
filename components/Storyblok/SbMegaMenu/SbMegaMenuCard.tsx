@@ -1,8 +1,7 @@
 import { type SbBlokData, storyblokEditable } from '@storyblok/react/rsc';
 import { AspectRatioImage } from '@/components/Image';
-import { SbLink } from '@/components/Storyblok/partials/SbLink';
 import { CtaLink } from '@/components/Cta';
-import { Heading, Paragraph } from '@/components/Typography';
+import { Heading } from '@/components/Typography';
 import { type SbImageType, type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { type DarkBgColorType } from '@/utilities/datasource';
 import * as styles from './SbMegaMenu.styles';
