@@ -52,7 +52,7 @@ export const SbCampaignHeader = ({ blok }: SbCampaignHeaderProps) => {
       {filename && (
         <SbLink link={logoLink} className={styles.logoLink}>
           <img
-            src={getProcessedImage(filename, '400x0')}
+            src={getProcessedImage(filename, `${logoWidth > 400 ? 400 : logoWidth}x0`)}
             alt={alt || 'Campaign logo'}
             width={logoWidth}
             height={logoHeight}
