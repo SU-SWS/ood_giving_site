@@ -29,11 +29,9 @@ export const objectPositions = (
  */
 
 export const aspectImageSizes = {
-  default: 1000,
   card: 600,
   header: 800,
   'horizontal-card': 800,
-  'gallery-slide': 1400,
   'large-card': 800,
   thumbnail: 400,
 };

@@ -40,18 +40,14 @@ export const AspectRatioImage = ({
   }, [focus, originalWidth, originalHeight, visibleHorizontal, visibleVertical]);
 
   const targetCropWidth = imageSize ? styles.aspectImageSizes[imageSize] : originalWidth;
+
+  // Only generate srcset for larger images (800px and up), otherwise just use a single image src
   const createSourceSet = targetCropWidth >= 800;
 
-   // Get corresponding image sources for responsive images
+  // Get corresponding image sources for responsive images
   const imageSources = useMemo(() => {
-    return getImageSources(
-      filename,
-      originalWidth,
-      imageFocus,
-      aspectRatio,
-      targetCropWidth,
-    );
-  }, [filename, originalWidth, imageFocus, aspectRatio, targetCropWidth]);
+    return getImageSources(filename, imageFocus, aspectRatio, targetCropWidth);
+  }, [filename, imageFocus, aspectRatio, targetCropWidth]);
 
   const { cropHeight, cropWidth } = useMemo(() => {
     // E.g. '3x2' => 1.5
@@ -73,17 +69,17 @@ export const AspectRatioImage = ({
     <>
       {createSourceSet ? (
         <picture>
-          {imageSources.map((source, index) => (
+          {imageSources.map((source) => (
             <source
-              key={index}
+              key={source.srcSet}
               srcSet={source.srcSet}
               media={source.media}
             />
           ))}
           <img
             {...imageProps}
-            width={originalWidth}
-            // height={cropHeight}
+            width={imageSources[0]?.width}
+            height={imageSources[0]?.height}
             src={imageSources[0]?.srcSet}
             fetchPriority={fetchPriority}
             loading={loading}

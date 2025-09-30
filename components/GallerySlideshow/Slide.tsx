@@ -34,6 +34,10 @@ export const Slide = ({
       <div className={styles.imageWrapper}>
         <picture>
           <source
+            srcSet={getProcessedImage(imageSrc, '0x900')}
+            media="(min-width: 1500px)"
+          />
+          <source
             srcSet={getProcessedImage(imageSrc, '0x800')}
             media="(min-width: 1200px)"
           />
@@ -50,7 +54,7 @@ export const Slide = ({
             media="(max-width: 767px)"
           />
           <img
-            src={getProcessedImage(imageSrc, '0x800')}
+            src={getProcessedImage(imageSrc, '0x900')}
             alt={alt || ''}
             className={styles.image}
           />
