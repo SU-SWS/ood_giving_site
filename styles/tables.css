@@ -1,6 +1,6 @@
 /* Table styles for Giving */
 table:not(.life-income-gifts) tr {
-  @apply even:bg-fog-light;
+  @apply even:bg-fog-light odd:bg-white;
 }
 
 /* Wrapper styles that adds the horizontal scroll if the table is wider than the viewport */

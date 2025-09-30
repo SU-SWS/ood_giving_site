@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { type SbBlokData } from '@storyblok/react/rsc';
 import { CreateBloks } from '@/components/CreateBloks';
 import { Heading, Paragraph } from '@/components/Typography';
@@ -7,9 +6,10 @@ import { FullWidthImage, type VisibleHorizontalType } from '@/components/Image';
 import { getSbImageSize } from '@/utilities/getSbImageSize';
 import { modTypeSizes, type ModTypeSizeTypes, type AllCardBgColorType } from '@/utilities/datasource';
 import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
-import { getImageSources } from '@/utilities/getImageSources';
+import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { getNumBloks } from '@/utilities/getNumBloks';
 import * as styles from './SbCampaignPage.styles';
+
 
 type CampaignHeroProps = {
   title?: string;
@@ -53,11 +53,11 @@ export const CampaignHero = ({
   const isFullWidthImage = heroStyle !== 'left-image';
   const isDarkContent = heroBgColor === 'white' || heroBgColor === 'fog-light';
 
-  const { width: originalWidth, height: originalHeight } = getSbImageSize(logoFilename);
-  // Get corresponding image sources for responsive images
-  const logoImageSources = useMemo(() => {
-    return getImageSources(logoFilename, originalWidth);
-  }, [originalWidth, logoFilename]);
+  const { width: originalWidth, height: originalHeight } = logoFilename
+    ? getSbImageSize(logoFilename)
+    : { width: 0, height: 0 };
+  // If the logo is wider than 430px, resize it to 430px otherwise keep original dimensions
+  const processedLogo = logoFilename ? getProcessedImage(logoFilename, originalWidth > 430 ? '430x0' : '') : '';
 
   const full_width_image =
     !!filename ? (
@@ -80,23 +80,14 @@ export const CampaignHero = ({
         <div className={styles.contentInnerWrapper(isFullWidthImage, heroBgColor)}>
           <FlexBox direction="col">
             {!!logoFilename && (
-              <picture>
-                {logoImageSources.map(({ srcSet, media }, index) => (
-                  <source
-                    key={`logo-${index}`}
-                    srcSet={srcSet}
-                    media={media}
-                  />
-                ))}
-                <img
-                  src={logoImageSources[0].srcSet} // Use the first source as the default image
-                  alt={logoAlt || 'Campaign logo'}
-                  width={originalWidth}
-                  height={originalHeight}
-                  fetchPriority="high"
-                  className={styles.heroLogo(logoAlignment, isFullWidthImage)}
-                />
-              </picture>
+              <img
+                src={processedLogo}
+                alt={logoAlt || 'Campaign logo'}
+                width={originalWidth}
+                height={originalHeight}
+                fetchPriority="high"
+                className={styles.heroLogo(logoAlignment, isFullWidthImage)}
+              />
             )}
             <Heading
               as="h1"

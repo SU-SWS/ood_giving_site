@@ -5,6 +5,7 @@ import { FlexBox } from '@/components/FlexBox';
 import { SbLink } from '@/components/Storyblok/partials';
 import { SbImageType, SbLinkType } from '../Storyblok.types';
 import { getNumBloks } from '@/utilities/getNumBloks';
+import { getSbImageSize } from '@/utilities/getSbImageSize';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 import * as styles from './SbCampaignPage.styles';
 
@@ -31,6 +32,9 @@ export const SbCampaignHeader = ({ blok }: SbCampaignHeaderProps) => {
 
   // Use all white text and links in the header if no color is chosen or if white is chosen
   const isWhiteHeader = headerColor !== 'su-text-black';
+  const { width: logoWidth, height: logoHeight } = filename
+    ? getSbImageSize(filename)
+    : { width: 0, height: 0 };
 
   return (
     <FlexBox
@@ -48,8 +52,10 @@ export const SbCampaignHeader = ({ blok }: SbCampaignHeaderProps) => {
       {filename && (
         <SbLink link={logoLink} className={styles.logoLink}>
           <img
-            src={getProcessedImage(filename, '400x0')}
+            src={getProcessedImage(filename, `${logoWidth > 400 ? 400 : logoWidth}x0`)}
             alt={alt || 'Campaign logo'}
+            width={logoWidth}
+            height={logoHeight}
             className={styles.logoImage}
           />
         </SbLink>

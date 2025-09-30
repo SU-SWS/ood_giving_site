@@ -1,14 +1,15 @@
 import { cnb } from 'cnbuilder';
-import { useMemo } from 'react';
+import { AspectRatioImage } from './AspectRatioImage';
+import { FullWidthImage } from './FullWidthImage';
 import { MediaWrapper, type MediaWrapperProps } from '@/components/Media';
 import { type LightPageBgColorType } from '@/utilities/datasource';
-import { getImageSources } from '@/utilities/getImageSources';
-import { getSbImageSize } from '@/utilities/getSbImageSize';
 import * as styles from './Image.styles';
 
 export type StoryImageProps = MediaWrapperProps & {
   imageSrc: string;
+  imageFocus?: string;
   alt?: string;
+  aspectRatio?: styles.ImageAspectRatioType | 'free';
   visibleVertical?: styles.VisibleVerticalType;
   backgroundColor?: LightPageBgColorType;
   isCard?: boolean;
@@ -16,7 +17,9 @@ export type StoryImageProps = MediaWrapperProps & {
 
 export const StoryImage = ({
   imageSrc,
+  imageFocus,
   mediaWidth,
+  aspectRatio = 'free',
   alt,
   caption,
   captionAlign,
@@ -27,12 +30,7 @@ export const StoryImage = ({
   pb,
   ...props
 }: StoryImageProps) => {
-  const { width: originalWidth, height: originalHeight } = getSbImageSize(imageSrc);
-
-  // Get corresponding image sources for responsive images
-  const imageSources = useMemo(() => {
-    return getImageSources(imageSrc, originalWidth);
-  }, [originalWidth, imageSrc]);
+  const hasAspectRatio = !!aspectRatio && aspectRatio !== 'free';
 
   return (
     <MediaWrapper
@@ -47,23 +45,25 @@ export const StoryImage = ({
       {...props}
     >
       {!!imageSrc && (
-        <picture>
-          {imageSources.map(({ srcSet, media }, index ) => (
-            <source
-              key={`source-${index}`}
-              srcSet={srcSet}
-              media={media}
+        <>
+          {hasAspectRatio ? (
+            <AspectRatioImage
+              filename={imageSrc}
+              focus={imageFocus}
+              visibleVertical={visibleVertical}
+              alt={alt}
+              aspectRatio={aspectRatio}
+              className={cnb(styles.image, styles.objectPositions('center', visibleVertical))}
             />
-          ))}
-          <img
-            src={imageSources[0].srcSet}
-            loading="lazy"
-            width={originalWidth}
-            height={originalHeight}
-            alt={alt || ''}
-            className={cnb(styles.image, styles.objectPositions('center', visibleVertical))}
-          />
-        </picture>
+          ) : (
+            <FullWidthImage
+              filename={imageSrc}
+              alt={alt}
+              visibleVertical={visibleVertical}
+              className={cnb(styles.image, styles.objectPositions('center', visibleVertical))}
+            />
+          )}
+        </>
       )}
     </MediaWrapper>
   );

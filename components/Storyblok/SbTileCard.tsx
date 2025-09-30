@@ -26,7 +26,7 @@ export const SbTileCard = ({ blok }: SbTileCardProps) => {
     superheadline,
     headline,
     link,
-    image: { filename, alt, focus } = {},
+    image: { filename, focus } = {},
     showImage,
     visibleHorizontal = 'center',
     visibleVertical = 'center',
@@ -41,7 +41,6 @@ export const SbTileCard = ({ blok }: SbTileCardProps) => {
       headline={headline}
       link={link}
       filename={showImage ? filename : ''}
-      alt={showImage ? alt : ''}
       focus={showImage ? focus : ''}
       visibleHorizontal={showImage ? visibleHorizontal : undefined}
       visibleVertical={showImage ? visibleVertical : undefined}

@@ -41,14 +41,16 @@ export const HeaderSmallImage = ({
             )}
             aria-hidden="true"
           />
-          <AspectRatioImage
-            filename={filename}
-            focus={focus}
-            alt={alt}
-            imageSize="header"
-            fetchPriority="high"
-            className="print:hidden relative md:w-5/12 xl:w-6/12 mr-0 -ml-20 w-[calc(100%+2rem)] sm:-ml-30 sm:w-[calc(100%+3rem)] md:ml-0 -mt-[59vw] md:mt-0 z-10 pb-0"
-          />
+          <div className="print:hidden relative md:w-5/12 xl:w-6/12 mr-0 -ml-20 w-[calc(100%+2rem)] sm:-ml-30 sm:w-[calc(100%+3rem)] md:ml-0 -mt-[59vw] md:mt-0 z-10 pb-0">
+            <AspectRatioImage
+              aspectRatio="3x2"
+              filename={filename}
+              focus={focus}
+              alt={alt}
+              imageSize="header"
+              fetchPriority="high"
+            />
+          </div>
         </>
       )}
     </Container>

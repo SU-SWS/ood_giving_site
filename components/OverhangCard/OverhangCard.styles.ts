@@ -17,4 +17,4 @@ export const root = (
 
 export const imageWrapper = 'shrink-0 grow-0 overflow-hidden -mt-80';
 
-export const image = (hasLink: boolean) => hasLink && 'group-hocus-within:scale-105 will-change transition-transform *:w-full';
+export const image = (hasLink: boolean) => hasLink && 'group-hocus-within:scale-105 will-change-transform transition-transform w-full';

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
+import { getAspectRatioNumber } from '@/utilities/getAspectRatioNumber';
 import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { getSbImageSize } from '@/utilities/getSbImageSize';
-import { getAspectRatioNumber } from '@/utilities/getAspectRatioNumber';
 import { visiblePositionToFocus } from '@/utilities/visiblePositionToFocus';
 import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './Image.styles';
@@ -12,17 +12,19 @@ export type AspectRatioImageProps = SbImageType & React.HTMLAttributes<HTMLImage
   imageSize?: styles.AspectRatioImageSizeType;
   aspectRatio?: styles.ImageAspectRatioType;
   fetchPriority?: 'low' | 'high' | 'auto';
+  loading?: 'eager' | 'lazy';
 };
 
 export const AspectRatioImage = ({
   filename,
   alt,
   focus,
-  imageSize = 'default',
+  imageSize,
   aspectRatio = '3x2',
   visibleHorizontal,
   visibleVertical,
   fetchPriority,
+  loading = fetchPriority === 'high' ? 'eager' : 'lazy',
   className,
   ...imageProps
 }: AspectRatioImageProps) => {
@@ -36,35 +38,63 @@ export const AspectRatioImage = ({
     return visiblePositionToFocus(originalWidth, originalHeight, visibleHorizontal, visibleVertical);
   }, [focus, originalWidth, originalHeight, visibleHorizontal, visibleVertical]);
 
-  const { cropHeight, cropWidth } = useMemo(() => {
-    const targetCropWidth = styles.aspectImageSizes[imageSize];
-
-    // E.g. '3x2' => 1.5
-    const aspectRatioDecimal = getAspectRatioNumber(aspectRatio);
-
-    const cropWidth = originalWidth > targetCropWidth ? targetCropWidth : originalWidth;
-    const cropHeight = Math.round(cropWidth / aspectRatioDecimal);
-
-    return { cropWidth, cropHeight };
-  }, [aspectRatio, imageSize, originalWidth]);
-
   if (!filename) {
     return null;
   }
 
-  const processedImg = getProcessedImage(filename, `${cropWidth}x${cropHeight}`, imageFocus);
+  const aspectRatioNumber = getAspectRatioNumber(aspectRatio);
+  const desktopCropSize = styles.imageCropsDesktop[aspectRatio];
+  const desktopCropWidth = parseInt(desktopCropSize.split('x')[0], 10);
+
+  const largestWidth = imageSize ? styles.aspectImageSizes[imageSize] : desktopCropWidth;
+  const largestHeight = Math.round(largestWidth / aspectRatioNumber);
+  const largestCropString = `${largestWidth}x${largestHeight}`;
 
   return (
-    <div className={className}>
-      <img
-        className={styles.imageAspectRatios[aspectRatio]}
-        width={cropWidth}
-        height={cropHeight}
-        src={processedImg}
-        fetchPriority={fetchPriority}
-        alt={alt || ''}
-        {...imageProps}
-      />
-    </div>
+    <>
+      {!imageSize ? (
+        <picture>
+          {originalWidth >= desktopCropWidth && (
+            <source
+              srcSet={getProcessedImage(filename, largestCropString, imageFocus)}
+              media="(min-width: 1500px)"
+            />
+          )}
+          <source
+            srcSet={getProcessedImage(filename, styles.imageCropsSmallDesktop[aspectRatio], imageFocus)}
+            media="(min-width: 992px)"
+          />
+          <source
+            srcSet={getProcessedImage(filename, styles.imageCropsTablet[aspectRatio], imageFocus)}
+            media="(min-width: 576px)"
+          />
+          <source
+            srcSet={getProcessedImage(filename, styles.imageCropsMobile[aspectRatio], imageFocus)}
+            media="(max-width: 575px)"
+          />
+          <img
+            {...imageProps}
+            width={largestWidth}
+            height={largestHeight}
+            src={getProcessedImage(filename, largestCropString, imageFocus)}
+            fetchPriority={fetchPriority}
+            loading={loading}
+            alt={alt || ''}
+            className={className}
+          />
+        </picture>
+      ) : (
+        <img
+          {...imageProps}
+          width={largestWidth}
+          height={largestHeight}
+          src={getProcessedImage(filename, largestCropString, imageFocus)}
+          fetchPriority={fetchPriority}
+          loading={loading}
+          alt={alt || ''}
+          className={className}
+        />
+      )}
+    </>
   );
 };

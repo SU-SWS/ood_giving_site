@@ -4,6 +4,7 @@ import { Heading } from '@/components/Typography';
 import { FullWidthImage } from '@/components/Image/FullWidthImage';
 import { RichText } from '@/components/RichText';
 import { hasRichText } from '@/utilities/hasRichText';
+import { getProcessedImage } from '@/utilities/getProcessedImage';
 import { type HeaderProps } from './Header.types';
 
 type HeaderFullWidthImageProps = Partial<HeaderProps>;
@@ -40,8 +41,8 @@ export const HeaderFullWidthImage = ({
         {fullWidthImage}
         {logoFilename && (
           <img
-            className="absolute max-sm:top-22 sm:max-md:top-58 md:bottom-120 lg:bottom-130 xl:bottom-140 2xl:bottom-150 left-1/2 -translate-x-1/2 z-20 max-h-[11.5rem] sm:max-h-[12.5rem] md:max-h-[13.7rem] lg:max-h-[17.6rem] xl:max-h-[22rem] 2xl:max-h-[26rem]"
-            src={logoFilename}
+            className="absolute max-sm:top-22 sm:max-md:top-58 md:bottom-120 lg:bottom-130 xl:bottom-140 2xl:bottom-150 left-1/2 -translate-x-1/2 z-20 max-h-[11.5rem] sm:max-h-[12.5rem] md:max-h-[13.7rem] lg:max-h-[17.6rem] xl:max-h-[22rem] 2xl:max-h-[26rem] max-w-300 sm:max-w-400 md:max-w-500"
+            src={getProcessedImage(logoFilename, `0x300`)}
             alt={logoAlt}
           />
         )}

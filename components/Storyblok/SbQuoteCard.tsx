@@ -29,7 +29,7 @@ export const SbQuoteCard = ({ blok }: SbQuoteCardProps) => {
   const {
     quoteText,
     quoteSource,
-    image: { filename, alt, focus} = {},
+    image: { filename, focus } = {},
     showImage,
     visibleHorizontal = 'center',
     visibleVertical = 'top',
@@ -69,7 +69,6 @@ export const SbQuoteCard = ({ blok }: SbQuoteCardProps) => {
       quoteText={QuoteText}
       quoteSource={QuoteSource}
       filename={displayImage ? filename : ''}
-      alt={displayImage ? alt : ''}
       focus={displayImage ? focus : ''}
       visibleHorizontal={displayImage ? visibleHorizontal : undefined}
       visibleVertical={displayImage ? visibleVertical : undefined}

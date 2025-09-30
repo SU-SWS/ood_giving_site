@@ -1,4 +1,5 @@
 import { getProcessedImage } from './getProcessedImage';
+import { getSbImageSize } from './getSbImageSize';
 
 type ResponsiveBreakpointType = {
   cropWidth: number;
@@ -11,34 +12,26 @@ type ImageSourceType = {
 };
 
 // Default breakpoints for generating responsive images
-const defaultResponsiveBreakpoints: ResponsiveBreakpointType[] = [
+const srcsetBreakpoints: ResponsiveBreakpointType[] = [
   { cropWidth: 2000, minWidth: 1500 },
   { cropWidth: 1500, minWidth: 1200 },
   { cropWidth: 1200, minWidth: 992 },
-  { cropWidth: 1000, minWidth: 768 },
-  { cropWidth: 800, minWidth: 461 },
-  { cropWidth: 460, minWidth: 0 }, // Mobile/smallest size
+  { cropWidth: 1000, minWidth: 576 },
+  { cropWidth: 600, minWidth: 0 }, // Mobile/smallest size
 ];
 
 /**
  * Generates responsive image sources for use with picture element
  *
  * @param filename - The image filename from Storyblok
- * @param originalWidth - Original width of the image
- * @param originalHeight - Original height of the image
- * @param customBreakpoints - Optional custom breakpoints to override defaults
  * @returns Array of image sources with srcSet and media queries
  */
-export const getImageSources = (
-  filename: string,
-  originalWidth: number,
-  customBreakpoints?: ResponsiveBreakpointType[],
-): ImageSourceType[] => {
+export const getImageSources = ( filename: string ): ImageSourceType[] => {
   const sources: ImageSourceType[] = [];
-  const breakpoints = customBreakpoints || defaultResponsiveBreakpoints;
+  const { width: originalWidth } = getSbImageSize(filename);
 
   // If the original image width is < 2000px, find out what breakpoint range it falls into
-  const largestBp = breakpoints.find(bp => originalWidth >= bp.minWidth && originalWidth < bp.cropWidth);
+  const largestBp = srcsetBreakpoints.find(bp => originalWidth >= bp.minWidth && originalWidth < bp.cropWidth);
 
   // If we found an appropriate breakpoint, insert the original image at that breakpoint
   // For example, if the original image is 1100px, it will be used for the min-width: 992px breakpoint
@@ -50,9 +43,9 @@ export const getImageSources = (
   }
 
   // Add all smaller sizes that are relevant
-  breakpoints
+  srcsetBreakpoints
     // First pass: always include the mobile size, and keep all the breakpoints with minWidth < the original image width
-    .filter(bp => bp.cropWidth < originalWidth || bp.cropWidth === 460)
+    .filter(bp => bp.cropWidth < originalWidth || bp.cropWidth === 600)
     // If the original image is wider than 2000px (no largestBp assigned), keep all the breakpoints from the first pass
     // Otherwise, keep only the breakpoints that are smaller than the largestBp
     .filter(bp => !largestBp || bp.minWidth < largestBp.minWidth)
