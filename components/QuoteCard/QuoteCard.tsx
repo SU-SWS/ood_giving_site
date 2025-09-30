@@ -56,7 +56,6 @@ export const QuoteCard = ({
   quoteSource,
   filename,
   focus,
-  alt,
   visibleHorizontal = 'center',
   visibleVertical = 'top',
   borderColor,
@@ -74,7 +73,6 @@ export const QuoteCard = ({
       {...props}
       bgColor={bgColor}
       filename={filename}
-      alt={alt}
       focus={focus}
       visibleHorizontal={visibleHorizontal}
       visibleVertical={visibleVertical}

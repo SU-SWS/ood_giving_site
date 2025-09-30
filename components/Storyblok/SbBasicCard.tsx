@@ -39,7 +39,7 @@ export const SbBasicCard = ({ blok }: SbBasicCardProps) => {
     headline,
     content,
     ctaLink,
-    image: { filename, alt, focus} = {},
+    image: { filename, focus } = {},
     showImage,
     imageAspectRatio = '1x1',
     visibleHorizontal = 'center',
@@ -72,7 +72,6 @@ export const SbBasicCard = ({ blok }: SbBasicCardProps) => {
       body={RichTextContent}
       ctaLink={CtaLink}
       filename={showImage ? filename : ''}
-      alt={showImage ? alt : ''}
       focus={showImage ? focus : ''}
       aspectRatio={showImage ? imageAspectRatio : undefined}
       visibleHorizontal={showImage ? visibleHorizontal : undefined}

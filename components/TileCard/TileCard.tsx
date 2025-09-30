@@ -22,46 +22,42 @@ const TileCardContent = ({
   superheadline,
   headline,
   link,
-  headingLevel = 'h3',
+  headingLevel,
 }: TileCardContentProps) => {
   const isExternalLink = link?.linktype !== 'story';
 
   return (
     <>
       {superheadline && (
-        <Text
+        <Heading
+          as={headingLevel}
           uppercase
+          font="sans"
           weight="semibold"
           tracking="wider"
           color={isDarkText ? 'black' : 'white'}
           className={styles.superhead}
         >
           {superheadline}
-        </Text>
+        </Heading>
       )}
-      <Heading
-        as={headingLevel}
-        mb="none"
-        className={styles.heading}
-      >
-        <SbLink link={link} className={styles.link}>
-          <Text
-            as="span"
-            font="sans"
-            weight="semibold"
-            color={isDarkText ? 'black' : 'white'}
-            icon={isExternalLink ? 'external' : undefined}
-            iconProps={{
-              className: styles.icon(isDarkText),
-              noBaseStyle: true,
-              title: isExternalLink ? '(external link)' : undefined,
-            }}
-            className={styles.linkText(isDarkText)}
-          >
-            {headline}
-          </Text>
-        </SbLink>
-      </Heading>
+      <SbLink link={link} className={styles.link}>
+        <Text
+          as="span"
+          font="sans"
+          weight="semibold"
+          color={isDarkText ? 'black' : 'white'}
+          icon={isExternalLink ? 'external' : undefined}
+          iconProps={{
+            className: styles.icon(isDarkText),
+            noBaseStyle: true,
+            title: isExternalLink ? '(external link)' : undefined,
+          }}
+          className={styles.linkText(isDarkText)}
+        >
+          {headline}
+        </Text>
+      </SbLink>
     </>
   );
 };
@@ -73,7 +69,6 @@ export const TileCard = ({
   headline,
   link,
   filename,
-  alt,
   focus,
   visibleHorizontal,
   visibleVertical,
@@ -96,7 +91,6 @@ export const TileCard = ({
       hasLink
       bgColor={a11yBgColor}
       filename={filename}
-      alt={alt}
       focus={focus}
       visibleHorizontal={visibleHorizontal}
       visibleVertical={visibleVertical}

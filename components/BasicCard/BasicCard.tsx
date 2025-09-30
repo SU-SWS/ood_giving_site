@@ -77,7 +77,6 @@ export const BasicCard = ({
   body,
   ctaLink,
   filename,
-  alt,
   focus,
   aspectRatio = '1x1',
   visibleHorizontal,
@@ -128,7 +127,6 @@ export const BasicCard = ({
       {...props}
       bgColor={a11yBgColor}
       filename={filename}
-      alt={alt}
       focus={focus}
       visibleHorizontal={visibleHorizontal}
       visibleVertical={visibleVertical}

@@ -2,12 +2,10 @@ import { cnb } from 'cnbuilder';
 
 export const superhead = 'text-09em mb-16 md:max-lg:text-[.8em]';
 
-export const heading = 'fluid-type-2 md:max-lg:text-25';
-
-export const link = 'group stretched-link font-semibold';
+export const link = 'group stretched-link font-semibold no-underline';
 
 export const linkText = (hasDarkText: boolean) => cnb(
-  'lg:leading-tight  group-hocus:underline',
+  'lg:leading-tight group-hocus:underline fluid-type-2 md:max-lg:text-25',
   hasDarkText ? 'group-hocus:text-digital-red' : 'group-hocus:text-white',
 );
 

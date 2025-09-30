@@ -60,6 +60,6 @@ export const cardRoot = (backgroundColor: DarkBgColorType = 'digital-red') => cn
 export const cardImageWrapper = 'hidden lg:block overflow-hidden';
 export const cardImage = 'group-hocus-within:scale-105 transition-transform';
 export const cardContent = 'rs-px-2 rs-pt-2 rs-pb-3 group-hover:bg-black-true/40 group-focus-within:bg-black-true/40 transition-colors';
-export const cardHeading = 'rs-mb-1 type-3 lg:type-2';
-export const headingLink = 'stretched-link no-underline text-white hocus:text-white hocus:underline';
-export const cardCtaTextIcon = 'group-hocus-within:translate-x-02em';
+export const cardHeading = 'group-hocus-within:underline rs-mb-1 type-3 lg:type-2';
+
+export const cta = 'rs-mt-1 stretched-link hocus:no-underline';

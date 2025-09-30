@@ -75,6 +75,7 @@ export const SbInteriorPage = ({ blok, slug }: SbInteriorPageProps) => {
   const hasHeroImage = headerStyle === 'has-image' || headerStyle === 'full-width-image';
   const hasContentMenu = !!getNumBloks(contentMenu);
   const showMobileContentMenu = hasContentMenu && layout === 'left-sidebar';
+  const hasContactInfo = !!getNumBloks(contactInfo);
 
   return (
     <PageLayout
@@ -148,20 +149,26 @@ export const SbInteriorPage = ({ blok, slug }: SbInteriorPageProps) => {
             {layout === 'left-sidebar' && (
               <aside className="lg:col-span-4 xl:col-span-3 gap-y-20 md:gap-y-26 2xl:gap-y-27">
                 <div className="hidden lg:block">
-                  <Skiplink href="#body-content" className="hidden left-0 lg:block focus:block focus:w-fit focus:relative focus:bg-cardinal-red -top-60 focus:mx-auto">
-                    Skip past section menu to page content
-                  </Skiplink>
+                  {hasContentMenu &&
+                    <Skiplink href={hasContactInfo ? '#contact-info' : '#body-content'} className="hidden left-0 lg:block focus:block focus:w-fit focus:relative focus:bg-cardinal-red -top-60 focus:mx-auto">
+                      Skip past section menu
+                    </Skiplink>
+                  }
                   <CreateBloks blokSection={contentMenu} slug={slug} />
                 </div>
-                {!!getNumBloks(contactInfo) && (
-                  <div className="max-md:mb-45 md:max-lg:mb-72">
+                {hasContactInfo && (
+                  <div className="max-md:mb-45 md:max-lg:mb-72" id="contact-info" tabIndex={hasContentMenu ? -1 : null}>
                     <CreateBloks blokSection={contactInfo} />
                   </div>
                 )}
               </aside>
             )}
             {/* Main body content */}
-            <div id="body-content" className={layout === 'left-sidebar' ? 'lg:col-span-8 xl:col-start-5' : 'lg:col-span-10 lg:col-start-2 xl:col-span-8 xl:col-start-3'}>
+            <div
+              id="body-content"
+              tabIndex={hasContentMenu && !hasContactInfo ? -1 : null}
+              className={layout === 'left-sidebar' ? 'lg:col-span-8 xl:col-start-5' : 'lg:col-span-10 lg:col-start-2 xl:col-span-8 xl:col-start-3'}
+            >
               <CreateBloks blokSection={pageContent} />
             </div>
           </Container>
