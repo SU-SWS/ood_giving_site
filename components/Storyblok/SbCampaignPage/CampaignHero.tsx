@@ -53,7 +53,9 @@ export const CampaignHero = ({
   const isFullWidthImage = heroStyle !== 'left-image';
   const isDarkContent = heroBgColor === 'white' || heroBgColor === 'fog-light';
 
-  const { width: originalWidth, height: originalHeight } = getSbImageSize(logoFilename);
+  const { width: originalWidth, height: originalHeight } = logoFilename
+    ? getSbImageSize(logoFilename)
+    : { width: 0, height: 0 };
   // If the logo is wider than 430px, resize it to 430px otherwise keep original dimensions
   const processedLogo = logoFilename ? getProcessedImage(logoFilename, originalWidth > 430 ? '430x0' : '') : '';
 
