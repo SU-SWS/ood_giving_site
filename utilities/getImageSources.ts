@@ -26,10 +26,7 @@ const srcsetBreakpoints: ResponsiveBreakpointType[] = [
  * @param filename - The image filename from Storyblok
  * @returns Array of image sources with srcSet and media queries
  */
-export const getImageSources = (
-  filename: string,
-  // customBreakpoints?: ResponsiveBreakpointType[],
-): ImageSourceType[] => {
+export const getImageSources = ( filename: string ): ImageSourceType[] => {
   const sources: ImageSourceType[] = [];
   const { width: originalWidth } = getSbImageSize(filename);
 
@@ -48,7 +45,7 @@ export const getImageSources = (
   // Add all smaller sizes that are relevant
   srcsetBreakpoints
     // First pass: always include the mobile size, and keep all the breakpoints with minWidth < the original image width
-    .filter(bp => bp.cropWidth < originalWidth || bp.cropWidth === 460)
+    .filter(bp => bp.cropWidth < originalWidth || bp.cropWidth === 600)
     // If the original image is wider than 2000px (no largestBp assigned), keep all the breakpoints from the first pass
     // Otherwise, keep only the breakpoints that are smaller than the largestBp
     .filter(bp => !largestBp || bp.minWidth < largestBp.minWidth)
