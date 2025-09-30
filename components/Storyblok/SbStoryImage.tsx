@@ -12,7 +12,7 @@ type SbStoryImageProps = {
   blok: SbBlokData & {
     image: SbImageType;
     alt?: string;
-    aspectRatio?: ImageAspectRatioType;
+    aspectRatio?: ImageAspectRatioType | 'free';
     imageWidth?: StoryImageWidthType;
     visibleVertical?: VisibleVerticalType;
     caption?: StoryblokRichtext;

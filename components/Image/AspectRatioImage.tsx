@@ -1,8 +1,7 @@
 import { useMemo } from 'react';
-import { getProcessedImage } from '@/utilities/getProcessedImage';
-import { getImageSources } from '@/utilities/getImageSources';
-import { getSbImageSize } from '@/utilities/getSbImageSize';
 import { getAspectRatioNumber } from '@/utilities/getAspectRatioNumber';
+import { getProcessedImage } from '@/utilities/getProcessedImage';
+import { getSbImageSize } from '@/utilities/getSbImageSize';
 import { visiblePositionToFocus } from '@/utilities/visiblePositionToFocus';
 import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './Image.styles';
@@ -39,48 +38,45 @@ export const AspectRatioImage = ({
     return visiblePositionToFocus(originalWidth, originalHeight, visibleHorizontal, visibleVertical);
   }, [focus, originalWidth, originalHeight, visibleHorizontal, visibleVertical]);
 
-  const targetCropWidth = imageSize ? styles.aspectImageSizes[imageSize] : originalWidth;
-
-  // Only generate srcset for larger images (800px and up), otherwise just use a single image src
-  const createSourceSet = targetCropWidth >= 800;
-
-  // Get corresponding image sources for responsive images
-  const imageSources = useMemo(() => {
-    return getImageSources(filename, imageFocus, aspectRatio, targetCropWidth);
-  }, [filename, imageFocus, aspectRatio, targetCropWidth]);
-
-  const { cropHeight, cropWidth } = useMemo(() => {
-    // E.g. '3x2' => 1.5
-    const aspectRatioDecimal = getAspectRatioNumber(aspectRatio);
-
-    const cropWidth = originalWidth > targetCropWidth ? targetCropWidth : originalWidth;
-    const cropHeight = Math.round(cropWidth / aspectRatioDecimal);
-
-    return { cropWidth, cropHeight };
-  }, [aspectRatio, originalWidth, targetCropWidth]);
-
   if (!filename) {
     return null;
   }
 
-  const processedImg = getProcessedImage(filename, `${cropWidth}x${cropHeight}`, imageFocus);
+  const aspectRatioNumber = getAspectRatioNumber(aspectRatio);
+  const desktopCropSize = styles.imageCropsDesktop[aspectRatio];
+  const desktopCropWidth = parseInt(desktopCropSize.split('x')[0], 10);
+
+  const largestWidth = imageSize ? styles.aspectImageSizes[imageSize] : desktopCropWidth;
+  const largestHeight = Math.round(largestWidth / aspectRatioNumber);
+  const largestCropString = `${largestWidth}x${largestHeight}`;
 
   return (
     <>
-      {createSourceSet ? (
+      {!imageSize ? (
         <picture>
-          {imageSources.map((source) => (
+          {originalWidth >= desktopCropWidth && (
             <source
-              key={source.srcSet}
-              srcSet={source.srcSet}
-              media={source.media}
+              srcSet={getProcessedImage(filename, largestCropString, imageFocus)}
+              media="(min-width: 1500px)"
             />
-          ))}
+          )}
+          <source
+            srcSet={getProcessedImage(filename, styles.imageCropsSmallDesktop[aspectRatio], imageFocus)}
+            media="(min-width: 992px)"
+          />
+          <source
+            srcSet={getProcessedImage(filename, styles.imageCropsTablet[aspectRatio], imageFocus)}
+            media="(min-width: 576px)"
+          />
+          <source
+            srcSet={getProcessedImage(filename, styles.imageCropsMobile[aspectRatio], imageFocus)}
+            media="(max-width: 575px)"
+          />
           <img
             {...imageProps}
-            width={imageSources[0]?.width}
-            height={imageSources[0]?.height}
-            src={imageSources[0]?.srcSet}
+            width={largestWidth}
+            height={largestHeight}
+            src={getProcessedImage(filename, largestCropString, imageFocus)}
             fetchPriority={fetchPriority}
             loading={loading}
             alt={alt || ''}
@@ -90,9 +86,9 @@ export const AspectRatioImage = ({
       ) : (
         <img
           {...imageProps}
-          width={cropWidth}
-          height={cropHeight}
-          src={processedImg}
+          width={largestWidth}
+          height={largestHeight}
+          src={getProcessedImage(filename, largestCropString, imageFocus)}
           fetchPriority={fetchPriority}
           loading={loading}
           alt={alt || ''}

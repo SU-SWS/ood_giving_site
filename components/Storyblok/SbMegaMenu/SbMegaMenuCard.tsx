@@ -31,7 +31,6 @@ export const SbMegaMenuCard = ({ blok }: SbMegaMenuCardProps) => {
         <div className={styles.cardImageWrapper}>
           <AspectRatioImage
             filename={image.filename}
-            alt=""
             className={styles.cardImage}
             imageSize="card"
             aspectRatio="3x2"

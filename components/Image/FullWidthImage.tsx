@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { cnb } from 'cnbuilder';
 import { getImageSources } from '@/utilities/getImageSources';
+import { getSbImageSize } from '@/utilities/getSbImageSize';
 import { type SbImageType } from '@/components/Storyblok/Storyblok.types';
 import * as styles from './Image.styles';
 
@@ -20,6 +21,7 @@ export const FullWidthImage = ({
   loading = fetchPriority === 'high' ? 'eager' : 'lazy',
   className,
 }: FullWidthImageProps) => {
+  const { width: originalWidth, height: originalHeight } = getSbImageSize(filename);
  // Get corresponding image sources for responsive images
   const imageSources = useMemo(() => {
     return getImageSources(filename);
@@ -36,10 +38,10 @@ export const FullWidthImage = ({
           />
         ))}
         <img
-          src={imageSources[0].srcSet} // Use the first source as the default image
+          src={imageSources[0].srcSet} // Use the largest source as the default image
           alt={alt || ''}
-          width={imageSources[0].width}
-          height={imageSources[0].height}
+          width={originalWidth}
+          height={originalHeight}
           fetchPriority={fetchPriority}
           loading={loading}
           className={cnb(

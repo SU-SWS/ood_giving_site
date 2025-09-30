@@ -9,7 +9,7 @@ export type StoryImageProps = MediaWrapperProps & {
   imageSrc: string;
   imageFocus?: string;
   alt?: string;
-  aspectRatio?: styles.ImageAspectRatioType;
+  aspectRatio?: styles.ImageAspectRatioType | 'free';
   visibleVertical?: styles.VisibleVerticalType;
   backgroundColor?: LightPageBgColorType;
   isCard?: boolean;
