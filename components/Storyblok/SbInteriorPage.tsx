@@ -157,7 +157,7 @@ export const SbInteriorPage = ({ blok, slug }: SbInteriorPageProps) => {
                   <CreateBloks blokSection={contentMenu} slug={slug} />
                 </div>
                 {hasContactInfo && (
-                  <div className="max-md:mb-45 md:max-lg:mb-72" id="contact-info" tabIndex={hasContentMenu ? -1 : null}>
+                  <div className="max-md:mb-45 md:max-lg:mb-72" id="contact-info" tabIndex={hasContentMenu ? -1 : undefined}>
                     <CreateBloks blokSection={contactInfo} />
                   </div>
                 )}
@@ -166,7 +166,7 @@ export const SbInteriorPage = ({ blok, slug }: SbInteriorPageProps) => {
             {/* Main body content */}
             <div
               id="body-content"
-              tabIndex={hasContentMenu && !hasContactInfo ? -1 : null}
+              tabIndex={hasContentMenu && !hasContactInfo ? -1 : undefined}
               className={layout === 'left-sidebar' ? 'lg:col-span-8 xl:col-start-5' : 'lg:col-span-10 lg:col-start-2 xl:col-span-8 xl:col-start-3'}
             >
               <CreateBloks blokSection={pageContent} />
