@@ -47,7 +47,7 @@ export const PageLayout = ({
         oodCampaignHeader={oodCampaignHeader}
         slug={slug}
       />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
         <article className={articleClassName}>
           {children}
           <CreateBloks blokSection={belowContent} />
