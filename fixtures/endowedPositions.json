@@ -8115,7 +8115,7 @@
   {
     "Key": "HooverKBCQV24408825",
     "SUBCATEGORY": "HOOVER INSTITUTION",
-    "POSITION": "The Botha-Chan Senior Fellow",
+    "POSITION": "The Botha-Chan Senior Fellowship Fund",
     "CURRENT HOLDER": "Philip Zelikow",
     "WEBSITE": "http://www.hoover.org/"
   },
@@ -8243,13 +8243,6 @@
     "SUBCATEGORY": "HOOVER INSTITUTION",
     "POSITION": "The Hargrove Senior Fellow",
     "CURRENT HOLDER": "Elizabeth Economy",
-    "WEBSITE": "http://www.hoover.org/"
-  },
-  {
-    "Key": "HooverKBCKO",
-    "SUBCATEGORY": "HOOVER INSTITUTION",
-    "POSITION": "The Ilene and Morton Harris Senior Fellow",
-    "CURRENT HOLDER": "Dominic Parker",
     "WEBSITE": "http://www.hoover.org/"
   },
   {
@@ -9338,10 +9331,10 @@
     "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
-    "Key": "The Bass University FellowsKBBCA1667765",
+    "Key": "The Bass University FellowsKBBCA5523271",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Anonymous Friends University Fellow in Undergraduate Education",
-    "CURRENT HOLDER": "Larry Diamond",
+    "CURRENT HOLDER": "Katharine Maher",
     "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
@@ -9373,10 +9366,10 @@
     "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
-    "Key": "The Bass University FellowsKASPJ9775339",
+    "Key": "The Bass University FellowsKASPJ9867813",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Barbara D. Finberg University Fellow in Undergraduate Education",
-    "CURRENT HOLDER": "Zephyr Frank",
+    "CURRENT HOLDER": "Paula Findlen",
     "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
@@ -9394,10 +9387,10 @@
     "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
-    "Key": "The Bass University FellowsKBBBH4497939",
+    "Key": "The Bass University FellowsKBBBH9671094",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Michael Forman University Fellow in Undergraduate Education",
-    "CURRENT HOLDER": "Gregory M. Walton",
+    "CURRENT HOLDER": "Ayfer Ozgur",
     "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
@@ -9492,10 +9485,10 @@
     "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
-    "Key": "The Bass University FellowsKAAGW2045201",
+    "Key": "The Bass University FellowsKAAGW5567952",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Milligan Family University Fellow in Undergraduate Education",
-    "CURRENT HOLDER": "Carl Wieman",
+    "CURRENT HOLDER": "Brian Conrad",
     "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
@@ -9611,10 +9604,10 @@
     "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
-    "Key": "The Bass University FellowsKBBCY9842824",
+    "Key": "The Bass University FellowsKBBCY5588064",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "The Mr. and Mrs. Frank W. Yeung University Fellow in Undergraduate Education",
-    "CURRENT HOLDER": "Elizabeth A. Hadly",
+    "CURRENT HOLDER": "Mary Wootters",
     "WEBSITE": "https://vpuefacstaff.stanford.edu/recognition/bass-university-fellows"
   },
   {
@@ -9786,6 +9779,13 @@
     "WEBSITE": ""
   },
   {
+    "Key": "The Bass University Fellows - EmeritiBASS1667765",
+    "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
+    "POSITION": "Continuing Bass University Fellow in Undergraduate Education",
+    "CURRENT HOLDER": "Larry Diamond",
+    "WEBSITE": ""
+  },
+  {
     "Key": "The Bass University Fellows - EmeritiBASS9787599",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "Continuing Bass University Fellow in Undergraduate Education",
@@ -9856,6 +9856,13 @@
     "WEBSITE": ""
   },
   {
+    "Key": "The Bass University Fellows - EmeritiBASS9775339",
+    "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
+    "POSITION": "Continuing Bass University Fellow in Undergraduate Education",
+    "CURRENT HOLDER": "Zephyr Frank",
+    "WEBSITE": ""
+  },
+  {
     "Key": "The Bass University Fellows - EmeritiBASS2560233",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "Continuing Bass University Fellow in Undergraduate Education",
@@ -9902,6 +9909,13 @@
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "Continuing Bass University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "James J. Gross",
+    "WEBSITE": ""
+  },
+  {
+    "Key": "The Bass University Fellows - EmeritiBASS9842824",
+    "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
+    "POSITION": "Continuing Bass University Fellow in Undergraduate Education",
+    "CURRENT HOLDER": "Elizabeth A. Hadly",
     "WEBSITE": ""
   },
   {
@@ -10178,6 +10192,13 @@
     "WEBSITE": ""
   },
   {
+    "Key": "The Bass University Fellows - EmeritiBASS4497939",
+    "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
+    "POSITION": "Continuing Bass University Fellow in Undergraduate Education",
+    "CURRENT HOLDER": "Gregory M. Walton",
+    "WEBSITE": ""
+  },
+  {
     "Key": "The Bass University Fellows - EmeritiBASS7302722",
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "Continuing Bass University Fellow in Undergraduate Education",
@@ -10189,6 +10210,20 @@
     "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
     "POSITION": "Continuing Bass University Fellow in Undergraduate Education",
     "CURRENT HOLDER": "Robert M. Waymouth",
+    "WEBSITE": ""
+  },
+  {
+    "Key": "The Bass University Fellows - EmeritiBASS2045201",
+    "SUBCATEGORY": "BASS UNIVERSITY FELLOWS IN UNDERGRADUATE EDUCATION PROGRAM",
+    "POSITION": "Continuing Bass University Fellow in Undergraduate Education",
+    "CURRENT HOLDER": "Carl Wieman",
+    "WEBSITE": ""
+  },
+  {
+    "Key": "",
+    "SUBCATEGORY": "",
+    "POSITION": "",
+    "CURRENT HOLDER": "",
     "WEBSITE": ""
   }
 ]
