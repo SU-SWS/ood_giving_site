@@ -3,6 +3,7 @@ import { EndowedPositionsFooter, EndowedPositionsHeader } from '@/components/End
 import { Footer } from '@/components/Storyblok/partials/Footer';
 import { Header } from '@/components/Storyblok/partials/Header';
 import { StoryblokProvider } from '@/components/StoryblokProvider';
+import { Heap } from '@/components/Heap';
 import { getStoryDataCached } from '@/utilities/data';
 
 type EndowedPositionsLayoutProps = {
@@ -19,23 +20,26 @@ const EndowedPositionsLayout = async ({ children }: EndowedPositionsLayoutProps)
   } = endowedPositionsPage.story.content;
 
   return (
-    <StoryblokProvider>
-      <Header alertPicker={alertPicker} localHeader={localHeader} />
-      <main id="main-content">
-        <article className="bg-fog-light">
-          <Container width="full">
-            <EndowedPositionsHeader />
-            <Container as="section" className="py-90">
-              <div className="xl:w-3/4 mx-auto lg:rs-px-4">
-                {children}
-                <EndowedPositionsFooter />
-              </div>
+    <>
+      <Heap />
+      <StoryblokProvider>
+        <Header alertPicker={alertPicker} localHeader={localHeader} />
+        <main id="main-content">
+          <article className="bg-fog-light">
+            <Container width="full">
+              <EndowedPositionsHeader />
+              <Container as="section" className="py-90">
+                <div className="xl:w-3/4 mx-auto lg:rs-px-4">
+                  {children}
+                  <EndowedPositionsFooter />
+                </div>
+              </Container>
             </Container>
-          </Container>
-        </article>
-      </main>
-      <Footer localFooter={localFooter} globalFooter={globalFooter} />
-    </StoryblokProvider>
+          </article>
+        </main>
+        <Footer localFooter={localFooter} globalFooter={globalFooter} />
+      </StoryblokProvider>
+    </>
   );
 };
 
