@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 'use client';
 import Script from 'next/script';
+import { isProduction } from '@/utilities/getActiveEnv';
 
 /**
  *
@@ -8,7 +9,9 @@ import Script from 'next/script';
  */
 export const Heap = () => {
   const ID = '2306378928';
-  if (process.env.CONTEXT && ['production'].includes(process.env.CONTEXT)) {
+  const isProd = isProduction();
+
+  if (isProd) {
     return (
       <Script id="heap-id" strategy="afterInteractive">
         {`
