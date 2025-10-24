@@ -7,7 +7,7 @@ export const innerShadow = 'absolute top-0 w-full h-15 bg-gradient-to-b from-bla
  * Desktop mega menu
  */
 export const root = 'hidden lg:block grow';
-export const wrapper = 'list-unstyled gap-30 xl:gap-38';
+export const wrapper = 'list-unstyled gap-x-30 xl:gap-x-38';
 
 /**
  * Mobile mega menu
@@ -35,7 +35,7 @@ export const panelButton = cnb('relative group flex items-center justify-between
 export const panelButtonIcon = 'size-33 lg:size-18 bg-digital-red group-hocus:bg-black lg:bg-transparent lg:group-hocus:bg-transparent rounded-full lg:-mt-01em inline-block p-6 lg:p-0 lg:ml-2 transition-all group-aria-expanded:rotate-180 text-white group-hocus-visible:text-white lg:text-black lg:group-hocus-visible:text-black';
 
 export const sectionRoot = 'mb-0';
-export const section = 'relative lg:absolute transition-all origin-top w-full bg-fog-light lg:bg-white lg:left-0 lg:w-full lg:shadow-xl break-words';
+export const section = 'relative z-10 lg:absolute transition-all origin-top w-full bg-fog-light lg:bg-white lg:left-0 lg:w-full lg:shadow-xl break-words';
 export const sectionContent = 'px-20 sm:px-30 md:px-50 lg:px-80 xl:px-100 2xl:pl-100 3xl:pl-[calc((100%-1500px)/2)] 3xl:pr-[calc((100%-1500px)/2)]';
 export const sectionLinksWrapper = 'lg:col-span-2';
 export const sectionLinkGroupGrid = 'gap-y-40 lg:gap-y-0';

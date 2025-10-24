@@ -23,8 +23,14 @@ export const IconCardSection = ({ iconCards, iconCardHeading }: IconCardSectionP
   return (
     <Container as="section" bgColor="black-10" py={6} className="print:hidden grow-0">
       <Heading srOnly>{iconCardHeading || 'Links to more information'}</Heading>
-      <FlexBox gap="card" alignItems="stretch" className="flex-col lg:flex-row">
-        <CreateBloks blokSection={iconCards} />
+      <FlexBox
+        as="ul"
+        gap="card"
+        alignItems="stretch"
+        justifyContent="center"
+        className="flex-col lg:flex-row list-unstyled *:mb-0 *:flex-1 *:flex"
+      >
+        <CreateBloks blokSection={iconCards} isListItems />
       </FlexBox>
     </Container>
   );

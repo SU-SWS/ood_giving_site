@@ -97,7 +97,7 @@ export const SbContentMenu = ({ blok, slug }: SbContentMenuProps) => {
       >
         {({ open }) => (
           <>
-            <PopoverButton className={styles.mobileButton}>
+            <PopoverButton aria-label={`${open ? 'Close ': ''}section menu`} className={styles.mobileButton}>
               {open ? 'Close' : 'Section Menu'}
               <HeroIcon
                 icon={open ? 'close' : 'menu'}

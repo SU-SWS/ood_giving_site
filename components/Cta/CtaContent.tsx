@@ -26,6 +26,7 @@ export const CtaContent = ({
           &#65279;
           <HeroIcon
             icon={heroIcon}
+            title={icon === 'su-link--external' && '(external link)'}
             className={cnb(styles.icon, iconAnimate, iconMarginLeft, iconClasses)}
             {...iProps}
           />
