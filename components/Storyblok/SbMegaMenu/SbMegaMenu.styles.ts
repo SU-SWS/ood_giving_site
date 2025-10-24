@@ -7,7 +7,7 @@ export const innerShadow = 'absolute top-0 w-full h-15 bg-gradient-to-b from-bla
  * Desktop mega menu
  */
 export const root = 'hidden lg:block grow';
-export const wrapper = 'list-unstyled gap-30 xl:gap-38';
+export const wrapper = 'list-unstyled gap-x-30 xl:gap-x-38';
 
 /**
  * Mobile mega menu
