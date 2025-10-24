@@ -24,17 +24,17 @@ type SbAccordionProps = {
  * If no title: use explicit itemHeadingLevel if provided, otherwise default to h2.
  */
 const resolveItemHeadingLevel = (
-  title: string | undefined,
-  headingLevel: HeadingType | undefined,
-  itemHeadingLevel: HeadingType | undefined,
+  title?: string,
+  headingLevel?: HeadingType,
+  itemHeadingLevel?: HeadingType,
 ): HeadingType => {
   if (title) {
     // Treat empty/falsy headingLevel as h2
-    const baseHeading = headingLevel && String(headingLevel).trim() ? headingLevel : 'h2';
+    const baseHeading = headingLevel ? headingLevel : 'h2';
     const baseNum = Math.max(parseInt(String(baseHeading).replace('h', ''), 10) || 2, 1);
     return (`h${Math.min(baseNum + 1, 6)}` as HeadingType);
   }
-  return itemHeadingLevel && String(itemHeadingLevel).trim() ? itemHeadingLevel : 'h2';
+  return itemHeadingLevel ? itemHeadingLevel : 'h2';
 };
 
 export const SbAccordion = ({
