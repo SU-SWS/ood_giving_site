@@ -91,7 +91,6 @@ export type SbAccordionItemsTypes = {
   _uid: string;
   title?: string;
   content?: StoryblokRichtext;
-  headingLevel?: HeadingType;
   id?: string;
   defaultOpen?: boolean;
 };

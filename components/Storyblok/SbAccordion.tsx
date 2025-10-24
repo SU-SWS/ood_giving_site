@@ -10,6 +10,7 @@ type SbAccordionProps = {
     title?: string;
     id?: string;
     headingLevel?: HeadingType;
+    itemHeadingLevel?: HeadingType;
     accordionItems?: SbAccordionItemsTypes[];
     accordionColor?: AccordionColorType;
     spacingTop?: PaddingType;
@@ -17,11 +18,31 @@ type SbAccordionProps = {
   };
 };
 
+/**
+ * Derive item heading level from title and headingLevel.
+ * If title exists: derive from headingLevel (or h2 if not provided), one level lower, capped at h6.
+ * If no title: use explicit itemHeadingLevel if provided, otherwise default to h2.
+ */
+const resolveItemHeadingLevel = (
+  title: string | undefined,
+  headingLevel: HeadingType | undefined,
+  itemHeadingLevel: HeadingType | undefined,
+): HeadingType => {
+  if (title) {
+    // Treat empty/falsy headingLevel as h2
+    const baseHeading = headingLevel && String(headingLevel).trim() ? headingLevel : 'h2';
+    const baseNum = Math.max(parseInt(String(baseHeading).replace('h', ''), 10) || 2, 1);
+    return (`h${Math.min(baseNum + 1, 6)}` as HeadingType);
+  }
+  return itemHeadingLevel && String(itemHeadingLevel).trim() ? itemHeadingLevel : 'h2';
+};
+
 export const SbAccordion = ({
   blok: {
     title,
     id,
     headingLevel,
+    itemHeadingLevel,
     accordionItems,
     accordionColor,
     spacingTop,
@@ -33,12 +54,15 @@ export const SbAccordion = ({
     return null;
   }
 
+  const resolvedItemHeadingLevel = resolveItemHeadingLevel(title, headingLevel, itemHeadingLevel);
+
   return (
     <Accordion
       {...storyblokEditable(blok)}
       title={title}
       id={id}
       headingLevel={headingLevel || 'h2'}
+      itemHeadingLevel={resolvedItemHeadingLevel}
       items={accordionItems}
       color={accordionColor || 'palo-alto-light'}
       pt={spacingTop}
