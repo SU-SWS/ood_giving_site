@@ -20,6 +20,7 @@ import * as styles from './Accordion.styles';
 type AccordionProps = React.HTMLAttributes<HTMLDivElement> & {
   title?: string;
   headingLevel?: HeadingType;
+  itemHeadingLevel?: HeadingType;
   items: SbAccordionItemsTypes[];
   id?: string;
   color?: styles.AccordionColorType;
@@ -31,6 +32,7 @@ type AccordionProps = React.HTMLAttributes<HTMLDivElement> & {
 export const Accordion = ({
   title,
   headingLevel = 'h2',
+  itemHeadingLevel = 'h3',
   items,
   id,
   color,
@@ -109,7 +111,7 @@ export const Accordion = ({
       <ul className={styles.list}>
         {items?.map((item, index) => (
           <li key={item._uid} className={styles.listItem(isDigitalRed)}>
-            <Heading as={item.headingLevel || 'h3'} font={font} weight={fontWeight} leading="tight" className={styles.itemHeading}>
+            <Heading as={itemHeadingLevel || 'h3'} font={font} weight={fontWeight} leading="tight" className={styles.itemHeading}>
               <button
                 type="button"
                 id={`button-${item._uid}`}
