@@ -187,7 +187,13 @@ export const SearchForm = ({
                 autoFocus
                 ref={inputRef}
               />
-              <ComboboxOptions aria-label="Suggested searches" as="ul" portal={false} className={styles.searchFormOptions({ variant })}>
+              <ComboboxOptions
+                aria-label="Suggested searches"
+                aria-labelledby={undefined}
+                as="ul"
+                portal={false}
+                className={styles.searchFormOptions({ variant })}
+              >
                 {!!query && (
                   <ComboboxOption
                     as="li"
