@@ -189,7 +189,7 @@ export const SearchForm = ({
               />
               <ComboboxOptions
                 aria-label="Suggested searches"
-                aria-labelledby={undefined}
+                aria-labelledby={null}
                 as="ul"
                 portal={false}
                 className={styles.searchFormOptions({ variant })}
