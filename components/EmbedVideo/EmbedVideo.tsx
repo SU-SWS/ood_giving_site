@@ -49,12 +49,13 @@ export const EmbedVideo = ({
             height="100%"
             controls
             playsinline
+            origin="https://giving.stanford.edu"
             config={{
               youtube: {
                 playerVars: {
                   start: startTimeInSeconds,
                   enablejsapi: 1,
-                  origin: process.env.URL || 'https://giving.stanford.edu',
+                  origin: 'https://giving.stanford.edu',
                   hl: 'en',
                 },
               },
