@@ -50,7 +50,14 @@ export const EmbedVideo = ({
             controls
             playsinline
             config={{
-              youtube: { playerVars: { start: startTimeInSeconds } },
+              youtube: {
+                playerVars: {
+                  start: startTimeInSeconds,
+                  enablejsapi: 1,
+                  origin: process.env.URL || 'https://giving.stanford.edu',
+                  hl: 'en',
+                },
+              },
             }}
           />
         )}
