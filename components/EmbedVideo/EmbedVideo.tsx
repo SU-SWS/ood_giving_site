@@ -23,7 +23,10 @@ export const EmbedVideo = ({
   ...props
 }: EmbedVideoProps) => {
 
-  const startTimeInSeconds = parseInt(startMinute, 10) * 60 + parseInt(startSecond, 10);
+  const startTimeInSeconds = Math.max(0,
+    (parseInt(startMinute || '0', 10) || 0) * 60 +
+    (parseInt(startSecond || '0', 10) || 0),
+  );
 
   console.log('EmbedVideo startTimeInSeconds:', startTimeInSeconds);
 
