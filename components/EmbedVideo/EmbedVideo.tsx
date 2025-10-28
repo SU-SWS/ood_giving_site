@@ -23,11 +23,6 @@ export const EmbedVideo = ({
   pb,
   ...props
 }: EmbedVideoProps) => {
-  /**
-   * This is needed to prevent hydration error for the React Player.
-   * https://github.com/cookpete/react-player/issues/1428
-   */
-  const isClient = useIsClient();
 
   const startTimeInSeconds = parseInt(startMinute, 10) * 60 + parseInt(startSecond, 10);
 
@@ -42,23 +37,23 @@ export const EmbedVideo = ({
       {...props}
     >
       <div className={styles.videoAspectRatios[aspectRatio]}>
-        {isClient && (
-          <ReactPlayer
-            url={videoUrl}
-            width="100%"
-            height="100%"
-            controls
-            playsinline
-            title="THIS IS A FORCED TITLE"
-            config={{
-              youtube: {
-                playerVars: {
-                  start: startTimeInSeconds,
-                },
+        <ReactPlayer
+          src={videoUrl}
+          width="100%"
+          height="100%"
+          controls
+          playsInline
+          config={{
+            youtube: {
+              playerVars: {
+                start: startTimeInSeconds,
               },
-            }}
-          />
-        )}
+              embedOptions: {
+                title: 'Forced IFrame Title Prop',
+              },
+            },
+          }}
+        />
       </div>
     </MediaWrapper>
   );
