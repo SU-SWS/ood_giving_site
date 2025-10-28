@@ -1,6 +1,5 @@
 'use client';
-import ReactPlayer from 'react-player/lazy';
-import { useIsClient } from 'usehooks-ts';
+import ReactPlayer from 'react-player';
 import { MediaWrapper, type MediaWrapperProps } from '@/components/Media';
 import * as styles from './EmbedVideo.styles';
 
@@ -45,12 +44,7 @@ export const EmbedVideo = ({
           playsInline
           config={{
             youtube: {
-              playerVars: {
-                start: startTimeInSeconds,
-              },
-              embedOptions: {
-                title: 'Forced IFrame Title Prop',
-              },
+              start: startTimeInSeconds,
             },
           }}
         />
