@@ -40,18 +40,6 @@ export const SbEmbedVideo = ({
     return null;
   }
 
-  console.log('SbEmbedVideo props:', {
-    videoUrl,
-    caption,
-    videoWidth,
-    aspectRatio,
-    spacingTop,
-    spacingBottom,
-    captionAlign,
-    startMinute,
-    startSecond,
-  });
-
   const Caption = hasRichText(caption) ? (
     <RichText
       textColor="cool-grey"
