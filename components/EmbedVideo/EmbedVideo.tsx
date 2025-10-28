@@ -25,6 +25,8 @@ export const EmbedVideo = ({
 
   const startTimeInSeconds = parseInt(startMinute, 10) * 60 + parseInt(startSecond, 10);
 
+  console.log('EmbedVideo startTimeInSeconds:', startTimeInSeconds);
+
   return (
     <MediaWrapper
       width={mediaWidth !== 'fit-parent' ? 'site' : 'full'}
