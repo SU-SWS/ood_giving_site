@@ -49,14 +49,11 @@ export const EmbedVideo = ({
             height="100%"
             controls
             playsinline
-            origin="https://giving.stanford.edu"
+            title="THIS IS A FORCED TITLE"
             config={{
               youtube: {
                 playerVars: {
                   start: startTimeInSeconds,
-                  enablejsapi: 1,
-                  origin: 'https://giving.stanford.edu',
-                  hl: 'en',
                 },
               },
             }}
