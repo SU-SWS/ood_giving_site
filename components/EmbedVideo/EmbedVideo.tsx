@@ -1,6 +1,5 @@
 'use client';
-import ReactPlayer from 'react-player/lazy';
-import { useIsClient } from 'usehooks-ts';
+import ReactPlayer from 'react-player';
 import { MediaWrapper, type MediaWrapperProps } from '@/components/Media';
 import * as styles from './EmbedVideo.styles';
 
@@ -23,13 +22,11 @@ export const EmbedVideo = ({
   pb,
   ...props
 }: EmbedVideoProps) => {
-  /**
-   * This is needed to prevent hydration error for the React Player.
-   * https://github.com/cookpete/react-player/issues/1428
-   */
-  const isClient = useIsClient();
 
-  const startTimeInSeconds = parseInt(startMinute, 10) * 60 + parseInt(startSecond, 10);
+  const startTimeInSeconds = Math.max(0,
+    (parseInt(startMinute || '0', 10) || 0) * 60 +
+    (parseInt(startSecond || '0', 10) || 0),
+  );
 
   return (
     <MediaWrapper
@@ -42,18 +39,18 @@ export const EmbedVideo = ({
       {...props}
     >
       <div className={styles.videoAspectRatios[aspectRatio]}>
-        {isClient && (
-          <ReactPlayer
-            url={videoUrl}
-            width="100%"
-            height="100%"
-            controls
-            playsinline
-            config={{
-              youtube: { playerVars: { start: startTimeInSeconds } },
-            }}
-          />
-        )}
+        <ReactPlayer
+          src={videoUrl}
+          width="100%"
+          height="100%"
+          controls
+          playsInline
+          config={{
+            youtube: {
+              start: startTimeInSeconds,
+            },
+          }}
+        />
       </div>
     </MediaWrapper>
   );

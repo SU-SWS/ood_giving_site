@@ -35,6 +35,7 @@ export const SbEmbedVideo = ({
   },
   blok,
 }: SbEmbedVideoProps) => {
+
   if (!videoUrl) {
     return null;
   }
