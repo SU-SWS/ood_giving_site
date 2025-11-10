@@ -48,7 +48,7 @@ export const EmbedVideo = ({
           config={{
             youtube: {
               start: startTimeInSeconds,
-              origin: process.env.DEPLOY_PRIME_URL || process.env.URL || 'https://giving.stanford.edu',
+              origin: process.env.URL || 'https://giving.stanford.edu',
               enablejsapi: 1,
             },
           }}
