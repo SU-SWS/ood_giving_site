@@ -1,4 +1,5 @@
 'use client';
+import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import { MediaWrapper, type MediaWrapperProps } from '@/components/Media';
 import * as styles from './EmbedVideo.styles';
@@ -22,11 +23,16 @@ export const EmbedVideo = ({
   pb,
   ...props
 }: EmbedVideoProps) => {
+  const [mounted, setMounted] = useState(false);
 
   const startTimeInSeconds = Math.max(0,
     (parseInt(startMinute || '0', 10) || 0) * 60 +
     (parseInt(startSecond || '0', 10) || 0),
   );
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <MediaWrapper
@@ -39,20 +45,22 @@ export const EmbedVideo = ({
       {...props}
     >
       <div className={styles.videoAspectRatios[aspectRatio]}>
-        <ReactPlayer
-          src={videoUrl}
-          width="100%"
-          height="100%"
-          controls
-          playsInline
-          config={{
-            youtube: {
-              start: startTimeInSeconds,
-              origin: process.env.URL || 'https://giving.stanford.edu',
-              enablejsapi: 1,
-            },
-          }}
-        />
+        {mounted && (
+          <ReactPlayer
+            src={videoUrl}
+            width="100%"
+            height="100%"
+            controls
+            playsInline
+            config={{
+              youtube: {
+                start: startTimeInSeconds,
+                origin: process.env.URL || 'https://giving.stanford.edu',
+                enablejsapi: 1,
+              },
+            }}
+          />
+        )}
       </div>
     </MediaWrapper>
   );
