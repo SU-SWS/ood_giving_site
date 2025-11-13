@@ -1,5 +1,4 @@
 import { type Metadata } from 'next';
-import { use } from 'react';
 import { StoryblokStory } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getPageMetadata } from '@/utilities/getPageMetadata';
@@ -73,8 +72,8 @@ export const generateStaticParams = async () => {
 /**
  * Generate the SEO metadata for the page.
  */
-export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata> => {
-  const { slug } = await params;
+export const generateMetadata = async (props: ParamsType): Promise<Metadata> => {
+  const { slug } = await props.params;
 
   // Validate the slug path before making any API calls
   const isValidPath = await validateSlugPath(slug || []);
@@ -100,11 +99,11 @@ export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata
 /**
  * Fetch the path data for the page and render it.
  */
-const Page = ({ params }: ParamsType) => {
-  const { slug } = use(params);
+const Page = async (props: ParamsType) => {
+  const { slug } = await props.params;
 
   // Validate the slug path before making any API calls
-  const isValidPath = use(validateSlugPath(slug || []));
+  const isValidPath = await validateSlugPath(slug || []);
   if (!isValidPath) {
     // Return 404 immediately for invalid paths without hitting Storyblok API
     notFound();
@@ -114,10 +113,10 @@ const Page = ({ params }: ParamsType) => {
   const slugPath = slugArrayToPath(slug || []);
 
   // Get data out of the API.
-  const { data } = use(getStoryDataCached({ path: slugPath }));
+  const { data } = await getStoryDataCached({ path: slugPath });
 
   // Failed to fetch from API because story slug was not found.
-  if (data === 404) {
+  if (data === 404 || !data.story) {
     notFound();
   }
 
