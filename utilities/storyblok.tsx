@@ -140,21 +140,57 @@ export type GetStoryblokApiConfig = {
   isEditor?: boolean;
 };
 
+// Initialize Storyblok once at module load to avoid race conditions with component registration
+// This ensures components are registered before any API calls are made
+const storyblokApi = storyblokInit({
+  accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
+  use: [apiPlugin],
+  components,
+  enableFallbackComponent: true,
+  customFallbackComponent: (component) => {
+    return <ComponentNotFound component={component} />;
+  },
+});
+
+// Cache for editor client to avoid re-initialization
+let editorClient: StoryblokClient | null = null;
+
 export const getStoryblokClient = ({
   accessToken,
-  isEditor,
+  isEditor = false,
 }: GetStoryblokApiConfig = {}): StoryblokClient => {
-  accessToken ??= isEditor ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
+  // For the editor with custom access token, reinitialize
+  if (isEditor && accessToken) {
+    // Initialize with the custom editor token (from URL query param)
+    const customClient = storyblokInit({
+      accessToken,
+      use: [apiPlugin],
+      components,
+      enableFallbackComponent: true,
+      customFallbackComponent: (component) => {
+        return <ComponentNotFound component={component} />;
+      },
+    });
+    return customClient();
+  }
 
-  const client = storyblokInit({
-    accessToken,
-    use: [apiPlugin],
-    components,
-    enableFallbackComponent: true,
-    customFallbackComponent: (component) => {
-      return <ComponentNotFound component={component} />;
-    },
-  })();
+  // For the editor with default token, use cached client
+  if (isEditor && !editorClient) {
+    editorClient = storyblokInit({
+      accessToken: process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN,
+      use: [apiPlugin],
+      components,
+      enableFallbackComponent: true,
+      customFallbackComponent: (component) => {
+        return <ComponentNotFound component={component} />;
+      },
+    })();
+  }
 
-  return client;
+  if (isEditor && editorClient) {
+    return editorClient;
+  }
+
+  // For all server-side cases (SSR, SSG), use the pre-initialized client with registered components
+  return storyblokApi();
 };

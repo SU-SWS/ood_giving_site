@@ -72,8 +72,8 @@ export const generateStaticParams = async () => {
 /**
  * Generate the SEO metadata for the page.
  */
-export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata> => {
-  const { slug } = await params;
+export const generateMetadata = async (props: ParamsType): Promise<Metadata> => {
+  const { slug } = await props.params;
 
   // Validate the slug path before making any API calls
   const isValidPath = await validateSlugPath(slug || []);
@@ -99,8 +99,8 @@ export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata
 /**
  * Fetch the path data for the page and render it.
  */
-const Page = async ({ params }: ParamsType) => {
-  const { slug } = await params;
+const Page = async (props: ParamsType) => {
+  const { slug } = await props.params;
 
   // Validate the slug path before making any API calls
   const isValidPath = await validateSlugPath(slug || []);
@@ -116,7 +116,7 @@ const Page = async ({ params }: ParamsType) => {
   const { data } = await getStoryDataCached({ path: slugPath });
 
   // Failed to fetch from API because story slug was not found.
-  if (data === 404) {
+  if (data === 404 || !data.story) {
     notFound();
   }
 
