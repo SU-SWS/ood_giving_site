@@ -135,6 +135,9 @@ export const components = {
   oodGallerySlideshow: SbGallerySlideshow,
 };
 
+// Cache for Storyblok clients to avoid re-initializing
+const clientCache: Record<string, StoryblokClient> = {};
+
 export type GetStoryblokApiConfig = {
   accessToken?: string;
   isEditor?: boolean;
@@ -146,7 +149,13 @@ export const getStoryblokClient = ({
 }: GetStoryblokApiConfig = {}): StoryblokClient => {
   accessToken ??= isEditor ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
 
-  const client = storyblokInit({
+  // Use cached client if already initialized for this token
+  if (clientCache[accessToken || '']) {
+    return clientCache[accessToken || ''];
+  }
+
+  // Initialize Storyblok with the specified access token
+  const getClient = storyblokInit({
     accessToken,
     use: [apiPlugin],
     components,
@@ -154,7 +163,12 @@ export const getStoryblokClient = ({
     customFallbackComponent: (component) => {
       return <ComponentNotFound component={component} />;
     },
-  })();
+  });
+
+  const client = getClient();
+
+  // Cache the client for reuse
+  clientCache[accessToken || ''] = client;
 
   return client;
 };
