@@ -116,9 +116,16 @@ const Page = async ({ params }: ParamsType) => {
   const { data } = await getStoryDataCached({ path: slugPath });
 
   // Failed to fetch from API because story slug was not found.
-  if (data === 404) {
+  if (data && data === 404) {
     notFound();
   }
+
+  // Ensure there is a story in the data.
+  if (!data || !data.story) {
+    throw new Error(`No story found for slugPath: ${slugPath}`);
+  }
+
+  console.log('Fetched Data for slugPath:', slugPath, data.story.content ? 'Story found with content' : 'No content');
 
   // Return the story.
   return (

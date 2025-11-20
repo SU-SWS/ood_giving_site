@@ -135,18 +135,18 @@ export const components = {
   oodGallerySlideshow: SbGallerySlideshow,
 };
 
+// Singleton client instances to avoid re-initializing (one per access token type)
+let publicClient: StoryblokClient | null = null;
+let editorClient: StoryblokClient | null = null;
+
 export type GetStoryblokApiConfig = {
   accessToken?: string;
   isEditor?: boolean;
 };
 
-export const getStoryblokClient = ({
-  accessToken,
-  isEditor,
-}: GetStoryblokApiConfig = {}): StoryblokClient => {
-  accessToken ??= isEditor ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
-
-  const client = storyblokInit({
+const initializeClient = (accessToken: string): StoryblokClient => {
+  // Initialize Storyblok with the specified access token
+  const getClient = storyblokInit({
     accessToken,
     use: [apiPlugin],
     components,
@@ -154,7 +154,30 @@ export const getStoryblokClient = ({
     customFallbackComponent: (component) => {
       return <ComponentNotFound component={component} />;
     },
-  })();
+  });
 
-  return client;
+  return getClient();
+};
+
+export const getStoryblokClient = ({
+  accessToken,
+  isEditor,
+}: GetStoryblokApiConfig = {}): StoryblokClient => {
+  // Determine which token to use
+  const useEditorToken = isEditor || false;
+  accessToken ??= useEditorToken ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
+
+  // Use singleton pattern for the two main client types (public and editor)
+  // This handles the common case and avoids any potential race conditions
+  if (useEditorToken) {
+    if (!editorClient) {
+      editorClient = initializeClient(accessToken || '');
+    }
+    return editorClient;
+  }
+
+  if (!publicClient) {
+    publicClient = initializeClient(accessToken || '');
+  }
+  return publicClient;
 };
