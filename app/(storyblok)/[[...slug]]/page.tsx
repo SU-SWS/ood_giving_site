@@ -54,7 +54,7 @@ export const generateStaticParams = async () => {
   // Filter out globals by filtering out the `global-components` folder.
   stories = stories.filter((link) => !link.slug.startsWith('global-components'));
 
-  const paths:PathsType = [];
+  const paths: PathsType = [];
 
   stories.forEach((story) => {
     const slug = story.slug;
