@@ -2,6 +2,7 @@ import { StoryblokProvider } from '@/components/StoryblokProvider';
 import { StoryblokStory } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getStoryDataCached } from '@/utilities/data';
+import { ensureStoryblokInitialized } from '@/utilities/storyblok';
 
 export const dynamic = 'force-static';
 
@@ -15,6 +16,7 @@ const bridgeOptions = {
  * Get the story data from the Storyblok API through the cache.
  */
 const Forbidden = async () => {
+  await ensureStoryblokInitialized();
   const { data } = await getStoryDataCached({ path: '403-page-access-denied' });
 
   if (data === 404) {

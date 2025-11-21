@@ -2,7 +2,7 @@ import { unstable_cache } from 'next/cache';
 import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { type SbAlertBgColorType, type SbAlertIconType } from '@/components/Storyblok/SbAlert';
-import { getStoryblokClient } from '@/utilities/storyblok';
+import { getStoryblokClient, ensureStoryblokInitialized } from '@/utilities/storyblok';
 
 export type AlertContent = {
   uuid: string;
@@ -20,6 +20,7 @@ const BUILD_ID = process.env.BUILD_ID || '';
  * Get all the published (global) alerts from Storyblok.
  */
 export const getGlobalAlerts = async () => {
+  await ensureStoryblokInitialized();
   const storyblokApi = getStoryblokClient();
 
   // Get the global alerts.

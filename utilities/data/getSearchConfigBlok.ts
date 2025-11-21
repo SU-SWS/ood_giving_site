@@ -1,6 +1,6 @@
 import { unstable_cache } from 'next/cache';
 import { type SbCtaLinkProps } from '@/components/Storyblok/SbCtaLink';
-import { getStoryblokClient } from '@/utilities/storyblok';
+import { getStoryblokClient, ensureStoryblokInitialized } from '@/utilities/storyblok';
 
 type SearchConfigBlokContent = {
   introduction?: string;
@@ -30,6 +30,7 @@ const BUILD_ID = process.env.BUILD_ID || '';
  * Get the global search configuration from Storyblok.
  */
 export const getSearchConfigBlok = async () => {
+  await ensureStoryblokInitialized();
   const storyblokApi = getStoryblokClient();
 
   // Get the global configuration.

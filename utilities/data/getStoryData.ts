@@ -2,7 +2,7 @@ import type { getStoryDataProps } from '@/utilities/data/types';
 import { type ISbStoriesParams, type ISbResult } from '@storyblok/react/rsc';
 import { unstable_cache } from 'next/cache';
 import { resolveRelations } from '@/utilities/resolveRelations';
-import { getStoryblokClient } from '@/utilities/storyblok';
+import { getStoryblokClient, ensureStoryblokInitialized } from '@/utilities/storyblok';
 
 const BUILD_ID = process.env.BUILD_ID || '';
 
@@ -10,6 +10,9 @@ const BUILD_ID = process.env.BUILD_ID || '';
  * Get the data out of the Storyblok API for the page.
  */
 export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResult | { data: 404 }> => {
+  // Ensure Storyblok is fully initialized before making API calls
+  await ensureStoryblokInitialized();
+
   const storyblokApi = getStoryblokClient();
 
   const sbParams: ISbStoriesParams = {

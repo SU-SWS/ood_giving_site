@@ -1,6 +1,6 @@
 import { type ISbStoriesParams } from '@storyblok/react/rsc';
 import { unstable_cache } from 'next/cache';
-import { getStoryblokClient } from '@/utilities/storyblok';
+import { getStoryblokClient, ensureStoryblokInitialized } from '@/utilities/storyblok';
 
 const BUILD_ID = process.env.BUILD_ID || '';
 
@@ -8,6 +8,9 @@ const BUILD_ID = process.env.BUILD_ID || '';
  * Fetches all stories from Storyblok.
  */
 export const getAllStories = async () => {
+  // Ensure Storyblok is fully initialized before making API calls
+  await ensureStoryblokInitialized();
+
   // Fetch new content from storyblok.
   const storyblokApi = getStoryblokClient();
 

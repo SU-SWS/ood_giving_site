@@ -138,6 +138,7 @@ export const components = {
 // Singleton client instances to avoid re-initializing (one per access token type)
 let publicClient: StoryblokClient | null = null;
 let editorClient: StoryblokClient | null = null;
+let initializationPromise: Promise<void> | null = null;
 
 export type GetStoryblokApiConfig = {
   accessToken?: string;
@@ -145,7 +146,7 @@ export type GetStoryblokApiConfig = {
 };
 
 const initializeClient = (accessToken: string): StoryblokClient => {
-  console.log('Implementing new Storyblok Client With Components', components);
+  console.log('Initializing Storyblok Client With Components', Object.keys(components));
   // Initialize Storyblok with the specified access token
   const getClient = storyblokInit({
     accessToken,
@@ -158,6 +159,31 @@ const initializeClient = (accessToken: string): StoryblokClient => {
   });
 
   return getClient();
+};
+
+/**
+ * Ensures Storyblok is fully initialized before any API calls or rendering.
+ * This prevents race conditions where content is fetched before components are registered.
+ */
+export const ensureStoryblokInitialized = async (): Promise<void> => {
+  // If already initializing, wait for it to complete
+  if (initializationPromise) {
+    return initializationPromise;
+  }
+
+  // If already initialized, return immediately
+  if (publicClient || editorClient) {
+    return Promise.resolve();
+  }
+
+  // Start initialization
+  initializationPromise = Promise.resolve().then(() => {
+    // Initialize the public client by default to ensure components are registered
+    const token = process.env.STORYBLOK_ACCESS_TOKEN || '';
+    publicClient = initializeClient(token);
+  });
+
+  return initializationPromise;
 };
 
 export const getStoryblokClient = ({

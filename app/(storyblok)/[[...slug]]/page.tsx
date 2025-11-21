@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { getStoryDataCached, getAllStoriesCached } from '@/utilities/data/';
 import { isProduction } from '@/utilities/getActiveEnv';
 import { validateSlugPath, slugArrayToPath } from '@/utilities/validateSlugPath';
+import { ensureStoryblokInitialized } from '@/utilities/storyblok';
 
 type PathsType = {
   slug: string[];
@@ -100,6 +101,9 @@ export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata
  * Fetch the path data for the page and render it.
  */
 const Page = async ({ params }: ParamsType) => {
+  // Ensure Storyblok is initialized before any rendering
+  await ensureStoryblokInitialized();
+
   const { slug } = await params;
 
   // Validate the slug path before making any API calls
