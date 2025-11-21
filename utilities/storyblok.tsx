@@ -145,6 +145,7 @@ export type GetStoryblokApiConfig = {
 };
 
 const initializeClient = (accessToken: string): StoryblokClient => {
+  console.log('Implementing new Storyblok Client With Components', components);
   // Initialize Storyblok with the specified access token
   const getClient = storyblokInit({
     accessToken,
