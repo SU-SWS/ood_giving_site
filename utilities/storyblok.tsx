@@ -140,23 +140,9 @@ export type GetStoryblokApiConfig = {
   isEditor?: boolean;
 };
 
-const createStoryblokClient = (accessToken: string): StoryblokClient => {
-  'use cache';
-
-  console.log('Initializing Storyblok client components:', Object.keys(components));
-
-  const client = storyblokInit({
-    accessToken,
-    use: [apiPlugin],
-    components,
-    enableFallbackComponent: true,
-    customFallbackComponent: (component) => {
-      return <ComponentNotFound component={component} />;
-    },
-  })();
-
-  return client;
-};
+// Singleton cache for Storyblok client instances
+let cachedClient: StoryblokClient | null = null;
+let cachedToken: string | null = null;
 
 export const getStoryblokClient = ({
   accessToken,
@@ -166,5 +152,26 @@ export const getStoryblokClient = ({
     isEditor ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN
   );
 
-  return createStoryblokClient(token || '');
+  // Return cached client if token matches
+  if (cachedClient && cachedToken === token) {
+    return cachedClient;
+  }
+
+  console.log('Initializing Storyblok client components:', Object.keys(components));
+
+  const client = storyblokInit({
+    accessToken: token,
+    use: [apiPlugin],
+    components,
+    enableFallbackComponent: true,
+    customFallbackComponent: (component) => {
+      return <ComponentNotFound component={component} />;
+    },
+  })();
+
+  // Cache the client and token
+  cachedClient = client;
+  cachedToken = token || null;
+
+  return client;
 };
