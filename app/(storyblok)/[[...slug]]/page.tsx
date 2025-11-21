@@ -80,6 +80,7 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
   const { params } = props;
   const { slug } = await params;
+  try {
 
   // Validate the slug path before making any API calls
   const isValidPath = await validateSlugPath(slug || []);
@@ -110,6 +111,13 @@ export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
   // Generate the metadata.
   const meta = getPageMetadata({ story, slug: slugPath });
   return meta;
+  } catch (error) {
+    console.error('Error generating metadata for slug:', slug, error);
+    return {
+      title: 'Metadata Error',
+      description: 'The requested page could not get metadata.',
+    };
+  }
 };
 
 /**
