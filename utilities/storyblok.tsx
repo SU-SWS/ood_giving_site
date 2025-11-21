@@ -146,6 +146,8 @@ export const getStoryblokClient = ({
 }: GetStoryblokApiConfig = {}): StoryblokClient => {
   accessToken ??= isEditor ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
 
+  console.log('Initializing Storyblok client components:', Object.keys(components));
+
   const client = storyblokInit({
     accessToken,
     use: [apiPlugin],
