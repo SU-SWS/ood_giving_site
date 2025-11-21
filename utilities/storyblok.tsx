@@ -154,6 +154,7 @@ export const getStoryblokClient = ({
 
   // Return cached client if token matches
   if (cachedClient && cachedToken === token) {
+    console.log('[STORYBLOK CLIENT] Returning cached client instance');
     return cachedClient;
   }
 
@@ -168,6 +169,8 @@ export const getStoryblokClient = ({
       return <ComponentNotFound component={component} />;
     },
   })();
+
+  console.log('[STORYBLOK CLIENT] Client created and initialized successfully');
 
   // Cache the client and token
   cachedClient = client;
