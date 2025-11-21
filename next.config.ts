@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
@@ -11,6 +12,20 @@ const nextConfig: NextConfig = {
         hostname: 'assets.stanford.edu',
       },
     ],
+  },
+  // Preserve function names for Storyblok component registration
+  webpack: (config, { webpack }) => {
+    if (config.optimization?.minimizer) {
+      config.optimization.minimizer.forEach((minimizer: any) => {
+        if (minimizer.constructor.name === 'TerserPlugin') {
+          minimizer.options.terserOptions = {
+            ...minimizer.options.terserOptions,
+            keep_fnames: true, // Preserve function names
+          };
+        }
+      });
+    }
+    return config;
   },
   env: {
     DEPLOY_PRIME_URL: process.env.DEPLOY_PRIME_URL,
