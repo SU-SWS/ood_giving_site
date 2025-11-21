@@ -1,7 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  // Preserve function names for Storyblok component registration
+  // Note: Next.js 15 uses Rust-based SWC minifier which doesn't support keep_fnames directly.
+  // We rely on ensureStoryblokInitialized() to prevent race conditions instead.
+  compiler: {
+    // Remove unused code but preserve function names where possible
+    removeConsole: false,
+  },
   eslint: {
     dirs: ['app', 'components', 'contexts', 'hooks', 'pages', 'services', 'utilities'],
   },
@@ -12,20 +18,6 @@ const nextConfig: NextConfig = {
         hostname: 'assets.stanford.edu',
       },
     ],
-  },
-  // Preserve function names for Storyblok component registration
-  webpack: (config, { webpack }) => {
-    if (config.optimization?.minimizer) {
-      config.optimization.minimizer.forEach((minimizer: any) => {
-        if (minimizer.constructor.name === 'TerserPlugin') {
-          minimizer.options.terserOptions = {
-            ...minimizer.options.terserOptions,
-            keep_fnames: true, // Preserve function names
-          };
-        }
-      });
-    }
-    return config;
   },
   env: {
     DEPLOY_PRIME_URL: process.env.DEPLOY_PRIME_URL,
