@@ -140,11 +140,8 @@ export type GetStoryblokApiConfig = {
   isEditor?: boolean;
 };
 
-export const getStoryblokClient = ({
-  accessToken,
-  isEditor,
-}: GetStoryblokApiConfig = {}): StoryblokClient => {
-  accessToken ??= isEditor ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
+const createStoryblokClient = (accessToken: string): StoryblokClient => {
+  'use cache';
 
   console.log('Initializing Storyblok client components:', Object.keys(components));
 
@@ -159,4 +156,15 @@ export const getStoryblokClient = ({
   })();
 
   return client;
+};
+
+export const getStoryblokClient = ({
+  accessToken,
+  isEditor,
+}: GetStoryblokApiConfig = {}): StoryblokClient => {
+  const token = accessToken ?? (
+    isEditor ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN
+  );
+
+  return createStoryblokClient(token || '');
 };
