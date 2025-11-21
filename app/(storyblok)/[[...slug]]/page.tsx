@@ -129,45 +129,45 @@ const Page = async (props: PropsType) => {
   const { slug } = await params;
   const slugPath = slugArrayToPath(slug || []);
 
-  console.log(`[PAGE START] ${slugPath} - Request initiated at ${new Date().toISOString()}`);
+  console.log(`[1. PAGE START] ${slugPath} - Request initiated at ${new Date().toISOString()}`);
 
   // Validate the slug path before making any API calls
   const isValidPath = await validateSlugPath(slug || []);
   if (!isValidPath) {
-    console.log(`[PATH VALIDATION] ${slugPath} - Invalid path, returning 404`);
+    console.log(`[2. PATH VALIDATION] ${slugPath} - Invalid path, returning 404`);
     // Return 404 immediately for invalid paths without hitting Storyblok API
     notFound();
   }
-  console.log(`[PATH VALIDATION] ${slugPath} - Path valid`);
+  console.log(`[2. PATH VALIDATION] ${slugPath} - Path valid`);
 
   // Initialize Storyblok client. Belt. Suspenders.
-  console.log(`[STORYBLOK CLIENT] ${slugPath} - Initializing client`);
+  console.log(`[3. STORYBLOK CLIENT] ${slugPath} - Initializing client`);
   getStoryblokClient();
-  console.log(`[STORYBLOK CLIENT] ${slugPath} - Client initialized`);
+  console.log(`[4. STORYBLOK CLIENT] ${slugPath} - Client initialized`);
 
   // Get data out of the API.
-  console.log(`[DATA FETCH] ${slugPath} - Fetching story data`);
+  console.log(`[5. DATA FETCH] ${slugPath} - Fetching story data`);
   const { data } = await getStoryDataCached({ path: slugPath });
-  console.log(`[DATA FETCH] ${slugPath} - Story data received`);
+  console.log(`[8. DATA FETCH] ${slugPath} - Story data received`);
 
   // Failed to fetch from API because story slug was not found.
   if (data && data === 404) {
-    console.log(`[DATA VALIDATION] ${slugPath} - Story returned 404`);
+    console.log(`[9. DATA VALIDATION] ${slugPath} - Story returned 404`);
     notFound();
   }
 
   // Ensure there is a story in the data.
   if (!data || !data.story) {
-    console.error(`[DATA VALIDATION ERROR] ${slugPath} - No story in data object`);
+    console.error(`[9. DATA VALIDATION ERROR] ${slugPath} - No story in data object`);
     throw new Error(`No story found for slugPath: ${slugPath}`);
   }
 
-  console.log(`[DATA VALIDATION] ${slugPath} - Story validated, has content: ${!!data.story.content}`);
+  console.log(`[9. DATA VALIDATION] ${slugPath} - Story validated, has content: ${!!data.story.content}`);
 
   // Return the story.
-  console.log(`[COMPONENT RENDER] ${slugPath} - Rendering StoryblokStory component, type: ${data.story.content?.component || 'unknown'}`);
+  console.log(`[10. COMPONENT RENDER] ${slugPath} - Rendering StoryblokStory component, type: ${data.story.content?.component || 'unknown'}`);
   const elapsed = Date.now() - startTime;
-  console.log(`[PAGE COMPLETE] ${slugPath} - Total processing time: ${elapsed}ms`);
+  console.log(`[11. PAGE COMPLETE] ${slugPath} - Total processing time: ${elapsed}ms`);
 
   return (
     <StoryblokStory

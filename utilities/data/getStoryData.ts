@@ -10,9 +10,9 @@ const BUILD_ID = process.env.BUILD_ID || '';
  * Get the data out of the Storyblok API for the page.
  */
 export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResult | { data: 404 }> => {
-  console.log(`[STORYBLOK API] ${path} - Getting Storyblok client`);
+  console.log(`[5a. STORYBLOK API] ${path} - Getting Storyblok client`);
   const storyblokApi = getStoryblokClient();
-  console.log(`[STORYBLOK API] ${path} - Client obtained, making API request`);
+  console.log(`[6. STORYBLOK API] ${path} - Client obtained, making API request`);
 
   const sbParams: ISbStoriesParams = {
     // We have separate dev/prod spaces; we only ever want published stories outside of the live editor.
@@ -26,15 +26,15 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
 
   try {
     const story: ISbResult = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
-    console.log(`[STORYBLOK API] ${path} - API request successful, story ID: ${story.data?.story?.id || 'unknown'}`);
+    console.log(`[7. STORYBLOK API] ${path} - API request successful, story ID: ${story.data?.story?.id || 'unknown'}`);
     return story;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     if (error && error.status && error.status === 404) {
-      console.log(`[STORYBLOK API] ${path} - Story not found (404)`);
+      console.log(`[7. STORYBLOK API] ${path} - Story not found (404)`);
       return { data: 404 };
     }
-    console.error(`[STORYBLOK API ERROR] ${path} - Error fetching story:`, error.message || error);
+    console.error(`[7. STORYBLOK API ERROR] ${path} - Error fetching story:`, error.message || error);
     throw error;
   }
 };
