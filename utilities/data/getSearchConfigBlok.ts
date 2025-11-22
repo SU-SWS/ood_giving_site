@@ -26,10 +26,17 @@ export type SearchConfig = {
 
 const BUILD_ID = process.env.BUILD_ID || '';
 
+// Track function execution for cache debugging
+let executionCounter = 0;
+
 /**
  * Get the global search configuration from Storyblok.
+ * This function is the actual implementation that gets cached.
  */
 export const getSearchConfigBlok = async () => {
+  const execId = ++executionCounter;
+  console.log(`[CACHE EXEC ${execId}] getSearchConfigBlok - Function EXECUTING (cache miss or first call)`);
+
   const storyblokApi = getStoryblokClient();
 
   // Get the global configuration.
@@ -53,7 +60,7 @@ export const getSearchConfigBlok = async () => {
     suggestionsAmount,
   } = story?.content as SearchConfigBlokContent ?? {};
 
-  return {
+  const result = {
     introduction,
     categoriesLeftBox,
     categoriesRightBox,
@@ -63,12 +70,15 @@ export const getSearchConfigBlok = async () => {
     categoriesRightHeadline,
     suggestionsAmount: parseInt(suggestionsAmount, 10) || 0,
   } as SearchConfig;
+
+  console.log(`[CACHE EXEC ${execId}] getSearchConfigBlok - Function COMPLETED`);
+  return result;
 };
 
 /**
- * Get the global search configuration from Storyblok through the cache.
+ * The actual cached function
  */
-export const getSearchConfigBlokCached = unstable_cache(
+const cachedGetSearchConfigBlok = unstable_cache(
   getSearchConfigBlok,
   ['search-configuration', BUILD_ID], // Include BUILD_ID for fresh content per build
   {
@@ -77,3 +87,28 @@ export const getSearchConfigBlokCached = unstable_cache(
     revalidate: 600,
   },
 );
+
+/**
+ * Get the global search configuration from Storyblok through the cache.
+ * This wrapper adds logging to track cache hits/misses.
+ */
+export const getSearchConfigBlokCached = async () => {
+  const cacheKey = `search-configuration:${BUILD_ID}`;
+  const startTime = Date.now();
+
+  console.log(`[CACHE CHECK] getSearchConfigBlok - Checking unstable_cache (key: ${cacheKey})`);
+  console.log(`[CACHE INFO] getSearchConfigBlok - BUILD_ID: ${BUILD_ID}, revalidate: 600s, tags: global,config,search`);
+
+  const result = await cachedGetSearchConfigBlok();
+
+  const duration = Date.now() - startTime;
+  console.log(`[CACHE RESULT] getSearchConfigBlok - unstable_cache returned in ${duration}ms`);
+
+  if (duration < 10) {
+    console.log(`[CACHE HIT LIKELY] getSearchConfigBlok - Fast return suggests cached data was used`);
+  } else {
+    console.log(`[CACHE MISS LIKELY] getSearchConfigBlok - Slow return suggests function executed`);
+  }
+
+  return result;
+};
