@@ -135,50 +135,46 @@ export const components = {
   oodGallerySlideshow: SbGallerySlideshow,
 };
 
-// Singleton client instances to avoid re-initializing (one per access token type)
-let publicClient: StoryblokClient | null = null;
-let editorClient: StoryblokClient | null = null;
-
 export type GetStoryblokApiConfig = {
   accessToken?: string;
   isEditor?: boolean;
 };
 
-const initializeClient = (accessToken: string): StoryblokClient => {
-  console.log('Implementing new Storyblok Client With Components', components);
-  // Initialize Storyblok with the specified access token
-  const getClient = storyblokInit({
-    accessToken,
+// Singleton cache for Storyblok client instances
+let cachedClient: StoryblokClient | null = null;
+let cachedToken: string | null = null;
+
+export const getStoryblokClient = ({
+  accessToken,
+  isEditor,
+}: GetStoryblokApiConfig = {}): StoryblokClient => {
+  const token = accessToken ?? (
+    isEditor ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN
+  );
+
+  // Return cached client if token matches
+  if (cachedClient && cachedToken === token) {
+    console.log('[5b. STORYBLOK CLIENT] Returning cached client instance');
+    return cachedClient;
+  }
+
+  console.log('[5b. STORYBLOK CLIENT] Creating new client with', Object.keys(components).length, 'components');
+
+  const client = storyblokInit({
+    accessToken: token,
     use: [apiPlugin],
     components,
     enableFallbackComponent: true,
     customFallbackComponent: (component) => {
       return <ComponentNotFound component={component} />;
     },
-  });
+  })();
 
-  return getClient();
-};
+  console.log('[5c. STORYBLOK CLIENT] Client created and initialized successfully');
 
-export const getStoryblokClient = ({
-  accessToken,
-  isEditor,
-}: GetStoryblokApiConfig = {}): StoryblokClient => {
-  // Determine which token to use
-  const useEditorToken = isEditor || false;
-  accessToken ??= useEditorToken ? process.env.STORYBLOK_PREVIEW_EDITOR_TOKEN : process.env.STORYBLOK_ACCESS_TOKEN;
+  // Cache the client and token
+  cachedClient = client;
+  cachedToken = token || null;
 
-  // Use singleton pattern for the two main client types (public and editor)
-  // This handles the common case and avoids any potential race conditions
-  if (useEditorToken) {
-    if (!editorClient) {
-      editorClient = initializeClient(accessToken || '');
-    }
-    return editorClient;
-  }
-
-  if (!publicClient) {
-    publicClient = initializeClient(accessToken || '');
-  }
-  return publicClient;
+  return client;
 };

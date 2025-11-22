@@ -6,14 +6,16 @@ import { notFound } from 'next/navigation';
 import { getStoryDataCached, getAllStoriesCached } from '@/utilities/data/';
 import { isProduction } from '@/utilities/getActiveEnv';
 import { validateSlugPath, slugArrayToPath } from '@/utilities/validateSlugPath';
+import { getStoryblokClient } from '@/utilities/storyblok';
+
+type PropsType = {
+  params: Promise<{ slug: string[] }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+};
 
 type PathsType = {
   slug: string[];
-};
-
-type ParamsType = {
-  params: Promise<PathsType>;
-};
+}[];
 
 // Storyblok bridge options.
 const bridgeOptions = {
@@ -30,6 +32,9 @@ export const revalidate = 31536000;
 
 // Force static rendering.
 export const dynamic = 'force-static';
+
+// Initialize Storyblok client.
+getStoryblokClient();
 
 /**
  * Generate the list of stories to statically render.
@@ -49,7 +54,7 @@ export const generateStaticParams = async () => {
   // Filter out globals by filtering out the `global-components` folder.
   stories = stories.filter((link) => !link.slug.startsWith('global-components'));
 
-  const paths: PathsType[] = [];
+  const paths: PathsType = [];
 
   stories.forEach((story) => {
     const slug = story.slug;
@@ -72,8 +77,10 @@ export const generateStaticParams = async () => {
 /**
  * Generate the SEO metadata for the page.
  */
-export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata> => {
+export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
+  const { params } = props;
   const { slug } = await params;
+  try {
 
   // Validate the slug path before making any API calls
   const isValidPath = await validateSlugPath(slug || []);
@@ -89,45 +96,79 @@ export const generateMetadata = async ({ params }: ParamsType): Promise<Metadata
   const slugPath = slugArrayToPath(slug || []);
 
   // Get the story data.
-  const { data: { story } } = await getStoryDataCached({ path: slugPath });
+  const { data } = await getStoryDataCached({ path: slugPath });
+
+  if (data === 404 || !data.story) {
+    // Return minimal metadata for 404 pages
+    return {
+      title: 'Page Not Found',
+      description: 'The requested page could not be found.',
+    };
+  }
+
+  const story = data.story;
 
   // Generate the metadata.
   const meta = getPageMetadata({ story, slug: slugPath });
   return meta;
+  } catch (error) {
+    console.error('Error generating metadata for slug:', slug, error);
+    return {
+      title: 'Metadata Error',
+      description: 'The requested page could not get metadata.',
+    };
+  }
 };
 
 /**
  * Fetch the path data for the page and render it.
  */
-const Page = async ({ params }: ParamsType) => {
+const Page = async (props: PropsType) => {
+  const startTime = Date.now();
+  const { params } = props;
   const { slug } = await params;
+  const slugPath = slugArrayToPath(slug || []);
+
+  console.log(`[1. PAGE START] ${slugPath} - Request initiated at ${new Date().toISOString()}`);
 
   // Validate the slug path before making any API calls
   const isValidPath = await validateSlugPath(slug || []);
   if (!isValidPath) {
+    console.log(`[2. PATH VALIDATION] ${slugPath} - Invalid path, returning 404`);
     // Return 404 immediately for invalid paths without hitting Storyblok API
     notFound();
   }
+  console.log(`[2. PATH VALIDATION] ${slugPath} - Path valid`);
 
-  // Convert the slug to a path.
-  const slugPath = slugArrayToPath(slug || []);
+  // Initialize Storyblok client. Belt. Suspenders.
+  console.log(`[3. STORYBLOK CLIENT] ${slugPath} - Initializing client`);
+  getStoryblokClient();
+  console.log(`[4. STORYBLOK CLIENT] ${slugPath} - Client initialized`);
 
   // Get data out of the API.
+  console.log(`[5. DATA FETCH] ${slugPath} - Fetching story data`);
   const { data } = await getStoryDataCached({ path: slugPath });
+  console.log(`[8. DATA FETCH] ${slugPath} - Story data received`);
 
   // Failed to fetch from API because story slug was not found.
   if (data && data === 404) {
+    console.log(`[9. DATA VALIDATION] ${slugPath} - Story returned 404`);
     notFound();
   }
 
   // Ensure there is a story in the data.
   if (!data || !data.story) {
+    console.error(`[9. DATA VALIDATION ERROR] ${slugPath} - No story in data object`);
     throw new Error(`No story found for slugPath: ${slugPath}`);
   }
 
-  console.log('Fetched Data for slugPath:', slugPath, data.story.content ? 'Story found with content' : 'No content');
+  console.log(`[9. DATA VALIDATION] ${slugPath} - Story validated, has content: ${!!data.story.content}`);
 
   // Return the story.
+  console.log(`[10. COMPONENT RENDER] ${slugPath} - Rendering StoryblokStory component, type: ${data.story.content?.component || 'unknown'}`);
+  const elapsed = Date.now() - startTime;
+  console.log(`[11. PAGE COMPLETE] ${slugPath} - Total processing time: ${elapsed}ms`);
+
   return (
     <StoryblokStory
       story={data.story}
