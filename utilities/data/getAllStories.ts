@@ -26,9 +26,9 @@ export const getAllStories = async () => {
 };
 
 /**
- * Get all stories from Storyblok through the cache.
+ * The actual cached function
  */
-export const getAllStoriesCached = unstable_cache(
+const cachedGetAllStories = unstable_cache(
   getAllStories,
   ['all-stories', BUILD_ID], // Proper cache key with BUILD_ID for fresh content per build
   {
@@ -37,3 +37,28 @@ export const getAllStoriesCached = unstable_cache(
     revalidate: 600,
   },
 );
+
+/**
+ * Get all stories from Storyblok through the cache.
+ * This wrapper adds logging to track cache hits/misses.
+ */
+export const getAllStoriesCached = async () => {
+  const cacheKey = `all-stories:${BUILD_ID}`;
+  const startTime = Date.now();
+
+  console.log(`[CACHE CHECK] getAllStories - Checking unstable_cache (key: ${cacheKey})`);
+  console.log(`[CACHE INFO] getAllStories - BUILD_ID: ${BUILD_ID}, revalidate: 600s, tags: story,all`);
+
+  const result = await cachedGetAllStories();
+
+  const duration = Date.now() - startTime;
+  console.log(`[CACHE RESULT] getAllStories - unstable_cache returned in ${duration}ms`);
+
+  if (duration < 10) {
+    console.log(`[CACHE HIT LIKELY] getAllStories - Fast return suggests cached data was used`);
+  } else {
+    console.log(`[CACHE MISS LIKELY] getAllStories - Slow return suggests function executed`);
+  }
+
+  return result;
+};
