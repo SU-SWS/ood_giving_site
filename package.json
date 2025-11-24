@@ -68,7 +68,7 @@
     "@stylistic/eslint-plugin": "^5.2.3",
     "@tailwindcss/container-queries": "^0.1.1",
     "@types/node": "^20",
-    "@types/react": "^19.1.9",
+    "@types/react": "^19.2.7",
     "@types/react-dom": "^19.1.7",
     "@types/react-slick": "^0.23.13",
     "autoprefixer": "^10.4.21",
