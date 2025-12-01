@@ -74,62 +74,13 @@ console.error('[PluginName] Operation failed:', error);
 
 Use descriptive prefixes (e.g., `[Algolia]`, `[Storyblok Redirects Plugin]`) for easy filtering in Netlify logs.
 
-## Future Enhancements
-
-### Migration to Logging Service
-
-When ready to implement a dedicated logging service:
-
-1. **Choose a Service**: Sentry recommended for error tracking (good Next.js integration)
-2. **Install SDK**: `npm install @sentry/nextjs`
-3. **Configure**: Update `utilities/logger.ts` to use Sentry SDK
-4. **Environment Variables**: Add `SENTRY_DSN` and other config
-5. **Testing**: Verify logs appear in service dashboard
-
-### Example Sentry Migration
-
-```typescript
-// utilities/logger.ts
-import * as Sentry from '@sentry/nextjs';
-
-export const logError = (message: string, error?: Error | unknown, context?: LogContext) => {
-  Sentry.captureException(error, {
-    contexts: { custom: context },
-    tags: { message },
-  });
-  // Keep console.error for Netlify logs
-  console.error(`[ERROR] ${message}`, error, context);
-};
-```
-
 ## Best Practices
 
 1. **Always Include Context**: Add relevant information (user ID, route, component name)
 2. **Sanitize Data**: Never log sensitive information
 3. **Be Specific**: Use descriptive error messages
 4. **Use Appropriate Level**: Error for failures, warn for potential issues, info for significant events
-5. **Test Locally**: Verify logging doesn't impact performance
-6. **Review Regularly**: Periodically review logs to ensure quality and relevance
-
-## Monitoring
-
-### Netlify Built-in Logs
-
-- **Build Logs**: Available in Netlify UI after each deployment
-- **Function Logs**: Real-time logs for serverless functions
-- **Deploy Logs**: Track deployment status and issues
-
-### Future Alerting
-
-When using a logging service:
-
-- Set up alerts for critical errors
-- Configure error rate thresholds
-- Enable Slack/email notifications
-- Track error trends over time
 
 ## Related Documentation
 
-- [AGENTS.md](/AGENTS.md) - AI agent instructions and architecture overview
 - [Netlify Documentation](https://docs.netlify.com/functions/logs/)
-- [Sentry Next.js Integration](https://docs.sentry.io/platforms/javascript/guides/nextjs/)
