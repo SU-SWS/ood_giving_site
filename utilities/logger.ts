@@ -38,13 +38,3 @@ export const logInfo = (message: string, context?: LogContext) => {
   // In production with Sentry: Sentry.captureMessage(message, 'info', { contexts: context });
   console.log(`[INFO] ${message}`, context);
 };
-
-/**
- * Check if running in production environment
- */
-export const isProduction = () => process.env.NODE_ENV === 'production';
-
-/**
- * Check if running in a Netlify build context
- */
-export const isBuildContext = () => process.env.CONTEXT !== undefined;
