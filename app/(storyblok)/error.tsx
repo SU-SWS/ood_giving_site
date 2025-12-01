@@ -2,13 +2,14 @@
 
 import { useEffect } from 'react';
 import { Container } from '@/components/Container';
+import { logError } from '@/utilities/logger';
 
 const Error = ({error}: {
   error: Error & { digest?: string };
 }) => {
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error('Segment error', error);
+    logError('Storyblok segment error boundary caught exception', error, { digest: error.digest });
   }, [error]);
 
   return (

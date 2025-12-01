@@ -21,9 +21,9 @@ const deploySucceeded = async () => {
     // Trigger processing task in Algolia
     const client = algoliasearch(appID, key).initIngestion({ region: 'us' });
     await client.runTask({ taskID });
-    console.log('Success!');
+    console.log('[Algolia] Successfully triggered content indexing task');
   } catch(err) {
-    console.error(err);
+    console.error('[Algolia] Failed to trigger indexing task:', err);
   }
 
   // Default empty 200

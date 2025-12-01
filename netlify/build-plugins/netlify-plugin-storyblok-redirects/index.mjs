@@ -149,7 +149,7 @@ export const onPostBuild = async ({ netlifyConfig, inputs, utils: { build, statu
 
   }
   catch (error) {
-    console.error('Error fetching redirects from Storyblok:', error);
+    console.error('[Storyblok Redirects Plugin] Failed to fetch redirects from Storyblok:', error);
     build.failBuild('Error fetching redirects from Storyblok', { error });
   }
 
