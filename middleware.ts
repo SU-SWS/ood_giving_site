@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest, type NextFetchEvent } from 'next/server';
 import { isEditorValid } from '@/utilities/isEditorValid';
+import { logError } from '@/utilities/logger';
 
 export const middleware = async (request: NextRequest, event: NextFetchEvent) => {
   const { searchParams, pathname } = request.nextUrl;
@@ -22,7 +23,7 @@ export const middleware = async (request: NextRequest, event: NextFetchEvent) =>
       timestamp,
     });
   } catch (err) {
-    console.error(err);
+    logError('Editor validation failed', err, { pathname });
   }
 
   if (!isValid) {
