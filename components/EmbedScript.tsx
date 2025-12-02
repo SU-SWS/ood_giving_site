@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useCallback } from 'react';
+import { logError } from '@/utilities/logger';
 
 /**
  * For embedding HTML content and third-party scripts.
@@ -44,7 +45,7 @@ export const EmbedScript = ({
       // Clear the container and append new content
       containerRef.current.replaceChildren(miniDom);
     } catch (error) {
-      console.error('EmbedScript: Failed to inject content', error);
+      logError('EmbedScript failed to inject content', error);
     }
   }, [html]);
 

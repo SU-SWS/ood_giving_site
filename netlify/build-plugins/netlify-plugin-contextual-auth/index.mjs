@@ -20,7 +20,7 @@ export async function onPostBuild({ inputs, utils: { build, status } }) {
 
     // Display success information
     console.log(
-      `Added basic auth "${inputs.username}:${inputs.password} for path "${inputs.path}""`);
+      `[Contextual Auth Plugin] Added basic auth "${inputs.username}" for path "${inputs.path}"`);
     status.show({ summary: 'Success!' });
   }
 }
