@@ -1,4 +1,4 @@
-import { unstable_cache } from 'next/cache';
+import { cache } from 'react';
 import { type SbCtaLinkProps } from '@/components/Storyblok/SbCtaLink';
 import { getStoryblokClient } from '@/utilities/storyblok';
 
@@ -24,10 +24,18 @@ export type SearchConfig = {
   suggestionsAmount: number;
 };
 
-const BUILD_ID = process.env.BUILD_ID || '';
-
 /**
  * Get the global search configuration from Storyblok.
+ *
+ * **Version Strategy (Next.js 16)**:
+ * - Always fetches `version: 'published'` content
+ * - Separate dev/prod Storyblok spaces provide environment-specific configs
+ * - Configuration is global and shared across all pages
+ *
+ * **Caching Strategy**:
+ * - Uses `cache: 'no-store'` in customFetch to ensure fresh content per build
+ * - Wrapped by `cache` function for build-time deduplication
+ * - Search config fetched once and shared across all pages in a build
  */
 export const getSearchConfigBlok = async () => {
   const storyblokApi = getStoryblokClient();
@@ -67,13 +75,10 @@ export const getSearchConfigBlok = async () => {
 
 /**
  * Get the global search configuration from Storyblok through the cache.
+ *
+ * Uses Next.js 16's stable `cache` function for build-time deduplication.
+ * Search configuration is fetched once per build and shared across all pages.
+ *
+ * Cache keys are automatically derived from function arguments by React.
  */
-export const getSearchConfigBlokCached = unstable_cache(
-  getSearchConfigBlok,
-  ['search-configuration', BUILD_ID], // Include BUILD_ID for fresh content per build
-  {
-    tags: ['global', 'config', 'search'],
-    // Cache for 10 minutes as config changes are infrequent
-    revalidate: 600,
-  },
-);
+export const getSearchConfigBlokCached = cache(getSearchConfigBlok);

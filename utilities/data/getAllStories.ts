@@ -1,11 +1,19 @@
 import { type ISbStoriesParams } from '@storyblok/react/rsc';
-import { unstable_cache } from 'next/cache';
+import { cache } from 'react';
 import { getStoryblokClient } from '@/utilities/storyblok';
-
-const BUILD_ID = process.env.BUILD_ID || '';
 
 /**
  * Fetches all stories from Storyblok.
+ *
+ * **Version Strategy (Next.js 16)**:
+ * - Production builds: Always fetches `version: 'published'` content
+ * - Used by generateStaticParams for static page generation
+ * - Visual editor bypasses this via client-side draft fetching
+ *
+ * **Caching Strategy**:
+ * - Uses `cache: 'no-store'` in customFetch to ensure fresh content per build
+ * - Wrapped by `cache` function for build-time deduplication
+ * - Uses `cdn/links` endpoint for efficient slug retrieval without full content
  */
 export const getAllStories = async () => {
   // Fetch new content from storyblok.
@@ -27,13 +35,11 @@ export const getAllStories = async () => {
 
 /**
  * Get all stories from Storyblok through the cache.
+ *
+ * Uses React's `cache` function for build-time deduplication.
+ * This ensures all static pages are generated with consistent, fresh content
+ * from a single set of API calls per build.
+ *
+ * Cache keys are automatically derived from function arguments by React.
  */
-export const getAllStoriesCached = unstable_cache(
-  getAllStories,
-  ['all-stories', BUILD_ID], // Proper cache key with BUILD_ID for fresh content per build
-  {
-    tags: ['story', 'all'],
-    // Cache for 10 minutes to balance freshness with performance
-    revalidate: 600,
-  },
-);
+export const getAllStoriesCached = cache(getAllStories);

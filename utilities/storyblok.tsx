@@ -144,6 +144,19 @@ export type GetStoryblokApiConfig = {
 let cachedClient: StoryblokClient | null = null;
 let cachedToken: string | null = null;
 
+/**
+ * Get or create a configured Storyblok API client.
+ *
+ * **Next.js 16 Caching Strategy**:
+ * - The Storyblok SDK internally uses `fetch`, which Next.js 16 extends
+ * - We rely on the React `cache` function wrapper in utilities/data/ for build-time deduplication
+ * - Storyblok SDK's default cache settings work well with our static-first approach
+ * - Each new build process creates a fresh client instance, ensuring latest content
+ *
+ * **Version Handling**:
+ * - Production: Uses STORYBLOK_ACCESS_TOKEN (public, published content only)
+ * - Editor: Uses STORYBLOK_PREVIEW_EDITOR_TOKEN (preview, draft content access)
+ */
 export const getStoryblokClient = ({
   accessToken,
   isEditor,
