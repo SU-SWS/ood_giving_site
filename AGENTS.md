@@ -25,10 +25,11 @@ This is a **Next.js 16+ App Router** headless CMS site using **Storyblok** as th
 
 ### Major Changes from Next.js 15
 
-1. **No More Middleware**: 
+1. **Middleware Removed (Architectural Decision)**: 
    - `middleware.ts` was removed and replaced with route-level validation
    - Storyblok editor access is now validated in `/app/(editor)/editor/EditorGuard.tsx`
-   - This provides better colocation and avoids Edge/Node.js runtime considerations
+   - This provides better colocation and explicit security boundaries
+   - Note: Next.js 16 still supports middleware; we chose to remove it for this specific use case
 
 2. **Removed Custom Cache Handler**:
    - Previous workaround for 2MB cache limit has been removed

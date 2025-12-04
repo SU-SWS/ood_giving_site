@@ -23,6 +23,3 @@ export default async function Page({
     </EditorGuard>
   );
 }
-
-// Old client component removed - moved to EditorClient.tsx
-

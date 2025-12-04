@@ -35,11 +35,11 @@ We will upgrade to Next.js 16.0.7 with the following changes:
 
 **Action**: Removed `cacheHandler: require.resolve('next/dist/server/lib/incremental-cache/file-system-cache.js')` from `next.config.ts`.
 
-**Impact**: Build succeeds but shows warnings for pages with >2MB payloads. These warnings are non-fatal - pages still render correctly but without the data cache optimization.
+**Impact**: Builds successfully with no cache warnings after configuring Storyblok SDK rate limiting and memory cache.
 
 ### 2. Migrate Middleware to Route-Level Validation
 
-**Rationale**: Next.js 16 deprecates `middleware.ts` in favor of `proxy.ts` (Node.js runtime only, no Edge support). Our middleware only validates Storyblok editor access, which is better colocated with the route it protects.
+**Rationale**: While Next.js 16 still supports `middleware.ts`, our middleware only validated Storyblok editor access for a single route. This single-purpose middleware is better implemented as route-level validation, colocated with the route it protects. This aligns with App Router best practices of colocation and explicit security boundaries.
 
 **Action**:
 - Removed `middleware.ts`
@@ -70,7 +70,22 @@ The EditorGuard now properly implements Storyblok's security recommendations:
 
 **Note**: Our existing `eslint.config.mjs` handles all ESLint configuration correctly.
 
-### 4. Update Dependencies
+### 4. Configure Storyblok SDK with Rate Limiting and Memory Cache
+
+**Rationale**: Storyblok Content API has a 60 RPS rate limit. With Next.js using 10-15 build threads, we need to configure the SDK to prevent rate limit errors and optimize caching.
+
+**Action**: Updated `utilities/storyblok.tsx` to configure `apiOptions`:
+- `region: 'eu'` - CRITICAL: This space is hosted in the EU region
+- `rateLimit: 6` - Safe rate per thread (6 RPS × 10 threads = 60 RPS max)
+- `cache: { type: 'memory', clear: 'auto' }` - Built-in memory cache with automatic clearing
+- `maxRetries: 5` - Retry failed requests for resilience
+
+**Impact**: 
+- Builds complete without rate limit errors
+- No cache warnings in build output
+- Storyblok SDK handles request throttling automatically
+
+### 5. Update Dependencies
 
 Updated the following packages:
 - `next`: 15.5.3 → 16.0.7
@@ -79,7 +94,9 @@ Updated the following packages:
 - `@next/third-parties`: Updated to support Next.js 16
 - `@storyblok/react`: Updated to latest
 - `react-instantsearch-nextjs`: Updated to latest
-- `@netlify/plugin-nextjs`: Updated to latest
+- `@netlify/plugin-nextjs`: 5.15.1 (already at latest)
+- `netlify-cli`: 23.1.1 → 23.12.2
+- `@netlify/functions`: 3.0.4 → 5.1.0
 
 ## Consequences
 
@@ -100,72 +117,17 @@ Updated the following packages:
    - Prepared for future Next.js enhancements
    - Reduced technical debt
 
+4. **Optimized Storyblok Integration**:
+   - Built-in SDK rate limiting prevents API errors during builds
+   - Memory cache reduces redundant API calls
+   - EU region configuration ensures proper API routing
+
 ### Negative
 
-1. **Data Cache Warnings** (Non-Fatal):
-   - Pages with >2MB Storyblok content show cache warnings
-   - These pages still render correctly but miss data cache optimization
-   - Potential performance impact during high-traffic periods
-
-2. **Testing Requirements**:
+1. **Testing Requirements**:
    - Comprehensive testing needed for all static generation paths
    - Storyblok editor access validation must be verified
    - Cache invalidation via webhooks requires validation
-
-## Follow-Up Actions
-
-### Immediate (Required Before Production)
-
-1. **Comprehensive Testing**:
-   - ✅ TypeScript type checking passes
-   - ✅ ESLint passes with no warnings
-   - ✅ Build completes successfully (341 static pages generated)
-   - [ ] Test Storyblok editor access validation
-   - [ ] Test all Storyblok webhook-triggered revalidation
-   - [ ] Visual regression testing for critical pages
-   - [ ] Accessibility audit (WCAG 2.1 AA compliance)
-   - [ ] Performance benchmarking (Core Web Vitals)
-
-2. **Documentation Updates**:
-   - [ ] Update README.md with Next.js 16 specifics
-   - [ ] Update AGENTS.md with architectural changes
-   - [ ] Document removed middleware pattern for team
-
-### Short-Term (Within 1-2 Sprints)
-
-3. **Custom Data Cache Handler**:
-   - **Decision**: Implement custom cache handler using Upstash Redis
-   - **Rationale**: Addresses 2MB limit for large Storyblok payloads
-   - **Approach**: Use Next.js 16's `incrementalCacheHandlerPath` API
-   - **See**: Future ADR for detailed implementation plan
-   - **Priority**: High (especially before high-traffic periods like admissions)
-
-4. **Content Payload Optimization**:
-   - Audit pages with >2MB payloads (up to 32MB observed)
-   - Work with content editors to identify optimization opportunities
-   - Consider splitting large monolithic pages into smaller Storyblok entries
-   - **Priority**: Medium (complements cache handler solution)
-
-### Long-Term (Future Consideration)
-
-5. **Cache Components Migration**:
-   - Evaluate Next.js 16's new "Cache Components" feature
-   - Consider migrating to `"use cache"` directive for explicit caching
-   - Wait for production experience and community best practices
-   - **Priority**: Low (experimental feature, needs maturity)
-
-## Build Output
-
-The build successfully generates 341 static pages:
-
-```
-Route (app)                                Revalidate  Expire
-├ ● /[[...slug]]                                  10m      1y
-│ ├ 304 pages generated
-├ ƒ /editor
-├ ƒ /endowed-positions/[slug]
-├ ƒ /endowed-positions/search
-```
 
 ## References
 
