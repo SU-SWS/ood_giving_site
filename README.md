@@ -19,9 +19,6 @@ Netlify hosted, Next.js built, Storyblok headless CMS site for [giving.stanford.
 
 You can find Architectural Decision Records and more documentation in the [docs](docs/) & [docs/adr](docs/adr/) directories.
 
-**Key ADRs:**
-- [ADR 0007: Next.js 16 Upgrade](docs/adr/0007-next-js-16-upgrade.md) - Latest upgrade details and architectural changes
-
 ## Environment variable set up and installation
 ---
 
