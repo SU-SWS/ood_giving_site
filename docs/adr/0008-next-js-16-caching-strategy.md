@@ -1,7 +1,7 @@
 # ADR 0008: Next.js 16 Caching Strategy for Storyblok
 
 **Date**: 2025-12-03  
-**Status**: Accepted  
+**Status**: Accepted (Updated 2025-12-04)  
 **Supersedes**: Previous `unstable_cache` implementation
 
 ## Context
@@ -14,15 +14,6 @@ Following the [Next.js 16 upgrade (ADR 0007)](./0007-next-js-16-upgrade.md), we 
 - **Atomic deployments** on Netlify with 1-year edge caching
 - **Separate dev/prod Storyblok spaces** for environment isolation
 - **Storyblok visual editor** requires draft content access
-
-### Web Team Consultation
-
-The institutional web development team (including Architecture, Frontend, Backend, Storyblok Specialist, and Accessibility teams) unanimously recommended:
-
-1. **Adopt stable `cache` function** over deprecated `unstable_cache`
-2. **Maintain static-first with full rebuilds** (not ISR at current scale)
-3. **Use `cache: 'no-store'` on fetch** to guarantee fresh content per build
-4. **Clear version separation** between published (build) and draft (editor) content
 
 ## Decision
 
@@ -57,47 +48,21 @@ export const getStoryDataCached = cache(getStoryData);
 - Cache automatically cleared between builds
 - Works seamlessly with Next.js 16's extended fetch behavior
 
-### 2. Simplified Caching Strategy with React's cache
+### 2. Simplified Caching Strategy with React's cache and Storyblok SDK
 
-**Action**: Use React's `cache` function for build-time deduplication; rely on Next.js 16's fetch behavior for fresh content.
-
-**Implementation**: Wrapped all data fetching utilities with React's `cache`:
-```typescript
-// utilities/data/*.ts
-import { cache } from 'react';
-
-export const getStoryDataCached = cache(getStoryData);
-export const getAllStoriesCached = cache(getAllStories);
-export const getGlobalAlertsCached = cache(getGlobalAlerts);
-export const getSearchConfigBlokCached = cache(getSearchConfigBlok);
-```
+**Action**: Use React's `cache` function for build-time deduplication; configure Storyblok SDK for optimal performance.
 
 **How It Works**:
 1. **React's `cache` function**: Deduplicates identical function calls *within a single build*
-2. **Next.js 16 fetch behavior**: Each new build process starts fresh (no persistent cache across builds)
-3. **Storyblok SDK**: Internally uses `fetch`, which Next.js 16 extends and manages
+2. **Storyblok SDK memory cache**: Reduces redundant API calls during build process
+3. **Next.js 16 build isolation**: Each new build process starts fresh
 4. **Webhook triggers**: New build = fresh cache = latest content
 
 **Rationale**:
-- Simpler than custom fetch configuration
-- Leverages React and Next.js built-in behaviors
+- Leverages Storyblok SDK's built-in caching capabilities
+- React cache provides build-time deduplication
 - Automatic fresh content per build (no manual cache busting needed)
-- Build-time deduplication prevents redundant API calls
-
-**Cache Flow**:
-```
-Build Process (triggered by webhook)
-├── Fresh build process starts
-├── React cache() initialized (empty)
-├── generateStaticParams calls getAllStoriesCached()
-│   └── First call → Fetches from Storyblok → Cached in React
-├── Page rendering calls getStoryDataCached('same-slug')
-│   └── Duplicate call → Returns cached result (no API call)
-└── Static HTML generated and deployed
-
-Next Build Process (after webhook)
-└── Entirely fresh cache, fetches latest content
-```
+- Rate limiting prevents API errors during parallel page generation
 
 ### 3. Version Strategy
 
@@ -143,128 +108,31 @@ Next Build Process (after webhook)
 
 ### Positive
 
-✅ **Build Performance**: `cache` function reduces redundant Storyblok API calls during build  
-✅ **Content Freshness**: `cache: 'no-store'` guarantees latest content for each build  
-✅ **Stability**: Uses stable APIs with no deprecation risk  
-✅ **Simplicity**: Eliminates complex time-based revalidation logic  
+✅ **Build Performance**: React `cache` + Storyblok SDK memory cache reduces redundant API calls  
+✅ **Rate Limiting**: SDK rate limiting (6 RPS) prevents API errors during parallel builds  
+✅ **Content Freshness**: Each build gets fresh content from Storyblok  
+✅ **Stability**: Uses stable React API + Storyblok SDK built-in features  
+✅ **Simplicity**: No custom fetch configuration needed  
 ✅ **Consistency**: Full rebuilds ensure atomic content updates  
 ✅ **Accessibility**: Global fixes deploy to all pages simultaneously  
-✅ **Maintainability**: Clear separation between build and editor contexts
+✅ **Maintainability**: Clear separation between build and editor contexts  
+✅ **Resilience**: Automatic retries and error handling via SDK
 
 ### Negative
 
-⚠️ **Build Time Dependency**: Content updates require full rebuild (currently acceptable)  
-⚠️ **API Rate Limits**: Large page counts could approach Storyblok API limits (monitor usage)
+⚠️ **Build Time Dependency**: Content updates require full rebuild (currently acceptable)
 
 ### Neutral
 
 📝 **No ISR**: Defers incremental revalidation complexity until clearly needed  
 📝 **Static Output**: Maintains existing 1-year browser/CDN cache patterns
 
-## Implementation Details
-
-### Files Modified
-
-1. **utilities/data/getStoryData.ts**
-   - Migrated from `unstable_cache` to React's `cache` function
-   - Added version strategy documentation
-   - Simplified implementation (no cache keys needed - React derives from args)
-
-2. **utilities/data/getAllStories.ts**
-   - Migrated to React's `cache` function
-   - Enhanced documentation for `cdn/links` endpoint usage
-
-3. **utilities/data/getGlobalAlerts.ts**
-   - Migrated to React's `cache` function
-   - Documented global alert filtering strategy
-
-4. **utilities/data/getSearchConfigBlok.ts**
-   - Migrated to React's `cache` function
-   - Documented global config caching
-
-5. **utilities/storyblok.tsx**
-   - Added documentation explaining Next.js 16 caching strategy
-   - Clarified that React's `cache` wrapper in data utilities handles deduplication
-   - Documented version handling (published vs draft)
-
-6. **AGENTS.md**
-   - Updated architecture section with Next.js 16 caching strategy
-   - Reference to ADR 0008 for detailed caching information
-
-### Implementation Notes
-
-**React `cache` Function**:
-- In Next.js 16, the stable `cache` function is exported from `react`, not `next/cache`
-- It takes a single argument (the function to cache)
-- Cache keys are automatically derived from function arguments
-- Perfect for build-time deduplication without persistent cross-build caching
-
-**Static Page Revalidation**:
-- `export const revalidate = 31536000` remains on static pages
-- This configures browser/CDN caching of the *static HTML output* (1 year)
-- Not related to build-time data fetching (which uses React's `cache`)
-- Works perfectly with webhook-triggered rebuilds for atomic content updates
-
-### No Changes Required
-
-- **app/(editor)/editor/EditorClient.tsx** - Already uses `version: 'draft'` correctly
-- **app/(storyblok)/[[...slug]]/page.tsx** - Static generation works with new caching
-- **netlify.toml** - Edge caching configuration unchanged
-
-## Monitoring & Validation
-
-### Build Performance Metrics
-- Monitor Netlify build times (baseline: ~10-15s for 341 pages)
-- Track Storyblok API usage against rate limits
-- Verify `cache` function reduces API call count
-
-### Content Freshness Validation
-- Test webhook → rebuild flow after content changes
-- Verify visual editor shows latest draft content
-- Confirm production shows latest published content post-deploy
-
-### Error Scenarios
-- Monitor build logs for Storyblok API failures
-- Track failed webhook triggers
-- Verify graceful degradation for API errors
-
-## Future Considerations
-
-### Potential ISR Implementation (if needed)
-
-If build times become problematic:
-
-1. **On-Demand Revalidation**:
-   - Create `/api/revalidate` route with `revalidatePath()` or `revalidateTag()`
-   - Configure Storyblok webhooks to call revalidation endpoint
-   - Requires cache tag strategy implementation
-
-2. **Hybrid Approach**:
-   - Core pages: Static generation (current approach)
-   - Blog/news: Time-based ISR (e.g., `revalidate: 3600`)
-   - Requires careful cache invalidation coordination
-
-3. **External Cache Store**:
-   - Consider Upstash Redis for distributed cache coordination
-   - Useful if ISR across multiple serverless instances
-   - Aligns with ADR 0007 future work
-
-### Performance Optimizations
-
-- **Pagination**: If page count grows, implement pagination in `getAllStories`
-- **Parallel Builds**: Explore Netlify parallel build features
-- **Build Caching**: Optimize `node_modules` and dependency caching
-
 ## References
 
 - [ADR 0007: Next.js 16 Upgrade](./0007-next-js-16-upgrade.md)
 - [Next.js 16 Data Fetching](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating)
 - [Next.js cache Function](https://nextjs.org/docs/app/api-reference/functions/cache)
-- [Storyblok API Documentation](https://www.storyblok.com/docs/api/content-delivery/v2)
+- [React cache Function](https://react.dev/reference/react/cache)
+- [Storyblok JavaScript Client](https://github.com/storyblok/storyblok-js-client)
+- [Storyblok API Rate Limits](https://www.storyblok.com/docs/api/content-delivery/v2/getting-started/rate-limit)
 - [Netlify Build Hooks](https://docs.netlify.com/configure-builds/build-hooks/)
-
-## Approval
-
-**Consulted**: Institutional Web Development Team (Manager, Architect, Frontend, Backend, Storyblok Specialist, Accessibility, DevOps)  
-**Reviewed**: [Pending]  
-**Approved**: [Pending]
