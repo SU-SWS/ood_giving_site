@@ -16,17 +16,8 @@ type ParamsType = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-// Allow dynamic params but handle 404s in code to avoid noFallback bug
-export const dynamicParams = true;
-
-// Cache for one year to align with Netlify edge caching
-export const revalidate = 31536000;
-
-// Allow dynamic rendering for search parameters (pagination)
-// This enables search parameters while still pre-generating the base pages
-export const dynamic = 'auto';
-
 /**
+
  * Generate static params for all endowed position categories
  */
 export const generateStaticParams = async () => {
