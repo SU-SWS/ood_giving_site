@@ -21,6 +21,8 @@ import { logError } from '@/utilities/logger';
 export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResult | { data: 404 }> => {
   'use cache';
 
+  console.log(`[getStoryData] Fetching story for path: ${path}`);
+
   const storyblokApi = getStoryblokClient();
 
   const sbParams: ISbStoriesParams = {
@@ -35,12 +37,15 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
 
   try {
     const story: ISbResult = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+    console.log(`[getStoryData] Successfully fetched story: ${slug}`);
     return story;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     if (error && error.status && error.status === 404) {
+      console.log(`[getStoryData] Story not found (404): ${slug}`);
       return { data: 404 };
     }
+    console.error(`[getStoryData] Error fetching story ${slug}:`, error);
     logError('Failed to fetch story from Storyblok API', error, { path, status: error?.status });
     throw error;
   }

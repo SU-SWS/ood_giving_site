@@ -4,6 +4,12 @@
   command = "npm run build"
   publish = ".next"
 
+[build.environment]
+  # Limit build workers to prevent race conditions with 'use cache' directives
+  # or Rate Limit Exceeded errors from external services like Storyblok.
+  # Limiting to 10 workers matches local successful builds
+  NEXT_CPU_COUNT = "10"
+
 # PLUGINS
 # ##############################################################################
 [[plugins]]

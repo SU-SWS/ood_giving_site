@@ -18,6 +18,8 @@ import { getStoryblokClient } from '@/utilities/storyblok';
 export const getAllStories = async () => {
   'use cache';
 
+  console.log('[getAllStories] Starting fetch from Storyblok...');
+
   // Fetch new content from storyblok.
   const storyblokApi = getStoryblokClient();
 
@@ -31,6 +33,8 @@ export const getAllStories = async () => {
 
   // Use the `cdn/links` endpoint to get a list of all stories without all the extra data.
   const response = await storyblokApi.getAll('cdn/links', sbParams);
+
+  console.log(`[getAllStories] Fetched ${Object.keys(response).length} stories`);
 
   return response;
 };
