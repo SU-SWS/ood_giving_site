@@ -41,17 +41,26 @@ We will upgrade to Next.js 16.0.7 with the following changes:
 
 **Rationale**: Next.js 16 deprecates `middleware.ts` in favor of `proxy.ts` (Node.js runtime only, no Edge support). Our middleware only validates Storyblok editor access, which is better colocated with the route it protects.
 
-**Action**: 
+**Action**:
 - Removed `middleware.ts`
 - Created `/app/(editor)/editor/EditorGuard.tsx` server component for validation
+- Implemented Storyblok's recommended signed token verification with SHA-1 hashing
+- Added timestamp validation to prevent replay attacks (tokens must be <1 hour old)
 - Refactored `/app/(editor)/editor/page.tsx` to use server/client component pattern
 - Created `EditorClient.tsx` for client-side Storyblok interactions
+
+**Security Implementation**:
+The EditorGuard now properly implements Storyblok's security recommendations:
+1. Validates the SHA-1 signed token: `SHA1(spaceId:previewToken:timestamp)`
+2. Ensures timestamp is within the last hour (3600 seconds) to prevent replay attacks
+3. Provides detailed error logging for debugging while maintaining security
 
 **Benefits**:
 - Explicit validation logic colocated with the route
 - Eliminates global middleware for single-route use case
 - Aligns with App Router philosophy of colocation
 - Avoids Edge/Node runtime considerations
+- **Enhanced security** with proper signed token validation and timestamp checks
 
 ### 3. Remove ESLint Configuration from next.config.ts
 
