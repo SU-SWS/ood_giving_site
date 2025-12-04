@@ -1,9 +1,6 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  eslint: {
-    dirs: ['app', 'components', 'contexts', 'hooks', 'pages', 'services', 'utilities'],
-  },
   images: {
     remotePatterns: [
       {
@@ -20,11 +17,13 @@ const nextConfig: NextConfig = {
     BUILD_ID: process.env.BUILD_ID || '',
   },
   /**
-   * Hack to get over the 2MB limit on cacheHandler
-   * This just reimports the default one but it skips the limit
-   * See: https://github.com/vercel/next.js/discussions/48324#discussioncomment-10542097
+   * Next.js 16 Upgrade Note:
+   * - Removed custom cacheHandler that bypassed 2MB limit.
+   *   Next.js 16's new caching architecture should handle large payloads natively.
+   * - Removed eslint config (Next.js 16 no longer supports it in next.config.ts).
+   *   ESLint should be configured via eslint.config.mjs instead.
+   * See ADR-00XX for details.
    */
-  cacheHandler: require.resolve('next/dist/server/lib/incremental-cache/file-system-cache.js'),
 };
 
 export default nextConfig;

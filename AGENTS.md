@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This is a **Next.js 15+ App Router** headless CMS site using **Storyblok** as the content management system, deployed on **Netlify** with static generation and edge caching.
+This is a **Next.js 16+ App Router** headless CMS site using **Storyblok** as the content management system, deployed on **Netlify** with static generation and edge caching.
 
 ### Key Architectural Patterns
 
@@ -14,8 +14,34 @@ This is a **Next.js 15+ App Router** headless CMS site using **Storyblok** as th
 
 **Route Groups**: 
 - `(storyblok)` - Main content pages via catch-all `[[...slug]]`
-- `(editor)` - Storyblok visual editor (protected by middleware)
+- `(editor)` - Storyblok visual editor (protected by server-side validation)
 - `endowed-positions/` - Dedicated section with custom layout
+
+## Next.js 16 Upgrade Notes (Dec 2025)
+
+### Major Changes from Next.js 15
+
+1. **No More Middleware**: 
+   - `middleware.ts` was removed and replaced with route-level validation
+   - Storyblok editor access is now validated in `/app/(editor)/editor/EditorGuard.tsx`
+   - This provides better colocation and avoids Edge/Node.js runtime considerations
+
+2. **Removed Custom Cache Handler**:
+   - Previous workaround for 2MB cache limit has been removed
+   - Next.js 16's new caching architecture handles most cases
+   - Large payload warnings (>2MB) are non-fatal; pages still render correctly
+   - Future implementation of Upstash Redis cache handler planned for optimal performance
+
+3. **ESLint Configuration**:
+   - `eslint` config removed from `next.config.ts` (no longer supported)
+   - All ESLint configuration is in `eslint.config.mjs` (flat config format)
+
+4. **Turbopack as Default**:
+   - Build times improved by 2-5× with stable Turbopack
+   - Fast Refresh is up to 10× faster in development
+   - No configuration needed - runs by default
+
+**See [ADR 0007](docs/adr/0007-next-js-16-upgrade.md) for complete upgrade details.**
 
 ## Development Workflow
 
