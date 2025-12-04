@@ -11,8 +11,8 @@ This is a **Next.js 16+ App Router** headless CMS site using **Storyblok** as th
 **Static-First Strategy**: Uses `generateStaticParams` in `app/(storyblok)/[[...slug]]/page.tsx` with `dynamicParams = false` to pre-generate all pages at build time. Content updates trigger rebuilds via Storyblok webhooks.
 
 **Next.js 16 Caching Strategy** (see [ADR 0008](docs/adr/0008-next-js-16-caching-strategy.md)):
-- All data fetching functions in `utilities/data/` use Next.js 16's stable `cache` function for build-time deduplication
-- Custom fetch with `cache: 'no-store'` ensures fresh content from Storyblok for each new build
+- All data fetching functions in `utilities/data/` use React's stable `cache` function for build-time deduplication
+- Storyblok SDK uses built-in memory cache with automatic clearing for optimal performance
 - No time-based revalidation or ISR - full rebuilds provide atomic updates
 - Visual editor uses `version: 'draft'` (client-side), production uses `version: 'published'` (build-time)
 
@@ -106,7 +106,7 @@ export const SbComponent = (props: SbComponentProps) => (
 Use `<CreateBloks blokSection={blok.body} />` to render Storyblok content arrays. This handles null checks and maps over blok arrays automatically.
 
 ### Data Fetching
-Always use cached versions: `getStoryDataCached()`, `getAllStoriesCached()`, etc. These use Next.js 16's `cache` function for build-time deduplication and custom fetch with `cache: 'no-store'` for fresh content per build. See [ADR 0008](docs/adr/0008-next-js-16-caching-strategy.md) for details.
+Always use cached versions: `getStoryDataCached()`, `getAllStoriesCached()`, etc. These use React's `cache` function for build-time deduplication with Storyblok SDK's built-in memory cache for optimal performance. See [ADR 0008](docs/adr/0008-next-js-16-caching-strategy.md) for details.
 
 ## Styling & Design System
 

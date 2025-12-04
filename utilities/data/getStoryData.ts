@@ -14,8 +14,8 @@ import { logError } from '@/utilities/logger';
  * - Separate dev/prod Storyblok spaces ensure correct content per environment
  *
  * **Caching Strategy**:
- * - Uses `cache: 'no-store'` in customFetch to ensure fresh content per build
- * - Wrapped by `cache` function for build-time deduplication
+ * - Storyblok SDK uses built-in memory cache with automatic clearing
+ * - Wrapped by React's `cache` function for build-time deduplication
  * - No post-build revalidation (static-first with webhook-triggered rebuilds)
  */
 export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResult | { data: 404 }> => {

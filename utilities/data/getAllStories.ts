@@ -11,8 +11,8 @@ import { getStoryblokClient } from '@/utilities/storyblok';
  * - Visual editor bypasses this via client-side draft fetching
  *
  * **Caching Strategy**:
- * - Uses `cache: 'no-store'` in customFetch to ensure fresh content per build
- * - Wrapped by `cache` function for build-time deduplication
+ * - Storyblok SDK uses built-in memory cache with automatic clearing
+ * - Wrapped by React's `cache` function for build-time deduplication
  * - Uses `cdn/links` endpoint for efficient slug retrieval without full content
  */
 export const getAllStories = async () => {

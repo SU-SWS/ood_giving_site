@@ -33,8 +33,8 @@ export type SearchConfig = {
  * - Configuration is global and shared across all pages
  *
  * **Caching Strategy**:
- * - Uses `cache: 'no-store'` in customFetch to ensure fresh content per build
- * - Wrapped by `cache` function for build-time deduplication
+ * - Storyblok SDK uses built-in memory cache with automatic clearing
+ * - Wrapped by React's `cache` function for build-time deduplication
  * - Search config fetched once and shared across all pages in a build
  */
 export const getSearchConfigBlok = async () => {

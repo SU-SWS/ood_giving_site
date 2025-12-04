@@ -23,8 +23,8 @@ export type AlertContent = {
  * - Only shows published alerts on both dev and prod environments
  *
  * **Caching Strategy**:
- * - Uses `cache: 'no-store'` in customFetch to ensure fresh content per build
- * - Wrapped by `cache` function for build-time deduplication
+ * - Storyblok SDK uses built-in memory cache with automatic clearing
+ * - Wrapped by React's `cache` function for build-time deduplication
  * - Global alerts fetched once and shared across all pages in a build
  */
 export const getGlobalAlerts = async () => {

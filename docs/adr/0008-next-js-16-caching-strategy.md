@@ -39,14 +39,13 @@ export const getStoryDataCached = cache(getStoryData);
 - `BUILD_ID` from cache keys (automatic per-build isolation)
 - `revalidate` option (not applicable for React's cache)
 - Cache tags (reserved for future ISR if needed)
-- Custom fetch configuration (React's cache handles deduplication)
 
 **Benefits**:
 - Stable, officially-supported React API
 - Automatic build-time deduplication (reduces Storyblok API calls)
 - Simpler configuration - just wrap the function
 - Cache automatically cleared between builds
-- Works seamlessly with Next.js 16's extended fetch behavior
+- Works seamlessly with Storyblok SDK's built-in caching
 
 ### 2. Simplified Caching Strategy with React's cache and Storyblok SDK
 
@@ -100,9 +99,9 @@ export const getStoryDataCached = cache(getStoryData);
 **Action**: Added comprehensive documentation across caching-related code:
 
 - `utilities/data/*.ts` - JSDoc with version and caching strategies
-- `utilities/storyblok.tsx` - Custom fetch documentation
+- `utilities/storyblok.tsx` - Storyblok SDK configuration documentation
+- `AGENTS.md` - Updated architecture patterns
 - `README.md` - Updated with Next.js 16 caching approach (pending)
-- `AGENTS.md` - Updated architecture patterns (pending)
 
 ## Consequences
 
