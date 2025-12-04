@@ -1,5 +1,4 @@
 import { type ISbStoriesParams } from '@storyblok/react/rsc';
-import { cache } from 'react';
 import { getStoryblokClient } from '@/utilities/storyblok';
 
 /**
@@ -11,11 +10,14 @@ import { getStoryblokClient } from '@/utilities/storyblok';
  * - Visual editor bypasses this via client-side draft fetching
  *
  * **Caching Strategy**:
+ * - Uses Next.js 16's `use cache` directive for automatic caching
  * - Storyblok SDK uses built-in memory cache with automatic clearing
- * - Wrapped by React's `cache` function for build-time deduplication
+ * - Cache entries are stored in-memory and respect the default cacheLife profile
  * - Uses `cdn/links` endpoint for efficient slug retrieval without full content
  */
 export const getAllStories = async () => {
+  'use cache';
+
   // Fetch new content from storyblok.
   const storyblokApi = getStoryblokClient();
 
@@ -32,14 +34,3 @@ export const getAllStories = async () => {
 
   return response;
 };
-
-/**
- * Get all stories from Storyblok through the cache.
- *
- * Uses React's `cache` function for build-time deduplication.
- * This ensures all static pages are generated with consistent, fresh content
- * from a single set of API calls per build.
- *
- * Cache keys are automatically derived from function arguments by React.
- */
-export const getAllStoriesCached = cache(getAllStories);

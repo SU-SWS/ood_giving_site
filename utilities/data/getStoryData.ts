@@ -1,6 +1,5 @@
 import type { getStoryDataProps } from '@/utilities/data/types';
 import { type ISbStoriesParams, type ISbResult } from '@storyblok/react/rsc';
-import { cache } from 'react';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getStoryblokClient } from '@/utilities/storyblok';
 import { logError } from '@/utilities/logger';
@@ -14,11 +13,14 @@ import { logError } from '@/utilities/logger';
  * - Separate dev/prod Storyblok spaces ensure correct content per environment
  *
  * **Caching Strategy**:
+ * - Uses Next.js 16's `use cache` directive for automatic caching
  * - Storyblok SDK uses built-in memory cache with automatic clearing
- * - Wrapped by React's `cache` function for build-time deduplication
+ * - Cache entries are stored in-memory and respect the default cacheLife profile
  * - No post-build revalidation (static-first with webhook-triggered rebuilds)
  */
 export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResult | { data: 404 }> => {
+  'use cache';
+
   const storyblokApi = getStoryblokClient();
 
   const sbParams: ISbStoriesParams = {
@@ -43,15 +45,3 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
     throw error;
   }
 };
-
-/**
- * Get the data out of the Storyblok API for the page through the cache.
- *
- * Uses React's `cache` function for build-time deduplication.
- * The cache is scoped to a single build process - each new build fetches fresh content.
- * This prevents redundant API calls when the same story is requested multiple times
- * during static generation (e.g., by generateStaticParams and page rendering).
- *
- * Cache keys are automatically derived from function arguments by React.
- */
-export const getStoryDataCached = cache(getStoryData);

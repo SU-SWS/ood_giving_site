@@ -1,4 +1,3 @@
-import { cache } from 'react';
 import { type SbCtaLinkProps } from '@/components/Storyblok/SbCtaLink';
 import { getStoryblokClient } from '@/utilities/storyblok';
 
@@ -33,11 +32,14 @@ export type SearchConfig = {
  * - Configuration is global and shared across all pages
  *
  * **Caching Strategy**:
+ * - Uses Next.js 16's `use cache` directive for automatic caching
  * - Storyblok SDK uses built-in memory cache with automatic clearing
- * - Wrapped by React's `cache` function for build-time deduplication
+ * - Cache entries are stored in-memory and respect the default cacheLife profile
  * - Search config fetched once and shared across all pages in a build
  */
 export const getSearchConfigBlok = async () => {
+  'use cache';
+
   const storyblokApi = getStoryblokClient();
 
   // Get the global configuration.
@@ -72,13 +74,3 @@ export const getSearchConfigBlok = async () => {
     suggestionsAmount: parseInt(suggestionsAmount, 10) || 0,
   } as SearchConfig;
 };
-
-/**
- * Get the global search configuration from Storyblok through the cache.
- *
- * Uses Next.js 16's stable `cache` function for build-time deduplication.
- * Search configuration is fetched once per build and shared across all pages.
- *
- * Cache keys are automatically derived from function arguments by React.
- */
-export const getSearchConfigBlokCached = cache(getSearchConfigBlok);
