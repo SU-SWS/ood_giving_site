@@ -63,8 +63,14 @@ npm run dev  # Starts with Turbopack and HTTPS
 ### HTTPS for Storyblok Editor
 Run `npm run https-proxy-start` in separate terminal to enable Storyblok visual editor at https://localhost:3010 (required - Storyblok v2 doesn't support HTTP).
 
-### Storyblok Token Types
-**IMPORTANT**: Two different token types are used for different access levels:
+### Storyblok Configuration
+**CRITICAL API Configuration**:
+- **Region**: This Storyblok space is hosted in the **EU region**
+- The `region: 'eu'` parameter MUST be set in `apiOptions` when initializing the client
+- Without the EU region setting, all API requests will fail with 401 Unauthorized errors
+- See `utilities/storyblok.tsx` for the client configuration
+
+**Token Types**: Two different token types are used for different access levels:
 - `STORYBLOK_ACCESS_TOKEN` - Public token with access to **published content only**
 - `STORYBLOK_PREVIEW_EDITOR_TOKEN` - Preview token with access to **draft content** (used in visual editor)
 
