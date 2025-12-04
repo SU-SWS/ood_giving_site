@@ -39,7 +39,7 @@
     "@fortawesome/react-fontawesome": "^0.2.6",
     "@headlessui/react": "^2.2.7",
     "@heroicons/react": "^2.2.0",
-    "@netlify/functions": "^3.0.4",
+    "@netlify/functions": "^5.1.0",
     "@next/third-parties": "^16.0.7",
     "@storyblok/react": "^5.4.19",
     "algoliasearch": "^5.35.0",
@@ -82,7 +82,7 @@
     "typescript": "^5.9.2"
   },
   "optionalDependencies": {
-    "netlify-cli": "^23.1.1",
+    "netlify-cli": "^23.12.2",
     "storyblok": "^4.3.2"
   },
   "engines": {
