@@ -93,13 +93,43 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
 - Site grows to thousands of pages
 - Editors require near-instant content updates
 
-### 5. Enhanced Documentation
+### 5. Worker Concurrency Limit
+
+**Action**: Configure `experimental.cpus: 10` in `next.config.ts` to prevent race conditions.
+
+**Implementation**:
+```typescript
+// next.config.ts
+const nextConfig = {
+  experimental: {
+    cpus: 10,
+    // ... other config
+  },
+  // ... rest of config
+};
+```
+
+**Rationale**:
+- **Race Condition Prevention**: High parallelism (31 workers on Netlify) with `use cache` directive caused builds to hang consistently at page 257/343
+- **Optimal Performance**: 10 workers balances build speed with cache stability
+- **Next.js Native**: Uses proper Next.js configuration via `experimental.cpus` (not environment variables)
+- **Build Reliability**: Prevents cache corruption from concurrent writes
+
+**How It Works**:
+- Next.js `getNumberOfWorkers()` function reads `config.experimental.cpus`
+- Defaults to 4 workers if not specified
+- Limits parallelism during `generateStaticParams` and page generation
+- Each worker maintains isolated cache state
+
+**Note**: The `NEXT_CPU_COUNT` environment variable is NOT used by Next.js 16. Use `experimental.cpus` in config instead.
+
+### 6. Enhanced Documentation
 
 **Action**: Added comprehensive documentation across caching-related code:
 
 - `utilities/data/*.ts` - JSDoc with version and caching strategies
 - `utilities/storyblok.tsx` - Storyblok SDK configuration documentation
-- `AGENTS.md` - Updated architecture patterns
+- `AGENTS.md` - Updated architecture patterns with worker concurrency info
 - `README.md` - Updated with Next.js 16 caching approach (pending)
 
 ## Consequences
@@ -120,7 +150,8 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
 ### Negative
 
 ⚠️ **Build Time Dependency**: Content updates require full rebuild (currently acceptable)  
-⚠️ **Configuration Requirement**: Requires `cacheComponents: true` in `next.config.ts`
+⚠️ **Configuration Requirement**: Requires `cacheComponents: true` in `next.config.ts`  
+⚠️ **Worker Limit**: 10-worker concurrency limit may impact build times on high-CPU machines (mitigated by preventing race conditions)
 
 ### Neutral
 
@@ -133,6 +164,7 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
 - [Next.js 16 use cache Directive](https://nextjs.org/docs/app/api-reference/directives/use-cache)
 - [Next.js 16 cacheComponents Config](https://nextjs.org/docs/app/api-reference/config/next-config-js/cacheComponents)
 - [Next.js 16 Data Fetching](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating)
+- [Next.js experimental.cpus Config](https://nextjs.org/docs/app/api-reference/config/next-config-js/experimental#cpus)
 - [Storyblok JavaScript Client](https://github.com/storyblok/storyblok-js-client)
 - [Storyblok API Rate Limits](https://www.storyblok.com/docs/api/content-delivery/v2/getting-started/rate-limit)
 - [Netlify Build Hooks](https://docs.netlify.com/configure-builds/build-hooks/)

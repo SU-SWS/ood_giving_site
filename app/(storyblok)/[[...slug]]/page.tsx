@@ -31,12 +31,10 @@ getStoryblokClient();
  * Generate the list of stories to statically render.
  */
 export const generateStaticParams = async () => {
-  console.log('[generateStaticParams] Starting...');
   const isProd = isProduction();
 
   // Get all the stories.
   let stories = await getAllStories();
-  console.log(`[generateStaticParams] Got ${Object.keys(stories).length} stories from Storyblok`);
 
   // Filter out folders.
   stories = stories.filter((link) => link.is_folder === false);
@@ -64,7 +62,6 @@ export const generateStaticParams = async () => {
     }
   });
 
-  console.log(`[generateStaticParams] Returning ${paths.length} paths for static generation`);
   return paths;
 };
 
@@ -75,14 +72,12 @@ export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
   const { params } = props;
   const { slug } = await params;
   const slugPath = slugArrayToPath(slug || []);
-  console.log(`[generateMetadata] Generating metadata for: ${slugPath}`);
 
   try {
 
   // Validate the slug path before making any API calls
   const isValidPath = await validateSlugPath(slug || []);
   if (!isValidPath) {
-    console.log(`[generateMetadata] Invalid path: ${slugPath}`);
     // Return minimal metadata for 404 pages
     return {
       title: 'Page Not Found',
@@ -94,7 +89,6 @@ export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
   const { data } = await getStoryData({ path: slugPath });
 
   if (data === 404 || !data.story) {
-    console.log(`[generateMetadata] Story data is 404 for: ${slugPath}`);
     // Return minimal metadata for 404 pages
     return {
       title: 'Page Not Found',
@@ -106,10 +100,8 @@ export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
 
   // Generate the metadata.
   const meta = getPageMetadata({ story, slug: slugPath });
-  console.log(`[generateMetadata] Successfully generated metadata for: ${slugPath}`);
   return meta;
   } catch (error) {
-    console.error(`[generateMetadata] Error for ${slugPath}:`, error);
     logError('Error generating metadata', error, { slug });
     return {
       title: 'Metadata Error',
@@ -125,12 +117,10 @@ const Page = async (props: PropsType) => {
   const { params } = props;
   const { slug } = await params;
   const slugPath = slugArrayToPath(slug || []);
-  console.log(`[Page] Rendering page: ${slugPath}`);
 
   // Validate the slug path before making any API calls
   const isValidPath = await validateSlugPath(slug || []);
   if (!isValidPath) {
-    console.log(`[Page] Invalid path, returning 404: ${slugPath}`);
     // Return 404 immediately for invalid paths without hitting Storyblok API
     notFound();
   }
@@ -143,17 +133,13 @@ const Page = async (props: PropsType) => {
 
   // Failed to fetch from API because story slug was not found.
   if (data && data === 404) {
-    console.log(`[Page] Story not found (404): ${slugPath}`);
     notFound();
   }
 
   // Ensure there is a story in the data.
   if (!data || !data.story) {
-    console.error(`[Page] No story data for: ${slugPath}`);
     throw new Error(`No story found for slugPath: ${slugPath}`);
   }
-
-  console.log(`[Page] Successfully rendering: ${slugPath}`);
 
   // Return the story.
 

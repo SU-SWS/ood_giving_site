@@ -30,8 +30,6 @@ export type AlertContent = {
 export const getGlobalAlerts = async () => {
   'use cache';
 
-  console.log('[getGlobalAlerts] Fetching global alerts...');
-
   const storyblokApi = getStoryblokClient();
 
   // Get the global alerts.
@@ -49,8 +47,6 @@ export const getGlobalAlerts = async () => {
       },
     },
   });
-
-  console.log(`[getGlobalAlerts] Found ${stories?.length || 0} global alerts`);
 
   return stories?.map(({ content, uuid }) => ({
     uuid,

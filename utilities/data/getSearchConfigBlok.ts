@@ -40,8 +40,6 @@ export type SearchConfig = {
 export const getSearchConfigBlok = async () => {
   'use cache';
 
-  console.log('[getSearchConfigBlok] Fetching search config...');
-
   const storyblokApi = getStoryblokClient();
 
   // Get the global configuration.
@@ -64,8 +62,6 @@ export const getSearchConfigBlok = async () => {
     categoriesRightHeadline = '',
     suggestionsAmount,
   } = story?.content as SearchConfigBlokContent ?? {};
-
-  console.log('[getSearchConfigBlok] Successfully fetched search config');
 
   return {
     introduction,

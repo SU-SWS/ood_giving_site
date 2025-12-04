@@ -16,6 +16,7 @@ This is a **Next.js 16+ App Router** headless CMS site using **Storyblok** as th
 - Storyblok SDK uses built-in memory cache with automatic clearing for optimal performance
 - No time-based revalidation or ISR - full rebuilds provide atomic updates
 - Visual editor uses `version: 'draft'` (client-side), production uses `version: 'published'` (build-time)
+- Worker concurrency limited to 10 via `experimental.cpus` to prevent race conditions
 
 **Route Groups**: 
 - `(storyblok)` - Main content pages via catch-all `[[...slug]]`
