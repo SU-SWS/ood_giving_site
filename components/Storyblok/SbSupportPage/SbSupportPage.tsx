@@ -31,7 +31,6 @@ type SbSupportPageProps = {
     athletics: SbSupportCardBlokProps[];
     business: SbSupportCardBlokProps[];
     culture: SbSupportCardBlokProps[];
-    ideal: SbSupportCardBlokProps[];
     law: SbSupportCardBlokProps[];
     medicine: SbSupportCardBlokProps[];
     science: SbSupportCardBlokProps[];
@@ -62,7 +61,6 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
     athletics,
     business,
     culture,
-    ideal,
     law,
     medicine,
     science,
@@ -97,15 +95,13 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
     ...athletics,
     ...business,
     ...culture,
-    ...ideal,
     ...law,
     ...medicine,
     ...science,
     ...sustainability,
     ...teaching,
   ], [
-    undergraduate, graduate, arts, athletics, business, culture,
-    ideal, law, medicine, science, sustainability, teaching,
+    undergraduate, graduate, arts, athletics, business, culture, law, medicine, science, sustainability, teaching,
   ]);
 
   const filteredCards = useMemo(() => {
