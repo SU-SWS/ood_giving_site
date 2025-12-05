@@ -144,6 +144,29 @@ export type GetStoryblokApiConfig = {
 let cachedClient: StoryblokClient | null = null;
 let cachedToken: string | null = null;
 
+/**
+ * Get or create a configured Storyblok API client.
+ *
+ * **IMPORTANT: EU Region Configuration**:
+ * - This Storyblok space is hosted in the EU region
+ * - The `region: 'eu'` parameter MUST be set in apiOptions
+ * - Without this, API requests will fail with 401 Unauthorized
+ *
+ * **Next.js 16 Caching Strategy**:
+ * - The Storyblok SDK internally uses `fetch`, which Next.js 16 extends
+ * - We rely on the React `cache` function wrapper in utilities/data/ for build-time deduplication
+ * - Storyblok SDK's built-in memory cache with automatic clearing helps with redundant requests
+ * - Each new build process creates a fresh client instance, ensuring latest content
+ *
+ * **Rate Limiting**:
+ * - Storyblok Content API limit: 60 RPS
+ * - Configured to use 6 RPS to safely stay well below the limit during parallel builds
+ * - With 10-15 Next.js build threads, this provides a safety buffer
+ *
+ * **Version Handling**:
+ * - Production: Uses STORYBLOK_ACCESS_TOKEN (public, published content only)
+ * - Editor: Uses STORYBLOK_PREVIEW_EDITOR_TOKEN (preview, draft content access)
+ */
 export const getStoryblokClient = ({
   accessToken,
   isEditor,
@@ -164,6 +187,19 @@ export const getStoryblokClient = ({
     enableFallbackComponent: true,
     customFallbackComponent: (component) => {
       return <ComponentNotFound component={component} />;
+    },
+    apiOptions: {
+      // CRITICAL: This space is hosted in the EU region
+      region: 'eu',
+      // Rate limiting: 6 RPS is safe with 10-15 build threads (60 RPS total / 10 threads = 6)
+      rateLimit: 6,
+      // Memory cache with automatic clearing on preview requests
+      cache: {
+        type: 'memory',
+        clear: 'auto',
+      },
+      // Max retries for failed requests (default is 5, keeping it explicit)
+      maxRetries: 5,
     },
   })();
 

@@ -2,17 +2,24 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b539dff9-d21b-4a2e-8edc-b9cb898c26b2/deploy-status)](https://app.netlify.com/sites/adapt-giving/deploys)
 
-Description
----
+## Description
 
 Netlify hosted, Next.js built, Storyblok headless CMS site for [giving.stanford.edu](https://giving.stanford.edu).
 
-Documentation and Decision Records
----
+### Technology Stack
 
-You can find Architectural Decision Records and more documentation in the [docs](docs/) & [docs/decisions](docs/decisions/) directories. 
+- **Next.js 16.0.7** with App Router and React Server Components
+- **React 19.2** with latest concurrent features
+- **Storyblok** headless CMS for content management
+- **Netlify** hosting with static generation and atomic deployments
+- **TypeScript** in strict mode
+- **TailwindCSS** with Stanford Decanter design system
 
-Environment variable set up and installation
+## Documentation and Decision Records
+
+You can find Architectural Decision Records and more documentation in the [docs](docs/) & [docs/adr](docs/adr/) directories.
+
+## Environment variable set up and installation
 ---
 
 For more information on what the environment variables are and do see: [Environment Vars](./docs/environment-variables.md)  

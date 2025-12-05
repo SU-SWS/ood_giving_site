@@ -1,4 +1,3 @@
-import { unstable_cache } from 'next/cache';
 import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { type SbAlertBgColorType, type SbAlertIconType } from '@/components/Storyblok/SbAlert';
@@ -14,12 +13,23 @@ export type AlertContent = {
   fontAwesomeIcon?: SbAlertIconType;
 };
 
-const BUILD_ID = process.env.BUILD_ID || '';
-
 /**
  * Get all the published (global) alerts from Storyblok.
+ *
+ * **Version Strategy (Next.js 16)**:
+ * - Always fetches `version: 'published'` content
+ * - Filters for alerts marked as global (isGlobal: true)
+ * - Only shows published alerts on both dev and prod environments
+ *
+ * **Caching Strategy**:
+ * - Uses Next.js 16's `use cache` directive for automatic caching
+ * - Storyblok SDK uses built-in memory cache with automatic clearing
+ * - Cache entries are stored in-memory and respect the default cacheLife profile
+ * - Global alerts fetched once and shared across all pages in a build
  */
 export const getGlobalAlerts = async () => {
+  'use cache';
+
   const storyblokApi = getStoryblokClient();
 
   // Get the global alerts.
@@ -48,16 +58,3 @@ export const getGlobalAlerts = async () => {
     fontAwesomeIcon: content.fontAwesomeIcon,
   })) ?? [] as AlertContent[];
 };
-
-/**
- * Get the global alerts from Storyblok through the cache.
- */
-export const getGlobalAlertsCached = unstable_cache(
-  getGlobalAlerts,
-  ['global-alerts', BUILD_ID], // Include BUILD_ID for fresh content per build
-  {
-    tags: ['global', 'alerts'],
-    // Cache for 10 minutes.
-    revalidate: 600,
-  },
-);

@@ -3,7 +3,7 @@ import { StoryblokStory } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getPageMetadata } from '@/utilities/getPageMetadata';
 import { notFound } from 'next/navigation';
-import { getStoryDataCached, getAllStoriesCached } from '@/utilities/data/';
+import { getStoryData, getAllStories } from '@/utilities/data/';
 import { isProduction } from '@/utilities/getActiveEnv';
 import { validateSlugPath, slugArrayToPath } from '@/utilities/validateSlugPath';
 import { getStoryblokClient } from '@/utilities/storyblok';
@@ -24,16 +24,6 @@ const bridgeOptions = {
   resolveLinks: 'story',
 };
 
-// Allow dynamic params but handle 404s in code to avoid noFallback bug
-export const dynamicParams = true;
-
-// Cache for one year.
-// I have no concrete evidence but this seems to work best with Netlify's edge caching over caching for infinity.
-export const revalidate = 31536000;
-
-// Force static rendering.
-export const dynamic = 'force-static';
-
 // Initialize Storyblok client.
 getStoryblokClient();
 
@@ -44,7 +34,7 @@ export const generateStaticParams = async () => {
   const isProd = isProduction();
 
   // Get all the stories.
-  let stories = await getAllStoriesCached();
+  let stories = await getAllStories();
 
   // Filter out folders.
   stories = stories.filter((link) => link.is_folder === false);
@@ -81,6 +71,8 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
   const { params } = props;
   const { slug } = await params;
+  const slugPath = slugArrayToPath(slug || []);
+
   try {
 
   // Validate the slug path before making any API calls
@@ -93,11 +85,8 @@ export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
     };
   }
 
-  // Convert the slug to a path.
-  const slugPath = slugArrayToPath(slug || []);
-
   // Get the story data.
-  const { data } = await getStoryDataCached({ path: slugPath });
+  const { data } = await getStoryData({ path: slugPath });
 
   if (data === 404 || !data.story) {
     // Return minimal metadata for 404 pages
@@ -140,7 +129,7 @@ const Page = async (props: PropsType) => {
   getStoryblokClient();
 
   // Get data out of the API.
-  const { data } = await getStoryDataCached({ path: slugPath });
+  const { data } = await getStoryData({ path: slugPath });
 
   // Failed to fetch from API because story slug was not found.
   if (data && data === 404) {

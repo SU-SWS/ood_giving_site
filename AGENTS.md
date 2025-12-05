@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This is a **Next.js 15+ App Router** headless CMS site using **Storyblok** as the content management system, deployed on **Netlify** with static generation and edge caching.
+This is a **Next.js 16+ App Router** headless CMS site using **Storyblok** as the content management system, deployed on **Netlify** with static generation and edge caching.
 
 ### Key Architectural Patterns
 
@@ -10,12 +10,45 @@ This is a **Next.js 15+ App Router** headless CMS site using **Storyblok** as th
 
 **Static-First Strategy**: Uses `generateStaticParams` in `app/(storyblok)/[[...slug]]/page.tsx` with `dynamicParams = false` to pre-generate all pages at build time. Content updates trigger rebuilds via Storyblok webhooks.
 
-**Aggressive Caching**: All API calls use `unstable_cache` with 10-minute revalidation (`utilities/data/*.ts`). Static pages cache for 1 year (`revalidate = 31536000`).
+**Next.js 16 Caching Strategy** (see [ADR 0008](docs/adr/0008-next-js-16-caching-strategy.md)):
+- All data fetching functions in `utilities/data/` use Next.js 16's `'use cache'` directive for automatic caching
+- Cache entries are stored in-memory and respect the default cacheLife profile (5min stale, 15min revalidate)
+- Storyblok SDK uses built-in memory cache with automatic clearing for optimal performance
+- No time-based revalidation or ISR - full rebuilds provide atomic updates
+- Visual editor uses `version: 'draft'` (client-side), production uses `version: 'published'` (build-time)
+- Worker concurrency limited to 10 via `experimental.cpus` to prevent race conditions
 
 **Route Groups**: 
 - `(storyblok)` - Main content pages via catch-all `[[...slug]]`
-- `(editor)` - Storyblok visual editor (protected by middleware)
+- `(editor)` - Storyblok visual editor (protected by server-side validation)
 - `endowed-positions/` - Dedicated section with custom layout
+
+## Next.js 16 Upgrade Notes (Dec 2025)
+
+### Major Changes from Next.js 15
+
+1. **Middleware Removed (Architectural Decision)**: 
+   - `middleware.ts` was removed and replaced with route-level validation
+   - Storyblok editor access is now validated in `/app/(editor)/editor/EditorGuard.tsx`
+   - This provides better colocation and explicit security boundaries
+   - Note: Next.js 16 still supports middleware; we chose to remove it for this specific use case
+
+2. **Removed Custom Cache Handler**:
+   - Previous workaround for 2MB cache limit has been removed
+   - Next.js 16's new caching architecture handles most cases
+   - Large payload warnings (>2MB) are non-fatal; pages still render correctly
+   - Future implementation of Upstash Redis cache handler planned for optimal performance
+
+3. **ESLint Configuration**:
+   - `eslint` config removed from `next.config.ts` (no longer supported)
+   - All ESLint configuration is in `eslint.config.mjs` (flat config format)
+
+4. **Turbopack as Default**:
+   - Build times improved by 2-5× with stable Turbopack
+   - Fast Refresh is up to 10× faster in development
+   - No configuration needed - runs by default
+
+**See [ADR 0007](docs/adr/0007-next-js-16-upgrade.md) for complete upgrade details.**
 
 ## Development Workflow
 
@@ -33,8 +66,14 @@ npm run dev  # Starts with Turbopack and HTTPS
 ### HTTPS for Storyblok Editor
 Run `npm run https-proxy-start` in separate terminal to enable Storyblok visual editor at https://localhost:3010 (required - Storyblok v2 doesn't support HTTP).
 
-### Storyblok Token Types
-**IMPORTANT**: Two different token types are used for different access levels:
+### Storyblok Configuration
+**CRITICAL API Configuration**:
+- **Region**: This Storyblok space is hosted in the **EU region**
+- The `region: 'eu'` parameter MUST be set in `apiOptions` when initializing the client
+- Without the EU region setting, all API requests will fail with 401 Unauthorized errors
+- See `utilities/storyblok.tsx` for the client configuration
+
+**Token Types**: Two different token types are used for different access levels:
 - `STORYBLOK_ACCESS_TOKEN` - Public token with access to **published content only**
 - `STORYBLOK_PREVIEW_EDITOR_TOKEN` - Preview token with access to **draft content** (used in visual editor)
 
@@ -69,7 +108,7 @@ export const SbComponent = (props: SbComponentProps) => (
 Use `<CreateBloks blokSection={blok.body} />` to render Storyblok content arrays. This handles null checks and maps over blok arrays automatically.
 
 ### Data Fetching
-Always use cached versions: `getStoryDataCached()`, `getAllStoriesCached()`, etc. These are already optimized with proper cache tags for revalidation.
+Use data fetching functions directly: `getStoryData()`, `getAllStories()`, etc. These use Next.js 16's `'use cache'` directive for automatic caching with Storyblok SDK's built-in memory cache for optimal performance. See [ADR 0008](docs/adr/0008-next-js-16-caching-strategy.md) for details.
 
 ## Styling & Design System
 
