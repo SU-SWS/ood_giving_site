@@ -41,7 +41,7 @@
     "@heroicons/react": "^2.2.0",
     "@netlify/functions": "^5.1.0",
     "@next/third-parties": "^16.0.7",
-    "@storyblok/react": "^5.4.19",
+    "@storyblok/react": "^5.4.20",
     "algoliasearch": "^5.35.0",
     "cnbuilder": "^3.1.0",
     "cookies-next": "^6.1.0",
