@@ -54,7 +54,7 @@
     "react-player": "^3.3.3",
     "react-slick": "^0.31.0",
     "sa11y": "^4.1.10",
-    "storyblok-js-client": "^7.1.4",
+    "storyblok-js-client": "^7.2.1",
     "storyblok-rich-text-react-renderer": "^3.0.1",
     "usehooks-ts": "^3.1.1"
   },
