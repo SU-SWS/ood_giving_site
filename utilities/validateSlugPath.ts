@@ -1,4 +1,4 @@
-import { getAllStoriesCached } from '@/utilities/data/';
+import { getAllStories } from '@/utilities/data/';
 import { isProduction } from '@/utilities/getActiveEnv';
 import { unstable_cache } from 'next/cache';
 
@@ -10,7 +10,7 @@ const getValidSlugs = async (): Promise<string[]> => {
   const isProd = isProduction();
 
   // Get all the stories.
-  let stories = await getAllStoriesCached();
+  let stories = await getAllStories();
 
   // Filter out folders.
   stories = stories.filter((link) => link.is_folder === false);

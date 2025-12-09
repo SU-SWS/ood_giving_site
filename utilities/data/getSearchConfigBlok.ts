@@ -1,4 +1,3 @@
-import { unstable_cache } from 'next/cache';
 import { type SbCtaLinkProps } from '@/components/Storyblok/SbCtaLink';
 import { getStoryblokClient } from '@/utilities/storyblok';
 
@@ -24,12 +23,23 @@ export type SearchConfig = {
   suggestionsAmount: number;
 };
 
-const BUILD_ID = process.env.BUILD_ID || '';
-
 /**
  * Get the global search configuration from Storyblok.
+ *
+ * **Version Strategy (Next.js 16)**:
+ * - Always fetches `version: 'published'` content
+ * - Separate dev/prod Storyblok spaces provide environment-specific configs
+ * - Configuration is global and shared across all pages
+ *
+ * **Caching Strategy**:
+ * - Uses Next.js 16's `use cache` directive for automatic caching
+ * - Storyblok SDK uses built-in memory cache with automatic clearing
+ * - Cache entries are stored in-memory and respect the default cacheLife profile
+ * - Search config fetched once and shared across all pages in a build
  */
 export const getSearchConfigBlok = async () => {
+  'use cache';
+
   const storyblokApi = getStoryblokClient();
 
   // Get the global configuration.
@@ -64,16 +74,3 @@ export const getSearchConfigBlok = async () => {
     suggestionsAmount: parseInt(suggestionsAmount, 10) || 0,
   } as SearchConfig;
 };
-
-/**
- * Get the global search configuration from Storyblok through the cache.
- */
-export const getSearchConfigBlokCached = unstable_cache(
-  getSearchConfigBlok,
-  ['search-configuration', BUILD_ID], // Include BUILD_ID for fresh content per build
-  {
-    tags: ['global', 'config', 'search'],
-    // Cache for 10 minutes as config changes are infrequent
-    revalidate: 600,
-  },
-);

@@ -4,14 +4,14 @@ import { Footer } from '@/components/Storyblok/partials/Footer';
 import { Header } from '@/components/Storyblok/partials/Header';
 import { StoryblokProvider } from '@/components/StoryblokProvider';
 import { Heap } from '@/components/Heap';
-import { getStoryDataCached } from '@/utilities/data';
+import { getStoryData } from '@/utilities/data';
 
 type EndowedPositionsLayoutProps = {
   children: React.ReactNode;
 };
 
 const EndowedPositionsLayout = async ({ children }: EndowedPositionsLayoutProps) => {
-  const { data: endowedPositionsPage } = await getStoryDataCached({ path: 'endowed-positions' });
+  const { data: endowedPositionsPage } = await getStoryData({ path: 'endowed-positions' });
   const {
     localHeader,
     localFooter,

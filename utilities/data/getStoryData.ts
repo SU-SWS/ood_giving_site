@@ -1,16 +1,26 @@
 import type { getStoryDataProps } from '@/utilities/data/types';
 import { type ISbStoriesParams, type ISbResult } from '@storyblok/react/rsc';
-import { unstable_cache } from 'next/cache';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getStoryblokClient } from '@/utilities/storyblok';
 import { logError } from '@/utilities/logger';
 
-const BUILD_ID = process.env.BUILD_ID || '';
-
 /**
  * Get the data out of the Storyblok API for the page.
+ *
+ * **Version Strategy (Next.js 16)**:
+ * - Production builds: Always fetches `version: 'published'` content
+ * - Visual editor: Uses `version: 'draft'` (handled in EditorClient.tsx client-side)
+ * - Separate dev/prod Storyblok spaces ensure correct content per environment
+ *
+ * **Caching Strategy**:
+ * - Uses Next.js 16's `use cache` directive for automatic caching
+ * - Storyblok SDK uses built-in memory cache with automatic clearing
+ * - Cache entries are stored in-memory and respect the default cacheLife profile
+ * - No post-build revalidation (static-first with webhook-triggered rebuilds)
  */
 export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResult | { data: 404 }> => {
+  'use cache';
+
   const storyblokApi = getStoryblokClient();
 
   const sbParams: ISbStoriesParams = {
@@ -35,17 +45,3 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
     throw error;
   }
 };
-
-/**
- * Get the data out of the Storyblok API for the page through the cache.
- * BUILD_ID ensures fresh content for each build while enabling deduplication within builds.
- */
-export const getStoryDataCached = unstable_cache(
-  getStoryData,
-  ['story-data', BUILD_ID], // Include BUILD_ID for fresh content per build
-  {
-    tags: ['story', 'page'],
-    // Cache for 10 minutes to balance freshness with performance
-    revalidate: 600,
-  },
-);
