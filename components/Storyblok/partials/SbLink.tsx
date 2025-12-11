@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { getMaskedAsset } from '@/utilities/getMaskedAsset';
@@ -29,29 +29,31 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
 
   // Storyblok link object either has a url (external links)
   // or cached_url (internal or asset links)
-  let linkUrl = link.url || link.cached_url || '';
+  const rawLinkUrl = link.url || link.cached_url || '';
   const isExternalLink = link.linktype === 'url';
 
   // Ensure linkUrl is always a string and not undefined/null
-  if (typeof linkUrl !== 'string') {
-    linkUrl = '';
-  }
+  const baseLinkUrl = useMemo(() => {
+    if (typeof rawLinkUrl !== 'string') {
+      return '';
+    }
+    return rawLinkUrl;
+  }, [rawLinkUrl]);
 
   const otherAttributes = attributes ?? {};
 
-  // State for external URL with UTMs
-  const [externalHref, setExternalHref] = useState<string>(linkUrl);
-
-  // Update external href when UTMs are available
-  useEffect(() => {
-    if (isExternalLink && isStanfordUrl(linkUrl)) {
-      setExternalHref(addUTMsToUrl(linkUrl));
+  // Compute external URL with UTMs
+  const externalHref = useMemo(() => {
+    if (isExternalLink && isStanfordUrl(baseLinkUrl)) {
+      return addUTMsToUrl(baseLinkUrl);
     }
-  }, [isExternalLink, linkUrl, addUTMsToUrl]);
+    return baseLinkUrl;
+  }, [isExternalLink, baseLinkUrl, addUTMsToUrl]);
 
   // Story or Internal type link.
   // ---------------------------------------------------------------------------
   if (link.linktype === 'story') {
+    let linkUrl = baseLinkUrl;
     // Ensure internal links start with a slash for relative paths
     if (!linkUrl.startsWith('/')) {
       linkUrl = '/' + linkUrl;
@@ -100,7 +102,7 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
   // ---------------------------------------------------------------------------
   if (link.linktype === 'asset') {
     // Rewrite the URL to the redirect link to mask the API endpoint.
-    linkUrl = getMaskedAsset(linkUrl);
+    const linkUrl = getMaskedAsset(baseLinkUrl);
 
     return (
       <a
@@ -118,7 +120,7 @@ export const SbLink = React.forwardRef<HTMLAnchorElement, SbLinkProps>((props, r
   // Default if we don't know what type this is.
   // ---------------------------------------------------------------------------
   return (
-    <a ref={ref} href={linkUrl} className={className} {...otherAttributes}>
+    <a ref={ref} href={baseLinkUrl} className={className} {...otherAttributes}>
       {children}
     </a>
   );

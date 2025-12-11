@@ -54,6 +54,7 @@ export function SearchModalProvider({
   // Close the modal on route change
   useEffect(() => {
     if (pathname) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsOpen(false);
     }
   }, [pathname]);
