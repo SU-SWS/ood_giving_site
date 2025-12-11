@@ -34,7 +34,7 @@ export const Search = ({
 
   const searchClient = {
     ...algoliaClient,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
     search(requests: any[]) {
       if (requests.every(({ params }) => !params?.query)) {
         return Promise.resolve({

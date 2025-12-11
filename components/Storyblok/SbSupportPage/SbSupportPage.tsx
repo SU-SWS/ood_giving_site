@@ -79,6 +79,7 @@ export const SbSupportPage = ({ blok, slug }: SbSupportPageProps) => {
   useEffect(() => {
     const hash = window.location.hash.substring(1); // Remove the '#' symbol
     if (hash && Object.keys(areasToSupport).includes(hash)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveFilter(hash as AreasToSupportType);
     }
   }, []);
