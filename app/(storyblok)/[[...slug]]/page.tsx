@@ -7,7 +7,6 @@ import { getStoryData, getAllStories } from '@/utilities/data/';
 import { isProduction } from '@/utilities/getActiveEnv';
 import { validateSlugPath, slugArrayToPath } from '@/utilities/validateSlugPath';
 import { getStoryblokClient } from '@/utilities/storyblok';
-import { logError } from '@/utilities/logger';
 
 type PropsType = {
   params: Promise<{ slug: string[] }>;
@@ -67,18 +66,25 @@ export const generateStaticParams = async () => {
 
 /**
  * Generate the SEO metadata for the page.
+ *
+ * **Error Handling Strategy**:
+ * - For 404s (content not found): Return fallback metadata (expected case)
+ * - For network/API errors: Re-throw the error to prevent caching broken metadata
+ *
+ * By throwing on transient errors, Next.js will:
+ * 1. NOT cache the broken response
+ * 2. Continue serving the previously cached version (stale-while-revalidate)
+ * 3. Retry the fetch on the next request
  */
 export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
   const { params } = props;
   const { slug } = await params;
   const slugPath = slugArrayToPath(slug || []);
 
-  try {
-
   // Validate the slug path before making any API calls
   const isValidPath = await validateSlugPath(slug || []);
   if (!isValidPath) {
-    // Return minimal metadata for 404 pages
+    // Return minimal metadata for 404 pages (expected case, safe to cache)
     return {
       title: 'Page Not Found',
       description: 'The requested page could not be found.',
@@ -86,10 +92,12 @@ export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
   }
 
   // Get the story data.
+  // Note: getStoryData already throws on network errors (preserving SWR cache)
+  // and returns { data: 404 } for missing content (safe to cache)
   const { data } = await getStoryData({ path: slugPath });
 
   if (data === 404 || !data.story) {
-    // Return minimal metadata for 404 pages
+    // Return minimal metadata for 404 pages (expected case, safe to cache)
     return {
       title: 'Page Not Found',
       description: 'The requested page could not be found.',
@@ -101,17 +109,20 @@ export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
   // Generate the metadata.
   const meta = getPageMetadata({ story, slug: slugPath });
   return meta;
-  } catch (error) {
-    logError('Error generating metadata', error, { slug });
-    return {
-      title: 'Metadata Error',
-      description: 'The requested page could not get metadata.',
-    };
-  }
 };
 
 /**
  * Fetch the path data for the page and render it.
+ *
+ * **Error Handling Strategy**:
+ * - For 404s (content not found): Call notFound() to render 404 page
+ * - For network/API errors: Let errors propagate (throw) to prevent caching
+ *
+ * By allowing errors to throw (not catching them), Next.js will:
+ * 1. NOT cache the broken response
+ * 2. Continue serving the previously cached version (stale-while-revalidate)
+ * 3. Retry the fetch on the next request
+ * 4. Render the error.tsx boundary for the current request only
  */
 const Page = async (props: PropsType) => {
   const { params } = props;
@@ -129,6 +140,8 @@ const Page = async (props: PropsType) => {
   getStoryblokClient();
 
   // Get data out of the API.
+  // Note: getStoryData throws on network errors - DO NOT catch here!
+  // Throwing preserves the SWR cache and prevents caching broken responses.
   const { data } = await getStoryData({ path: slugPath });
 
   // Failed to fetch from API because story slug was not found.
@@ -137,11 +150,10 @@ const Page = async (props: PropsType) => {
   }
 
   // Ensure there is a story in the data.
+  // This throw is intentional - it prevents caching an empty page.
   if (!data || !data.story) {
     throw new Error(`No story found for slugPath: ${slugPath}`);
   }
-
-  // Return the story.
 
   return (
     <StoryblokStory
