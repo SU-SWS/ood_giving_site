@@ -25,15 +25,17 @@ export const isEditorValid = async ({
     return false;
   }
 
+  // [-- REMOVED AT CLIENT REQUEST --]
   // Validate timestamp is within the last hour (3600 seconds)
   // This prevents replay attacks with old tokens
-  const timestampNum = parseInt(timestamp, 10);
-  const currentTimestamp = Math.floor(Date.now() / 1000);
-  const oneHourAgo = currentTimestamp - 3600;
+  // const timestampNum = parseInt(timestamp, 10);
+  // const currentTimestamp = Math.floor(Date.now() / 1000);
+  // const oneHourAgo = currentTimestamp - 3600;
 
-  if (isNaN(timestampNum) || timestampNum < oneHourAgo) {
-    return false;
-  }
+  // if (isNaN(timestampNum) || timestampNum < oneHourAgo) {
+  //   return false;
+  // }
+  // [-- REMOVED AT CLIENT REQUEST --]
 
   // Generate SHA-1 hash of the validation string
   const validationString = `${spaceId}:${accessToken}:${timestamp}`;
