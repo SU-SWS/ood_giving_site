@@ -10,11 +10,12 @@ This is a **Next.js 16+ App Router** headless CMS site using **Storyblok** as th
 
 **Static-First Strategy**: Uses `generateStaticParams` in `app/(storyblok)/[[...slug]]/page.tsx` with `dynamicParams = false` to pre-generate all pages at build time. Content updates trigger rebuilds via Storyblok webhooks.
 
-**Next.js 16 Caching Strategy** (see [ADR 0008](docs/adr/0008-next-js-16-caching-strategy.md)):
-- All data fetching functions in `utilities/data/` use Next.js 16's `'use cache'` directive for automatic caching
-- Cache entries are stored in-memory and respect the default cacheLife profile (5min stale, 15min revalidate)
-- Storyblok SDK uses built-in memory cache with automatic clearing for optimal performance
-- No time-based revalidation or ISR - full rebuilds provide atomic updates
+**Next.js 16 Caching & PPR Strategy** (see [ADR 0008](docs/adr/0008-next-js-16-caching-strategy.md)):
+- **Partial Prerendering (PPR)** enabled via `cacheComponents: true` in `next.config.ts`
+- All pages and layouts use `'use cache'` directive at the file level for optimal prerendering
+- All data fetching functions in `utilities/data/` use `'use cache'` for automatic caching
+- **No ISR** - full rebuilds via Storyblok webhooks provide atomic updates
+- Cache is per-build (fresh content on each deployment)
 - Visual editor uses `version: 'draft'` (client-side), production uses `version: 'published'` (build-time)
 - Worker concurrency limited to 10 via `experimental.cpus` to prevent race conditions
 

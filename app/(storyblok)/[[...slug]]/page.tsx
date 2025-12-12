@@ -1,3 +1,5 @@
+'use cache';
+
 import { type Metadata } from 'next';
 import { StoryblokStory } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';

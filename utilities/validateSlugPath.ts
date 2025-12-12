@@ -1,12 +1,20 @@
 import { getAllStories } from '@/utilities/data/';
 import { isProduction } from '@/utilities/getActiveEnv';
-import { unstable_cache } from 'next/cache';
 
 /**
- * Get the array of all valid slug paths for runtime validation
- * Uses the same logic as generateStaticParams to ensure consistency
+ * Get the array of all valid slug paths for runtime validation.
+ *
+ * Uses Next.js 16's `use cache` directive for automatic caching.
+ * Uses the same logic as generateStaticParams to ensure consistency.
+ *
+ * **Caching Strategy**:
+ * - Cached automatically via `use cache` directive
+ * - Cache is per-build (fresh content on each deployment)
+ * - No time-based revalidation - full rebuilds provide atomic updates
  */
 const getValidSlugs = async (): Promise<string[]> => {
+  'use cache';
+
   const isProd = isProduction();
 
   // Get all the stories.
@@ -42,21 +50,6 @@ const getValidSlugs = async (): Promise<string[]> => {
   return validSlugs;
 };
 
-const BUILD_ID = process.env.BUILD_ID || '';
-
-/**
- * Cached version of getValidSlugs to avoid repeated API calls
- */
-const getValidSlugsCached = unstable_cache(
-  getValidSlugs,
-  ['valid-slugs', BUILD_ID], // Use a descriptive cache key to avoid conflicts
-  {
-    tags: ['story', 'all', 'slugs'],
-    // Cache for 10 minutes to balance performance with content updates
-    revalidate: 600,
-  },
-);
-
 /**
  * Validate if a slug path exists in our known set of paths
  * without making a request to Storyblok's API
@@ -65,7 +58,7 @@ const getValidSlugsCached = unstable_cache(
  * @returns Promise<boolean> - True if the path is valid, false otherwise
  */
 export const validateSlugPath = async (slugArray: string[]): Promise<boolean> => {
-  const validSlugs = await getValidSlugsCached();
+  const validSlugs = await getValidSlugs();
 
   // Convert slug array to path string
   const slugPath = slugArray.length === 0 ? '' : slugArray.join('/');
