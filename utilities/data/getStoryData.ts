@@ -17,6 +17,11 @@ import { logError } from '@/utilities/logger';
  * - Storyblok SDK uses built-in memory cache with automatic clearing
  * - Cache entries are stored in-memory and respect the default cacheLife profile
  * - No post-build revalidation (static-first with webhook-triggered rebuilds)
+ *
+ * **Error Handling**:
+ * - Storyblok SDK handles retries internally
+ * - Returns { data: 404 } for not found responses
+ * - Re-throws other errors for error boundary handling
  */
 export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResult | { data: 404 }> => {
   'use cache';
@@ -36,12 +41,16 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
   try {
     const story: ISbResult = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
     return story;
+  } catch (error: unknown) {
+    const err = error as { status?: number };
 
-  } catch (error: any) {
-    if (error && error.status && error.status === 404) {
+    // Handle 404 gracefully
+    if (err?.status === 404) {
       return { data: 404 };
     }
-    logError('Failed to fetch story from Storyblok API', error, { path, status: error?.status });
+
+    // Log and re-throw other errors for error boundary handling
+    logError('Failed to fetch story from Storyblok API', error, { path, status: err?.status });
     throw error;
   }
 };

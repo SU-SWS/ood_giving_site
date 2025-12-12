@@ -147,11 +147,6 @@ let cachedToken: string | null = null;
 /**
  * Get or create a configured Storyblok API client.
  *
- * **IMPORTANT: EU Region Configuration**:
- * - This Storyblok space is hosted in the EU region
- * - The `region: 'eu'` parameter MUST be set in apiOptions
- * - Without this, API requests will fail with 401 Unauthorized
- *
  * **Next.js 16 Caching Strategy**:
  * - The Storyblok SDK internally uses `fetch`, which Next.js 16 extends
  * - We rely on the React `cache` function wrapper in utilities/data/ for build-time deduplication
@@ -189,8 +184,6 @@ export const getStoryblokClient = ({
       return <ComponentNotFound component={component} />;
     },
     apiOptions: {
-      // CRITICAL: This space is hosted in the EU region
-      region: 'eu',
       // Rate limiting: 6 RPS is safe with 10-15 build threads (60 RPS total / 10 threads = 6)
       rateLimit: 6,
       // Memory cache with automatic clearing on preview requests
