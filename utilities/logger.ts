@@ -6,11 +6,26 @@
  *
  * For now, uses console methods but is structured for easy migration
  * to a logging service like Sentry in the future.
+ *
+ * Set DEBUG_LOGGING=true environment variable to enable verbose debug logging.
  */
 
 interface LogContext {
   [key: string]: unknown;
 }
+
+/** Check if debug logging is enabled */
+const isDebugEnabled = () => process.env.DEBUG_LOGGING === 'true';
+
+/** Format context for consistent log output */
+const formatContext = (context?: LogContext): string => {
+  if (!context || Object.keys(context).length === 0) return '';
+  try {
+    return JSON.stringify(context);
+  } catch {
+    return String(context);
+  }
+};
 
 /**
  * Log an error with optional context
@@ -18,7 +33,13 @@ interface LogContext {
  */
 export const logError = (message: string, error?: Error | unknown, context?: LogContext) => {
   // In production with Sentry: Sentry.captureException(error, { contexts: context });
-  console.error(`[ERROR] ${message}`, error, context);
+  const errorMessage = error instanceof Error ? error.message : String(error);
+  const errorStack = error instanceof Error ? error.stack : undefined;
+  console.error(`[ERROR] ${message}`, {
+    error: errorMessage,
+    stack: errorStack,
+    ...context,
+  });
 };
 
 /**
@@ -27,7 +48,7 @@ export const logError = (message: string, error?: Error | unknown, context?: Log
  */
 export const logWarn = (message: string, context?: LogContext) => {
   // In production with Sentry: Sentry.captureMessage(message, 'warning', { contexts: context });
-  console.warn(`[WARN] ${message}`, context);
+  console.warn(`[WARN] ${message}`, formatContext(context));
 };
 
 /**
@@ -36,5 +57,14 @@ export const logWarn = (message: string, context?: LogContext) => {
  */
 export const logInfo = (message: string, context?: LogContext) => {
   // In production with Sentry: Sentry.captureMessage(message, 'info', { contexts: context });
-  console.log(`[INFO] ${message}`, context);
+  console.log(`[INFO] ${message}`, formatContext(context));
+};
+
+/**
+ * Log debug message (only when DEBUG_LOGGING=true)
+ * Use for verbose tracing during development or debugging production issues
+ */
+export const logDebug = (message: string, context?: LogContext) => {
+  if (!isDebugEnabled()) return;
+  console.log(`[DEBUG] ${message}`, formatContext(context));
 };

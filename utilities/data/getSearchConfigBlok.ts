@@ -1,6 +1,6 @@
 import { type SbCtaLinkProps } from '@/components/Storyblok/SbCtaLink';
 import { getStoryblokClient } from '@/utilities/storyblok';
-import { logError } from '@/utilities/logger';
+import { logError, logDebug } from '@/utilities/logger';
 
 type SearchConfigBlokContent = {
   introduction?: string;
@@ -61,6 +61,8 @@ export const getSearchConfigBlok = async (): Promise<SearchConfig> => {
   const storyblokApi = getStoryblokClient();
 
   try {
+    logDebug('Fetching search config from Storyblok');
+
     // Get the global configuration.
     const { data: { story } } = await storyblokApi.get(
       'cdn/stories/global-components/search-overlay/search-overlay',
@@ -81,6 +83,8 @@ export const getSearchConfigBlok = async (): Promise<SearchConfig> => {
       categoriesRightHeadline = '',
       suggestionsAmount,
     } = story?.content as SearchConfigBlokContent ?? {};
+
+    logDebug('Search config fetched successfully');
 
     return {
       introduction,

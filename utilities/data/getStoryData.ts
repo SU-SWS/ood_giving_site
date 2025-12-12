@@ -2,7 +2,7 @@ import type { getStoryDataProps } from '@/utilities/data/types';
 import { type ISbStoriesParams, type ISbResult } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getStoryblokClient } from '@/utilities/storyblok';
-import { logError } from '@/utilities/logger';
+import { logError, logDebug } from '@/utilities/logger';
 
 /**
  * Get the data out of the Storyblok API for the page.
@@ -38,8 +38,17 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
 
   const slug = path.replace(/\/$/, ''); // Remove trailing slash.
 
+  logDebug('Fetching story from Storyblok', { slug });
+
   try {
     const story: ISbResult = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+
+    logDebug('Story fetched successfully', {
+      slug,
+      storyName: story?.data?.story?.name,
+      storyUuid: story?.data?.story?.uuid,
+    });
+
     return story;
   } catch (error: unknown) {
     const err = error as { status?: number };

@@ -2,7 +2,7 @@ import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { type SbAlertBgColorType, type SbAlertIconType } from '@/components/Storyblok/SbAlert';
 import { getStoryblokClient } from '@/utilities/storyblok';
-import { logError } from '@/utilities/logger';
+import { logError, logDebug } from '@/utilities/logger';
 
 export type AlertContent = {
   uuid: string;
@@ -39,6 +39,8 @@ export const getGlobalAlerts = async (): Promise<AlertContent[]> => {
   const storyblokApi = getStoryblokClient();
 
   try {
+    logDebug('Fetching global alerts from Storyblok');
+
     // Get the global alerts.
     const { data: { stories } } = await storyblokApi.getStories({
       starts_with: 'global-components/alerts/',
@@ -53,6 +55,10 @@ export const getGlobalAlerts = async (): Promise<AlertContent[]> => {
           in: 'true',
         },
       },
+    });
+
+    logDebug('Global alerts fetched successfully', {
+      count: stories?.length ?? 0,
     });
 
     return stories?.map(({ content, uuid }) => ({

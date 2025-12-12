@@ -7,7 +7,7 @@ import { getStoryData, getAllStories } from '@/utilities/data/';
 import { isProduction } from '@/utilities/getActiveEnv';
 import { validateSlugPath, slugArrayToPath } from '@/utilities/validateSlugPath';
 import { getStoryblokClient } from '@/utilities/storyblok';
-import { logError } from '@/utilities/logger';
+import { logError, logDebug, logInfo } from '@/utilities/logger';
 
 type PropsType = {
   params: Promise<{ slug: string[] }>;
@@ -31,6 +31,7 @@ getStoryblokClient();
  * Generate the list of stories to statically render.
  */
 export const generateStaticParams = async () => {
+  logInfo('generateStaticParams: starting');
   const isProd = isProduction();
 
   // Get all the stories.
@@ -61,6 +62,8 @@ export const generateStaticParams = async () => {
       paths.push({ slug: cleanSlug });
     }
   });
+
+  logInfo('generateStaticParams: completed', { pathCount: paths.length });
 
   return paths;
 };
@@ -121,9 +124,12 @@ const Page = async (props: PropsType) => {
   const { slug } = await params;
   const slugPath = slugArrayToPath(slug || []);
 
+  logDebug('Page: rendering', { slugPath });
+
   // Validate the slug path before making any API calls
   const isValidPath = await validateSlugPath(slug || []);
   if (!isValidPath) {
+    logDebug('Page: invalid path, returning 404', { slugPath });
     // Return 404 immediately for invalid paths without hitting Storyblok API
     notFound();
   }
@@ -136,13 +142,21 @@ const Page = async (props: PropsType) => {
 
   // Failed to fetch from API because story slug was not found.
   if (data && data === 404) {
+    logDebug('Page: story not found in Storyblok, returning 404', { slugPath });
     notFound();
   }
 
   // Ensure there is a story in the data.
   if (!data || !data.story) {
+    logError('Page: no story in response data', undefined, { slugPath, data });
     throw new Error(`No story found for slugPath: ${slugPath}`);
   }
+
+  logDebug('Page: rendering StoryblokStory', {
+    slugPath,
+    storyName: data.story.name,
+    storyComponent: data.story.content?.component,
+  });
 
   // Return the story.
 
