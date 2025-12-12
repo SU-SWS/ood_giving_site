@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-function-type */
+
 export const base = ({ addBase, config }: { addBase: Function, config: Function }) => {
   addBase({
     html: {

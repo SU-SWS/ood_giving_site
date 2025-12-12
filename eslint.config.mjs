@@ -1,19 +1,15 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
+import nextPlugin from 'eslint-config-next';
 import stylistic from '@stylistic/eslint-plugin';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
 
 const eslintConfig = [{
   ignores: ['node_modules/**', '.next/**', 'out/**', 'build/**', 'next-env.d.ts'],
-}, ...compat.config({
-  extends: ['next/core-web-vitals', 'next/typescript'],
+},
+...nextPlugin,
+{
+  files: ['**/*.{js,jsx,mjs,ts,tsx,mts,cts}'],
+  plugins: {
+    '@stylistic': stylistic,
+  },
   rules: {
     'comma-dangle': ['error', {
       'objects': 'always-multiline',
@@ -69,6 +65,17 @@ const eslintConfig = [{
     'import/no-unresolved': 0,
     'no-unused-vars': 0,
     'no-multi-spaces': 'error',
+    'import/export': 0,
+    'func-names': 0,
+    'semi': [1, 'always'], // 1 is for warning
+    '@next/next/no-img-element': 0,
+    // Stylistic
+    '@stylistic/no-trailing-spaces': 'error',
+  },
+},
+{
+  files: ['**/*.ts', '**/*.tsx'],
+  rules: {
     '@typescript-eslint/no-unused-vars': [
       'warn',
       {
@@ -76,18 +83,6 @@ const eslintConfig = [{
         'args': 'none',
       },
     ],
-    'import/export': 0,
-    'func-names': 0,
-    'semi': [1, 'always'], // 1 is for warning
-    '@next/next/no-img-element': 0,
-  },
-}), {
-  plugins: {
-    '@stylistic': stylistic,
-  },
-  rules: {
-    // Stylistic
-    '@stylistic/no-trailing-spaces': 'error',
   },
 }];
 

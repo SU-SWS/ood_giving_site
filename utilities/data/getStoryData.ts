@@ -36,7 +36,7 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
   try {
     const story: ISbResult = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
     return story;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   } catch (error: any) {
     if (error && error.status && error.status === 404) {
       return { data: 404 };
