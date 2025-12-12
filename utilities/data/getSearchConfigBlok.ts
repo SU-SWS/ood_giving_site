@@ -1,5 +1,6 @@
 import { type SbCtaLinkProps } from '@/components/Storyblok/SbCtaLink';
 import { getStoryblokClient } from '@/utilities/storyblok';
+import { logError } from '@/utilities/logger';
 
 type SearchConfigBlokContent = {
   introduction?: string;
@@ -42,35 +43,45 @@ export const getSearchConfigBlok = async () => {
 
   const storyblokApi = getStoryblokClient();
 
-  // Get the global configuration.
-  const { data: { story } } = await storyblokApi.get(
-    'cdn/stories/global-components/search-overlay/search-overlay',
-    {
-      // We have separate dev/prod spaces; we always want the published config from each space
-      version: 'published',
-      // Let Storyblok handle cache invalidation automatically
-    },
-  );
+  const endpoint = 'cdn/stories/global-components/search-overlay/search-overlay';
 
-  const {
-    introduction = '',
-    categoriesLeftBox,
-    categoriesRightBox,
-    categoriesHeadline = '',
-    emptySearchMessage = '',
-    categoriesLeftHeadline = '',
-    categoriesRightHeadline = '',
-    suggestionsAmount,
-  } = story?.content as SearchConfigBlokContent ?? {};
+  try {
+    // Get the global configuration.
+    const { data: { story } } = await storyblokApi.get(
+      endpoint,
+      {
+        // We have separate dev/prod spaces; we always want the published config from each space
+        version: 'published',
+        // Let Storyblok handle cache invalidation automatically
+      },
+    );
 
-  return {
-    introduction,
-    categoriesLeftBox,
-    categoriesRightBox,
-    categoriesHeadline,
-    emptySearchMessage,
-    categoriesLeftHeadline,
-    categoriesRightHeadline,
-    suggestionsAmount: parseInt(suggestionsAmount, 10) || 0,
-  } as SearchConfig;
+    const {
+      introduction = '',
+      categoriesLeftBox,
+      categoriesRightBox,
+      categoriesHeadline = '',
+      emptySearchMessage = '',
+      categoriesLeftHeadline = '',
+      categoriesRightHeadline = '',
+      suggestionsAmount,
+    } = story?.content as SearchConfigBlokContent ?? {};
+
+    return {
+      introduction,
+      categoriesLeftBox,
+      categoriesRightBox,
+      categoriesHeadline,
+      emptySearchMessage,
+      categoriesLeftHeadline,
+      categoriesRightHeadline,
+      suggestionsAmount: parseInt(suggestionsAmount, 10) || 0,
+    } as SearchConfig;
+  } catch (error: any) {
+    logError('Failed to fetch search config from Storyblok', error, {
+      endpoint,
+      status: error?.status,
+    });
+    throw error; // Re-throw to prevent caching broken state
+  }
 };

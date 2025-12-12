@@ -1,5 +1,6 @@
 import { type ISbStoriesParams } from '@storyblok/react/rsc';
 import { getStoryblokClient } from '@/utilities/storyblok';
+import { logError } from '@/utilities/logger';
 
 /**
  * Fetches all stories from Storyblok.
@@ -30,7 +31,14 @@ export const getAllStories = async () => {
   };
 
   // Use the `cdn/links` endpoint to get a list of all stories without all the extra data.
-  const response = await storyblokApi.getAll('cdn/links', sbParams);
-
-  return response;
+  try {
+    const response = await storyblokApi.getAll('cdn/links', sbParams);
+    return response;
+  } catch (error: any) {
+    logError('Failed to fetch all stories from Storyblok', error, {
+      endpoint: 'cdn/links',
+      status: error?.status,
+    });
+    throw error; // Re-throw to prevent caching broken state
+  }
 };

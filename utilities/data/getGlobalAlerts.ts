@@ -2,6 +2,7 @@ import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { type SbAlertBgColorType, type SbAlertIconType } from '@/components/Storyblok/SbAlert';
 import { getStoryblokClient } from '@/utilities/storyblok';
+import { logError } from '@/utilities/logger';
 
 export type AlertContent = {
   uuid: string;
@@ -32,29 +33,37 @@ export const getGlobalAlerts = async () => {
 
   const storyblokApi = getStoryblokClient();
 
-  // Get the global alerts.
-  const { data: { stories } } = await storyblokApi.getStories({
-    starts_with: 'global-components/alerts/',
-    content_type: 'alert',
-    // Only show published alerts; we don't want the dev site to always show EVERY existing alert.
-    version: 'published',
-    sort_by: 'published_at:desc',
-    // Let Storyblok handle cache invalidation automatically
-    // Only alerts set as global.
-    filter_query: {
-      isGlobal: {
-        in: 'true',
+  try {
+    // Get the global alerts.
+    const { data: { stories } } = await storyblokApi.getStories({
+      starts_with: 'global-components/alerts/',
+      content_type: 'alert',
+      // Only show published alerts; we don't want the dev site to always show EVERY existing alert.
+      version: 'published',
+      sort_by: 'published_at:desc',
+      // Let Storyblok handle cache invalidation automatically
+      // Only alerts set as global.
+      filter_query: {
+        isGlobal: {
+          in: 'true',
+        },
       },
-    },
-  });
+    });
 
-  return stories?.map(({ content, uuid }) => ({
-    uuid,
-    cta: content.cta,
-    ctaText: content.ctaText,
-    label: content.label,
-    alertBodyText: content.alertBodyText,
-    backgroundColor: content.backgroundColor,
-    fontAwesomeIcon: content.fontAwesomeIcon,
-  })) ?? [] as AlertContent[];
+    return stories?.map(({ content, uuid }) => ({
+      uuid,
+      cta: content.cta,
+      ctaText: content.ctaText,
+      label: content.label,
+      alertBodyText: content.alertBodyText,
+      backgroundColor: content.backgroundColor,
+      fontAwesomeIcon: content.fontAwesomeIcon,
+    })) ?? [] as AlertContent[];
+  } catch (error: any) {
+    logError('Failed to fetch global alerts from Storyblok', error, {
+      endpoint: 'global-components/alerts/',
+      status: error?.status,
+    });
+    throw error; // Re-throw to prevent caching broken state
+  }
 };

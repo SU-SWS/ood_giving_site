@@ -8,8 +8,14 @@ const Error = ({error}: {
   error: Error & { digest?: string };
 }) => {
   useEffect(() => {
-    // Log the error to an error reporting service
-    logError('Storyblok segment error boundary caught exception', error, { digest: error.digest });
+    // Log the error with comprehensive context for debugging
+    logError('Storyblok page error boundary caught exception', error, {
+      digest: error.digest,
+      errorName: error.name,
+      errorMessage: error.message,
+      url: typeof window !== 'undefined' ? window.location.href : undefined,
+      pathname: typeof window !== 'undefined' ? window.location.pathname : undefined,
+    });
   }, [error]);
 
   return (

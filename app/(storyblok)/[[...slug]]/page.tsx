@@ -7,6 +7,7 @@ import { getStoryData, getAllStories } from '@/utilities/data/';
 import { isProduction } from '@/utilities/getActiveEnv';
 import { validateSlugPath, slugArrayToPath } from '@/utilities/validateSlugPath';
 import { getStoryblokClient } from '@/utilities/storyblok';
+import { logError } from '@/utilities/logger';
 
 type PropsType = {
   params: Promise<{ slug: string[] }>;
@@ -69,7 +70,7 @@ export const generateStaticParams = async () => {
  *
  * **Error Handling Strategy**:
  * - For 404s (content not found): Return fallback metadata (expected case)
- * - For network/API errors: Re-throw the error to prevent caching broken metadata
+ * - For network/API errors: Log and re-throw to prevent caching broken metadata
  *
  * By throwing on transient errors, Next.js will:
  * 1. NOT cache the broken response
@@ -91,24 +92,33 @@ export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
     };
   }
 
-  // Get the story data.
-  // Note: getStoryData already throws on network errors (preserving SWR cache)
-  // and returns { data: 404 } for missing content (safe to cache)
-  const { data } = await getStoryData({ path: slugPath });
+  try {
+    // Get the story data.
+    const { data } = await getStoryData({ path: slugPath });
 
-  if (data === 404 || !data.story) {
-    // Return minimal metadata for 404 pages (expected case, safe to cache)
-    return {
-      title: 'Page Not Found',
-      description: 'The requested page could not be found.',
-    };
+    if (data === 404 || !data.story) {
+      // Return minimal metadata for 404 pages (expected case, safe to cache)
+      return {
+        title: 'Page Not Found',
+        description: 'The requested page could not be found.',
+      };
+    }
+
+    const story = data.story;
+
+    // Generate the metadata.
+    const meta = getPageMetadata({ story, slug: slugPath });
+    return meta;
+  } catch (error) {
+    // Log the error with full context for debugging
+    logError('generateMetadata failed - throwing to preserve cache', error, {
+      slugPath,
+      slugArray: slug,
+      phase: 'metadata',
+    });
+    // Re-throw to prevent caching broken metadata
+    throw error;
   }
-
-  const story = data.story;
-
-  // Generate the metadata.
-  const meta = getPageMetadata({ story, slug: slugPath });
-  return meta;
 };
 
 /**
@@ -116,7 +126,7 @@ export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
  *
  * **Error Handling Strategy**:
  * - For 404s (content not found): Call notFound() to render 404 page
- * - For network/API errors: Let errors propagate (throw) to prevent caching
+ * - For network/API errors: Log and let errors propagate (throw) to prevent caching
  *
  * By allowing errors to throw (not catching them), Next.js will:
  * 1. NOT cache the broken response
@@ -139,30 +149,45 @@ const Page = async (props: PropsType) => {
   // Initialize Storyblok client. Belt. Suspenders.
   getStoryblokClient();
 
-  // Get data out of the API.
-  // Note: getStoryData throws on network errors - DO NOT catch here!
-  // Throwing preserves the SWR cache and prevents caching broken responses.
-  const { data } = await getStoryData({ path: slugPath });
+  try {
+    // Get data out of the API.
+    const { data } = await getStoryData({ path: slugPath });
 
-  // Failed to fetch from API because story slug was not found.
-  if (data && data === 404) {
-    notFound();
+    // Failed to fetch from API because story slug was not found.
+    if (data && data === 404) {
+      notFound();
+    }
+
+    // Ensure there is a story in the data.
+    if (!data || !data.story) {
+      const noStoryError = new Error(`No story found for slugPath: ${slugPath}`);
+      logError('Page render failed - no story in response', noStoryError, {
+        slugPath,
+        slugArray: slug,
+        phase: 'render',
+        dataReceived: !!data,
+      });
+      throw noStoryError;
+    }
+
+    return (
+      <StoryblokStory
+        story={data.story}
+        bridgeOptions={bridgeOptions}
+        slug={slugPath}
+        name={data.story.name}
+      />
+    );
+  } catch (error) {
+    // Log all errors with full context for debugging
+    logError('Page render failed - throwing to preserve cache', error, {
+      slugPath,
+      slugArray: slug,
+      phase: 'render',
+    });
+    // Re-throw to trigger error boundary and preserve SWR cache
+    throw error;
   }
-
-  // Ensure there is a story in the data.
-  // This throw is intentional - it prevents caching an empty page.
-  if (!data || !data.story) {
-    throw new Error(`No story found for slugPath: ${slugPath}`);
-  }
-
-  return (
-    <StoryblokStory
-      story={data.story}
-      bridgeOptions={bridgeOptions}
-      slug={slugPath}
-      name={data.story.name}
-    />
-  );
 };
 
 export default Page;
