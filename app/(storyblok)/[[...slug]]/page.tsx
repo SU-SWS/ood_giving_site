@@ -73,6 +73,9 @@ export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
   const { slug } = await params;
   const slugPath = slugArrayToPath(slug || []);
 
+  // Ensure Storyblok client is initialized before any cached data access
+  getStoryblokClient();
+
   try {
 
   // Validate the slug path before making any API calls
