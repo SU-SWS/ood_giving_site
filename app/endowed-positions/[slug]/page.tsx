@@ -17,7 +17,12 @@ type ParamsType = {
 };
 
 /**
+ * Disable dynamic params to enforce static-only rendering.
+ * Any path not returned by generateStaticParams will 404 immediately.
+ */
+export const dynamicParams = false;
 
+/**
  * Generate static params for all endowed position categories
  */
 export const generateStaticParams = async () => {
