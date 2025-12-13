@@ -1,5 +1,6 @@
 import { apiPlugin, storyblokInit, StoryblokClient } from '@storyblok/react/rsc';
 import { ComponentNotFound } from '@/components/Storyblok/ComponentNotFound';
+import { logDebug, logInfo } from '@/utilities/logger';
 import { SbContentMenuPicker } from '@/components/Storyblok/SbContentMenu';
 import { SbEmbedScript } from '@/components/Storyblok/SbEmbedScript';
 import { SbGlobalFooter } from '@/components/Storyblok/SbGlobalFooter';
@@ -147,11 +148,6 @@ let cachedToken: string | null = null;
 /**
  * Get or create a configured Storyblok API client.
  *
- * **IMPORTANT: EU Region Configuration**:
- * - This Storyblok space is hosted in the EU region
- * - The `region: 'eu'` parameter MUST be set in apiOptions
- * - Without this, API requests will fail with 401 Unauthorized
- *
  * **Next.js 16 Caching Strategy**:
  * - The Storyblok SDK internally uses `fetch`, which Next.js 16 extends
  * - We rely on the React `cache` function wrapper in utilities/data/ for build-time deduplication
@@ -177,8 +173,14 @@ export const getStoryblokClient = ({
 
   // Return cached client if token matches
   if (cachedClient && cachedToken === token) {
+    logDebug('Storyblok client: returning cached instance');
     return cachedClient;
   }
+
+  logInfo('Storyblok client: initializing new instance', {
+    isEditor: !!isEditor,
+    componentCount: Object.keys(components).length,
+  });
 
   const client = storyblokInit({
     accessToken: token,
@@ -189,8 +191,6 @@ export const getStoryblokClient = ({
       return <ComponentNotFound component={component} />;
     },
     apiOptions: {
-      // CRITICAL: This space is hosted in the EU region
-      region: 'eu',
       // Rate limiting: 6 RPS is safe with 10-15 build threads (60 RPS total / 10 threads = 6)
       rateLimit: 6,
       // Memory cache with automatic clearing on preview requests
@@ -206,6 +206,10 @@ export const getStoryblokClient = ({
   // Cache the client and token
   cachedClient = client;
   cachedToken = token || null;
+
+  logDebug('Storyblok client: cached new instance', {
+    registeredComponents: Object.keys(components),
+  });
 
   return client;
 };

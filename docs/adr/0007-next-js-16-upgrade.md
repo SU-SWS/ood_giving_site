@@ -75,7 +75,6 @@ The EditorGuard now properly implements Storyblok's security recommendations:
 **Rationale**: Storyblok Content API has a 60 RPS rate limit. With Next.js using 10-15 build threads, we need to configure the SDK to prevent rate limit errors and optimize caching.
 
 **Action**: Updated `utilities/storyblok.tsx` to configure `apiOptions`:
-- `region: 'eu'` - CRITICAL: This space is hosted in the EU region
 - `rateLimit: 6` - Safe rate per thread (6 RPS × 10 threads = 60 RPS max)
 - `cache: { type: 'memory', clear: 'auto' }` - Built-in memory cache with automatic clearing
 - `maxRetries: 5` - Retry failed requests for resilience
@@ -120,7 +119,6 @@ Updated the following packages:
 4. **Optimized Storyblok Integration**:
    - Built-in SDK rate limiting prevents API errors during builds
    - Memory cache reduces redundant API calls
-   - EU region configuration ensures proper API routing
 
 ### Negative
 

@@ -17,7 +17,6 @@ type ParamsType = {
 };
 
 /**
-
  * Generate static params for all endowed position categories
  */
 export const generateStaticParams = async () => {

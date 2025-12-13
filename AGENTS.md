@@ -69,8 +69,7 @@ Run `npm run https-proxy-start` in separate terminal to enable Storyblok visual 
 ### Storyblok Configuration
 **CRITICAL API Configuration**:
 - **Region**: This Storyblok space is hosted in the **EU region**
-- The `region: 'eu'` parameter MUST be set in `apiOptions` when initializing the client
-- Without the EU region setting, all API requests will fail with 401 Unauthorized errors
+- The `region: 'eu'` parameter is optional in `apiOptions` as that is the default when initializing the client
 - See `utilities/storyblok.tsx` for the client configuration
 
 **Token Types**: Two different token types are used for different access levels:

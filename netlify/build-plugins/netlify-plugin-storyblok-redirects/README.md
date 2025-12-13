@@ -10,7 +10,6 @@ This plugin automatically fetches redirect definitions from Storyblok and inject
 
 - **`keyvar`** (default: `STORYBLOK_ACCESS_TOKEN`)
   Environment variable name for the Storyblok API token.
-- **`region`** (default: `eu`)
   The Storyblok space region.
 - **`storypath`** (default: `global-components/redirects`)
   Path prefix (used in `starts_with`) to locate redirect definitions in Storyblok.
@@ -37,7 +36,7 @@ Below is a minimal example. Adjust the `package` path to match your directory st
   package = "/netlify/build-plugins/netlify-plugin-storyblok-redirects"
   [plugins.inputs]
     keyvar = "STORYBLOK_ACCESS_TOKEN"
-    region = "eu"
+    region = "us"
     storypath = "global-components/redirects"
 ```
 

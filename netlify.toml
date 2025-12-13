@@ -8,8 +8,6 @@
 # ##############################################################################
 [[plugins]]
   package = '/netlify/build-plugins/netlify-plugin-storyblok-redirects/index.mjs'
-    [plugins.inputs]
-      region = 'eu'
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
