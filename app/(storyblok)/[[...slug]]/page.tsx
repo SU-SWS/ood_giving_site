@@ -18,13 +18,6 @@ type PathsType = {
   slug: string[];
 }[];
 
-/**
- * Disable dynamic params to enforce static-only rendering.
- * Any path not returned by generateStaticParams will 404 immediately.
- * This is critical for atomic deployments - all pages are pre-generated at build time.
- */
-export const dynamicParams = false;
-
 // Storyblok bridge options.
 const bridgeOptions = {
   resolveRelations,
