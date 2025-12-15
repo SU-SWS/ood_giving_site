@@ -1,6 +1,5 @@
 import { apiPlugin, storyblokInit, StoryblokClient } from '@storyblok/react/rsc';
 import { ComponentNotFound } from '@/components/Storyblok/ComponentNotFound';
-import { logInfo } from '@/utilities/logger';
 import { SbContentMenuPicker } from '@/components/Storyblok/SbContentMenu';
 import { SbEmbedScript } from '@/components/Storyblok/SbEmbedScript';
 import { SbGlobalFooter } from '@/components/Storyblok/SbGlobalFooter';
