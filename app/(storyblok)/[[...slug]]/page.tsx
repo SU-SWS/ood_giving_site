@@ -124,9 +124,9 @@ export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
  * Cached for the maximum duration - rebuilds will clear the cache.
  */
 const Page = async (props: PropsType) => {
-  // Cache this page with 1 day stale time, 1 year revalidate. Each build creates fresh cache.
+  // Cache this page with 1 month stale time, 1 year revalidate. Each build creates fresh cache.
   cacheLife({
-    stale: 86400, // 1 day in seconds
+    stale: 2592000, // 1 month in seconds
     revalidate: 31536000, // 1 year in seconds
     expire: 31536000, // 1 year in seconds
   });
