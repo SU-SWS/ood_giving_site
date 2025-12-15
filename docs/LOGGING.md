@@ -26,7 +26,7 @@ All application code should use the logging utility at `utilities/logger.ts` ins
 
 ### ❌ DON'T Log
 
-- **Debug Information**: Remove all `console.log` used during development
+- **Verbose Traces**: Routine fetch operations, cache hits, component renders
 - **Sensitive Data**: Never log passwords, API keys, PII
 - **Excessive Data**: Avoid logging entire request/response bodies
 - **High-Frequency Low-Impact Events**: Routine operations that don't indicate problems

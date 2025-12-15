@@ -6,16 +6,11 @@
  *
  * For now, uses console methods but is structured for easy migration
  * to a logging service like Sentry in the future.
- *
- * Set DEBUG_LOGGING=true environment variable to enable verbose debug logging.
  */
 
 interface LogContext {
   [key: string]: unknown;
 }
-
-/** Check if debug logging is enabled */
-const isDebugEnabled = () => process.env.DEBUG_LOGGING === 'true';
 
 /** Format context for consistent log output */
 const formatContext = (context?: LogContext): string => {
@@ -53,18 +48,9 @@ export const logWarn = (message: string, context?: LogContext) => {
 
 /**
  * Log informational message (use sparingly in production)
- * Only for significant events like successful deploys
+ * Only for significant events like Storyblok client initialization
  */
 export const logInfo = (message: string, context?: LogContext) => {
   // In production with Sentry: Sentry.captureMessage(message, 'info', { contexts: context });
   console.log(`[INFO] ${message}`, formatContext(context));
-};
-
-/**
- * Log debug message (only when DEBUG_LOGGING=true)
- * Use for verbose tracing during development or debugging production issues
- */
-export const logDebug = (message: string, context?: LogContext) => {
-  if (!isDebugEnabled()) return;
-  console.log(`[DEBUG] ${message}`, formatContext(context));
 };

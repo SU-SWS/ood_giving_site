@@ -1,6 +1,6 @@
 import { apiPlugin, storyblokInit, StoryblokClient } from '@storyblok/react/rsc';
 import { ComponentNotFound } from '@/components/Storyblok/ComponentNotFound';
-import { logDebug, logInfo } from '@/utilities/logger';
+import { logInfo } from '@/utilities/logger';
 import { SbContentMenuPicker } from '@/components/Storyblok/SbContentMenu';
 import { SbEmbedScript } from '@/components/Storyblok/SbEmbedScript';
 import { SbGlobalFooter } from '@/components/Storyblok/SbGlobalFooter';
@@ -173,14 +173,8 @@ export const getStoryblokClient = ({
 
   // Return cached client if token matches
   if (cachedClient && cachedToken === token) {
-    logDebug('Storyblok client: returning cached instance');
     return cachedClient;
   }
-
-  logInfo('Storyblok client: initializing new instance', {
-    isEditor: !!isEditor,
-    componentCount: Object.keys(components).length,
-  });
 
   const client = storyblokInit({
     accessToken: token,
@@ -206,10 +200,6 @@ export const getStoryblokClient = ({
   // Cache the client and token
   cachedClient = client;
   cachedToken = token || null;
-
-  logDebug('Storyblok client: cached new instance', {
-    registeredComponents: Object.keys(components),
-  });
 
   return client;
 };
