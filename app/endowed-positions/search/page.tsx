@@ -1,10 +1,10 @@
-import { use, useMemo } from 'react';
 import { type Metadata } from 'next';
 import Fuse from 'fuse.js';
 import ENDOWED_POSITIONS from '@/fixtures/endowedPositions.json';
 import { Heading, Paragraph } from '@/components/Typography';
 import Link from 'next/link';
 import { config } from '@/utilities/config';
+import { logInfo } from '@/utilities/logger';
 
 const fuse = new Fuse(ENDOWED_POSITIONS, {
   keys: ['SUBCATEGORY', 'POSITION', 'CURRENT HOLDER'],
@@ -33,20 +33,21 @@ export const generateMetadata = async ({ searchParams }: ParamsType): Promise<Me
   };
 };
 
-const Page = ({ searchParams }: ParamsType) => {
-  const { term = '', item = '' } = use(searchParams);
-  const searchTerm = useMemo(() => Array.isArray(term) ? term[0] : term, [term]);
-  const searchItem = useMemo(() => Array.isArray(item) ? item[0] : item, [item]);
-  const itemIndex = useMemo(() => searchItem ? parseInt(searchItem, 10) : undefined, [searchItem]);
-  const results = useMemo(() => fuse.search(searchTerm), [searchTerm]);
-  const searchResults = useMemo(() => {
-    if (item && !Number.isNaN(itemIndex) && !!results.at(itemIndex)) {
-      return [results[itemIndex]];
-    }
+const Page = async ({ searchParams }: ParamsType) => {
+  const { term = '', item = '' } = await searchParams;
+  const searchTerm = Array.isArray(term) ? term[0] : term;
+  const searchItem = Array.isArray(item) ? item[0] : item;
+  const itemIndex = searchItem ? parseInt(searchItem, 10) : undefined;
+  const results = fuse.search(searchTerm);
+  
+  let searchResults = results;
+  if (item && itemIndex !== undefined && !Number.isNaN(itemIndex) && !!results.at(itemIndex)) {
+    searchResults = [results[itemIndex]];
+  }
 
-    return results;
-  }, [results, itemIndex, item]);
-  const hasSearchResults = useMemo(() => !!searchResults?.length, [searchResults]);
+  const hasSearchResults = !!searchResults?.length;
+
+  logInfo('Rendering EndowedPositions Search Page at runtime', { searchTerm, timestamp: new Date().toISOString() });
 
   return (
     <>

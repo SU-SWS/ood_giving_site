@@ -1,8 +1,9 @@
 import { type SbLinkType } from '@/components/Storyblok/Storyblok.types';
+import { cacheLife } from 'next/cache';
 import { type StoryblokRichtext } from 'storyblok-rich-text-react-renderer';
 import { type SbAlertBgColorType, type SbAlertIconType } from '@/components/Storyblok/SbAlert';
 import { getStoryblokClient } from '@/utilities/storyblok';
-import { logError } from '@/utilities/logger';
+import { logError, logInfo } from '@/utilities/logger';
 
 export type AlertContent = {
   uuid: string;
@@ -35,6 +36,14 @@ export type AlertContent = {
  */
 export const getGlobalAlerts = async (): Promise<AlertContent[]> => {
   'use cache';
+
+  cacheLife({
+    stale: 2592000, // 1 month in seconds
+    revalidate: 31536000, // 1 year in seconds
+    expire: 31536000, // 1 year in seconds
+  });
+
+  logInfo('Fetching GlobalAlerts at runtime', { timestamp: new Date().toISOString() });
 
   const storyblokApi = getStoryblokClient();
 

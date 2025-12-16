@@ -1,6 +1,7 @@
 import { type SbCtaLinkProps } from '@/components/Storyblok/SbCtaLink';
+import { cacheLife } from 'next/cache';
 import { getStoryblokClient } from '@/utilities/storyblok';
-import { logError } from '@/utilities/logger';
+import { logError, logInfo } from '@/utilities/logger';
 
 type SearchConfigBlokContent = {
   introduction?: string;
@@ -57,6 +58,14 @@ const DEFAULT_SEARCH_CONFIG: SearchConfig = {
  */
 export const getSearchConfigBlok = async (): Promise<SearchConfig> => {
   'use cache';
+
+  cacheLife({
+    stale: 2592000, // 1 month in seconds
+    revalidate: 31536000, // 1 year in seconds
+    expire: 31536000, // 1 year in seconds
+  });
+
+  logInfo('Fetching SearchConfig at runtime', { timestamp: new Date().toISOString() });
 
   const storyblokApi = getStoryblokClient();
 

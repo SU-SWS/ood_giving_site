@@ -1,8 +1,9 @@
 import type { getStoryDataProps } from '@/utilities/data/types';
+import { cacheLife } from 'next/cache';
 import { type ISbStoriesParams, type ISbResult } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getStoryblokClient } from '@/utilities/storyblok';
-import { logError } from '@/utilities/logger';
+import { logError, logInfo } from '@/utilities/logger';
 
 /**
  * Get the data out of the Storyblok API for the page.
@@ -25,6 +26,14 @@ import { logError } from '@/utilities/logger';
  */
 export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResult | { data: 404 }> => {
   'use cache';
+
+  cacheLife({
+    stale: 2592000, // 1 month in seconds
+    revalidate: 31536000, // 1 year in seconds
+    expire: 31536000, // 1 year in seconds
+  });
+
+  logInfo('Fetching StoryData at runtime', { path, timestamp: new Date().toISOString() });
 
   const storyblokApi = getStoryblokClient();
 

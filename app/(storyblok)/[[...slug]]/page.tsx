@@ -1,5 +1,3 @@
-'use cache';
-
 import { type Metadata } from 'next';
 import { cacheLife } from 'next/cache';
 import { StoryblokStory } from '@storyblok/react/rsc';
@@ -10,7 +8,7 @@ import { getStoryData, getAllStories } from '@/utilities/data/';
 import { isProduction } from '@/utilities/getActiveEnv';
 import { validateSlugPath, slugArrayToPath } from '@/utilities/validateSlugPath';
 import { getStoryblokClient } from '@/utilities/storyblok';
-import { logError } from '@/utilities/logger';
+import { logError, logInfo } from '@/utilities/logger';
 
 type PropsType = {
   params: Promise<{ slug: string[] }>;
@@ -121,6 +119,8 @@ export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
  * Cached for the maximum duration - rebuilds will clear the cache.
  */
 const Page = async (props: PropsType) => {
+  'use cache';
+
   // Cache this page with 1 month stale time, 1 year revalidate. Each build creates fresh cache.
   cacheLife({
     stale: 2592000, // 1 month in seconds
@@ -131,6 +131,8 @@ const Page = async (props: PropsType) => {
   const { params } = props;
   const { slug } = await params;
   const slugPath = slugArrayToPath(slug || []);
+
+  logInfo('Rendering Page at runtime', { slug: slugPath, timestamp: new Date().toISOString() });
 
   // Validate the slug path before making any API calls
   const isValidPath = await validateSlugPath(slug || []);

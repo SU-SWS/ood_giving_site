@@ -1,6 +1,7 @@
 import { type ISbStoriesParams } from '@storyblok/react/rsc';
+import { cacheLife } from 'next/cache';
 import { getStoryblokClient } from '@/utilities/storyblok';
-import { logError } from '@/utilities/logger';
+import { logError, logInfo } from '@/utilities/logger';
 
 /**
  * Fetches all stories from Storyblok.
@@ -23,6 +24,14 @@ import { logError } from '@/utilities/logger';
  */
 export const getAllStories = async () => {
   'use cache';
+
+  cacheLife({
+    stale: 2592000, // 1 month in seconds
+    revalidate: 31536000, // 1 year in seconds
+    expire: 31536000, // 1 year in seconds
+  });
+
+  logInfo('Fetching AllStories at runtime', { timestamp: new Date().toISOString() });
 
   const storyblokApi = getStoryblokClient();
 
