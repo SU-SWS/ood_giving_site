@@ -184,8 +184,8 @@ export const getStoryblokClient = ({
       return <ComponentNotFound component={component} />;
     },
     apiOptions: {
-      // Rate limiting: 6 RPS is safe with 10-15 build threads (60 RPS total / 10 threads = 6)
-      rateLimit: 6,
+      // Rate limiting: 3 RPS is safe with 10-15 build threads (30-45 RPS total)
+      rateLimit: 3,
       // Memory cache with automatic clearing on preview requests
       cache: {
         type: 'memory',
