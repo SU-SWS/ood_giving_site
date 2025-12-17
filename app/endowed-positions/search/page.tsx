@@ -39,7 +39,7 @@ const Page = async ({ searchParams }: ParamsType) => {
   const searchItem = Array.isArray(item) ? item[0] : item;
   const itemIndex = searchItem ? parseInt(searchItem, 10) : undefined;
   const results = fuse.search(searchTerm);
-  
+
   let searchResults = results;
   if (item && itemIndex !== undefined && !Number.isNaN(itemIndex) && !!results.at(itemIndex)) {
     searchResults = [results[itemIndex]];
