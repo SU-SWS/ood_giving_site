@@ -75,7 +75,7 @@
     "autoprefixer": "^10.4.21",
     "decanter": "^7.4.0",
     "dotenv": "^17.2.2",
-    "eslint": "^9.35.0",
+    "eslint": "^9.39.2",
     "eslint-config-next": "^16.0.10",
     "netlify-plugin-vault-variables": "^3.0.1",
     "postcss": "^8.5.6",
