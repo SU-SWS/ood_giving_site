@@ -8,7 +8,7 @@ Accepted
 
 ## Context
 The Next.js build process uses `experimental.cpus: 10` to parallelize static page generation. This spawns 10 worker processes, each initializing its own Storyblok client.
-The Storyblok Content API has a rate limit (typically around 50-60 requests per second).
+The Storyblok Content API has a rate limit of approximately 60 requests per second.
 Previously, the `rateLimit` in `utilities/storyblok.tsx` was set to 6 RPS per client.
 With 10 workers, the total potential throughput was 60 RPS (10 * 6), which is right at the edge of the API limit.
 This caused "Hit rate limit" errors and build hangs due to excessive retries and backoff during the "thundering herd" of requests from parallel workers.
