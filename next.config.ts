@@ -3,7 +3,7 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   cacheComponents: true,
   experimental: {
-    cpus: 10,
+    cpus: 4,
   },
   images: {
     remotePatterns: [

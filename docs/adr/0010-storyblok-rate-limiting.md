@@ -15,11 +15,13 @@ This caused "Hit rate limit" errors and build hangs due to excessive retries and
 
 ## Decision
 We have reduced the `rateLimit` in `utilities/storyblok.tsx` from 6 RPS to 3 RPS.
+We have also reduced the `experimental.cpus` in `next.config.ts` from 10 to 4.
 
 ## Consequences
-- **Stability**: The total potential throughput is now 30 RPS (10 workers * 3 RPS), which provides a safe buffer below the ~60 RPS API limit.
-- **Performance**: Individual workers are throttled more aggressively, which might slightly increase the build time per page if a single page requires many requests. However, since we have 10 workers running in parallel, the overall build time should remain acceptable and, more importantly, reliable.
-- **Reliability**: Builds should no longer hang or fail due to Storyblok API rate limiting.
+- **Stability**: The total potential throughput is now 12 RPS (4 workers * 3 RPS), which provides a very safe buffer below the ~60 RPS API limit.
+- **Resource Usage**: Reducing the worker count from 10 to 4 significantly lowers the memory and CPU pressure on the Netlify build environment, preventing hangs caused by resource exhaustion.
+- **Performance**: While fewer workers means less parallelism, the stability gain outweighs the theoretical speedup. A successful slower build is better than a hanging fast one.
+- **Reliability**: Builds should no longer hang or fail due to Storyblok API rate limiting or resource exhaustion.
 
 ## Implementation
 Modified `utilities/storyblok.tsx`:
@@ -29,4 +31,11 @@ Modified `utilities/storyblok.tsx`:
       rateLimit: 3,
       // ...
     },
+```
+
+Modified `next.config.ts`:
+```typescript
+  experimental: {
+    cpus: 4,
+  },
 ```
