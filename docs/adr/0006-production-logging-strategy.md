@@ -20,8 +20,6 @@ The Stanford OOD Giving Site is a statically generated Next.js 15+ application d
 
 4. **No Logging Service**: Production relied solely on console methods with no centralized aggregation, alerting, or analysis capabilities.
 
-5. **Future Scalability**: Need a logging approach that can evolve from simple console methods to a full logging service (e.g., Sentry) without major refactoring.
-
 ### Architecture Constraints
 
 - **Static-first**: 99% of pages are pre-rendered at build time
@@ -51,7 +49,6 @@ logInfo(message: string, context?: LogContext)
 
 **Benefits**:
 - Single point of control for logging implementation
-- Easy migration to Sentry/Datadog by updating one file
 - Consistent log formatting across the application
 - Context enrichment for better debugging
 
@@ -100,7 +97,6 @@ logInfo(message: string, context?: LogContext)
 - ✅ **Clean Production Logs**: Removed 19+ debug log statements
 - ✅ **Consistent Logging**: All errors use the same format and utility
 - ✅ **Context Enrichment**: Every log includes relevant debugging context
-- ✅ **Easy Migration**: Single file to update when adding Sentry
 - ✅ **Maintainable**: Clear guidelines in LOGGING.md prevent logging drift
 - ✅ **Security**: Never logs sensitive data (enforced by guidelines)
 - ✅ **Performance**: Minimal overhead, only logs on errors/warnings
@@ -108,11 +104,9 @@ logInfo(message: string, context?: LogContext)
 ### Trade-offs
 - 🔄 **Initial Overhead**: Developers must import and use logger utility
 - 📚 **Learning Curve**: Team needs to understand logging guidelines
-- 🏗️ **Migration Work**: Moving to Sentry requires updating logger.ts
 
 ### Neutral
 - ⚖️ **Current Implementation**: Still uses console methods (adequate for current scale)
-- 🔮 **Future-Ready**: Designed for easy Sentry integration when needed
 
 ## Security Considerations
 
@@ -130,5 +124,4 @@ logInfo(message: string, context?: LogContext)
 ## References
 - [Next.js Error Handling](https://nextjs.org/docs/app/building-your-application/routing/error-handling)
 - [Netlify Functions Logging](https://docs.netlify.com/functions/logs/)
-- [Sentry Next.js Integration](https://docs.sentry.io/platforms/javascript/guides/nextjs/)
 - [OWASP Logging Guidelines](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)

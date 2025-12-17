@@ -1,6 +1,6 @@
 import { getAllStories } from '@/utilities/data/';
 import { isProduction } from '@/utilities/getActiveEnv';
-import { unstable_cache } from 'next/cache';
+import { cacheLife } from 'next/cache';
 
 /**
  * Get the array of all valid slug paths for runtime validation
@@ -42,20 +42,20 @@ const getValidSlugs = async (): Promise<string[]> => {
   return validSlugs;
 };
 
-const BUILD_ID = process.env.BUILD_ID || '';
-
 /**
  * Cached version of getValidSlugs to avoid repeated API calls
  */
-const getValidSlugsCached = unstable_cache(
-  getValidSlugs,
-  ['valid-slugs', BUILD_ID], // Use a descriptive cache key to avoid conflicts
-  {
-    tags: ['story', 'all', 'slugs'],
-    // Cache for 10 minutes to balance performance with content updates
-    revalidate: 600,
-  },
-);
+const getValidSlugsCached = async () => {
+  'use cache';
+
+  cacheLife({
+    stale: 2592000, // 1 month in seconds
+    revalidate: 31536000, // 1 year in seconds
+    expire: 31536000, // 1 year in seconds
+  });
+
+  return getValidSlugs();
+};
 
 /**
  * Validate if a slug path exists in our known set of paths

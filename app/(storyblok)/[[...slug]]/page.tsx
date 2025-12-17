@@ -1,4 +1,5 @@
 import { type Metadata } from 'next';
+import { cacheLife } from 'next/cache';
 import { StoryblokStory } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getPageMetadata } from '@/utilities/getPageMetadata';
@@ -73,6 +74,9 @@ export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
   const { slug } = await params;
   const slugPath = slugArrayToPath(slug || []);
 
+  // Ensure Storyblok client is initialized before any cached data access
+  getStoryblokClient();
+
   try {
 
   // Validate the slug path before making any API calls
@@ -112,8 +116,18 @@ export const generateMetadata = async (props: PropsType): Promise<Metadata> => {
 
 /**
  * Fetch the path data for the page and render it.
+ * Cached for the maximum duration - rebuilds will clear the cache.
  */
 const Page = async (props: PropsType) => {
+  'use cache';
+
+  // Cache this page with 1 month stale time, 1 year revalidate. Each build creates fresh cache.
+  cacheLife({
+    stale: 2592000, // 1 month in seconds
+    revalidate: 31536000, // 1 year in seconds
+    expire: 31536000, // 1 year in seconds
+  });
+
   const { params } = props;
   const { slug } = await params;
   const slugPath = slugArrayToPath(slug || []);
@@ -138,6 +152,7 @@ const Page = async (props: PropsType) => {
 
   // Ensure there is a story in the data.
   if (!data || !data.story) {
+    logError('Page: no story in response data', undefined, { slugPath, data });
     throw new Error(`No story found for slugPath: ${slugPath}`);
   }
 
