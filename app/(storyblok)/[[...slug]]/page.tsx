@@ -8,7 +8,7 @@ import { getStoryData, getAllStories } from '@/utilities/data/';
 import { isProduction } from '@/utilities/getActiveEnv';
 import { validateSlugPath, slugArrayToPath } from '@/utilities/validateSlugPath';
 import { getStoryblokClient } from '@/utilities/storyblok';
-import { logError, logInfo } from '@/utilities/logger';
+import { logError } from '@/utilities/logger';
 
 type PropsType = {
   params: Promise<{ slug: string[] }>;
@@ -131,8 +131,6 @@ const Page = async (props: PropsType) => {
   const { params } = props;
   const { slug } = await params;
   const slugPath = slugArrayToPath(slug || []);
-
-  logInfo('Rendering Page at runtime', { slug: slugPath, timestamp: new Date().toISOString() });
 
   // Validate the slug path before making any API calls
   const isValidPath = await validateSlugPath(slug || []);
