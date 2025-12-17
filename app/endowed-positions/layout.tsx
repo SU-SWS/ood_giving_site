@@ -5,6 +5,12 @@ import { Header } from '@/components/Storyblok/partials/Header';
 import { StoryblokProvider } from '@/components/StoryblokProvider';
 import { Heap } from '@/components/Heap';
 import { getStoryData } from '@/utilities/data';
+import { getStoryblokClient } from '@/utilities/storyblok';
+
+// Initialize Storyblok client at module level to ensure components are registered
+// before any cached data is rendered. This prevents race conditions with 'use cache'
+// where cached story data could be returned before storyblokInit runs.
+getStoryblokClient();
 
 type EndowedPositionsLayoutProps = {
   children: React.ReactNode;

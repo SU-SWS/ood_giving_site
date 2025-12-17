@@ -1,8 +1,9 @@
 import type { getStoryDataProps } from '@/utilities/data/types';
+import { cacheLife } from 'next/cache';
 import { type ISbStoriesParams, type ISbResult } from '@storyblok/react/rsc';
 import { resolveRelations } from '@/utilities/resolveRelations';
 import { getStoryblokClient } from '@/utilities/storyblok';
-import { logError } from '@/utilities/logger';
+import { logError, logInfo } from '@/utilities/logger';
 
 /**
  * Get the data out of the Storyblok API for the page.
@@ -17,9 +18,22 @@ import { logError } from '@/utilities/logger';
  * - Storyblok SDK uses built-in memory cache with automatic clearing
  * - Cache entries are stored in-memory and respect the default cacheLife profile
  * - No post-build revalidation (static-first with webhook-triggered rebuilds)
+ *
+ * **Error Handling**:
+ * - Storyblok SDK handles retries internally
+ * - Returns { data: 404 } for not found responses
+ * - Re-throws other errors for error boundary handling
  */
 export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResult | { data: 404 }> => {
   'use cache';
+
+  cacheLife({
+    stale: 2592000, // 1 month in seconds
+    revalidate: 31536000, // 1 year in seconds
+    expire: 31536000, // 1 year in seconds
+  });
+
+  logInfo('Fetching StoryData at runtime', { path, timestamp: new Date().toISOString() });
 
   const storyblokApi = getStoryblokClient();
 
@@ -36,12 +50,16 @@ export const getStoryData = async ({ path }: getStoryDataProps): Promise<ISbResu
   try {
     const story: ISbResult = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
     return story;
+  } catch (error: unknown) {
+    const err = error as { status?: number };
 
-  } catch (error: any) {
-    if (error && error.status && error.status === 404) {
+    // Handle 404 gracefully
+    if (err?.status === 404) {
       return { data: 404 };
     }
-    logError('Failed to fetch story from Storyblok API', error, { path, status: error?.status });
+
+    // Log and re-throw other errors for error boundary handling
+    logError('Failed to fetch story from Storyblok API', error, { path, status: err?.status });
     throw error;
   }
 };
