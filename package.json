@@ -43,7 +43,7 @@
     "@netlify/functions": "^5.1.0",
     "@next/third-parties": "^16.0.7",
     "@storyblok/react": "^5.4.19",
-    "algoliasearch": "^5.35.0",
+    "algoliasearch": "^5.46.0",
     "cnbuilder": "^3.1.0",
     "cookies-next": "^6.1.0",
     "date-fns": "^4.1.0",
