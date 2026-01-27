@@ -74,8 +74,8 @@ export const AspectRatioImage = ({
           />
           <img
             {...imageProps}
-            width={largestWidth}
-            height={largestHeight}
+            width={largestWidth || ''}
+            height={largestHeight || ''}
             src={getProcessedImage(filename, largestCropString, imageFocus)}
             fetchPriority={fetchPriority}
             loading={loading}
