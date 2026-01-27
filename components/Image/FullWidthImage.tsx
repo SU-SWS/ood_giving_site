@@ -40,8 +40,8 @@ export const FullWidthImage = ({
         <img
           src={imageSources[0]?.srcSet} // Use the largest source as the default image
           alt={alt || ''}
-          width={originalWidth}
-          height={originalHeight}
+          width={originalWidth || ''}
+          height={originalHeight || ''}
           fetchPriority={fetchPriority}
           loading={loading}
           className={cnb(
