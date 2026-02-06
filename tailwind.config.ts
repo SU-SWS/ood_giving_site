@@ -2,10 +2,10 @@ import { type Config } from 'tailwindcss';
 import decanter from 'decanter';
 import tailwindContainerQueries from '@tailwindcss/container-queries';
 
-import { base } from './tailwind/plugins/base/base';
-import { aria } from './tailwind/plugins/theme/aria';
-import { fontFamily } from './tailwind/plugins/theme/fontFamily';
-import { keyframes } from './tailwind/plugins/theme/keyframes';
+import { base } from './tailwind/plugins/base/base.ts';
+import { aria } from './tailwind/plugins/theme/aria.ts';
+import { fontFamily } from './tailwind/plugins/theme/fontFamily.ts';
+import { keyframes } from './tailwind/plugins/theme/keyframes.ts';
 
 export default {
   presets: [
