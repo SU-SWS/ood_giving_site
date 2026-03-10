@@ -10,9 +10,15 @@ export const useHashLink = () => {
 
     if (!el) return;
 
-    const reduceMotion = !!window.matchMedia('(prefers-reduced-motion: reduce)')?.matches;
-    el.scrollIntoView({ behavior: reduceMotion ? 'instant' : 'auto' });
+    const prevTabIndex = el.getAttribute('tabindex');
+    el.setAttribute('tabindex', '-1');
+    el.scrollIntoView({ behavior: 'instant' });
     el.focus({ preventScroll: true });
+    if (prevTabIndex) {
+      el.setAttribute('tabindex', prevTabIndex);
+    } else {
+      el.removeAttribute('tabindex');
+    }
   });
 
   useEffect(() => {
