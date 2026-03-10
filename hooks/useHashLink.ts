@@ -11,12 +11,12 @@ export const useHashLink = () => {
     if (!el) return;
 
     const reduceMotion = !!window.matchMedia('(prefers-reduced-motion: reduce)')?.matches;
-    el.scrollIntoView({ behavior: reduceMotion ? 'instant' : 'smooth' });
+    el.scrollIntoView({ behavior: reduceMotion ? 'instant' : 'auto' });
     el.focus({ preventScroll: true });
   });
 
   useEffect(() => {
-    setInterval(() => {
+    setTimeout(() => {
       onReady();
     }, 100);
   }, []);
