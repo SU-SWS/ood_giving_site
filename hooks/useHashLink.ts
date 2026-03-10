@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useEffectEvent, useState } from 'react';
 
 type UseHashLinkOptions = {
   isReady?: boolean,
@@ -7,9 +7,13 @@ type UseHashLinkOptions = {
 export const useHashLink = ({ isReady = true }: UseHashLinkOptions = {}) => {
   const [init, setInit] = useState(false);
 
+  const onInit = useEffectEvent(() => {
+    setInit(true);
+  });
+
   useEffect(() => {
     if (isReady && !init) {
-      setInit(true);
+      onInit();
       const hash = window?.location?.hash?.replace('#', '');
       if (hash) {
         const el = document?.getElementById(hash);
