@@ -21,8 +21,9 @@ export const useHashLink = ({ isReady = true }: UseHashLinkOptions = {}) => {
 
   useEffect(() => {
     if (isReady) {
-      console.log({ isReady });
-      onReady();
+      setInterval(() => {
+        onReady();
+      }, 100)
     }
   }, [isReady]);
 };
