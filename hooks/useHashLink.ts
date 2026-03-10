@@ -1,10 +1,6 @@
 import { useEffect, useEffectEvent } from 'react';
 
-type UseHashLinkOptions = {
-  isReady?: boolean,
-};
-
-export const useHashLink = ({ isReady = true }: UseHashLinkOptions = {}) => {
+export const useHashLink = () => {
   const onReady = useEffectEvent(() => {
     const hash = window?.location?.hash?.replace('#', '');
 
@@ -20,10 +16,8 @@ export const useHashLink = ({ isReady = true }: UseHashLinkOptions = {}) => {
   });
 
   useEffect(() => {
-    if (isReady) {
-      setInterval(() => {
-        onReady();
-      }, 100)
-    }
-  }, [isReady]);
+    setInterval(() => {
+      onReady();
+    }, 100);
+  }, []);
 };
