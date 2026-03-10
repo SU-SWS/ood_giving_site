@@ -1,28 +1,28 @@
-import { useEffect, useEffectEvent, useState } from 'react';
+import { useEffect, useEffectEvent } from 'react';
 
 type UseHashLinkOptions = {
   isReady?: boolean,
 };
 
 export const useHashLink = ({ isReady = true }: UseHashLinkOptions = {}) => {
-  const [init, setInit] = useState(false);
+  const onReady = useEffectEvent(() => {
+    const hash = window?.location?.hash?.replace('#', '');
 
-  const onInit = useEffectEvent(() => {
-    setInit(true);
+    if (!hash) return;
+
+    const el = document?.getElementById(hash);
+
+    if (!el) return;
+
+    const reduceMotion = !!window.matchMedia('(prefers-reduced-motion: reduce)')?.matches;
+    el.scrollIntoView({ behavior: reduceMotion ? 'instant' : 'smooth' });
+    el.focus({ preventScroll: true });
   });
 
   useEffect(() => {
-    if (isReady && !init) {
-      onInit();
-      const hash = window?.location?.hash?.replace('#', '');
-      if (hash) {
-        const el = document?.getElementById(hash);
-        if (el) {
-          const reduceMotion = !!window.matchMedia('(prefers-reduced-motion: reduce)')?.matches;
-          el.scrollIntoView({ behavior: reduceMotion ? 'instant' : 'smooth' });
-          el.focus({ preventScroll: true });
-        }
-      }
+    if (isReady) {
+      console.log({ isReady });
+      onReady();
     }
-  }, [isReady, init]);
+  }, [isReady]);
 };
