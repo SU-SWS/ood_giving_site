@@ -27,21 +27,30 @@ export const HashAnchorScroller = (): null => {
 
     // Otherwise watch for the target to be inserted (streaming/Suspense),
     // scroll exactly once, then disconnect.
+    const cleanup = () => {
+      observer.disconnect();
+      clearTimeout(timeout);
+    };
+
     let scrolled = false;
     const observer = new MutationObserver(() => {
       if (scrolled) return;
       const target = document.getElementById(decodedHash);
       if (!target) return;
       scrolled = true;
-      observer.disconnect();
+      cleanup();
       target.scrollIntoView({ block: 'start', inline: 'nearest' });
     });
 
-    observer.observe(document.body, { childList: true, subtree: true });
+    // Observe the narrowest available content container; fall back to body.
+    const root = document.getElementById('main-content') ?? document.body;
+    observer.observe(root, { childList: true, subtree: true });
 
-    return () => {
-      observer.disconnect();
-    };
+    // Give up after 5 s to avoid leaking the observer on pages where the
+    // target id never appears.
+    const timeout = setTimeout(cleanup, 5000);
+
+    return cleanup;
   }, [pathname, searchKey]);
 
   return null;
