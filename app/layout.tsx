@@ -1,4 +1,5 @@
 import { cnb } from 'cnbuilder';
+import { Suspense } from 'react';
 import { Source_Sans_3, Source_Serif_4 } from 'next/font/google';
 import localFont from 'next/font/local';
 import '@/styles/globals.css';
@@ -10,6 +11,7 @@ import { getGlobalAlerts, getSearchConfigBlok } from '@/utilities/data';
 import { SearchModalProvider } from '@/components/Search/Modal/SearchModalContext';
 import { MotionProvider } from '@/components/MotionProvider';
 import { GlobalAlertsProvider } from '@/components/Alert';
+import { HashAnchorScroller } from '@/components/HashAnchorScroller';
 import { getStoryblokClient } from '@/utilities/storyblok';
 
 // https://docs.fontawesome.com/web/use-with/react/use-with#getting-font-awesome-css-to-work
@@ -65,6 +67,9 @@ const RootLayout = async ({ children }: LayoutProps) => {
               {/* Absolutely necessary to have a body tag here, otherwise your components won't get any interactivity */}
               <body>
                 <FlexBox justifyContent="between" direction="col" className="min-h-screen relative">
+                  <Suspense fallback={null}>
+                    <HashAnchorScroller />
+                  </Suspense>
                   {children}
                 </FlexBox>
               </body>
