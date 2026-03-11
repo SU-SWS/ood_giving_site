@@ -10,6 +10,7 @@ import { getGlobalAlerts, getSearchConfigBlok } from '@/utilities/data';
 import { SearchModalProvider } from '@/components/Search/Modal/SearchModalContext';
 import { MotionProvider } from '@/components/MotionProvider';
 import { GlobalAlertsProvider } from '@/components/Alert';
+import { HashLinkWrapper } from '@/components/HashLinkWrapper';
 import { getStoryblokClient } from '@/utilities/storyblok';
 
 // https://docs.fontawesome.com/web/use-with/react/use-with#getting-font-awesome-css-to-work
@@ -53,22 +54,24 @@ const RootLayout = async ({ children }: LayoutProps) => {
       <GlobalAlertsProvider globalAlerts={globalAlerts}>
         <SearchModalProvider searchConfig={searchConfig}>
           <MotionProvider>
-            <html
-              lang="en"
-              className={cnb(
-                source_sans.variable,
-                source_serif.variable,
-                stanford.variable,
-              )}
-            >
-              <GTAG />
-              {/* Absolutely necessary to have a body tag here, otherwise your components won't get any interactivity */}
-              <body>
-                <FlexBox justifyContent="between" direction="col" className="min-h-screen relative">
-                  {children}
-                </FlexBox>
-              </body>
-            </html>
+            <HashLinkWrapper>
+              <html
+                lang="en"
+                className={cnb(
+                  source_sans.variable,
+                  source_serif.variable,
+                  stanford.variable,
+                )}
+              >
+                <GTAG />
+                {/* Absolutely necessary to have a body tag here, otherwise your components won't get any interactivity */}
+                <body>
+                  <FlexBox justifyContent="between" direction="col" className="min-h-screen relative">
+                    {children}
+                  </FlexBox>
+                </body>
+              </html>
+            </HashLinkWrapper>
           </MotionProvider>
         </SearchModalProvider>
       </GlobalAlertsProvider>
