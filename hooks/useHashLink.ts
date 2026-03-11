@@ -3,11 +3,13 @@ import { useEffect, useEffectEvent } from 'react';
 export const useHashLink = () => {
   const onReady = useEffectEvent(() => {
     const hash = window?.location?.hash?.replace('#', '');
-
     if (!hash) return;
 
-    const el = document?.getElementById(hash);
+    // What we'd expect from Storyblok or developers
+    const isHashValidId = /^[a-zA-Z][a-zA-Z0-9_-]*$/.test(hash);
+    if (!isHashValidId) return;
 
+    const el = document?.getElementById(hash);
     if (!el) return;
 
     const prevTabIndex = el.getAttribute('tabindex');
