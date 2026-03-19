@@ -40,22 +40,22 @@
     "@fortawesome/react-fontawesome": "^0.2.6",
     "@headlessui/react": "^2.2.7",
     "@heroicons/react": "^2.2.0",
-    "@netlify/functions": "^5.1.0",
-    "@next/third-parties": "^16.1.5",
-    "@storyblok/react": "^5.4.21",
+    "@netlify/functions": "^5.1.4",
+    "@next/third-parties": "^16.2.0",
+    "@storyblok/react": "^5.4.22",
     "algoliasearch": "^5.35.0",
     "cnbuilder": "^3.1.0",
-    "cookies-next": "^6.1.0",
+    "cookies-next": "^6.1.1",
     "date-fns": "^4.1.0",
     "fuse.js": "^7.1.0",
     "motion": "^12.23.12",
-    "next": "^16.1.5",
+    "next": "^16.2.0",
     "react-instantsearch": "^7.16.2",
-    "react-instantsearch-nextjs": "^1.0.7",
+    "react-instantsearch-nextjs": "^1.1.2",
     "react-player": "^3.3.3",
     "react-slick": "^0.31.0",
     "sa11y": "^4.4.1",
-    "storyblok-js-client": "^7.1.4",
+    "storyblok-js-client": "^7.3.0",
     "storyblok-rich-text-react-renderer": "^3.0.1",
     "usehooks-ts": "^3.1.1"
   },
@@ -65,7 +65,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@netlify/plugin-nextjs": "^5.15.6",
+    "@netlify/plugin-nextjs": "^5.15.9",
     "@stylistic/eslint-plugin": "^5.2.3",
     "@tailwindcss/container-queries": "^0.1.1",
     "@types/node": "^20",
@@ -76,7 +76,7 @@
     "decanter": "^7.4.0",
     "dotenv": "^17.2.2",
     "eslint": "^9.35.0",
-    "eslint-config-next": "^16.1.5",
+    "eslint-config-next": "^16.2.0",
     "netlify-plugin-vault-variables": "^3.0.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
@@ -84,7 +84,7 @@
   },
   "optionalDependencies": {
     "netlify-cli": "^23.12.2",
-    "storyblok": "^4.3.2"
+    "storyblok": "^4.16.2"
   },
   "engines": {
     "node": ">=22.0.0"

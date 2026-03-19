@@ -4,10 +4,11 @@ import { liteClient } from 'algoliasearch/lite';
 import { Hits } from 'react-instantsearch';
 import { InstantSearchNext } from 'react-instantsearch-nextjs';
 import { type SearchClient, type UiState } from 'instantsearch.js';
+import { useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { SearchHit } from './SearchHit';
 import { SearchBox } from './SearchBox';
 import { SearchResultsHeader } from './SearchResultsHeader';
-import { useMemo } from 'react';
 import { NoResultsBoundary } from './NoResultsBoundary';
 import { SearchPagination } from './SearchPagination';
 
@@ -26,13 +27,16 @@ export const Search = ({
   noResultsErrorText = '',
   noResultsErrorTitle = '',
 }: SearchProps) => {
+  const searchParams = useSearchParams();
+  const routeKey = searchParams?.toString() || '';
+
   const numSuggestions = useMemo(() => parseInt(suggestionsAmount, 10) || 0, [suggestionsAmount]);
-  const algoliaClient = liteClient(
+  const algoliaClient = useMemo(() => liteClient(
     process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
     process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
-  );
+  ), []);
 
-  const searchClient = {
+  const searchClient = useMemo(() => ({
     ...algoliaClient,
 
     search(requests: any[]) {
@@ -54,10 +58,11 @@ export const Search = ({
 
       return algoliaClient.search(requests);
     },
-  };
+  }), [algoliaClient]);
 
   return (
     <InstantSearchNext
+      key={routeKey}
       indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
       searchClient={searchClient as SearchClient}
       insights
@@ -70,8 +75,8 @@ export const Search = ({
           stateToRoute(uiState) {
             const indexUiState = uiState[process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME];
             return {
-              q: indexUiState.query,
-              page: indexUiState.page,
+              q: indexUiState?.query,
+              page: indexUiState?.page,
             } as UiState;
           },
           routeToState(routeState) {
