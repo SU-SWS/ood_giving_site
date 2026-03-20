@@ -4,8 +4,7 @@ import { liteClient } from 'algoliasearch/lite';
 import { Hits } from 'react-instantsearch';
 import { InstantSearchNext } from 'react-instantsearch-nextjs';
 import { type SearchClient, type UiState } from 'instantsearch.js';
-import { useMemo } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useMemo, useEffect, useState } from 'react';
 import { SearchHit } from './SearchHit';
 import { SearchBox } from './SearchBox';
 import { SearchResultsHeader } from './SearchResultsHeader';
@@ -27,9 +26,7 @@ export const Search = ({
   noResultsErrorText = '',
   noResultsErrorTitle = '',
 }: SearchProps) => {
-  const searchParams = useSearchParams();
-  const routeKey = searchParams?.toString() || '';
-
+  const [ key, setKey ] = useState('search-component');
   const numSuggestions = useMemo(() => parseInt(suggestionsAmount, 10) || 0, [suggestionsAmount]);
   const algoliaClient = useMemo(() => liteClient(
     process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -60,12 +57,25 @@ export const Search = ({
     },
   }), [algoliaClient]);
 
+  console.log('Search component rendered');
+
+  useEffect(() => {
+    console.log('Search component mounted');
+    setKey(`search-component-${Date.now()}`);
+    return () => {
+      console.log('Search component unmounted');
+    };
+  }, []);
+
   return (
     <InstantSearchNext
-      key={routeKey}
+      key={key}
       indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
       searchClient={searchClient as SearchClient}
       insights
+      future={{
+        preserveSharedStateOnUnmount: true,
+      }}
       routing={{
         router: {
           cleanUrlOnDispose: false,
