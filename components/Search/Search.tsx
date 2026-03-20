@@ -57,14 +57,12 @@ export const Search = ({
     },
   }), [algoliaClient]);
 
-  console.log('Search component rendered');
-
+  // This is a workaround to reset the InstantSearch state when the component is unmounted and remounted,
+  // which can happen when navigating between pages in Next.js. By changing the key of the
+  // InstantSearch component, we force it to reset its state.
   useEffect(() => {
-    console.log('Search component mounted');
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setKey(`search-component-${Date.now()}`);
-    return () => {
-      console.log('Search component unmounted');
-    };
   }, []);
 
   return (
