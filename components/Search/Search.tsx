@@ -26,7 +26,7 @@ export const Search = ({
   noResultsErrorText = '',
   noResultsErrorTitle = '',
 }: SearchProps) => {
-  const [ key, setKey ] = useState('search-component');
+  const [key, setKey] = useState('search-component');
   const numSuggestions = useMemo(() => parseInt(suggestionsAmount, 10) || 0, [suggestionsAmount]);
   const algoliaClient = useMemo(() => liteClient(
     process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
