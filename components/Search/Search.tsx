@@ -72,7 +72,7 @@ export const Search = ({
       searchClient={searchClient as SearchClient}
       insights
       future={{
-        preserveSharedStateOnUnmount: true,
+        preserveSharedStateOnUnmount: false,
       }}
       routing={{
         router: {
