@@ -4,10 +4,10 @@ import { liteClient } from 'algoliasearch/lite';
 import { Hits } from 'react-instantsearch';
 import { InstantSearchNext } from 'react-instantsearch-nextjs';
 import { type SearchClient, type UiState } from 'instantsearch.js';
+import { useMemo, useEffect, useState } from 'react';
 import { SearchHit } from './SearchHit';
 import { SearchBox } from './SearchBox';
 import { SearchResultsHeader } from './SearchResultsHeader';
-import { useMemo } from 'react';
 import { NoResultsBoundary } from './NoResultsBoundary';
 import { SearchPagination } from './SearchPagination';
 
@@ -26,13 +26,14 @@ export const Search = ({
   noResultsErrorText = '',
   noResultsErrorTitle = '',
 }: SearchProps) => {
+  const [key, setKey] = useState('search-component');
   const numSuggestions = useMemo(() => parseInt(suggestionsAmount, 10) || 0, [suggestionsAmount]);
-  const algoliaClient = liteClient(
+  const algoliaClient = useMemo(() => liteClient(
     process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
     process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
-  );
+  ), []);
 
-  const searchClient = {
+  const searchClient = useMemo(() => ({
     ...algoliaClient,
 
     search(requests: any[]) {
@@ -54,13 +55,25 @@ export const Search = ({
 
       return algoliaClient.search(requests);
     },
-  };
+  }), [algoliaClient]);
+
+  // This is a workaround to reset the InstantSearch state when the component is unmounted and remounted,
+  // which can happen when navigating between pages in Next.js. By changing the key of the
+  // InstantSearch component, we force it to reset its state.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setKey(`search-component-${Date.now()}`);
+  }, []);
 
   return (
     <InstantSearchNext
+      key={key}
       indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
       searchClient={searchClient as SearchClient}
       insights
+      future={{
+        preserveSharedStateOnUnmount: false,
+      }}
       routing={{
         router: {
           cleanUrlOnDispose: false,
@@ -70,8 +83,8 @@ export const Search = ({
           stateToRoute(uiState) {
             const indexUiState = uiState[process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME];
             return {
-              q: indexUiState.query,
-              page: indexUiState.page,
+              q: indexUiState?.query,
+              page: indexUiState?.page,
             } as UiState;
           },
           routeToState(routeState) {
