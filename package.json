@@ -68,7 +68,7 @@
     "@netlify/plugin-nextjs": "^5.15.9",
     "@stylistic/eslint-plugin": "^5.2.3",
     "@tailwindcss/container-queries": "^0.1.1",
-    "@types/node": "^20",
+    "@types/node": "^25",
     "@types/react": "^19.2.9",
     "@types/react-dom": "^19.2.3",
     "@types/react-slick": "^0.23.13",
