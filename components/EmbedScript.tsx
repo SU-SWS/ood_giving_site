@@ -25,7 +25,7 @@ export const EmbedScript = ({
 }: EmbedScriptProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const injectContent = useCallback(async () => {
+  const injectContent = useCallback(async (signal: AbortSignal) => {
     if (!html || !containerRef.current) return;
     const container = containerRef.current;
 
@@ -43,11 +43,17 @@ export const EmbedScript = ({
       const scripts = Array.from(miniDom.querySelectorAll('script'));
       scripts.forEach((s) => s.remove());
 
-      // Inject the markup first, then run scripts in document order, awaiting
-      // each external (src) script so later inline scripts see its globals.
+      /**
+       * Inject the markup first, then run scripts in document order,
+       * awaiting each external (src) script so later inline scripts see its globals.
+       * Bail if a newer render already started — prevents the visual editor's
+       * rapid re-renders from running two injections against the same container
+       */
+      if (signal.aborted) return;
       container.replaceChildren(miniDom);
 
       for (const old of scripts) {
+        if (signal.aborted) return;
         const script = document.createElement('script');
         for (const { name, value } of old.attributes) {
           script.setAttribute(name, value);
@@ -63,6 +69,7 @@ export const EmbedScript = ({
 
         container.appendChild(script);
         await loaded;
+        if (signal.aborted) return;
       }
     } catch (error) {
       logError('EmbedScript failed to inject content', error);
@@ -70,7 +77,9 @@ export const EmbedScript = ({
   }, [html]);
 
   useEffect(() => {
-    injectContent();
+    const controller = new AbortController();
+    injectContent(controller.signal);
+    return () => controller.abort();
   }, [injectContent]);
 
   return (
