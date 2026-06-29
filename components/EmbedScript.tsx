@@ -25,32 +25,62 @@ export const EmbedScript = ({
 }: EmbedScriptProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const injectContent = useCallback(() => {
+  const injectContent = useCallback(async (signal: AbortSignal) => {
     if (!html || !containerRef.current) return;
+    const container = containerRef.current;
 
     try {
       // Create a 'tiny' document and parse the html string.
       // https://developer.mozilla.org/en-US/docs/Web/API/DocumentminiDom
       const miniDom = document.createRange().createContextualFragment(html);
 
-      // Force the scripts in the embed script field to load sync.
-      const scripts = miniDom.querySelectorAll('script');
-      for (const script of scripts) {
-        if (script.src && script.src.length > 0) {
-          script.async = false;
-          script.defer = false;
-        }
-      }
+      /**
+       * Pull scripts out before inserting. createContextualFragment runs them on insert,
+       * so an inline script that depends on an external src script
+       * (e.g. Double the Donation's ddplugin.js) would fire before that script
+       * finished loading and throw "<global> is not defined".
+       */
+      const scripts = Array.from(miniDom.querySelectorAll('script'));
+      scripts.forEach((s) => s.remove());
 
-      // Clear the container and append new content
-      containerRef.current.replaceChildren(miniDom);
+      /**
+       * Inject the markup first, then run scripts in document order,
+       * awaiting each external (src) script so later inline scripts see its globals.
+       * Bail if a newer render already started — prevents the visual editor's
+       * rapid re-renders from running two injections against the same container
+       */
+      if (signal.aborted) return;
+      container.replaceChildren(miniDom);
+
+      for (const old of scripts) {
+        if (signal.aborted) return;
+        const script = document.createElement('script');
+        for (const { name, value } of old.attributes) {
+          script.setAttribute(name, value);
+        }
+        script.textContent = old.textContent;
+
+        const loaded = script.src
+          ? new Promise((resolve, reject) => {
+              script.onload = resolve;
+              script.onerror = reject;
+            })
+          : Promise.resolve();
+
+        container.appendChild(script);
+        await loaded;
+        if (signal.aborted) return;
+      }
     } catch (error) {
       logError('EmbedScript failed to inject content', error);
     }
   }, [html]);
 
+  // Inject after the component mounts via useEffect, so embedded scripts never block page render
   useEffect(() => {
-    injectContent();
+    const controller = new AbortController();
+    injectContent(controller.signal);
+    return () => controller.abort();
   }, [injectContent]);
 
   return (
