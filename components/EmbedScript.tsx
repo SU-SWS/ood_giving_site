@@ -31,7 +31,7 @@ export const EmbedScript = ({
 
     try {
       // Create a 'tiny' document and parse the html string.
-      // https://developer.mozilla.org/en-US/docs/Web/API/DocumentminiDom
+      // https://developer.mozilla.org/en-US/docs/Web/API/Range/createContextualFragment
       const miniDom = document.createRange().createContextualFragment(html);
 
       /**
@@ -61,9 +61,9 @@ export const EmbedScript = ({
         script.textContent = old.textContent;
 
         const loaded = script.src
-          ? new Promise((resolve, reject) => {
-              script.onload = resolve;
-              script.onerror = reject;
+          ? new Promise<void>((resolve, reject) => {
+              script.onload = () => resolve();
+              script.onerror = () => reject(new Error(`Failed to load embed script: ${script.src}`));
             })
           : Promise.resolve();
 
