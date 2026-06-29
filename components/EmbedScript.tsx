@@ -76,6 +76,7 @@ export const EmbedScript = ({
     }
   }, [html]);
 
+  // Inject after the component mounts via useEffect, so embedded scripts never block page render
   useEffect(() => {
     const controller = new AbortController();
     injectContent(controller.signal);
