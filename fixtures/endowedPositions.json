@@ -7,17 +7,17 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "KGSBA3079696",
-    "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
-    "POSITION": "The Adams Distinguished Professorship in Management",
-    "CURRENT HOLDER": "J. Darrell Duffie",
-    "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
-  },
-  {
     "Key": "KAUNR9822610",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Adams Distinguished Professorship in Management",
     "CURRENT HOLDER": "Yossi Feinberg",
+    "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
+  },
+  {
+    "Key": "KGSBA0",
+    "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
+    "POSITION": "The Adams Distinguished Professorship in Management",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -28,10 +28,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "KABUV9772203",
+    "Key": "KABUV0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Amman Mineral Faculty Fellow",
-    "CURRENT HOLDER": "Deborah H. Gruenfeld",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -91,10 +91,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "KBAZC50014898",
+    "Key": "KBAZC0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The BP Faculty Fellow in Global Management",
-    "CURRENT HOLDER": "Matteo Maggiori",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -109,20 +109,6 @@
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Frank E. Buck Professorship in the Graduate School of Business",
     "CURRENT HOLDER": "Charles A. O’Reilly III",
-    "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
-  },
-  {
-    "Key": "NTAGE9599452",
-    "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
-    "POSITION": "The Business School Trust Faculty Scholar",
-    "CURRENT HOLDER": "Modibo Khane Camara",
-    "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
-  },
-  {
-    "Key": "NTAGE5661498",
-    "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
-    "POSITION": "The Business School Trust Faculty Scholar",
-    "CURRENT HOLDER": "Jung Ho Choi",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -144,6 +130,20 @@
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Business School Trust Faculty Scholar",
     "CURRENT HOLDER": "Jann Spiess",
+    "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
+  },
+  {
+    "Key": "NTAGE0",
+    "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
+    "POSITION": "The Business School Trust Faculty Scholar",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
+  },
+  {
+    "Key": "NTAGE0",
+    "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
+    "POSITION": "The Business School Trust Faculty Scholar",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -343,10 +343,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "KAUYZ8033284",
+    "Key": "KAUYZ0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Robert and Marilyn Jaedicke Faculty Fellow",
-    "CURRENT HOLDER": "Maureen McNichols",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -385,7 +385,7 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "KJOSS",
+    "Key": "KJOSS0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Robert L. Joss Adjunct Professorship",
     "CURRENT HOLDER": "To Be Named",
@@ -406,10 +406,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "KABFE2602407",
+    "Key": "KABFE0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Dorothy J. King Lectureship in Leadership",
-    "CURRENT HOLDER": "Leslie Chin",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -507,14 +507,14 @@
     "Key": "KATAT0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Robert A. Magowan Professorship in Marketing",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Brett Gordon",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
     "Key": "KAZEJ5464683",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Philip F. Maritz Faculty Scholar",
-    "CURRENT HOLDER": "Stefan Wagner",
+    "CURRENT HOLDER": "Stefan Wager",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -546,10 +546,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "KASYW34006569",
+    "Key": "KASYW0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The MBA Class of 1978 Lecturership",
-    "CURRENT HOLDER": "Allison Kluger",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -581,7 +581,7 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "KEJKO",
+    "Key": "KEJKO0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The McDermott Family Professorship",
     "CURRENT HOLDER": "To Be Named",
@@ -609,10 +609,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "KATCA99992802",
+    "Key": "KATCA0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The James and Doris McNamara Faculty Fellow",
-    "CURRENT HOLDER": "Charles A. O'Reilly",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -749,17 +749,17 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "KABDA5184120",
+    "Key": "KABDA0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The R. Michael Shanahan Faculty Scholar",
-    "CURRENT HOLDER": "Dan Iancu",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "KABDB5528379",
+    "Key": "KABDB0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The R. Michael and Mary Shanahan Faculty Fellow",
-    "CURRENT HOLDER": "Ed deHaan",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -798,10 +798,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "KAACL6187134",
+    "Key": "KAACL0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Spence Faculty Scholar",
-    "CURRENT HOLDER": "Antonio Coppola",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -903,10 +903,10 @@
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
-    "Key": "KRLAO9669476",
+    "Key": "KRLAO0",
     "SUBCATEGORY": "GRADUATE SCHOOL OF BUSINESS",
     "POSITION": "The Younger Family Faculty Scholar",
-    "CURRENT HOLDER": "Navdeep Sahni",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gsb.stanford.edu/faculty-research/faculty"
   },
   {
@@ -914,6 +914,13 @@
     "SUBCATEGORY": "GRADUATE SCHOOL OF EDUCATION",
     "POSITION": "The Barnett Family Professorship",
     "CURRENT HOLDER": "Thomas S. Dee",
+    "WEBSITE": "http://ed.stanford.edu/faculty/profiles"
+  },
+  {
+    "Key": "KMMAC5311004",
+    "SUBCATEGORY": "GRADUATE SCHOOL OF EDUCATION",
+    "POSITION": "The Chen Family Educational Foundations Professorship",
+    "CURRENT HOLDER": "Meira Levinson",
     "WEBSITE": "http://ed.stanford.edu/faculty/profiles"
   },
   {
@@ -1001,10 +1008,17 @@
     "WEBSITE": "http://ed.stanford.edu/faculty/profiles"
   },
   {
-    "Key": "KAATZ0",
+    "Key": "KAATZ6039368",
     "SUBCATEGORY": "GRADUATE SCHOOL OF EDUCATION",
     "POSITION": "The Khosla Family Professorship",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Victor R. Lee",
+    "WEBSITE": "http://ed.stanford.edu/faculty/profiles"
+  },
+  {
+    "Key": "KMMLO3393287",
+    "SUBCATEGORY": "GRADUATE SCHOOL OF EDUCATION",
+    "POSITION": "The Kissick Family Professorship",
+    "CURRENT HOLDER": "Susanna Loeb",
     "WEBSITE": "http://ed.stanford.edu/faculty/profiles"
   },
   {
@@ -1106,6 +1120,13 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
+    "Key": "KAQCG6094138",
+    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
+    "POSITION": "The Reid and Polly Anderson Faculty Fellow",
+    "CURRENT HOLDER": "Nina Zhao",
+    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
+  },
+  {
     "Key": "KAQAS4284758",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Stanford W. Ascherman, MD Professorship in the School of Engineering",
@@ -1141,10 +1162,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "KWMME0",
+    "Key": "KWMME5524217",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The John Blume Faculty Scholar",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "William Tarpeh",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1274,10 +1295,10 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
-    "Key": "KENRP0",
+    "Key": "KENRP5670103",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Vance D. and Arlene C. Coffman Faculty Scholar",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Kentaro Hara",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1285,6 +1306,13 @@
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Vance D. and Arlene C. Coffman Professorship",
     "CURRENT HOLDER": "Juan J. Alonso",
+    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
+  },
+  {
+    "Key": "KWMAM4378253",
+    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
+    "POSITION": "The Corbel Professorship",
+    "CURRENT HOLDER": "Clark Barrett",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1556,7 +1584,7 @@
   {
     "Key": "KLEEK5353938",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
-    "POSITION": "The K. K. Lee Professorship",
+    "POSITION": "The LCY: K. K. Lee Professorship",
     "CURRENT HOLDER": "Zhenan Bao",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
@@ -1586,6 +1614,13 @@
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Hong Seh and Vivian W. M. Lim Professorship",
     "CURRENT HOLDER": "Alberto Salleo",
+    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
+  },
+  {
+    "Key": "KWMBF5646368",
+    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
+    "POSITION": "The Alfred and Rebecca Lin Professorship",
+    "CURRENT HOLDER": "Jure Leskovec",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -1813,6 +1848,13 @@
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
+    "Key": "KWMAT5254330",
+    "SUBCATEGORY": "SCHOOL OF ENGINEERING",
+    "POSITION": "The Gary Retelny and Family Chair of the Department of Civil and Environmental Engineering",
+    "CURRENT HOLDER": "Sarah L. Billington",
+    "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
+  },
+  {
     "Key": "KBASB5000001",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Rickey/Nielsen Professorship in the School of Engineering",
@@ -1914,7 +1956,7 @@
     "Key": "KWMAJ3750288",
     "SUBCATEGORY": "SCHOOL OF ENGINEERING",
     "POSITION": "The Tang Family Foundation Chair of Chemical Engineering",
-    "CURRENT HOLDER": "Stacey Bent",
+    "CURRENT HOLDER": "Stacey F. Bent",
     "WEBSITE": "https://engineering.stanford.edu/people/faculty/grid"
   },
   {
@@ -2401,6 +2443,13 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
+    "Key": "KAQOO217973090",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Nina C. Crocker Faculty Scholar",
+    "CURRENT HOLDER": "Lerone A. Martin",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
     "Key": "KAQOO5441206",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Nina C. Crocker Faculty Scholar",
@@ -2565,7 +2614,7 @@
     "Key": "KAQQJ3742640",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Dunlevie Family Professorship",
-    "CURRENT HOLDER": "Jeanne Tsai",
+    "CURRENT HOLDER": "Jeanne L. Tsai",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3080,6 +3129,13 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
+    "Key": "KBCUI0",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The William Hsu and Grace Cheng Professorship",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
     "Key": "KBCPO50020640",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Humanities and Sciences Professorship I",
@@ -3262,6 +3318,13 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
+    "Key": "KARNF5277411",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Josephine Knotts Knowles Professorship in Human Biology",
+    "CURRENT HOLDER": "Maya Rossin-Slater",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
     "Key": "KAANU0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Korea Foundation Korean Studies Professorship",
@@ -3409,6 +3472,13 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
+    "Key": "KBCJJ0",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Amy and Eric Liaw Civics Professorship",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
     "Key": "KBANX2664472",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Iris Litt Fellow",
@@ -3476,13 +3546,6 @@
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Craig and Susan McCaw Professorship",
     "CURRENT HOLDER": "Alvin Roth",
-    "WEBSITE": "http://humsci.stanford.edu"
-  },
-  {
-    "Key": "KAAVC4409678",
-    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
-    "POSITION": "The James B. McClatchy Professorship",
-    "CURRENT HOLDER": "Nathaniel A. Persily",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3766,10 +3829,10 @@
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
-    "Key": "KATEH9971490",
+    "Key": "KATEH0",
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Reed-Hodgson Professorship in Human Biology",
-    "CURRENT HOLDER": "Margaret T. Fuller",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -3910,6 +3973,13 @@
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The Stanford Federal Credit Union Professorship",
     "CURRENT HOLDER": "Ran Abramitzky",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
+    "Key": "KBCMQ5775466",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The Stanford Fortitude Professorship",
+    "CURRENT HOLDER": "Benjamin Lev",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -4148,6 +4218,13 @@
     "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
     "POSITION": "The TG Wijaya Professorship in Economics",
     "CURRENT HOLDER": "Neale Mahoney",
+    "WEBSITE": "http://humsci.stanford.edu"
+  },
+  {
+    "Key": "KBCUW5569752",
+    "SUBCATEGORY": "SCHOOL OF HUMANITIES AND SCIENCES",
+    "POSITION": "The TG Wijaya Professorship in Mathematics",
+    "CURRENT HOLDER": "Brian Conrad",
     "WEBSITE": "http://humsci.stanford.edu"
   },
   {
@@ -4466,7 +4543,7 @@
     "WEBSITE": "http://sustainability.stanford.edu"
   },
   {
-    "Key": "KEJRH",
+    "Key": "KEJRH0",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Volpi-Cupal Professorship in Natural Climate Solutions",
     "CURRENT HOLDER": "To Be Named",
@@ -4795,17 +4872,17 @@
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
-    "Key": "NAANM5272574",
+    "Key": "NAANM0",
     "SUBCATEGORY": "STANFORD LAW SCHOOL",
     "POSITION": "The Herman Phleger Visiting Professorship",
-    "CURRENT HOLDER": "Xiyin Tang",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
-    "Key": "NAANM5802340",
+    "Key": "NAANM0",
     "SUBCATEGORY": "STANFORD LAW SCHOOL",
     "POSITION": "The Herman Phleger Visiting Professorship",
-    "CURRENT HOLDER": "Kevin Tobia",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
@@ -4823,10 +4900,10 @@
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
-    "Key": "NAAOW9751520",
+    "Key": "NAAOW0",
     "SUBCATEGORY": "STANFORD LAW SCHOOL",
     "POSITION": "The Frederick I. Richman Professorship in Law",
-    "CURRENT HOLDER": "Michele Landis Dauber",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
@@ -4844,10 +4921,10 @@
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
-    "Key": "KBCPF0",
+    "Key": "KBCPF4204152",
     "SUBCATEGORY": "STANFORD LAW SCHOOL",
     "POSITION": "The Cameron Schrier Family Professorship",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Mariano-Florentino \"Tino\" Cuéllar",
     "WEBSITE": "http://law.stanford.edu/directory/?page=1&tax_and_terms=1067"
   },
   {
@@ -4921,6 +4998,13 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
+    "Key": "KHBAL9603645",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Alan Adler Global Ophthalmology Professorship",
+    "CURRENT HOLDER": "Jennifer Rose-Nussbaumer",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
     "Key": "KHAZE5401122",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Irene Adler Professorship",
@@ -4956,16 +5040,9 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "KHATW9607113",
-    "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Anesthesiology, Perioperative and Pain Medicine Professorship",
-    "CURRENT HOLDER": "Brian T. Bateman",
-    "WEBSITE": "https://med.stanford.edu/profiles/"
-  },
-  {
     "Key": "KHAZM",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Anesthesiology, Perioperative and Pain Medicine Professorship II",
+    "POSITION": "The Anesthesiology, Perioperative and Pain Medicine Professorship",
     "CURRENT HOLDER": "Nima Aghaeepour",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
@@ -5152,10 +5229,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "KHAVZ9674237",
+    "Key": "KHAVZ9677791",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The George E. and Lucy Becker Professorship in Medicine II",
-    "CURRENT HOLDER": "Catherine Blish",
+    "CURRENT HOLDER": "John Ioannidis",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5278,7 +5355,7 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "KHAMG",
+    "Key": "KHAMG0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Bravo Family Faculty Scholar for Food Allergy and Immunology Research",
     "CURRENT HOLDER": "To Be Named",
@@ -5296,6 +5373,13 @@
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The William R. Brody Professorship in Pediatric Radiology and Child Health",
     "CURRENT HOLDER": "Shreyas Vasanawala",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "KHATW9607113",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The John Bunker, MD, Professorship",
+    "CURRENT HOLDER": "Brian T. Bateman",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5450,6 +5534,13 @@
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Roy B. Cohn-Theodore A. Falasco Professorship in Cardiothoracic Surgery",
     "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "KHBAF9674237",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Frances Krauskopf Conley Professorship",
+    "CURRENT HOLDER": "Catherine Blish",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5677,10 +5768,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "KAQTD",
+    "Key": "KAQTD5867431",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Elsbach-Richards Professorship in Surgery",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Constance Chu",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -5908,7 +5999,7 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "KHALQ",
+    "Key": "KHALQ0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Gies Foundation Endowed Faculty Scholar for Food Allergy and Immunology Research",
     "CURRENT HOLDER": "To Be Named",
@@ -5985,10 +6076,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "KHAIF",
+    "Key": "KHAIF4081543",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Colleen Haas Chair in the School of Medicine",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Allison Kurian",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6062,7 +6153,7 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "KHAAV",
+    "Key": "KHAAV0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Robert L. Hess Endowed Professorship in Pediatrics",
     "CURRENT HOLDER": "To Be Named",
@@ -6087,6 +6178,13 @@
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Betty Higgins Family Foundation Directorship",
     "CURRENT HOLDER": "Robert Cowan",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "KHBAG0",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Cortlandt T. Hill Memorial Professorship",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6139,10 +6237,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "KHAIS5781980",
+    "Key": "KHAIS0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Susy Yuan-Huey Hung Professorship",
-    "CURRENT HOLDER": "Mark D. Pegram",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6237,7 +6335,7 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "KAVAE",
+    "Key": "KAVAE0",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Henry S. Kaplan-Harry Lebeson Professorship in Cancer Biology",
     "CURRENT HOLDER": "To Be Named",
@@ -6538,6 +6636,13 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
+    "Key": "KHBAU0",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Alfred E. Mann Charities Professorship Fund",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
     "Key": "KHAMH9597892",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Michael F. Marmor, MD, Professorship in Retinal Science and Disease",
@@ -6576,7 +6681,7 @@
     "Key": "KHAVY9971490",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Katharine Dexter McCormick and Stanley McCormick Memorial Professorship IV",
-    "CURRENT HOLDER": "Margaret Fuller",
+    "CURRENT HOLDER": "Margaret T. Fuller",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6629,10 +6734,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "ZBAOB9904509",
+    "Key": "ZBAOB9576080",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Betty Irene Moore Directorship for Cardiac Anesthesia",
-    "CURRENT HOLDER": "M. Gail Boltz",
+    "CURRENT HOLDER": "Richard J. Levy",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6668,6 +6773,13 @@
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Tashia and John Morgridge Endowed Faculty Scholar in Pediatric Translational Medicine",
     "CURRENT HOLDER": "Anca Pasca",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "KHBBC8851222",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Mosbacher Professorship in Dermatology",
+    "CURRENT HOLDER": "Susan Swetter",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -6888,6 +7000,13 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
+    "Key": "KHALD5094357",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Robert and Shirley Raymer Professorship",
+    "CURRENT HOLDER": "Fatima Rodriguez",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
     "Key": "KAAGR3899960",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Gerald M. Reaven, MD, Professorship in Endocrinology",
@@ -7049,10 +7168,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "KHAUN0",
+    "Key": "KHAUN220121067",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Edward C. and Amy H. Sewall Professorship V in the School of Medicine",
-    "CURRENT HOLDER": "To Be Named",
+    "CURRENT HOLDER": "Ted Mau",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -7233,7 +7352,7 @@
   {
     "Key": "KHAWN9972019",
     "SUBCATEGORY": "STANFORD MEDICINE",
-    "POSITION": "The Stanford Medicine Professorship in Biomedical Informatics Research",
+    "POSITION": "The Stanford Medicine Professorship in Computational Medicine",
     "CURRENT HOLDER": "Mark Musen",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
@@ -7277,6 +7396,20 @@
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The Stanford Medicine Professorship in Radiology",
     "CURRENT HOLDER": "Umar Mahmood",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "KHBAX0",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Stanford Medicine Professorship in Pathology II",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
+    "Key": "KHBAN4645487",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Stanford Pediatric Endocrinology Endowed Professorship",
+    "CURRENT HOLDER": "Tandy Aye",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -7525,10 +7658,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "ZBALK9583479",
+    "Key": "ZBALK50001390",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The James Baxter Wood and Yvonne Craig Wood Endowed Directorship of the Cardiovascular Intensive Care Unit",
-    "CURRENT HOLDER": "Michael-Alice Moga",
+    "CURRENT HOLDER": "Rebecca Kameny",
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
@@ -7581,6 +7714,13 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
+    "Key": "KHBAZ0",
+    "SUBCATEGORY": "STANFORD MEDICINE",
+    "POSITION": "The Endowed John and Marie Zderic Professorship",
+    "CURRENT HOLDER": "To Be Named",
+    "WEBSITE": "https://med.stanford.edu/profiles/"
+  },
+  {
     "Key": "KHADZ7885825",
     "SUBCATEGORY": "STANFORD MEDICINE",
     "POSITION": "The George A. Zimmermann Professorship",
@@ -7588,10 +7728,10 @@
     "WEBSITE": "https://med.stanford.edu/profiles/"
   },
   {
-    "Key": "KABGK9824426",
+    "Key": "KABGK4204152",
     "SUBCATEGORY": "CENTER FOR ADVANCED STUDY IN THE BEHAVIORAL SCIENCES",
     "POSITION": "The Sara Miller McCune Directorship of CASBS",
-    "CURRENT HOLDER": "Lara Tiedens",
+    "CURRENT HOLDER": "Mariano-Florentino \"Tino\" Cuéllar",
     "WEBSITE": "https://casbs.stanford.edu/"
   },
   {
@@ -7613,6 +7753,13 @@
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Anderson Brothers Directorship of Sports Psychology",
     "CURRENT HOLDER": "Kelli Moran-Miller",
+    "WEBSITE": "http://www.gostanford.com/"
+  },
+  {
+    "Key": "KBFGS50009331",
+    "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
+    "POSITION": "The Barnds / Malueg Family Assistant Track and Field Coachship",
+    "CURRENT HOLDER": "Thomas Gesser",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7644,10 +7791,10 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "KMMOO6018943",
+    "Key": "KMMOO0",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Don and Sally Clark Directorship of Leadership and Development",
-    "CURRENT HOLDER": "Jacquelyn Kulgevich",
+    "CURRENT HOLDER": "To Be Named",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7700,17 +7847,17 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "KBFDY6019038",
-    "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
-    "POSITION": "The Farwell Family Directorship of Women's Rowing",
-    "CURRENT HOLDER": "Derek Byrnes",
-    "WEBSITE": "http://www.gostanford.com/"
-  },
-  {
     "Key": "KMROW50014576",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Farwell Family Directorship of Men’s Rowing",
     "CURRENT HOLDER": "Ted Sobolewski",
+    "WEBSITE": "http://www.gostanford.com/"
+  },
+  {
+    "Key": "KBFDY6019038",
+    "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
+    "POSITION": "The Farwell Family Directorship of Women's Rowing",
+    "CURRENT HOLDER": "Derek Byrnes",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
@@ -7898,21 +8045,21 @@
   {
     "Key": "KEJAN50035640",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
-    "POSITION": "The Kimberly and Beverly Oden Assistant Volleyball Coachship",
+    "POSITION": "The Kimberly and Beverly Oden Associate Head Volleyball Coachship",
     "CURRENT HOLDER": "Rachel Corbelli",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "KABYI3641446",
+    "Key": "KABYI0",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Peiros Family Assistant Women's Basketball Coachship",
-    "CURRENT HOLDER": "Katy Steding",
+    "CURRENT HOLDER": "Steven Key",
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
     "Key": "KABYK5861900",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
-    "POSITION": "The Penner Family Assistant Men's Water Polo Coachship",
+    "POSITION": "The Penner Family Associate Head Men's Water Polo Coachship",
     "CURRENT HOLDER": "Matt Farmer",
     "WEBSITE": "http://www.gostanford.com/"
   },
@@ -7961,7 +8108,7 @@
   {
     "Key": "KMMNP50027174",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
-    "POSITION": "The Kawika and Erik Shoji Assistant Men's Volleyball Coachship",
+    "POSITION": "The Kawika and Erik Shoji Associate Head Men's Volleyball Coachship",
     "CURRENT HOLDER": "Taylor Hammond",
     "WEBSITE": "http://www.gostanford.com/"
   },
@@ -7987,13 +8134,6 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "KASSW50033592",
-    "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
-    "POSITION": "The Paul A. Violich Directorship of Women’s Swimming",
-    "CURRENT HOLDER": "Chris Lindauer",
-    "WEBSITE": "http://www.gostanford.com/"
-  },
-  {
     "Key": "KMMMB5780537",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Paul A. Violich Women's Lacrosse Head Coachship",
@@ -8008,7 +8148,21 @@
     "WEBSITE": "http://www.gostanford.com/"
   },
   {
-    "Key": "KBFCP219314848",
+    "Key": "KASSW50033592",
+    "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
+    "POSITION": "The Paul A. Violich Directorship of Women’s Swimming",
+    "CURRENT HOLDER": "Chris Lindauer",
+    "WEBSITE": "http://www.gostanford.com/"
+  },
+  {
+    "Key": "KBFFX9768151",
+    "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
+    "POSITION": "The Paul A. Violich Women's Tennis Head Coachship",
+    "CURRENT HOLDER": "Frankie Brennan",
+    "WEBSITE": "http://www.gostanford.com/"
+  },
+  {
+    "Key": "KBFCP50027081",
     "SUBCATEGORY": "DEPARTMENT OF ATHLETICS, PHYSICAL EDUCATION, AND RECREATION",
     "POSITION": "The Werdegar Family Assistant Women's Lacrosse Coachship",
     "CURRENT HOLDER": "Kelsey Howard",
@@ -8101,7 +8255,7 @@
   {
     "Key": "KHAZY50007330",
     "SUBCATEGORY": "FREEMAN SPOGLI INSTITUTE FOR INTERNATIONAL STUDIES",
-    "POSITION": "The Steven C. Hazy Fellow",
+    "POSITION": "The Steven C. Hazy Senior Fellow",
     "CURRENT HOLDER": "Colin Kahl",
     "WEBSITE": "https://fsi.stanford.edu/people/institute-faculty-researchers"
   },
@@ -8194,13 +8348,6 @@
     "SUBCATEGORY": "FREEMAN SPOGLI INSTITUTE FOR INTERNATIONAL STUDIES",
     "POSITION": "The Henri H. and Tomoye Takahashi Professorship in Japanese Studies",
     "CURRENT HOLDER": "Kiyoteru Tsutsui",
-    "WEBSITE": "https://fsi.stanford.edu/people/institute-faculty-researchers"
-  },
-  {
-    "Key": "KBATS5144732",
-    "SUBCATEGORY": "FREEMAN SPOGLI INSTITUTE FOR INTERNATIONAL STUDIES",
-    "POSITION": "The William Wrigley Senior Fellow",
-    "CURRENT HOLDER": "David Lobell",
     "WEBSITE": "https://fsi.stanford.edu/people/institute-faculty-researchers"
   },
   {
@@ -8610,7 +8757,7 @@
     "WEBSITE": "http://www.hoover.org/"
   },
   {
-    "Key": "KARXX9668441",
+    "Key": "KBAGS9668441",
     "SUBCATEGORY": "HOOVER INSTITUTION",
     "POSITION": "The George P. Shultz Senior Fellow in Economics",
     "CURRENT HOLDER": "Josh Rauh",
@@ -8865,7 +9012,7 @@
     "Key": "KJYBY3698206",
     "SUBCATEGORY": "OFFICE OF THE VICE PROVOST FOR UNDERGRADUATE EDUCATION",
     "POSITION": "The Nelson Family College Faculty Fellow (Spring 2026)",
-    "CURRENT HOLDER": "William Barnett",
+    "CURRENT HOLDER": "William P. Barnett",
     "WEBSITE": "https://undergrad.stanford.edu/about-vpue"
   },
   {
@@ -8900,7 +9047,7 @@
     "Key": "KJYBJ3215936",
     "SUBCATEGORY": "OFFICE OF THE VICE PROVOST FOR UNDERGRADUATE EDUCATION",
     "POSITION": "The Nehal and Jenny Fan Raj College Faculty Fellow (Fall 2025)",
-    "CURRENT HOLDER": "James Campbell",
+    "CURRENT HOLDER": "James T. Campbell",
     "WEBSITE": "https://undergrad.stanford.edu/about-vpue"
   },
   {
@@ -9569,7 +9716,7 @@
     "WEBSITE": "https://giving.stanford.edu/endowed-positions/"
   },
   {
-    "Key": "KBBNN",
+    "Key": "KBBNN0",
     "SUBCATEGORY": "UNIVERSITY, PRESIDENTIAL, AND PROVOSTIAL PROFESSORSHIPS",
     "POSITION": "The Linda R. Meier and Joan F. Lane Provostial Professorship",
     "CURRENT HOLDER": "To Be Named",
