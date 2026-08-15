@@ -29,7 +29,8 @@
     "vault": "netlify-plugin-vault-variables",
     "vault:local": "NODE_ENV=development netlify-plugin-vault-variables",
     "typecheck": "tsc --noEmit",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "algolia:initial-load": "tsx scripts/algolia-initial-load.ts"
   },
   "dependencies": {
     "@date-fns/tz": "^1.4.1",
@@ -80,6 +81,7 @@
     "netlify-plugin-vault-variables": "^3.0.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
+    "tsx": "^4.20.3",
     "typescript": "^5.9.2"
   },
   "optionalDependencies": {

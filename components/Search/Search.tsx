@@ -11,6 +11,10 @@ import { SearchResultsHeader } from './SearchResultsHeader';
 import { NoResultsBoundary } from './NoResultsBoundary';
 import { SearchPagination } from './SearchPagination';
 
+// Keep a stable default for runtime environments that don't inject index vars.
+const DEFAULT_ALGOLIA_INDEX_NAME = 'Giving To Stanford (ISR)';
+const ALGOLIA_INDEX_NAME = process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME || DEFAULT_ALGOLIA_INDEX_NAME;
+
 export type SearchProps = {
   emptySearchText?: string;
   emptySearchTitle?: string;
@@ -68,7 +72,7 @@ export const Search = ({
   return (
     <InstantSearchNext
       key={key}
-      indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+      indexName={ALGOLIA_INDEX_NAME}
       searchClient={searchClient as SearchClient}
       insights
       future={{
@@ -81,7 +85,7 @@ export const Search = ({
         },
         stateMapping: {
           stateToRoute(uiState) {
-            const indexUiState = uiState[process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME];
+            const indexUiState = uiState[ALGOLIA_INDEX_NAME];
             return {
               q: indexUiState?.query,
               page: indexUiState?.page,
@@ -89,7 +93,7 @@ export const Search = ({
           },
           routeToState(routeState) {
             return {
-              [process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME]: {
+              [ALGOLIA_INDEX_NAME]: {
                 query: routeState.q,
                 page: routeState.page,
               },

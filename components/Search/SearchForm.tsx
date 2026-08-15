@@ -22,6 +22,14 @@ import { useDebounceValue } from 'usehooks-ts';
 import { type SuggestionHit, type SearchFormVariant, SearchHit } from './Search.types';
 import * as styles from './Search.styles';
 
+// Runtime-safe defaults for environments where NEXT_PUBLIC vars are missing.
+const DEFAULT_ALGOLIA_INDEX_NAME = 'Giving To Stanford (ISR)';
+const DEFAULT_ALGOLIA_SUGGESTIONS_INDEX_NAME = 'g2s_isr_query_suggestions';
+
+const ALGOLIA_INDEX_NAME = process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME || DEFAULT_ALGOLIA_INDEX_NAME;
+const ALGOLIA_SUGGESTIONS_INDEX_NAME = process.env.NEXT_PUBLIC_ALGOLIA_SUGGESTIONS_INDEX_NAME
+  || DEFAULT_ALGOLIA_SUGGESTIONS_INDEX_NAME;
+
 export type SearchFormProps = {
   variant?: SearchFormVariant;
   defaultValue?: string;
@@ -100,11 +108,11 @@ export const SearchForm = ({
       try {
         const res = await algoliaClient.searchForHits<SuggestionHit | SearchHit>({
           requests: [{
-            indexName: process.env.NEXT_PUBLIC_ALGOLIA_SUGGESTIONS_INDEX_NAME,
+            indexName: ALGOLIA_SUGGESTIONS_INDEX_NAME,
             query: debouncedQuery,
             hitsPerPage: numSuggestions,
           }, {
-            indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
+            indexName: ALGOLIA_INDEX_NAME,
             query: debouncedQuery,
             hitsPerPage: numSuggestions,
           }],
