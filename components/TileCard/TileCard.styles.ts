@@ -1,6 +1,6 @@
 import { cnb } from 'cnbuilder';
 
-export const superhead = 'text-09em mb-16 md:max-lg:text-[.8em]';
+export const superhead = 'text-[.9em] mb-16 md:max-lg:text-[.8em]';
 
 export const link = 'group stretched-link font-semibold no-underline';
 

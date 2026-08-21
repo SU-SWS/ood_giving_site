@@ -4,7 +4,7 @@ import { type SbLinkType } from '../Storyblok.types';
 import { Alert } from '@/components/Alert';
 
 export const SbAlertBgColors = {
-  'light-grey': 'bg-foggy-light',
+  'light-grey': 'bg-fog-light',
   'yellow': 'bg-illuminating-dark',
   'blue': 'bg-digital-blue-dark',
   'green': 'bg-digital-green',
