@@ -57,7 +57,7 @@ const Page = async ({ searchParams }: ParamsType) => {
       {hasSearchResults && (
         <ul className="list-none m-0 p-0">
           {searchResults.map(({ item }, index) => (
-            <li key={index} className="border-b border-black rs-mb-0 rs-pb-neg1">
+            <li key={index} className="border-b border-black rs-mb-0 pb-11 md:pb-12 2xl:pb-13">
               <Link href={`?term=${searchTerm}&item=${itemIndex ? itemIndex : index}`} className="group block w-full !no-underline !text-black">
                 <Heading as="h3" font="sans" size={2} className="group-hocus:underline mb-0">{item['CURRENT HOLDER']}</Heading>
                 <Paragraph weight="normal" className="text-16 md:text-18 2xl:text-19 leading-cozy">

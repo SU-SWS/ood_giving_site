@@ -9,7 +9,7 @@ export const heading = (largeHeading: boolean) => cnb(
   largeHeading ? 'md:fluid-type-3' : 'lg:type-2',
 );
 
-export const superhead = 'text-09em mb-16';
+export const superhead = 'text-[.9em] mb-16';
 
 export const content = 'max-w-[91rem] [&_p]:mb-1em [&_ul]:mb-1em [&_ol]:mb-1em';
 
