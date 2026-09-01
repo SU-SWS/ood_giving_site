@@ -4,6 +4,28 @@
   command = "npm run build"
   publish = ".next"
 
+# FUNCTIONS
+# ##############################################################################
+
+# The .env file (written at onPreBuild by netlify-plugin-vault-variables) must be
+# bundled because netlify/functions/*.mts call dotenv.config() at runtime.
+#
+# It must NOT go in [functions] -- that is the "*" key, and @netlify/plugin-nextjs
+# reads functions."*".included_files, pushes its own ".env" onto that same array,
+# then cp()s every resolved path concurrently through Promise.all. The duplicate
+# ".env" becomes two cp(..., { force: true }) calls racing on one destination;
+# both see it already exists (copyNextServerCode copied .next/standalone/.env),
+# both unlink it, and the loser dies with:
+#   ENOENT: unlink '.netlify/functions-internal/___netlify-server-handler/.env'
+#
+# "**" matches every function name in zip-it-and-ship-it's minimatch check and
+# included_files are concatenated across matching keys, so .env is still bundled
+# everywhere -- but the Next plugin only reads the literal "*" key, so it never
+# sees a duplicate. The Next server handler gets .env from the plugin regardless;
+# it always includes .env/.env.production/.env.local/.env.production.local.
+[functions."**"]
+  included_files = [".env"]
+
 # PLUGINS
 # ##############################################################################
 [[plugins]]
