@@ -15,7 +15,7 @@ export const searchFormInput = ({ variant = 'default' }: { variant?: SearchFormV
   'w-full bg-transparent border-t-0 border-x-0 border-b-1 pr-90 sm:pr-100 md:pr-110 font-semibold focus:!ring-0',
   {
     'border-b-black-80 text-black focus:border-b-cardinal-red focus:bg-black/5 text-30 placeholder:black-80': variant === 'default',
-    'border-b-white text-white focus:border-b-white focus:bg-white/5 text-26 sm:text-30 md:text-[4rem] lg:text-[4.5rem] placeholder:text-foggy': variant === 'modal',
+    'border-b-white text-white focus:border-b-white focus:bg-white/5 text-26 sm:text-30 md:text-[4rem] lg:text-[4.5rem] placeholder:text-fog': variant === 'modal',
   },
 );
 
