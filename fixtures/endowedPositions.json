@@ -4438,13 +4438,6 @@
     "WEBSITE": "http://sustainability.stanford.edu"
   },
   {
-    "Key": "KEJLS5264215",
-    "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
-    "POSITION": "The Melvin and Joan Lane Senior Fellow at the Stanford Woods Institute for the Environment",
-    "CURRENT HOLDER": "MIchael Wara",
-    "WEBSITE": "http://sustainability.stanford.edu"
-  },
-  {
     "Key": "KAVCI9957705",
     "SUBCATEGORY": "STANFORD DOERR SCHOOL OF SUSTAINABILITY",
     "POSITION": "The Wayne Loel Professorship in Earth Science",
@@ -9692,6 +9685,13 @@
     "SUBCATEGORY": "STANFORD WOODS INSTITUTE FOR THE ENVIRONMENT",
     "POSITION": "The Higgins-Magid Senior Fellow",
     "CURRENT HOLDER": "Jenna Davis",
+    "WEBSITE": "https://woods.stanford.edu/people"
+  },
+  {
+    "Key": "KEJLS5264215",
+    "SUBCATEGORY": "STANFORD WOODS INSTITUTE FOR THE ENVIRONMENT",
+    "POSITION": "The Melvin and Joan Lane Senior Fellow in the Stanford Woods Institute for the Environment",
+    "CURRENT HOLDER": "Michael Wara",
     "WEBSITE": "https://woods.stanford.edu/people"
   },
   {
